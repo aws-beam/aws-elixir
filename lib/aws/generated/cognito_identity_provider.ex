@@ -62,179 +62,6 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      create_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t() | atom(),
-        "ManagedLoginVersion" => integer(),
-        "Routing" => routing_type()
-      }
-      
-  """
-  @type create_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_authn_credential_response() :: %{}
-      
-  """
-  @type delete_web_authn_credential_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      authentication_result_type() :: %{
-        "AccessToken" => String.t() | atom(),
-        "ExpiresIn" => integer(),
-        "IdToken" => String.t() | atom(),
-        "NewDeviceMetadata" => new_device_metadata_type(),
-        "RefreshToken" => String.t() | atom(),
-        "TokenType" => String.t() | atom()
-      }
-      
-  """
-  @type authentication_result_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_user_attribute_response() :: %{}
-      
-  """
-  @type verify_user_attribute_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_update_auth_event_feedback_response() :: %{}
-      
-  """
-  @type admin_update_auth_event_feedback_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_terms_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Terms" => list(terms_description_type())
-      }
-      
-  """
-  @type list_terms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analytics_metadata_type() :: %{
-        "AnalyticsEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type analytics_metadata_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_import_in_progress_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_import_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initiate_auth_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("AuthParameters") => map(),
-        optional("ClientMetadata") => map(),
-        optional("Session") => String.t() | atom(),
-        optional("UserContextData") => user_context_data_type(),
-        required("AuthFlow") => list(any()),
-        required("ClientId") => String.t() | atom()
-      }
-      
-  """
-  @type initiate_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_web_authn_registration_request() :: %{
-        required("AccessToken") => String.t() | atom(),
-        required("Credential") => any()
-      }
-      
-  """
-  @type complete_web_authn_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_update_device_status_response() :: %{}
-      
-  """
-  @type admin_update_device_status_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_user_mfa_preference_response() :: %{}
-      
-  """
-  @type set_user_mfa_preference_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_replica_request() :: %{
-        required("RegionName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_challenge_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_challenge_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_devices_request() :: %{
-        optional("Limit") => integer(),
-        optional("PaginationToken") => String.t() | atom(),
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       update_user_pool_request() :: %{
         optional("AccountRecoverySetting") => account_recovery_setting_type(),
         optional("AdminCreateUserConfig") => admin_create_user_config_type(),
@@ -268,414 +95,25 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      get_csv_header_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_csv_header_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_token_type_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_token_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_failed_attempts_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_failed_attempts_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_attributes_request() :: %{
-        required("AccessToken") => String.t() | atom(),
-        required("UserAttributeNames") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_user_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_attributes_response() :: %{
-        "CodeDeliveryDetailsList" => list(code_delivery_details_type())
-      }
-      
-  """
-  @type update_user_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_context_data_type() :: %{
-        "City" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "DeviceName" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "Timezone" => String.t() | atom()
-      }
-      
-  """
-  @type event_context_data_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_managed_login_branding_request() :: %{
-        optional("ReturnMergedResources") => boolean(),
-        required("ManagedLoginBrandingId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_configuration_type() :: %{
-        "BucketArn" => String.t() | atom()
-      }
-      
-  """
-  @type s3_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_not_confirmed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_not_confirmed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identity_providers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_identity_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_client_description() :: %{
-        "ClientId" => String.t() | atom(),
-        "ClientName" => String.t() | atom(),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type user_pool_client_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      advanced_security_additional_flows_type() :: %{
-        "CustomAuthMode" => list(any())
-      }
-      
-  """
-  @type advanced_security_additional_flows_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_server_scope_type() :: %{
-        "ScopeDescription" => String.t() | atom(),
-        "ScopeName" => String.t() | atom()
-      }
-      
-  """
-  @type resource_server_scope_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_email_role_access_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_email_role_access_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_csv_header_response() :: %{
-        "CSVHeader" => list(String.t() | atom()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type get_csv_header_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_log_delivery_configuration_request() :: %{
-        required("LogConfigurations") => list(log_configuration_type()),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type set_log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_identity_provider_response() :: %{
-        "IdentityProvider" => identity_provider_type()
-      }
-      
-  """
-  @type update_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_identity_provider_request() :: %{
-        required("ProviderName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_user_state_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_user_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      password_history_policy_violation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type password_history_policy_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confirm_sign_up_response() :: %{
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type confirm_sign_up_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_auth_factors_response() :: %{
-        "ConfiguredUserAuthFactors" => list(list(any())()),
-        "PreferredMfaSetting" => String.t() | atom(),
-        "UserMFASettingList" => list(String.t() | atom()),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type get_user_auth_factors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_domain_request() :: %{
-        optional("CustomDomainConfig") => custom_domain_config_type(),
-        optional("ManagedLoginVersion") => integer(),
-        optional("Routing") => routing_type(),
-        required("Domain") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_respond_to_auth_challenge_response() :: %{
-        "AuthenticationResult" => authentication_result_type(),
-        "ChallengeName" => list(any()),
-        "ChallengeParameters" => map(),
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type admin_respond_to_auth_challenge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_terms_request() :: %{
-        optional("Enforcement") => list(any()),
-        optional("Links") => map(),
-        optional("TermsName") => String.t() | atom(),
-        optional("TermsSource") => list(any()),
-        required("TermsId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_terms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_pool_domain_response() :: %{
-        "CloudFrontDomain" => String.t() | atom(),
-        "ManagedLoginVersion" => integer(),
-        "Routing" => routing_type()
-      }
-      
-  """
-  @type update_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_create_user_request() :: %{
-        optional("ClientMetadata") => map(),
-        optional("DesiredDeliveryMediums") => list(list(any())()),
-        optional("ForceAliasCreation") => boolean(),
-        optional("MessageAction") => list(any()),
-        optional("TemporaryPassword") => String.t() | atom(),
-        optional("UserAttributes") => list(attribute_type()),
-        optional("ValidationData") => list(attribute_type()),
+      admin_get_user_request() :: %{
         required("UserPoolId") => String.t() | atom(),
         required("Username") => String.t() | atom()
       }
       
   """
-  @type admin_create_user_request() :: %{(String.t() | atom()) => any()}
+  @type admin_get_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      admin_set_user_settings_response() :: %{}
-      
-  """
-  @type admin_set_user_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_managed_login_branding_response() :: %{
-        "ManagedLoginBranding" => managed_login_branding_type()
+      sms_mfa_settings_type() :: %{
+        "Enabled" => boolean(),
+        "PreferredMfa" => boolean()
       }
       
   """
-  @type describe_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_link_provider_for_user_request() :: %{
-        required("DestinationUser") => provider_user_identifier_type(),
-        required("SourceUser") => provider_user_identifier_type(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type admin_link_provider_for_user_request() :: %{(String.t() | atom()) => any()}
+  @type sms_mfa_settings_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -692,419 +130,33 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      update_user_attributes_request() :: %{
-        optional("ClientMetadata") => map(),
-        required("AccessToken") => String.t() | atom(),
-        required("UserAttributes") => list(attribute_type())
+      set_log_delivery_configuration_response() :: %{
+        "LogDeliveryConfiguration" => log_delivery_configuration_type()
       }
       
   """
-  @type update_user_attributes_request() :: %{(String.t() | atom()) => any()}
+  @type set_log_delivery_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      admin_get_user_request() :: %{
+      admin_disable_user_request() :: %{
         required("UserPoolId") => String.t() | atom(),
         required("Username") => String.t() | atom()
       }
       
   """
-  @type admin_get_user_request() :: %{(String.t() | atom()) => any()}
+  @type admin_disable_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      account_takeover_risk_configuration_type() :: %{
-        "Actions" => account_takeover_actions_type(),
-        "NotifyConfiguration" => notify_configuration_type()
-      }
+      set_user_settings_response() :: %{}
       
   """
-  @type account_takeover_risk_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sms_mfa_config_type() :: %{
-        "SmsAuthenticationMessage" => String.t() | atom(),
-        "SmsConfiguration" => sms_configuration_type()
-      }
-      
-  """
-  @type sms_mfa_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      device_secret_verifier_config_type() :: %{
-        "PasswordVerifier" => String.t() | atom(),
-        "Salt" => String.t() | atom()
-      }
-      
-  """
-  @type device_secret_verifier_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      message_template_type() :: %{
-        "EmailMessage" => String.t() | atom(),
-        "EmailSubject" => String.t() | atom(),
-        "SMSMessage" => String.t() | atom()
-      }
-      
-  """
-  @type message_template_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pools_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("MaxResults") => integer()
-      }
-      
-  """
-  @type list_user_pools_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      new_device_metadata_type() :: %{
-        "DeviceGroupKey" => String.t() | atom(),
-        "DeviceKey" => String.t() | atom()
-      }
-      
-  """
-  @type new_device_metadata_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_import_job_response() :: %{
-        "UserImportJob" => user_import_job_type()
-      }
-      
-  """
-  @type describe_user_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terms_type() :: %{
-        "ClientId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Enforcement" => list(any()),
-        "LastModifiedDate" => non_neg_integer(),
-        "Links" => map(),
-        "TermsId" => String.t() | atom(),
-        "TermsName" => String.t() | atom(),
-        "TermsSource" => list(any()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type terms_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_software_token_response() :: %{
-        "SecretCode" => String.t() | atom(),
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type associate_software_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_web_authn_registration_request() :: %{
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type start_web_authn_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_identity_provider_response() :: %{
-        "IdentityProvider" => identity_provider_type()
-      }
-      
-  """
-  @type create_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resource_server_response() :: %{
-        "ResourceServer" => resource_server_type()
-      }
-      
-  """
-  @type update_resource_server_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      number_attribute_constraints_type() :: %{
-        "MaxValue" => String.t() | atom(),
-        "MinValue" => String.t() | atom()
-      }
-      
-  """
-  @type number_attribute_constraints_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_configuration_type() :: %{
-        "FactorConfiguration" => list(any()),
-        "RelyingPartyId" => String.t() | atom(),
-        "UserVerification" => list(any())
-      }
-      
-  """
-  @type web_authn_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_add_user_to_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_add_user_to_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      alias_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type alias_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verify_software_token_response() :: %{
-        "Session" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type verify_software_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_domain_response() :: %{}
-      
-  """
-  @type delete_user_pool_domain_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_response() :: %{
-        "MFAOptions" => list(mfa_option_type()),
-        "PreferredMfaSetting" => String.t() | atom(),
-        "UserAttributes" => list(attribute_type()),
-        "UserMFASettingList" => list(String.t() | atom()),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type get_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_in_group_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_users_in_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pool_replicas_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_pool_replicas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_type() :: %{
-        "Attributes" => list(attribute_type()),
-        "Enabled" => boolean(),
-        "MFAOptions" => list(mfa_option_type()),
-        "UserCreateDate" => non_neg_integer(),
-        "UserLastModifiedDate" => non_neg_integer(),
-        "UserStatus" => list(any()),
-        "Username" => String.t() | atom()
-      }
-      
-  """
-  @type user_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pools_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "UserPools" => list(user_pool_description_type())
-      }
-      
-  """
-  @type list_user_pools_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_response() :: %{
-        "UserPool" => user_pool_type()
-      }
-      
-  """
-  @type create_user_pool_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_risk_configuration_request() :: %{
-        optional("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_risk_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_identity_provider_response() :: %{
-        "IdentityProvider" => identity_provider_type()
-      }
-      
-  """
-  @type describe_identity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_identity_provider_request() :: %{
-        required("ProviderName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compromised_credentials_risk_configuration_type() :: %{
-        "Actions" => compromised_credentials_actions_type(),
-        "EventFilter" => list(list(any())())
-      }
-      
-  """
-  @type compromised_credentials_risk_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_domain_request() :: %{
-        required("Domain") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compromised_credentials_actions_type() :: %{
-        "EventAction" => list(any())
-      }
-      
-  """
-  @type compromised_credentials_actions_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_resource_server_request() :: %{
-        optional("Scopes") => list(resource_server_scope_type()),
-        required("Identifier") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_resource_server_request() :: %{(String.t() | atom()) => any()}
+  @type set_user_settings_response() :: %{}
 
   @typedoc """
 
@@ -1127,264 +179,79 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      verify_software_token_request() :: %{
+      initiate_auth_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "AvailableChallenges" => list(list(any())()),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t() | atom()
+      }
+      
+  """
+  @type initiate_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_device_request() :: %{
         optional("AccessToken") => String.t() | atom(),
-        optional("FriendlyDeviceName") => String.t() | atom(),
-        optional("Session") => String.t() | atom(),
-        required("UserCode") => String.t() | atom()
+        required("DeviceKey") => String.t() | atom()
       }
       
   """
-  @type verify_software_token_request() :: %{(String.t() | atom()) => any()}
+  @type get_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_resource_server_response() :: %{
-        "ResourceServer" => resource_server_type()
-      }
-      
-  """
-  @type describe_resource_server_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_type() :: %{
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "GroupName" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "Precedence" => integer(),
-        "RoleArn" => String.t() | atom(),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type group_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_pool_mfa_config_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_pool_mfa_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      change_password_response() :: %{}
-      
-  """
-  @type change_password_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_create_user_response() :: %{
-        "User" => user_type()
-      }
-      
-  """
-  @type admin_create_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_replica_type() :: %{
-        "RegionName" => String.t() | atom(),
-        "Role" => list(any()),
-        "Status" => list(any()),
-        "UserPoolArn" => String.t() | atom()
-      }
-      
-  """
-  @type user_pool_replica_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_relying_party_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_relying_party_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_resource_server_request() :: %{
-        required("Identifier") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_resource_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_sign_out_request() :: %{
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type global_sign_out_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_attributes_response() :: %{}
-      
-  """
-  @type delete_user_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_attribute_verification_code_request() :: %{
-        optional("ClientMetadata") => map(),
-        required("AccessToken") => String.t() | atom(),
-        required("AttributeName") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_attribute_verification_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      refresh_token_reuse_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type refresh_token_reuse_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_attribute_update_settings_type() :: %{
-        "AttributesRequireVerificationBeforeUpdate" => list(list(any())())
-      }
-      
-  """
-  @type user_attribute_update_settings_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      software_token_mfa_settings_type() :: %{
-        "Enabled" => boolean(),
-        "PreferredMfa" => boolean()
-      }
-      
-  """
-  @type software_token_mfa_settings_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_managed_login_branding_by_client_request() :: %{
-        optional("ReturnMergedResources") => boolean(),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_managed_login_branding_by_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_groups_for_user_request() :: %{
-        optional("Limit") => integer(),
+      list_identity_providers_request() :: %{
+        optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type admin_list_groups_for_user_request() :: %{(String.t() | atom()) => any()}
+  @type list_identity_providers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_web_authn_registration_response() :: %{
-        "CredentialCreationOptions" => any()
+      list_user_pools_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("MaxResults") => integer()
       }
       
   """
-  @type start_web_authn_registration_response() :: %{(String.t() | atom()) => any()}
+  @type list_user_pools_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      attribute_type() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      update_identity_provider_request() :: %{
+        optional("AttributeMapping") => map(),
+        optional("IdpIdentifiers") => list(String.t() | atom()),
+        optional("ProviderDetails") => map(),
+        required("ProviderName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type attribute_type() :: %{(String.t() | atom()) => any()}
+  @type update_identity_provider_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      user_pool_client_type() :: %{
-        "AccessTokenValidity" => integer(),
-        "AllowedOAuthFlows" => list(list(any())()),
-        "AllowedOAuthFlowsUserPoolClient" => boolean(),
-        "AllowedOAuthScopes" => list(String.t() | atom()),
-        "AnalyticsConfiguration" => analytics_configuration_type(),
-        "AuthSessionValidity" => integer(),
-        "CallbackURLs" => list(String.t() | atom()),
-        "ClientId" => String.t() | atom(),
-        "ClientName" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "DefaultRedirectURI" => String.t() | atom(),
-        "EnablePropagateAdditionalUserContextData" => boolean(),
-        "EnableTokenRevocation" => boolean(),
-        "ExplicitAuthFlows" => list(list(any())()),
-        "IdTokenValidity" => integer(),
-        "LastModifiedDate" => non_neg_integer(),
-        "LogoutURLs" => list(String.t() | atom()),
-        "PreventUserExistenceErrors" => list(any()),
-        "ReadAttributes" => list(String.t() | atom()),
-        "RefreshTokenRotation" => refresh_token_rotation_type(),
-        "RefreshTokenValidity" => integer(),
-        "SupportedIdentityProviders" => list(String.t() | atom()),
-        "TokenValidityUnits" => token_validity_units_type(),
-        "UserPoolId" => String.t() | atom(),
-        "WriteAttributes" => list(String.t() | atom())
+      forgot_password_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
       }
       
   """
-  @type user_pool_client_type() :: %{(String.t() | atom()) => any()}
+  @type forgot_password_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1403,50 +270,342 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      sign_in_policy_type() :: %{
-        "AllowedFirstAuthFactors" => list(list(any())())
+      verify_software_token_request() :: %{
+        optional("AccessToken") => String.t() | atom(),
+        optional("FriendlyDeviceName") => String.t() | atom(),
+        optional("Session") => String.t() | atom(),
+        required("UserCode") => String.t() | atom()
       }
       
   """
-  @type sign_in_policy_type() :: %{(String.t() | atom()) => any()}
+  @type verify_software_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      create_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Precedence") => integer(),
+        optional("RoleArn") => String.t() | atom(),
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      set_user_pool_mfa_config_response() :: %{
-        "EmailMfaConfiguration" => email_mfa_config_type(),
-        "MfaConfiguration" => list(any()),
-        "SmsMfaConfiguration" => sms_mfa_config_type(),
-        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
-        "WebAuthnConfiguration" => web_authn_configuration_type()
+      add_user_pool_client_secret_response() :: %{
+        "ClientSecretDescriptor" => client_secret_descriptor_type()
       }
       
   """
-  @type set_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
+  @type add_user_pool_client_secret_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_provider_exception() :: %{
+      describe_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
+  """
+  @type describe_resource_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_policy_type() :: %{
+        "PasswordPolicy" => password_policy_type(),
+        "SignInPolicy" => sign_in_policy_type()
+      }
+      
+  """
+  @type user_pool_policy_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_attribute_verification_code_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
+      }
+      
+  """
+  @type get_user_attribute_verification_code_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      respond_to_auth_challenge_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ChallengeResponses") => map(),
+        optional("ClientMetadata") => map(),
+        optional("Session") => String.t() | atom(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ChallengeName") => list(any()),
+        required("ClientId") => String.t() | atom()
+      }
+      
+  """
+  @type respond_to_auth_challenge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      username_exists_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type duplicate_provider_exception() :: %{(String.t() | atom()) => any()}
+  @type username_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_software_token_request() :: %{
+        optional("AccessToken") => String.t() | atom(),
+        optional("Session") => String.t() | atom()
+      }
+      
+  """
+  @type associate_software_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_client_request() :: %{
+        optional("AccessTokenValidity") => integer(),
+        optional("AllowedOAuthFlows") => list(list(any())()),
+        optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
+        optional("AllowedOAuthScopes") => list(String.t() | atom()),
+        optional("AnalyticsConfiguration") => analytics_configuration_type(),
+        optional("AuthSessionValidity") => integer(),
+        optional("CallbackURLs") => list(String.t() | atom()),
+        optional("ClientSecret") => String.t() | atom(),
+        optional("DefaultRedirectURI") => String.t() | atom(),
+        optional("EnablePropagateAdditionalUserContextData") => boolean(),
+        optional("EnableTokenRevocation") => boolean(),
+        optional("ExplicitAuthFlows") => list(list(any())()),
+        optional("GenerateSecret") => boolean(),
+        optional("IdTokenValidity") => integer(),
+        optional("LogoutURLs") => list(String.t() | atom()),
+        optional("PreventUserExistenceErrors") => list(any()),
+        optional("ReadAttributes") => list(String.t() | atom()),
+        optional("RefreshTokenRotation") => refresh_token_rotation_type(),
+        optional("RefreshTokenValidity") => integer(),
+        optional("SupportedIdentityProviders") => list(String.t() | atom()),
+        optional("TokenValidityUnits") => token_validity_units_type(),
+        optional("WriteAttributes") => list(String.t() | atom()),
+        required("ClientName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_pool_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tokens_from_refresh_token_request() :: %{
+        optional("ClientMetadata") => map(),
+        optional("ClientSecret") => String.t() | atom(),
+        optional("DeviceKey") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("RefreshToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_tokens_from_refresh_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_context_data_type() :: %{
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
+      }
+      
+  """
+  @type event_context_data_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firehose_configuration_type() :: %{
+        "StreamArn" => String.t() | atom()
+      }
+      
+  """
+  @type firehose_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_user_global_sign_out_response() :: %{}
+      
+  """
+  @type admin_user_global_sign_out_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_takeover_action_type() :: %{
+        "EventAction" => list(any()),
+        "Notify" => boolean()
+      }
+      
+  """
+  @type account_takeover_action_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      advanced_security_additional_flows_type() :: %{
+        "CustomAuthMode" => list(any())
+      }
+      
+  """
+  @type advanced_security_additional_flows_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      concurrent_modification_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_devices_response() :: %{
+        "Devices" => list(device_type()),
+        "PaginationToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_sign_up_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("ForceAliasCreation") => boolean(),
+        optional("SecretHash") => String.t() | atom(),
+        optional("Session") => String.t() | atom(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t() | atom(),
+        required("ConfirmationCode") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type confirm_sign_up_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_auth_event_feedback_response() :: %{}
+      
+  """
+  @type admin_update_auth_event_feedback_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      key_configuration_type() :: %{
+        "KeyType" => list(any()),
+        "KmsKeyArn" => String.t() | atom()
+      }
+      
+  """
+  @type key_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_import_in_progress_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_import_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_delivery_details_type() :: %{
+        "AttributeName" => String.t() | atom(),
+        "DeliveryMedium" => list(any()),
+        "Destination" => String.t() | atom()
+      }
+      
+  """
+  @type code_delivery_details_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_server_scope_type() :: %{
+        "ScopeDescription" => String.t() | atom(),
+        "ScopeName" => String.t() | atom()
+      }
+      
+  """
+  @type resource_server_scope_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_user_attribute_response() :: %{}
+      
+  """
+  @type verify_user_attribute_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      recovery_option_type() :: %{
+        "Name" => list(any()),
+        "Priority" => integer()
+      }
+      
+  """
+  @type recovery_option_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1458,6 +617,352 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_custom_attributes_response() :: %{}
+      
+  """
+  @type add_custom_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
+  """
+  @type stop_user_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_type() :: %{
+        "SchemaAttributes" => list(schema_attribute_type()),
+        "AccountRecoverySetting" => account_recovery_setting_type(),
+        "AliasAttributes" => list(list(any())()),
+        "EmailConfigurationFailure" => String.t() | atom(),
+        "LambdaConfig" => lambda_config_type(),
+        "Id" => String.t() | atom(),
+        "SmsVerificationMessage" => String.t() | atom(),
+        "EmailConfiguration" => email_configuration_type(),
+        "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
+        "UserPoolAddOns" => user_pool_add_ons_type(),
+        "UserPoolTier" => list(any()),
+        "EstimatedNumberOfUsers" => integer(),
+        "UserPoolTags" => map(),
+        "Name" => String.t() | atom(),
+        "AdminCreateUserConfig" => admin_create_user_config_type(),
+        "AutoVerifiedAttributes" => list(list(any())()),
+        "EmailVerificationSubject" => String.t() | atom(),
+        "SmsConfiguration" => sms_configuration_type(),
+        "Status" => list(any()),
+        "KeyConfiguration" => key_configuration_type(),
+        "MfaConfiguration" => list(any()),
+        "DeletionProtection" => list(any()),
+        "SmsAuthenticationMessage" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Domain" => String.t() | atom(),
+        "UsernameConfiguration" => username_configuration_type(),
+        "IssuerConfiguration" => issuer_configuration_type(),
+        "UsernameAttributes" => list(list(any())()),
+        "DeviceConfiguration" => device_configuration_type(),
+        "CustomDomain" => String.t() | atom(),
+        "SmsConfigurationFailure" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "EmailVerificationMessage" => String.t() | atom(),
+        "Policies" => user_pool_policy_type(),
+        "LastModifiedDate" => non_neg_integer(),
+        "VerificationMessageTemplate" => verification_message_template_type()
+      }
+      
+  """
+  @type user_pool_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
+  """
+  @type update_resource_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_link_provider_for_user_request() :: %{
+        required("DestinationUser") => provider_user_identifier_type(),
+        required("SourceUser") => provider_user_identifier_type(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type admin_link_provider_for_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_up_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type(),
+        "Session" => String.t() | atom(),
+        "UserConfirmed" => boolean(),
+        "UserSub" => String.t() | atom()
+      }
+      
+  """
+  @type sign_up_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resend_confirmation_code_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t() | atom(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type resend_confirmation_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initiate_auth_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("AuthParameters") => map(),
+        optional("ClientMetadata") => map(),
+        optional("Session") => String.t() | atom(),
+        optional("UserContextData") => user_context_data_type(),
+        required("AuthFlow") => list(any()),
+        required("ClientId") => String.t() | atom()
+      }
+      
+  """
+  @type initiate_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_forget_device_request() :: %{
+        required("DeviceKey") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_forget_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_by_client_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type describe_managed_login_branding_by_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_domain_response() :: %{
+        "DomainDescription" => domain_description_type()
+      }
+      
+  """
+  @type describe_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_email_lambda_version_config_type() :: %{
+        "LambdaArn" => String.t() | atom(),
+        "LambdaVersion" => list(any())
+      }
+      
+  """
+  @type custom_email_lambda_version_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_settings_response() :: %{}
+      
+  """
+  @type admin_set_user_settings_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_login_branding_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type managed_login_branding_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      email_mfa_settings_type() :: %{
+        "Enabled" => boolean(),
+        "PreferredMfa" => boolean()
+      }
+      
+  """
+  @type email_mfa_settings_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_device_response() :: %{
+        "Device" => device_type()
+      }
+      
+  """
+  @type get_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ui_customization_response() :: %{
+        "UICustomization" => ui_customization_type()
+      }
+      
+  """
+  @type get_ui_customization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      device_secret_verifier_config_type() :: %{
+        "PasswordVerifier" => String.t() | atom(),
+        "Salt" => String.t() | atom()
+      }
+      
+  """
+  @type device_secret_verifier_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      software_token_mfa_config_type() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type software_token_mfa_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_managed_login_branding_request() :: %{
+        required("ManagedLoginBrandingId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_terms_request() :: %{
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_response() :: %{
+        "MFAOptions" => list(mfa_option_type()),
+        "PreferredMfaSetting" => String.t() | atom(),
+        "UserAttributes" => list(attribute_type()),
+        "UserMFASettingList" => list(String.t() | atom()),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type get_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
+  """
+  @type start_user_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      client_secret_descriptor_type() :: %{
+        "ClientSecretCreateDate" => non_neg_integer(),
+        "ClientSecretId" => String.t() | atom(),
+        "ClientSecretValue" => String.t() | atom()
+      }
+      
+  """
+  @type client_secret_descriptor_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1482,13 +987,298 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      list_user_pool_client_secrets_response() :: %{
-        "ClientSecrets" => list(client_secret_descriptor_type()),
-        "NextToken" => String.t() | atom()
+      admin_delete_user_attributes_request() :: %{
+        required("UserAttributeNames") => list(String.t() | atom()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
       }
       
   """
-  @type list_user_pool_client_secrets_response() :: %{(String.t() | atom()) => any()}
+  @type admin_delete_user_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
+  """
+  @type describe_user_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verification_message_template_type() :: %{
+        "DefaultEmailOption" => list(any()),
+        "EmailMessage" => String.t() | atom(),
+        "EmailMessageByLink" => String.t() | atom(),
+        "EmailSubject" => String.t() | atom(),
+        "EmailSubjectByLink" => String.t() | atom(),
+        "SmsMessage" => String.t() | atom()
+      }
+      
+  """
+  @type verification_message_template_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_client_secret_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("ClientSecretId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_custom_attributes_request() :: %{
+        required("CustomAttributes") => list(schema_attribute_type()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type add_custom_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_devices_request() :: %{
+        optional("Limit") => integer(),
+        optional("PaginationToken") => String.t() | atom(),
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_auth_event_feedback_request() :: %{
+        required("EventId") => String.t() | atom(),
+        required("FeedbackToken") => String.t() | atom(),
+        required("FeedbackValue") => list(any()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type update_auth_event_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_attributes_response() :: %{}
+      
+  """
+  @type delete_user_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_csv_header_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_csv_header_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_token_rotation_type() :: %{
+        "Feature" => list(any()),
+        "RetryGracePeriodSeconds" => integer()
+      }
+      
+  """
+  @type refresh_token_rotation_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_user_import_job_request() :: %{
+        required("JobId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type start_user_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_import_job_type() :: %{
+        "CloudWatchLogsRoleArn" => String.t() | atom(),
+        "CompletionDate" => non_neg_integer(),
+        "CompletionMessage" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "FailedUsers" => float(),
+        "ImportedUsers" => float(),
+        "JobId" => String.t() | atom(),
+        "JobName" => String.t() | atom(),
+        "PreSignedUrl" => String.t() | atom(),
+        "SkippedUsers" => float(),
+        "StartDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type user_import_job_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_takeover_risk_configuration_type() :: %{
+        "Actions" => account_takeover_actions_type(),
+        "NotifyConfiguration" => notify_configuration_type()
+      }
+      
+  """
+  @type account_takeover_risk_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_initiate_auth_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "AvailableChallenges" => list(list(any())()),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t() | atom()
+      }
+      
+  """
+  @type admin_initiate_auth_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_delete_user_request() :: %{
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_authn_credentials_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_web_authn_credentials_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authentication_result_type() :: %{
+        "AccessToken" => String.t() | atom(),
+        "ExpiresIn" => integer(),
+        "IdToken" => String.t() | atom(),
+        "NewDeviceMetadata" => new_device_metadata_type(),
+        "RefreshToken" => String.t() | atom(),
+        "TokenType" => String.t() | atom()
+      }
+      
+  """
+  @type authentication_result_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_disable_provider_for_user_response() :: %{}
+      
+  """
+  @type admin_disable_provider_for_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_clients_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UserPoolClients" => list(user_pool_client_description())
+      }
+      
+  """
+  @type list_user_pool_clients_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_settings_request() :: %{
+        required("MFAOptions") => list(mfa_option_type()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_set_user_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_clients_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_clients_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type update_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1508,489 +1298,24 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      create_user_import_job_response() :: %{
-        "UserImportJob" => user_import_job_type()
+      account_recovery_setting_type() :: %{
+        "RecoveryMechanisms" => list(recovery_option_type())
       }
       
   """
-  @type create_user_import_job_response() :: %{(String.t() | atom()) => any()}
+  @type account_recovery_setting_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_user_pool_domain_request() :: %{
-        optional("CustomDomainConfig") => custom_domain_config_type(),
-        optional("ManagedLoginVersion") => integer(),
-        optional("Routing") => routing_type(),
-        required("Domain") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
+      attribute_type() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type update_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terms_description_type() :: %{
-        "CreationDate" => non_neg_integer(),
-        "Enforcement" => list(any()),
-        "LastModifiedDate" => non_neg_integer(),
-        "TermsId" => String.t() | atom(),
-        "TermsName" => String.t() | atom()
-      }
-      
-  """
-  @type terms_description_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_client_secret_request() :: %{
-        required("ClientId") => String.t() | atom(),
-        required("ClientSecretId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Precedence") => integer(),
-        optional("RoleArn") => String.t() | atom(),
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_custom_attributes_response() :: %{}
-      
-  """
-  @type add_custom_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_policy_type() :: %{
-        "PasswordPolicy" => password_policy_type(),
-        "SignInPolicy" => sign_in_policy_type()
-      }
-      
-  """
-  @type user_pool_policy_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_disable_user_response() :: %{}
-      
-  """
-  @type admin_disable_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_update_user_attributes_request() :: %{
-        optional("ClientMetadata") => map(),
-        required("UserAttributes") => list(attribute_type()),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_update_user_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pool_client_secrets_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_pool_client_secrets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_enable_user_response() :: %{}
-      
-  """
-  @type admin_enable_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      identity_provider_type() :: %{
-        "AttributeMapping" => map(),
-        "CreationDate" => non_neg_integer(),
-        "IdpIdentifiers" => list(String.t() | atom()),
-        "LastModifiedDate" => non_neg_integer(),
-        "ProviderDetails" => map(),
-        "ProviderName" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type identity_provider_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      key_configuration_type() :: %{
-        "KeyType" => list(any()),
-        "KmsKeyArn" => String.t() | atom()
-      }
-      
-  """
-  @type key_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_server_request() :: %{
-        required("Identifier") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_risk_configuration_response() :: %{
-        "RiskConfiguration" => risk_configuration_type()
-      }
-      
-  """
-  @type describe_risk_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_set_user_settings_request() :: %{
-        required("MFAOptions") => list(mfa_option_type()),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_set_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_ui_customization_request() :: %{
-        optional("CSS") => String.t() | atom(),
-        optional("ClientId") => String.t() | atom(),
-        optional("ImageFile") => binary(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type set_ui_customization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sms_role_access_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_sms_role_access_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_provider_by_identifier_request() :: %{
-        required("IdpIdentifier") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_identity_provider_by_identifier_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_client_secret_response() :: %{}
-      
-  """
-  @type delete_user_pool_client_secret_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_set_user_mfa_preference_response() :: %{}
-      
-  """
-  @type admin_set_user_mfa_preference_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_terms_request() :: %{
-        optional("Links") => map(),
-        required("ClientId") => String.t() | atom(),
-        required("Enforcement") => list(any()),
-        required("TermsName") => String.t() | atom(),
-        required("TermsSource") => list(any()),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_terms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_pool_response() :: %{}
-      
-  """
-  @type update_user_pool_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_risk_configuration_request() :: %{
-        optional("AccountTakeoverRiskConfiguration") => account_takeover_risk_configuration_type(),
-        optional("ClientId") => String.t() | atom(),
-        optional("CompromisedCredentialsRiskConfiguration") => compromised_credentials_risk_configuration_type(),
-        optional("RiskExceptionConfiguration") => risk_exception_configuration_type(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type set_risk_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_device_status_response() :: %{}
-      
-  """
-  @type update_device_status_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_managed_login_branding_request() :: %{
-        optional("Assets") => list(asset_type()),
-        optional("ManagedLoginBrandingId") => String.t() | atom(),
-        optional("Settings") => any(),
-        optional("UseCognitoProvidedValues") => boolean(),
-        optional("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_user_global_sign_out_response() :: %{}
-      
-  """
-  @type admin_user_global_sign_out_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_client_response() :: %{
-        "UserPoolClient" => user_pool_client_type()
-      }
-      
-  """
-  @type describe_user_pool_client_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type code_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signing_certificate_response() :: %{
-        "Certificate" => String.t() | atom()
-      }
-      
-  """
-  @type get_signing_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_replica_request() :: %{
-        optional("UserPoolTags") => map(),
-        required("RegionName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_email_lambda_version_config_type() :: %{
-        "LambdaArn" => String.t() | atom(),
-        "LambdaVersion" => list(any())
-      }
-      
-  """
-  @type custom_email_lambda_version_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      device_type() :: %{
-        "DeviceAttributes" => list(attribute_type()),
-        "DeviceCreateDate" => non_neg_integer(),
-        "DeviceKey" => String.t() | atom(),
-        "DeviceLastAuthenticatedDate" => non_neg_integer(),
-        "DeviceLastModifiedDate" => non_neg_integer()
-      }
-      
-  """
-  @type device_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_managed_login_branding_request() :: %{
-        required("ManagedLoginBrandingId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_pool_mfa_config_response() :: %{
-        "EmailMfaConfiguration" => email_mfa_config_type(),
-        "MfaConfiguration" => list(any()),
-        "SmsMfaConfiguration" => sms_mfa_config_type(),
-        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
-        "WebAuthnConfiguration" => web_authn_configuration_type()
-      }
-      
-  """
-  @type get_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_auth_factors_request() :: %{
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_auth_factors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revoke_token_response() :: %{}
-      
-  """
-  @type revoke_token_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      ui_customization_type() :: %{
-        "CSS" => String.t() | atom(),
-        "CSSVersion" => String.t() | atom(),
-        "ClientId" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "ImageUrl" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type ui_customization_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_request() :: %{
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_request() :: %{(String.t() | atom()) => any()}
+  @type attribute_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2009,306 +1334,87 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      notify_email_type() :: %{
-        "HtmlBody" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "TextBody" => String.t() | atom()
+      update_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
       }
       
   """
-  @type notify_email_type() :: %{(String.t() | atom()) => any()}
+  @type update_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      admin_update_auth_event_feedback_request() :: %{
-        required("EventId") => String.t() | atom(),
-        required("FeedbackValue") => list(any()),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
+      describe_risk_configuration_request() :: %{
+        optional("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type admin_update_auth_event_feedback_request() :: %{(String.t() | atom()) => any()}
+  @type describe_risk_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_users_in_group_response() :: %{
+      list_terms_response() :: %{
         "NextToken" => String.t() | atom(),
-        "Users" => list(user_type())
+        "Terms" => list(terms_description_type())
       }
       
   """
-  @type list_users_in_group_response() :: %{(String.t() | atom()) => any()}
+  @type list_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      scope_does_not_exist_exception() :: %{
+      invalid_sms_role_trust_relationship_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type scope_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_sms_role_trust_relationship_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      respond_to_auth_challenge_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ChallengeResponses") => map(),
-        optional("ClientMetadata") => map(),
-        optional("Session") => String.t() | atom(),
-        optional("UserContextData") => user_context_data_type(),
-        required("ChallengeName") => list(any()),
-        required("ClientId") => String.t() | atom()
+      describe_terms_request() :: %{
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type respond_to_auth_challenge_request() :: %{(String.t() | atom()) => any()}
+  @type describe_terms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tier_change_not_allowed_exception() :: %{
+      unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type tier_change_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      set_ui_customization_response() :: %{
-        "UICustomization" => ui_customization_type()
+      user_type() :: %{
+        "Attributes" => list(attribute_type()),
+        "Enabled" => boolean(),
+        "MFAOptions" => list(mfa_option_type()),
+        "UserCreateDate" => non_neg_integer(),
+        "UserLastModifiedDate" => non_neg_integer(),
+        "UserStatus" => list(any()),
+        "Username" => String.t() | atom()
       }
       
   """
-  @type set_ui_customization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      token_validity_units_type() :: %{
-        "AccessToken" => list(any()),
-        "IdToken" => list(any()),
-        "RefreshToken" => list(any())
-      }
-      
-  """
-  @type token_validity_units_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_context_data_type() :: %{
-        "EncodedData" => String.t() | atom(),
-        "IpAddress" => String.t() | atom()
-      }
-      
-  """
-  @type user_context_data_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_login_branding_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type managed_login_branding_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      string_attribute_constraints_type() :: %{
-        "MaxLength" => String.t() | atom(),
-        "MinLength" => String.t() | atom()
-      }
-      
-  """
-  @type string_attribute_constraints_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_delete_user_attributes_request() :: %{
-        required("UserAttributeNames") => list(String.t() | atom()),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_delete_user_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_config_type() :: %{
-        "CreateAuthChallenge" => String.t() | atom(),
-        "CustomEmailSender" => custom_email_lambda_version_config_type(),
-        "CustomMessage" => String.t() | atom(),
-        "CustomSMSSender" => custom_sms_lambda_version_config_type(),
-        "DefineAuthChallenge" => String.t() | atom(),
-        "InboundFederation" => inbound_federation_lambda_type(),
-        "KMSKeyID" => String.t() | atom(),
-        "PostAuthentication" => String.t() | atom(),
-        "PostConfirmation" => String.t() | atom(),
-        "PreAuthentication" => String.t() | atom(),
-        "PreSignUp" => String.t() | atom(),
-        "PreTokenGeneration" => String.t() | atom(),
-        "PreTokenGenerationConfig" => pre_token_generation_version_config_type(),
-        "UserMigration" => String.t() | atom(),
-        "VerifyAuthChallengeResponse" => String.t() | atom()
-      }
-      
-  """
-  @type lambda_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_delivery_configuration_type() :: %{
-        "LogConfigurations" => list(log_configuration_type()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type log_delivery_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      risk_exception_configuration_type() :: %{
-        "BlockedIPRangeList" => list(String.t() | atom()),
-        "SkippedIPRangeList" => list(String.t() | atom())
-      }
-      
-  """
-  @type risk_exception_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type group_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      password_reset_required_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type password_reset_required_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_client_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_client_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_set_user_password_response() :: %{}
-      
-  """
-  @type admin_set_user_password_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_devices_request() :: %{
-        optional("Limit") => integer(),
-        optional("PaginationToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_list_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_client_response() :: %{
-        "UserPoolClient" => user_pool_client_type()
-      }
-      
-  """
-  @type create_user_pool_client_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      client_secret_descriptor_type() :: %{
-        "ClientSecretCreateDate" => non_neg_integer(),
-        "ClientSecretId" => String.t() | atom(),
-        "ClientSecretValue" => String.t() | atom()
-      }
-      
-  """
-  @type client_secret_descriptor_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_tokens_from_refresh_token_request() :: %{
-        optional("ClientMetadata") => map(),
-        optional("ClientSecret") => String.t() | atom(),
-        optional("DeviceKey") => String.t() | atom(),
-        required("ClientId") => String.t() | atom(),
-        required("RefreshToken") => String.t() | atom()
-      }
-      
-  """
-  @type get_tokens_from_refresh_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_response() :: %{
-        "UserPool" => user_pool_type()
-      }
-      
-  """
-  @type describe_user_pool_response() :: %{(String.t() | atom()) => any()}
+  @type user_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2350,1746 +1456,36 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      list_user_import_jobs_response() :: %{
-        "PaginationToken" => String.t() | atom(),
-        "UserImportJobs" => list(user_import_job_type())
-      }
-      
-  """
-  @type list_user_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_response() :: %{
-        "PaginationToken" => String.t() | atom(),
-        "Users" => list(user_type())
-      }
-      
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_import_job_type() :: %{
-        "CloudWatchLogsRoleArn" => String.t() | atom(),
-        "CompletionDate" => non_neg_integer(),
-        "CompletionMessage" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "FailedUsers" => float(),
-        "ImportedUsers" => float(),
-        "JobId" => String.t() | atom(),
-        "JobName" => String.t() | atom(),
-        "PreSignedUrl" => String.t() | atom(),
-        "SkippedUsers" => float(),
-        "StartDate" => non_neg_integer(),
-        "Status" => list(any()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type user_import_job_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_client_request() :: %{
-        optional("AccessTokenValidity") => integer(),
-        optional("AllowedOAuthFlows") => list(list(any())()),
-        optional("AllowedOAuthFlowsUserPoolClient") => boolean(),
-        optional("AllowedOAuthScopes") => list(String.t() | atom()),
-        optional("AnalyticsConfiguration") => analytics_configuration_type(),
-        optional("AuthSessionValidity") => integer(),
-        optional("CallbackURLs") => list(String.t() | atom()),
-        optional("ClientSecret") => String.t() | atom(),
-        optional("DefaultRedirectURI") => String.t() | atom(),
-        optional("EnablePropagateAdditionalUserContextData") => boolean(),
-        optional("EnableTokenRevocation") => boolean(),
-        optional("ExplicitAuthFlows") => list(list(any())()),
-        optional("GenerateSecret") => boolean(),
-        optional("IdTokenValidity") => integer(),
-        optional("LogoutURLs") => list(String.t() | atom()),
-        optional("PreventUserExistenceErrors") => list(any()),
-        optional("ReadAttributes") => list(String.t() | atom()),
-        optional("RefreshTokenRotation") => refresh_token_rotation_type(),
-        optional("RefreshTokenValidity") => integer(),
-        optional("SupportedIdentityProviders") => list(String.t() | atom()),
-        optional("TokenValidityUnits") => token_validity_units_type(),
-        optional("WriteAttributes") => list(String.t() | atom()),
-        required("ClientName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_pool_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_identity_provider_by_identifier_response() :: %{
-        "IdentityProvider" => identity_provider_type()
-      }
-      
-  """
-  @type get_identity_provider_by_identifier_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_configuration_missing_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_configuration_missing_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_disable_provider_for_user_response() :: %{}
-      
-  """
-  @type admin_disable_provider_for_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_watch_logs_configuration_type() :: %{
-        "LogGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_watch_logs_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_client_request() :: %{
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_pool_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      feature_unavailable_in_tier_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type feature_unavailable_in_tier_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_login_branding_type() :: %{
-        "Assets" => list(asset_type()),
-        "CreationDate" => non_neg_integer(),
-        "LastModifiedDate" => non_neg_integer(),
-        "ManagedLoginBrandingId" => String.t() | atom(),
-        "Settings" => any(),
-        "UseCognitoProvidedValues" => boolean(),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type managed_login_branding_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      password_policy_type() :: %{
-        "MinimumLength" => integer(),
-        "PasswordHistorySize" => integer(),
-        "RequireLowercase" => boolean(),
-        "RequireNumbers" => boolean(),
-        "RequireSymbols" => boolean(),
-        "RequireUppercase" => boolean(),
-        "TemporaryPasswordValidityDays" => integer()
-      }
-      
-  """
-  @type password_policy_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_confirm_sign_up_request() :: %{
-        optional("ClientMetadata") => map(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_confirm_sign_up_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_domain_config_type() :: %{
-        "CertificateArn" => String.t() | atom()
-      }
-      
-  """
-  @type custom_domain_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_sms_lambda_version_config_type() :: %{
-        "LambdaArn" => String.t() | atom(),
-        "LambdaVersion" => list(any())
-      }
-      
-  """
-  @type custom_sms_lambda_version_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_enable_user_request() :: %{
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_enable_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_resource_server_request() :: %{
-        optional("Scopes") => list(resource_server_scope_type()),
-        required("Identifier") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_resource_server_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_initiate_auth_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("AuthParameters") => map(),
-        optional("ClientMetadata") => map(),
-        optional("ContextData") => context_data_type(),
-        optional("Session") => String.t() | atom(),
-        required("AuthFlow") => list(any()),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type admin_initiate_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_device_status_request() :: %{
-        optional("DeviceRememberedStatus") => list(any()),
-        required("AccessToken") => String.t() | atom(),
-        required("DeviceKey") => String.t() | atom()
-      }
-      
-  """
-  @type update_device_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_server_type() :: %{
-        "Identifier" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Scopes" => list(resource_server_scope_type()),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type resource_server_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      software_token_mfa_config_type() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type software_token_mfa_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_devices_response() :: %{
-        "Devices" => list(device_type()),
-        "PaginationToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_reset_user_password_response() :: %{}
-      
-  """
-  @type admin_reset_user_password_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Precedence") => integer(),
-        optional("RoleArn") => String.t() | atom(),
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_user_global_sign_out_request() :: %{
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_user_global_sign_out_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_auth_event_feedback_response() :: %{}
-      
-  """
-  @type update_auth_event_feedback_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_lambda_response_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_lambda_response_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sms_mfa_settings_type() :: %{
-        "Enabled" => boolean(),
-        "PreferredMfa" => boolean()
-      }
-      
-  """
-  @type sms_mfa_settings_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_custom_attributes_request() :: %{
-        required("CustomAttributes") => list(schema_attribute_type()),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type add_custom_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_disable_user_request() :: %{
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_disable_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      email_configuration_type() :: %{
-        "ConfigurationSet" => String.t() | atom(),
-        "EmailSendingAccount" => list(any()),
-        "From" => String.t() | atom(),
-        "ReplyToEmailAddress" => String.t() | atom(),
-        "SourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type email_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expired_code_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type expired_code_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forgot_password_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ClientMetadata") => map(),
-        optional("SecretHash") => String.t() | atom(),
-        optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type forgot_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pool_clients_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_pool_clients_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_remove_user_from_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_remove_user_from_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_tagging_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_pool_tagging_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_user_settings_request() :: %{
-        required("AccessToken") => String.t() | atom(),
-        required("MFAOptions") => list(mfa_option_type())
-      }
-      
-  """
-  @type set_user_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      recovery_option_type() :: %{
-        "Name" => list(any()),
-        "Priority" => integer()
-      }
-      
-  """
-  @type recovery_option_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provider_user_identifier_type() :: %{
-        "ProviderAttributeName" => String.t() | atom(),
-        "ProviderAttributeValue" => String.t() | atom(),
-        "ProviderName" => String.t() | atom()
-      }
-      
-  """
-  @type provider_user_identifier_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_feedback_type() :: %{
-        "FeedbackDate" => non_neg_integer(),
-        "FeedbackValue" => list(any()),
-        "Provider" => String.t() | atom()
-      }
-      
-  """
-  @type event_feedback_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_managed_login_branding_by_client_response() :: %{
-        "ManagedLoginBranding" => managed_login_branding_type()
-      }
-      
-  """
-  @type describe_managed_login_branding_by_client_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      change_password_request() :: %{
-        optional("PreviousPassword") => String.t() | atom(),
-        required("AccessToken") => String.t() | atom(),
-        required("ProposedPassword") => String.t() | atom()
-      }
-      
-  """
-  @type change_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_devices_response() :: %{
-        "Devices" => list(device_type()),
-        "PaginationToken" => String.t() | atom()
-      }
-      
-  """
-  @type admin_list_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_request() :: %{
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_log_delivery_configuration_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_o_auth_flow_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_o_auth_flow_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_terms_request() :: %{
-        required("TermsId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_terms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initiate_auth_response() :: %{
-        "AuthenticationResult" => authentication_result_type(),
-        "AvailableChallenges" => list(list(any())()),
-        "ChallengeName" => list(any()),
-        "ChallengeParameters" => map(),
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type initiate_auth_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_user_pool_client_secret_response() :: %{
-        "ClientSecretDescriptor" => client_secret_descriptor_type()
-      }
-      
-  """
-  @type add_user_pool_client_secret_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_credential_description() :: %{
-        "AuthenticatorAttachment" => String.t() | atom(),
-        "AuthenticatorTransports" => list(String.t() | atom()),
-        "CreatedAt" => non_neg_integer(),
-        "CredentialId" => String.t() | atom(),
-        "FriendlyCredentialName" => String.t() | atom(),
-        "RelyingPartyId" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_credential_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_device_request() :: %{
-        optional("AccessToken") => String.t() | atom(),
-        required("DeviceKey") => String.t() | atom()
-      }
-      
-  """
-  @type get_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_import_job_request() :: %{
-        required("CloudWatchLogsRoleArn") => String.t() | atom(),
-        required("JobName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_user_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_set_user_password_request() :: %{
-        optional("Permanent") => boolean(),
-        required("Password") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_set_user_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_credential_not_supported_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_credential_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_domain_response() :: %{
-        "DomainDescription" => domain_description_type()
-      }
-      
-  """
-  @type describe_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_managed_login_branding_response() :: %{
-        "ManagedLoginBranding" => managed_login_branding_type()
-      }
-      
-  """
-  @type create_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_terms_response() :: %{
-        "Terms" => terms_type()
-      }
-      
-  """
-  @type create_terms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sign_up_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ClientMetadata") => map(),
-        optional("Password") => String.t() | atom(),
-        optional("SecretHash") => String.t() | atom(),
-        optional("UserAttributes") => list(attribute_type()),
-        optional("UserContextData") => user_context_data_type(),
-        optional("ValidationData") => list(attribute_type()),
-        required("ClientId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type sign_up_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forget_device_request() :: %{
-        optional("AccessToken") => String.t() | atom(),
-        required("DeviceKey") => String.t() | atom()
-      }
-      
-  """
-  @type forget_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      device_configuration_type() :: %{
-        "ChallengeRequiredOnNewDevice" => boolean(),
-        "DeviceOnlyRememberedOnUserPrompt" => boolean()
-      }
-      
-  """
-  @type device_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_add_ons_type() :: %{
-        "AdvancedSecurityAdditionalFlows" => advanced_security_additional_flows_type(),
-        "AdvancedSecurityMode" => list(any())
-      }
-      
-  """
-  @type user_pool_add_ons_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      routing_type() :: %{
-        "Failover" => failover_type()
-      }
-      
-  """
-  @type routing_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_pool_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_mfa_settings_type() :: %{
-        "Enabled" => boolean()
-      }
-      
-  """
-  @type web_authn_mfa_settings_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_domain_request() :: %{
-        required("Domain") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_lambda_validation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_lambda_validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      inbound_federation_lambda_type() :: %{
-        "LambdaArn" => String.t() | atom(),
-        "LambdaVersion" => list(any())
-      }
-      
-  """
-  @type inbound_federation_lambda_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_pool_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_pool_replica_response() :: %{
-        "UserPoolReplica" => user_pool_replica_type()
-      }
-      
-  """
-  @type update_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_import_jobs_request() :: %{
-        optional("PaginationToken") => String.t() | atom(),
-        required("MaxResults") => integer(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_user_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      challenge_response_type() :: %{
-        "ChallengeName" => list(any()),
-        "ChallengeResponse" => list(any())
-      }
-      
-  """
-  @type challenge_response_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resend_confirmation_code_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ClientMetadata") => map(),
-        optional("SecretHash") => String.t() | atom(),
-        optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type resend_confirmation_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_respond_to_auth_challenge_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ChallengeResponses") => map(),
-        optional("ClientMetadata") => map(),
-        optional("ContextData") => context_data_type(),
-        optional("Session") => String.t() | atom(),
-        required("ChallengeName") => list(any()),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type admin_respond_to_auth_challenge_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      email_mfa_settings_type() :: %{
-        "Enabled" => boolean(),
-        "PreferredMfa" => boolean()
-      }
-      
-  """
-  @type email_mfa_settings_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_authorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_user_auth_events_response() :: %{
-        "AuthEvents" => list(auth_event_type()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type admin_list_user_auth_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_tokens_from_refresh_token_response() :: %{
-        "AuthenticationResult" => authentication_result_type()
-      }
-      
-  """
-  @type get_tokens_from_refresh_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_identity_provider_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_identity_provider_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_add_on_not_enabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type user_pool_add_on_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      auth_event_type() :: %{
-        "ChallengeResponses" => list(challenge_response_type()),
-        "CreationDate" => non_neg_integer(),
-        "EventContextData" => event_context_data_type(),
-        "EventFeedback" => event_feedback_type(),
-        "EventId" => String.t() | atom(),
-        "EventResponse" => list(any()),
-        "EventRisk" => event_risk_type(),
-        "EventType" => list(any())
-      }
-      
-  """
-  @type auth_event_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_identity_provider_request() :: %{
-        optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t() | atom()),
-        required("ProviderDetails") => map(),
-        required("ProviderName") => String.t() | atom(),
-        required("ProviderType") => list(any()),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_terms_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_terms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_managed_login_branding_response() :: %{
-        "ManagedLoginBranding" => managed_login_branding_type()
-      }
-      
-  """
-  @type update_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_user_pool_configuration_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_user_pool_configuration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_log_delivery_configuration_response() :: %{
-        "LogDeliveryConfiguration" => log_delivery_configuration_type()
-      }
-      
-  """
-  @type set_log_delivery_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sign_up_response() :: %{
-        "CodeDeliveryDetails" => code_delivery_details_type(),
-        "Session" => String.t() | atom(),
-        "UserConfirmed" => boolean(),
-        "UserSub" => String.t() | atom()
-      }
-      
-  """
-  @type sign_up_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_user_import_job_response() :: %{
-        "UserImportJob" => user_import_job_type()
-      }
-      
-  """
-  @type start_user_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confirm_forgot_password_response() :: %{}
-      
-  """
-  @type confirm_forgot_password_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_configuration_type() :: %{
-        "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration_type(),
-        "EventSource" => list(any()),
-        "FirehoseConfiguration" => firehose_configuration_type(),
-        "LogLevel" => list(any()),
-        "S3Configuration" => s3_configuration_type()
-      }
-      
-  """
-  @type log_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_not_enabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type operation_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_sign_out_response() :: %{}
-      
-  """
-  @type global_sign_out_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom(),
-        "reasonCode" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_terms_request() :: %{
-        required("TermsId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_terms_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_confirm_sign_up_response() :: %{}
-      
-  """
-  @type admin_confirm_sign_up_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_user_pool_mfa_config_request() :: %{
-        optional("EmailMfaConfiguration") => email_mfa_config_type(),
-        optional("MfaConfiguration") => list(any()),
-        optional("SmsMfaConfiguration") => sms_mfa_config_type(),
-        optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
-        optional("WebAuthnConfiguration") => web_authn_configuration_type(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type set_user_pool_mfa_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_import_job_request() :: %{
+      stop_user_import_job_request() :: %{
         required("JobId") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type describe_user_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type stop_user_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      firehose_configuration_type() :: %{
-        "StreamArn" => String.t() | atom()
-      }
-      
-  """
-  @type firehose_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_disable_provider_for_user_request() :: %{
-        required("User") => provider_user_identifier_type(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type admin_disable_provider_for_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      code_delivery_details_type() :: %{
-        "AttributeName" => String.t() | atom(),
-        "DeliveryMedium" => list(any()),
-        "Destination" => String.t() | atom()
-      }
-      
-  """
-  @type code_delivery_details_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_risk_type() :: %{
-        "CompromisedCredentialsDetected" => boolean(),
-        "RiskDecision" => list(any()),
-        "RiskLevel" => list(any())
-      }
-      
-  """
-  @type event_risk_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ui_customization_request() :: %{
-        optional("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_ui_customization_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_user_settings_response() :: %{}
-      
-  """
-  @type set_user_settings_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      confirm_device_response() :: %{
-        "UserConfirmationNecessary" => boolean()
-      }
-      
-  """
-  @type confirm_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_recovery_setting_type() :: %{
-        "RecoveryMechanisms" => list(recovery_option_type())
-      }
-      
-  """
-  @type account_recovery_setting_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_pool_client_request() :: %{
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_pool_client_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_auth_event_feedback_request() :: %{
-        required("EventId") => String.t() | atom(),
-        required("FeedbackToken") => String.t() | atom(),
-        required("FeedbackValue") => list(any()),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type update_auth_event_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pool_replicas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "UserPoolReplicas" => list(user_pool_replica_type())
-      }
-      
-  """
-  @type list_user_pool_replicas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      asset_type() :: %{
-        "Bytes" => binary(),
-        "Category" => list(any()),
-        "ColorMode" => list(any()),
-        "Extension" => list(any()),
-        "ResourceId" => String.t() | atom()
-      }
-      
-  """
-  @type asset_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pre_token_generation_version_config_type() :: %{
-        "LambdaArn" => String.t() | atom(),
-        "LambdaVersion" => list(any())
-      }
-      
-  """
-  @type pre_token_generation_version_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_update_device_status_request() :: %{
-        optional("DeviceRememberedStatus") => list(any()),
-        required("DeviceKey") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_update_device_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      software_token_mfa_not_found_exception() :: %{
+      unsupported_user_state_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type software_token_mfa_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type unsupported_user_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_log_delivery_configuration_response() :: %{
-        "LogDeliveryConfiguration" => log_delivery_configuration_type()
+      number_attribute_constraints_type() :: %{
+        "MaxValue" => String.t() | atom(),
+        "MinValue" => String.t() | atom()
       }
       
   """
-  @type get_log_delivery_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      concurrent_modification_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resend_confirmation_code_response() :: %{
-        "CodeDeliveryDetails" => code_delivery_details_type()
-      }
-      
-  """
-  @type resend_confirmation_code_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_user_pool_client_secret_request() :: %{
-        optional("ClientSecret") => String.t() | atom(),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type add_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_reset_user_password_request() :: %{
-        optional("ClientMetadata") => map(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_reset_user_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_link_provider_for_user_response() :: %{}
-      
-  """
-  @type admin_link_provider_for_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_get_device_response() :: %{
-        "Device" => device_type()
-      }
-      
-  """
-  @type admin_get_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_resource_servers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_resource_servers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      email_mfa_config_type() :: %{
-        "Message" => String.t() | atom(),
-        "Subject" => String.t() | atom()
-      }
-      
-  """
-  @type email_mfa_config_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_update_user_attributes_response() :: %{}
-      
-  """
-  @type admin_update_user_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_pool_client_response() :: %{
-        "UserPoolClient" => user_pool_client_type()
-      }
-      
-  """
-  @type update_user_pool_client_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_identity_providers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Providers" => list(provider_description())
-      }
-      
-  """
-  @type list_identity_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_header() :: %{
-        "headerName" => String.t() | atom(),
-        "headerValue" => String.t() | atom()
-      }
-      
-  """
-  @type http_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      enable_software_token_mfa_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type enable_software_token_mfa_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_not_enabled_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_not_enabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_response() :: %{
-        "Group" => group_type()
-      }
-      
-  """
-  @type get_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      refresh_token_rotation_type() :: %{
-        "Feature" => list(any()),
-        "RetryGracePeriodSeconds" => integer()
-      }
-      
-  """
-  @type refresh_token_rotation_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_user_import_job_response() :: %{
-        "UserImportJob" => user_import_job_type()
-      }
-      
-  """
-  @type stop_user_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_pool_replica_response() :: %{
-        "UserPoolReplica" => user_pool_replica_type()
-      }
-      
-  """
-  @type delete_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      notify_configuration_type() :: %{
-        "BlockEmail" => notify_email_type(),
-        "From" => String.t() | atom(),
-        "MfaEmail" => notify_email_type(),
-        "NoActionEmail" => notify_email_type(),
-        "ReplyTo" => String.t() | atom(),
-        "SourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type notify_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_groups_for_user_response() :: %{
-        "Groups" => list(group_type()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type admin_list_groups_for_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_pool_replica_request() :: %{
-        required("RegionName") => String.t() | atom(),
-        required("Status") => list(any()),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      username_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type username_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+  @type number_attribute_constraints_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4128,12 +1524,1438 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      get_ui_customization_response() :: %{
-        "UICustomization" => ui_customization_type()
+      describe_identity_provider_request() :: %{
+        required("ProviderName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type get_ui_customization_response() :: %{(String.t() | atom()) => any()}
+  @type describe_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      risk_configuration_type() :: %{
+        "AccountTakeoverRiskConfiguration" => account_takeover_risk_configuration_type(),
+        "ClientId" => String.t() | atom(),
+        "CompromisedCredentialsRiskConfiguration" => compromised_credentials_risk_configuration_type(),
+        "LastModifiedDate" => non_neg_integer(),
+        "RiskExceptionConfiguration" => risk_exception_configuration_type(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type risk_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_mfa_preference_request() :: %{
+        optional("EmailMfaSettings") => email_mfa_settings_type(),
+        optional("SMSMfaSettings") => sms_mfa_settings_type(),
+        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_set_user_mfa_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_o_auth_flow_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_o_auth_flow_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      device_key_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type device_key_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      device_type() :: %{
+        "DeviceAttributes" => list(attribute_type()),
+        "DeviceCreateDate" => non_neg_integer(),
+        "DeviceKey" => String.t() | atom(),
+        "DeviceLastAuthenticatedDate" => non_neg_integer(),
+        "DeviceLastModifiedDate" => non_neg_integer()
+      }
+      
+  """
+  @type device_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_link_provider_for_user_response() :: %{}
+      
+  """
+  @type admin_link_provider_for_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      compromised_credentials_risk_configuration_type() :: %{
+        "Actions" => compromised_credentials_actions_type(),
+        "EventFilter" => list(list(any())())
+      }
+      
+  """
+  @type compromised_credentials_risk_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_configuration_type() :: %{
+        "BlockEmail" => notify_email_type(),
+        "From" => String.t() | atom(),
+        "MfaEmail" => notify_email_type(),
+        "NoActionEmail" => notify_email_type(),
+        "ReplyTo" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type notify_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_web_authn_registration_response() :: %{}
+      
+  """
+  @type complete_web_authn_registration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_client_secret_response() :: %{}
+      
+  """
+  @type delete_user_pool_client_secret_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      risk_exception_configuration_type() :: %{
+        "BlockedIPRangeList" => list(String.t() | atom()),
+        "SkippedIPRangeList" => list(String.t() | atom())
+      }
+      
+  """
+  @type risk_exception_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signing_certificate_response() :: %{
+        "Certificate" => String.t() | atom()
+      }
+      
+  """
+  @type get_signing_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_pool_mfa_config_response() :: %{
+        "EmailMfaConfiguration" => email_mfa_config_type(),
+        "MfaConfiguration" => list(any()),
+        "SmsMfaConfiguration" => sms_mfa_config_type(),
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
+        "WebAuthnConfiguration" => web_authn_configuration_type()
+      }
+      
+  """
+  @type get_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_import_job_request() :: %{
+        required("JobId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_add_user_to_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_add_user_to_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_request() :: %{
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_client_description() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientName" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type user_pool_client_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_configuration_type() :: %{
+        "BucketArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_password_response() :: %{}
+      
+  """
+  @type admin_set_user_password_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      change_password_request() :: %{
+        optional("PreviousPassword") => String.t() | atom(),
+        required("AccessToken") => String.t() | atom(),
+        required("ProposedPassword") => String.t() | atom()
+      }
+      
+  """
+  @type change_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_device_response() :: %{
+        "UserConfirmationNecessary" => boolean()
+      }
+      
+  """
+  @type confirm_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_managed_login_branding_request() :: %{
+        optional("Assets") => list(asset_type()),
+        optional("Settings") => any(),
+        optional("UseCognitoProvidedValues") => boolean(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_replica_request() :: %{
+        required("RegionName") => String.t() | atom(),
+        required("Status") => list(any()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_in_policy_type() :: %{
+        "AllowedFirstAuthFactors" => list(list(any())())
+      }
+      
+  """
+  @type sign_in_policy_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_reset_user_password_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_reset_user_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
+  """
+  @type update_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_response() :: %{
+        "Group" => group_type()
+      }
+      
+  """
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_request() :: %{
+        optional("ReturnMergedResources") => boolean(),
+        required("ManagedLoginBrandingId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ui_customization_type() :: %{
+        "CSS" => String.t() | atom(),
+        "CSSVersion" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "ImageUrl" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type ui_customization_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_user_auth_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_user_auth_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_response() :: %{}
+      
+  """
+  @type update_user_pool_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_log_delivery_configuration_request() :: %{
+        required("LogConfigurations") => list(log_configuration_type()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type set_log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_sms_lambda_version_config_type() :: %{
+        "LambdaArn" => String.t() | atom(),
+        "LambdaVersion" => list(any())
+      }
+      
+  """
+  @type custom_sms_lambda_version_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type create_terms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_confirm_sign_up_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_confirm_sign_up_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_watch_logs_configuration_type() :: %{
+        "LogGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_watch_logs_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_csv_header_response() :: %{
+        "CSVHeader" => list(String.t() | atom()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type get_csv_header_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_domain_config_type() :: %{
+        "CertificateArn" => String.t() | atom()
+      }
+      
+  """
+  @type custom_domain_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      software_token_mfa_settings_type() :: %{
+        "Enabled" => boolean(),
+        "PreferredMfa" => boolean()
+      }
+      
+  """
+  @type software_token_mfa_settings_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_mfa_preference_request() :: %{
+        optional("EmailMfaSettings") => email_mfa_settings_type(),
+        optional("SMSMfaSettings") => sms_mfa_settings_type(),
+        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
+        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type set_user_mfa_preference_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_header() :: %{
+        "headerName" => String.t() | atom(),
+        "headerValue" => String.t() | atom()
+      }
+      
+  """
+  @type http_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provider_description() :: %{
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "ProviderName" => String.t() | atom(),
+        "ProviderType" => list(any())
+      }
+      
+  """
+  @type provider_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      pre_token_generation_version_config_type() :: %{
+        "LambdaArn" => String.t() | atom(),
+        "LambdaVersion" => list(any())
+      }
+      
+  """
+  @type pre_token_generation_version_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_mfa_preference_response() :: %{}
+      
+  """
+  @type set_user_mfa_preference_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_import_jobs_request() :: %{
+        optional("PaginationToken") => String.t() | atom(),
+        required("MaxResults") => integer(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_add_on_not_enabled_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_pool_add_on_not_enabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analytics_metadata_type() :: %{
+        "AnalyticsEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type analytics_metadata_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resend_confirmation_code_response() :: %{
+        "CodeDeliveryDetails" => code_delivery_details_type()
+      }
+      
+  """
+  @type resend_confirmation_code_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_response() :: %{
+        "UserPool" => user_pool_type()
+      }
+      
+  """
+  @type create_user_pool_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_sign_out_request() :: %{
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type global_sign_out_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sms_configuration_type() :: %{
+        "ExternalId" => String.t() | atom(),
+        "SnsCallerArn" => String.t() | atom(),
+        "SnsRegion" => String.t() | atom()
+      }
+      
+  """
+  @type sms_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_risk_configuration_request() :: %{
+        optional("AccountTakeoverRiskConfiguration") => account_takeover_risk_configuration_type(),
+        optional("ClientId") => String.t() | atom(),
+        optional("CompromisedCredentialsRiskConfiguration") => compromised_credentials_risk_configuration_type(),
+        optional("RiskExceptionConfiguration") => risk_exception_configuration_type(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type set_risk_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_identity_provider_request() :: %{
+        optional("AttributeMapping") => map(),
+        optional("IdpIdentifiers") => list(String.t() | atom()),
+        required("ProviderDetails") => map(),
+        required("ProviderName") => String.t() | atom(),
+        required("ProviderType") => list(any()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_create_user_request() :: %{
+        optional("ClientMetadata") => map(),
+        optional("DesiredDeliveryMediums") => list(list(any())()),
+        optional("ForceAliasCreation") => boolean(),
+        optional("MessageAction") => list(any()),
+        optional("TemporaryPassword") => String.t() | atom(),
+        optional("UserAttributes") => list(attribute_type()),
+        optional("ValidationData") => list(attribute_type()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_in_group_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_users_in_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
+      }
+      
+  """
+  @type create_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      refresh_token_reuse_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type refresh_token_reuse_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_context_data_type() :: %{
+        "EncodedData" => String.t() | atom(),
+        "IpAddress" => String.t() | atom()
+      }
+      
+  """
+  @type user_context_data_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_by_client_request() :: %{
+        optional("ReturnMergedResources") => boolean(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_managed_login_branding_by_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_attribute_type() :: %{
+        "AttributeDataType" => list(any()),
+        "DeveloperOnlyAttribute" => boolean(),
+        "Mutable" => boolean(),
+        "Name" => String.t() | atom(),
+        "NumberAttributeConstraints" => number_attribute_constraints_type(),
+        "Required" => boolean(),
+        "StringAttributeConstraints" => string_attribute_constraints_type()
+      }
+      
+  """
+  @type schema_attribute_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_web_authn_registration_response() :: %{
+        "CredentialCreationOptions" => any()
+      }
+      
+  """
+  @type start_web_authn_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_import_jobs_response() :: %{
+        "PaginationToken" => String.t() | atom(),
+        "UserImportJobs" => list(user_import_job_type())
+      }
+      
+  """
+  @type list_user_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_user_auth_events_response() :: %{
+        "AuthEvents" => list(auth_event_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_user_auth_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resource_server_response() :: %{
+        "ResourceServer" => resource_server_type()
+      }
+      
+  """
+  @type create_resource_server_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_device_status_response() :: %{}
+      
+  """
+  @type admin_update_device_status_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_origin_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_origin_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      forgot_password_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("SecretHash") => String.t() | atom(),
+        optional("UserContextData") => user_context_data_type(),
+        required("ClientId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type forgot_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_groups_for_user_response() :: %{
+        "Groups" => list(group_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_groups_for_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_user_attributes_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("UserAttributes") => list(attribute_type()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_update_user_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_sign_out_response() :: %{}
+      
+  """
+  @type global_sign_out_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_type() :: %{
+        "Failover" => failover_type()
+      }
+      
+  """
+  @type routing_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_mismatch_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type code_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_attributes_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("AccessToken") => String.t() | atom(),
+        required("UserAttributes") => list(attribute_type())
+      }
+      
+  """
+  @type update_user_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_user_pool_configuration_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_user_pool_configuration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sms_mfa_config_type() :: %{
+        "SmsAuthenticationMessage" => String.t() | atom(),
+        "SmsConfiguration" => sms_configuration_type()
+      }
+      
+  """
+  @type sms_mfa_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      enable_software_token_mfa_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type enable_software_token_mfa_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compromised_credentials_actions_type() :: %{
+        "EventAction" => list(any())
+      }
+      
+  """
+  @type compromised_credentials_actions_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
+  """
+  @type create_user_pool_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_delete_user_attributes_response() :: %{}
+      
+  """
+  @type admin_delete_user_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_log_delivery_configuration_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_log_delivery_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      challenge_response_type() :: %{
+        "ChallengeName" => list(any()),
+        "ChallengeResponse" => list(any())
+      }
+      
+  """
+  @type challenge_response_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_mfa_settings_type() :: %{
+        "Enabled" => boolean()
+      }
+      
+  """
+  @type web_authn_mfa_settings_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type update_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_delivery_configuration_type() :: %{
+        "LogConfigurations" => list(log_configuration_type()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type log_delivery_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
+  """
+  @type create_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revoke_token_response() :: %{}
+      
+  """
+  @type revoke_token_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_terms_request() :: %{
+        optional("Links") => map(),
+        required("ClientId") => String.t() | atom(),
+        required("Enforcement") => list(any()),
+        required("TermsName") => String.t() | atom(),
+        required("TermsSource") => list(any()),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_forgot_password_response() :: %{}
+      
+  """
+  @type confirm_forgot_password_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_attributes_response() :: %{
+        "CodeDeliveryDetailsList" => list(code_delivery_details_type())
+      }
+      
+  """
+  @type update_user_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_enable_user_request() :: %{
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_enable_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_settings_request() :: %{
+        required("AccessToken") => String.t() | atom(),
+        required("MFAOptions") => list(mfa_option_type())
+      }
+      
+  """
+  @type set_user_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_servers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceServers" => list(resource_server_type())
+      }
+      
+  """
+  @type list_resource_servers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
+  """
+  @type describe_user_pool_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_server_request() :: %{
+        required("Identifier") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_auth_factors_response() :: %{
+        "ConfiguredUserAuthFactors" => list(list(any())()),
+        "PreferredMfaSetting" => String.t() | atom(),
+        "UserMFASettingList" => list(String.t() | atom()),
+        "Username" => String.t() | atom()
+      }
+      
+  """
+  @type get_user_auth_factors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      string_attribute_constraints_type() :: %{
+        "MaxLength" => String.t() | atom(),
+        "MinLength" => String.t() | atom()
+      }
+      
+  """
+  @type string_attribute_constraints_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_lambda_response_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_lambda_response_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      username_configuration_type() :: %{
+        "CaseSensitive" => boolean()
+      }
+      
+  """
+  @type username_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_credential_description() :: %{
+        "AuthenticatorAttachment" => String.t() | atom(),
+        "AuthenticatorTransports" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "CredentialId" => String.t() | atom(),
+        "FriendlyCredentialName" => String.t() | atom(),
+        "RelyingPartyId" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_credential_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_credential_not_supported_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_credential_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_tokens_from_refresh_token_response() :: %{
+        "AuthenticationResult" => authentication_result_type()
+      }
+      
+  """
+  @type get_tokens_from_refresh_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
+      }
+      
+  """
+  @type describe_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_create_user_response() :: %{
+        "User" => user_type()
+      }
+      
+  """
+  @type admin_create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_device_status_request() :: %{
+        optional("DeviceRememberedStatus") => list(any()),
+        required("AccessToken") => String.t() | atom(),
+        required("DeviceKey") => String.t() | atom()
+      }
+      
+  """
+  @type update_device_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_identity_provider_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_identity_provider_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tier_change_not_allowed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type tier_change_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_replicas_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UserPoolReplicas" => list(user_pool_replica_type())
+      }
+      
+  """
+  @type list_user_pool_replicas_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      message_template_type() :: %{
+        "EmailMessage" => String.t() | atom(),
+        "EmailSubject" => String.t() | atom(),
+        "SMSMessage" => String.t() | atom()
+      }
+      
+  """
+  @type message_template_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_password_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_configuration_missing_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_configuration_missing_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_get_device_request() :: %{
+        required("DeviceKey") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_get_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4154,6 +2976,319 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      delete_web_authn_credential_request() :: %{
+        required("AccessToken") => String.t() | atom(),
+        required("CredentialId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_web_authn_credential_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_enable_user_response() :: %{}
+      
+  """
+  @type admin_enable_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_disable_provider_for_user_request() :: %{
+        required("User") => provider_user_identifier_type(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type admin_disable_provider_for_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_devices_response() :: %{
+        "Devices" => list(device_type()),
+        "PaginationToken" => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_token_type_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_token_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_pool_mfa_config_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_pool_mfa_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_reset_user_password_response() :: %{}
+      
+  """
+  @type admin_reset_user_password_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_client_secrets_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_client_secrets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_user_global_sign_out_request() :: %{
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_user_global_sign_out_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_server_type() :: %{
+        "Identifier" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Scopes" => list(resource_server_scope_type()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type resource_server_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      asset_type() :: %{
+        "Bytes" => binary(),
+        "Category" => list(any()),
+        "ColorMode" => list(any()),
+        "Extension" => list(any()),
+        "ResourceId" => String.t() | atom()
+      }
+      
+  """
+  @type asset_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      respond_to_auth_challenge_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t() | atom()
+      }
+      
+  """
+  @type respond_to_auth_challenge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_authorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type not_authorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_risk_configuration_response() :: %{
+        "RiskConfiguration" => risk_configuration_type()
+      }
+      
+  """
+  @type set_risk_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      new_device_metadata_type() :: %{
+        "DeviceGroupKey" => String.t() | atom(),
+        "DeviceKey" => String.t() | atom()
+      }
+      
+  """
+  @type new_device_metadata_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      notify_email_type() :: %{
+        "HtmlBody" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "TextBody" => String.t() | atom()
+      }
+      
+  """
+  @type notify_email_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_in_group_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user_type())
+      }
+      
+  """
+  @type list_users_in_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_replica_response() :: %{
+        "UserPoolReplica" => user_pool_replica_type()
+      }
+      
+  """
+  @type delete_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_user_pool_client_secret_request() :: %{
+        optional("ClientSecret") => String.t() | atom(),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type add_user_pool_client_secret_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_group_response() :: %{
+        "Group" => group_type()
+      }
+      
+  """
+  @type update_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_feedback_type() :: %{
+        "FeedbackDate" => non_neg_integer(),
+        "FeedbackValue" => list(any()),
+        "Provider" => String.t() | atom()
+      }
+      
+  """
+  @type event_feedback_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_domain_request() :: %{
+        optional("CustomDomainConfig") => custom_domain_config_type(),
+        optional("ManagedLoginVersion") => integer(),
+        optional("Routing") => routing_type(),
+        required("Domain") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_client_type() :: %{
+        "AccessTokenValidity" => integer(),
+        "AllowedOAuthFlows" => list(list(any())()),
+        "AllowedOAuthFlowsUserPoolClient" => boolean(),
+        "AllowedOAuthScopes" => list(String.t() | atom()),
+        "AnalyticsConfiguration" => analytics_configuration_type(),
+        "AuthSessionValidity" => integer(),
+        "CallbackURLs" => list(String.t() | atom()),
+        "ClientId" => String.t() | atom(),
+        "ClientName" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "DefaultRedirectURI" => String.t() | atom(),
+        "EnablePropagateAdditionalUserContextData" => boolean(),
+        "EnableTokenRevocation" => boolean(),
+        "ExplicitAuthFlows" => list(list(any())()),
+        "IdTokenValidity" => integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "LogoutURLs" => list(String.t() | atom()),
+        "PreventUserExistenceErrors" => list(any()),
+        "ReadAttributes" => list(String.t() | atom()),
+        "RefreshTokenRotation" => refresh_token_rotation_type(),
+        "RefreshTokenValidity" => integer(),
+        "SupportedIdentityProviders" => list(String.t() | atom()),
+        "TokenValidityUnits" => token_validity_units_type(),
+        "UserPoolId" => String.t() | atom(),
+        "WriteAttributes" => list(String.t() | atom())
+      }
+      
+  """
+  @type user_pool_client_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       revoke_token_request() :: %{
         optional("ClientSecret") => String.t() | atom(),
         required("ClientId") => String.t() | atom(),
@@ -4167,24 +3302,848 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
+      identity_provider_type() :: %{
+        "AttributeMapping" => map(),
+        "CreationDate" => non_neg_integer(),
+        "IdpIdentifiers" => list(String.t() | atom()),
+        "LastModifiedDate" => non_neg_integer(),
+        "ProviderDetails" => map(),
+        "ProviderName" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "UserPoolId" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type identity_provider_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      associate_software_token_request() :: %{
-        optional("AccessToken") => String.t() | atom(),
-        optional("Session") => String.t() | atom()
+      delete_user_pool_client_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type associate_software_token_request() :: %{(String.t() | atom()) => any()}
+  @type delete_user_pool_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mfa_option_type() :: %{
+        "AttributeName" => String.t() | atom(),
+        "DeliveryMedium" => list(any())
+      }
+      
+  """
+  @type mfa_option_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_configuration_type() :: %{
+        "FactorConfiguration" => list(any()),
+        "RelyingPartyId" => String.t() | atom(),
+        "UserVerification" => list(any())
+      }
+      
+  """
+  @type web_authn_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expired_code_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type expired_code_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_identity_provider_request() :: %{
+        required("ProviderName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_identity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_client_secrets_response() :: %{
+        "ClientSecrets" => list(client_secret_descriptor_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_client_secrets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sign_up_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ClientMetadata") => map(),
+        optional("Password") => String.t() | atom(),
+        optional("SecretHash") => String.t() | atom(),
+        optional("UserAttributes") => list(attribute_type()),
+        optional("UserContextData") => user_context_data_type(),
+        optional("ValidationData") => list(attribute_type()),
+        required("ClientId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type sign_up_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_domain_request() :: %{
+        required("Domain") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      context_data_type() :: %{
+        "EncodedData" => String.t() | atom(),
+        "HttpHeaders" => list(http_header()),
+        "IpAddress" => String.t() | atom(),
+        "ServerName" => String.t() | atom(),
+        "ServerPath" => String.t() | atom()
+      }
+      
+  """
+  @type context_data_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_get_device_response() :: %{
+        "Device" => device_type()
+      }
+      
+  """
+  @type admin_get_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_resource_server_request() :: %{
+        optional("Scopes") => list(resource_server_scope_type()),
+        required("Identifier") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_resource_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_pool_mfa_config_request() :: %{
+        optional("EmailMfaConfiguration") => email_mfa_config_type(),
+        optional("MfaConfiguration") => list(any()),
+        optional("SmsMfaConfiguration") => sms_mfa_config_type(),
+        optional("SoftwareTokenMfaConfiguration") => software_token_mfa_config_type(),
+        optional("WebAuthnConfiguration") => web_authn_configuration_type(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type set_user_pool_mfa_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_domain_response() :: %{}
+      
+  """
+  @type delete_user_pool_domain_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_user_pool_mfa_config_response() :: %{
+        "EmailMfaConfiguration" => email_mfa_config_type(),
+        "MfaConfiguration" => list(any()),
+        "SmsMfaConfiguration" => sms_mfa_config_type(),
+        "SoftwareTokenMfaConfiguration" => software_token_mfa_config_type(),
+        "WebAuthnConfiguration" => web_authn_configuration_type()
+      }
+      
+  """
+  @type set_user_pool_mfa_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type group_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_domain_request() :: %{
+        required("Domain") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_web_authn_registration_request() :: %{
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type start_web_authn_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_client_mismatch_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_client_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_configuration_type() :: %{
+        "CloudWatchLogsConfiguration" => cloud_watch_logs_configuration_type(),
+        "EventSource" => list(any()),
+        "FirehoseConfiguration" => firehose_configuration_type(),
+        "LogLevel" => list(any()),
+        "S3Configuration" => s3_configuration_type()
+      }
+      
+  """
+  @type log_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      verify_software_token_response() :: %{
+        "Session" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type verify_software_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_authn_credential_response() :: %{}
+      
+  """
+  @type delete_web_authn_credential_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_history_policy_violation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type password_history_policy_violation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pool_replicas_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_user_pool_replicas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_terms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terms_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type terms_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provider_user_identifier_type() :: %{
+        "ProviderAttributeName" => String.t() | atom(),
+        "ProviderAttributeValue" => String.t() | atom(),
+        "ProviderName" => String.t() | atom()
+      }
+      
+  """
+  @type provider_user_identifier_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_respond_to_auth_challenge_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("ChallengeResponses") => map(),
+        optional("ClientMetadata") => map(),
+        optional("ContextData") => context_data_type(),
+        optional("Session") => String.t() | atom(),
+        required("ChallengeName") => list(any()),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type admin_respond_to_auth_challenge_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_auth_factors_request() :: %{
+        required("AccessToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_auth_factors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_signing_certificate_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_signing_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_login_branding_type() :: %{
+        "Assets" => list(asset_type()),
+        "CreationDate" => non_neg_integer(),
+        "LastModifiedDate" => non_neg_integer(),
+        "ManagedLoginBrandingId" => String.t() | atom(),
+        "Settings" => any(),
+        "UseCognitoProvidedValues" => boolean(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type managed_login_branding_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      auth_event_type() :: %{
+        "ChallengeResponses" => list(challenge_response_type()),
+        "CreationDate" => non_neg_integer(),
+        "EventContextData" => event_context_data_type(),
+        "EventFeedback" => event_feedback_type(),
+        "EventId" => String.t() | atom(),
+        "EventResponse" => list(any()),
+        "EventRisk" => event_risk_type(),
+        "EventType" => list(any())
+      }
+      
+  """
+  @type auth_event_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_email_role_access_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_email_role_access_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_replica_request() :: %{
+        optional("UserPoolTags") => map(),
+        required("RegionName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_initiate_auth_request() :: %{
+        optional("AnalyticsMetadata") => analytics_metadata_type(),
+        optional("AuthParameters") => map(),
+        optional("ClientMetadata") => map(),
+        optional("ContextData") => context_data_type(),
+        optional("Session") => String.t() | atom(),
+        required("AuthFlow") => list(any()),
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type admin_initiate_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      inbound_federation_lambda_type() :: %{
+        "LambdaArn" => String.t() | atom(),
+        "LambdaVersion" => list(any())
+      }
+      
+  """
+  @type inbound_federation_lambda_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        "PaginationToken" => String.t() | atom(),
+        "Users" => list(user_type())
+      }
+      
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_resource_server_request() :: %{
+        optional("Scopes") => list(resource_server_scope_type()),
+        required("Identifier") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_resource_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_user_pools_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "UserPools" => list(user_pool_description_type())
+      }
+      
+  """
+  @type list_user_pools_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_replica_type() :: %{
+        "RegionName" => String.t() | atom(),
+        "Role" => list(any()),
+        "Status" => list(any()),
+        "UserPoolArn" => String.t() | atom()
+      }
+      
+  """
+  @type user_pool_replica_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_domain_request() :: %{
+        optional("CustomDomainConfig") => custom_domain_config_type(),
+        optional("ManagedLoginVersion") => integer(),
+        optional("Routing") => routing_type(),
+        required("Domain") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_pool_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      feature_unavailable_in_tier_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type feature_unavailable_in_tier_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_devices_request() :: %{
+        optional("Limit") => integer(),
+        optional("PaginationToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_reset_required_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type password_reset_required_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_domain_response() :: %{
+        "CloudFrontDomain" => String.t() | atom(),
+        "ManagedLoginVersion" => integer(),
+        "Routing" => routing_type()
+      }
+      
+  """
+  @type update_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_replica_request() :: %{
+        required("RegionName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_replica_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terms_description_type() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Enforcement" => list(any()),
+        "LastModifiedDate" => non_neg_integer(),
+        "TermsId" => String.t() | atom(),
+        "TermsName" => String.t() | atom()
+      }
+      
+  """
+  @type terms_description_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      confirm_sign_up_response() :: %{
+        "Session" => String.t() | atom()
+      }
+      
+  """
+  @type confirm_sign_up_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_attribute_verification_code_request() :: %{
+        optional("ClientMetadata") => map(),
+        required("AccessToken") => String.t() | atom(),
+        required("AttributeName") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_attribute_verification_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      change_password_response() :: %{}
+      
+  """
+  @type change_password_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_takeover_actions_type() :: %{
+        "HighAction" => account_takeover_action_type(),
+        "LowAction" => account_takeover_action_type(),
+        "MediumAction" => account_takeover_action_type()
+      }
+      
+  """
+  @type account_takeover_actions_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_user_attributes_response() :: %{}
+      
+  """
+  @type admin_update_user_attributes_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_managed_login_branding_request() :: %{
+        optional("Assets") => list(asset_type()),
+        optional("ManagedLoginBrandingId") => String.t() | atom(),
+        optional("Settings") => any(),
+        optional("UseCognitoProvidedValues") => boolean(),
+        optional("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_not_confirmed_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_not_confirmed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_response() :: %{
+        "Groups" => list(group_type()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_remove_user_from_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_remove_user_from_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analytics_configuration_type() :: %{
+        "ApplicationArn" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "UserDataShared" => boolean()
+      }
+      
+  """
+  @type analytics_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_terms_response() :: %{
+        "Terms" => terms_type()
+      }
+      
+  """
+  @type describe_terms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_resource_server_request() :: %{
+        required("Identifier") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_resource_server_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_provider_by_identifier_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
+  """
+  @type get_identity_provider_by_identifier_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      mfa_method_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type mfa_method_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_risk_configuration_response() :: %{
+        "RiskConfiguration" => risk_configuration_type()
+      }
+      
+  """
+  @type describe_risk_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom(),
+        "reasonCode" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      failover_type() :: %{
+        "PrimaryRoute53HealthCheckId" => String.t() | atom(),
+        "SecondaryRegion" => String.t() | atom()
+      }
+      
+  """
+  @type failover_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4208,688 +4167,45 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      mfa_option_type() :: %{
-        "AttributeName" => String.t() | atom(),
-        "DeliveryMedium" => list(any())
+      event_risk_type() :: %{
+        "CompromisedCredentialsDetected" => boolean(),
+        "RiskDecision" => list(any()),
+        "RiskLevel" => list(any())
       }
       
   """
-  @type mfa_option_type() :: %{(String.t() | atom()) => any()}
+  @type event_risk_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      code_delivery_failure_exception() :: %{
-        "message" => String.t() | atom()
+      create_managed_login_branding_response() :: %{
+        "ManagedLoginBranding" => managed_login_branding_type()
       }
       
   """
-  @type code_delivery_failure_exception() :: %{(String.t() | atom()) => any()}
+  @type create_managed_login_branding_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_resource_server_response() :: %{
-        "ResourceServer" => resource_server_type()
+      get_log_delivery_configuration_response() :: %{
+        "LogDeliveryConfiguration" => log_delivery_configuration_type()
       }
       
   """
-  @type create_resource_server_response() :: %{(String.t() | atom()) => any()}
+  @type get_log_delivery_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      forgot_password_response() :: %{
-        "CodeDeliveryDetails" => code_delivery_details_type()
-      }
+      update_auth_event_feedback_response() :: %{}
       
   """
-  @type forgot_password_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_managed_login_branding_request() :: %{
-        optional("Assets") => list(asset_type()),
-        optional("Settings") => any(),
-        optional("UseCognitoProvidedValues") => boolean(),
-        required("ClientId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type create_managed_login_branding_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema_attribute_type() :: %{
-        "AttributeDataType" => list(any()),
-        "DeveloperOnlyAttribute" => boolean(),
-        "Mutable" => boolean(),
-        "Name" => String.t() | atom(),
-        "NumberAttributeConstraints" => number_attribute_constraints_type(),
-        "Required" => boolean(),
-        "StringAttributeConstraints" => string_attribute_constraints_type()
-      }
-      
-  """
-  @type schema_attribute_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_web_authn_credentials_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_web_authn_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_authn_origin_not_allowed_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type web_authn_origin_not_allowed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_takeover_action_type() :: %{
-        "EventAction" => list(any()),
-        "Notify" => boolean()
-      }
-      
-  """
-  @type account_takeover_action_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_identity_provider_request() :: %{
-        optional("AttributeMapping") => map(),
-        optional("IdpIdentifiers") => list(String.t() | atom()),
-        optional("ProviderDetails") => map(),
-        required("ProviderName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type update_identity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      context_data_type() :: %{
-        "EncodedData" => String.t() | atom(),
-        "HttpHeaders" => list(http_header()),
-        "IpAddress" => String.t() | atom(),
-        "ServerName" => String.t() | atom(),
-        "ServerPath" => String.t() | atom()
-      }
-      
-  """
-  @type context_data_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_get_device_request() :: %{
-        required("DeviceKey") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_get_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_response() :: %{
-        "Groups" => list(group_type()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_initiate_auth_response() :: %{
-        "AuthenticationResult" => authentication_result_type(),
-        "AvailableChallenges" => list(list(any())()),
-        "ChallengeName" => list(any()),
-        "ChallengeParameters" => map(),
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type admin_initiate_auth_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      failover_type() :: %{
-        "PrimaryRoute53HealthCheckId" => String.t() | atom(),
-        "SecondaryRegion" => String.t() | atom()
-      }
-      
-  """
-  @type failover_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_request() :: %{
-        required("GroupName") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      confirm_sign_up_request() :: %{
-        optional("AnalyticsMetadata") => analytics_metadata_type(),
-        optional("ClientMetadata") => map(),
-        optional("ForceAliasCreation") => boolean(),
-        optional("SecretHash") => String.t() | atom(),
-        optional("Session") => String.t() | atom(),
-        optional("UserContextData") => user_context_data_type(),
-        required("ClientId") => String.t() | atom(),
-        required("ConfirmationCode") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type confirm_sign_up_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      respond_to_auth_challenge_response() :: %{
-        "AuthenticationResult" => authentication_result_type(),
-        "ChallengeName" => list(any()),
-        "ChallengeParameters" => map(),
-        "Session" => String.t() | atom()
-      }
-      
-  """
-  @type respond_to_auth_challenge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_terms_response() :: %{
-        "Terms" => terms_type()
-      }
-      
-  """
-  @type describe_terms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_forget_device_request() :: %{
-        required("DeviceKey") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_forget_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_authn_credential_request() :: %{
-        required("AccessToken") => String.t() | atom(),
-        required("CredentialId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_web_authn_credential_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_risk_configuration_response() :: %{
-        "RiskConfiguration" => risk_configuration_type()
-      }
-      
-  """
-  @type set_risk_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_web_authn_credentials_response() :: %{
-        "Credentials" => list(web_authn_credential_description()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_web_authn_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_sms_role_trust_relationship_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_sms_role_trust_relationship_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_list_user_auth_events_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_list_user_auth_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      user_pool_type() :: %{
-        "Status" => list(any()),
-        "EmailConfiguration" => email_configuration_type(),
-        "AutoVerifiedAttributes" => list(list(any())()),
-        "UsernameAttributes" => list(list(any())()),
-        "CreationDate" => non_neg_integer(),
-        "Policies" => user_pool_policy_type(),
-        "EmailVerificationSubject" => String.t() | atom(),
-        "KeyConfiguration" => key_configuration_type(),
-        "UsernameConfiguration" => username_configuration_type(),
-        "SmsConfiguration" => sms_configuration_type(),
-        "LambdaConfig" => lambda_config_type(),
-        "UserPoolTier" => list(any()),
-        "IssuerConfiguration" => issuer_configuration_type(),
-        "MfaConfiguration" => list(any()),
-        "UserAttributeUpdateSettings" => user_attribute_update_settings_type(),
-        "Id" => String.t() | atom(),
-        "VerificationMessageTemplate" => verification_message_template_type(),
-        "CustomDomain" => String.t() | atom(),
-        "EmailConfigurationFailure" => String.t() | atom(),
-        "UserPoolTags" => map(),
-        "UserPoolAddOns" => user_pool_add_ons_type(),
-        "EmailVerificationMessage" => String.t() | atom(),
-        "LastModifiedDate" => non_neg_integer(),
-        "AliasAttributes" => list(list(any())()),
-        "DeletionProtection" => list(any()),
-        "SmsConfigurationFailure" => String.t() | atom(),
-        "SmsAuthenticationMessage" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "SmsVerificationMessage" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "EstimatedNumberOfUsers" => integer(),
-        "DeviceConfiguration" => device_configuration_type(),
-        "Domain" => String.t() | atom(),
-        "AdminCreateUserConfig" => admin_create_user_config_type(),
-        "AccountRecoverySetting" => account_recovery_setting_type(),
-        "SchemaAttributes" => list(schema_attribute_type())
-      }
-      
-  """
-  @type user_pool_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terms_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type terms_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      precondition_not_met_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_pool_replica_response() :: %{
-        "UserPoolReplica" => user_pool_replica_type()
-      }
-      
-  """
-  @type create_user_pool_replica_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_delete_user_attributes_response() :: %{}
-      
-  """
-  @type admin_delete_user_attributes_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      username_configuration_type() :: %{
-        "CaseSensitive" => boolean()
-      }
-      
-  """
-  @type username_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      account_takeover_actions_type() :: %{
-        "HighAction" => account_takeover_action_type(),
-        "LowAction" => account_takeover_action_type(),
-        "MediumAction" => account_takeover_action_type()
-      }
-      
-  """
-  @type account_takeover_actions_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_set_user_mfa_preference_request() :: %{
-        optional("EmailMfaSettings") => email_mfa_settings_type(),
-        optional("SMSMfaSettings") => sms_mfa_settings_type(),
-        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_set_user_mfa_preference_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_user_import_job_request() :: %{
-        required("JobId") => String.t() | atom(),
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_user_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_signing_certificate_request() :: %{
-        required("UserPoolId") => String.t() | atom()
-      }
-      
-  """
-  @type get_signing_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_password_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      device_key_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type device_key_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_group_response() :: %{
-        "Group" => group_type()
-      }
-      
-  """
-  @type update_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      risk_configuration_type() :: %{
-        "AccountTakeoverRiskConfiguration" => account_takeover_risk_configuration_type(),
-        "ClientId" => String.t() | atom(),
-        "CompromisedCredentialsRiskConfiguration" => compromised_credentials_risk_configuration_type(),
-        "LastModifiedDate" => non_neg_integer(),
-        "RiskExceptionConfiguration" => risk_exception_configuration_type(),
-        "UserPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type risk_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      verification_message_template_type() :: %{
-        "DefaultEmailOption" => list(any()),
-        "EmailMessage" => String.t() | atom(),
-        "EmailMessageByLink" => String.t() | atom(),
-        "EmailSubject" => String.t() | atom(),
-        "EmailSubjectByLink" => String.t() | atom(),
-        "SmsMessage" => String.t() | atom()
-      }
-      
-  """
-  @type verification_message_template_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analytics_configuration_type() :: %{
-        "ApplicationArn" => String.t() | atom(),
-        "ApplicationId" => String.t() | atom(),
-        "ExternalId" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "UserDataShared" => boolean()
-      }
-      
-  """
-  @type analytics_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_response() :: %{
-        "Group" => group_type()
-      }
-      
-  """
-  @type create_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      mfa_method_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type mfa_method_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      complete_web_authn_registration_response() :: %{}
-      
-  """
-  @type complete_web_authn_registration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_terms_response() :: %{
-        "Terms" => terms_type()
-      }
-      
-  """
-  @type update_terms_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sms_configuration_type() :: %{
-        "ExternalId" => String.t() | atom(),
-        "SnsCallerArn" => String.t() | atom(),
-        "SnsRegion" => String.t() | atom()
-      }
-      
-  """
-  @type sms_configuration_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_user_pool_clients_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "UserPoolClients" => list(user_pool_client_description())
-      }
-      
-  """
-  @type list_user_pool_clients_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provider_description() :: %{
-        "CreationDate" => non_neg_integer(),
-        "LastModifiedDate" => non_neg_integer(),
-        "ProviderName" => String.t() | atom(),
-        "ProviderType" => list(any())
-      }
-      
-  """
-  @type provider_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      admin_delete_user_request() :: %{
-        required("UserPoolId") => String.t() | atom(),
-        required("Username") => String.t() | atom()
-      }
-      
-  """
-  @type admin_delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_user_mfa_preference_request() :: %{
-        optional("EmailMfaSettings") => email_mfa_settings_type(),
-        optional("SMSMfaSettings") => sms_mfa_settings_type(),
-        optional("SoftwareTokenMfaSettings") => software_token_mfa_settings_type(),
-        optional("WebAuthnMfaSettings") => web_authn_mfa_settings_type(),
-        required("AccessToken") => String.t() | atom()
-      }
-      
-  """
-  @type set_user_mfa_preference_request() :: %{(String.t() | atom()) => any()}
+  @type update_auth_event_feedback_response() :: %{}
 
   @typedoc """
 
@@ -4906,47 +4222,94 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
-      get_device_response() :: %{
-        "Device" => device_type()
+      user_attribute_update_settings_type() :: %{
+        "AttributesRequireVerificationBeforeUpdate" => list(list(any())())
       }
       
   """
-  @type get_device_response() :: %{(String.t() | atom()) => any()}
+  @type user_attribute_update_settings_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_user_attribute_verification_code_response() :: %{
-        "CodeDeliveryDetails" => code_delivery_details_type()
+      associate_software_token_response() :: %{
+        "SecretCode" => String.t() | atom(),
+        "Session" => String.t() | atom()
       }
       
   """
-  @type get_user_attribute_verification_code_response() :: %{(String.t() | atom()) => any()}
+  @type associate_software_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_resource_servers_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceServers" => list(resource_server_type())
+      user_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type list_resource_servers_response() :: %{(String.t() | atom()) => any()}
+  @type user_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_user_import_job_request() :: %{
-        required("JobId") => String.t() | atom(),
+      admin_respond_to_auth_challenge_response() :: %{
+        "AuthenticationResult" => authentication_result_type(),
+        "ChallengeName" => list(any()),
+        "ChallengeParameters" => map(),
+        "Session" => String.t() | atom()
+      }
+      
+  """
+  @type admin_respond_to_auth_challenge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_add_ons_type() :: %{
+        "AdvancedSecurityAdditionalFlows" => advanced_security_additional_flows_type(),
+        "AdvancedSecurityMode" => list(any())
+      }
+      
+  """
+  @type user_pool_add_ons_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ui_customization_request() :: %{
+        optional("ClientId") => String.t() | atom(),
         required("UserPoolId") => String.t() | atom()
       }
       
   """
-  @type start_user_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type get_ui_customization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_device_status_response() :: %{}
+      
+  """
+  @type update_device_status_response() :: %{}
 
   @typedoc """
 
@@ -4968,1368 +4331,2005 @@ defmodule AWS.CognitoIdentityProvider do
   """
   @type domain_description_type() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      set_ui_customization_response() :: %{
+        "UICustomization" => ui_customization_type()
+      }
+      
+  """
+  @type set_ui_customization_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_device_status_request() :: %{
+        optional("DeviceRememberedStatus") => list(any()),
+        required("DeviceKey") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_update_device_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_type() :: %{
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "GroupName" => String.t() | atom(),
+        "LastModifiedDate" => non_neg_integer(),
+        "Precedence" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type group_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_identity_provider_response() :: %{
+        "IdentityProvider" => identity_provider_type()
+      }
+      
+  """
+  @type describe_identity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_terms_request() :: %{
+        optional("Enforcement") => list(any()),
+        optional("Links") => map(),
+        optional("TermsName") => String.t() | atom(),
+        optional("TermsSource") => list(any()),
+        required("TermsId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_import_job_response() :: %{
+        "UserImportJob" => user_import_job_type()
+      }
+      
+  """
+  @type create_user_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terms_type() :: %{
+        "ClientId" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Enforcement" => list(any()),
+        "LastModifiedDate" => non_neg_integer(),
+        "Links" => map(),
+        "TermsId" => String.t() | atom(),
+        "TermsName" => String.t() | atom(),
+        "TermsSource" => list(any()),
+        "UserPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type terms_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_confirm_sign_up_response() :: %{}
+      
+  """
+  @type admin_confirm_sign_up_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_failed_attempts_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_failed_attempts_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_identity_providers_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Providers" => list(provider_description())
+      }
+      
+  """
+  @type list_identity_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_disable_user_response() :: %{}
+      
+  """
+  @type admin_disable_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_config_type() :: %{
+        "CreateAuthChallenge" => String.t() | atom(),
+        "CustomEmailSender" => custom_email_lambda_version_config_type(),
+        "CustomMessage" => String.t() | atom(),
+        "CustomSMSSender" => custom_sms_lambda_version_config_type(),
+        "DefineAuthChallenge" => String.t() | atom(),
+        "InboundFederation" => inbound_federation_lambda_type(),
+        "KMSKeyID" => String.t() | atom(),
+        "PostAuthentication" => String.t() | atom(),
+        "PostConfirmation" => String.t() | atom(),
+        "PreAuthentication" => String.t() | atom(),
+        "PreSignUp" => String.t() | atom(),
+        "PreTokenGeneration" => String.t() | atom(),
+        "PreTokenGenerationConfig" => pre_token_generation_version_config_type(),
+        "UserMigration" => String.t() | atom(),
+        "VerifyAuthChallengeResponse" => String.t() | atom()
+      }
+      
+  """
+  @type lambda_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      code_delivery_failure_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type code_delivery_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_password_request() :: %{
+        optional("Permanent") => boolean(),
+        required("Password") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_set_user_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_pool_domain_response() :: %{
+        "CloudFrontDomain" => String.t() | atom(),
+        "ManagedLoginVersion" => integer(),
+        "Routing" => routing_type()
+      }
+      
+  """
+  @type create_user_pool_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      device_configuration_type() :: %{
+        "ChallengeRequiredOnNewDevice" => boolean(),
+        "DeviceOnlyRememberedOnUserPrompt" => boolean()
+      }
+      
+  """
+  @type device_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_identity_provider_by_identifier_request() :: %{
+        required("IdpIdentifier") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_identity_provider_by_identifier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_set_user_mfa_preference_response() :: %{}
+      
+  """
+  @type admin_set_user_mfa_preference_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      password_policy_type() :: %{
+        "MinimumLength" => integer(),
+        "PasswordHistorySize" => integer(),
+        "RequireLowercase" => boolean(),
+        "RequireNumbers" => boolean(),
+        "RequireSymbols" => boolean(),
+        "RequireUppercase" => boolean(),
+        "TemporaryPasswordValidityDays" => integer()
+      }
+      
+  """
+  @type password_policy_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_sms_role_access_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_sms_role_access_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      scope_does_not_exist_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type scope_does_not_exist_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_pool_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_provider_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_provider_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      complete_web_authn_registration_request() :: %{
+        required("AccessToken") => String.t() | atom(),
+        required("Credential") => any()
+      }
+      
+  """
+  @type complete_web_authn_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_ui_customization_request() :: %{
+        optional("CSS") => String.t() | atom(),
+        optional("ClientId") => String.t() | atom(),
+        optional("ImageFile") => binary(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type set_ui_customization_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_import_job_request() :: %{
+        required("CloudWatchLogsRoleArn") => String.t() | atom(),
+        required("JobName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_response() :: %{
+        "Group" => group_type()
+      }
+      
+  """
+  @type get_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_list_groups_for_user_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_list_groups_for_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_pool_client_response() :: %{
+        "UserPoolClient" => user_pool_client_type()
+      }
+      
+  """
+  @type update_user_pool_client_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      token_validity_units_type() :: %{
+        "AccessToken" => list(any()),
+        "IdToken" => list(any()),
+        "RefreshToken" => list(any())
+      }
+      
+  """
+  @type token_validity_units_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      admin_update_auth_event_feedback_request() :: %{
+        required("EventId") => String.t() | atom(),
+        required("FeedbackValue") => list(any()),
+        required("UserPoolId") => String.t() | atom(),
+        required("Username") => String.t() | atom()
+      }
+      
+  """
+  @type admin_update_auth_event_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      email_configuration_type() :: %{
+        "ConfigurationSet" => String.t() | atom(),
+        "EmailSendingAccount" => list(any()),
+        "From" => String.t() | atom(),
+        "ReplyToEmailAddress" => String.t() | atom(),
+        "SourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type email_configuration_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_client_request() :: %{
+        required("ClientId") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_pool_client_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_authn_credentials_response() :: %{
+        "Credentials" => list(web_authn_credential_description()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_web_authn_credentials_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_response() :: %{
+        "UserPool" => user_pool_type()
+      }
+      
+  """
+  @type describe_user_pool_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Precedence") => integer(),
+        optional("RoleArn") => String.t() | atom(),
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_resource_servers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_resource_servers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_lambda_validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_lambda_validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_relying_party_mismatch_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_relying_party_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_pool_request() :: %{
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_pool_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      software_token_mfa_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type software_token_mfa_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      alias_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type alias_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      user_pool_tagging_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type user_pool_tagging_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_authn_challenge_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type web_authn_challenge_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      email_mfa_config_type() :: %{
+        "Message" => String.t() | atom(),
+        "Subject" => String.t() | atom()
+      }
+      
+  """
+  @type email_mfa_config_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_request() :: %{
+        required("GroupName") => String.t() | atom(),
+        required("UserPoolId") => String.t() | atom()
+      }
+      
+  """
+  @type get_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      forget_device_request() :: %{
+        optional("AccessToken") => String.t() | atom(),
+        required("DeviceKey") => String.t() | atom()
+      }
+      
+  """
+  @type forget_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_attributes_request() :: %{
+        required("AccessToken") => String.t() | atom(),
+        required("UserAttributeNames") => list(String.t() | atom())
+      }
+      
+  """
+  @type delete_user_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      precondition_not_met_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type precondition_not_met_exception() :: %{(String.t() | atom()) => any()}
+
   @type add_custom_attributes_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
           | user_import_in_progress_exception()
 
   @type add_user_pool_client_secret_errors() ::
-          limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
 
   @type admin_add_user_to_group_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_confirm_sign_up_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
+          user_lambda_validation_exception()
           | too_many_failed_attempts_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type admin_create_user_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_password_exception()
-          | precondition_not_met_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | username_exists_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          precondition_not_met_exception()
           | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
+          | code_delivery_failure_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
           | unsupported_user_state_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
+          | username_exists_exception()
 
   @type admin_delete_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_delete_user_attributes_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_disable_provider_for_user_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          alias_exists_exception()
           | user_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | alias_exists_exception()
 
   @type admin_disable_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_enable_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_forget_device_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_get_device_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_get_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_initiate_auth_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | mfa_method_not_found_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | invalid_email_role_access_policy_exception()
-          | unsupported_operation_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | mfa_method_not_found_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | invalid_user_pool_configuration_exception()
+          | unsupported_operation_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type admin_link_provider_for_user_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          alias_exists_exception()
           | user_not_found_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | alias_exists_exception()
 
   @type admin_list_devices_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_list_groups_for_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_list_user_auth_events_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | user_pool_add_on_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_remove_user_from_group_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_reset_user_password_errors() ::
-          unexpected_lambda_exception()
+          user_lambda_validation_exception()
+          | invalid_sms_role_access_policy_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
           | internal_error_exception()
+          | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
           | invalid_sms_role_trust_relationship_exception()
           | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
-          | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
-          | invalid_email_role_access_policy_exception()
 
   @type admin_respond_to_auth_challenge_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | mfa_method_not_found_exception()
-          | invalid_password_exception()
-          | invalid_sms_role_trust_relationship_exception()
+          alias_exists_exception()
           | software_token_mfa_not_found_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
           | user_lambda_validation_exception()
-          | expired_code_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
-          | password_history_policy_violation_exception()
-          | invalid_email_role_access_policy_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | mfa_method_not_found_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | password_history_policy_violation_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | invalid_user_pool_configuration_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type admin_set_user_mfa_preference_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
 
   @type admin_set_user_password_errors() ::
-          internal_error_exception()
-          | invalid_password_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
+          | password_history_policy_violation_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | invalid_password_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | password_history_policy_violation_exception()
 
   @type admin_set_user_settings_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
 
   @type admin_update_auth_event_feedback_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | user_pool_add_on_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_update_device_status_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type admin_update_user_attributes_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          alias_exists_exception()
           | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type admin_user_global_sign_out_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type associate_software_token_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | software_token_mfa_not_found_exception()
+          software_token_mfa_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | resource_not_found_exception()
+          | internal_error_exception()
           | forbidden_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | concurrent_modification_exception()
 
   @type change_password_errors() ::
-          internal_error_exception()
-          | invalid_password_exception()
-          | limit_exceeded_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
-          | forbidden_exception()
-          | password_history_policy_violation_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | password_history_policy_violation_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type complete_web_authn_registration_errors() ::
-          internal_error_exception()
-          | web_authn_origin_not_allowed_exception()
-          | limit_exceeded_exception()
-          | web_authn_not_enabled_exception()
+          web_authn_challenge_not_found_exception()
+          | web_authn_relying_party_mismatch_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | web_authn_client_mismatch_exception()
           | not_authorized_exception()
           | web_authn_credential_not_supported_exception()
-          | web_authn_client_mismatch_exception()
-          | password_reset_required_exception()
+          | web_authn_origin_not_allowed_exception()
+          | operation_not_enabled_exception()
+          | web_authn_not_enabled_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | web_authn_relying_party_mismatch_exception()
-          | forbidden_exception()
-          | web_authn_challenge_not_found_exception()
 
   @type confirm_device_errors() ::
-          internal_error_exception()
-          | device_key_exists_exception()
-          | invalid_password_exception()
-          | username_exists_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
-          | forbidden_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | device_key_exists_exception()
+          | too_many_requests_exception()
+          | username_exists_exception()
 
   @type confirm_forgot_password_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_password_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | expired_code_exception()
-          | invalid_lambda_response_exception()
+          user_lambda_validation_exception()
+          | too_many_failed_attempts_exception()
           | user_not_found_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
-          | too_many_requests_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
           | forbidden_exception()
           | password_history_policy_violation_exception()
-          | user_not_confirmed_exception()
-          | too_many_failed_attempts_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type confirm_sign_up_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          alias_exists_exception()
           | user_lambda_validation_exception()
-          | expired_code_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
-          | forbidden_exception()
           | too_many_failed_attempts_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type create_group_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | group_exists_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type create_identity_provider_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
+          duplicate_provider_exception()
           | invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | duplicate_provider_exception()
 
   @type create_managed_login_branding_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | managed_login_branding_exists_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | managed_login_branding_exists_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type create_resource_server_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type create_terms_errors() ::
-          internal_error_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | terms_exists_exception()
-          | limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type create_user_import_job_errors() ::
-          internal_error_exception()
-          | precondition_not_met_exception()
-          | limit_exceeded_exception()
+          precondition_not_met_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type create_user_pool_errors() ::
-          internal_error_exception()
+          user_pool_tagging_exception()
+          | invalid_sms_role_access_policy_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | tier_change_not_allowed_exception()
           | invalid_sms_role_trust_relationship_exception()
           | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | not_authorized_exception()
-          | user_pool_tagging_exception()
-          | feature_unavailable_in_tier_exception()
-          | tier_change_not_allowed_exception()
-          | invalid_sms_role_access_policy_exception()
           | too_many_requests_exception()
-          | invalid_email_role_access_policy_exception()
 
   @type create_user_pool_client_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
+          scope_does_not_exist_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | invalid_o_auth_flow_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
-          | scope_does_not_exist_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | invalid_o_auth_flow_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type create_user_pool_domain_errors() ::
-          internal_error_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
           | limit_exceeded_exception()
           | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | feature_unavailable_in_tier_exception()
-          | resource_not_found_exception()
 
   @type create_user_pool_replica_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
+          user_pool_tagging_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_pool_tagging_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type delete_group_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type delete_identity_provider_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | unsupported_identity_provider_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | unsupported_identity_provider_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type delete_managed_login_branding_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type delete_resource_server_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type delete_terms_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type delete_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type delete_user_attributes_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type delete_user_pool_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
           | user_import_in_progress_exception()
 
   @type delete_user_pool_client_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type delete_user_pool_client_secret_errors() ::
-          limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | internal_server_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type delete_user_pool_domain_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | concurrent_modification_exception()
 
   @type delete_user_pool_replica_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type delete_web_authn_credential_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type describe_identity_provider_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_managed_login_branding_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_managed_login_branding_by_client_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_resource_server_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_risk_configuration_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | user_pool_add_on_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_terms_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_user_import_job_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_user_pool_errors() ::
-          internal_error_exception()
+          user_pool_tagging_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_pool_tagging_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_user_pool_client_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type describe_user_pool_domain_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
 
   @type forget_device_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type forgot_password_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
+          | code_delivery_failure_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
           | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_csv_header_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_device_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type get_group_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_identity_provider_by_identifier_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_log_delivery_configuration_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_signing_certificate_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | operation_not_enabled_exception()
           | resource_not_found_exception()
 
   @type get_tokens_from_refresh_token_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
+          user_lambda_validation_exception()
           | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | refresh_token_reuse_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | refresh_token_reuse_exception()
-          | forbidden_exception()
 
   @type get_ui_customization_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type get_user_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type get_user_attribute_verification_code_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | forbidden_exception()
-          | invalid_email_role_access_policy_exception()
+          | code_delivery_failure_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type get_user_auth_factors_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type get_user_pool_mfa_config_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type global_sign_out_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type initiate_auth_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | forbidden_exception()
-          | invalid_email_role_access_policy_exception()
-          | unsupported_operation_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | invalid_user_pool_configuration_exception()
+          | unsupported_operation_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type list_devices_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type list_groups_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_identity_providers_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_resource_servers_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_terms_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_user_import_jobs_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_user_pool_client_secrets_errors() ::
-          limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | internal_server_exception()
+          invalid_parameter_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
 
   @type list_user_pool_clients_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_user_pool_replicas_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_user_pools_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
           | too_many_requests_exception()
 
   @type list_users_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_users_in_group_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type list_web_authn_credentials_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | password_reset_required_exception()
-          | too_many_requests_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type resend_confirmation_code_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
+          | code_delivery_failure_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
           | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   @type respond_to_auth_challenge_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | mfa_method_not_found_exception()
-          | invalid_password_exception()
-          | invalid_sms_role_trust_relationship_exception()
+          alias_exists_exception()
           | software_token_mfa_not_found_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
           | user_lambda_validation_exception()
-          | expired_code_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
-          | forbidden_exception()
-          | password_history_policy_violation_exception()
-          | invalid_email_role_access_policy_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | mfa_method_not_found_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | password_history_policy_violation_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | invalid_user_pool_configuration_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type revoke_token_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | too_many_requests_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
-          | unauthorized_exception()
-          | unsupported_operation_exception()
           | unsupported_token_type_exception()
+          | unsupported_operation_exception()
+          | operation_not_enabled_exception()
+          | unauthorized_exception()
+          | too_many_requests_exception()
 
   @type set_log_delivery_configuration_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | not_authorized_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
+          | not_authorized_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type set_risk_configuration_errors() ::
-          internal_error_exception()
-          | code_delivery_failure_exception()
+          code_delivery_failure_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | user_pool_add_on_not_enabled_exception()
+          | internal_error_exception()
+          | invalid_email_role_access_policy_exception()
           | not_authorized_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | invalid_email_role_access_policy_exception()
 
   @type set_ui_customization_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type set_user_mfa_preference_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | forbidden_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
 
   @type set_user_pool_mfa_config_errors() ::
-          internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | concurrent_modification_exception()
+          invalid_sms_role_access_policy_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
-          | invalid_sms_role_access_policy_exception()
+          | invalid_sms_role_trust_relationship_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type set_user_settings_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | forbidden_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
 
   @type sign_up_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_password_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | limit_exceeded_exception()
-          | username_exists_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_lambda_validation_exception()
-          | invalid_lambda_response_exception()
-          | resource_not_found_exception()
+          user_lambda_validation_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
+          | code_delivery_failure_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | forbidden_exception()
           | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | invalid_password_exception()
+          | invalid_lambda_response_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
+          | username_exists_exception()
 
   @type start_user_import_job_errors() ::
-          internal_error_exception()
-          | precondition_not_met_exception()
+          precondition_not_met_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type start_web_authn_registration_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | web_authn_not_enabled_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
           | not_authorized_exception()
           | web_authn_configuration_missing_exception()
-          | password_reset_required_exception()
+          | operation_not_enabled_exception()
+          | web_authn_not_enabled_exception()
+          | limit_exceeded_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type stop_user_import_job_errors() ::
-          internal_error_exception()
-          | precondition_not_met_exception()
+          precondition_not_met_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type tag_resource_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type untag_resource_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type update_auth_event_feedback_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | user_pool_add_on_not_enabled_exception()
+          | internal_error_exception()
           | not_authorized_exception()
-          | user_not_found_exception()
+          | user_pool_add_on_not_enabled_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type update_device_status_errors() ::
-          internal_error_exception()
+          user_not_found_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
-          | user_not_found_exception()
+          | internal_error_exception()
+          | user_not_confirmed_exception()
+          | forbidden_exception()
           | password_reset_required_exception()
+          | not_authorized_exception()
+          | invalid_user_pool_configuration_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | user_not_confirmed_exception()
 
   @type update_group_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type update_identity_provider_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | unsupported_identity_provider_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | unsupported_identity_provider_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type update_managed_login_branding_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type update_resource_server_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type update_terms_errors() ::
-          internal_error_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | terms_exists_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type update_user_attributes_errors() ::
-          unexpected_lambda_exception()
-          | internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | code_delivery_failure_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          alias_exists_exception()
           | user_lambda_validation_exception()
-          | expired_code_exception()
-          | invalid_lambda_response_exception()
-          | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
-          | forbidden_exception()
-          | invalid_email_role_access_policy_exception()
+          | code_delivery_failure_exception()
+          | user_not_found_exception()
+          | unexpected_lambda_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | invalid_email_role_access_policy_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | invalid_lambda_response_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
 
   @type update_user_pool_errors() ::
-          internal_error_exception()
-          | invalid_sms_role_trust_relationship_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | user_pool_tagging_exception()
-          | feature_unavailable_in_tier_exception()
-          | tier_change_not_allowed_exception()
-          | resource_not_found_exception()
+          user_pool_tagging_exception()
           | invalid_sms_role_access_policy_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | feature_unavailable_in_tier_exception()
           | invalid_email_role_access_policy_exception()
+          | not_authorized_exception()
+          | tier_change_not_allowed_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | invalid_sms_role_trust_relationship_exception()
+          | too_many_requests_exception()
           | user_import_in_progress_exception()
+          | concurrent_modification_exception()
 
   @type update_user_pool_client_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
+          scope_does_not_exist_exception()
           | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | invalid_o_auth_flow_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
-          | scope_does_not_exist_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
+          | invalid_o_auth_flow_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type update_user_pool_domain_errors() ::
-          internal_error_exception()
-          | concurrent_modification_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | feature_unavailable_in_tier_exception()
+          | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
+          | concurrent_modification_exception()
 
   @type update_user_pool_replica_errors() ::
-          internal_error_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
+          invalid_parameter_exception()
+          | internal_error_exception()
           | not_authorized_exception()
+          | operation_not_enabled_exception()
           | resource_not_found_exception()
           | too_many_requests_exception()
 
   @type verify_software_token_errors() ::
-          internal_error_exception()
-          | enable_software_token_mfa_exception()
-          | software_token_mfa_not_found_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | invalid_user_pool_configuration_exception()
-          | not_authorized_exception()
+          software_token_mfa_not_found_exception()
           | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
-          | too_many_requests_exception()
-          | forbidden_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | not_authorized_exception()
+          | enable_software_token_mfa_exception()
+          | invalid_user_pool_configuration_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
 
   @type verify_user_attribute_errors() ::
-          internal_error_exception()
-          | limit_exceeded_exception()
-          | invalid_parameter_exception()
-          | operation_not_enabled_exception()
-          | not_authorized_exception()
-          | expired_code_exception()
+          alias_exists_exception()
           | user_not_found_exception()
-          | password_reset_required_exception()
-          | resource_not_found_exception()
-          | code_mismatch_exception()
-          | too_many_requests_exception()
-          | alias_exists_exception()
-          | forbidden_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
           | user_not_confirmed_exception()
+          | forbidden_exception()
+          | password_reset_required_exception()
+          | expired_code_exception()
+          | not_authorized_exception()
+          | code_mismatch_exception()
+          | operation_not_enabled_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
+          | too_many_requests_exception()
 
   def metadata do
     %{
@@ -6375,7 +6375,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, add_custom_attributes_errors()}
   def add_custom_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCustomAttributes", input, options)
   end
@@ -6392,7 +6393,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, add_user_pool_client_secret_errors()}
   def add_user_pool_client_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddUserPoolClientSecret", input, options)
   end
@@ -6425,7 +6427,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_add_user_to_group_errors()}
   def admin_add_user_to_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminAddUserToGroup", input, options)
   end
@@ -6465,7 +6468,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_confirm_sign_up_errors()}
   def admin_confirm_sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminConfirmSignUp", input, options)
   end
@@ -6541,7 +6545,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_create_user_errors()}
   def admin_create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminCreateUser", input, options)
   end
@@ -6570,7 +6575,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_delete_user_errors()}
   def admin_delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDeleteUser", input, options)
   end
@@ -6604,7 +6610,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_delete_user_attributes_errors()}
   def admin_delete_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDeleteUserAttributes", input, options)
   end
@@ -6671,7 +6678,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_disable_provider_for_user_errors()}
   def admin_disable_provider_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDisableProviderForUser", input, options)
   end
@@ -6704,7 +6712,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_disable_user_errors()}
   def admin_disable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminDisableUser", input, options)
   end
@@ -6734,7 +6743,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_enable_user_errors()}
   def admin_enable_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminEnableUser", input, options)
   end
@@ -6769,7 +6779,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_forget_device_errors()}
   def admin_forget_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminForgetDevice", input, options)
   end
@@ -6801,7 +6812,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_get_device_errors()}
   def admin_get_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminGetDevice", input, options)
   end
@@ -6837,7 +6849,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_get_user_errors()}
   def admin_get_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminGetUser", input, options)
   end
@@ -6900,7 +6913,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_initiate_auth_errors()}
   def admin_initiate_auth(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminInitiateAuth", input, options)
   end
@@ -6946,7 +6960,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_link_provider_for_user_errors()}
   def admin_link_provider_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminLinkProviderForUser", input, options)
   end
@@ -6983,7 +6998,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_devices_errors()}
   def admin_list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListDevices", input, options)
   end
@@ -7017,7 +7033,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_groups_for_user_errors()}
   def admin_list_groups_for_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListGroupsForUser", input, options)
   end
@@ -7050,7 +7067,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_list_user_auth_events_errors()}
   def admin_list_user_auth_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminListUserAuthEvents", input, options)
   end
@@ -7085,7 +7103,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_remove_user_from_group_errors()}
   def admin_remove_user_from_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminRemoveUserFromGroup", input, options)
   end
@@ -7154,7 +7173,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_reset_user_password_errors()}
   def admin_reset_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminResetUserPassword", input, options)
   end
@@ -7221,7 +7241,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_respond_to_auth_challenge_errors()}
   def admin_respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminRespondToAuthChallenge", input, options)
   end
@@ -7259,7 +7280,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_mfa_preference_errors()}
   def admin_set_user_mfa_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserMFAPreference", input, options)
   end
@@ -7327,7 +7349,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_password_errors()}
   def admin_set_user_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserPassword", input, options)
   end
@@ -7361,7 +7384,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_set_user_settings_errors()}
   def admin_set_user_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminSetUserSettings", input, options)
   end
@@ -7410,7 +7434,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_auth_event_feedback_errors()}
   def admin_update_auth_event_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateAuthEventFeedback", input, options)
   end
@@ -7449,7 +7474,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_device_status_errors()}
   def admin_update_device_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateDeviceStatus", input, options)
   end
@@ -7516,7 +7542,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_update_user_attributes_errors()}
   def admin_update_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUpdateUserAttributes", input, options)
   end
@@ -7580,7 +7607,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, admin_user_global_sign_out_errors()}
   def admin_user_global_sign_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdminUserGlobalSignOut", input, options)
   end
@@ -7614,7 +7642,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, associate_software_token_errors()}
   def associate_software_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSoftwareToken", input, options)
   end
@@ -7639,7 +7668,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, change_password_errors()}
   def change_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ChangePassword", input, options)
   end
@@ -7657,7 +7687,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, complete_web_authn_registration_errors()}
   def complete_web_authn_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CompleteWebAuthnRegistration", input, options)
   end
@@ -7689,7 +7720,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_device_errors()}
   def confirm_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmDevice", input, options)
   end
@@ -7713,7 +7745,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_forgot_password_errors()}
   def confirm_forgot_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmForgotPassword", input, options)
   end
@@ -7751,7 +7784,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, confirm_sign_up_errors()}
   def confirm_sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ConfirmSignUp", input, options)
   end
@@ -7783,7 +7817,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -7818,7 +7853,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_identity_provider_errors()}
   def create_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIdentityProvider", input, options)
   end
@@ -7870,7 +7906,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_managed_login_branding_errors()}
   def create_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateManagedLoginBranding", input, options)
   end
@@ -7904,7 +7941,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_resource_server_errors()}
   def create_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateResourceServer", input, options)
   end
@@ -7954,7 +7992,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_terms_errors()}
   def create_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTerms", input, options)
   end
@@ -7987,7 +8026,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_import_job_errors()}
   def create_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserImportJob", input, options)
   end
@@ -8048,7 +8088,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_errors()}
   def create_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPool", input, options)
   end
@@ -8089,7 +8130,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_client_errors()}
   def create_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPoolClient", input, options)
   end
@@ -8137,7 +8179,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_domain_errors()}
   def create_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPoolDomain", input, options)
   end
@@ -8172,7 +8215,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, create_user_pool_replica_errors()}
   def create_user_pool_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUserPoolReplica", input, options)
   end
@@ -8208,7 +8252,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -8242,7 +8287,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_identity_provider_errors()}
   def delete_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIdentityProvider", input, options)
   end
@@ -8277,7 +8323,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_managed_login_branding_errors()}
   def delete_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteManagedLoginBranding", input, options)
   end
@@ -8312,7 +8359,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_resource_server_errors()}
   def delete_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceServer", input, options)
   end
@@ -8341,7 +8389,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_terms_errors()}
   def delete_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTerms", input, options)
   end
@@ -8369,7 +8418,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -8398,7 +8448,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_attributes_errors()}
   def delete_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserAttributes", input, options)
   end
@@ -8430,7 +8481,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_errors()}
   def delete_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPool", input, options)
   end
@@ -8447,7 +8499,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_client_errors()}
   def delete_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolClient", input, options)
   end
@@ -8463,7 +8516,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_client_secret_errors()}
   def delete_user_pool_client_secret(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolClientSecret", input, options)
   end
@@ -8482,7 +8536,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_domain_errors()}
   def delete_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolDomain", input, options)
   end
@@ -8514,7 +8569,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_user_pool_replica_errors()}
   def delete_user_pool_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUserPoolReplica", input, options)
   end
@@ -8541,7 +8597,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, delete_web_authn_credential_errors()}
   def delete_web_authn_credential(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebAuthnCredential", input, options)
   end
@@ -8556,7 +8613,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_identity_provider_errors()}
   def describe_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeIdentityProvider", input, options)
   end
@@ -8572,7 +8630,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_managed_login_branding_errors()}
   def describe_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedLoginBranding", input, options)
   end
@@ -8592,7 +8651,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_managed_login_branding_by_client_errors()}
   def describe_managed_login_branding_by_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeManagedLoginBrandingByClient", input, options)
   end
@@ -8608,7 +8668,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_resource_server_errors()}
   def describe_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourceServer", input, options)
   end
@@ -8629,7 +8690,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_risk_configuration_errors()}
   def describe_risk_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRiskConfiguration", input, options)
   end
@@ -8660,7 +8722,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_terms_errors()}
   def describe_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTerms", input, options)
   end
@@ -8676,7 +8739,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_import_job_errors()}
   def describe_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserImportJob", input, options)
   end
@@ -8709,7 +8773,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_errors()}
   def describe_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPool", input, options)
   end
@@ -8744,7 +8809,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_client_errors()}
   def describe_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPoolClient", input, options)
   end
@@ -8774,7 +8840,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, describe_user_pool_domain_errors()}
   def describe_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUserPoolDomain", input, options)
   end
@@ -8803,7 +8870,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, forget_device_errors()}
   def forget_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ForgetDevice", input, options)
   end
@@ -8866,7 +8934,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, forgot_password_errors()}
   def forgot_password(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ForgotPassword", input, options)
   end
@@ -8904,7 +8973,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_csv_header_errors()}
   def get_csv_header(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCSVHeader", input, options)
   end
@@ -8934,7 +9004,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_device_errors()}
   def get_device(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetDevice", input, options)
   end
@@ -8966,7 +9037,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_group_errors()}
   def get_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroup", input, options)
   end
@@ -8988,7 +9060,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_identity_provider_by_identifier_errors()}
   def get_identity_provider_by_identifier(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIdentityProviderByIdentifier", input, options)
   end
@@ -9021,7 +9094,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_log_delivery_configuration_errors()}
   def get_log_delivery_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLogDeliveryConfiguration", input, options)
   end
@@ -9059,7 +9133,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_signing_certificate_errors()}
   def get_signing_certificate(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSigningCertificate", input, options)
   end
@@ -9082,7 +9157,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_tokens_from_refresh_token_errors()}
   def get_tokens_from_refresh_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTokensFromRefreshToken", input, options)
   end
@@ -9104,7 +9180,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_ui_customization_errors()}
   def get_ui_customization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUICustomization", input, options)
   end
@@ -9129,7 +9206,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_errors()}
   def get_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUser", input, options)
   end
@@ -9186,7 +9264,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_attribute_verification_code_errors()}
   def get_user_attribute_verification_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserAttributeVerificationCode", input, options)
   end
@@ -9221,7 +9300,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_auth_factors_errors()}
   def get_user_auth_factors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserAuthFactors", input, options)
   end
@@ -9269,7 +9349,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, get_user_pool_mfa_config_errors()}
   def get_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserPoolMfaConfig", input, options)
   end
@@ -9329,7 +9410,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, global_sign_out_errors()}
   def global_sign_out(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GlobalSignOut", input, options)
   end
@@ -9385,7 +9467,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, initiate_auth_errors()}
   def initiate_auth(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InitiateAuth", input, options)
   end
@@ -9415,7 +9498,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_devices_errors()}
   def list_devices(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDevices", input, options)
   end
@@ -9444,7 +9528,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -9476,7 +9561,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_identity_providers_errors()}
   def list_identity_providers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIdentityProviders", input, options)
   end
@@ -9508,7 +9594,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_resource_servers_errors()}
   def list_resource_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListResourceServers", input, options)
   end
@@ -9525,7 +9612,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -9554,7 +9642,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_terms_errors()}
   def list_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTerms", input, options)
   end
@@ -9589,7 +9678,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_import_jobs_errors()}
   def list_user_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserImportJobs", input, options)
   end
@@ -9608,7 +9698,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pool_client_secrets_errors()}
   def list_user_pool_client_secrets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPoolClientSecrets", input, options)
   end
@@ -9641,7 +9732,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pool_clients_errors()}
   def list_user_pool_clients(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPoolClients", input, options)
   end
@@ -9675,7 +9767,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pool_replicas_errors()}
   def list_user_pool_replicas(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPoolReplicas", input, options)
   end
@@ -9704,7 +9797,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_user_pools_errors()}
   def list_user_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUserPools", input, options)
   end
@@ -9740,7 +9834,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -9772,7 +9867,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_users_in_group_errors()}
   def list_users_in_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsersInGroup", input, options)
   end
@@ -9798,7 +9894,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, list_web_authn_credentials_errors()}
   def list_web_authn_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebAuthnCredentials", input, options)
   end
@@ -9854,7 +9951,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, resend_confirmation_code_errors()}
   def resend_confirmation_code(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResendConfirmationCode", input, options)
   end
@@ -9914,7 +10012,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, respond_to_auth_challenge_errors()}
   def respond_to_auth_challenge(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RespondToAuthChallenge", input, options)
   end
@@ -9942,7 +10041,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, revoke_token_errors()}
   def revoke_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RevokeToken", input, options)
   end
@@ -9962,7 +10062,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_log_delivery_configuration_errors()}
   def set_log_delivery_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetLogDeliveryConfiguration", input, options)
   end
@@ -10009,7 +10110,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_risk_configuration_errors()}
   def set_risk_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRiskConfiguration", input, options)
   end
@@ -10048,7 +10150,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_ui_customization_errors()}
   def set_ui_customization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUICustomization", input, options)
   end
@@ -10090,7 +10193,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_mfa_preference_errors()}
   def set_user_mfa_preference(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserMFAPreference", input, options)
   end
@@ -10134,7 +10238,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_pool_mfa_config_errors()}
   def set_user_pool_mfa_config(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserPoolMfaConfig", input, options)
   end
@@ -10164,7 +10269,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, set_user_settings_errors()}
   def set_user_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetUserSettings", input, options)
   end
@@ -10221,7 +10327,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, sign_up_errors()}
   def sign_up(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SignUp", input, options)
   end
@@ -10240,7 +10347,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, start_user_import_job_errors()}
   def start_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartUserImportJob", input, options)
   end
@@ -10264,7 +10372,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, start_web_authn_registration_errors()}
   def start_web_authn_registration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartWebAuthnRegistration", input, options)
   end
@@ -10282,7 +10391,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, stop_user_import_job_errors()}
   def stop_user_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopUserImportJob", input, options)
   end
@@ -10320,7 +10430,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -10334,7 +10445,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -10376,7 +10488,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_auth_event_feedback_errors()}
   def update_auth_event_feedback(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAuthEventFeedback", input, options)
   end
@@ -10411,7 +10524,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_device_status_errors()}
   def update_device_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDeviceStatus", input, options)
   end
@@ -10444,7 +10558,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -10479,7 +10594,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_identity_provider_errors()}
   def update_identity_provider(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIdentityProvider", input, options)
   end
@@ -10524,7 +10640,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_managed_login_branding_errors()}
   def update_managed_login_branding(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateManagedLoginBranding", input, options)
   end
@@ -10559,7 +10676,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_resource_server_errors()}
   def update_resource_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateResourceServer", input, options)
   end
@@ -10609,7 +10727,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_terms_errors()}
   def update_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTerms", input, options)
   end
@@ -10666,7 +10785,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_attributes_errors()}
   def update_user_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserAttributes", input, options)
   end
@@ -10736,7 +10856,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_errors()}
   def update_user_pool(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPool", input, options)
   end
@@ -10781,7 +10902,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_client_errors()}
   def update_user_pool_client(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolClient", input, options)
   end
@@ -10840,7 +10962,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_domain_errors()}
   def update_user_pool_domain(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolDomain", input, options)
   end
@@ -10874,7 +10997,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, update_user_pool_replica_errors()}
   def update_user_pool_replica(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUserPoolReplica", input, options)
   end
@@ -10902,7 +11026,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, verify_software_token_errors()}
   def verify_software_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifySoftwareToken", input, options)
   end
@@ -10937,7 +11062,8 @@ defmodule AWS.CognitoIdentityProvider do
           | {:error, term()}
           | {:error, verify_user_attribute_errors()}
   def verify_user_attribute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "VerifyUserAttribute", input, options)
   end

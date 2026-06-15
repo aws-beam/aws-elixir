@@ -24,172 +24,21 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      create_pentest_output() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "assets" => assets(),
+      membership_summary() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "applicationId" => String.t() | atom(),
+        "config" => list(),
         "createdAt" => [non_neg_integer()],
-        "excludeRiskTypes" => list(list(any())()),
-        "logConfig" => cloud_watch_log(),
-        "pentestId" => [String.t() | atom()],
-        "serviceRole" => String.t() | atom(),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_pentest_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      git_hub_integration_input() :: %{
-        "code" => String.t() | atom(),
-        "organizationName" => [String.t() | atom()],
-        "state" => String.t() | atom()
-      }
-
-  """
-  @type git_hub_integration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pentest() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "assets" => assets(),
-        "codeRemediationStrategy" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "excludeRiskTypes" => list(list(any())()),
-        "logConfig" => cloud_watch_log(),
-        "networkTrafficConfig" => network_traffic_config(),
-        "pentestId" => [String.t() | atom()],
-        "serviceRole" => String.t() | atom(),
-        "title" => [String.t() | atom()],
+        "createdBy" => [String.t() | atom()],
+        "memberType" => list(any()),
+        "membershipId" => String.t() | atom(),
+        "metadata" => list(),
         "updatedAt" => [non_neg_integer()],
-        "vpcConfig" => vpc_config()
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type pentest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact_metadata_item() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "artifactId" => String.t() | atom(),
-        "fileName" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type artifact_metadata_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      task() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "categories" => list(category()),
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "executionStatus" => list(any()),
-        "logsLocation" => log_location(),
-        "pentestId" => [String.t() | atom()],
-        "pentestJobId" => [String.t() | atom()],
-        "riskType" => list(any()),
-        "targetEndpoint" => endpoint(),
-        "taskId" => [String.t() | atom()],
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_agent_space_input() :: %{
-        optional("awsResources") => aws_resources(),
-        optional("codeReviewSettings") => code_review_settings(),
-        optional("description") => [String.t() | atom()],
-        optional("name") => String.t() | atom(),
-        optional("targetDomainIds") => list([String.t() | atom()]()),
-        required("agentSpaceId") => String.t() | atom()
-      }
-
-  """
-  @type update_agent_space_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_agent_spaces_input() :: %{
-        required("agentSpaceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_agent_spaces_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_review_job_tasks_input() :: %{
-        optional("categoryName") => [String.t() | atom()],
-        optional("codeReviewJobId") => [String.t() | atom()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("stepName") => list(any()),
-        required("agentSpaceId") => [String.t() | atom()]
-      }
-
-  """
-  @type list_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_review_jobs_for_code_review_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewId") => [String.t() | atom()]
-      }
-
-  """
-  @type list_code_review_jobs_for_code_review_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      agent_space_summary() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "name" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type agent_space_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_membership_response() :: %{}
-
-  """
-  @type delete_membership_response() :: %{}
+  @type membership_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -201,99 +50,6 @@ defmodule AWS.SecurityAgent do
 
   """
   @type batch_get_target_domains_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memberships_request() :: %{
-        optional("maxResults") => integer(),
-        optional("memberType") => list(any()),
-        optional("nextToken") => String.t() | atom(),
-        required("agentSpaceId") => String.t() | atom(),
-        required("applicationId") => String.t() | atom()
-      }
-
-  """
-  @type list_memberships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_location() :: %{
-        "filePath" => [String.t() | atom()],
-        "label" => [String.t() | atom()],
-        "lineEnd" => [integer()],
-        "lineStart" => [integer()]
-      }
-
-  """
-  @type code_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_pentest_input() :: %{
-        optional("assets") => assets(),
-        optional("codeRemediationStrategy") => list(any()),
-        optional("excludeRiskTypes") => list(list(any())()),
-        optional("logConfig") => cloud_watch_log(),
-        optional("networkTrafficConfig") => network_traffic_config(),
-        optional("serviceRole") => String.t() | atom(),
-        optional("vpcConfig") => vpc_config(),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("title") => [String.t() | atom()]
-      }
-
-  """
-  @type create_pentest_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_artifact_input() :: %{
-        required("agentSpaceId") => String.t() | atom(),
-        required("artifactId") => String.t() | atom()
-      }
-
-  """
-  @type get_artifact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_artifact_output() :: %{}
-
-  """
-  @type delete_artifact_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_spaces_output() :: %{
-        "agentSpaceSummaries" => list(agent_space_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_agent_spaces_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_review_jobs_output() :: %{
-        "codeReviewJobs" => list(code_review_job()),
-        "notFound" => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_code_review_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -311,106 +67,50 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      update_code_review_input() :: %{
-        optional("assets") => assets(),
-        optional("codeRemediationStrategy") => list(any()),
-        optional("logConfig") => cloud_watch_log(),
-        optional("serviceRole") => String.t() | atom(),
-        optional("title") => [String.t() | atom()],
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewId") => [String.t() | atom()]
+      integrated_resource_input_item() :: %{
+        "capabilities" => list(),
+        "resource" => list()
       }
 
   """
-  @type update_code_review_input() :: %{(String.t() | atom()) => any()}
+  @type integrated_resource_input_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_artifact_input() :: %{
+      document_info() :: %{
+        "artifactId" => [String.t() | atom()],
+        "s3Location" => [String.t() | atom()]
+      }
+
+  """
+  @type document_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_pentests_output() :: %{
+        "notFound" => list([String.t() | atom()]()),
+        "pentests" => list(pentest())
+      }
+
+  """
+  @type batch_get_pentests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_integrated_resources_input() :: %{
         required("agentSpaceId") => String.t() | atom(),
-        required("artifactId") => String.t() | atom()
+        required("integrationId") => String.t() | atom(),
+        required("items") => list(integrated_resource_input_item())
       }
 
   """
-  @type delete_artifact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_reviews_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_code_reviews_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      id_c_configuration() :: %{
-        "idcApplicationArn" => String.t() | atom(),
-        "idcInstanceArn" => String.t() | atom()
-      }
-
-  """
-  @type id_c_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      finding_summary() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "codeReviewId" => [String.t() | atom()],
-        "codeReviewJobId" => [String.t() | atom()],
-        "confidence" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "findingId" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "pentestId" => [String.t() | atom()],
-        "pentestJobId" => [String.t() | atom()],
-        "riskLevel" => list(any()),
-        "riskType" => [String.t() | atom()],
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type finding_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pentest_jobs_for_pentest_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "pentestJobSummaries" => list(pentest_job_summary())
-      }
-
-  """
-  @type list_pentest_jobs_for_pentest_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      discovered_endpoint() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "description" => [String.t() | atom()],
-        "evidence" => [String.t() | atom()],
-        "operation" => [String.t() | atom()],
-        "pentestJobId" => [String.t() | atom()],
-        "taskId" => [String.t() | atom()],
-        "uri" => [String.t() | atom()]
-      }
-
-  """
-  @type discovered_endpoint() :: %{(String.t() | atom()) => any()}
+  @type update_integrated_resources_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,90 +128,82 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      code_review() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "assets" => assets(),
-        "codeRemediationStrategy" => list(any()),
-        "codeReviewId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "logConfig" => cloud_watch_log(),
-        "serviceRole" => String.t() | atom(),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
+      verification_script() :: %{
+        "envVars" => list(verification_script_env_var()),
+        "instructions" => [String.t() | atom()],
+        "scriptType" => [String.t() | atom()],
+        "scriptUrl" => [String.t() | atom()]
       }
 
   """
-  @type code_review() :: %{(String.t() | atom()) => any()}
+  @type verification_script() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_discovered_endpoints_input() :: %{
+      list_pentest_job_tasks_input() :: %{
+        optional("categoryName") => [String.t() | atom()],
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("prefix") => [String.t() | atom()],
+        optional("pentestJobId") => [String.t() | atom()],
+        optional("stepName") => list(any()),
+        required("agentSpaceId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_pentest_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integration_summary() :: %{
+        "displayName" => [String.t() | atom()],
+        "installationId" => [String.t() | atom()],
+        "integrationId" => [String.t() | atom()],
+        "provider" => list(any()),
+        "providerType" => list(any())
+      }
+
+  """
+  @type integration_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_pentest_jobs_input() :: %{
         required("agentSpaceId") => [String.t() | atom()],
-        required("pentestJobId") => [String.t() | atom()]
+        required("pentestJobIds") => list([String.t() | atom()]())
       }
 
   """
-  @type list_discovered_endpoints_input() :: %{(String.t() | atom()) => any()}
+  @type batch_get_pentest_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      integrated_resource_input_item() :: %{
-        "capabilities" => list(),
-        "resource" => list()
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
       }
 
   """
-  @type integrated_resource_input_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_integration_input() :: %{
-        required("integrationId") => String.t() | atom()
-      }
-
-  """
-  @type delete_integration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_domain_summary() :: %{
-        "domainName" => [String.t() | atom()],
-        "targetDomainId" => String.t() | atom(),
-        "verificationStatus" => list(any())
-      }
-
-  """
-  @type target_domain_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_review_output() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "assets" => assets(),
-        "codeRemediationStrategy" => list(any()),
-        "codeReviewId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "logConfig" => cloud_watch_log(),
-        "serviceRole" => String.t() | atom(),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_code_review_output() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -550,92 +242,158 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      batch_get_agent_spaces_output() :: %{
-        "agentSpaces" => list(agent_space()),
-        "notFound" => list(String.t() | atom())
+      initiate_provider_registration_output() :: %{
+        "csrfState" => String.t() | atom(),
+        "redirectTo" => String.t() | atom()
       }
 
   """
-  @type batch_get_agent_spaces_output() :: %{(String.t() | atom()) => any()}
+  @type initiate_provider_registration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      verification_script_env_var() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
+      endpoint() :: %{
+        "uri" => [String.t() | atom()]
       }
 
   """
-  @type verification_script_env_var() :: %{(String.t() | atom()) => any()}
+  @type endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_pentest_job_input() :: %{
+      create_code_review_input() :: %{
+        optional("codeRemediationStrategy") => list(any()),
+        optional("logConfig") => cloud_watch_log(),
+        optional("serviceRole") => String.t() | atom(),
         required("agentSpaceId") => [String.t() | atom()],
-        required("pentestJobId") => [String.t() | atom()]
+        required("assets") => assets(),
+        required("title") => [String.t() | atom()]
       }
 
   """
-  @type stop_pentest_job_input() :: %{(String.t() | atom()) => any()}
+  @type create_code_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      task_summary() :: %{
+      pentest_summary() :: %{
         "agentSpaceId" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
-        "executionStatus" => list(any()),
         "pentestId" => [String.t() | atom()],
-        "pentestJobId" => [String.t() | atom()],
-        "riskType" => list(any()),
-        "taskId" => [String.t() | atom()],
         "title" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type task_summary() :: %{(String.t() | atom()) => any()}
+  @type pentest_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_pentests_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "pentestSummaries" => list(pentest_summary())
+      list_findings_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("confidence") => list(any()),
+        optional("maxResults") => integer(),
+        optional("name") => [String.t() | atom()],
+        optional("nextToken") => String.t() | atom(),
+        optional("pentestJobId") => [String.t() | atom()],
+        optional("riskLevel") => list(any()),
+        optional("riskType") => [String.t() | atom()],
+        optional("status") => list(any()),
+        required("agentSpaceId") => [String.t() | atom()]
       }
 
   """
-  @type list_pentests_output() :: %{(String.t() | atom()) => any()}
+  @type list_findings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      network_traffic_config() :: %{
-        "customHeaders" => list(custom_header()),
-        "rules" => list(network_traffic_rule())
+      artifact_metadata_item() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "artifactId" => String.t() | atom(),
+        "fileName" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type network_traffic_config() :: %{(String.t() | atom()) => any()}
+  @type artifact_metadata_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      log_location() :: %{
-        "cloudWatchLog" => cloud_watch_log(),
-        "logType" => list(any())
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type log_location() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "logConfig" => cloud_watch_log(),
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_domain() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainName" => [String.t() | atom()],
+        "targetDomainId" => String.t() | atom(),
+        "verificationDetails" => verification_details(),
+        "verificationStatus" => list(any()),
+        "verificationStatusReason" => [String.t() | atom()],
+        "verifiedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type target_domain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      code_remediation_task() :: %{
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "taskDetails" => list(code_remediation_task_details())
+      }
+
+  """
+  @type code_remediation_task() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -653,252 +411,24 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      batch_get_pentest_jobs_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("pentestJobIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_pentest_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_target_domain_input() :: %{
-        optional("tags") => map(),
-        required("targetDomainName") => [String.t() | atom()],
-        required("verificationMethod") => list(any())
-      }
-
-  """
-  @type create_target_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_code_review_job_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewJobId") => [String.t() | atom()]
-      }
-
-  """
-  @type stop_code_review_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      integration_summary() :: %{
-        "displayName" => [String.t() | atom()],
-        "installationId" => [String.t() | atom()],
-        "integrationId" => [String.t() | atom()],
-        "provider" => list(any()),
-        "providerType" => list(any())
-      }
-
-  """
-  @type integration_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_reviews_input() :: %{
+      list_agent_spaces_input() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agentSpaceId") => [String.t() | atom()]
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_code_reviews_input() :: %{(String.t() | atom()) => any()}
+  @type list_agent_spaces_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_target_domains_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "targetDomainSummaries" => list(target_domain_summary())
-      }
-
-  """
-  @type list_target_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_code_reviews_output() :: %{
-        "deleted" => list([String.t() | atom()]()),
-        "failed" => list(delete_code_review_failure())
-      }
-
-  """
-  @type batch_delete_code_reviews_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_input() :: %{
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("tags") => map(),
-        required("input") => list(),
-        required("integrationDisplayName") => [String.t() | atom()],
+      initiate_provider_registration_input() :: %{
         required("provider") => list(any())
       }
 
   """
-  @type create_integration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_artifact_output() :: %{
-        "artifactId" => String.t() | atom()
-      }
-
-  """
-  @type add_artifact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      git_hub_repository_resource() :: %{
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom()
-      }
-
-  """
-  @type git_hub_repository_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pentest_job_tasks_input() :: %{
-        optional("categoryName") => [String.t() | atom()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("pentestJobId") => [String.t() | atom()],
-        optional("stepName") => list(any()),
-        required("agentSpaceId") => [String.t() | atom()]
-      }
-
-  """
-  @type list_pentest_job_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_target_domain_input() :: %{
-        required("targetDomainId") => String.t() | atom(),
-        required("verificationMethod") => list(any())
-      }
-
-  """
-  @type update_target_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      http_verification() :: %{
-        "routePath" => [String.t() | atom()],
-        "token" => [String.t() | atom()]
-      }
-
-  """
-  @type http_verification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_remediation_task_details() :: %{
-        "codeDiffLink" => [String.t() | atom()],
-        "pullRequestLink" => [String.t() | atom()],
-        "repoName" => [String.t() | atom()]
-      }
-
-  """
-  @type code_remediation_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_review_job_tasks_output() :: %{
-        "codeReviewJobTasks" => list(code_review_job_task()),
-        "notFound" => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_integrated_resources_input() :: %{
-        optional("integrationId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceType") => list(any()),
-        required("agentSpaceId") => String.t() | atom()
-      }
-
-  """
-  @type list_integrated_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_config() :: %{
-        "role" => list(any())
-      }
-
-  """
-  @type user_config() :: %{(String.t() | atom()) => any()}
+  @type initiate_provider_registration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -923,20 +453,438 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      agent_space() :: %{
+      batch_get_agent_spaces_output() :: %{
+        "agentSpaces" => list(agent_space()),
+        "notFound" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_agent_spaces_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_membership_response() :: %{}
+
+  """
+  @type delete_membership_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrated_resources_input() :: %{
+        optional("integrationId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceType") => list(any()),
+        required("agentSpaceId") => String.t() | atom()
+      }
+
+  """
+  @type list_integrated_resources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_domain_summary() :: %{
+        "domainName" => [String.t() | atom()],
+        "targetDomainId" => String.t() | atom(),
+        "verificationStatus" => list(any())
+      }
+
+  """
+  @type target_domain_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_review_job_tasks_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobTaskIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_artifacts_output() :: %{
+        "artifactSummaries" => list(artifact_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_artifacts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_code_reviews_output() :: %{
+        "deleted" => list([String.t() | atom()]()),
+        "failed" => list(delete_code_review_failure())
+      }
+
+  """
+  @type batch_delete_code_reviews_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_repository_resource() :: %{
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom()
+      }
+
+  """
+  @type git_hub_repository_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pentest_job_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "pentestId" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "status" => list(any()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type pentest_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_artifact_metadata_input() :: %{
+        required("agentSpaceId") => String.t() | atom(),
+        required("artifactIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_artifact_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_pentest_job_output() :: %{}
+
+  """
+  @type stop_pentest_job_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_space_output() :: %{
         "agentSpaceId" => String.t() | atom(),
         "awsResources" => aws_resources(),
         "codeReviewSettings" => code_review_settings(),
         "createdAt" => [non_neg_integer()],
         "description" => [String.t() | atom()],
-        "kmsKeyId" => String.t() | atom(),
-        "name" => [String.t() | atom()],
+        "name" => String.t() | atom(),
         "targetDomainIds" => list([String.t() | atom()]()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type agent_space() :: %{(String.t() | atom()) => any()}
+  @type update_agent_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_traffic_rule() :: %{
+        "effect" => list(any()),
+        "networkTrafficRuleType" => list(any()),
+        "pattern" => [String.t() | atom()]
+      }
+
+  """
+  @type network_traffic_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job_task_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "riskType" => list(any()),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_pentest_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "createdAt" => [non_neg_integer()],
+        "excludeRiskTypes" => list(list(any())()),
+        "logConfig" => cloud_watch_log(),
+        "pentestId" => [String.t() | atom()],
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_pentest_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "applicationName" => [String.t() | atom()],
+        "defaultKmsKeyId" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "idcConfiguration" => id_c_configuration(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type get_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_location() :: %{
+        "filePath" => [String.t() | atom()],
+        "label" => [String.t() | atom()],
+        "lineEnd" => [integer()],
+        "lineStart" => [integer()]
+      }
+
+  """
+  @type code_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("defaultKmsKeyId") => String.t() | atom(),
+        optional("idcInstanceArn") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_space_summary() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "name" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type agent_space_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_target_domain_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainName" => [String.t() | atom()],
+        "targetDomainId" => String.t() | atom(),
+        "verificationDetails" => verification_details(),
+        "verificationStatus" => list(any()),
+        "verificationStatusReason" => [String.t() | atom()],
+        "verifiedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_target_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_log() :: %{
+        "logGroup" => [String.t() | atom()],
+        "logStream" => [String.t() | atom()]
+      }
+
+  """
+  @type cloud_watch_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discovered_endpoints_output() :: %{
+        "discoveredEndpoints" => list(discovered_endpoint()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_discovered_endpoints_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_pentests_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_delete_pentests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_artifacts_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => String.t() | atom()
+      }
+
+  """
+  @type list_artifacts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      discovered_endpoint() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "evidence" => [String.t() | atom()],
+        "operation" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "taskId" => [String.t() | atom()],
+        "uri" => [String.t() | atom()]
+      }
+
+  """
+  @type discovered_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_output() :: %{}
+
+  """
+  @type delete_integration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_request() :: %{
+        required("applicationId") => String.t() | atom()
+      }
+
+  """
+  @type get_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_finding_output() :: %{}
+
+  """
+  @type update_finding_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_findings_output() :: %{
+        "findingsSummaries" => list(finding_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job() :: %{
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "documents" => list(document_info()),
+        "errorInformation" => error_information(),
+        "executionContext" => list(execution_context()),
+        "integratedRepositories" => list(integrated_repository()),
+        "logConfig" => cloud_watch_log(),
+        "overview" => [String.t() | atom()],
+        "serviceRole" => String.t() | atom(),
+        "sourceCode" => list(source_code_repository()),
+        "status" => list(any()),
+        "steps" => list(step()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pentest_jobs_for_pentest_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_pentest_jobs_for_pentest_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -959,17 +907,383 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      get_integration_output() :: %{
-        "displayName" => [String.t() | atom()],
-        "installationId" => [String.t() | atom()],
-        "integrationId" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "provider" => list(any()),
-        "providerType" => list(any())
+      tag_resource_input() :: %{
+        required("tags") => map()
       }
 
   """
-  @type get_integration_output() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_review_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewId") => [String.t() | atom()]
+      }
+
+  """
+  @type start_code_review_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_remediation_output() :: %{}
+
+  """
+  @type start_code_remediation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_pentest_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestId") => [String.t() | atom()]
+      }
+
+  """
+  @type start_pentest_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_space_input() :: %{
+        required("agentSpaceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_space_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pentest_input() :: %{
+        optional("assets") => assets(),
+        optional("codeRemediationStrategy") => list(any()),
+        optional("excludeRiskTypes") => list(list(any())()),
+        optional("logConfig") => cloud_watch_log(),
+        optional("networkTrafficConfig") => network_traffic_config(),
+        optional("serviceRole") => String.t() | atom(),
+        optional("vpcConfig") => vpc_config(),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("title") => [String.t() | atom()]
+      }
+
+  """
+  @type create_pentest_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_config() :: %{
+        "role" => list(any())
+      }
+
+  """
+  @type user_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_artifact_output() :: %{
+        "artifactId" => String.t() | atom()
+      }
+
+  """
+  @type add_artifact_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_target_domain_input() :: %{
+        required("targetDomainId") => String.t() | atom(),
+        required("verificationMethod") => list(any())
+      }
+
+  """
+  @type update_target_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_review_jobs_for_code_review_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_review_jobs_for_code_review_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step() :: %{
+        "createdAt" => [non_neg_integer()],
+        "name" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_discovered_endpoints_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("prefix") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestJobId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_discovered_endpoints_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pentest() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "excludeRiskTypes" => list(list(any())()),
+        "logConfig" => cloud_watch_log(),
+        "networkTrafficConfig" => network_traffic_config(),
+        "pentestId" => [String.t() | atom()],
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()],
+        "vpcConfig" => vpc_config()
+      }
+
+  """
+  @type pentest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact() :: %{
+        "contents" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type artifact() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verification_details() :: %{
+        "dnsTxt" => dns_verification(),
+        "httpRoute" => http_verification(),
+        "method" => list(any())
+      }
+
+  """
+  @type verification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_response() :: %{
+        "applicationSummaries" => list(application_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_applications_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_space_output() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "awsResources" => aws_resources(),
+        "codeReviewSettings" => code_review_settings(),
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "targetDomainIds" => list([String.t() | atom()]()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_agent_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_findings_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("findingIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_findings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_code_review_job_output() :: %{}
+
+  """
+  @type stop_code_review_job_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_remediation_input() :: %{
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("pentestJobId") => [String.t() | atom()],
+        required("agentSpaceId") => [String.t() | atom()],
+        required("findingIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type start_code_remediation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_pentest_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "createdAt" => [non_neg_integer()],
+        "excludeRiskTypes" => list(list(any())()),
+        "logConfig" => cloud_watch_log(),
+        "pentestId" => [String.t() | atom()],
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_pentest_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_reviews_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_reviews_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_context() :: %{
+        "context" => [String.t() | atom()],
+        "contextType" => list(any()),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type execution_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pentest_job_tasks_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "taskSummaries" => list(task_summary())
+      }
+
+  """
+  @type list_pentest_job_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_artifact_input() :: %{
+        required("agentSpaceId") => String.t() | atom(),
+        required("artifactContent") => [binary()],
+        required("artifactType") => list(any()),
+        required("fileName") => [String.t() | atom()]
+      }
+
+  """
+  @type add_artifact_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -995,84 +1309,144 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      delete_code_review_failure() :: %{
-        "codeReviewId" => [String.t() | atom()],
-        "reason" => [String.t() | atom()]
+      create_integration_input() :: %{
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("tags") => map(),
+        required("input") => list(),
+        required("integrationDisplayName") => [String.t() | atom()],
+        required("provider") => list(any())
       }
 
   """
-  @type delete_code_review_failure() :: %{(String.t() | atom()) => any()}
+  @type create_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_code_review_input() :: %{
-        optional("codeRemediationStrategy") => list(any()),
-        optional("logConfig") => cloud_watch_log(),
-        optional("serviceRole") => String.t() | atom(),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("assets") => assets(),
-        required("title") => [String.t() | atom()]
+      batch_get_code_reviews_output() :: %{
+        "codeReviews" => list(code_review()),
+        "notFound" => list([String.t() | atom()]())
       }
 
   """
-  @type create_code_review_input() :: %{(String.t() | atom()) => any()}
+  @type batch_get_code_reviews_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_integrated_resources_output() :: %{
-        "integratedResourceSummaries" => list(integrated_resource_summary()),
-        "nextToken" => String.t() | atom()
+      get_integration_input() :: %{
+        required("integrationId") => String.t() | atom()
       }
 
   """
-  @type list_integrated_resources_output() :: %{(String.t() | atom()) => any()}
+  @type get_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_pentest_output() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "assets" => assets(),
-        "createdAt" => [non_neg_integer()],
-        "excludeRiskTypes" => list(list(any())()),
-        "logConfig" => cloud_watch_log(),
-        "pentestId" => [String.t() | atom()],
-        "serviceRole" => String.t() | atom(),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_pentest_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      integrated_repository() :: %{
-        "integrationId" => [String.t() | atom()],
-        "providerResourceId" => [String.t() | atom()]
-      }
-
-  """
-  @type integrated_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_pentest_jobs_output() :: %{
+      batch_get_pentest_job_tasks_output() :: %{
         "notFound" => list([String.t() | atom()]()),
-        "pentestJobs" => list(pentest_job())
+        "tasks" => list(task())
       }
 
   """
-  @type batch_get_pentest_jobs_output() :: %{(String.t() | atom()) => any()}
+  @type batch_get_pentest_job_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{
+        required("applicationId") => String.t() | atom()
+      }
+
+  """
+  @type delete_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_response() :: %{
+        "applicationId" => String.t() | atom()
+      }
+
+  """
+  @type update_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pentest_jobs_for_pentest_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "pentestJobSummaries" => list(pentest_job_summary())
+      }
+
+  """
+  @type list_pentest_jobs_for_pentest_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_traffic_config() :: %{
+        "customHeaders" => list(custom_header()),
+        "rules" => list(network_traffic_rule())
+      }
+
+  """
+  @type network_traffic_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      artifact_summary() :: %{
+        "artifactId" => String.t() | atom(),
+        "artifactType" => list(any()),
+        "fileName" => [String.t() | atom()]
+      }
+
+  """
+  @type artifact_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_output() :: %{
+        "integrationId" => String.t() | atom()
+      }
+
+  """
+  @type create_integration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1087,12 +1461,162 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      delete_target_domain_output() :: %{
-        "targetDomainId" => String.t() | atom()
+      actor() :: %{
+        "authentication" => authentication(),
+        "description" => [String.t() | atom()],
+        "identifier" => [String.t() | atom()],
+        "uris" => list([String.t() | atom()]())
       }
 
   """
-  @type delete_target_domain_output() :: %{(String.t() | atom()) => any()}
+  @type actor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_membership_request() :: %{
+        optional("config") => list(),
+        required("agentSpaceId") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("memberType") => list(any()),
+        required("membershipId") => String.t() | atom()
+      }
+
+  """
+  @type create_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_finding_input() :: %{
+        optional("riskLevel") => list(any()),
+        optional("status") => list(any()),
+        required("agentSpaceId") => [String.t() | atom()],
+        required("findingId") => [String.t() | atom()]
+      }
+
+  """
+  @type update_finding_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integrated_resource_summary() :: %{
+        "capabilities" => list(),
+        "integrationId" => String.t() | atom(),
+        "resource" => list()
+      }
+
+  """
+  @type integrated_resource_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_target_domain_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "domainName" => [String.t() | atom()],
+        "targetDomainId" => String.t() | atom(),
+        "verificationDetails" => verification_details(),
+        "verificationStatus" => list(any()),
+        "verificationStatusReason" => [String.t() | atom()],
+        "verifiedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_target_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_review_failure() :: %{
+        "codeReviewId" => [String.t() | atom()],
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_code_review_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_agent_space_input() :: %{
+        optional("awsResources") => aws_resources(),
+        optional("codeReviewSettings") => code_review_settings(),
+        optional("description") => [String.t() | atom()],
+        optional("name") => String.t() | atom(),
+        optional("targetDomainIds") => list([String.t() | atom()]()),
+        required("agentSpaceId") => String.t() | atom()
+      }
+
+  """
+  @type update_agent_space_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      task() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "categories" => list(category()),
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "executionStatus" => list(any()),
+        "logsLocation" => log_location(),
+        "pentestId" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "riskType" => list(any()),
+        "targetEndpoint" => endpoint(),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_pentest_failure() :: %{
+        "pentestId" => [String.t() | atom()],
+        "reason" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_pentest_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_integration_input() :: %{
+        "code" => String.t() | atom(),
+        "organizationName" => [String.t() | atom()],
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type git_hub_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,30 +1635,24 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      update_agent_space_output() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "awsResources" => aws_resources(),
-        "codeReviewSettings" => code_review_settings(),
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "targetDomainIds" => list([String.t() | atom()]()),
-        "updatedAt" => [non_neg_integer()]
+      batch_delete_pentests_output() :: %{
+        "deleted" => list(pentest()),
+        "failed" => list(delete_pentest_failure())
       }
 
   """
-  @type update_agent_space_output() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_pentests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_agent_space_input() :: %{
-        required("agentSpaceId") => String.t() | atom()
+      verify_target_domain_input() :: %{
+        required("targetDomainId") => String.t() | atom()
       }
 
   """
-  @type delete_agent_space_input() :: %{(String.t() | atom()) => any()}
+  @type verify_target_domain_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,6 +1666,454 @@ defmodule AWS.SecurityAgent do
 
   """
   @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_remediation_task_details() :: %{
+        "codeDiffLink" => [String.t() | atom()],
+        "pullRequestLink" => [String.t() | atom()],
+        "repoName" => [String.t() | atom()]
+      }
+
+  """
+  @type code_remediation_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_output() :: %{
+        "displayName" => [String.t() | atom()],
+        "installationId" => [String.t() | atom()],
+        "integrationId" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "provider" => list(any()),
+        "providerType" => list(any())
+      }
+
+  """
+  @type get_integration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memberships_request() :: %{
+        optional("maxResults") => integer(),
+        optional("memberType") => list(any()),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => String.t() | atom(),
+        required("applicationId") => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_artifact_input() :: %{
+        required("agentSpaceId") => String.t() | atom(),
+        required("artifactId") => String.t() | atom()
+      }
+
+  """
+  @type get_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_target_domains_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_target_domains_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_response() :: %{
+        "applicationId" => String.t() | atom()
+      }
+
+  """
+  @type create_application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memberships_response() :: %{
+        "membershipSummaries" => list(membership_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_memberships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_target_domain_input() :: %{
+        optional("tags") => map(),
+        required("targetDomainName") => [String.t() | atom()],
+        required("verificationMethod") => list(any())
+      }
+
+  """
+  @type create_target_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_pentest_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("pentestJobId") => [String.t() | atom()]
+      }
+
+  """
+  @type stop_pentest_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_settings() :: %{
+        "controlsScanning" => [boolean()],
+        "generalPurposeScanning" => [boolean()]
+      }
+
+  """
+  @type code_review_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_target_domain_input() :: %{
+        required("targetDomainId") => String.t() | atom()
+      }
+
+  """
+  @type delete_target_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "applicationName" => [String.t() | atom()],
+        "defaultKmsKeyId" => String.t() | atom(),
+        "domain" => String.t() | atom()
+      }
+
+  """
+  @type application_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_review_job_tasks_input() :: %{
+        optional("categoryName") => [String.t() | atom()],
+        optional("codeReviewJobId") => [String.t() | atom()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("stepName") => list(any()),
+        required("agentSpaceId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_membership_request() :: %{
+        optional("memberType") => list(any()),
+        required("agentSpaceId") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("membershipId") => String.t() | atom()
+      }
+
+  """
+  @type delete_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_agent_spaces_output() :: %{
+        "agentSpaceSummaries" => list(agent_space_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_agent_spaces_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrations_output() :: %{
+        "integrationSummaries" => list(integration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_integrations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_location() :: %{
+        "cloudWatchLog" => cloud_watch_log(),
+        "logType" => list(any())
+      }
+
+  """
+  @type log_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_code_repository() :: %{
+        "s3Location" => [String.t() | atom()]
+      }
+
+  """
+  @type source_code_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      integrated_repository() :: %{
+        "integrationId" => [String.t() | atom()],
+        "providerResourceId" => [String.t() | atom()]
+      }
+
+  """
+  @type integrated_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrations_input() :: %{
+        optional("filter") => list(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_integrations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrated_resources_output() :: %{
+        "integratedResourceSummaries" => list(integrated_resource_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_integrated_resources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      task_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "pentestId" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "riskType" => list(any()),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_review_job_tasks_output() :: %{
+        "codeReviewJobTasks" => list(code_review_job_task()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_artifact_input() :: %{
+        required("agentSpaceId") => String.t() | atom(),
+        required("artifactId") => String.t() | atom()
+      }
+
+  """
+  @type delete_artifact_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_resources() :: %{
+        "iamRoles" => list(String.t() | atom()),
+        "lambdaFunctionArns" => list(String.t() | atom()),
+        "logGroups" => list(String.t() | atom()),
+        "s3Buckets" => list(String.t() | atom()),
+        "secretArns" => list(String.t() | atom()),
+        "vpcs" => list(vpc_config())
+      }
+
+  """
+  @type aws_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_findings_output() :: %{
+        "findings" => list(finding()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_findings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_repository_metadata() :: %{
+        "accessType" => list(any()),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "providerResourceId" => String.t() | atom()
+      }
+
+  """
+  @type git_hub_repository_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job_task() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "categories" => list(category()),
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "executionStatus" => list(any()),
+        "logsLocation" => log_location(),
+        "riskType" => list(any()),
+        "taskId" => [String.t() | atom()],
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_job_summary() :: %{
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "createdAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type code_review_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_review_jobs_output() :: %{
+        "codeReviewJobs" => list(code_review_job()),
+        "notFound" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_reviews_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agentSpaceId") => [String.t() | atom()]
+      }
+
+  """
+  @type list_code_reviews_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      git_hub_resource_capabilities() :: %{
+        "leaveComments" => [boolean()],
+        "remediateCode" => [boolean()]
+      }
+
+  """
+  @type git_hub_resource_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id_c_configuration() :: %{
+        "idcApplicationArn" => String.t() | atom(),
+        "idcInstanceArn" => String.t() | atom()
+      }
+
+  """
+  @type id_c_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1185,174 +2151,90 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      authentication() :: %{
-        "providerType" => list(any()),
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type authentication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_review_job_tasks_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewJobTaskIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_code_review_job_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_finding_input() :: %{
-        optional("riskLevel") => list(any()),
-        optional("status") => list(any()),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("findingId") => [String.t() | atom()]
-      }
-
-  """
-  @type update_finding_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        optional("defaultKmsKeyId") => String.t() | atom(),
-        optional("idcInstanceArn") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom(),
-        optional("tags") => map()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_input() :: %{
-        optional("codeReviewJobId") => [String.t() | atom()],
-        optional("confidence") => list(any()),
-        optional("maxResults") => integer(),
-        optional("name") => [String.t() | atom()],
-        optional("nextToken") => String.t() | atom(),
-        optional("pentestJobId") => [String.t() | atom()],
-        optional("riskLevel") => list(any()),
-        optional("riskType") => [String.t() | atom()],
-        optional("status") => list(any()),
-        required("agentSpaceId") => [String.t() | atom()]
-      }
-
-  """
-  @type list_findings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      membership_summary() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "applicationId" => String.t() | atom(),
-        "config" => list(),
+      create_code_review_output() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "assets" => assets(),
+        "codeRemediationStrategy" => list(any()),
+        "codeReviewId" => [String.t() | atom()],
         "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "memberType" => list(any()),
-        "membershipId" => String.t() | atom(),
-        "metadata" => list(),
-        "updatedAt" => [non_neg_integer()],
-        "updatedBy" => [String.t() | atom()]
+        "logConfig" => cloud_watch_log(),
+        "serviceRole" => String.t() | atom(),
+        "title" => [String.t() | atom()],
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type membership_summary() :: %{(String.t() | atom()) => any()}
+  @type create_code_review_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "path" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_finding_output() :: %{}
-
-  """
-  @type update_finding_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      git_hub_resource_capabilities() :: %{
-        "leaveComments" => [boolean()],
-        "remediateCode" => [boolean()]
-      }
-
-  """
-  @type git_hub_resource_capabilities() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_response() :: %{
-        "applicationId" => String.t() | atom()
-      }
-
-  """
-  @type create_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_discovered_endpoints_output() :: %{
-        "discoveredEndpoints" => list(discovered_endpoint()),
+      list_code_review_job_tasks_output() :: %{
+        "codeReviewJobTaskSummaries" => list(code_review_job_task_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_discovered_endpoints_output() :: %{(String.t() | atom()) => any()}
+  @type list_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      git_hub_repository_metadata() :: %{
-        "accessType" => list(any()),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "providerResourceId" => String.t() | atom()
+      delete_integration_input() :: %{
+        required("integrationId") => String.t() | atom()
       }
 
   """
-  @type git_hub_repository_metadata() :: %{(String.t() | atom()) => any()}
+  @type delete_integration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_input() :: %{
-        required("tags") => map()
+      list_code_review_jobs_for_code_review_output() :: %{
+        "codeReviewJobSummaries" => list(code_review_job_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+  @type list_code_review_jobs_for_code_review_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_pentest_job_tasks_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("taskIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_pentest_job_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_agent_space_output() :: %{
+        "agentSpaceId" => String.t() | atom()
+      }
+
+  """
+  @type delete_agent_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_code_review_jobs_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobIds") => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_get_code_review_jobs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1375,89 +2257,13 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      delete_agent_space_output() :: %{
-        "agentSpaceId" => String.t() | atom()
+      list_pentests_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "pentestSummaries" => list(pentest_summary())
       }
 
   """
-  @type delete_agent_space_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verification_details() :: %{
-        "dnsTxt" => dns_verification(),
-        "httpRoute" => http_verification(),
-        "method" => list(any())
-      }
-
-  """
-  @type verification_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_integrations_output() :: %{
-        "integrationSummaries" => list(integration_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_integrations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_review_job_tasks_output() :: %{
-        "codeReviewJobTaskSummaries" => list(code_review_job_task_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_review_job_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_code_review_job_output() :: %{}
-
-  """
-  @type stop_code_review_job_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_code_repository() :: %{
-        "s3Location" => [String.t() | atom()]
-      }
-
-  """
-  @type source_code_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint() :: %{
-        "uri" => [String.t() | atom()]
-      }
-
-  """
-  @type endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
+  @type list_pentests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1476,644 +2282,6 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      update_application_response() :: %{
-        "applicationId" => String.t() | atom()
-      }
-
-  """
-  @type update_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_summary() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "codeReviewId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type code_review_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_artifact_input() :: %{
-        required("agentSpaceId") => String.t() | atom(),
-        required("artifactContent") => [binary()],
-        required("artifactType") => list(any()),
-        required("fileName") => [String.t() | atom()]
-      }
-
-  """
-  @type add_artifact_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_space_output() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "awsResources" => aws_resources(),
-        "codeReviewSettings" => code_review_settings(),
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "kmsKeyId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "targetDomainIds" => list([String.t() | atom()]()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_agent_space_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_code_reviews_output() :: %{
-        "codeReviews" => list(code_review()),
-        "notFound" => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_code_reviews_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_artifacts_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agentSpaceId") => String.t() | atom()
-      }
-
-  """
-  @type list_artifacts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_response() :: %{
-        "applicationId" => String.t() | atom(),
-        "applicationName" => [String.t() | atom()],
-        "defaultKmsKeyId" => String.t() | atom(),
-        "domain" => String.t() | atom(),
-        "idcConfiguration" => id_c_configuration(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_artifact_output() :: %{
-        "agentSpaceId" => String.t() | atom(),
-        "artifact" => artifact(),
-        "artifactId" => String.t() | atom(),
-        "fileName" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_artifact_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_pentest_job_tasks_output() :: %{
-        "notFound" => list([String.t() | atom()]()),
-        "tasks" => list(task())
-      }
-
-  """
-  @type batch_get_pentest_job_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_findings_output() :: %{
-        "findingsSummaries" => list(finding_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_findings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_target_domains_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_target_domains_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_integrated_resources_input() :: %{
-        required("agentSpaceId") => String.t() | atom(),
-        required("integrationId") => String.t() | atom(),
-        required("items") => list(integrated_resource_input_item())
-      }
-
-  """
-  @type update_integrated_resources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_agent_space_input() :: %{
-        optional("awsResources") => aws_resources(),
-        optional("codeReviewSettings") => code_review_settings(),
-        optional("description") => [String.t() | atom()],
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("targetDomainIds") => list([String.t() | atom()]()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_agent_space_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_integration_output() :: %{}
-
-  """
-  @type delete_integration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_findings_output() :: %{
-        "findings" => list(finding()),
-        "notFound" => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_findings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pentest_jobs_for_pentest_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agentSpaceId") => [String.t() | atom()],
-        required("pentestId") => [String.t() | atom()]
-      }
-
-  """
-  @type list_pentest_jobs_for_pentest_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact_summary() :: %{
-        "artifactId" => String.t() | atom(),
-        "artifactType" => list(any()),
-        "fileName" => [String.t() | atom()]
-      }
-
-  """
-  @type artifact_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_target_domain_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "domainName" => [String.t() | atom()],
-        "targetDomainId" => String.t() | atom(),
-        "verificationDetails" => verification_details(),
-        "verificationStatus" => list(any()),
-        "verificationStatusReason" => [String.t() | atom()],
-        "verifiedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_target_domain_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_target_domain_input() :: %{
-        required("targetDomainId") => String.t() | atom()
-      }
-
-  """
-  @type verify_target_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pentest_summary() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "pentestId" => [String.t() | atom()],
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type pentest_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memberships_response() :: %{
-        "membershipSummaries" => list(membership_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_memberships_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_output() :: %{
-        "integrationId" => String.t() | atom()
-      }
-
-  """
-  @type create_integration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_review_job_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewId") => [String.t() | atom()]
-      }
-
-  """
-  @type start_code_review_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pentest_job_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "pentestId" => [String.t() | atom()],
-        "pentestJobId" => [String.t() | atom()],
-        "status" => list(any()),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type pentest_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_remediation_input() :: %{
-        optional("codeReviewJobId") => [String.t() | atom()],
-        optional("pentestJobId") => [String.t() | atom()],
-        required("agentSpaceId") => [String.t() | atom()],
-        required("findingIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type start_code_remediation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dns_verification() :: %{
-        "dnsRecordName" => [String.t() | atom()],
-        "dnsRecordType" => list(any()),
-        "token" => [String.t() | atom()]
-      }
-
-  """
-  @type dns_verification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_settings() :: %{
-        "controlsScanning" => [boolean()],
-        "generalPurposeScanning" => [boolean()]
-      }
-
-  """
-  @type code_review_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_pentests_output() :: %{
-        "notFound" => list([String.t() | atom()]()),
-        "pentests" => list(pentest())
-      }
-
-  """
-  @type batch_get_pentests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_pentest_job_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("pentestId") => [String.t() | atom()]
-      }
-
-  """
-  @type start_pentest_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_job_task_summary() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "codeReviewId" => [String.t() | atom()],
-        "codeReviewJobId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "executionStatus" => list(any()),
-        "riskType" => list(any()),
-        "taskId" => [String.t() | atom()],
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type code_review_job_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_provider_registration_output() :: %{
-        "csrfState" => String.t() | atom(),
-        "redirectTo" => String.t() | atom()
-      }
-
-  """
-  @type initiate_provider_registration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_review_jobs_for_code_review_output() :: %{
-        "codeReviewJobSummaries" => list(code_review_job_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_review_jobs_for_code_review_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_job() :: %{
-        "codeRemediationStrategy" => list(any()),
-        "codeReviewId" => [String.t() | atom()],
-        "codeReviewJobId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "documents" => list(document_info()),
-        "errorInformation" => error_information(),
-        "executionContext" => list(execution_context()),
-        "integratedRepositories" => list(integrated_repository()),
-        "logConfig" => cloud_watch_log(),
-        "overview" => [String.t() | atom()],
-        "serviceRole" => String.t() | atom(),
-        "sourceCode" => list(source_code_repository()),
-        "status" => list(any()),
-        "steps" => list(step()),
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type code_review_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      integrated_resource_summary() :: %{
-        "capabilities" => list(),
-        "integrationId" => String.t() | atom(),
-        "resource" => list()
-      }
-
-  """
-  @type integrated_resource_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_findings_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("findingIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_get_findings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_target_domain_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "domainName" => [String.t() | atom()],
-        "targetDomainId" => String.t() | atom(),
-        "verificationDetails" => verification_details(),
-        "verificationStatus" => list(any()),
-        "verificationStatusReason" => [String.t() | atom()],
-        "verifiedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_target_domain_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_pentest_failure() :: %{
-        "pentestId" => [String.t() | atom()],
-        "reason" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_pentest_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_summary() :: %{
-        "applicationId" => String.t() | atom(),
-        "applicationName" => [String.t() | atom()],
-        "defaultKmsKeyId" => String.t() | atom(),
-        "domain" => String.t() | atom()
-      }
-
-  """
-  @type application_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      actor() :: %{
-        "authentication" => authentication(),
-        "description" => [String.t() | atom()],
-        "identifier" => [String.t() | atom()],
-        "uris" => list([String.t() | atom()]())
-      }
-
-  """
-  @type actor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_traffic_rule() :: %{
-        "effect" => list(any()),
-        "networkTrafficRuleType" => list(any()),
-        "pattern" => [String.t() | atom()]
-      }
-
-  """
-  @type network_traffic_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       category() :: %{
         "isPrimary" => [boolean()],
         "name" => [String.t() | atom()]
@@ -2126,43 +2294,102 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      cloud_watch_log() :: %{
-        "logGroup" => [String.t() | atom()],
-        "logStream" => [String.t() | atom()]
+      agent_space() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "awsResources" => aws_resources(),
+        "codeReviewSettings" => code_review_settings(),
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "kmsKeyId" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "targetDomainIds" => list([String.t() | atom()]()),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type cloud_watch_log() :: %{(String.t() | atom()) => any()}
+  @type agent_space() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_membership_request() :: %{
-        optional("config") => list(),
-        required("agentSpaceId") => String.t() | atom(),
-        required("applicationId") => String.t() | atom(),
-        required("memberType") => list(any()),
-        required("membershipId") => String.t() | atom()
+      finding_summary() :: %{
+        "agentSpaceId" => [String.t() | atom()],
+        "codeReviewId" => [String.t() | atom()],
+        "codeReviewJobId" => [String.t() | atom()],
+        "confidence" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "findingId" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "pentestId" => [String.t() | atom()],
+        "pentestJobId" => [String.t() | atom()],
+        "riskLevel" => list(any()),
+        "riskType" => [String.t() | atom()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type create_membership_request() :: %{(String.t() | atom()) => any()}
+  @type finding_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      assets() :: %{
-        "actors" => list(actor()),
-        "documents" => list(document_info()),
-        "endpoints" => list(endpoint()),
-        "integratedRepositories" => list(integrated_repository()),
-        "sourceCode" => list(source_code_repository())
+      authentication() :: %{
+        "providerType" => list(any()),
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type assets() :: %{(String.t() | atom()) => any()}
+  @type authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_target_domains_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "targetDomainSummaries" => list(target_domain_summary())
+      }
+
+  """
+  @type list_target_domains_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_information() :: %{
+        "code" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type error_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_artifact_metadata_output() :: %{
+        "artifactMetadataList" => list(artifact_metadata_item())
+      }
+
+  """
+  @type batch_get_artifact_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_header() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type custom_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2180,104 +2407,16 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      list_applications_response() :: %{
-        "applicationSummaries" => list(application_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_integration_input() :: %{
-        required("integrationId") => String.t() | atom()
-      }
-
-  """
-  @type get_integration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_artifact_metadata_input() :: %{
-        required("agentSpaceId") => String.t() | atom(),
-        required("artifactIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_artifact_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_reviews_output() :: %{
-        "codeReviewSummaries" => list(code_review_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_reviews_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_resources() :: %{
-        "iamRoles" => list(String.t() | atom()),
-        "lambdaFunctionArns" => list(String.t() | atom()),
-        "logGroups" => list(String.t() | atom()),
-        "s3Buckets" => list(String.t() | atom()),
-        "secretArns" => list(String.t() | atom()),
-        "vpcs" => list(vpc_config())
-      }
-
-  """
-  @type aws_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_agent_spaces_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_agent_spaces_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_artifacts_output() :: %{
-        "artifactSummaries" => list(artifact_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_artifacts_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_job_summary() :: %{
-        "codeReviewId" => [String.t() | atom()],
-        "codeReviewJobId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "status" => list(any()),
-        "title" => [String.t() | atom()],
+      get_artifact_output() :: %{
+        "agentSpaceId" => String.t() | atom(),
+        "artifact" => artifact(),
+        "artifactId" => String.t() | atom(),
+        "fileName" => [String.t() | atom()],
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type code_review_job_summary() :: %{(String.t() | atom()) => any()}
+  @type get_artifact_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2300,145 +2439,120 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      error_information() :: %{
-        "code" => list(any()),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type error_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      artifact() :: %{
-        "contents" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type artifact() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verification_script() :: %{
-        "envVars" => list(verification_script_env_var()),
-        "instructions" => [String.t() | atom()],
-        "scriptType" => [String.t() | atom()],
-        "scriptUrl" => [String.t() | atom()]
-      }
-
-  """
-  @type verification_script() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step() :: %{
-        "createdAt" => [non_neg_integer()],
-        "name" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_pentest_job_output() :: %{}
-
-  """
-  @type stop_pentest_job_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_membership_request() :: %{
-        optional("memberType") => list(any()),
-        required("agentSpaceId") => String.t() | atom(),
-        required("applicationId") => String.t() | atom(),
-        required("membershipId") => String.t() | atom()
-      }
-
-  """
-  @type delete_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_remediation_output() :: %{}
-
-  """
-  @type start_code_remediation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_pentest_job_tasks_input() :: %{
+      update_code_review_input() :: %{
+        optional("assets") => assets(),
+        optional("codeRemediationStrategy") => list(any()),
+        optional("logConfig") => cloud_watch_log(),
+        optional("serviceRole") => String.t() | atom(),
+        optional("title") => [String.t() | atom()],
         required("agentSpaceId") => [String.t() | atom()],
-        required("taskIds") => list([String.t() | atom()]())
+        required("codeReviewId") => [String.t() | atom()]
       }
 
   """
-  @type batch_get_pentest_job_tasks_input() :: %{(String.t() | atom()) => any()}
+  @type update_code_review_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_code_review_jobs_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("codeReviewJobIds") => list([String.t() | atom()]())
-      }
+      untag_resource_output() :: %{}
 
   """
-  @type batch_get_code_review_jobs_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_target_domain_input() :: %{
-        required("targetDomainId") => String.t() | atom()
-      }
-
-  """
-  @type delete_target_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_header() :: %{
+      verification_script_env_var() :: %{
         "name" => [String.t() | atom()],
         "value" => [String.t() | atom()]
       }
 
   """
-  @type custom_header() :: %{(String.t() | atom()) => any()}
+  @type verification_script_env_var() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_remediation_task() :: %{
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "taskDetails" => list(code_remediation_task_details())
+      list_code_reviews_output() :: %{
+        "codeReviewSummaries" => list(code_review_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type code_remediation_task() :: %{(String.t() | atom()) => any()}
+  @type list_code_reviews_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_code_review_job_input() :: %{
+        required("agentSpaceId") => [String.t() | atom()],
+        required("codeReviewJobId") => [String.t() | atom()]
+      }
+
+  """
+  @type stop_code_review_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      assets() :: %{
+        "actors" => list(actor()),
+        "documents" => list(document_info()),
+        "endpoints" => list(endpoint()),
+        "integratedRepositories" => list(integrated_repository()),
+        "sourceCode" => list(source_code_repository())
+      }
+
+  """
+  @type assets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_agent_space_input() :: %{
+        optional("awsResources") => aws_resources(),
+        optional("codeReviewSettings") => code_review_settings(),
+        optional("description") => [String.t() | atom()],
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("targetDomainIds") => list([String.t() | atom()]()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_agent_space_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_verification() :: %{
+        "routePath" => [String.t() | atom()],
+        "token" => [String.t() | atom()]
+      }
+
+  """
+  @type http_verification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dns_verification() :: %{
+        "dnsRecordName" => [String.t() | atom()],
+        "dnsRecordType" => list(any()),
+        "token" => [String.t() | atom()]
+      }
+
+  """
+  @type dns_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2453,246 +2567,132 @@ defmodule AWS.SecurityAgent do
 
   ## Example:
 
-      execution_context() :: %{
-        "context" => [String.t() | atom()],
-        "contextType" => list(any()),
-        "timestamp" => [non_neg_integer()]
+      batch_get_pentest_jobs_output() :: %{
+        "notFound" => list([String.t() | atom()]()),
+        "pentestJobs" => list(pentest_job())
       }
 
   """
-  @type execution_context() :: %{(String.t() | atom()) => any()}
+  @type batch_get_pentest_jobs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_application_request() :: %{
-        required("applicationId") => String.t() | atom()
+      delete_target_domain_output() :: %{
+        "targetDomainId" => String.t() | atom()
       }
 
   """
-  @type get_application_request() :: %{(String.t() | atom()) => any()}
+  @type delete_target_domain_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_integrations_input() :: %{
-        optional("filter") => list(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      batch_get_agent_spaces_input() :: %{
+        required("agentSpaceIds") => list(String.t() | atom())
       }
 
   """
-  @type list_integrations_input() :: %{(String.t() | atom()) => any()}
+  @type batch_get_agent_spaces_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      document_info() :: %{
-        "artifactId" => [String.t() | atom()],
-        "s3Location" => [String.t() | atom()]
-      }
+      delete_artifact_output() :: %{}
 
   """
-  @type document_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_pentests_output() :: %{
-        "deleted" => list(pentest()),
-        "failed" => list(delete_pentest_failure())
-      }
-
-  """
-  @type batch_delete_pentests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pentest_job_tasks_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "taskSummaries" => list(task_summary())
-      }
-
-  """
-  @type list_pentest_job_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_artifact_metadata_output() :: %{
-        "artifactMetadataList" => list(artifact_metadata_item())
-      }
-
-  """
-  @type batch_get_artifact_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      initiate_provider_registration_input() :: %{
-        required("provider") => list(any())
-      }
-
-  """
-  @type initiate_provider_registration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_job_task() :: %{
-        "agentSpaceId" => [String.t() | atom()],
-        "categories" => list(category()),
-        "codeReviewId" => [String.t() | atom()],
-        "codeReviewJobId" => [String.t() | atom()],
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "executionStatus" => list(any()),
-        "logsLocation" => log_location(),
-        "riskType" => list(any()),
-        "taskId" => [String.t() | atom()],
-        "title" => [String.t() | atom()],
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type code_review_job_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_application_request() :: %{
-        required("applicationId") => String.t() | atom()
-      }
-
-  """
-  @type delete_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_pentests_input() :: %{
-        required("agentSpaceId") => [String.t() | atom()],
-        required("pentestIds") => list([String.t() | atom()]())
-      }
-
-  """
-  @type batch_delete_pentests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_domain() :: %{
-        "createdAt" => [non_neg_integer()],
-        "domainName" => [String.t() | atom()],
-        "targetDomainId" => String.t() | atom(),
-        "verificationDetails" => verification_details(),
-        "verificationStatus" => list(any()),
-        "verificationStatusReason" => [String.t() | atom()],
-        "verifiedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type target_domain() :: %{(String.t() | atom()) => any()}
+  @type delete_artifact_output() :: %{}
 
   @type add_artifact_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_get_artifact_metadata_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_integration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_artifact_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_integration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_artifact_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_integration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type initiate_provider_registration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_artifacts_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_integrated_resources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_integrations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_integrated_resources_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

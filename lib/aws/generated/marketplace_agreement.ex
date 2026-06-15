@@ -19,162 +19,7 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      charge_summary() :: %{
-        "currencyCode" => String.t() | atom(),
-        "estimatedTaxes" => estimated_taxes(),
-        "expectedCharges" => list(expected_charge()),
-        "invoicingEntity" => invoicing_entity(),
-        "itemizedCharges" => list(itemized_charge()),
-        "newAgreementValue" => String.t() | atom(),
-        "newAgreementValueAfterTax" => String.t() | atom()
-      }
-      
-  """
-  @type charge_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_billing_adjustment_error() :: %{
-        "clientToken" => String.t() | atom(),
-        "code" => list(any()),
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type batch_create_billing_adjustment_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      pricing_currency_amount() :: %{
-        "amount" => String.t() | atom(),
-        "currencyCode" => String.t() | atom(),
-        "maxAdjustmentAmount" => String.t() | atom()
-      }
-      
-  """
-  @type pricing_currency_amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      agreement_invoice_line_item_group_summary() :: %{
-        "agreementId" => String.t() | atom(),
-        "invoiceBillingPeriod" => invoice_billing_period(),
-        "invoiceId" => String.t() | atom(),
-        "invoiceType" => list(any()),
-        "invoicingEntity" => invoicing_entity(),
-        "issuedTime" => non_neg_integer(),
-        "pricingCurrencyAmount" => pricing_currency_amount()
-      }
-      
-  """
-  @type agreement_invoice_line_item_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreement_charges_output() :: %{
-        "items" => list(charge()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_agreement_charges_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      renewal_term_configuration() :: %{
-        "enableAutoRenew" => boolean()
-      }
-      
-  """
-  @type renewal_term_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_billing_adjustment_requests_input() :: %{
-        optional("agreementId") => String.t() | atom(),
-        optional("agreementType") => String.t() | atom(),
-        optional("catalog") => String.t() | atom(),
-        optional("createdAfter") => non_neg_integer(),
-        optional("createdBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-      
-  """
-  @type list_billing_adjustment_requests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_purchase_orders_output() :: %{}
-      
-  """
-  @type update_purchase_orders_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreement_payment_requests_input() :: %{
-        optional("agreementId") => String.t() | atom(),
-        optional("agreementType") => String.t() | atom(),
-        optional("catalog") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("partyType") => String.t() | atom()
-      }
-      
-  """
-  @type list_agreement_payment_requests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      send_agreement_payment_request_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("chargeAmount") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("termId") => String.t() | atom()
-      }
-      
-  """
-  @type send_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_terms_output() :: %{
-        "acceptedTerms" => list(list()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_terms_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_cancellation_request_output() :: %{
+      reject_agreement_cancellation_request_output() :: %{
         "agreementCancellationRequestId" => String.t() | atom(),
         "agreementId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
@@ -186,65 +31,19 @@ defmodule AWS.MarketplaceAgreement do
       }
       
   """
-  @type get_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+  @type reject_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      batch_create_billing_adjustment_request_input() :: %{
-        required("billingAdjustmentRequestEntries") => list(batch_create_billing_adjustment_request_entry())
+      grant_item() :: %{
+        "dimensionKey" => String.t() | atom(),
+        "maxQuantity" => integer()
       }
       
   """
-  @type batch_create_billing_adjustment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      estimated_charges() :: %{
-        "agreementValue" => String.t() | atom(),
-        "currencyCode" => String.t() | atom()
-      }
-      
-  """
-  @type estimated_charges() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_agreement_request_input() :: %{
-        optional("purchaseOrders") => list(purchase_order()),
-        required("agreementRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_agreement_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      configurable_upfront_pricing_term_configuration() :: %{
-        "dimensions" => list(dimension()),
-        "selectorValue" => String.t() | atom()
-      }
-      
-  """
-  @type configurable_upfront_pricing_term_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_agreement_request_output() :: %{
-        "agreementId" => String.t() | atom()
-      }
-      
-  """
-  @type accept_agreement_request_output() :: %{(String.t() | atom()) => any()}
+  @type grant_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -262,14 +61,120 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      reject_agreement_cancellation_request_input() :: %{
-        required("agreementCancellationRequestId") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("rejectionReason") => String.t() | atom()
+      batch_create_billing_adjustment_request_entry() :: %{
+        "adjustmentAmount" => String.t() | atom(),
+        "adjustmentReasonCode" => list(any()),
+        "agreementId" => String.t() | atom(),
+        "clientToken" => String.t() | atom(),
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "originalInvoiceId" => String.t() | atom()
       }
       
   """
-  @type reject_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+  @type batch_create_billing_adjustment_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configurable_upfront_rate_card_item() :: %{
+        "constraints" => constraints(),
+        "rateCard" => list(rate_card_item()),
+        "selector" => selector()
+      }
+      
+  """
+  @type configurable_upfront_rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_output() :: %{}
+      
+  """
+  @type cancel_agreement_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_based_rate_card_item() :: %{
+        "rateCard" => list(rate_card_item())
+      }
+      
+  """
+  @type usage_based_rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      legal_term() :: %{
+        "documents" => list(document_item()),
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type legal_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      recurring_payment_term() :: %{
+        "billingPeriod" => String.t() | atom(),
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_agreement_request_input() :: %{
+        optional("agreementProposalIdentifier") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("sourceAgreementIdentifier") => String.t() | atom(),
+        optional("taxConfiguration") => tax_configuration(),
+        required("intent") => list(any()),
+        required("requestedTerms") => list(requested_term())
+      }
+      
+  """
+  @type create_agreement_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => list(any()),
+        "requestId" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -296,60 +201,6 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      agreement_entitlement() :: %{
-        "licenseArn" => String.t() | atom(),
-        "registrationToken" => String.t() | atom(),
-        "resource" => resource(),
-        "status" => list(any()),
-        "statusReasonCode" => list(any()),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type agreement_entitlement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      support_term() :: %{
-        "id" => String.t() | atom(),
-        "refundPolicy" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type support_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      renewal_term() :: %{
-        "configuration" => renewal_term_configuration(),
-        "id" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type renewal_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_agreement_request_output() :: %{
-        "agreementRequestId" => String.t() | atom(),
-        "chargeSummary" => charge_summary()
-      }
-      
-  """
-  @type create_agreement_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_agreement_payment_request_output() :: %{
         "agreementId" => String.t() | atom(),
         "chargeAmount" => String.t() | atom(),
@@ -371,29 +222,6 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      acceptor() :: %{
-        "accountId" => String.t() | atom()
-      }
-      
-  """
-  @type acceptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invoicing_entity() :: %{
-        "branchName" => String.t() | atom(),
-        "legalName" => String.t() | atom()
-      }
-      
-  """
-  @type invoicing_entity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       cancel_agreement_payment_request_input() :: %{
         required("agreementId") => String.t() | atom(),
         required("paymentRequestId") => String.t() | atom()
@@ -406,116 +234,69 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      document_item() :: %{
-        "type" => String.t() | atom(),
-        "url" => String.t() | atom(),
-        "version" => String.t() | atom()
+      schedule_item() :: %{
+        "chargeAmount" => String.t() | atom(),
+        "chargeDate" => non_neg_integer()
       }
       
   """
-  @type document_item() :: %{(String.t() | atom()) => any()}
+  @type schedule_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      agreement_cancellation_request_summary() :: %{
+      send_agreement_cancellation_request_output() :: %{
         "agreementCancellationRequestId" => String.t() | atom(),
         "agreementId" => String.t() | atom(),
-        "agreementType" => String.t() | atom(),
-        "catalog" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
         "reasonCode" => list(any()),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
       
   """
-  @type agreement_cancellation_request_summary() :: %{(String.t() | atom()) => any()}
+  @type send_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      charge() :: %{
-        "agreementId" => String.t() | atom(),
-        "agreementType" => String.t() | atom(),
-        "amount" => String.t() | atom(),
+      variable_payment_term() :: %{
+        "configuration" => variable_payment_term_configuration(),
         "currencyCode" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "purchaseOrderReference" => String.t() | atom(),
-        "revision" => float(),
-        "time" => non_neg_integer()
+        "maxTotalChargeAmount" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type charge() :: %{(String.t() | atom()) => any()}
+  @type variable_payment_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      send_agreement_payment_request_output() :: %{
-        "agreementId" => String.t() | atom(),
-        "chargeAmount" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "currencyCode" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "paymentRequestId" => String.t() | atom(),
-        "status" => list(any())
+      constraints() :: %{
+        "multipleDimensionSelection" => String.t() | atom(),
+        "quantityConfiguration" => String.t() | atom()
       }
       
   """
-  @type send_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+  @type constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tax_configuration() :: %{
-        "taxEstimation" => list(any())
+      get_billing_adjustment_request_input() :: %{
+        required("agreementId") => String.t() | atom(),
+        required("billingAdjustmentRequestId") => String.t() | atom()
       }
       
   """
-  @type tax_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      agreement_view_summary() :: %{
-        "acceptanceTime" => non_neg_integer(),
-        "acceptor" => acceptor(),
-        "agreementId" => String.t() | atom(),
-        "agreementType" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "entitlements" => list(entitlement()),
-        "proposalSummary" => proposal_summary(),
-        "proposer" => proposer(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any())
-      }
-      
-  """
-  @type agreement_view_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_agreement_cancellation_request_output() :: %{
-        "agreementCancellationRequestId" => String.t() | atom(),
-        "agreementId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "reasonCode" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type accept_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+  @type get_billing_adjustment_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -539,459 +320,51 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => list(any())
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      requested_term() :: %{
-        "configuration" => list(),
-        "id" => String.t() | atom()
-      }
-      
-  """
-  @type requested_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agreement_output() :: %{
-        "acceptanceTime" => non_neg_integer(),
-        "acceptor" => acceptor(),
-        "agreementId" => String.t() | atom(),
-        "agreementType" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "estimatedCharges" => estimated_charges(),
-        "proposalSummary" => proposal_summary(),
-        "proposer" => proposer(),
-        "startTime" => non_neg_integer(),
-        "status" => list(any())
-      }
-      
-  """
-  @type describe_agreement_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      purchase_order() :: %{
-        "agreementId" => String.t() | atom(),
-        "chargeId" => String.t() | atom(),
-        "chargeRevision" => float(),
-        "purchaseOrderReference" => String.t() | atom()
-      }
-      
-  """
-  @type purchase_order() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom(),
-        "quotaCode" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "serviceCode" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      estimated_taxes() :: %{
-        "breakdown" => list(tax_breakdown_item()),
-        "totalAmount" => String.t() | atom()
-      }
-      
-  """
-  @type estimated_taxes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_based_pricing_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rateCards" => list(usage_based_rate_card_item()),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreement_payment_requests_output() :: %{
-        "items" => list(payment_request_summary()),
+      get_agreement_entitlements_output() :: %{
+        "agreementEntitlements" => list(agreement_entitlement()),
         "nextToken" => String.t() | atom()
       }
       
   """
-  @type list_agreement_payment_requests_output() :: %{(String.t() | atom()) => any()}
+  @type get_agreement_entitlements_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      byol_pricing_term() :: %{
-        "id" => String.t() | atom(),
-        "type" => String.t() | atom()
+      accept_agreement_request_input() :: %{
+        optional("purchaseOrders") => list(purchase_order()),
+        required("agreementRequestId") => String.t() | atom()
       }
       
   """
-  @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
+  @type accept_agreement_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      recurring_payment_term() :: %{
-        "billingPeriod" => String.t() | atom(),
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "price" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type recurring_payment_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proposer() :: %{
-        "accountId" => String.t() | atom()
-      }
-      
-  """
-  @type proposer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_billing_adjustment_request_input() :: %{
-        required("agreementId") => String.t() | atom(),
-        required("billingAdjustmentRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type get_billing_adjustment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_cancellation_request_input() :: %{
-        required("agreementCancellationRequestId") => String.t() | atom(),
-        required("agreementId") => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      grant_item() :: %{
-        "dimensionKey" => String.t() | atom(),
-        "maxQuantity" => integer()
-      }
-      
-  """
-  @type grant_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_billing_adjustment_request_entry() :: %{
-        "adjustmentAmount" => String.t() | atom(),
-        "adjustmentReasonCode" => list(any()),
-        "agreementId" => String.t() | atom(),
-        "clientToken" => String.t() | atom(),
-        "currencyCode" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "originalInvoiceId" => String.t() | atom()
-      }
-      
-  """
-  @type batch_create_billing_adjustment_request_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      legal_term() :: %{
-        "documents" => list(document_item()),
-        "id" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type legal_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_billing_adjustment_item() :: %{
-        "billingAdjustmentRequestId" => String.t() | atom(),
-        "clientToken" => String.t() | atom()
-      }
-      
-  """
-  @type batch_create_billing_adjustment_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception_field() :: %{
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      batch_create_billing_adjustment_request_output() :: %{
-        "errors" => list(batch_create_billing_adjustment_error()),
-        "items" => list(batch_create_billing_adjustment_item())
-      }
-      
-  """
-  @type batch_create_billing_adjustment_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      payment_schedule_term() :: %{
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "schedule" => list(schedule_item()),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      usage_based_rate_card_item() :: %{
-        "rateCard" => list(rate_card_item())
-      }
-      
-  """
-  @type usage_based_rate_card_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_terms_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agreementId") => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_terms_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_entitlements_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agreementId") => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_entitlements_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_agreement_payment_request_output() :: %{
-        "agreementId" => String.t() | atom(),
-        "chargeAmount" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "currencyCode" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "paymentRequestId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-      
-  """
-  @type accept_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "name" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreement_invoice_line_items_output() :: %{
-        "agreementInvoiceLineItemGroupSummaries" => list(agreement_invoice_line_item_group_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_agreement_invoice_line_items_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sort() :: %{
-        "sortBy" => String.t() | atom(),
-        "sortOrder" => list(any())
-      }
-      
-  """
-  @type sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_agreement_input() :: %{
-        required("agreementId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_agreement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_agreements_output() :: %{
-        "agreementViewSummaries" => list(agreement_view_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type search_agreements_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "message" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_agreement_payment_request_input() :: %{
-        optional("rejectionReason") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("paymentRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type reject_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fixed_upfront_pricing_term() :: %{
-        "currencyCode" => String.t() | atom(),
+      free_trial_pricing_term() :: %{
         "duration" => String.t() | atom(),
         "grants" => list(grant_item()),
         "id" => String.t() | atom(),
-        "price" => String.t() | atom(),
         "type" => String.t() | atom()
       }
       
   """
-  @type fixed_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
+  @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      billing_adjustment_summary() :: %{
-        "adjustmentAmount" => String.t() | atom(),
-        "agreementId" => String.t() | atom(),
-        "agreementType" => String.t() | atom(),
-        "billingAdjustmentRequestId" => String.t() | atom(),
-        "catalog" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "currencyCode" => String.t() | atom(),
-        "originalInvoiceId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+      invoice_billing_period() :: %{
+        "month" => [integer()],
+        "year" => [integer()]
       }
       
   """
-  @type billing_adjustment_summary() :: %{(String.t() | atom()) => any()}
+  @type invoice_billing_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1008,16 +381,15 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      search_agreements_input() :: %{
-        optional("catalog") => String.t() | atom(),
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sort") => sort()
+      validation_exception() :: %{
+        "fields" => list(validation_exception_field()),
+        "message" => String.t() | atom(),
+        "reason" => list(any()),
+        "requestId" => String.t() | atom()
       }
       
   """
-  @type search_agreements_input() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1042,18 +414,124 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      send_agreement_cancellation_request_output() :: %{
-        "agreementCancellationRequestId" => String.t() | atom(),
-        "agreementId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "reasonCode" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
+      get_agreement_cancellation_request_input() :: %{
+        required("agreementCancellationRequestId") => String.t() | atom(),
+        required("agreementId") => String.t() | atom()
       }
       
   """
-  @type send_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+  @type get_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_billing_adjustment_error() :: %{
+        "clientToken" => String.t() | atom(),
+        "code" => list(any()),
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type batch_create_billing_adjustment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_agreement_payment_request_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("chargeAmount") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("termId") => String.t() | atom()
+      }
+      
+  """
+  @type send_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_cancellation_request_input() :: %{
+        required("agreementCancellationRequestId") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("cancellationReason") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      usage_based_pricing_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rateCards" => list(usage_based_rate_card_item()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type usage_based_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_terms_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agreementId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_cancellation_requests_input() :: %{
+        optional("agreementId") => String.t() | atom(),
+        optional("agreementType") => String.t() | atom(),
+        optional("catalog") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("partyType") => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_cancellation_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_agreement_payment_request_input() :: %{
+        optional("rejectionReason") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("paymentRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1073,320 +551,62 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      cancel_agreement_output() :: %{}
-      
-  """
-  @type cancel_agreement_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      constraints() :: %{
-        "multipleDimensionSelection" => String.t() | atom(),
-        "quantityConfiguration" => String.t() | atom()
+      pricing_currency_amount() :: %{
+        "amount" => String.t() | atom(),
+        "currencyCode" => String.t() | atom(),
+        "maxAdjustmentAmount" => String.t() | atom()
       }
       
   """
-  @type constraints() :: %{(String.t() | atom()) => any()}
+  @type pricing_currency_amount() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => list(any()),
-        "requestId" => String.t() | atom()
+      invoicing_entity() :: %{
+        "branchName" => String.t() | atom(),
+        "legalName" => String.t() | atom()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type invoicing_entity() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_agreement_cancellation_requests_output() :: %{
-        "items" => list(agreement_cancellation_request_summary()),
-        "nextToken" => String.t() | atom()
+      tax_configuration() :: %{
+        "taxEstimation" => list(any())
       }
       
   """
-  @type list_agreement_cancellation_requests_output() :: %{(String.t() | atom()) => any()}
+  @type tax_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      accept_agreement_cancellation_request_input() :: %{
-        required("agreementCancellationRequestId") => String.t() | atom(),
+      describe_agreement_input() :: %{
         required("agreementId") => String.t() | atom()
       }
       
   """
-  @type accept_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+  @type describe_agreement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      configurable_upfront_rate_card_item() :: %{
-        "constraints" => constraints(),
-        "rateCard" => list(rate_card_item()),
-        "selector" => selector()
-      }
-      
-  """
-  @type configurable_upfront_rate_card_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      variable_payment_term() :: %{
-        "configuration" => variable_payment_term_configuration(),
-        "currencyCode" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "maxTotalChargeAmount" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type variable_payment_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schedule_item() :: %{
-        "chargeAmount" => String.t() | atom(),
-        "chargeDate" => non_neg_integer()
-      }
-      
-  """
-  @type schedule_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "fields" => list(validation_exception_field()),
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom(),
-        "reason" => list(any()),
-        "requestId" => String.t() | atom()
+        "requestId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
       }
       
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proposal_summary() :: %{
-        "offerId" => String.t() | atom(),
-        "offerSetId" => String.t() | atom(),
-        "resources" => list(resource())
-      }
-      
-  """
-  @type proposal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tax_breakdown_item() :: %{
-        "amount" => String.t() | atom(),
-        "rate" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type tax_breakdown_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "message" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_billing_adjustment_requests_output() :: %{
-        "items" => list(billing_adjustment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_billing_adjustment_requests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      expected_charge() :: %{
-        "amount" => String.t() | atom(),
-        "amountAfterTax" => String.t() | atom(),
-        "estimatedTaxes" => estimated_taxes(),
-        "id" => String.t() | atom(),
-        "time" => non_neg_integer(),
-        "timing" => list(any())
-      }
-      
-  """
-  @type expected_charge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_payment_request_input() :: %{
-        required("agreementId") => String.t() | atom(),
-        required("paymentRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_agreement_entitlements_output() :: %{
-        "agreementEntitlements" => list(agreement_entitlement()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_agreement_entitlements_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      free_trial_pricing_term() :: %{
-        "duration" => String.t() | atom(),
-        "grants" => list(grant_item()),
-        "id" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type free_trial_pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension() :: %{
-        "dimensionKey" => String.t() | atom(),
-        "dimensionValue" => integer()
-      }
-      
-  """
-  @type dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validity_term() :: %{
-        "agreementDuration" => String.t() | atom(),
-        "agreementEndDate" => non_neg_integer(),
-        "agreementStartDate" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-      
-  """
-  @type validity_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_agreement_payment_request_input() :: %{
-        optional("purchaseOrderReference") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("paymentRequestId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_agreement_invoice_line_items_input() :: %{
-        optional("afterIssuedTime") => non_neg_integer(),
-        optional("beforeIssuedTime") => non_neg_integer(),
-        optional("invoiceBillingPeriod") => invoice_billing_period(),
-        optional("invoiceId") => String.t() | atom(),
-        optional("invoiceType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("groupBy") => list(any())
-      }
-      
-  """
-  @type list_agreement_invoice_line_items_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      itemized_charge() :: %{
-        "chargeReference" => String.t() | atom(),
-        "dimensionKey" => String.t() | atom(),
-        "incrementalChargeAmount" => String.t() | atom(),
-        "newQuantity" => [integer()],
-        "oldQuantity" => [integer()]
-      }
-      
-  """
-  @type itemized_charge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_purchase_orders_input() :: %{
-        required("purchaseOrders") => list(purchase_order())
-      }
-      
-  """
-  @type update_purchase_orders_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_agreement_cancellation_request_output() :: %{
-        "agreementCancellationRequestId" => String.t() | atom(),
-        "agreementId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "reasonCode" => list(any()),
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-      
-  """
-  @type reject_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1412,26 +632,554 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      cancel_agreement_cancellation_request_input() :: %{
-        required("agreementCancellationRequestId") => String.t() | atom(),
-        required("agreementId") => String.t() | atom(),
-        required("cancellationReason") => String.t() | atom()
+      configurable_upfront_pricing_term() :: %{
+        "configuration" => configurable_upfront_pricing_term_configuration(),
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rateCards" => list(configurable_upfront_rate_card_item()),
+        "type" => String.t() | atom()
       }
       
   """
-  @type cancel_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+  @type configurable_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invoice_billing_period() :: %{
-        "month" => [integer()],
-        "year" => [integer()]
+      accept_agreement_payment_request_input() :: %{
+        optional("purchaseOrderReference") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("paymentRequestId") => String.t() | atom()
       }
       
   """
-  @type invoice_billing_period() :: %{(String.t() | atom()) => any()}
+  @type accept_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sort() :: %{
+        "sortBy" => String.t() | atom(),
+        "sortOrder" => list(any())
+      }
+      
+  """
+  @type sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_agreement_cancellation_request_output() :: %{
+        "agreementCancellationRequestId" => String.t() | atom(),
+        "agreementId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "reasonCode" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type accept_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_billing_adjustment_request_input() :: %{
+        required("billingAdjustmentRequestEntries") => list(batch_create_billing_adjustment_request_entry())
+      }
+      
+  """
+  @type batch_create_billing_adjustment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rate_card_item() :: %{
+        "dimensionKey" => String.t() | atom(),
+        "price" => String.t() | atom()
+      }
+      
+  """
+  @type rate_card_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_agreement_cancellation_request_input() :: %{
+        required("agreementCancellationRequestId") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("rejectionReason") => String.t() | atom()
+      }
+      
+  """
+  @type reject_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_agreement_output() :: %{
+        "acceptanceTime" => non_neg_integer(),
+        "acceptor" => acceptor(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "estimatedCharges" => estimated_charges(),
+        "proposalSummary" => proposal_summary(),
+        "proposer" => proposer(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type describe_agreement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      itemized_charge() :: %{
+        "chargeReference" => String.t() | atom(),
+        "dimensionKey" => String.t() | atom(),
+        "incrementalChargeAmount" => String.t() | atom(),
+        "newQuantity" => [integer()],
+        "oldQuantity" => [integer()]
+      }
+      
+  """
+  @type itemized_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_payment_request_input() :: %{
+        required("agreementId") => String.t() | atom(),
+        required("paymentRequestId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_payment_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      expected_charge() :: %{
+        "amount" => String.t() | atom(),
+        "amountAfterTax" => String.t() | atom(),
+        "estimatedTaxes" => estimated_taxes(),
+        "id" => String.t() | atom(),
+        "time" => non_neg_integer(),
+        "timing" => list(any())
+      }
+      
+  """
+  @type expected_charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      configurable_upfront_pricing_term_configuration() :: %{
+        "dimensions" => list(dimension()),
+        "selectorValue" => String.t() | atom()
+      }
+      
+  """
+  @type configurable_upfront_pricing_term_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      charge_summary() :: %{
+        "currencyCode" => String.t() | atom(),
+        "estimatedTaxes" => estimated_taxes(),
+        "expectedCharges" => list(expected_charge()),
+        "invoicingEntity" => invoicing_entity(),
+        "itemizedCharges" => list(itemized_charge()),
+        "newAgreementValue" => String.t() | atom(),
+        "newAgreementValueAfterTax" => String.t() | atom()
+      }
+      
+  """
+  @type charge_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      acceptor() :: %{
+        "accountId" => String.t() | atom()
+      }
+      
+  """
+  @type acceptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_cancellation_request_summary() :: %{
+        "agreementCancellationRequestId" => String.t() | atom(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "catalog" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "reasonCode" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type agreement_cancellation_request_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proposer() :: %{
+        "accountId" => String.t() | atom()
+      }
+      
+  """
+  @type proposer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => list(any())
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_cancellation_requests_output() :: %{
+        "items" => list(agreement_cancellation_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_cancellation_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      variable_payment_term_configuration() :: %{
+        "expirationDuration" => String.t() | atom(),
+        "paymentRequestApprovalStrategy" => list(any())
+      }
+      
+  """
+  @type variable_payment_term_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_agreement_input() :: %{
+        required("agreementId") => String.t() | atom()
+      }
+      
+  """
+  @type cancel_agreement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception_field() :: %{
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_cancellation_request_output() :: %{
+        "agreementCancellationRequestId" => String.t() | atom(),
+        "agreementId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "reasonCode" => list(any()),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type get_agreement_cancellation_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_agreement_request_output() :: %{
+        "agreementId" => String.t() | atom()
+      }
+      
+  """
+  @type accept_agreement_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_purchase_orders_input() :: %{
+        required("purchaseOrders") => list(purchase_order())
+      }
+      
+  """
+  @type update_purchase_orders_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_entitlement() :: %{
+        "licenseArn" => String.t() | atom(),
+        "registrationToken" => String.t() | atom(),
+        "resource" => resource(),
+        "status" => list(any()),
+        "statusReasonCode" => list(any()),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type agreement_entitlement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      document_item() :: %{
+        "type" => String.t() | atom(),
+        "url" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+      
+  """
+  @type document_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      estimated_taxes() :: %{
+        "breakdown" => list(tax_breakdown_item()),
+        "totalAmount" => String.t() | atom()
+      }
+      
+  """
+  @type estimated_taxes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_adjustment_summary() :: %{
+        "adjustmentAmount" => String.t() | atom(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "billingAdjustmentRequestId" => String.t() | atom(),
+        "catalog" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currencyCode" => String.t() | atom(),
+        "originalInvoiceId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type billing_adjustment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_agreement_payment_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any())
+      }
+      
+  """
+  @type send_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_view_summary() :: %{
+        "acceptanceTime" => non_neg_integer(),
+        "acceptor" => acceptor(),
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "entitlements" => list(entitlement()),
+        "proposalSummary" => proposal_summary(),
+        "proposer" => proposer(),
+        "startTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+      
+  """
+  @type agreement_view_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byol_pricing_term() :: %{
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type byol_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validity_term() :: %{
+        "agreementDuration" => String.t() | atom(),
+        "agreementEndDate" => non_neg_integer(),
+        "agreementStartDate" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type validity_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_billing_adjustment_requests_output() :: %{
+        "items" => list(billing_adjustment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_billing_adjustment_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_invoice_line_items_input() :: %{
+        optional("afterIssuedTime") => non_neg_integer(),
+        optional("beforeIssuedTime") => non_neg_integer(),
+        optional("invoiceBillingPeriod") => invoice_billing_period(),
+        optional("invoiceId") => String.t() | atom(),
+        optional("invoiceType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agreementId") => String.t() | atom(),
+        required("groupBy") => list(any())
+      }
+      
+  """
+  @type list_agreement_invoice_line_items_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tax_breakdown_item() :: %{
+        "amount" => String.t() | atom(),
+        "rate" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type tax_breakdown_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renewal_term_configuration() :: %{
+        "enableAutoRenew" => boolean()
+      }
+      
+  """
+  @type renewal_term_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_payment_requests_input() :: %{
+        optional("agreementId") => String.t() | atom(),
+        optional("agreementType") => String.t() | atom(),
+        optional("catalog") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("partyType") => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_payment_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fixed_upfront_pricing_term() :: %{
+        "currencyCode" => String.t() | atom(),
+        "duration" => String.t() | atom(),
+        "grants" => list(grant_item()),
+        "id" => String.t() | atom(),
+        "price" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type fixed_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_entitlements_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("agreementId") => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_entitlements_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1452,41 +1200,99 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      rate_card_item() :: %{
+      charge() :: %{
+        "agreementId" => String.t() | atom(),
+        "agreementType" => String.t() | atom(),
+        "amount" => String.t() | atom(),
+        "currencyCode" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "purchaseOrderReference" => String.t() | atom(),
+        "revision" => float(),
+        "time" => non_neg_integer()
+      }
+      
+  """
+  @type charge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      renewal_term() :: %{
+        "configuration" => renewal_term_configuration(),
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+      
+  """
+  @type renewal_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_billing_adjustment_item() :: %{
+        "billingAdjustmentRequestId" => String.t() | atom(),
+        "clientToken" => String.t() | atom()
+      }
+      
+  """
+  @type batch_create_billing_adjustment_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      dimension() :: %{
         "dimensionKey" => String.t() | atom(),
-        "price" => String.t() | atom()
+        "dimensionValue" => integer()
       }
       
   """
-  @type rate_card_item() :: %{(String.t() | atom()) => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      cancel_agreement_input() :: %{
-        required("agreementId") => String.t() | atom()
+      support_term() :: %{
+        "id" => String.t() | atom(),
+        "refundPolicy" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
       
   """
-  @type cancel_agreement_input() :: %{(String.t() | atom()) => any()}
+  @type support_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_agreement_cancellation_requests_input() :: %{
-        optional("agreementId") => String.t() | atom(),
-        optional("agreementType") => String.t() | atom(),
-        optional("catalog") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("partyType") => String.t() | atom()
+      proposal_summary() :: %{
+        "offerId" => String.t() | atom(),
+        "offerSetId" => String.t() | atom(),
+        "resources" => list(resource())
       }
       
   """
-  @type list_agreement_cancellation_requests_input() :: %{(String.t() | atom()) => any()}
+  @type proposal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      agreement_invoice_line_item_group_summary() :: %{
+        "agreementId" => String.t() | atom(),
+        "invoiceBillingPeriod" => invoice_billing_period(),
+        "invoiceId" => String.t() | atom(),
+        "invoiceType" => list(any()),
+        "invoicingEntity" => invoicing_entity(),
+        "issuedTime" => non_neg_integer(),
+        "pricingCurrencyAmount" => pricing_currency_amount()
+      }
+      
+  """
+  @type agreement_invoice_line_item_group_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1511,44 +1317,67 @@ defmodule AWS.MarketplaceAgreement do
 
   ## Example:
       
-      variable_payment_term_configuration() :: %{
-        "expirationDuration" => String.t() | atom(),
-        "paymentRequestApprovalStrategy" => list(any())
-      }
+      update_purchase_orders_output() :: %{}
       
   """
-  @type variable_payment_term_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_purchase_orders_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      create_agreement_request_input() :: %{
-        optional("agreementProposalIdentifier") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("sourceAgreementIdentifier") => String.t() | atom(),
-        optional("taxConfiguration") => tax_configuration(),
-        required("intent") => list(any()),
-        required("requestedTerms") => list(requested_term())
+      estimated_charges() :: %{
+        "agreementValue" => String.t() | atom(),
+        "currencyCode" => String.t() | atom()
       }
       
   """
-  @type create_agreement_request_input() :: %{(String.t() | atom()) => any()}
+  @type estimated_charges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      configurable_upfront_pricing_term() :: %{
-        "configuration" => configurable_upfront_pricing_term_configuration(),
+      payment_schedule_term() :: %{
         "currencyCode" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "rateCards" => list(configurable_upfront_rate_card_item()),
+        "schedule" => list(schedule_item()),
         "type" => String.t() | atom()
       }
       
   """
-  @type configurable_upfront_pricing_term() :: %{(String.t() | atom()) => any()}
+  @type payment_schedule_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_agreement_payment_request_output() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeAmount" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "currencyCode" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "paymentRequestId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+      
+  """
+  @type accept_agreement_payment_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_create_billing_adjustment_request_output() :: %{
+        "errors" => list(batch_create_billing_adjustment_error()),
+        "items" => list(batch_create_billing_adjustment_item())
+      }
+      
+  """
+  @type batch_create_billing_adjustment_request_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1562,188 +1391,359 @@ defmodule AWS.MarketplaceAgreement do
   """
   @type resource() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      create_agreement_request_output() :: %{
+        "agreementRequestId" => String.t() | atom(),
+        "chargeSummary" => charge_summary()
+      }
+      
+  """
+  @type create_agreement_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      purchase_order() :: %{
+        "agreementId" => String.t() | atom(),
+        "chargeId" => String.t() | atom(),
+        "chargeRevision" => float(),
+        "purchaseOrderReference" => String.t() | atom()
+      }
+      
+  """
+  @type purchase_order() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_charges_output() :: %{
+        "items" => list(charge()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_charges_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_agreement_cancellation_request_input() :: %{
+        required("agreementCancellationRequestId") => String.t() | atom(),
+        required("agreementId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_agreement_cancellation_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_agreements_input() :: %{
+        optional("catalog") => String.t() | atom(),
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sort") => sort()
+      }
+      
+  """
+  @type search_agreements_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_payment_requests_output() :: %{
+        "items" => list(payment_request_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_payment_requests_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_billing_adjustment_requests_input() :: %{
+        optional("agreementId") => String.t() | atom(),
+        optional("agreementType") => String.t() | atom(),
+        optional("catalog") => String.t() | atom(),
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+      
+  """
+  @type list_billing_adjustment_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_agreement_terms_output() :: %{
+        "acceptedTerms" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_agreement_terms_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_agreement_invoice_line_items_output() :: %{
+        "agreementInvoiceLineItemGroupSummaries" => list(agreement_invoice_line_item_group_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_agreement_invoice_line_items_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      requested_term() :: %{
+        "configuration" => list(),
+        "id" => String.t() | atom()
+      }
+      
+  """
+  @type requested_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom(),
+        "quotaCode" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "serviceCode" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_agreements_output() :: %{
+        "agreementViewSummaries" => list(agreement_view_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type search_agreements_output() :: %{(String.t() | atom()) => any()}
+
   @type accept_agreement_cancellation_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type accept_agreement_payment_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type accept_agreement_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_create_billing_adjustment_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_agreement_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_agreement_cancellation_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_agreement_payment_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_agreement_request_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_agreement_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_agreement_cancellation_request_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_agreement_entitlements_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_agreement_payment_request_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_agreement_terms_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_billing_adjustment_request_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_agreement_cancellation_requests_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_agreement_charges_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_agreement_invoice_line_items_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_agreement_payment_requests_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_billing_adjustment_requests_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type reject_agreement_cancellation_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type reject_agreement_payment_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_agreements_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type send_agreement_cancellation_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type send_agreement_payment_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_purchase_orders_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -1782,7 +1782,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, accept_agreement_cancellation_request_errors()}
   def accept_agreement_cancellation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAgreementCancellationRequest", input, options)
   end
@@ -1804,7 +1805,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, accept_agreement_payment_request_errors()}
   def accept_agreement_payment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAgreementPaymentRequest", input, options)
   end
@@ -1821,7 +1823,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, accept_agreement_request_errors()}
   def accept_agreement_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptAgreementRequest", input, options)
   end
@@ -1846,7 +1849,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, batch_create_billing_adjustment_request_errors()}
   def batch_create_billing_adjustment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "BatchCreateBillingAdjustmentRequest", input, options)
   end
@@ -1863,7 +1867,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, cancel_agreement_errors()}
   def cancel_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelAgreement", input, options)
   end
@@ -1889,7 +1894,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, cancel_agreement_cancellation_request_errors()}
   def cancel_agreement_cancellation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelAgreementCancellationRequest", input, options)
   end
@@ -1910,7 +1916,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, cancel_agreement_payment_request_errors()}
   def cancel_agreement_payment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelAgreementPaymentRequest", input, options)
   end
@@ -1929,7 +1936,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, create_agreement_request_errors()}
   def create_agreement_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAgreementRequest", input, options)
   end
@@ -1944,7 +1952,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, describe_agreement_errors()}
   def describe_agreement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAgreement", input, options)
   end
@@ -1965,7 +1974,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_cancellation_request_errors()}
   def get_agreement_cancellation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementCancellationRequest", input, options)
   end
@@ -1979,7 +1989,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_entitlements_errors()}
   def get_agreement_entitlements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementEntitlements", input, options)
   end
@@ -2002,7 +2013,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_payment_request_errors()}
   def get_agreement_payment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementPaymentRequest", input, options)
   end
@@ -2033,7 +2045,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_agreement_terms_errors()}
   def get_agreement_terms(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAgreementTerms", input, options)
   end
@@ -2050,7 +2063,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, get_billing_adjustment_request_errors()}
   def get_billing_adjustment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetBillingAdjustmentRequest", input, options)
   end
@@ -2075,7 +2089,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, list_agreement_cancellation_requests_errors()}
   def list_agreement_cancellation_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAgreementCancellationRequests", input, options)
   end
@@ -2093,7 +2108,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, list_agreement_charges_errors()}
   def list_agreement_charges(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAgreementCharges", input, options)
   end
@@ -2118,7 +2134,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, list_agreement_invoice_line_items_errors()}
   def list_agreement_invoice_line_items(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAgreementInvoiceLineItems", input, options)
   end
@@ -2140,7 +2157,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, list_agreement_payment_requests_errors()}
   def list_agreement_payment_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAgreementPaymentRequests", input, options)
   end
@@ -2157,7 +2175,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, list_billing_adjustment_requests_errors()}
   def list_billing_adjustment_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBillingAdjustmentRequests", input, options)
   end
@@ -2183,7 +2202,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, reject_agreement_cancellation_request_errors()}
   def reject_agreement_cancellation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAgreementCancellationRequest", input, options)
   end
@@ -2204,7 +2224,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, reject_agreement_payment_request_errors()}
   def reject_agreement_payment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RejectAgreementPaymentRequest", input, options)
   end
@@ -2343,7 +2364,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, search_agreements_errors()}
   def search_agreements(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchAgreements", input, options)
   end
@@ -2365,7 +2387,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, send_agreement_cancellation_request_errors()}
   def send_agreement_cancellation_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendAgreementCancellationRequest", input, options)
   end
@@ -2387,7 +2410,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, send_agreement_payment_request_errors()}
   def send_agreement_payment_request(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SendAgreementPaymentRequest", input, options)
   end
@@ -2402,7 +2426,8 @@ defmodule AWS.MarketplaceAgreement do
           | {:error, term()}
           | {:error, update_purchase_orders_errors()}
   def update_purchase_orders(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePurchaseOrders", input, options)
   end

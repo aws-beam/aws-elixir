@@ -13,19 +13,1242 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      campaign_response() :: %{
-        "AdditionalTreatments" => list(treatment_resource()),
+      get_recommender_configuration_response() :: %{
+        "RecommenderConfigurationResponse" => recommender_configuration_response()
+      }
+
+  """
+  @type get_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_activities_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_campaign_activities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number_validate_request() :: %{
+        required("NumberValidateRequest") => number_validate_request()
+      }
+
+  """
+  @type phone_number_validate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_configuration_request() :: %{}
+
+  """
+  @type delete_recommender_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_voip_channel_response() :: %{
         "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "HasTokenKey" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type a_p_n_s_voip_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_voip_sandbox_channel_request() :: %{}
+
+  """
+  @type get_apns_voip_sandbox_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      item_response() :: %{
+        "EndpointItemResponse" => endpoint_item_response(),
+        "EventsItemResponse" => map()
+      }
+
+  """
+  @type item_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_configuration_response() :: %{
+        "RecommenderConfigurationResponse" => recommender_configuration_response()
+      }
+
+  """
+  @type delete_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_push_notification_template() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type default_push_notification_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_sandbox_channel_response() :: %{
+        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
+      }
+
+  """
+  @type delete_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_job_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CompletedPieces" => integer(),
+        "CompletionDate" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Definition" => import_job_resource(),
+        "FailedPieces" => integer(),
+        "Failures" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "JobStatus" => list(any()),
+        "TotalFailures" => integer(),
+        "TotalPieces" => integer(),
+        "TotalProcessed" => integer(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_request() :: %{}
+
+  """
+  @type get_segment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_push_notification_template() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "MediaUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type a_p_n_s_push_notification_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_run_response() :: %{
+        "CreationTime" => String.t() | atom(),
+        "LastUpdateTime" => String.t() | atom(),
+        "RunId" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type journey_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_run_execution_metrics_response() :: %{
+        "JourneyRunExecutionMetricsResponse" => journey_run_execution_metrics_response()
+      }
+
+  """
+  @type get_journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_demographic() :: %{
+        "AppVersion" => String.t() | atom(),
+        "Locale" => String.t() | atom(),
+        "Make" => String.t() | atom(),
+        "Model" => String.t() | atom(),
+        "ModelVersion" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "PlatformVersion" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_demographic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message() :: %{
+        "Body" => String.t() | atom(),
+        "FeedbackForwardingAddress" => String.t() | atom(),
+        "FromAddress" => String.t() | atom(),
+        "RawEmail" => raw_email(),
+        "ReplyToAddresses" => list(String.t() | atom()),
+        "SimpleEmail" => simple_email(),
+        "Substitutions" => map()
+      }
+
+  """
+  @type email_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_response() :: %{
+        "SegmentResponse" => segment_response()
+      }
+
+  """
+  @type delete_segment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_voip_channel_request() :: %{}
+
+  """
+  @type delete_apns_voip_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_sms_message() :: %{
+        "EntityId" => String.t() | atom(),
+        "MessageType" => list(any()),
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type journey_sms_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      events_batch() :: %{
+        "Endpoint" => public_endpoint(),
+        "Events" => map()
+      }
+
+  """
+  @type events_batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_sandbox_channel_response() :: %{
+        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
+      }
+
+  """
+  @type get_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_template_request() :: %{
+        required("VoiceTemplateRequest") => voice_template_request()
+      }
+
+  """
+  @type create_voice_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      method_not_allowed_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_condition() :: %{
+        "SegmentId" => String.t() | atom()
+      }
+
+  """
+  @type segment_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_request() :: %{}
+
+  """
+  @type get_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_event_stream_request() :: %{
+        required("WriteEventStream") => write_event_stream()
+      }
+
+  """
+  @type put_event_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_event_filter() :: %{
+        "Dimensions" => event_dimensions(),
+        "FilterType" => list(any())
+      }
+
+  """
+  @type campaign_event_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_endpoints_batch_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_endpoints_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_date_range_kpi_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "JourneyId" => String.t() | atom(),
+        "KpiName" => String.t() | atom(),
+        "KpiResult" => base_kpi_result(),
+        "NextToken" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_segment_request() :: %{
+        "Dimensions" => segment_dimensions(),
+        "Name" => String.t() | atom(),
+        "SegmentGroups" => segment_group_list(),
+        "tags" => map()
+      }
+
+  """
+  @type write_segment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "PromotionalMessagesPerSecond" => integer(),
+        "SenderId" => String.t() | atom(),
+        "ShortCode" => String.t() | atom(),
+        "TransactionalMessagesPerSecond" => integer(),
+        "Version" => integer()
+      }
+
+  """
+  @type sms_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sms_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type delete_sms_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_adm_channel_response() :: %{
+        "ADMChannelResponse" => ad_m_channel_response()
+      }
+
+  """
+  @type update_adm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_template_active_version_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_template_active_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_channel_response() :: %{
+        "VoiceChannelResponse" => voice_channel_response()
+      }
+
+  """
+  @type get_voice_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      g_p_s_point_dimension() :: %{
+        "Coordinates" => g_p_s_coordinates(),
+        "RangeInKilometers" => float()
+      }
+
+  """
+  @type g_p_s_point_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_channel_request() :: %{}
+
+  """
+  @type get_voice_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_template_request() :: %{
+        "DefaultSubstitutions" => String.t() | atom(),
+        "Headers" => list(message_header()),
+        "HtmlPart" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TextPart" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_in_app_template_response() :: %{
+        "TemplateCreateMessageBody" => template_create_message_body()
+      }
+
+  """
+  @type create_in_app_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      override_button_configuration() :: %{
+        "ButtonAction" => list(any()),
+        "Link" => String.t() | atom()
+      }
+
+  """
+  @type override_button_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_version_response() :: %{
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type template_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_schedule() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Timezone" => String.t() | atom()
+      }
+
+  """
+  @type journey_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_import_job_request() :: %{
+        required("ImportJobRequest") => import_job_request()
+      }
+
+  """
+  @type create_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_response() :: %{
+        "ExportJobResponse" => export_job_response()
+      }
+
+  """
+  @type get_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_custom_message() :: %{
+        "Data" => String.t() | atom()
+      }
+
+  """
+  @type journey_custom_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_batch_request() :: %{
+        "Item" => list(endpoint_batch_item())
+      }
+
+  """
+  @type endpoint_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type delete_voice_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_job_response() :: %{
+        "ImportJobResponse" => import_job_response()
+      }
+
+  """
+  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_voip_sandbox_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "HasTokenKey" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type a_p_n_s_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      events_request() :: %{
+        "BatchItem" => map()
+      }
+
+  """
+  @type events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_execution_metrics_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
+        "Metrics" => map()
+      }
+
+  """
+  @type journey_execution_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_header() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type message_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sms_template_request() :: %{
+        optional("CreateNewVersion") => boolean(),
+        optional("Version") => String.t() | atom(),
+        required("SMSTemplateRequest") => sms_template_request()
+      }
+
+  """
+  @type update_sms_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_in_app_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_in_app_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_endpoints_request() :: %{}
+
+  """
+  @type delete_user_endpoints_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_attributes_request() :: %{
+        required("UpdateAttributesRequest") => update_attributes_request()
+      }
+
+  """
+  @type remove_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_version_response() :: %{
+        "CampaignResponse" => campaign_response()
+      }
+
+  """
+  @type get_campaign_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_hours() :: %{
+        "CUSTOM" => map(),
+        "EMAIL" => map(),
+        "PUSH" => map(),
+        "SMS" => map(),
+        "VOICE" => map()
+      }
+
+  """
+  @type open_hours() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      holdout_activity() :: %{
+        "NextActivity" => String.t() | atom(),
+        "Percentage" => integer()
+      }
+
+  """
+  @type holdout_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_conditional_branch() :: %{
+        "Condition" => simple_condition(),
+        "NextActivity" => String.t() | atom()
+      }
+
+  """
+  @type multi_conditional_branch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activity() :: %{
+        "CUSTOM" => custom_message_activity(),
+        "ConditionalSplit" => conditional_split_activity(),
+        "ContactCenter" => contact_center_activity(),
+        "Description" => String.t() | atom(),
+        "EMAIL" => email_message_activity(),
+        "Holdout" => holdout_activity(),
+        "MultiCondition" => multi_conditional_split_activity(),
+        "PUSH" => push_message_activity(),
+        "RandomSplit" => random_split_activity(),
+        "SMS" => sms_message_activity(),
+        "Wait" => wait_activity()
+      }
+
+  """
+  @type activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_in_app_template_request() :: %{
+        required("InAppTemplateRequest") => in_app_template_request()
+      }
+
+  """
+  @type create_in_app_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_timeframe_cap() :: %{
+        "Cap" => integer(),
+        "Days" => integer()
+      }
+
+  """
+  @type journey_timeframe_cap() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_message_campaign() :: %{
+        "CampaignId" => String.t() | atom(),
+        "DailyCap" => integer(),
+        "InAppMessage" => in_app_message(),
+        "Priority" => integer(),
+        "Schedule" => in_app_campaign_schedule(),
+        "SessionCap" => integer(),
+        "TotalCap" => integer(),
+        "TreatmentId" => String.t() | atom()
+      }
+
+  """
+  @type in_app_message_campaign() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_stream_request() :: %{}
+
+  """
+  @type get_event_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_gcm_channel_request() :: %{
+        required("GCMChannelRequest") => g_cm_channel_request()
+      }
+
+  """
+  @type update_gcm_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_attributes_response() :: %{
+        "AttributesResource" => attributes_resource()
+      }
+
+  """
+  @type remove_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_event_stream() :: %{
+        "DestinationStreamArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type write_event_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_message_activity() :: %{
+        "MessageConfig" => journey_sms_message(),
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
+      }
+
+  """
+  @type sms_message_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_template_versions_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
+      }
+
+  """
+  @type list_template_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      closed_days() :: %{
+        "CUSTOM" => list(closed_days_rule()),
+        "EMAIL" => list(closed_days_rule()),
+        "PUSH" => list(closed_days_rule()),
+        "SMS" => list(closed_days_rule()),
+        "VOICE" => list(closed_days_rule())
+      }
+
+  """
+  @type closed_days() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segments_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_segments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_import_resource() :: %{
+        "ChannelCounts" => map(),
+        "ExternalId" => String.t() | atom(),
+        "Format" => list(any()),
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
+        "Size" => integer()
+      }
+
+  """
+  @type segment_import_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_in_app_message() :: %{
+        "Body" => String.t() | atom(),
+        "Content" => list(in_app_message_content()),
+        "CustomConfig" => map(),
+        "Layout" => list(any())
+      }
+
+  """
+  @type campaign_in_app_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      result_row_value() :: %{
+        "Key" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type result_row_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_adm_channel_response() :: %{
+        "ADMChannelResponse" => ad_m_channel_response()
+      }
+
+  """
+  @type delete_adm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sms_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_sms_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_campaign_response() :: %{
+        "CampaignResponse" => campaign_response()
+      }
+
+  """
+  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_filter() :: %{
+        "Dimensions" => event_dimensions(),
+        "FilterType" => list(any())
+      }
+
+  """
+  @type event_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_endpoints_response() :: %{
+        "EndpointsResponse" => endpoints_response()
+      }
+
+  """
+  @type delete_user_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_message_activity() :: %{
+        "MessageConfig" => journey_push_message(),
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
+      }
+
+  """
+  @type push_message_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_baidu_channel_request() :: %{
+        required("BaiduChannelRequest") => baidu_channel_request()
+      }
+
+  """
+  @type update_baidu_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_configuration() :: %{
+        "EmailTemplate" => template(),
+        "InAppTemplate" => template(),
+        "PushTemplate" => template(),
+        "SMSTemplate" => template(),
+        "VoiceTemplate" => template()
+      }
+
+  """
+  @type template_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_channel_response() :: %{
+        "APNSChannelResponse" => a_p_n_s_channel_response()
+      }
+
+  """
+  @type delete_apns_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channels_response() :: %{
+        "Channels" => map()
+      }
+
+  """
+  @type channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_export_jobs_response() :: %{
+        "ExportJobsResponse" => export_jobs_response()
+      }
+
+  """
+  @type get_segment_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_segment_response() :: %{
+        "SegmentResponse" => segment_response()
+      }
+
+  """
+  @type update_segment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_channel_response() :: %{
+        "APNSChannelResponse" => a_p_n_s_channel_response()
+      }
+
+  """
+  @type update_apns_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_template_response() :: %{
         "Arn" => String.t() | atom(),
         "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "Headers" => list(message_header()),
+        "HtmlPart" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "Subject" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => list(any()),
+        "TextPart" => String.t() | atom(),
+        "Version" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channels_request() :: %{}
+
+  """
+  @type get_channels_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_push_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type get_push_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_response() :: %{
+        "ApplicationResponse" => application_response()
+      }
+
+  """
+  @type get_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gcm_channel_response() :: %{
+        "GCMChannelResponse" => g_cm_channel_response()
+      }
+
+  """
+  @type get_gcm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_campaign_request() :: %{
+        required("WriteCampaignRequest") => write_campaign_request()
+      }
+
+  """
+  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_email_message() :: %{
+        "FromAddress" => String.t() | atom()
+      }
+
+  """
+  @type journey_email_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_campaign_request() :: %{
+        "AdditionalTreatments" => list(write_treatment_resource()),
         "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "DefaultState" => campaign_state(),
         "Description" => String.t() | atom(),
         "HoldoutPercent" => integer(),
         "Hook" => campaign_hook(),
-        "Id" => String.t() | atom(),
         "IsPaused" => boolean(),
-        "LastModifiedDate" => String.t() | atom(),
         "Limits" => campaign_limits(),
         "MessageConfiguration" => message_configuration(),
         "Name" => String.t() | atom(),
@@ -33,25 +1256,2273 @@ defmodule AWS.Pinpoint do
         "Schedule" => schedule(),
         "SegmentId" => String.t() | atom(),
         "SegmentVersion" => integer(),
-        "State" => campaign_state(),
         "TemplateConfiguration" => template_configuration(),
         "TreatmentDescription" => String.t() | atom(),
         "TreatmentName" => String.t() | atom(),
-        "Version" => integer(),
         "tags" => map()
       }
 
   """
-  @type campaign_response() :: %{(String.t() | atom()) => any()}
+  @type write_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_journey_request() :: %{}
+      update_endpoints_batch_request() :: %{
+        required("EndpointBatchRequest") => endpoint_batch_request()
+      }
 
   """
-  @type delete_journey_request() :: %{}
+  @type update_endpoints_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_endpoint_response() :: %{
+        "EndpointResponse" => endpoint_response()
+      }
+
+  """
+  @type get_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_journey_request() :: %{
+        required("WriteJourneyRequest") => write_journey_request()
+      }
+
+  """
+  @type update_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type delete_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_o_t_p_message_request_parameters() :: %{
+        "DestinationIdentity" => String.t() | atom(),
+        "Otp" => String.t() | atom(),
+        "ReferenceId" => String.t() | atom()
+      }
+
+  """
+  @type verify_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_settings_resource() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CampaignHook" => campaign_hook(),
+        "JourneyLimits" => application_settings_journey_limits(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Limits" => campaign_limits(),
+        "QuietTime" => quiet_time()
+      }
+
+  """
+  @type application_settings_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_voip_channel_response() :: %{
+        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
+      }
+
+  """
+  @type delete_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_request() :: %{
+        required("CreateApplicationRequest") => create_application_request()
+      }
+
+  """
+  @type create_app_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_in_app_template_response() :: %{
+        "InAppTemplateResponse" => in_app_template_response()
+      }
+
+  """
+  @type get_in_app_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_channel_response() :: %{
+        "EmailChannelResponse" => email_channel_response()
+      }
+
+  """
+  @type update_email_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gcm_channel_response() :: %{
+        "GCMChannelResponse" => g_cm_channel_response()
+      }
+
+  """
+  @type delete_gcm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channels_response() :: %{
+        "ChannelsResponse" => channels_response()
+      }
+
+  """
+  @type get_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaigns_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_campaigns_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_in_app_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type delete_in_app_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_behaviors() :: %{
+        "Recency" => recency_dimension()
+      }
+
+  """
+  @type segment_behaviors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_dimension() :: %{
+        "ComparisonOperator" => String.t() | atom(),
+        "Value" => float()
+      }
+
+  """
+  @type metric_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_location() :: %{
+        "Country" => set_dimension(),
+        "GPSPoint" => g_p_s_point_dimension()
+      }
+
+  """
+  @type segment_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_job_request() :: %{}
+
+  """
+  @type get_export_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_sandbox_channel_request() :: %{
+        required("APNSSandboxChannelRequest") => a_p_n_s_sandbox_channel_request()
+      }
+
+  """
+  @type update_apns_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      email_message_activity() :: %{
+        "MessageConfig" => journey_email_message(),
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
+      }
+
+  """
+  @type email_message_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_o_t_p_message_request() :: %{
+        required("VerifyOTPMessageRequestParameters") => verify_o_t_p_message_request_parameters()
+      }
+
+  """
+  @type verify_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_dimensions() :: %{
+        "Attributes" => map(),
+        "EventType" => set_dimension(),
+        "Metrics" => map()
+      }
+
+  """
+  @type event_dimensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_push_template_request() :: %{
+        optional("CreateNewVersion") => boolean(),
+        optional("Version") => String.t() | atom(),
+        required("PushNotificationTemplateRequest") => push_notification_template_request()
+      }
+
+  """
+  @type update_push_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_job_resource() :: %{
+        "RoleArn" => String.t() | atom(),
+        "S3UrlPrefix" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentVersion" => integer()
+      }
+
+  """
+  @type export_job_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_baidu_channel_response() :: %{
+        "BaiduChannelResponse" => baidu_channel_response()
+      }
+
+  """
+  @type delete_baidu_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_message() :: %{
+        "Content" => list(in_app_message_content()),
+        "CustomConfig" => map(),
+        "Layout" => list(any())
+      }
+
+  """
+  @type in_app_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_segment_request() :: %{
+        required("WriteSegmentRequest") => write_segment_request()
+      }
+
+  """
+  @type update_segment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_channel_request() :: %{
+        required("EmailChannelRequest") => email_channel_request()
+      }
+
+  """
+  @type update_email_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_request() :: %{}
+
+  """
+  @type get_journey_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sms_channel_response() :: %{
+        "SMSChannelResponse" => sms_channel_response()
+      }
+
+  """
+  @type delete_sms_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_adm_channel_request() :: %{}
+
+  """
+  @type delete_adm_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_template_response() :: %{
+        "CreateTemplateMessageBody" => create_template_message_body()
+      }
+
+  """
+  @type create_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      android_push_notification_template() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type android_push_notification_template() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type set_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_channel_settings() :: %{
+        "ConnectCampaignArn" => String.t() | atom(),
+        "ConnectCampaignExecutionRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type journey_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_templates_response() :: %{
+        "TemplatesResponse" => templates_response()
+      }
+
+  """
+  @type list_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_sandbox_channel_response() :: %{
+        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
+      }
+
+  """
+  @type update_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type get_voice_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_gcm_channel_request() :: %{}
+
+  """
+  @type get_gcm_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_channel_request() :: %{
+        "ConfigurationSet" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "FromAddress" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
+        "OrchestrationSendingRoleArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type email_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_channel_request() :: %{
+        required("APNSChannelRequest") => a_p_n_s_channel_request()
+      }
+
+  """
+  @type update_apns_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_job_request() :: %{
+        "RoleArn" => String.t() | atom(),
+        "S3UrlPrefix" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentVersion" => integer()
+      }
+
+  """
+  @type export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_settings_journey_limits() :: %{
+        "DailyCap" => integer(),
+        "TimeframeCap" => journey_timeframe_cap(),
+        "TotalCap" => integer()
+      }
+
+  """
+  @type application_settings_journey_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_template_response() :: %{
+        "EmailTemplateResponse" => email_template_response()
+      }
+
+  """
+  @type get_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_settings_response() :: %{
+        "ApplicationSettingsResource" => application_settings_resource()
+      }
+
+  """
+  @type update_application_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_date_range_kpi_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "KpiName" => String.t() | atom(),
+        "KpiResult" => base_kpi_result(),
+        "NextToken" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_jobs_response() :: %{
+        "ExportJobsResponse" => export_jobs_response()
+      }
+
+  """
+  @type get_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_template_request() :: %{
+        optional("CreateNewVersion") => boolean(),
+        optional("Version") => String.t() | atom(),
+        required("EmailTemplateRequest") => email_template_request()
+      }
+
+  """
+  @type update_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activities_response() :: %{
+        "Item" => list(activity_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type activities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Content" => list(in_app_message_content()),
+        "CreationDate" => String.t() | atom(),
+        "CustomConfig" => map(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Layout" => list(any()),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => list(any()),
+        "Version" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type in_app_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        "Name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_email_channel_request() :: %{}
+
+  """
+  @type delete_email_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_app_request() :: %{}
+
+  """
+  @type get_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_sandbox_channel_request() :: %{
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
+      }
+
+  """
+  @type a_p_n_s_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sms_channel_request() :: %{}
+
+  """
+  @type delete_sms_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      import_job_resource() :: %{
+        "DefineSegment" => boolean(),
+        "ExternalId" => String.t() | atom(),
+        "Format" => list(any()),
+        "RegisterEndpoints" => boolean(),
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
+      }
+
+  """
+  @type import_job_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_date_range_kpi_response() :: %{
+        "ApplicationDateRangeKpiResponse" => application_date_range_kpi_response()
+      }
+
+  """
+  @type get_application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_journeys_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type list_journeys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_jobs_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_configurations_response() :: %{
+        "ListRecommenderConfigurationsResponse" => list_recommender_configurations_response()
+      }
+
+  """
+  @type get_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type application_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_time() :: %{
+        "WaitFor" => String.t() | atom(),
+        "WaitUntil" => String.t() | atom()
+      }
+
+  """
+  @type wait_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_versions_response() :: %{
+        "CampaignsResponse" => campaigns_response()
+      }
+
+  """
+  @type get_campaign_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_state() :: %{
+        "CampaignStatus" => list(any())
+      }
+
+  """
+  @type campaign_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_journey_request() :: %{
+        "Activities" => map(),
+        "ClosedDays" => closed_days(),
+        "CreationDate" => String.t() | atom(),
+        "JourneyChannelSettings" => journey_channel_settings(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Limits" => journey_limits(),
+        "LocalTime" => boolean(),
+        "Name" => String.t() | atom(),
+        "OpenHours" => open_hours(),
+        "QuietTime" => quiet_time(),
+        "RefreshFrequency" => String.t() | atom(),
+        "RefreshOnSegmentUpdate" => boolean(),
+        "Schedule" => journey_schedule(),
+        "SendingSchedule" => boolean(),
+        "StartActivity" => String.t() | atom(),
+        "StartCondition" => start_condition(),
+        "State" => list(any()),
+        "TimezoneEstimationMethods" => list(list(any())()),
+        "WaitForQuietTime" => boolean()
+      }
+
+  """
+  @type write_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sms_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type get_sms_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_notification_template_request() :: %{
+        "ADM" => android_push_notification_template(),
+        "APNS" => a_p_n_s_push_notification_template(),
+        "Baidu" => android_push_notification_template(),
+        "Default" => default_push_notification_template(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "GCM" => android_push_notification_template(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type push_notification_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attributes_resource() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "AttributeType" => String.t() | atom(),
+        "Attributes" => list(String.t() | atom())
+      }
+
+  """
+  @type attributes_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apps_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_apps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      phone_number_validate_response() :: %{
+        "NumberValidateResponse" => number_validate_response()
+      }
+
+  """
+  @type phone_number_validate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_active_version_request() :: %{
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type template_active_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_endpoint() :: %{
+        "Address" => String.t() | atom(),
+        "Attributes" => map(),
+        "ChannelType" => list(any()),
+        "Demographic" => endpoint_demographic(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
+        "Location" => endpoint_location(),
+        "Metrics" => map(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "User" => endpoint_user()
+      }
+
+  """
+  @type public_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoints_response() :: %{
+        "Item" => list(endpoint_response())
+      }
+
+  """
+  @type endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_request() :: %{}
+
+  """
+  @type delete_app_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_events_request() :: %{
+        required("EventsRequest") => events_request()
+      }
+
+  """
+  @type put_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_application_settings_request() :: %{
+        required("WriteApplicationSettingsRequest") => write_application_settings_request()
+      }
+
+  """
+  @type update_application_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_template_request() :: %{
+        "Body" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "VoiceId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type voice_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_sandbox_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "HasTokenKey" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type a_p_n_s_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_center_activity() :: %{
+        optional("NextActivity") => String.t() | atom()
+      }
+
+  """
+  @type contact_center_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "HasTokenKey" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type a_p_n_s_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_create_message_body() :: %{
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type template_create_message_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segments_response() :: %{
+        "Item" => list(segment_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type segments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      direct_message_configuration() :: %{
+        "ADMMessage" => ad_m_message(),
+        "APNSMessage" => a_p_n_s_message(),
+        "BaiduMessage" => baidu_message(),
+        "DefaultMessage" => default_message(),
+        "DefaultPushNotificationMessage" => default_push_notification_message(),
+        "EmailMessage" => email_message(),
+        "GCMMessage" => g_cm_message(),
+        "SMSMessage" => sms_message(),
+        "VoiceMessage" => voice_message()
+      }
+
+  """
+  @type direct_message_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_run_execution_activity_metrics_response() :: %{
+        "ActivityType" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyActivityId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
+        "Metrics" => map(),
+        "RunId" => String.t() | atom()
+      }
+
+  """
+  @type journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_message() :: %{
+        "Body" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "OriginationNumber" => String.t() | atom(),
+        "Substitutions" => map(),
+        "VoiceId" => String.t() | atom()
+      }
+
+  """
+  @type voice_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_email_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_email_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "EndpointResult" => map(),
+        "RequestId" => String.t() | atom(),
+        "Result" => map()
+      }
+
+  """
+  @type message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_condition() :: %{
+        "Dimensions" => event_dimensions(),
+        "MessageActivity" => String.t() | atom()
+      }
+
+  """
+  @type event_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_channel_request() :: %{}
+
+  """
+  @type delete_apns_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_configurations_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_recommender_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_template_message_body() :: %{
+        "Arn" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type create_template_message_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_journey_state_response() :: %{
+        "JourneyResponse" => journey_response()
+      }
+
+  """
+  @type update_journey_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_dimension() :: %{
+        "AttributeType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_versions_response() :: %{
+        "SegmentsResponse" => segments_response()
+      }
+
+  """
+  @type get_segment_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segments_response() :: %{
+        "SegmentsResponse" => segments_response()
+      }
+
+  """
+  @type get_segments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_sms_message() :: %{
+        "Body" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "MessageType" => list(any()),
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type campaign_sms_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("TagsModel") => tags_model()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_condition() :: %{
+        "Description" => String.t() | atom(),
+        "EventStartCondition" => event_start_condition(),
+        "SegmentStartCondition" => segment_condition()
+      }
+
+  """
+  @type start_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_sandbox_channel_request() :: %{}
+
+  """
+  @type get_apns_sandbox_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_request() :: %{
+        "Address" => String.t() | atom(),
+        "Attributes" => map(),
+        "ChannelType" => list(any()),
+        "Demographic" => endpoint_demographic(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
+        "Location" => endpoint_location(),
+        "Metrics" => map(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "User" => endpoint_user()
+      }
+
+  """
+  @type endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_campaign_request() :: %{}
+
+  """
+  @type delete_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_import_job_response() :: %{
+        "ImportJobResponse" => import_job_response()
+      }
+
+  """
+  @type create_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_date_range_kpi_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_journey_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_request() :: %{
+        "Addresses" => map(),
+        "Context" => map(),
+        "Endpoints" => map(),
+        "MessageConfiguration" => direct_message_configuration(),
+        "TemplateConfiguration" => template_configuration(),
+        "TraceId" => String.t() | atom()
+      }
+
+  """
+  @type message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_journey_response() :: %{
+        "JourneyResponse" => journey_response()
+      }
+
+  """
+  @type update_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_endpoint_request() :: %{
+        required("EndpointRequest") => endpoint_request()
+      }
+
+  """
+  @type update_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_execution_activity_metrics_response() :: %{
+        "JourneyExecutionActivityMetricsResponse" => journey_execution_activity_metrics_response()
+      }
+
+  """
+  @type get_journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      quiet_time() :: %{
+        "End" => String.t() | atom(),
+        "Start" => String.t() | atom()
+      }
+
+  """
+  @type quiet_time() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_journey_response() :: %{
+        "JourneyResponse" => journey_response()
+      }
+
+  """
+  @type delete_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_configurations_response() :: %{
+        "Item" => list(recommender_configuration_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Body" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LanguageCode" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => list(any()),
+        "Version" => String.t() | atom(),
+        "VoiceId" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type voice_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_voip_sandbox_channel_request() :: %{
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
+      }
+
+  """
+  @type a_p_n_s_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_o_t_p_message_response() :: %{
+        "MessageResponse" => message_response()
+      }
+
+  """
+  @type send_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group_list() :: %{
+        "Groups" => list(segment_group()),
+        "Include" => list(any())
+      }
+
+  """
+  @type segment_group_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_message_result() :: %{
+        "Address" => String.t() | atom(),
+        "DeliveryStatus" => list(any()),
+        "MessageId" => String.t() | atom(),
+        "StatusCode" => integer(),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedToken" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_configuration_shape() :: %{
+        "Attributes" => map(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RecommendationProviderIdType" => String.t() | atom(),
+        "RecommendationProviderRoleArn" => String.t() | atom(),
+        "RecommendationProviderUri" => String.t() | atom(),
+        "RecommendationTransformerUri" => String.t() | atom(),
+        "RecommendationsDisplayName" => String.t() | atom(),
+        "RecommendationsPerMessage" => integer()
+      }
+
+  """
+  @type create_recommender_configuration_shape() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_versions_response() :: %{
+        "Item" => list(template_version_response()),
+        "Message" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type template_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_hours_rule() :: %{
+        "EndTime" => String.t() | atom(),
+        "StartTime" => String.t() | atom()
+      }
+
+  """
+  @type open_hours_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_voip_channel_request() :: %{}
+
+  """
+  @type get_apns_voip_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_stream() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "DestinationStreamArn" => String.t() | atom(),
+        "ExternalId" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "LastUpdatedBy" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type event_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_run_execution_metrics_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
+        "Metrics" => map(),
+        "RunId" => String.t() | atom()
+      }
+
+  """
+  @type journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_channel_response() :: %{
+        "VoiceChannelResponse" => voice_channel_response()
+      }
+
+  """
+  @type delete_voice_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      templates_response() :: %{
+        "Item" => list(template_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_reference() :: %{
+        "Id" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type segment_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_push_notification_message() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "Data" => map(),
+        "SilentPush" => boolean(),
+        "Substitutions" => map(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type default_push_notification_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baidu_channel_request() :: %{}
+
+  """
+  @type get_baidu_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_attributes_request() :: %{
+        "Blacklist" => list(String.t() | atom())
+      }
+
+  """
+  @type update_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_push_template_response() :: %{
+        "CreateTemplateMessageBody" => create_template_message_body()
+      }
+
+  """
+  @type create_push_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_campaign_response() :: %{
+        "CampaignResponse" => campaign_response()
+      }
+
+  """
+  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_notification_template_response() :: %{
+        "ADM" => android_push_notification_template(),
+        "APNS" => a_p_n_s_push_notification_template(),
+        "Arn" => String.t() | atom(),
+        "Baidu" => android_push_notification_template(),
+        "CreationDate" => String.t() | atom(),
+        "Default" => default_push_notification_template(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "GCM" => android_push_notification_template(),
+        "LastModifiedDate" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => list(any()),
+        "Version" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type push_notification_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_baidu_channel_response() :: %{
+        "BaiduChannelResponse" => baidu_channel_response()
+      }
+
+  """
+  @type update_baidu_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_result() :: %{
+        "DeliveryStatus" => list(any()),
+        "MessageId" => String.t() | atom(),
+        "StatusCode" => integer(),
+        "StatusMessage" => String.t() | atom(),
+        "UpdatedToken" => String.t() | atom()
+      }
+
+  """
+  @type message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_users_message_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "Result" => map()
+      }
+
+  """
+  @type send_users_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      closed_days_rule() :: %{
+        "EndDateTime" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "StartDateTime" => String.t() | atom()
+      }
+
+  """
+  @type closed_days_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_message() :: %{
+        "Body" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "Keyword" => String.t() | atom(),
+        "MediaUrl" => String.t() | atom(),
+        "MessageType" => list(any()),
+        "OriginationNumber" => String.t() | atom(),
+        "SenderId" => String.t() | atom(),
+        "Substitutions" => map(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type sms_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_request() :: %{}
+
+  """
+  @type delete_segment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recommender_configuration_response() :: %{
+        "RecommenderConfigurationResponse" => recommender_configuration_response()
+      }
+
+  """
+  @type update_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_campaign_schedule() :: %{
+        "EndDate" => String.t() | atom(),
+        "EventFilter" => campaign_event_filter(),
+        "QuietTime" => quiet_time()
+      }
+
+  """
+  @type in_app_campaign_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_button_configuration() :: %{
+        "BackgroundColor" => String.t() | atom(),
+        "BorderRadius" => integer(),
+        "ButtonAction" => list(any()),
+        "Link" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
+      }
+
+  """
+  @type default_button_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_limits() :: %{
+        "Daily" => integer(),
+        "MaximumDuration" => integer(),
+        "MessagesPerSecond" => integer(),
+        "Session" => integer(),
+        "Total" => integer()
+      }
+
+  """
+  @type campaign_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_activities_response() :: %{
+        "ActivitiesResponse" => activities_response()
+      }
+
+  """
+  @type get_campaign_activities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voice_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type voice_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_o_t_p_message_response() :: %{
+        "VerificationResponse" => verification_response()
+      }
+
+  """
+  @type verify_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_push_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type delete_push_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_baidu_channel_response() :: %{
+        "BaiduChannelResponse" => baidu_channel_response()
+      }
+
+  """
+  @type get_baidu_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      g_cm_channel_request() :: %{
+        "ApiKey" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "ServiceJson" => String.t() | atom()
+      }
+
+  """
+  @type g_cm_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_send_configuration() :: %{
+        "BodyOverride" => String.t() | atom(),
+        "Context" => map(),
+        "RawContent" => String.t() | atom(),
+        "Substitutions" => map(),
+        "TitleOverride" => String.t() | atom()
+      }
+
+  """
+  @type endpoint_send_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_export_job_response() :: %{
+        "ExportJobResponse" => export_job_response()
+      }
+
+  """
+  @type create_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_stream_request() :: %{}
+
+  """
+  @type delete_event_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      endpoint_batch_item() :: %{
+        "Address" => String.t() | atom(),
+        "Attributes" => map(),
+        "ChannelType" => list(any()),
+        "Demographic" => endpoint_demographic(),
+        "EffectiveDate" => String.t() | atom(),
+        "EndpointStatus" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Location" => endpoint_location(),
+        "Metrics" => map(),
+        "OptOut" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "User" => endpoint_user()
+      }
+
+  """
+  @type endpoint_batch_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_job_request() :: %{
+        "DefineSegment" => boolean(),
+        "ExternalId" => String.t() | atom(),
+        "Format" => list(any()),
+        "RegisterEndpoints" => boolean(),
+        "RoleArn" => String.t() | atom(),
+        "S3Url" => String.t() | atom(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
+      }
+
+  """
+  @type import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_apns_voip_sandbox_channel_response() :: %{
+        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
+      }
+
+  """
+  @type delete_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_push_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_push_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_endpoint_response() :: %{
+        "EndpointResponse" => endpoint_response()
+      }
+
+  """
+  @type delete_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_in_app_messages_request() :: %{}
+
+  """
+  @type get_in_app_messages_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_voice_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type delete_voice_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_journey_response() :: %{
+        "JourneyResponse" => journey_response()
+      }
+
+  """
+  @type create_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateType" => list(any()),
+        "Version" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_response() :: %{
+        "SegmentResponse" => segment_response()
+      }
+
+  """
+  @type get_segment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_configuration_response() :: %{
+        "RecommenderConfigurationResponse" => recommender_configuration_response()
+      }
+
+  """
+  @type create_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_date_range_kpi_request() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer()
+      }
+
+  """
+  @type get_campaign_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_event_stream_response() :: %{
+        "EventStream" => event_stream()
+      }
+
+  """
+  @type put_event_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_o_t_p_message_request_parameters() :: %{
+        "AllowedAttempts" => integer(),
+        "BrandName" => String.t() | atom(),
+        "Channel" => String.t() | atom(),
+        "CodeLength" => integer(),
+        "DestinationIdentity" => String.t() | atom(),
+        "EntityId" => String.t() | atom(),
+        "Language" => String.t() | atom(),
+        "OriginationIdentity" => String.t() | atom(),
+        "ReferenceId" => String.t() | atom(),
+        "TemplateId" => String.t() | atom(),
+        "ValidityPeriod" => integer()
+      }
+
+  """
+  @type send_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_runs_response() :: %{
+        "Item" => list(journey_run_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type journey_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_messages_request() :: %{
+        required("MessageRequest") => message_request()
+      }
+
+  """
+  @type send_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_endpoint_request() :: %{}
+
+  """
+  @type get_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationSet" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "FromAddress" => String.t() | atom(),
+        "HasCredential" => boolean(),
+        "Id" => String.t() | atom(),
+        "Identity" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "MessagesPerSecond" => integer(),
+        "OrchestrationSendingRoleArn" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type email_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      condition() :: %{
+        "Conditions" => list(simple_condition()),
+        "Operator" => list(any())
+      }
+
+  """
+  @type condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_endpoints_response() :: %{
+        "EndpointsResponse" => endpoints_response()
+      }
+
+  """
+  @type get_user_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      g_cm_message() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "CollapseKey" => String.t() | atom(),
+        "Data" => map(),
+        "IconReference" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "PreferredAuthenticationMethod" => String.t() | atom(),
+        "Priority" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "RestrictedPackageName" => String.t() | atom(),
+        "SilentPush" => boolean(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Substitutions" => map(),
+        "TimeToLive" => integer(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type g_cm_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,351 +3560,6 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      treatment_resource() :: %{
-        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "Id" => String.t() | atom(),
-        "MessageConfiguration" => message_configuration(),
-        "Schedule" => schedule(),
-        "SizePercent" => integer(),
-        "State" => campaign_state(),
-        "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | atom(),
-        "TreatmentName" => String.t() | atom()
-      }
-
-  """
-  @type treatment_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_endpoints_response() :: %{
-        "EndpointsResponse" => endpoints_response()
-      }
-
-  """
-  @type delete_user_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_o_t_p_message_request() :: %{
-        required("VerifyOTPMessageRequestParameters") => verify_o_t_p_message_request_parameters()
-      }
-
-  """
-  @type verify_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_activities_response() :: %{
-        "ActivitiesResponse" => activities_response()
-      }
-
-  """
-  @type get_campaign_activities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wait_time() :: %{
-        "WaitFor" => String.t() | atom(),
-        "WaitUntil" => String.t() | atom()
-      }
-
-  """
-  @type wait_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_import_job_response() :: %{
-        "ImportJobResponse" => import_job_response()
-      }
-
-  """
-  @type create_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_template_active_version_request() :: %{
-        required("TemplateActiveVersionRequest") => template_active_version_request()
-      }
-
-  """
-  @type update_template_active_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_o_t_p_message_request_parameters() :: %{
-        "DestinationIdentity" => String.t() | atom(),
-        "Otp" => String.t() | atom(),
-        "ReferenceId" => String.t() | atom()
-      }
-
-  """
-  @type verify_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_campaign_schedule() :: %{
-        "EndDate" => String.t() | atom(),
-        "EventFilter" => campaign_event_filter(),
-        "QuietTime" => quiet_time()
-      }
-
-  """
-  @type in_app_campaign_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_date_range_kpi_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "KpiName" => String.t() | atom(),
-        "KpiResult" => base_kpi_result(),
-        "NextToken" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channels_request() :: %{}
-
-  """
-  @type get_channels_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_date_range_kpi_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_application_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_limits() :: %{
-        "Daily" => integer(),
-        "MaximumDuration" => integer(),
-        "MessagesPerSecond" => integer(),
-        "Session" => integer(),
-        "Total" => integer()
-      }
-
-  """
-  @type campaign_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_state() :: %{
-        "CampaignStatus" => list(any())
-      }
-
-  """
-  @type campaign_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_configuration() :: %{
-        "ADMMessage" => message(),
-        "APNSMessage" => message(),
-        "BaiduMessage" => message(),
-        "CustomMessage" => campaign_custom_message(),
-        "DefaultMessage" => message(),
-        "EmailMessage" => campaign_email_message(),
-        "GCMMessage" => message(),
-        "InAppMessage" => campaign_in_app_message(),
-        "SMSMessage" => campaign_sms_message()
-      }
-
-  """
-  @type message_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_push_template_response() :: %{
-        "CreateTemplateMessageBody" => create_template_message_body()
-      }
-
-  """
-  @type create_push_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apns_voip_sandbox_channel_response() :: %{
-        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
-      }
-
-  """
-  @type get_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_campaign_response() :: %{
-        "CampaignResponse" => campaign_response()
-      }
-
-  """
-  @type update_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("TagsModel") => tags_model()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoints_response() :: %{
-        "Item" => list(endpoint_response())
-      }
-
-  """
-  @type endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_notification_template_response() :: %{
-        "ADM" => android_push_notification_template(),
-        "APNS" => a_p_n_s_push_notification_template(),
-        "Arn" => String.t() | atom(),
-        "Baidu" => android_push_notification_template(),
-        "CreationDate" => String.t() | atom(),
-        "Default" => default_push_notification_template(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "GCM" => android_push_notification_template(),
-        "LastModifiedDate" => String.t() | atom(),
-        "RecommenderId" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => list(any()),
-        "Version" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type push_notification_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_import_job_request() :: %{
-        required("ImportJobRequest") => import_job_request()
-      }
-
-  """
-  @type create_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_push_template_response() :: %{
-        "PushNotificationTemplateResponse" => push_notification_template_response()
-      }
-
-  """
-  @type get_push_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_versions_response() :: %{
-        "CampaignsResponse" => campaigns_response()
-      }
-
-  """
-  @type get_campaign_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apps_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_apps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      baidu_message() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "Data" => map(),
-        "IconReference" => String.t() | atom(),
-        "ImageIconUrl" => String.t() | atom(),
-        "ImageUrl" => String.t() | atom(),
-        "RawContent" => String.t() | atom(),
-        "SilentPush" => boolean(),
-        "SmallImageIconUrl" => String.t() | atom(),
-        "Sound" => String.t() | atom(),
-        "Substitutions" => map(),
-        "TimeToLive" => integer(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type baidu_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       channel_response() :: %{
         "ApplicationId" => String.t() | atom(),
         "CreationDate" => String.t() | atom(),
@@ -453,127 +3579,91 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      get_campaign_version_request() :: %{}
-
-  """
-  @type get_campaign_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_request() :: %{}
-
-  """
-  @type get_journey_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_request() :: %{}
-
-  """
-  @type get_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recency_dimension() :: %{
-        "Duration" => list(any()),
-        "RecencyType" => list(any())
+      event_item_response() :: %{
+        "Message" => String.t() | atom(),
+        "StatusCode" => integer()
       }
 
   """
-  @type recency_dimension() :: %{(String.t() | atom()) => any()}
+  @type event_item_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_voice_template_request() :: %{
-        required("VoiceTemplateRequest") => voice_template_request()
-      }
-
-  """
-  @type create_voice_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simple_condition() :: %{
-        "EventCondition" => event_condition(),
-        "SegmentCondition" => segment_condition(),
-        "SegmentDimensions" => segment_dimensions()
-      }
-
-  """
-  @type simple_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_template_request() :: %{
-        "DefaultSubstitutions" => String.t() | atom(),
-        "Headers" => list(message_header()),
-        "HtmlPart" => String.t() | atom(),
-        "RecommenderId" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TextPart" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_condition() :: %{
-        "Dimensions" => event_dimensions(),
-        "MessageActivity" => String.t() | atom()
-      }
-
-  """
-  @type event_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_push_template_response() :: %{
+      update_endpoint_response() :: %{
         "MessageBody" => message_body()
       }
 
   """
-  @type update_push_template_response() :: %{(String.t() | atom()) => any()}
+  @type update_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      verification_response() :: %{
-        "Valid" => boolean()
-      }
+      get_apns_channel_request() :: %{}
 
   """
-  @type verification_response() :: %{(String.t() | atom()) => any()}
+  @type get_apns_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_app_request() :: %{
-        required("CreateApplicationRequest") => create_application_request()
+      update_gcm_channel_response() :: %{
+        "GCMChannelResponse" => g_cm_channel_response()
       }
 
   """
-  @type create_app_request() :: %{(String.t() | atom()) => any()}
+  @type update_gcm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_settings_request() :: %{}
+
+  """
+  @type get_application_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      write_application_settings_request() :: %{
+        "CampaignHook" => campaign_hook(),
+        "CloudWatchMetricsEnabled" => boolean(),
+        "EventTaggingEnabled" => boolean(),
+        "JourneyLimits" => application_settings_journey_limits(),
+        "Limits" => campaign_limits(),
+        "QuietTime" => quiet_time()
+      }
+
+  """
+  @type write_application_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_channel_response() :: %{
+        "APNSChannelResponse" => a_p_n_s_channel_response()
+      }
+
+  """
+  @type get_apns_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,505 +3681,38 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      delete_app_response() :: %{
+      campaign_email_message() :: %{
+        "Body" => String.t() | atom(),
+        "FromAddress" => String.t() | atom(),
+        "Headers" => list(message_header()),
+        "HtmlBody" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+
+  """
+  @type campaign_email_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_app_response() :: %{
         "ApplicationResponse" => application_response()
       }
 
   """
-  @type delete_app_response() :: %{(String.t() | atom()) => any()}
+  @type create_app_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conditional_split_activity() :: %{
-        "Condition" => condition(),
-        "EvaluationWaitTime" => wait_time(),
-        "FalseActivity" => String.t() | atom(),
-        "TrueActivity" => String.t() | atom()
+      raw_email() :: %{
+        "Data" => binary()
       }
 
   """
-  @type conditional_split_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_hook() :: %{
-        "LambdaFunctionName" => String.t() | atom(),
-        "Mode" => list(any()),
-        "WebUrl" => String.t() | atom()
-      }
-
-  """
-  @type campaign_hook() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_sandbox_channel_request() :: %{}
-
-  """
-  @type delete_apns_sandbox_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_channel_response() :: %{
-        "EmailChannelResponse" => email_channel_response()
-      }
-
-  """
-  @type get_email_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_endpoint_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_channel_request() :: %{
-        "BundleId" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "PrivateKey" => String.t() | atom(),
-        "TeamId" => String.t() | atom(),
-        "TokenKey" => String.t() | atom(),
-        "TokenKeyId" => String.t() | atom()
-      }
-
-  """
-  @type a_p_n_s_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_hours_rule() :: %{
-        "EndTime" => String.t() | atom(),
-        "StartTime" => String.t() | atom()
-      }
-
-  """
-  @type open_hours_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaigns_response() :: %{
-        "Item" => list(campaign_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type campaigns_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_template_request() :: %{
-        optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | atom(),
-        required("EmailTemplateRequest") => email_template_request()
-      }
-
-  """
-  @type update_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_notification_template_request() :: %{
-        "ADM" => android_push_notification_template(),
-        "APNS" => a_p_n_s_push_notification_template(),
-        "Baidu" => android_push_notification_template(),
-        "Default" => default_push_notification_template(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "GCM" => android_push_notification_template(),
-        "RecommenderId" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type push_notification_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_in_app_template_response() :: %{
-        "TemplateCreateMessageBody" => template_create_message_body()
-      }
-
-  """
-  @type create_in_app_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      result_row_value() :: %{
-        "Key" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type result_row_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_custom_message() :: %{
-        "Data" => String.t() | atom()
-      }
-
-  """
-  @type journey_custom_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      number_validate_request() :: %{
-        "IsoCountryCode" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type number_validate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_batch_item() :: %{
-        "Address" => String.t() | atom(),
-        "Attributes" => map(),
-        "ChannelType" => list(any()),
-        "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | atom(),
-        "EndpointStatus" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Location" => endpoint_location(),
-        "Metrics" => map(),
-        "OptOut" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "User" => endpoint_user()
-      }
-
-  """
-  @type endpoint_batch_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_channel_response() :: %{
-        "EmailChannelResponse" => email_channel_response()
-      }
-
-  """
-  @type update_email_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      base_kpi_result() :: %{
-        "Rows" => list(result_row())
-      }
-
-  """
-  @type base_kpi_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_baidu_channel_response() :: %{
-        "BaiduChannelResponse" => baidu_channel_response()
-      }
-
-  """
-  @type delete_baidu_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_journey_state_request() :: %{
-        required("JourneyStateRequest") => journey_state_request()
-      }
-
-  """
-  @type update_journey_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_batch_request() :: %{
-        "Item" => list(endpoint_batch_item())
-      }
-
-  """
-  @type endpoint_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      g_p_s_point_dimension() :: %{
-        "Coordinates" => g_p_s_coordinates(),
-        "RangeInKilometers" => float()
-      }
-
-  """
-  @type g_p_s_point_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      quiet_time() :: %{
-        "End" => String.t() | atom(),
-        "Start" => String.t() | atom()
-      }
-
-  """
-  @type quiet_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sms_channel_request() :: %{
-        required("SMSChannelRequest") => sms_channel_request()
-      }
-
-  """
-  @type update_sms_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_templates_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom(),
-        optional("Prefix") => String.t() | atom(),
-        optional("TemplateType") => String.t() | atom()
-      }
-
-  """
-  @type list_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      random_split_entry() :: %{
-        "NextActivity" => String.t() | atom(),
-        "Percentage" => integer()
-      }
-
-  """
-  @type random_split_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_event_filter() :: %{
-        "Dimensions" => event_dimensions(),
-        "FilterType" => list(any())
-      }
-
-  """
-  @type campaign_event_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_event_stream_request() :: %{
-        required("WriteEventStream") => write_event_stream()
-      }
-
-  """
-  @type put_event_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_message_activity() :: %{
-        "MessageConfig" => journey_push_message(),
-        "NextActivity" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateVersion" => String.t() | atom()
-      }
-
-  """
-  @type push_message_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_message() :: %{
-        "Body" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "OriginationNumber" => String.t() | atom(),
-        "Substitutions" => map(),
-        "VoiceId" => String.t() | atom()
-      }
-
-  """
-  @type voice_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_version_request() :: %{}
-
-  """
-  @type get_segment_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_in_app_messages_request() :: %{}
-
-  """
-  @type get_in_app_messages_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_request() :: %{}
-
-  """
-  @type get_segment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_channel_response() :: %{
-        "VoiceChannelResponse" => voice_channel_response()
-      }
-
-  """
-  @type get_voice_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_versions_response() :: %{
-        "SegmentsResponse" => segments_response()
-      }
-
-  """
-  @type get_segment_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_users_message_request() :: %{
-        "Context" => map(),
-        "MessageConfiguration" => direct_message_configuration(),
-        "TemplateConfiguration" => template_configuration(),
-        "TraceId" => String.t() | atom(),
-        "Users" => map()
-      }
-
-  """
-  @type send_users_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_item_response() :: %{
-        "Message" => String.t() | atom(),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type event_item_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_message_header_config() :: %{
-        "Alignment" => list(any()),
-        "Header" => String.t() | atom(),
-        "TextColor" => String.t() | atom()
-      }
-
-  """
-  @type in_app_message_header_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_start_condition() :: %{
-        "EventFilter" => event_filter(),
-        "SegmentId" => String.t() | atom()
-      }
-
-  """
-  @type event_start_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_channel_request() :: %{
-        required("EmailChannelRequest") => email_channel_request()
-      }
-
-  """
-  @type update_email_channel_request() :: %{(String.t() | atom()) => any()}
+  @type raw_email() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1112,314 +3735,263 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      template_create_message_body() :: %{
+      get_journey_runs_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_journey_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_voip_sandbox_channel_response() :: %{
+        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
+      }
+
+  """
+  @type get_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_version_request() :: %{}
+
+  """
+  @type get_segment_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_date_range_kpi_response() :: %{
+        "JourneyDateRangeKpiResponse" => journey_date_range_kpi_response()
+      }
+
+  """
+  @type get_journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_response() :: %{
+        "CampaignResponse" => campaign_response()
+      }
+
+  """
+  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_template_response() :: %{
+        "MessageBody" => message_body()
+      }
+
+  """
+  @type update_voice_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      campaign_response() :: %{
+        "AdditionalTreatments" => list(treatment_resource()),
+        "ApplicationId" => String.t() | atom(),
         "Arn" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type template_create_message_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      events_batch() :: %{
-        "Endpoint" => public_endpoint(),
-        "Events" => map()
-      }
-
-  """
-  @type events_batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_export_job_response() :: %{
-        "ExportJobResponse" => export_job_response()
-      }
-
-  """
-  @type create_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_voip_channel_request() :: %{
-        "BundleId" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "PrivateKey" => String.t() | atom(),
-        "TeamId" => String.t() | atom(),
-        "TokenKey" => String.t() | atom(),
-        "TokenKeyId" => String.t() | atom()
-      }
-
-  """
-  @type a_p_n_s_voip_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      method_not_allowed_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type method_not_allowed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channels_response() :: %{
-        "ChannelsResponse" => channels_response()
-      }
-
-  """
-  @type get_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gcm_channel_request() :: %{
-        required("GCMChannelRequest") => g_cm_channel_request()
-      }
-
-  """
-  @type update_gcm_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sms_channel_request() :: %{}
-
-  """
-  @type get_sms_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_jobs_response() :: %{
-        "ExportJobsResponse" => export_jobs_response()
-      }
-
-  """
-  @type get_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_o_t_p_message_request_parameters() :: %{
-        "AllowedAttempts" => integer(),
-        "BrandName" => String.t() | atom(),
-        "Channel" => String.t() | atom(),
-        "CodeLength" => integer(),
-        "DestinationIdentity" => String.t() | atom(),
-        "EntityId" => String.t() | atom(),
-        "Language" => String.t() | atom(),
-        "OriginationIdentity" => String.t() | atom(),
-        "ReferenceId" => String.t() | atom(),
-        "TemplateId" => String.t() | atom(),
-        "ValidityPeriod" => integer()
-      }
-
-  """
-  @type send_o_t_p_message_request_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_sandbox_channel_response() :: %{
-        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
-      }
-
-  """
-  @type delete_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_run_execution_activity_metrics_response() :: %{
-        "ActivityType" => String.t() | atom(),
-        "ApplicationId" => String.t() | atom(),
-        "JourneyActivityId" => String.t() | atom(),
-        "JourneyId" => String.t() | atom(),
-        "LastEvaluatedTime" => String.t() | atom(),
-        "Metrics" => map(),
-        "RunId" => String.t() | atom()
-      }
-
-  """
-  @type journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_apns_sandbox_channel_request() :: %{
-        required("APNSSandboxChannelRequest") => a_p_n_s_sandbox_channel_request()
-      }
-
-  """
-  @type update_apns_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_gcm_channel_response() :: %{
-        "GCMChannelResponse" => g_cm_channel_response()
-      }
-
-  """
-  @type delete_gcm_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      templates_response() :: %{
-        "Item" => list(template_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sms_channel_response() :: %{
-        "SMSChannelResponse" => sms_channel_response()
-      }
-
-  """
-  @type update_sms_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attributes_resource() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "AttributeType" => String.t() | atom(),
-        "Attributes" => list(String.t() | atom())
-      }
-
-  """
-  @type attributes_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_configuration_response() :: %{
-        "RecommenderConfigurationResponse" => recommender_configuration_response()
-      }
-
-  """
-  @type delete_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_channel_request() :: %{
-        required("VoiceChannelRequest") => voice_channel_request()
-      }
-
-  """
-  @type update_voice_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_in_app_template_request() :: %{
-        optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | atom(),
-        required("InAppTemplateRequest") => in_app_template_request()
-      }
-
-  """
-  @type update_in_app_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_body() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type message_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_journey_request() :: %{
-        "Activities" => map(),
-        "ClosedDays" => closed_days(),
         "CreationDate" => String.t() | atom(),
-        "JourneyChannelSettings" => journey_channel_settings(),
+        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
+        "DefaultState" => campaign_state(),
+        "Description" => String.t() | atom(),
+        "HoldoutPercent" => integer(),
+        "Hook" => campaign_hook(),
+        "Id" => String.t() | atom(),
+        "IsPaused" => boolean(),
         "LastModifiedDate" => String.t() | atom(),
-        "Limits" => journey_limits(),
-        "LocalTime" => boolean(),
+        "Limits" => campaign_limits(),
+        "MessageConfiguration" => message_configuration(),
         "Name" => String.t() | atom(),
-        "OpenHours" => open_hours(),
-        "QuietTime" => quiet_time(),
-        "RefreshFrequency" => String.t() | atom(),
-        "RefreshOnSegmentUpdate" => boolean(),
-        "Schedule" => journey_schedule(),
-        "SendingSchedule" => boolean(),
-        "StartActivity" => String.t() | atom(),
-        "StartCondition" => start_condition(),
-        "State" => list(any()),
-        "TimezoneEstimationMethods" => list(list(any())()),
-        "WaitForQuietTime" => boolean()
+        "Priority" => integer(),
+        "Schedule" => schedule(),
+        "SegmentId" => String.t() | atom(),
+        "SegmentVersion" => integer(),
+        "State" => campaign_state(),
+        "TemplateConfiguration" => template_configuration(),
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom(),
+        "Version" => integer(),
+        "tags" => map()
       }
 
   """
-  @type write_journey_request() :: %{(String.t() | atom()) => any()}
+  @type campaign_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      raw_email() :: %{
-        "Data" => binary()
+      update_journey_state_request() :: %{
+        required("JourneyStateRequest") => journey_state_request()
       }
 
   """
-  @type raw_email() :: %{(String.t() | atom()) => any()}
+  @type update_journey_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_apns_voip_channel_response() :: %{
-        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
+      simple_email() :: %{
+        "Headers" => list(message_header()),
+        "HtmlPart" => simple_email_part(),
+        "Subject" => simple_email_part(),
+        "TextPart" => simple_email_part()
       }
 
   """
-  @type get_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
+  @type simple_email() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_in_app_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type get_in_app_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_push_template_response() :: %{
+        "PushNotificationTemplateResponse" => push_notification_template_response()
+      }
+
+  """
+  @type get_push_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_import_jobs_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_segment_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_template_request() :: %{
+        "Body" => String.t() | atom(),
+        "DefaultSubstitutions" => String.t() | atom(),
+        "RecommenderId" => String.t() | atom(),
+        "TemplateDescription" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type sms_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_versions_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_campaign_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_demographics() :: %{
+        "AppVersion" => set_dimension(),
+        "Channel" => set_dimension(),
+        "DeviceType" => set_dimension(),
+        "Make" => set_dimension(),
+        "Model" => set_dimension(),
+        "Platform" => set_dimension()
+      }
+
+  """
+  @type segment_demographics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_validate_response() :: %{
+        "Carrier" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "CleansedPhoneNumberE164" => String.t() | atom(),
+        "CleansedPhoneNumberNational" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "CountryCodeIso2" => String.t() | atom(),
+        "CountryCodeNumeric" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "OriginalCountryCodeIso2" => String.t() | atom(),
+        "OriginalPhoneNumber" => String.t() | atom(),
+        "PhoneType" => String.t() | atom(),
+        "PhoneTypeCode" => integer(),
+        "Timezone" => String.t() | atom(),
+        "ZipCode" => String.t() | atom()
+      }
+
+  """
+  @type number_validate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_email_channel_request() :: %{}
+
+  """
+  @type get_email_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_dimensions() :: %{
+        "Attributes" => map(),
+        "Behavior" => segment_behaviors(),
+        "Demographic" => segment_demographics(),
+        "Location" => segment_location(),
+        "Metrics" => map(),
+        "UserAttributes" => map()
+      }
+
+  """
+  @type segment_dimensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_voice_template_response() :: %{
+        "VoiceTemplateResponse" => voice_template_response()
+      }
+
+  """
+  @type get_voice_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1449,917 +4021,158 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      delete_in_app_template_response() :: %{
-        "MessageBody" => message_body()
+      delete_email_channel_response() :: %{
+        "EmailChannelResponse" => email_channel_response()
       }
 
   """
-  @type delete_in_app_template_response() :: %{(String.t() | atom()) => any()}
+  @type delete_email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_apns_channel_response() :: %{
-        "APNSChannelResponse" => a_p_n_s_channel_response()
+      get_campaign_request() :: %{}
+
+  """
+  @type get_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      session() :: %{
+        "Duration" => integer(),
+        "Id" => String.t() | atom(),
+        "StartTimestamp" => String.t() | atom(),
+        "StopTimestamp" => String.t() | atom()
       }
 
   """
-  @type update_apns_channel_response() :: %{(String.t() | atom()) => any()}
+  @type session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      open_hours() :: %{
-        "CUSTOM" => map(),
-        "EMAIL" => map(),
-        "PUSH" => map(),
-        "SMS" => map(),
-        "VOICE" => map()
+      get_email_channel_response() :: %{
+        "EmailChannelResponse" => email_channel_response()
       }
 
   """
-  @type open_hours() :: %{(String.t() | atom()) => any()}
+  @type get_email_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_baidu_channel_request() :: %{}
-
-  """
-  @type get_baidu_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_campaign_request() :: %{}
-
-  """
-  @type delete_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_message() :: %{
-        "Body" => String.t() | atom(),
-        "EntityId" => String.t() | atom(),
-        "Keyword" => String.t() | atom(),
-        "MediaUrl" => String.t() | atom(),
-        "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | atom(),
-        "SenderId" => String.t() | atom(),
-        "Substitutions" => map(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type sms_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_message_activity() :: %{
-        "MessageConfig" => journey_sms_message(),
-        "NextActivity" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateVersion" => String.t() | atom()
-      }
-
-  """
-  @type sms_message_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => list(any()),
-        "Version" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_endpoint_request() :: %{
-        required("EndpointRequest") => endpoint_request()
-      }
-
-  """
-  @type update_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_send_configuration() :: %{
-        "BodyOverride" => String.t() | atom(),
-        "Context" => map(),
-        "RawContent" => String.t() | atom(),
-        "Substitutions" => map(),
-        "TitleOverride" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_send_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_events_response() :: %{
-        "EventsResponse" => events_response()
-      }
-
-  """
-  @type put_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journeys_response() :: %{
-        "Item" => list(journey_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type journeys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      events_request() :: %{
-        "BatchItem" => map()
-      }
-
-  """
-  @type events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_result() :: %{
-        "DeliveryStatus" => list(any()),
-        "MessageId" => String.t() | atom(),
-        "StatusCode" => integer(),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedToken" => String.t() | atom()
-      }
-
-  """
-  @type message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_execution_metrics_request() :: %{
+      get_journey_run_execution_metrics_request() :: %{
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type get_journey_execution_metrics_request() :: %{(String.t() | atom()) => any()}
+  @type get_journey_run_execution_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_import_jobs_response() :: %{
-        "ImportJobsResponse" => import_jobs_response()
+      get_import_jobs_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_import_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type get_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_voice_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_voice_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_apns_voip_channel_response() :: %{
-        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
-      }
-
-  """
-  @type update_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_settings_resource() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CampaignHook" => campaign_hook(),
-        "JourneyLimits" => application_settings_journey_limits(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Limits" => campaign_limits(),
-        "QuietTime" => quiet_time()
-      }
-
-  """
-  @type application_settings_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_configuration_response() :: %{
-        "RecommenderConfigurationResponse" => recommender_configuration_response()
-      }
-
-  """
-  @type create_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_version_response() :: %{
-        "CreationDate" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type template_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
+      message_body() :: %{
         "Message" => String.t() | atom(),
         "RequestID" => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type message_body() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_push_template_request() :: %{
-        optional("Version") => String.t() | atom()
+      get_sms_channel_response() :: %{
+        "SMSChannelResponse" => sms_channel_response()
       }
 
   """
-  @type get_push_template_request() :: %{(String.t() | atom()) => any()}
+  @type get_sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_apns_voip_sandbox_channel_request() :: %{
-        required("APNSVoipSandboxChannelRequest") => a_p_n_s_voip_sandbox_channel_request()
+      endpoint_location() :: %{
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "Latitude" => float(),
+        "Longitude" => float(),
+        "PostalCode" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type update_apns_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
+  @type endpoint_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      phone_number_validate_response() :: %{
-        "NumberValidateResponse" => number_validate_response()
+      update_apns_voip_sandbox_channel_response() :: %{
+        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
       }
 
   """
-  @type phone_number_validate_response() :: %{(String.t() | atom()) => any()}
+  @type update_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      holdout_activity() :: %{
+      random_split_entry() :: %{
         "NextActivity" => String.t() | atom(),
         "Percentage" => integer()
       }
 
   """
-  @type holdout_activity() :: %{(String.t() | atom()) => any()}
+  @type random_split_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sms_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_sms_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type delete_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_reference() :: %{
-        "Id" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type segment_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_configuration_request() :: %{}
-
-  """
-  @type get_recommender_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ad_m_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type ad_m_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_baidu_channel_request() :: %{
-        required("BaiduChannelRequest") => baidu_channel_request()
-      }
-
-  """
-  @type update_baidu_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_channel_request() :: %{}
-
-  """
-  @type delete_email_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sms_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type get_sms_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type delete_voice_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact_center_activity() :: %{
-        optional("NextActivity") => String.t() | atom()
-      }
-
-  """
-  @type contact_center_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_push_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type delete_push_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      baidu_channel_request() :: %{
-        "ApiKey" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "SecretKey" => String.t() | atom()
-      }
-
-  """
-  @type baidu_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_job_resource() :: %{
-        "DefineSegment" => boolean(),
-        "ExternalId" => String.t() | atom(),
-        "Format" => list(any()),
-        "RegisterEndpoints" => boolean(),
-        "RoleArn" => String.t() | atom(),
-        "S3Url" => String.t() | atom(),
-        "SegmentId" => String.t() | atom(),
-        "SegmentName" => String.t() | atom()
-      }
-
-  """
-  @type import_job_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_condition() :: %{
-        "SegmentId" => String.t() | atom()
-      }
-
-  """
-  @type segment_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_gcm_channel_response() :: %{
-        "GCMChannelResponse" => g_cm_channel_response()
-      }
-
-  """
-  @type update_gcm_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_email_template_request() :: %{
-        required("EmailTemplateRequest") => email_template_request()
-      }
-
-  """
-  @type create_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_job_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CompletedPieces" => integer(),
-        "CompletionDate" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Definition" => import_job_resource(),
-        "FailedPieces" => integer(),
-        "Failures" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "TotalFailures" => integer(),
-        "TotalPieces" => integer(),
-        "TotalProcessed" => integer(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_segment_request() :: %{
+      create_segment_request() :: %{
         required("WriteSegmentRequest") => write_segment_request()
       }
 
   """
-  @type update_segment_request() :: %{(String.t() | atom()) => any()}
+  @type create_segment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_template_active_version_response() :: %{
-        "MessageBody" => message_body()
+      in_app_template_request() :: %{
+        "Content" => list(in_app_message_content()),
+        "CustomConfig" => map(),
+        "Layout" => list(any()),
+        "TemplateDescription" => String.t() | atom(),
+        "tags" => map()
       }
 
   """
-  @type update_template_active_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      address_configuration() :: %{
-        "BodyOverride" => String.t() | atom(),
-        "ChannelType" => list(any()),
-        "Context" => map(),
-        "RawContent" => String.t() | atom(),
-        "Substitutions" => map(),
-        "TitleOverride" => String.t() | atom()
-      }
-
-  """
-  @type address_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "ConfigurationSet" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "FromAddress" => String.t() | atom(),
-        "HasCredential" => boolean(),
-        "Id" => String.t() | atom(),
-        "Identity" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "MessagesPerSecond" => integer(),
-        "OrchestrationSendingRoleArn" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type email_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      result_row() :: %{
-        "GroupedBys" => list(result_row_value()),
-        "Values" => list(result_row_value())
-      }
-
-  """
-  @type result_row() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_delivery_configuration() :: %{
-        "DeliveryUri" => String.t() | atom(),
-        "EndpointTypes" => list(list(any())())
-      }
-
-  """
-  @type custom_delivery_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_baidu_channel_response() :: %{
-        "BaiduChannelResponse" => baidu_channel_response()
-      }
-
-  """
-  @type update_baidu_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      phone_number_validate_request() :: %{
-        required("NumberValidateRequest") => number_validate_request()
-      }
-
-  """
-  @type phone_number_validate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_segment_response() :: %{
-        "SegmentResponse" => segment_response()
-      }
-
-  """
-  @type create_segment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      g_cm_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Credential" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "HasFcmServiceCredentials" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type g_cm_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_settings_response() :: %{
-        "ApplicationSettingsResource" => application_settings_resource()
-      }
-
-  """
-  @type get_application_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_journey_state_response() :: %{
-        "JourneyResponse" => journey_response()
-      }
-
-  """
-  @type update_journey_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_request() :: %{}
-
-  """
-  @type get_app_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      default_push_notification_template() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "Sound" => String.t() | atom(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type default_push_notification_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_messages_request() :: %{
-        required("MessageRequest") => message_request()
-      }
-
-  """
-  @type send_messages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      closed_days_rule() :: %{
-        "EndDateTime" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "StartDateTime" => String.t() | atom()
-      }
-
-  """
-  @type closed_days_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_configuration_response() :: %{
-        "RecommenderConfigurationResponse" => recommender_configuration_response()
-      }
-
-  """
-  @type get_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_journey_request() :: %{
-        required("WriteJourneyRequest") => write_journey_request()
-      }
-
-  """
-  @type update_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_date_range_kpi_response() :: %{
-        "ApplicationDateRangeKpiResponse" => application_date_range_kpi_response()
-      }
-
-  """
-  @type get_application_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_sms_message() :: %{
-        "Body" => String.t() | atom(),
-        "EntityId" => String.t() | atom(),
-        "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | atom(),
-        "SenderId" => String.t() | atom(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type campaign_sms_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "HasTokenKey" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type a_p_n_s_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_push_template_request() :: %{
-        required("PushNotificationTemplateRequest") => push_notification_template_request()
-      }
-
-  """
-  @type create_push_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_voip_sandbox_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "HasTokenKey" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type a_p_n_s_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_o_t_p_message_request() :: %{
-        required("SendOTPMessageRequestParameters") => send_o_t_p_message_request_parameters()
-      }
-
-  """
-  @type send_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_execution_metrics_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "JourneyId" => String.t() | atom(),
-        "LastEvaluatedTime" => String.t() | atom(),
-        "Metrics" => map()
-      }
-
-  """
-  @type journey_execution_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_attributes_request() :: %{
-        "Blacklist" => list(String.t() | atom())
-      }
-
-  """
-  @type update_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_channel_request() :: %{}
-
-  """
-  @type get_voice_channel_request() :: %{}
+  @type in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2384,198 +4197,150 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      application_settings_journey_limits() :: %{
-        "DailyCap" => integer(),
-        "TimeframeCap" => journey_timeframe_cap(),
-        "TotalCap" => integer()
+      baidu_message() :: %{
+        "Action" => list(any()),
+        "Body" => String.t() | atom(),
+        "Data" => map(),
+        "IconReference" => String.t() | atom(),
+        "ImageIconUrl" => String.t() | atom(),
+        "ImageUrl" => String.t() | atom(),
+        "RawContent" => String.t() | atom(),
+        "SilentPush" => boolean(),
+        "SmallImageIconUrl" => String.t() | atom(),
+        "Sound" => String.t() | atom(),
+        "Substitutions" => map(),
+        "TimeToLive" => integer(),
+        "Title" => String.t() | atom(),
+        "Url" => String.t() | atom()
       }
 
   """
-  @type application_settings_journey_limits() :: %{(String.t() | atom()) => any()}
+  @type baidu_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_voice_template_response() :: %{
-        "MessageBody" => message_body()
-      }
+      get_sms_channel_request() :: %{}
 
   """
-  @type delete_voice_template_response() :: %{(String.t() | atom()) => any()}
+  @type get_sms_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      baidu_channel_response() :: %{
+      create_sms_template_request() :: %{
+        required("SMSTemplateRequest") => sms_template_request()
+      }
+
+  """
+  @type create_sms_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conditional_split_activity() :: %{
+        "Condition" => condition(),
+        "EvaluationWaitTime" => wait_time(),
+        "FalseActivity" => String.t() | atom(),
+        "TrueActivity" => String.t() | atom()
+      }
+
+  """
+  @type conditional_split_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_journeys_response() :: %{
+        "JourneysResponse" => journeys_response()
+      }
+
+  """
+  @type list_journeys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_job_response() :: %{
         "ApplicationId" => String.t() | atom(),
+        "CompletedPieces" => integer(),
+        "CompletionDate" => String.t() | atom(),
         "CreationDate" => String.t() | atom(),
-        "Credential" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
+        "Definition" => export_job_resource(),
+        "FailedPieces" => integer(),
+        "Failures" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
+        "JobStatus" => list(any()),
+        "TotalFailures" => integer(),
+        "TotalPieces" => integer(),
+        "TotalProcessed" => integer(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type baidu_channel_response() :: %{(String.t() | atom()) => any()}
+  @type export_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_gcm_channel_request() :: %{}
-
-  """
-  @type delete_gcm_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
+      delete_push_template_request() :: %{
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      write_segment_request() :: %{
-        "Dimensions" => segment_dimensions(),
-        "Name" => String.t() | atom(),
-        "SegmentGroups" => segment_group_list(),
-        "tags" => map()
+      get_campaign_date_range_kpi_response() :: %{
+        "CampaignDateRangeKpiResponse" => campaign_date_range_kpi_response()
       }
 
   """
-  @type write_segment_request() :: %{(String.t() | atom()) => any()}
+  @type get_campaign_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_apns_voip_sandbox_channel_request() :: %{}
-
-  """
-  @type delete_apns_voip_sandbox_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_job_request() :: %{}
-
-  """
-  @type get_export_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_in_app_template_response() :: %{
-        "InAppTemplateResponse" => in_app_template_response()
+      update_in_app_template_request() :: %{
+        optional("CreateNewVersion") => boolean(),
+        optional("Version") => String.t() | atom(),
+        required("InAppTemplateRequest") => in_app_template_request()
       }
 
   """
-  @type get_in_app_template_response() :: %{(String.t() | atom()) => any()}
+  @type update_in_app_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      message_header() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type message_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_campaign_response() :: %{
-        "CampaignResponse" => campaign_response()
-      }
-
-  """
-  @type delete_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_job_request() :: %{
-        "DefineSegment" => boolean(),
-        "ExternalId" => String.t() | atom(),
-        "Format" => list(any()),
-        "RegisterEndpoints" => boolean(),
-        "RoleArn" => String.t() | atom(),
-        "S3Url" => String.t() | atom(),
-        "SegmentId" => String.t() | atom(),
-        "SegmentName" => String.t() | atom()
-      }
-
-  """
-  @type import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_endpoint_response() :: %{
-        "EndpointResponse" => endpoint_response()
-      }
-
-  """
-  @type get_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activity() :: %{
-        "CUSTOM" => custom_message_activity(),
-        "ConditionalSplit" => conditional_split_activity(),
-        "ContactCenter" => contact_center_activity(),
+      recommender_configuration_response() :: %{
+        "Attributes" => map(),
+        "CreationDate" => String.t() | atom(),
         "Description" => String.t() | atom(),
-        "EMAIL" => email_message_activity(),
-        "Holdout" => holdout_activity(),
-        "MultiCondition" => multi_conditional_split_activity(),
-        "PUSH" => push_message_activity(),
-        "RandomSplit" => random_split_activity(),
-        "SMS" => sms_message_activity(),
-        "Wait" => wait_activity()
+        "Id" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RecommendationProviderIdType" => String.t() | atom(),
+        "RecommendationProviderRoleArn" => String.t() | atom(),
+        "RecommendationProviderUri" => String.t() | atom(),
+        "RecommendationTransformerUri" => String.t() | atom(),
+        "RecommendationsDisplayName" => String.t() | atom(),
+        "RecommendationsPerMessage" => integer()
       }
 
   """
-  @type activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_run_execution_metrics_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "JourneyId" => String.t() | atom(),
-        "LastEvaluatedTime" => String.t() | atom(),
-        "Metrics" => map(),
-        "RunId" => String.t() | atom()
-      }
-
-  """
-  @type journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
+  @type recommender_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2592,211 +4357,136 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      a_p_n_s_push_notification_template() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "MediaUrl" => String.t() | atom(),
-        "RawContent" => String.t() | atom(),
-        "Sound" => String.t() | atom(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
+      event_start_condition() :: %{
+        "EventFilter" => event_filter(),
+        "SegmentId" => String.t() | atom()
       }
 
   """
-  @type a_p_n_s_push_notification_template() :: %{(String.t() | atom()) => any()}
+  @type event_start_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_apns_channel_request() :: %{}
-
-  """
-  @type get_apns_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apps_response() :: %{
-        "ApplicationsResponse" => applications_response()
+      journey_push_message() :: %{
+        "TimeToLive" => String.t() | atom()
       }
 
   """
-  @type get_apps_response() :: %{(String.t() | atom()) => any()}
+  @type journey_push_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_o_t_p_message_response() :: %{
-        "MessageResponse" => message_response()
+      create_recommender_configuration_request() :: %{
+        required("CreateRecommenderConfiguration") => create_recommender_configuration_shape()
       }
 
   """
-  @type send_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
+  @type create_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_apns_voip_sandbox_channel_response() :: %{
-        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
+      get_journey_run_execution_activity_metrics_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
       }
 
   """
-  @type delete_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+  @type get_journey_run_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_export_job_response() :: %{
-        "ExportJobResponse" => export_job_response()
-      }
-
-  """
-  @type get_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payload_too_large_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_endpoint_response() :: %{
-        "EndpointResponse" => endpoint_response()
-      }
-
-  """
-  @type delete_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_voip_channel_request() :: %{}
-
-  """
-  @type delete_apns_voip_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_template_request() :: %{
-        optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | atom(),
-        required("VoiceTemplateRequest") => voice_template_request()
-      }
-
-  """
-  @type update_voice_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_message_result() :: %{
-        "Address" => String.t() | atom(),
-        "DeliveryStatus" => list(any()),
-        "MessageId" => String.t() | atom(),
-        "StatusCode" => integer(),
-        "StatusMessage" => String.t() | atom(),
-        "UpdatedToken" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_message_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_event_stream() :: %{
-        "DestinationStreamArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type write_event_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_events_request() :: %{
-        required("EventsRequest") => events_request()
-      }
-
-  """
-  @type put_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_dimensions() :: %{
-        "Attributes" => map(),
-        "Behavior" => segment_behaviors(),
-        "Demographic" => segment_demographics(),
-        "Location" => segment_location(),
-        "Metrics" => map(),
-        "UserAttributes" => map()
-      }
-
-  """
-  @type segment_dimensions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apns_voip_sandbox_channel_request() :: %{}
-
-  """
-  @type get_apns_voip_sandbox_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
+      baidu_channel_request() :: %{
+        "ApiKey" => String.t() | atom(),
         "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
+        "SecretKey" => String.t() | atom()
       }
 
   """
-  @type voice_channel_response() :: %{(String.t() | atom()) => any()}
+  @type baidu_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_segment_export_jobs_response() :: %{
-        "ExportJobsResponse" => export_jobs_response()
+      get_email_template_request() :: %{
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type get_segment_export_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type get_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_template_versions_response() :: %{
+        "TemplateVersionsResponse" => template_versions_response()
+      }
+
+  """
+  @type list_template_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "TagsModel" => tags_model()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_endpoints_request() :: %{}
+
+  """
+  @type get_user_endpoints_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_run_execution_activity_metrics_response() :: %{
+        "JourneyRunExecutionActivityMetricsResponse" => journey_run_execution_activity_metrics_response()
+      }
+
+  """
+  @type get_journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      number_validate_request() :: %{
+        "IsoCountryCode" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom()
+      }
+
+  """
+  @type number_validate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_voip_sandbox_channel_request() :: %{
+        required("APNSVoipSandboxChannelRequest") => a_p_n_s_voip_sandbox_channel_request()
+      }
+
+  """
+  @type update_apns_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2830,531 +4520,14 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      template_active_version_request() :: %{
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type template_active_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_request() :: %{}
-
-  """
-  @type get_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_message_content() :: %{
-        "BackgroundColor" => String.t() | atom(),
-        "BodyConfig" => in_app_message_body_config(),
-        "HeaderConfig" => in_app_message_header_config(),
-        "ImageUrl" => String.t() | atom(),
-        "PrimaryBtn" => in_app_message_button(),
-        "SecondaryBtn" => in_app_message_button()
-      }
-
-  """
-  @type in_app_message_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_template_versions_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom()
-      }
-
-  """
-  @type list_template_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "EndpointResult" => map(),
-        "RequestId" => String.t() | atom(),
-        "Result" => map()
-      }
-
-  """
-  @type message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_response() :: %{
-        "JourneyResponse" => journey_response()
-      }
-
-  """
-  @type get_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apns_voip_channel_request() :: %{}
-
-  """
-  @type get_apns_voip_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_schedule() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer(),
-        "Timezone" => String.t() | atom()
-      }
-
-  """
-  @type journey_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type delete_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_job_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CompletedPieces" => integer(),
-        "CompletionDate" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Definition" => export_job_resource(),
-        "FailedPieces" => integer(),
-        "Failures" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "JobStatus" => list(any()),
-        "TotalFailures" => integer(),
-        "TotalPieces" => integer(),
-        "TotalProcessed" => integer(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      applications_response() :: %{
-        "Item" => list(application_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type applications_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "PromotionalMessagesPerSecond" => integer(),
-        "SenderId" => String.t() | atom(),
-        "ShortCode" => String.t() | atom(),
-        "TransactionalMessagesPerSecond" => integer(),
-        "Version" => integer()
-      }
-
-  """
-  @type sms_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_journey_response() :: %{
-        "JourneyResponse" => journey_response()
-      }
-
-  """
-  @type update_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_message_body_config() :: %{
-        "Alignment" => list(any()),
-        "Body" => String.t() | atom(),
-        "TextColor" => String.t() | atom()
-      }
-
-  """
-  @type in_app_message_body_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_push_template_request() :: %{
+      update_voice_template_request() :: %{
         optional("CreateNewVersion") => boolean(),
         optional("Version") => String.t() | atom(),
-        required("PushNotificationTemplateRequest") => push_notification_template_request()
+        required("VoiceTemplateRequest") => voice_template_request()
       }
 
   """
-  @type update_push_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_endpoints_request() :: %{}
-
-  """
-  @type get_user_endpoints_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_version_response() :: %{
-        "CampaignResponse" => campaign_response()
-      }
-
-  """
-  @type get_campaign_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_activities_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_campaign_activities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_jobs_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_template_versions_response() :: %{
-        "TemplateVersionsResponse" => template_versions_response()
-      }
-
-  """
-  @type list_template_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_push_message() :: %{
-        "TimeToLive" => String.t() | atom()
-      }
-
-  """
-  @type journey_push_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segments_response() :: %{
-        "SegmentsResponse" => segments_response()
-      }
-
-  """
-  @type get_segments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_stream_response() :: %{
-        "EventStream" => event_stream()
-      }
-
-  """
-  @type get_event_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_event_stream_response() :: %{
-        "EventStream" => event_stream()
-      }
-
-  """
-  @type put_event_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_date_range_kpi_request() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer()
-      }
-
-  """
-  @type get_campaign_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_voip_channel_response() :: %{
-        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
-      }
-
-  """
-  @type delete_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_import_jobs_response() :: %{
-        "ImportJobsResponse" => import_jobs_response()
-      }
-
-  """
-  @type get_segment_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_endpoints_batch_request() :: %{
-        required("EndpointBatchRequest") => endpoint_batch_request()
-      }
-
-  """
-  @type update_endpoints_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_versions_response() :: %{
-        "Item" => list(template_version_response()),
-        "Message" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type template_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_baidu_channel_request() :: %{}
-
-  """
-  @type delete_baidu_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sms_channel_response() :: %{
-        "SMSChannelResponse" => sms_channel_response()
-      }
-
-  """
-  @type get_sms_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_voice_channel_response() :: %{
-        "VoiceChannelResponse" => voice_channel_response()
-      }
-
-  """
-  @type delete_voice_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "TagsModel" => tags_model()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_email_channel_response() :: %{
-        "EmailChannelResponse" => email_channel_response()
-      }
-
-  """
-  @type delete_email_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_request() :: %{
-        "Name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_adm_channel_response() :: %{
-        "ADMChannelResponse" => ad_m_channel_response()
-      }
-
-  """
-  @type update_adm_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_endpoints_response() :: %{
-        "EndpointsResponse" => endpoints_response()
-      }
-
-  """
-  @type get_user_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_run_execution_metrics_response() :: %{
-        "JourneyRunExecutionMetricsResponse" => journey_run_execution_metrics_response()
-      }
-
-  """
-  @type get_journey_run_execution_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_message() :: %{
-        "Content" => list(in_app_message_content()),
-        "CustomConfig" => map(),
-        "Layout" => list(any())
-      }
-
-  """
-  @type in_app_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_location() :: %{
-        "Country" => set_dimension(),
-        "GPSPoint" => g_p_s_point_dimension()
-      }
-
-  """
-  @type segment_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_attributes_request() :: %{
-        required("UpdateAttributesRequest") => update_attributes_request()
-      }
-
-  """
-  @type remove_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_date_range_kpi_response() :: %{
-        "CampaignDateRangeKpiResponse" => campaign_date_range_kpi_response()
-      }
-
-  """
-  @type get_campaign_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_endpoints_batch_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_endpoints_batch_response() :: %{(String.t() | atom()) => any()}
+  @type update_voice_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3371,24 +4544,12 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      get_adm_channel_response() :: %{
-        "ADMChannelResponse" => ad_m_channel_response()
+      get_campaigns_response() :: %{
+        "CampaignsResponse" => campaigns_response()
       }
 
   """
-  @type get_adm_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simple_email_part() :: %{
-        "Charset" => String.t() | atom(),
-        "Data" => String.t() | atom()
-      }
-
-  """
-  @type simple_email_part() :: %{(String.t() | atom()) => any()}
+  @type get_campaigns_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3406,661 +4567,6 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      condition() :: %{
-        "Conditions" => list(simple_condition()),
-        "Operator" => list(any())
-      }
-
-  """
-  @type condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_run_response() :: %{
-        "CreationTime" => String.t() | atom(),
-        "LastUpdateTime" => String.t() | atom(),
-        "RunId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type journey_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_runs_response() :: %{
-        "JourneyRunsResponse" => journey_runs_response()
-      }
-
-  """
-  @type get_journey_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_in_app_message() :: %{
-        "Body" => String.t() | atom(),
-        "Content" => list(in_app_message_content()),
-        "CustomConfig" => map(),
-        "Layout" => list(any())
-      }
-
-  """
-  @type campaign_in_app_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_response() :: %{
-        "SegmentResponse" => segment_response()
-      }
-
-  """
-  @type get_segment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session() :: %{
-        "Duration" => integer(),
-        "Id" => String.t() | atom(),
-        "StartTimestamp" => String.t() | atom(),
-        "StopTimestamp" => String.t() | atom()
-      }
-
-  """
-  @type session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_filter() :: %{
-        "Dimensions" => event_dimensions(),
-        "FilterType" => list(any())
-      }
-
-  """
-  @type event_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_segment_request() :: %{
-        required("WriteSegmentRequest") => write_segment_request()
-      }
-
-  """
-  @type create_segment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_location() :: %{
-        "City" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "Latitude" => float(),
-        "Longitude" => float(),
-        "PostalCode" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_execution_activity_metrics_response() :: %{
-        "ActivityType" => String.t() | atom(),
-        "ApplicationId" => String.t() | atom(),
-        "JourneyActivityId" => String.t() | atom(),
-        "JourneyId" => String.t() | atom(),
-        "LastEvaluatedTime" => String.t() | atom(),
-        "Metrics" => map()
-      }
-
-  """
-  @type journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      direct_message_configuration() :: %{
-        "ADMMessage" => ad_m_message(),
-        "APNSMessage" => a_p_n_s_message(),
-        "BaiduMessage" => baidu_message(),
-        "DefaultMessage" => default_message(),
-        "DefaultPushNotificationMessage" => default_push_notification_message(),
-        "EmailMessage" => email_message(),
-        "GCMMessage" => g_cm_message(),
-        "SMSMessage" => sms_message(),
-        "VoiceMessage" => voice_message()
-      }
-
-  """
-  @type direct_message_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_configurations_response() :: %{
-        "Item" => list(recommender_configuration_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_dimension() :: %{
-        "ComparisonOperator" => String.t() | atom(),
-        "Value" => float()
-      }
-
-  """
-  @type metric_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apns_channel_response() :: %{
-        "APNSChannelResponse" => a_p_n_s_channel_response()
-      }
-
-  """
-  @type get_apns_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_timeframe_cap() :: %{
-        "Cap" => integer(),
-        "Days" => integer()
-      }
-
-  """
-  @type journey_timeframe_cap() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_dimensions() :: %{
-        "Attributes" => map(),
-        "EventType" => set_dimension(),
-        "Metrics" => map()
-      }
-
-  """
-  @type event_dimensions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      g_cm_channel_request() :: %{
-        "ApiKey" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "ServiceJson" => String.t() | atom()
-      }
-
-  """
-  @type g_cm_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_template_request() :: %{
-        "Body" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "VoiceId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type voice_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_message() :: %{
-        "Body" => String.t() | atom(),
-        "FeedbackForwardingAddress" => String.t() | atom(),
-        "FromAddress" => String.t() | atom(),
-        "RawEmail" => raw_email(),
-        "ReplyToAddresses" => list(String.t() | atom()),
-        "SimpleEmail" => simple_email(),
-        "Substitutions" => map()
-      }
-
-  """
-  @type email_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_segment_response() :: %{
-        "SegmentResponse" => segment_response()
-      }
-
-  """
-  @type delete_segment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sms_template_response() :: %{
-        "CreateTemplateMessageBody" => create_template_message_body()
-      }
-
-  """
-  @type create_sms_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_export_job_request() :: %{
-        required("ExportJobRequest") => export_job_request()
-      }
-
-  """
-  @type create_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_import_resource() :: %{
-        "ChannelCounts" => map(),
-        "ExternalId" => String.t() | atom(),
-        "Format" => list(any()),
-        "RoleArn" => String.t() | atom(),
-        "S3Url" => String.t() | atom(),
-        "Size" => integer()
-      }
-
-  """
-  @type segment_import_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_adm_channel_request() :: %{}
-
-  """
-  @type delete_adm_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_configuration_request() :: %{}
-
-  """
-  @type delete_recommender_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_apns_voip_sandbox_channel_response() :: %{
-        "APNSVoipSandboxChannelResponse" => a_p_n_s_voip_sandbox_channel_response()
-      }
-
-  """
-  @type update_apns_voip_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_email_message() :: %{
-        "FromAddress" => String.t() | atom()
-      }
-
-  """
-  @type journey_email_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_channel_response() :: %{
-        "APNSChannelResponse" => a_p_n_s_channel_response()
-      }
-
-  """
-  @type delete_apns_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_sandbox_channel_request() :: %{
-        "BundleId" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "PrivateKey" => String.t() | atom(),
-        "TeamId" => String.t() | atom(),
-        "TokenKey" => String.t() | atom(),
-        "TokenKeyId" => String.t() | atom()
-      }
-
-  """
-  @type a_p_n_s_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_group() :: %{
-        "Dimensions" => list(segment_dimensions()),
-        "SourceSegments" => list(segment_reference()),
-        "SourceType" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type segment_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_sms_message() :: %{
-        "EntityId" => String.t() | atom(),
-        "MessageType" => list(any()),
-        "OriginationNumber" => String.t() | atom(),
-        "SenderId" => String.t() | atom(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type journey_sms_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      g_p_s_coordinates() :: %{
-        "Latitude" => float(),
-        "Longitude" => float()
-      }
-
-  """
-  @type g_p_s_coordinates() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_app_response() :: %{
-        "ApplicationResponse" => application_response()
-      }
-
-  """
-  @type get_app_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_message_activity() :: %{
-        "MessageConfig" => journey_email_message(),
-        "NextActivity" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateVersion" => String.t() | atom()
-      }
-
-  """
-  @type email_message_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_stream_request() :: %{}
-
-  """
-  @type get_event_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_configurations_response() :: %{
-        "ListRecommenderConfigurationsResponse" => list_recommender_configurations_response()
-      }
-
-  """
-  @type get_recommender_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule() :: %{
-        "EndTime" => String.t() | atom(),
-        "EventFilter" => campaign_event_filter(),
-        "Frequency" => list(any()),
-        "IsLocalTime" => boolean(),
-        "QuietTime" => quiet_time(),
-        "StartTime" => String.t() | atom(),
-        "Timezone" => String.t() | atom()
-      }
-
-  """
-  @type schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_push_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type delete_push_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_voip_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "HasTokenKey" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type a_p_n_s_voip_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_endpoints_request() :: %{}
-
-  """
-  @type delete_user_endpoints_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_journeys_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type list_journeys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "Headers" => list(message_header()),
-        "HtmlPart" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "RecommenderId" => String.t() | atom(),
-        "Subject" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => list(any()),
-        "TextPart" => String.t() | atom(),
-        "Version" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_sms_template_request() :: %{
-        optional("CreateNewVersion") => boolean(),
-        optional("Version") => String.t() | atom(),
-        required("SMSTemplateRequest") => sms_template_request()
-      }
-
-  """
-  @type update_sms_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_execution_activity_metrics_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom()
-      }
-
-  """
-  @type get_journey_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event() :: %{
-        "AppPackageName" => String.t() | atom(),
-        "AppTitle" => String.t() | atom(),
-        "AppVersionCode" => String.t() | atom(),
-        "Attributes" => map(),
-        "ClientSdkVersion" => String.t() | atom(),
-        "EventType" => String.t() | atom(),
-        "Metrics" => map(),
-        "SdkName" => String.t() | atom(),
-        "Session" => session(),
-        "Timestamp" => String.t() | atom()
-      }
-
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_sandbox_channel_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "HasCredential" => boolean(),
-        "HasTokenKey" => boolean(),
-        "Id" => String.t() | atom(),
-        "IsArchived" => boolean(),
-        "LastModifiedBy" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "Version" => integer()
-      }
-
-  """
-  @type a_p_n_s_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activities_response() :: %{
-        "Item" => list(activity_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type activities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_request() :: %{}
-
-  """
-  @type delete_app_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_messages_response() :: %{
-        "MessageResponse" => message_response()
-      }
-
-  """
-  @type send_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       in_app_messages_response() :: %{
         "InAppMessageCampaigns" => list(in_app_message_campaign())
       }
@@ -4072,947 +4578,12 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      delete_endpoint_request() :: %{}
-
-  """
-  @type delete_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_template_response() :: %{
-        "VoiceTemplateResponse" => voice_template_response()
-      }
-
-  """
-  @type get_voice_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_template_message_body() :: %{
-        "Arn" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type create_template_message_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      voice_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Body" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "LanguageCode" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => list(any()),
-        "Version" => String.t() | atom(),
-        "VoiceId" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type voice_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_adm_channel_request() :: %{}
-
-  """
-  @type get_adm_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_apns_sandbox_channel_response() :: %{
-        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
-      }
-
-  """
-  @type update_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_job_response() :: %{
-        "ImportJobResponse" => import_job_response()
-      }
-
-  """
-  @type get_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_run_execution_activity_metrics_response() :: %{
-        "JourneyRunExecutionActivityMetricsResponse" => journey_run_execution_activity_metrics_response()
-      }
-
-  """
-  @type get_journey_run_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_users_messages_request() :: %{
-        required("SendUsersMessageRequest") => send_users_message_request()
-      }
-
-  """
-  @type send_users_messages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_job_request() :: %{
-        "RoleArn" => String.t() | atom(),
-        "S3UrlPrefix" => String.t() | atom(),
-        "SegmentId" => String.t() | atom(),
-        "SegmentVersion" => integer()
-      }
-
-  """
-  @type export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_campaign_request() :: %{
-        "AdditionalTreatments" => list(write_treatment_resource()),
-        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "Description" => String.t() | atom(),
-        "HoldoutPercent" => integer(),
-        "Hook" => campaign_hook(),
-        "IsPaused" => boolean(),
-        "Limits" => campaign_limits(),
-        "MessageConfiguration" => message_configuration(),
-        "Name" => String.t() | atom(),
-        "Priority" => integer(),
-        "Schedule" => schedule(),
-        "SegmentId" => String.t() | atom(),
-        "SegmentVersion" => integer(),
-        "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | atom(),
-        "TreatmentName" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type write_campaign_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_baidu_channel_response() :: %{
-        "BaiduChannelResponse" => baidu_channel_response()
-      }
-
-  """
-  @type get_baidu_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_custom_message() :: %{
-        "Data" => String.t() | atom()
-      }
-
-  """
-  @type campaign_custom_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_channel_request() :: %{
-        "ConfigurationSet" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "FromAddress" => String.t() | atom(),
-        "Identity" => String.t() | atom(),
-        "OrchestrationSendingRoleArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type email_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_campaign_request() :: %{
-        required("WriteCampaignRequest") => write_campaign_request()
-      }
-
-  """
-  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      events_response() :: %{
-        "Results" => map()
-      }
-
-  """
-  @type events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      default_button_configuration() :: %{
-        "BackgroundColor" => String.t() | atom(),
-        "BorderRadius" => integer(),
-        "ButtonAction" => list(any()),
-        "Link" => String.t() | atom(),
-        "Text" => String.t() | atom(),
-        "TextColor" => String.t() | atom()
-      }
-
-  """
-  @type default_button_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_runs_response() :: %{
-        "Item" => list(journey_run_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type journey_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Body" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "RecommenderId" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateType" => list(any()),
-        "Version" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type sms_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segments_response() :: %{
-        "Item" => list(segment_response()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type segments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      closed_days() :: %{
-        "CUSTOM" => list(closed_days_rule()),
-        "EMAIL" => list(closed_days_rule()),
-        "PUSH" => list(closed_days_rule()),
-        "SMS" => list(closed_days_rule()),
-        "VOICE" => list(closed_days_rule())
-      }
-
-  """
-  @type closed_days() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_stream_response() :: %{
-        "EventStream" => event_stream()
-      }
-
-  """
-  @type delete_event_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sms_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type delete_sms_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_versions_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_segment_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channels_response() :: %{
-        "Channels" => map()
-      }
-
-  """
-  @type channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_configurations_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_recommender_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_date_range_kpi_response() :: %{
-        "JourneyDateRangeKpiResponse" => journey_date_range_kpi_response()
-      }
-
-  """
-  @type get_journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_journey_request() :: %{
-        required("WriteJourneyRequest") => write_journey_request()
-      }
-
-  """
-  @type create_journey_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sms_template_response() :: %{
-        "SMSTemplateResponse" => sms_template_response()
-      }
-
-  """
-  @type get_sms_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_demographics() :: %{
-        "AppVersion" => set_dimension(),
-        "Channel" => set_dimension(),
-        "DeviceType" => set_dimension(),
-        "Make" => set_dimension(),
-        "Model" => set_dimension(),
-        "Platform" => set_dimension()
-      }
-
-  """
-  @type segment_demographics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type application_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_voice_channel_response() :: %{
-        "VoiceChannelResponse" => voice_channel_response()
-      }
-
-  """
-  @type update_voice_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_users_messages_response() :: %{
-        "SendUsersMessageResponse" => send_users_message_response()
-      }
-
-  """
-  @type send_users_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_templates_response() :: %{
-        "TemplatesResponse" => templates_response()
-      }
-
-  """
-  @type list_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      default_message() :: %{
-        "Body" => String.t() | atom(),
-        "Substitutions" => map()
-      }
-
-  """
-  @type default_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_attributes_response() :: %{
-        "AttributesResource" => attributes_resource()
-      }
-
-  """
-  @type remove_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_jobs_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      campaign_email_message() :: %{
-        "Body" => String.t() | atom(),
-        "FromAddress" => String.t() | atom(),
-        "Headers" => list(message_header()),
-        "HtmlBody" => String.t() | atom(),
-        "Title" => String.t() | atom()
-      }
-
-  """
-  @type campaign_email_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ad_m_channel_request() :: %{
-        "ClientId" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom(),
-        "Enabled" => boolean()
-      }
-
-  """
-  @type ad_m_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_apns_voip_channel_request() :: %{
-        required("APNSVoipChannelRequest") => a_p_n_s_voip_channel_request()
-      }
-
-  """
-  @type update_apns_voip_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sms_template_request() :: %{
-        required("SMSTemplateRequest") => sms_template_request()
-      }
-
-  """
-  @type create_sms_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_template_request() :: %{
-        "Body" => String.t() | atom(),
-        "DefaultSubstitutions" => String.t() | atom(),
-        "RecommenderId" => String.t() | atom(),
-        "TemplateDescription" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type sms_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_behaviors() :: %{
-        "Recency" => recency_dimension()
-      }
-
-  """
-  @type segment_behaviors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_p_n_s_voip_sandbox_channel_request() :: %{
-        "BundleId" => String.t() | atom(),
-        "Certificate" => String.t() | atom(),
-        "DefaultAuthenticationMethod" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "PrivateKey" => String.t() | atom(),
-        "TeamId" => String.t() | atom(),
-        "TokenKey" => String.t() | atom(),
-        "TokenKeyId" => String.t() | atom()
-      }
-
-  """
-  @type a_p_n_s_voip_sandbox_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_voice_template_response() :: %{
-        "CreateTemplateMessageBody" => create_template_message_body()
-      }
-
-  """
-  @type create_voice_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      template_configuration() :: %{
-        "EmailTemplate" => template(),
-        "InAppTemplate" => template(),
-        "PushTemplate" => template(),
-        "SMSTemplate" => template(),
-        "VoiceTemplate" => template()
-      }
-
-  """
-  @type template_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_settings_request() :: %{}
-
-  """
-  @type get_application_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_configuration_request() :: %{
-        required("CreateRecommenderConfiguration") => create_recommender_configuration_shape()
-      }
-
-  """
-  @type create_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      item_response() :: %{
-        "EndpointItemResponse" => endpoint_item_response(),
-        "EventsItemResponse" => map()
-      }
-
-  """
-  @type item_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      override_button_configuration() :: %{
-        "ButtonAction" => list(any()),
-        "Link" => String.t() | atom()
-      }
-
-  """
-  @type override_button_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_condition() :: %{
-        "Description" => String.t() | atom(),
-        "EventStartCondition" => event_start_condition(),
-        "SegmentStartCondition" => segment_condition()
-      }
-
-  """
-  @type start_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_demographic() :: %{
-        "AppVersion" => String.t() | atom(),
-        "Locale" => String.t() | atom(),
-        "Make" => String.t() | atom(),
-        "Model" => String.t() | atom(),
-        "ModelVersion" => String.t() | atom(),
-        "Platform" => String.t() | atom(),
-        "PlatformVersion" => String.t() | atom(),
-        "Timezone" => String.t() | atom()
-      }
-
-  """
-  @type endpoint_demographic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_export_jobs_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_segment_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_request() :: %{
-        "Addresses" => map(),
-        "Context" => map(),
-        "Endpoints" => map(),
-        "MessageConfiguration" => direct_message_configuration(),
-        "TemplateConfiguration" => template_configuration(),
-        "TraceId" => String.t() | atom()
-      }
-
-  """
-  @type message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      endpoint_request() :: %{
-        "Address" => String.t() | atom(),
-        "Attributes" => map(),
-        "ChannelType" => list(any()),
-        "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | atom(),
-        "EndpointStatus" => String.t() | atom(),
-        "Location" => endpoint_location(),
-        "Metrics" => map(),
-        "OptOut" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "User" => endpoint_user()
-      }
-
-  """
-  @type endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_response() :: %{
-        "CampaignResponse" => campaign_response()
-      }
-
-  """
-  @type get_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_dimension() :: %{
-        "AttributeType" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_stream() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "DestinationStreamArn" => String.t() | atom(),
-        "ExternalId" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "LastUpdatedBy" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type event_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_apns_channel_request() :: %{}
-
-  """
-  @type delete_apns_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sms_channel_request() :: %{
-        "Enabled" => boolean(),
-        "SenderId" => String.t() | atom(),
-        "ShortCode" => String.t() | atom()
-      }
-
-  """
-  @type sms_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_versions_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_campaign_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recommender_configuration_response() :: %{
-        "RecommenderConfigurationResponse" => recommender_configuration_response()
-      }
-
-  """
-  @type update_recommender_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type set_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_adm_channel_request() :: %{
-        required("ADMChannelRequest") => ad_m_channel_request()
-      }
-
-  """
-  @type update_adm_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      write_treatment_resource() :: %{
-        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
-        "MessageConfiguration" => message_configuration(),
-        "Schedule" => schedule(),
-        "SizePercent" => integer(),
-        "TemplateConfiguration" => template_configuration(),
-        "TreatmentDescription" => String.t() | atom(),
-        "TreatmentName" => String.t() | atom()
-      }
-
-  """
-  @type write_treatment_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_segment_response() :: %{
-        "SegmentResponse" => segment_response()
-      }
-
-  """
-  @type update_segment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_runs_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_journey_runs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simple_email() :: %{
-        "Headers" => list(message_header()),
-        "HtmlPart" => simple_email_part(),
-        "Subject" => simple_email_part(),
-        "TextPart" => simple_email_part()
-      }
-
-  """
-  @type simple_email() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaigns_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
-      }
-
-  """
-  @type get_campaigns_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_voice_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type get_voice_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_settings_request() :: %{
-        required("WriteApplicationSettingsRequest") => write_application_settings_request()
-      }
-
-  """
-  @type update_application_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_import_jobs_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
+      journey_state_request() :: %{
+        "State" => list(any())
       }
 
   """
-  @type get_segment_import_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type journey_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5043,23 +4614,74 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      multi_conditional_split_activity() :: %{
-        "Branches" => list(multi_conditional_branch()),
-        "DefaultActivity" => String.t() | atom(),
-        "EvaluationWaitTime" => wait_time()
+      delete_sms_template_request() :: %{
+        optional("Version") => String.t() | atom()
       }
 
   """
-  @type multi_conditional_split_activity() :: %{(String.t() | atom()) => any()}
+  @type delete_sms_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_voice_channel_request() :: %{}
+      campaigns_response() :: %{
+        "Item" => list(campaign_response()),
+        "NextToken" => String.t() | atom()
+      }
 
   """
-  @type delete_voice_channel_request() :: %{}
+  @type campaigns_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      g_cm_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Credential" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "HasFcmServiceCredentials" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type g_cm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_gcm_channel_request() :: %{}
+
+  """
+  @type delete_gcm_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      a_p_n_s_voip_channel_request() :: %{
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
+      }
+
+  """
+  @type a_p_n_s_voip_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5081,257 +4703,12 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      delete_segment_request() :: %{}
-
-  """
-  @type delete_segment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      write_application_settings_request() :: %{
-        "CampaignHook" => campaign_hook(),
-        "CloudWatchMetricsEnabled" => boolean(),
-        "EventTaggingEnabled" => boolean(),
-        "JourneyLimits" => application_settings_journey_limits(),
-        "Limits" => campaign_limits(),
-        "QuietTime" => quiet_time()
+      get_journey_runs_response() :: %{
+        "JourneyRunsResponse" => journey_runs_response()
       }
 
   """
-  @type write_application_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_in_app_messages_response() :: %{
-        "InAppMessagesResponse" => in_app_messages_response()
-      }
-
-  """
-  @type get_in_app_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      default_push_notification_message() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "Data" => map(),
-        "SilentPush" => boolean(),
-        "Substitutions" => map(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type default_push_notification_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_version_response() :: %{
-        "SegmentResponse" => segment_response()
-      }
-
-  """
-  @type get_segment_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestID" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tags_model() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type tags_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "CreationDate" => String.t() | atom(),
-        "Dimensions" => segment_dimensions(),
-        "Id" => String.t() | atom(),
-        "ImportDefinition" => segment_import_resource(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SegmentGroups" => segment_group_list(),
-        "SegmentType" => list(any()),
-        "Version" => integer(),
-        "tags" => map()
-      }
-
-  """
-  @type segment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_template_response() :: %{
-        "EmailTemplateResponse" => email_template_response()
-      }
-
-  """
-  @type get_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaigns_response() :: %{
-        "CampaignsResponse" => campaigns_response()
-      }
-
-  """
-  @type get_campaigns_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_o_t_p_message_response() :: %{
-        "VerificationResponse" => verification_response()
-      }
-
-  """
-  @type verify_o_t_p_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_message_campaign() :: %{
-        "CampaignId" => String.t() | atom(),
-        "DailyCap" => integer(),
-        "InAppMessage" => in_app_message(),
-        "Priority" => integer(),
-        "Schedule" => in_app_campaign_schedule(),
-        "SessionCap" => integer(),
-        "TotalCap" => integer(),
-        "TreatmentId" => String.t() | atom()
-      }
-
-  """
-  @type in_app_message_campaign() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_configuration_shape() :: %{
-        "Attributes" => map(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RecommendationProviderIdType" => String.t() | atom(),
-        "RecommendationProviderRoleArn" => String.t() | atom(),
-        "RecommendationProviderUri" => String.t() | atom(),
-        "RecommendationTransformerUri" => String.t() | atom(),
-        "RecommendationsDisplayName" => String.t() | atom(),
-        "RecommendationsPerMessage" => integer()
-      }
-
-  """
-  @type create_recommender_configuration_shape() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
-
-  """
-  @type get_email_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_campaign_request() :: %{
-        required("WriteCampaignRequest") => write_campaign_request()
-      }
-
-  """
-  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_state_request() :: %{
-        "State" => list(any())
-      }
-
-  """
-  @type journey_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_email_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_email_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      android_push_notification_template() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "ImageIconUrl" => String.t() | atom(),
-        "ImageUrl" => String.t() | atom(),
-        "RawContent" => String.t() | atom(),
-        "SmallImageIconUrl" => String.t() | atom(),
-        "Sound" => String.t() | atom(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type android_push_notification_template() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_job_resource() :: %{
-        "RoleArn" => String.t() | atom(),
-        "S3UrlPrefix" => String.t() | atom(),
-        "SegmentId" => String.t() | atom(),
-        "SegmentVersion" => integer()
-      }
-
-  """
-  @type export_job_resource() :: %{(String.t() | atom()) => any()}
+  @type get_journey_runs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5349,116 +4726,180 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      delete_journey_response() :: %{
-        "JourneyResponse" => journey_response()
+      sms_channel_request() :: %{
+        "Enabled" => boolean(),
+        "SenderId" => String.t() | atom(),
+        "ShortCode" => String.t() | atom()
       }
 
   """
-  @type delete_journey_response() :: %{(String.t() | atom()) => any()}
+  @type sms_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multi_conditional_branch() :: %{
-        "Condition" => simple_condition(),
-        "NextActivity" => String.t() | atom()
+      in_app_message_header_config() :: %{
+        "Alignment" => list(any()),
+        "Header" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
       }
 
   """
-  @type multi_conditional_branch() :: %{(String.t() | atom()) => any()}
+  @type in_app_message_header_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_event_stream_request() :: %{}
+      get_journey_execution_metrics_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
+      }
 
   """
-  @type delete_event_stream_request() :: %{}
+  @type get_journey_execution_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_application_settings_response() :: %{
+      get_journey_execution_activity_metrics_request() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PageSize") => String.t() | atom()
+      }
+
+  """
+  @type get_journey_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_email_template_request() :: %{
+        required("EmailTemplateRequest") => email_template_request()
+      }
+
+  """
+  @type create_email_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sms_template_response() :: %{
+        "CreateTemplateMessageBody" => create_template_message_body()
+      }
+
+  """
+  @type create_sms_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      baidu_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Credential" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type baidu_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      default_message() :: %{
+        "Body" => String.t() | atom(),
+        "Substitutions" => map()
+      }
+
+  """
+  @type default_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_message_activity() :: %{
+        "DeliveryUri" => String.t() | atom(),
+        "EndpointTypes" => list(list(any())()),
+        "MessageConfig" => journey_custom_message(),
+        "NextActivity" => String.t() | atom(),
+        "TemplateName" => String.t() | atom(),
+        "TemplateVersion" => String.t() | atom()
+      }
+
+  """
+  @type custom_message_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_journey_request() :: %{
+        required("WriteJourneyRequest") => write_journey_request()
+      }
+
+  """
+  @type create_journey_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_application_settings_response() :: %{
         "ApplicationSettingsResource" => application_settings_resource()
       }
 
   """
-  @type update_application_settings_response() :: %{(String.t() | atom()) => any()}
+  @type get_application_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_in_app_template_request() :: %{
-        optional("Version") => String.t() | atom()
-      }
+      delete_endpoint_request() :: %{}
 
   """
-  @type get_in_app_template_request() :: %{(String.t() | atom()) => any()}
+  @type delete_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_adm_channel_response() :: %{
-        "ADMChannelResponse" => ad_m_channel_response()
-      }
+      delete_apns_voip_sandbox_channel_request() :: %{}
 
   """
-  @type delete_adm_channel_response() :: %{(String.t() | atom()) => any()}
+  @type delete_apns_voip_sandbox_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_in_app_template_response() :: %{
-        "MessageBody" => message_body()
-      }
-
-  """
-  @type update_in_app_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_apns_sandbox_channel_request() :: %{}
-
-  """
-  @type get_apns_sandbox_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_journey_response() :: %{
-        "JourneyResponse" => journey_response()
-      }
-
-  """
-  @type create_journey_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_users_message_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "Result" => map()
-      }
-
-  """
-  @type send_users_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_date_range_kpi_request() :: %{
+      get_application_date_range_kpi_request() :: %{
         optional("EndTime") => non_neg_integer(),
         optional("NextToken") => String.t() | atom(),
         optional("PageSize") => String.t() | atom(),
@@ -5466,367 +4907,279 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type get_journey_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
+  @type get_application_date_range_kpi_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_app_response() :: %{
-        "ApplicationResponse" => application_response()
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
       }
 
   """
-  @type create_app_response() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_apns_sandbox_channel_response() :: %{
-        "APNSSandboxChannelResponse" => a_p_n_s_sandbox_channel_response()
+      events_response() :: %{
+        "Results" => map()
       }
 
   """
-  @type get_apns_sandbox_channel_response() :: %{(String.t() | atom()) => any()}
+  @type events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      random_split_activity() :: %{
-        "Branches" => list(random_split_entry())
+      delete_apns_sandbox_channel_request() :: %{}
+
+  """
+  @type delete_apns_sandbox_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_stream_response() :: %{
+        "EventStream" => event_stream()
       }
 
   """
-  @type random_split_activity() :: %{(String.t() | atom()) => any()}
+  @type delete_event_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_journey_execution_activity_metrics_response() :: %{
-        "JourneyExecutionActivityMetricsResponse" => journey_execution_activity_metrics_response()
+      update_voice_channel_response() :: %{
+        "VoiceChannelResponse" => voice_channel_response()
       }
 
   """
-  @type get_journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
+  @type update_voice_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      segment_group_list() :: %{
-        "Groups" => list(segment_group()),
-        "Include" => list(any())
-      }
-
-  """
-  @type segment_group_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_app_template_request() :: %{
-        "Content" => list(in_app_message_content()),
-        "CustomConfig" => map(),
-        "Layout" => list(any()),
-        "TemplateDescription" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type in_app_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_campaign_response() :: %{
-        "CampaignResponse" => campaign_response()
-      }
-
-  """
-  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_endpoint_request() :: %{}
-
-  """
-  @type get_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_email_channel_request() :: %{}
-
-  """
-  @type get_email_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      journey_channel_settings() :: %{
-        "ConnectCampaignArn" => String.t() | atom(),
-        "ConnectCampaignExecutionRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type journey_channel_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      number_validate_response() :: %{
-        "Carrier" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "CleansedPhoneNumberE164" => String.t() | atom(),
-        "CleansedPhoneNumberNational" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "CountryCodeIso2" => String.t() | atom(),
-        "CountryCodeNumeric" => String.t() | atom(),
-        "County" => String.t() | atom(),
-        "OriginalCountryCodeIso2" => String.t() | atom(),
-        "OriginalPhoneNumber" => String.t() | atom(),
-        "PhoneType" => String.t() | atom(),
-        "PhoneTypeCode" => integer(),
-        "Timezone" => String.t() | atom(),
-        "ZipCode" => String.t() | atom()
-      }
-
-  """
-  @type number_validate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sms_channel_response() :: %{
+      update_sms_channel_response() :: %{
         "SMSChannelResponse" => sms_channel_response()
       }
 
   """
-  @type delete_sms_channel_response() :: %{(String.t() | atom()) => any()}
+  @type update_sms_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      g_cm_message() :: %{
-        "Action" => list(any()),
-        "Body" => String.t() | atom(),
-        "CollapseKey" => String.t() | atom(),
-        "Data" => map(),
-        "IconReference" => String.t() | atom(),
-        "ImageIconUrl" => String.t() | atom(),
-        "ImageUrl" => String.t() | atom(),
-        "PreferredAuthenticationMethod" => String.t() | atom(),
-        "Priority" => String.t() | atom(),
-        "RawContent" => String.t() | atom(),
-        "RestrictedPackageName" => String.t() | atom(),
-        "SilentPush" => boolean(),
-        "SmallImageIconUrl" => String.t() | atom(),
-        "Sound" => String.t() | atom(),
-        "Substitutions" => map(),
-        "TimeToLive" => integer(),
-        "Title" => String.t() | atom(),
-        "Url" => String.t() | atom()
+      send_o_t_p_message_request() :: %{
+        required("SendOTPMessageRequestParameters") => send_o_t_p_message_request_parameters()
       }
 
   """
-  @type g_cm_message() :: %{(String.t() | atom()) => any()}
+  @type send_o_t_p_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_sms_channel_request() :: %{}
-
-  """
-  @type delete_sms_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_journeys_response() :: %{
-        "JourneysResponse" => journeys_response()
+      get_import_jobs_response() :: %{
+        "ImportJobsResponse" => import_jobs_response()
       }
 
   """
-  @type list_journeys_response() :: %{(String.t() | atom()) => any()}
+  @type get_import_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gcm_channel_response() :: %{
-        "GCMChannelResponse" => g_cm_channel_response()
+      campaign_hook() :: %{
+        "LambdaFunctionName" => String.t() | atom(),
+        "Mode" => list(any()),
+        "WebUrl" => String.t() | atom()
       }
 
   """
-  @type get_gcm_channel_response() :: %{(String.t() | atom()) => any()}
+  @type campaign_hook() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      in_app_message_button() :: %{
-        "Android" => override_button_configuration(),
-        "DefaultConfig" => default_button_configuration(),
-        "IOS" => override_button_configuration(),
-        "Web" => override_button_configuration()
+      update_apns_voip_channel_response() :: %{
+        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
       }
 
   """
-  @type in_app_message_button() :: %{(String.t() | atom()) => any()}
+  @type update_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      wait_activity() :: %{
-        "NextActivity" => String.t() | atom(),
-        "WaitTime" => wait_time()
+      campaign_custom_message() :: %{
+        "Data" => String.t() | atom()
       }
 
   """
-  @type wait_activity() :: %{(String.t() | atom()) => any()}
+  @type campaign_custom_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      journey_date_range_kpi_response() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "JourneyId" => String.t() | atom(),
-        "KpiName" => String.t() | atom(),
-        "KpiResult" => base_kpi_result(),
-        "NextToken" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type journey_date_range_kpi_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_journey_run_execution_metrics_request() :: %{
+      list_templates_request() :: %{
         optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom()
+        optional("PageSize") => String.t() | atom(),
+        optional("Prefix") => String.t() | atom(),
+        optional("TemplateType") => String.t() | atom()
       }
 
   """
-  @type get_journey_run_execution_metrics_request() :: %{(String.t() | atom()) => any()}
+  @type list_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      endpoint_item_response() :: %{
-        "Message" => String.t() | atom(),
-        "StatusCode" => integer()
+      update_adm_channel_request() :: %{
+        required("ADMChannelRequest") => ad_m_channel_request()
       }
 
   """
-  @type endpoint_item_response() :: %{(String.t() | atom()) => any()}
+  @type update_adm_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_journey_run_execution_activity_metrics_request() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PageSize") => String.t() | atom()
+      get_segment_versions_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
       }
 
   """
-  @type get_journey_run_execution_activity_metrics_request() :: %{(String.t() | atom()) => any()}
+  @type get_segment_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_in_app_template_request() :: %{
-        optional("Version") => String.t() | atom()
+      create_push_template_request() :: %{
+        required("PushNotificationTemplateRequest") => push_notification_template_request()
       }
 
   """
-  @type delete_in_app_template_request() :: %{(String.t() | atom()) => any()}
+  @type create_push_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_apns_channel_request() :: %{
-        required("APNSChannelRequest") => a_p_n_s_channel_request()
-      }
+      get_campaign_version_request() :: %{}
 
   """
-  @type update_apns_channel_request() :: %{(String.t() | atom()) => any()}
+  @type get_campaign_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_recommender_configuration_request() :: %{
-        required("UpdateRecommenderConfiguration") => update_recommender_configuration_shape()
+      send_users_messages_request() :: %{
+        required("SendUsersMessageRequest") => send_users_message_request()
       }
 
   """
-  @type update_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type send_users_messages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_email_template_response() :: %{
-        "CreateTemplateMessageBody" => create_template_message_body()
+      get_segment_version_response() :: %{
+        "SegmentResponse" => segment_response()
       }
 
   """
-  @type create_email_template_response() :: %{(String.t() | atom()) => any()}
+  @type get_segment_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_in_app_template_request() :: %{
-        required("InAppTemplateRequest") => in_app_template_request()
+      simple_email_part() :: %{
+        "Charset" => String.t() | atom(),
+        "Data" => String.t() | atom()
       }
 
   """
-  @type create_in_app_template_request() :: %{(String.t() | atom()) => any()}
+  @type simple_email_part() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_sms_template_request() :: %{
-        optional("Version") => String.t() | atom()
+      delete_email_template_response() :: %{
+        "MessageBody" => message_body()
       }
 
   """
-  @type delete_sms_template_request() :: %{(String.t() | atom()) => any()}
+  @type delete_email_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_gcm_channel_request() :: %{}
+      create_export_job_request() :: %{
+        required("ExportJobRequest") => export_job_request()
+      }
 
   """
-  @type get_gcm_channel_request() :: %{}
+  @type create_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sms_template_response() :: %{
+        "SMSTemplateResponse" => sms_template_response()
+      }
+
+  """
+  @type get_sms_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      write_treatment_resource() :: %{
+        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
+        "MessageConfiguration" => message_configuration(),
+        "Schedule" => schedule(),
+        "SizePercent" => integer(),
+        "TemplateConfiguration" => template_configuration(),
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom()
+      }
+
+  """
+  @type write_treatment_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_adm_channel_request() :: %{}
+
+  """
+  @type get_adm_channel_request() :: %{}
 
   @typedoc """
 
@@ -5844,17 +5197,185 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      custom_message_activity() :: %{
-        "DeliveryUri" => String.t() | atom(),
-        "EndpointTypes" => list(list(any())()),
-        "MessageConfig" => journey_custom_message(),
-        "NextActivity" => String.t() | atom(),
-        "TemplateName" => String.t() | atom(),
-        "TemplateVersion" => String.t() | atom()
+      a_p_n_s_channel_request() :: %{
+        "BundleId" => String.t() | atom(),
+        "Certificate" => String.t() | atom(),
+        "DefaultAuthenticationMethod" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "PrivateKey" => String.t() | atom(),
+        "TeamId" => String.t() | atom(),
+        "TokenKey" => String.t() | atom(),
+        "TokenKeyId" => String.t() | atom()
       }
 
   """
-  @type custom_message_activity() :: %{(String.t() | atom()) => any()}
+  @type a_p_n_s_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      base_kpi_result() :: %{
+        "Rows" => list(result_row())
+      }
+
+  """
+  @type base_kpi_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_delivery_configuration() :: %{
+        "DeliveryUri" => String.t() | atom(),
+        "EndpointTypes" => list(list(any())())
+      }
+
+  """
+  @type custom_delivery_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_message_content() :: %{
+        "BackgroundColor" => String.t() | atom(),
+        "BodyConfig" => in_app_message_body_config(),
+        "HeaderConfig" => in_app_message_header_config(),
+        "ImageUrl" => String.t() | atom(),
+        "PrimaryBtn" => in_app_message_button(),
+        "SecondaryBtn" => in_app_message_button()
+      }
+
+  """
+  @type in_app_message_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_campaign_response() :: %{
+        "CampaignResponse" => campaign_response()
+      }
+
+  """
+  @type create_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_voice_template_response() :: %{
+        "CreateTemplateMessageBody" => create_template_message_body()
+      }
+
+  """
+  @type create_voice_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journey_execution_activity_metrics_response() :: %{
+        "ActivityType" => String.t() | atom(),
+        "ApplicationId" => String.t() | atom(),
+        "JourneyActivityId" => String.t() | atom(),
+        "JourneyId" => String.t() | atom(),
+        "LastEvaluatedTime" => String.t() | atom(),
+        "Metrics" => map()
+      }
+
+  """
+  @type journey_execution_activity_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_voice_channel_request() :: %{
+        required("VoiceChannelRequest") => voice_channel_request()
+      }
+
+  """
+  @type update_voice_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      simple_condition() :: %{
+        "EventCondition" => event_condition(),
+        "SegmentCondition" => segment_condition(),
+        "SegmentDimensions" => segment_dimensions()
+      }
+
+  """
+  @type simple_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_response() :: %{
+        "SegmentResponse" => segment_response()
+      }
+
+  """
+  @type create_segment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event() :: %{
+        "AppPackageName" => String.t() | atom(),
+        "AppTitle" => String.t() | atom(),
+        "AppVersionCode" => String.t() | atom(),
+        "Attributes" => map(),
+        "ClientSdkVersion" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
+        "Metrics" => map(),
+        "SdkName" => String.t() | atom(),
+        "Session" => session(),
+        "Timestamp" => String.t() | atom()
+      }
+
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_recommender_configuration_request() :: %{
+        required("UpdateRecommenderConfiguration") => update_recommender_configuration_shape()
+      }
+
+  """
+  @type update_recommender_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tags_model() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type tags_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      journeys_response() :: %{
+        "Item" => list(journey_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type journeys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5886,25 +5407,36 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      get_segments_request() :: %{
-        optional("PageSize") => String.t() | atom(),
-        optional("Token") => String.t() | atom()
+      get_in_app_messages_response() :: %{
+        "InAppMessagesResponse" => in_app_messages_response()
       }
 
   """
-  @type get_segments_request() :: %{(String.t() | atom()) => any()}
+  @type get_in_app_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      in_app_template_response() :: %{
+      get_segment_export_jobs_request() :: %{
+        optional("PageSize") => String.t() | atom(),
+        optional("Token") => String.t() | atom()
+      }
+
+  """
+  @type get_segment_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sms_template_response() :: %{
         "Arn" => String.t() | atom(),
-        "Content" => list(in_app_message_content()),
+        "Body" => String.t() | atom(),
         "CreationDate" => String.t() | atom(),
-        "CustomConfig" => map(),
+        "DefaultSubstitutions" => String.t() | atom(),
         "LastModifiedDate" => String.t() | atom(),
-        "Layout" => list(any()),
+        "RecommenderId" => String.t() | atom(),
         "TemplateDescription" => String.t() | atom(),
         "TemplateName" => String.t() | atom(),
         "TemplateType" => list(any()),
@@ -5913,7 +5445,263 @@ defmodule AWS.Pinpoint do
       }
 
   """
-  @type in_app_template_response() :: %{(String.t() | atom()) => any()}
+  @type sms_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      g_p_s_coordinates() :: %{
+        "Latitude" => float(),
+        "Longitude" => float()
+      }
+
+  """
+  @type g_p_s_coordinates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recency_dimension() :: %{
+        "Duration" => list(any()),
+        "RecencyType" => list(any())
+      }
+
+  """
+  @type recency_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apps_response() :: %{
+        "ApplicationsResponse" => applications_response()
+      }
+
+  """
+  @type get_apps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      random_split_activity() :: %{
+        "Branches" => list(random_split_entry())
+      }
+
+  """
+  @type random_split_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_apns_voip_channel_response() :: %{
+        "APNSVoipChannelResponse" => a_p_n_s_voip_channel_response()
+      }
+
+  """
+  @type get_apns_voip_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_conditional_split_activity() :: %{
+        "Branches" => list(multi_conditional_branch()),
+        "DefaultActivity" => String.t() | atom(),
+        "EvaluationWaitTime" => wait_time()
+      }
+
+  """
+  @type multi_conditional_split_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ad_m_channel_request() :: %{
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "Enabled" => boolean()
+      }
+
+  """
+  @type ad_m_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      treatment_resource() :: %{
+        "CustomDeliveryConfiguration" => custom_delivery_configuration(),
+        "Id" => String.t() | atom(),
+        "MessageConfiguration" => message_configuration(),
+        "Schedule" => schedule(),
+        "SizePercent" => integer(),
+        "State" => campaign_state(),
+        "TemplateConfiguration" => template_configuration(),
+        "TreatmentDescription" => String.t() | atom(),
+        "TreatmentName" => String.t() | atom()
+      }
+
+  """
+  @type treatment_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Dimensions" => segment_dimensions(),
+        "Id" => String.t() | atom(),
+        "ImportDefinition" => segment_import_resource(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "SegmentGroups" => segment_group_list(),
+        "SegmentType" => list(any()),
+        "Version" => integer(),
+        "tags" => map()
+      }
+
+  """
+  @type segment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_apns_voip_channel_request() :: %{
+        required("APNSVoipChannelRequest") => a_p_n_s_voip_channel_request()
+      }
+
+  """
+  @type update_apns_voip_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_message_button() :: %{
+        "Android" => override_button_configuration(),
+        "DefaultConfig" => default_button_configuration(),
+        "IOS" => override_button_configuration(),
+        "Web" => override_button_configuration()
+      }
+
+  """
+  @type in_app_message_button() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_stream_response() :: %{
+        "EventStream" => event_stream()
+      }
+
+  """
+  @type get_event_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_import_jobs_response() :: %{
+        "ImportJobsResponse" => import_jobs_response()
+      }
+
+  """
+  @type get_segment_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ad_m_channel_response() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "CreationDate" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "HasCredential" => boolean(),
+        "Id" => String.t() | atom(),
+        "IsArchived" => boolean(),
+        "LastModifiedBy" => String.t() | atom(),
+        "LastModifiedDate" => String.t() | atom(),
+        "Platform" => String.t() | atom(),
+        "Version" => integer()
+      }
+
+  """
+  @type ad_m_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_baidu_channel_request() :: %{}
+
+  """
+  @type delete_baidu_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      payload_too_large_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestID" => String.t() | atom()
+      }
+
+  """
+  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_journey_response() :: %{
+        "JourneyResponse" => journey_response()
+      }
+
+  """
+  @type get_journey_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_events_response() :: %{
+        "EventsResponse" => events_response()
+      }
+
+  """
+  @type put_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_in_app_template_request() :: %{
+        optional("Version") => String.t() | atom()
+      }
+
+  """
+  @type delete_in_app_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_messages_response() :: %{
+        "MessageResponse" => message_response()
+      }
+
+  """
+  @type send_messages_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5941,1104 +5729,1316 @@ defmodule AWS.Pinpoint do
 
   ## Example:
 
-      public_endpoint() :: %{
-        "Address" => String.t() | atom(),
-        "Attributes" => map(),
-        "ChannelType" => list(any()),
-        "Demographic" => endpoint_demographic(),
-        "EffectiveDate" => String.t() | atom(),
-        "EndpointStatus" => String.t() | atom(),
-        "Location" => endpoint_location(),
-        "Metrics" => map(),
-        "OptOut" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "User" => endpoint_user()
-      }
+      delete_voice_channel_request() :: %{}
 
   """
-  @type public_endpoint() :: %{(String.t() | atom()) => any()}
+  @type delete_voice_channel_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      recommender_configuration_response() :: %{
-        "Attributes" => map(),
-        "CreationDate" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastModifiedDate" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RecommendationProviderIdType" => String.t() | atom(),
-        "RecommendationProviderRoleArn" => String.t() | atom(),
-        "RecommendationProviderUri" => String.t() | atom(),
-        "RecommendationTransformerUri" => String.t() | atom(),
-        "RecommendationsDisplayName" => String.t() | atom(),
-        "RecommendationsPerMessage" => integer()
+      endpoint_item_response() :: %{
+        "Message" => String.t() | atom(),
+        "StatusCode" => integer()
       }
 
   """
-  @type recommender_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type endpoint_item_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_adm_channel_response() :: %{
+        "ADMChannelResponse" => ad_m_channel_response()
+      }
+
+  """
+  @type get_adm_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_users_messages_response() :: %{
+        "SendUsersMessageResponse" => send_users_message_response()
+      }
+
+  """
+  @type send_users_messages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sms_channel_request() :: %{
+        required("SMSChannelRequest") => sms_channel_request()
+      }
+
+  """
+  @type update_sms_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      address_configuration() :: %{
+        "BodyOverride" => String.t() | atom(),
+        "ChannelType" => list(any()),
+        "Context" => map(),
+        "RawContent" => String.t() | atom(),
+        "Substitutions" => map(),
+        "TitleOverride" => String.t() | atom()
+      }
+
+  """
+  @type address_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group() :: %{
+        "Dimensions" => list(segment_dimensions()),
+        "SourceSegments" => list(segment_reference()),
+        "SourceType" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type segment_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_activity() :: %{
+        "NextActivity" => String.t() | atom(),
+        "WaitTime" => wait_time()
+      }
+
+  """
+  @type wait_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_journey_request() :: %{}
+
+  """
+  @type delete_journey_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      result_row() :: %{
+        "GroupedBys" => list(result_row_value()),
+        "Values" => list(result_row_value())
+      }
+
+  """
+  @type result_row() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_users_message_request() :: %{
+        "Context" => map(),
+        "MessageConfiguration" => direct_message_configuration(),
+        "TemplateConfiguration" => template_configuration(),
+        "TraceId" => String.t() | atom(),
+        "Users" => map()
+      }
+
+  """
+  @type send_users_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_template_active_version_request() :: %{
+        required("TemplateActiveVersionRequest") => template_active_version_request()
+      }
+
+  """
+  @type update_template_active_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_campaign_request() :: %{
+        required("WriteCampaignRequest") => write_campaign_request()
+      }
+
+  """
+  @type update_campaign_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_configuration() :: %{
+        "ADMMessage" => message(),
+        "APNSMessage" => message(),
+        "BaiduMessage" => message(),
+        "CustomMessage" => campaign_custom_message(),
+        "DefaultMessage" => message(),
+        "EmailMessage" => campaign_email_message(),
+        "GCMMessage" => message(),
+        "InAppMessage" => campaign_in_app_message(),
+        "SMSMessage" => campaign_sms_message()
+      }
+
+  """
+  @type message_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule() :: %{
+        "EndTime" => String.t() | atom(),
+        "EventFilter" => campaign_event_filter(),
+        "Frequency" => list(any()),
+        "IsLocalTime" => boolean(),
+        "QuietTime" => quiet_time(),
+        "StartTime" => String.t() | atom(),
+        "Timezone" => String.t() | atom()
+      }
+
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_app_message_body_config() :: %{
+        "Alignment" => list(any()),
+        "Body" => String.t() | atom(),
+        "TextColor" => String.t() | atom()
+      }
+
+  """
+  @type in_app_message_body_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_response() :: %{
+        "ApplicationResponse" => application_response()
+      }
+
+  """
+  @type delete_app_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verification_response() :: %{
+        "Valid" => boolean()
+      }
+
+  """
+  @type verification_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_configuration_request() :: %{}
+
+  """
+  @type get_recommender_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      applications_response() :: %{
+        "Item" => list(application_response()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type applications_response() :: %{(String.t() | atom()) => any()}
 
   @type create_app_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_campaign_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_email_template_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_export_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_import_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_in_app_template_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_journey_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_push_template_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_recommender_configuration_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_segment_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_sms_template_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type create_voice_template_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_adm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_apns_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_apns_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_apns_voip_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_apns_voip_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_app_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_baidu_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_campaign_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_email_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_email_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_endpoint_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_event_stream_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_gcm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_in_app_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_journey_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_push_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_recommender_configuration_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_segment_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_sms_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_sms_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_user_endpoints_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_voice_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type delete_voice_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_adm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_apns_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_apns_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_apns_voip_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_apns_voip_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_app_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_application_date_range_kpi_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_application_settings_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_apps_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_baidu_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaign_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaign_activities_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaign_date_range_kpi_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaign_version_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaign_versions_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_campaigns_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_channels_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_email_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_email_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_endpoint_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_event_stream_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_export_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_export_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_gcm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_import_job_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_import_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_in_app_messages_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_in_app_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_date_range_kpi_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_execution_activity_metrics_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_execution_metrics_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_run_execution_activity_metrics_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_run_execution_metrics_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_journey_runs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_push_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_recommender_configuration_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_recommender_configurations_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segment_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segment_export_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segment_import_jobs_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segment_version_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segment_versions_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_segments_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_sms_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_sms_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_user_endpoints_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_voice_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type get_voice_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type list_journeys_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type list_template_versions_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type list_templates_errors() ::
           bad_request_exception()
+          | forbidden_exception()
           | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type phone_number_validate_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type put_event_stream_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type put_events_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type remove_attributes_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type send_messages_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type send_o_t_p_message_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type send_users_messages_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_adm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_apns_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_apns_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_apns_voip_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_apns_voip_sandbox_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_application_settings_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_baidu_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_campaign_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_email_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_email_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_endpoint_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_endpoints_batch_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_gcm_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_in_app_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_journey_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_journey_state_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_push_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_recommender_configuration_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_segment_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_sms_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_sms_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_template_active_version_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_voice_channel_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type update_voice_template_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   @type verify_o_t_p_message_errors() ::
-          bad_request_exception()
-          | internal_server_error_exception()
+          payload_too_large_exception()
+          | bad_request_exception()
+          | forbidden_exception()
           | not_found_exception()
-          | payload_too_large_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
           | method_not_allowed_exception()
-          | forbidden_exception()
 
   def metadata do
     %{

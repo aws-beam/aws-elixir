@@ -181,111 +181,117 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      list_extensions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom()
+      parameter() :: %{
+        "Description" => String.t() | atom(),
+        "Dynamic" => boolean(),
+        "Required" => boolean()
       }
 
   """
-  @type list_extensions_request() :: %{(String.t() | atom()) => any()}
+  @type parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      applications() :: %{
-        optional("Items") => list(application()),
-        optional("NextToken") => String.t() | atom()
-      }
+      get_extension_association_request() :: %{}
 
   """
-  @type applications() :: %{(String.t() | atom()) => any()}
+  @type get_extension_association_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      stop_deployment_request() :: %{
-        optional("AllowRevert") => boolean()
-      }
-
-  """
-  @type stop_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployments_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extension() :: %{
-        optional("Actions") => map(),
-        optional("Arn") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Id") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Parameters") => map(),
+      get_extension_request() :: %{
         optional("VersionNumber") => integer()
       }
 
   """
-  @type extension() :: %{(String.t() | atom()) => any()}
+  @type get_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deployment_summary() :: %{
-        "CompletedAt" => non_neg_integer(),
-        "ConfigurationName" => String.t() | atom(),
-        "ConfigurationVersion" => String.t() | atom(),
-        "DeploymentDurationInMinutes" => integer(),
-        "DeploymentNumber" => integer(),
-        "FinalBakeTimeInMinutes" => integer(),
-        "GrowthFactor" => float(),
-        "GrowthType" => list(any()),
-        "PercentageComplete" => float(),
-        "StartedAt" => non_neg_integer(),
-        "State" => list(any()),
-        "VersionLabel" => String.t() | atom()
+      validator() :: %{
+        "Content" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """
-  @type deployment_summary() :: %{(String.t() | atom()) => any()}
+  @type validator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      extension_associations() :: %{
-        optional("Items") => list(extension_association_summary()),
-        optional("NextToken") => String.t() | atom()
+      extension_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VersionNumber" => integer()
       }
 
   """
-  @type extension_associations() :: %{(String.t() | atom()) => any()}
+  @type extension_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor() :: %{
+        "AlarmArn" => String.t() | atom(),
+        "AlarmRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type monitor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_extension_association_request() :: %{
+        optional("Parameters") => map()
+      }
+
+  """
+  @type update_extension_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_extension_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("LatestVersionNumber") => integer(),
+        optional("Parameters") => map(),
+        optional("Tags") => map(),
+        required("Actions") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_extension_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_deployment_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DynamicExtensionParameters") => map(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ConfigurationProfileId") => String.t() | atom(),
+        required("ConfigurationVersion") => String.t() | atom(),
+        required("DeploymentStrategyId") => String.t() | atom()
+      }
+
+  """
+  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -323,6 +329,66 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
+      update_account_settings_request() :: %{
+        optional("DeletionProtection") => deletion_protection_settings()
+      }
+
+  """
+  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_deployment_strategies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_deployment_strategies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environments() :: %{
+        optional("Items") => list(environment()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type environments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extension_association() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("ExtensionArn") => String.t() | atom(),
+        optional("ExtensionVersionNumber") => integer(),
+        optional("Id") => String.t() | atom(),
+        optional("Parameters") => map(),
+        optional("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type extension_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_hosted_configuration_version_request() :: %{}
+
+  """
+  @type delete_hosted_configuration_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       invalid_configuration_detail() :: %{
         "Constraint" => String.t() | atom(),
         "Location" => String.t() | atom(),
@@ -338,10 +404,55 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      delete_deployment_strategy_request() :: %{}
+      resource_tags() :: %{
+        optional("Tags") => map()
+      }
 
   """
-  @type delete_deployment_strategy_request() :: %{}
+  @type resource_tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extension_associations() :: %{
+        optional("Items") => list(extension_association_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type extension_associations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_profile_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("RetrievalRoleArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Type") => String.t() | atom(),
+        optional("Validators") => list(validator()),
+        required("LocationUri") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -359,107 +470,74 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      validate_configuration_request() :: %{
-        required("ConfigurationVersion") => String.t() | atom()
+      list_environments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type validate_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_environments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_tags() :: %{
-        optional("Tags") => map()
-      }
+      get_application_request() :: %{}
 
   """
-  @type resource_tags() :: %{(String.t() | atom()) => any()}
+  @type get_application_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_hosted_configuration_version_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("LatestVersionNumber") => integer(),
-        optional("VersionLabel") => String.t() | atom(),
-        required("Content") => binary(),
-        required("ContentType") => String.t() | atom()
-      }
-
-  """
-  @type create_hosted_configuration_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_request() :: %{}
-
-  """
-  @type get_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_configuration_profile_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyIdentifier") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RetrievalRoleArn") => String.t() | atom(),
-        optional("Validators") => list(validator())
-      }
-
-  """
-  @type update_configuration_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_deployment_strategy_request() :: %{
-        optional("DeploymentDurationInMinutes") => integer(),
+      create_deployment_strategy_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("FinalBakeTimeInMinutes") => integer(),
-        optional("GrowthFactor") => float(),
-        optional("GrowthType") => list(any())
-      }
-
-  """
-  @type update_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_strategy() :: %{
-        optional("DeploymentDurationInMinutes") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("FinalBakeTimeInMinutes") => integer(),
-        optional("GrowthFactor") => float(),
         optional("GrowthType") => list(any()),
+        optional("ReplicateTo") => list(any()),
+        optional("Tags") => map(),
+        required("DeploymentDurationInMinutes") => integer(),
+        required("GrowthFactor") => float(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extension() :: %{
+        optional("Actions") => map(),
+        optional("Arn") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
         optional("Id") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
-        optional("ReplicateTo") => list(any())
+        optional("Parameters") => map(),
+        optional("VersionNumber") => integer()
       }
 
   """
-  @type deployment_strategy() :: %{(String.t() | atom()) => any()}
+  @type extension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deletion_protection_settings() :: %{
-        "Enabled" => boolean(),
-        "ProtectionPeriodInMinutes" => integer()
+      action_invocation() :: %{
+        "ActionName" => String.t() | atom(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ExtensionIdentifier" => String.t() | atom(),
+        "InvocationId" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type deletion_protection_settings() :: %{(String.t() | atom()) => any()}
+  @type action_invocation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,98 +556,74 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      extension_association_summary() :: %{
-        "ExtensionArn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
+      hosted_configuration_version() :: %{
+        optional("ApplicationId") => String.t() | atom(),
+        optional("ConfigurationProfileId") => String.t() | atom(),
+        optional("Content") => binary(),
+        optional("ContentType") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("VersionLabel") => String.t() | atom(),
+        optional("VersionNumber") => integer()
       }
 
   """
-  @type extension_association_summary() :: %{(String.t() | atom()) => any()}
+  @type hosted_configuration_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hosted_configuration_versions() :: %{
-        optional("Items") => list(hosted_configuration_version_summary()),
-        optional("NextToken") => String.t() | atom()
+      account_settings() :: %{
+        optional("DeletionProtection") => deletion_protection_settings()
       }
 
   """
-  @type hosted_configuration_versions() :: %{(String.t() | atom()) => any()}
+  @type account_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      applied_extension() :: %{
-        "ExtensionAssociationId" => String.t() | atom(),
-        "ExtensionId" => String.t() | atom(),
-        "Parameters" => map(),
-        "VersionNumber" => integer()
+      delete_extension_request() :: %{
+        optional("VersionNumber") => integer()
       }
 
   """
-  @type applied_extension() :: %{(String.t() | atom()) => any()}
+  @type delete_extension_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      monitor() :: %{
-        "AlarmArn" => String.t() | atom(),
-        "AlarmRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type monitor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extension_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VersionNumber" => integer()
-      }
-
-  """
-  @type extension_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_hosted_configuration_version_request() :: %{}
-
-  """
-  @type delete_hosted_configuration_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      internal_server_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Monitors") => list(monitor()),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_configuration_profile_request() :: %{}
+
+  """
+  @type get_configuration_profile_request() :: %{}
 
   @typedoc """
 
@@ -587,15 +641,120 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      payload_too_large_exception() :: %{
-        "Limit" => float(),
-        "Measure" => list(any()),
-        "Message" => String.t() | atom(),
-        "Size" => float()
+      applications() :: %{
+        optional("Items") => list(application()),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
+  @type applications() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_event() :: %{
+        "ActionInvocations" => list(action_invocation()),
+        "Description" => String.t() | atom(),
+        "EventType" => list(any()),
+        "OccurredAt" => non_neg_integer(),
+        "TriggeredBy" => list(any())
+      }
+
+  """
+  @type deployment_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_profile_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LocationUri" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "ValidatorTypes" => list(list(any())())
+      }
+
+  """
+  @type configuration_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_deployment_request() :: %{
+        optional("AllowRevert") => boolean()
+      }
+
+  """
+  @type stop_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_request() :: %{}
+
+  """
+  @type get_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deployments() :: %{
+        optional("Items") => list(deployment_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type deployments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_profiles() :: %{
+        optional("Items") => list(configuration_profile_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type configuration_profiles() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deletion_protection_settings() :: %{
+        "Enabled" => boolean(),
+        "ProtectionPeriodInMinutes" => integer()
+      }
+
+  """
+  @type deletion_protection_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_application_request() :: %{}
+
+  """
+  @type delete_application_request() :: %{}
 
   @typedoc """
 
@@ -617,32 +776,101 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      list_deployments_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_deployments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_hosted_configuration_version_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("LatestVersionNumber") => integer(),
+        optional("VersionLabel") => String.t() | atom(),
+        required("Content") => binary(),
+        required("ContentType") => String.t() | atom()
+      }
+
+  """
+  @type create_hosted_configuration_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_deployment_strategy_request() :: %{
+        optional("DeploymentDurationInMinutes") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("FinalBakeTimeInMinutes") => integer(),
+        optional("GrowthFactor") => float(),
+        optional("GrowthType") => list(any())
+      }
+
+  """
+  @type update_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_applications_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_applications_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_deployment_request() :: %{}
-
-  """
-  @type get_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_profile_request() :: %{
-        optional("DeletionProtectionCheck") => list(any())
+      create_extension_association_request() :: %{
+        optional("ExtensionVersionNumber") => integer(),
+        optional("Parameters") => map(),
+        optional("Tags") => map(),
+        required("ExtensionIdentifier") => String.t() | atom(),
+        required("ResourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type delete_configuration_profile_request() :: %{(String.t() | atom()) => any()}
+  @type create_extension_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_deployment_strategy_request() :: %{}
+
+  """
+  @type delete_deployment_strategy_request() :: %{}
 
   @typedoc """
 
@@ -661,43 +889,83 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      update_extension_association_request() :: %{
-        optional("Parameters") => map()
+      extension_association_summary() :: %{
+        "ExtensionArn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type update_extension_association_request() :: %{(String.t() | atom()) => any()}
+  @type extension_association_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      parameter() :: %{
+      hosted_configuration_version_summary() :: %{
+        "ApplicationId" => String.t() | atom(),
+        "ConfigurationProfileId" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
         "Description" => String.t() | atom(),
-        "Dynamic" => boolean(),
-        "Required" => boolean()
+        "KmsKeyArn" => String.t() | atom(),
+        "VersionLabel" => String.t() | atom(),
+        "VersionNumber" => integer()
       }
 
   """
-  @type parameter() :: %{(String.t() | atom()) => any()}
+  @type hosted_configuration_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_deployment_strategy_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("FinalBakeTimeInMinutes") => integer(),
-        optional("GrowthType") => list(any()),
-        optional("ReplicateTo") => list(any()),
-        optional("Tags") => map(),
-        required("DeploymentDurationInMinutes") => integer(),
-        required("GrowthFactor") => float(),
-        required("Name") => String.t() | atom()
+      deployment_strategies() :: %{
+        optional("Items") => list(deployment_strategy()),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type create_deployment_strategy_request() :: %{(String.t() | atom()) => any()}
+  @type deployment_strategies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_configuration_profile_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("KmsKeyIdentifier") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RetrievalRoleArn") => String.t() | atom(),
+        optional("Validators") => list(validator())
+      }
+
+  """
+  @type update_configuration_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extensions() :: %{
+        optional("Items") => list(extension_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type extensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_extensions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_extensions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -723,169 +991,16 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      create_application_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_extension_request() :: %{
-        optional("VersionNumber") => integer()
-      }
-
-  """
-  @type get_extension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hosted_configuration_version_request() :: %{}
-
-  """
-  @type get_hosted_configuration_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      action_invocation() :: %{
-        "ActionName" => String.t() | atom(),
-        "ErrorCode" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ExtensionIdentifier" => String.t() | atom(),
-        "InvocationId" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type action_invocation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_settings_request() :: %{
-        optional("DeletionProtection") => deletion_protection_settings()
-      }
-
-  """
-  @type update_account_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environments() :: %{
-        optional("Items") => list(environment()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type environments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_configuration_profile_request() :: %{}
-
-  """
-  @type get_configuration_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_deployment_strategy_request() :: %{}
-
-  """
-  @type get_deployment_strategy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_strategies() :: %{
-        optional("Items") => list(deployment_strategy()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type deployment_strategies() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_configuration_version_summary() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "ConfigurationProfileId" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "KmsKeyArn" => String.t() | atom(),
-        "VersionLabel" => String.t() | atom(),
-        "VersionNumber" => integer()
-      }
-
-  """
-  @type hosted_configuration_version_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_application_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_application_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_profiles_request() :: %{
+      list_extension_associations_request() :: %{
+        optional("ExtensionIdentifier") => String.t() | atom(),
+        optional("ExtensionVersionNumber") => integer(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("Type") => String.t() | atom()
+        optional("ResourceIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_configuration_profiles_request() :: %{(String.t() | atom()) => any()}
+  @type list_extension_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -902,165 +1017,10 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      create_extension_association_request() :: %{
-        optional("ExtensionVersionNumber") => integer(),
-        optional("Parameters") => map(),
-        optional("Tags") => map(),
-        required("ExtensionIdentifier") => String.t() | atom(),
-        required("ResourceIdentifier") => String.t() | atom()
-      }
+      get_hosted_configuration_version_request() :: %{}
 
   """
-  @type create_extension_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_profiles() :: %{
-        optional("Items") => list(configuration_profile_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type configuration_profiles() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      action() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_applications_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_applications_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extensions() :: %{
-        optional("Items") => list(extension_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type extensions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_settings() :: %{
-        optional("DeletionProtection") => deletion_protection_settings()
-      }
-
-  """
-  @type account_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_profile_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyIdentifier") => String.t() | atom(),
-        optional("RetrievalRoleArn") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("Type") => String.t() | atom(),
-        optional("Validators") => list(validator()),
-        required("LocationUri") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_extension_associations_request() :: %{
-        optional("ExtensionIdentifier") => String.t() | atom(),
-        optional("ExtensionVersionNumber") => integer(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_extension_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_extension_association_request() :: %{}
-
-  """
-  @type get_extension_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_extension_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("LatestVersionNumber") => integer(),
-        optional("Parameters") => map(),
-        optional("Tags") => map(),
-        required("Actions") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_extension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_deployment_strategies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_deployment_strategies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_extension_association_request() :: %{}
-
-  """
-  @type delete_extension_association_request() :: %{}
+  @type get_hosted_configuration_version_request() :: %{}
 
   @typedoc """
 
@@ -1074,36 +1034,6 @@ defmodule AWS.AppConfig do
 
   """
   @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hosted_configuration_version() :: %{
-        optional("ApplicationId") => String.t() | atom(),
-        optional("ConfigurationProfileId") => String.t() | atom(),
-        optional("Content") => binary(),
-        optional("ContentType") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("VersionLabel") => String.t() | atom(),
-        optional("VersionNumber") => integer()
-      }
-
-  """
-  @type hosted_configuration_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validator() :: %{
-        "Content" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type validator() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1123,108 +1053,42 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      create_environment_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Monitors") => list(monitor()),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_event() :: %{
-        "ActionInvocations" => list(action_invocation()),
+      action() :: %{
         "Description" => String.t() | atom(),
-        "EventType" => list(any()),
-        "OccurredAt" => non_neg_integer(),
-        "TriggeredBy" => list(any())
-      }
-
-  """
-  @type deployment_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Monitors") => list(monitor()),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_extension_request() :: %{
-        optional("VersionNumber") => integer()
-      }
-
-  """
-  @type delete_extension_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_profile_summary() :: %{
-        "ApplicationId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LocationUri" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "ValidatorTypes" => list(list(any())())
+        "RoleArn" => String.t() | atom(),
+        "Uri" => String.t() | atom()
       }
 
   """
-  @type configuration_profile_summary() :: %{(String.t() | atom()) => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deployments() :: %{
-        optional("Items") => list(deployment_summary()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type deployments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_application_request() :: %{}
-
-  """
-  @type get_application_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_deployment_request() :: %{
+      deployment_strategy() :: %{
+        optional("DeploymentDurationInMinutes") => integer(),
         optional("Description") => String.t() | atom(),
-        optional("DynamicExtensionParameters") => map(),
-        optional("KmsKeyIdentifier") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ConfigurationProfileId") => String.t() | atom(),
-        required("ConfigurationVersion") => String.t() | atom(),
-        required("DeploymentStrategyId") => String.t() | atom()
+        optional("FinalBakeTimeInMinutes") => integer(),
+        optional("GrowthFactor") => float(),
+        optional("GrowthType") => list(any()),
+        optional("Id") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ReplicateTo") => list(any())
       }
 
   """
-  @type start_deployment_request() :: %{(String.t() | atom()) => any()}
+  @type deployment_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_request() :: %{}
+
+  """
+  @type get_deployment_request() :: %{}
 
   @typedoc """
 
@@ -1243,138 +1107,274 @@ defmodule AWS.AppConfig do
 
   ## Example:
 
-      extension_association() :: %{
-        optional("Arn") => String.t() | atom(),
-        optional("ExtensionArn") => String.t() | atom(),
-        optional("ExtensionVersionNumber") => integer(),
-        optional("Id") => String.t() | atom(),
-        optional("Parameters") => map(),
-        optional("ResourceArn") => String.t() | atom()
+      update_application_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type extension_association() :: %{(String.t() | atom()) => any()}
+  @type update_application_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_application_request() :: %{}
+      deployment_summary() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "ConfigurationName" => String.t() | atom(),
+        "ConfigurationVersion" => String.t() | atom(),
+        "DeploymentDurationInMinutes" => integer(),
+        "DeploymentNumber" => integer(),
+        "FinalBakeTimeInMinutes" => integer(),
+        "GrowthFactor" => float(),
+        "GrowthType" => list(any()),
+        "PercentageComplete" => float(),
+        "StartedAt" => non_neg_integer(),
+        "State" => list(any()),
+        "VersionLabel" => String.t() | atom()
+      }
 
   """
-  @type delete_application_request() :: %{}
+  @type deployment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
+      }
+
+  """
+  @type list_configuration_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validate_configuration_request() :: %{
+        required("ConfigurationVersion") => String.t() | atom()
+      }
+
+  """
+  @type validate_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_profile_request() :: %{
+        optional("DeletionProtectionCheck") => list(any())
+      }
+
+  """
+  @type delete_configuration_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payload_too_large_exception() :: %{
+        "Limit" => float(),
+        "Measure" => list(any()),
+        "Message" => String.t() | atom(),
+        "Size" => float()
+      }
+
+  """
+  @type payload_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_deployment_strategy_request() :: %{}
+
+  """
+  @type get_deployment_strategy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_extension_association_request() :: %{}
+
+  """
+  @type delete_extension_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosted_configuration_versions() :: %{
+        optional("Items") => list(hosted_configuration_version_summary()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type hosted_configuration_versions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Monitors") => list(monitor()),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      applied_extension() :: %{
+        "ExtensionAssociationId" => String.t() | atom(),
+        "ExtensionId" => String.t() | atom(),
+        "Parameters" => map(),
+        "VersionNumber" => integer()
+      }
+
+  """
+  @type applied_extension() :: %{(String.t() | atom()) => any()}
 
   @type create_application_errors() ::
-          bad_request_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
 
   @type create_configuration_profile_errors() ::
-          bad_request_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
 
   @type create_deployment_strategy_errors() ::
-          bad_request_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
 
   @type create_environment_errors() ::
-          bad_request_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
 
   @type create_extension_errors() ::
-          bad_request_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | conflict_exception()
+          | internal_server_exception()
 
   @type create_extension_association_errors() ::
-          bad_request_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
+          | bad_request_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
 
   @type create_hosted_configuration_version_errors() ::
-          bad_request_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | payload_too_large_exception()
-          | resource_not_found_exception()
+          | bad_request_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type delete_application_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_configuration_profile_errors() ::
           bad_request_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type delete_deployment_strategy_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_environment_errors() ::
           bad_request_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type delete_extension_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_extension_association_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_hosted_configuration_version_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_account_settings_errors() :: bad_request_exception() | internal_server_exception()
 
   @type get_application_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_configuration_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_configuration_profile_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_deployment_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_deployment_strategy_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_environment_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_extension_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_extension_association_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type get_hosted_configuration_version_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_applications_errors() :: bad_request_exception() | internal_server_exception()
 
   @type list_configuration_profiles_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_deployment_strategies_errors() ::
           bad_request_exception() | internal_server_exception()
 
   @type list_deployments_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_environments_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_extension_associations_errors() ::
           bad_request_exception() | internal_server_exception()
@@ -1382,51 +1382,51 @@ defmodule AWS.AppConfig do
   @type list_extensions_errors() :: bad_request_exception() | internal_server_exception()
 
   @type list_hosted_configuration_versions_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type start_deployment_errors() ::
           bad_request_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type stop_deployment_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_account_settings_errors() :: bad_request_exception() | internal_server_exception()
 
   @type update_application_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_configuration_profile_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_deployment_strategy_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_environment_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_extension_errors() ::
           bad_request_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type update_extension_association_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type validate_configuration_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   def metadata do
     %{

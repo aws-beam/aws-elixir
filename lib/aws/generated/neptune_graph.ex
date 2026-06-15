@@ -16,6 +16,819 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
+      get_query_input() :: %{
+        required("graphIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_filter() :: %{
+        "edgeFilter" => map(),
+        "vertexFilter" => map()
+      }
+
+  """
+  @type export_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graph_input() :: %{
+        required("skipSnapshot") => [boolean()]
+      }
+
+  """
+  @type delete_graph_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task_summary() :: %{
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "source" => [String.t() | atom()],
+        "status" => list(any()),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type import_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graph_using_import_task_output() :: %{
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "importOptions" => list(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "source" => [String.t() | atom()],
+        "status" => list(any()),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type create_graph_using_import_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_export_task_input() :: %{}
+
+  """
+  @type cancel_export_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graph_snapshot_input() :: %{}
+
+  """
+  @type delete_graph_snapshot_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_tasks_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_import_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_tasks_input() :: %{
+        optional("graphIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_export_tasks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_task_input() :: %{}
+
+  """
+  @type get_import_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graph_snapshot_input() :: %{
+        optional("tags") => map(),
+        required("graphIdentifier") => String.t() | atom(),
+        required("snapshotName") => String.t() | atom()
+      }
+
+  """
+  @type create_graph_snapshot_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_task_output() :: %{
+        "destination" => [String.t() | atom()],
+        "exportFilter" => export_filter(),
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type start_export_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_import_task_input() :: %{}
+
+  """
+  @type cancel_import_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_export_task_input() :: %{
+        optional("exportFilter") => export_filter(),
+        optional("parquetType") => list(any()),
+        optional("tags") => map(),
+        required("destination") => [String.t() | atom()],
+        required("format") => list(any()),
+        required("graphIdentifier") => String.t() | atom(),
+        required("kmsKeyIdentifier") => String.t() | atom(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type start_export_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_snapshot_input() :: %{}
+
+  """
+  @type get_graph_snapshot_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_graphs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_graphs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessable_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type unprocessable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_input() :: %{}
+
+  """
+  @type get_graph_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_input() :: %{
+        optional("explainMode") => list(any()),
+        optional("parameters") => map(),
+        optional("planCache") => list(any()),
+        optional("queryTimeoutMilliseconds") => [integer()],
+        required("graphIdentifier") => String.t() | atom(),
+        required("language") => list(any()),
+        required("queryString") => [String.t() | atom()]
+      }
+
+  """
+  @type execute_query_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_import_task_input() :: %{
+        optional("blankNodeHandling") => list(any()),
+        optional("failOnError") => [boolean()],
+        optional("format") => list(any()),
+        optional("importOptions") => list(),
+        optional("parquetType") => list(any()),
+        required("roleArn") => String.t() | atom(),
+        required("source") => [String.t() | atom()]
+      }
+
+  """
+  @type start_import_task_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type delete_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_summary_output() :: %{
+        "graphSummary" => graph_data_summary(),
+        "lastStatisticsComputationTime" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type get_graph_summary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_configuration() :: %{
+        "dimension" => integer()
+      }
+
+  """
+  @type vector_search_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      graph_snapshot_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "snapshotCreateTime" => [non_neg_integer()],
+        "sourceGraphId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type graph_snapshot_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_graphs_output() :: %{
+        "graphs" => list(graph_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_graphs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type get_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_private_graph_endpoint_input() :: %{}
+
+  """
+  @type delete_private_graph_endpoint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_private_graph_endpoint_output() :: %{
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type create_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type update_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type reset_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_task_output() :: %{
+        "destination" => [String.t() | atom()],
+        "exportFilter" => export_filter(),
+        "exportTaskDetails" => export_task_details(),
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type get_export_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_private_graph_endpoints_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "privateGraphEndpoints" => list(private_graph_endpoint_summary())
+      }
+
+  """
+  @type list_private_graph_endpoints_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_export_tasks_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "tasks" => list(export_task_summary())
+      }
+
+  """
+  @type list_export_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_graph_input() :: %{}
+
+  """
+  @type stop_graph_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_query_output() :: %{
+        "payload" => binary()
+      }
+
+  """
+  @type execute_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_graph_snapshots_input() :: %{
+        optional("graphIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_graph_snapshots_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_graph_input() :: %{
+        required("skipSnapshot") => [boolean()]
+      }
+
+  """
+  @type reset_graph_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_graph_input() :: %{
+        optional("deletionProtection") => [boolean()],
+        optional("provisionedMemory") => integer(),
+        optional("publicConnectivity") => [boolean()]
+      }
+
+  """
+  @type update_graph_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_private_graph_endpoint_output() :: %{
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type get_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_snapshot_output() :: %{
+        "arn" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "snapshotCreateTime" => [non_neg_integer()],
+        "sourceGraphId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_private_graph_endpoint_input() :: %{}
+
+  """
+  @type get_private_graph_endpoint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graph_snapshot_output() :: %{
+        "arn" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "snapshotCreateTime" => [non_neg_integer()],
+        "sourceGraphId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_filter_element() :: %{
+        "properties" => map()
+      }
+
+  """
+  @type export_filter_element() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_export_task_input() :: %{}
+
+  """
+  @type get_export_task_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_private_graph_endpoint_input() :: %{
+        optional("subnetIds") => list(String.t() | atom()),
+        optional("vpcId") => String.t() | atom(),
+        optional("vpcSecurityGroupIds") => list(String.t() | atom())
+      }
+
+  """
+  @type create_private_graph_endpoint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_structure() :: %{
+        "count" => [float()],
+        "edgeProperties" => list([String.t() | atom()]())
+      }
+
+  """
+  @type edge_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_graph_from_snapshot_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type restore_graph_from_snapshot_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_export_task_output() :: %{
+        "destination" => [String.t() | atom()],
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type cancel_export_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queries_input() :: %{
+        optional("state") => list(any()),
+        required("graphIdentifier") => String.t() | atom(),
+        required("maxResults") => [integer()]
+      }
+
+  """
+  @type list_queries_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_graph_snapshots_output() :: %{
         "graphSnapshots" => list(graph_snapshot_summary()),
         "nextToken" => String.t() | atom()
@@ -23,6 +836,357 @@ defmodule AWS.NeptuneGraph do
 
   """
   @type list_graph_snapshots_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_filter_property_attributes() :: %{
+        "multiValueHandling" => list(any()),
+        "outputType" => String.t() | atom(),
+        "sourcePropertyName" => String.t() | atom()
+      }
+
+  """
+  @type export_filter_property_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type stop_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_task_details() :: %{
+        "dictionaryEntryCount" => [float()],
+        "errorCount" => [integer()],
+        "errorDetails" => [String.t() | atom()],
+        "progressPercentage" => [integer()],
+        "startTime" => [non_neg_integer()],
+        "statementCount" => [float()],
+        "status" => [String.t() | atom()],
+        "timeElapsedSeconds" => [float()]
+      }
+
+  """
+  @type import_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_task_details() :: %{
+        "numEdgesWritten" => [float()],
+        "numVerticesWritten" => [float()],
+        "progressPercentage" => [integer()],
+        "startTime" => [non_neg_integer()],
+        "timeElapsedSeconds" => [float()]
+      }
+
+  """
+  @type export_task_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_summary() :: %{
+        "elapsed" => [integer()],
+        "id" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()],
+        "state" => list(any()),
+        "waited" => [integer()]
+      }
+
+  """
+  @type query_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_graph_summary_input() :: %{
+        optional("mode") => list(any()),
+        required("graphIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type get_graph_summary_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_structure() :: %{
+        "count" => [float()],
+        "distinctOutgoingEdgeLabels" => list([String.t() | atom()]()),
+        "nodeProperties" => list([String.t() | atom()]())
+      }
+
+  """
+  @type node_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      neptune_import_options() :: %{
+        "preserveDefaultVertexLabels" => [boolean()],
+        "preserveEdgeIds" => [boolean()],
+        "s3ExportKmsKeyId" => [String.t() | atom()],
+        "s3ExportPath" => [String.t() | atom()]
+      }
+
+  """
+  @type neptune_import_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_import_task_output() :: %{
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "source" => [String.t() | atom()],
+        "status" => list(any()),
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type cancel_import_task_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queries_output() :: %{
+        "queries" => list(query_summary())
+      }
+
+  """
+  @type list_queries_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_task_summary() :: %{
+        "destination" => [String.t() | atom()],
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "taskId" => String.t() | atom()
+      }
+
+  """
+  @type export_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_query_output() :: %{
+        "elapsed" => [integer()],
+        "id" => [String.t() | atom()],
+        "queryString" => [String.t() | atom()],
+        "state" => list(any()),
+        "waited" => [integer()]
+      }
+
+  """
+  @type get_query_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_graph_from_snapshot_input() :: %{
+        optional("deletionProtection") => [boolean()],
+        optional("provisionedMemory") => integer(),
+        optional("publicConnectivity") => [boolean()],
+        optional("replicaCount") => integer(),
+        optional("tags") => map(),
+        required("graphName") => String.t() | atom()
+      }
+
+  """
+  @type restore_graph_from_snapshot_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      graph_data_summary() :: %{
+        "edgeLabels" => list([String.t() | atom()]()),
+        "edgeProperties" => list(map()),
+        "edgeStructures" => list(edge_structure()),
+        "nodeLabels" => list([String.t() | atom()]()),
+        "nodeProperties" => list(map()),
+        "nodeStructures" => list(node_structure()),
+        "numEdgeLabels" => [float()],
+        "numEdgeProperties" => [float()],
+        "numEdges" => [float()],
+        "numNodeLabels" => [float()],
+        "numNodeProperties" => [float()],
+        "numNodes" => [float()],
+        "totalEdgePropertyValues" => [float()],
+        "totalNodePropertyValues" => [float()]
+      }
+
+  """
+  @type graph_data_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_private_graph_endpoint_output() :: %{
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type delete_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      graph_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type graph_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graph_input() :: %{
+        optional("deletionProtection") => [boolean()],
+        optional("kmsKeyIdentifier") => String.t() | atom(),
+        optional("publicConnectivity") => [boolean()],
+        optional("replicaCount") => integer(),
+        optional("tags") => map(),
+        optional("vectorSearchConfiguration") => vector_search_configuration(),
+        required("graphName") => String.t() | atom(),
+        required("provisionedMemory") => integer()
+      }
+
+  """
+  @type create_graph_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_graph_input() :: %{}
+
+  """
+  @type start_graph_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      private_graph_endpoint_summary() :: %{
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcEndpointId" => String.t() | atom(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type private_graph_endpoint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_import_tasks_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "tasks" => list(import_task_summary())
+      }
+
+  """
+  @type list_import_tasks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_graph_output() :: %{
+        "arn" => [String.t() | atom()],
+        "buildNumber" => [String.t() | atom()],
+        "createTime" => [non_neg_integer()],
+        "deletionProtection" => [boolean()],
+        "endpoint" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provisionedMemory" => integer(),
+        "publicConnectivity" => [boolean()],
+        "replicaCount" => integer(),
+        "sourceSnapshotId" => String.t() | atom(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "vectorSearchConfiguration" => vector_search_configuration()
+      }
+
+  """
+  @type create_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_private_graph_endpoints_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_private_graph_endpoints_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -54,1147 +1218,6 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
-      delete_private_graph_endpoint_input() :: %{}
-
-  """
-  @type delete_private_graph_endpoint_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      export_filter_property_attributes() :: %{
-        "multiValueHandling" => list(any()),
-        "outputType" => String.t() | atom(),
-        "sourcePropertyName" => String.t() | atom()
-      }
-
-  """
-  @type export_filter_property_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_private_graph_endpoint_output() :: %{
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcEndpointId" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type create_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_private_graph_endpoint_input() :: %{}
-
-  """
-  @type get_private_graph_endpoint_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graph_snapshot_output() :: %{
-        "arn" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_task_details() :: %{
-        "numEdgesWritten" => [float()],
-        "numVerticesWritten" => [float()],
-        "progressPercentage" => [integer()],
-        "startTime" => [non_neg_integer()],
-        "timeElapsedSeconds" => [float()]
-      }
-
-  """
-  @type export_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graph_using_import_task_output() :: %{
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "importOptions" => list(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "source" => [String.t() | atom()],
-        "status" => list(any()),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type create_graph_using_import_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type update_graph_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_export_task_input() :: %{
-        optional("exportFilter") => export_filter(),
-        optional("parquetType") => list(any()),
-        optional("tags") => map(),
-        required("destination") => [String.t() | atom()],
-        required("format") => list(any()),
-        required("graphIdentifier") => String.t() | atom(),
-        required("kmsKeyIdentifier") => String.t() | atom(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_export_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_task_input() :: %{
-        optional("blankNodeHandling") => list(any()),
-        optional("failOnError") => [boolean()],
-        optional("format") => list(any()),
-        optional("importOptions") => list(),
-        optional("parquetType") => list(any()),
-        required("roleArn") => String.t() | atom(),
-        required("source") => [String.t() | atom()]
-      }
-
-  """
-  @type start_import_task_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_task_output() :: %{
-        "attemptNumber" => [integer()],
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "importOptions" => list(),
-        "importTaskDetails" => import_task_details(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "source" => [String.t() | atom()],
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type get_import_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_private_graph_endpoint_output() :: %{
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcEndpointId" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type delete_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_filter_element() :: %{
-        "properties" => map()
-      }
-
-  """
-  @type export_filter_element() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_filter() :: %{
-        "edgeFilter" => map(),
-        "vertexFilter" => map()
-      }
-
-  """
-  @type export_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_import_task_output() :: %{
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "source" => [String.t() | atom()],
-        "status" => list(any()),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type cancel_import_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unprocessable_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type unprocessable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_export_tasks_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "tasks" => list(export_task_summary())
-      }
-
-  """
-  @type list_export_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_graphs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_graphs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      graph_snapshot_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type graph_snapshot_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_output() :: %{
-        "elapsed" => [integer()],
-        "id" => [String.t() | atom()],
-        "queryString" => [String.t() | atom()],
-        "state" => list(any()),
-        "waited" => [integer()]
-      }
-
-  """
-  @type get_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_queries_output() :: %{
-        "queries" => list(query_summary())
-      }
-
-  """
-  @type list_queries_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_export_task_output() :: %{
-        "destination" => [String.t() | atom()],
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type cancel_export_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vector_search_configuration() :: %{
-        "dimension" => integer()
-      }
-
-  """
-  @type vector_search_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_graph_from_snapshot_input() :: %{
-        optional("deletionProtection") => [boolean()],
-        optional("provisionedMemory") => integer(),
-        optional("publicConnectivity") => [boolean()],
-        optional("replicaCount") => integer(),
-        optional("tags") => map(),
-        required("graphName") => String.t() | atom()
-      }
-
-  """
-  @type restore_graph_from_snapshot_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_task_summary() :: %{
-        "destination" => [String.t() | atom()],
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type export_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      edge_structure() :: %{
-        "count" => [float()],
-        "edgeProperties" => list([String.t() | atom()]())
-      }
-
-  """
-  @type edge_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graph_snapshot_output() :: %{
-        "arn" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "snapshotCreateTime" => [non_neg_integer()],
-        "sourceGraphId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_private_graph_endpoint_input() :: %{
-        optional("subnetIds") => list(String.t() | atom()),
-        optional("vpcId") => String.t() | atom(),
-        optional("vpcSecurityGroupIds") => list(String.t() | atom())
-      }
-
-  """
-  @type create_private_graph_endpoint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graph_input() :: %{
-        required("skipSnapshot") => [boolean()]
-      }
-
-  """
-  @type delete_graph_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_graphs_output() :: %{
-        "graphs" => list(graph_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_graphs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graph_input() :: %{
-        optional("deletionProtection") => [boolean()],
-        optional("kmsKeyIdentifier") => String.t() | atom(),
-        optional("publicConnectivity") => [boolean()],
-        optional("replicaCount") => integer(),
-        optional("tags") => map(),
-        optional("vectorSearchConfiguration") => vector_search_configuration(),
-        required("graphName") => String.t() | atom(),
-        required("provisionedMemory") => integer()
-      }
-
-  """
-  @type create_graph_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type delete_graph_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_queries_input() :: %{
-        optional("state") => list(any()),
-        required("graphIdentifier") => String.t() | atom(),
-        required("maxResults") => [integer()]
-      }
-
-  """
-  @type list_queries_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_export_task_input() :: %{}
-
-  """
-  @type cancel_export_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_import_task_input() :: %{}
-
-  """
-  @type cancel_import_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_graph_from_snapshot_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type restore_graph_from_snapshot_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_graph_input() :: %{}
-
-  """
-  @type start_graph_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_export_task_output() :: %{
-        "destination" => [String.t() | atom()],
-        "exportFilter" => export_filter(),
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type start_export_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      graph_data_summary() :: %{
-        "edgeLabels" => list([String.t() | atom()]()),
-        "edgeProperties" => list(map()),
-        "edgeStructures" => list(edge_structure()),
-        "nodeLabels" => list([String.t() | atom()]()),
-        "nodeProperties" => list(map()),
-        "nodeStructures" => list(node_structure()),
-        "numEdgeLabels" => [float()],
-        "numEdgeProperties" => [float()],
-        "numEdges" => [float()],
-        "numNodeLabels" => [float()],
-        "numNodeProperties" => [float()],
-        "numNodes" => [float()],
-        "totalEdgePropertyValues" => [float()],
-        "totalNodePropertyValues" => [float()]
-      }
-
-  """
-  @type graph_data_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type create_graph_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_export_tasks_input() :: %{
-        optional("graphIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_export_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task_summary() :: %{
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "source" => [String.t() | atom()],
-        "status" => list(any()),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type import_task_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_graph_snapshots_input() :: %{
-        optional("graphIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_graph_snapshots_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      graph_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type graph_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_private_graph_endpoint_output() :: %{
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcEndpointId" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type get_private_graph_endpoint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_summary() :: %{
-        "elapsed" => [integer()],
-        "id" => [String.t() | atom()],
-        "queryString" => [String.t() | atom()],
-        "state" => list(any()),
-        "waited" => [integer()]
-      }
-
-  """
-  @type query_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_query_input() :: %{
-        required("graphIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type cancel_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_graph_input() :: %{
-        optional("deletionProtection") => [boolean()],
-        optional("provisionedMemory") => integer(),
-        optional("publicConnectivity") => [boolean()]
-      }
-
-  """
-  @type update_graph_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      neptune_import_options() :: %{
-        "preserveDefaultVertexLabels" => [boolean()],
-        "preserveEdgeIds" => [boolean()],
-        "s3ExportKmsKeyId" => [String.t() | atom()],
-        "s3ExportPath" => [String.t() | atom()]
-      }
-
-  """
-  @type neptune_import_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_task_details() :: %{
-        "dictionaryEntryCount" => [float()],
-        "errorCount" => [integer()],
-        "errorDetails" => [String.t() | atom()],
-        "progressPercentage" => [integer()],
-        "startTime" => [non_neg_integer()],
-        "statementCount" => [float()],
-        "status" => [String.t() | atom()],
-        "timeElapsedSeconds" => [float()]
-      }
-
-  """
-  @type import_task_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_query_input() :: %{
-        required("graphIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type get_graph_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_graph_snapshot_input() :: %{}
-
-  """
-  @type delete_graph_snapshot_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_export_task_input() :: %{}
-
-  """
-  @type get_export_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graph_summary_input() :: %{
-        optional("mode") => list(any()),
-        required("graphIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type get_graph_summary_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_graph_input() :: %{
-        required("skipSnapshot") => [boolean()]
-      }
-
-  """
-  @type reset_graph_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_query_output() :: %{
-        "payload" => binary()
-      }
-
-  """
-  @type execute_query_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graph_snapshot_input() :: %{}
-
-  """
-  @type get_graph_snapshot_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_import_task_output() :: %{
-        "format" => list(any()),
-        "graphId" => String.t() | atom(),
-        "importOptions" => list(),
-        "parquetType" => list(any()),
-        "roleArn" => String.t() | atom(),
-        "source" => [String.t() | atom()],
-        "status" => list(any()),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type start_import_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_graph_snapshot_input() :: %{
-        optional("tags") => map(),
-        required("graphIdentifier") => String.t() | atom(),
-        required("snapshotName") => String.t() | atom()
-      }
-
-  """
-  @type create_graph_snapshot_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_structure() :: %{
-        "count" => [float()],
-        "distinctOutgoingEdgeLabels" => list([String.t() | atom()]()),
-        "nodeProperties" => list([String.t() | atom()]())
-      }
-
-  """
-  @type node_structure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graph_input() :: %{}
-
-  """
-  @type get_graph_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_tasks_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "tasks" => list(import_task_summary())
-      }
-
-  """
-  @type list_import_tasks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_graph_summary_output() :: %{
-        "graphSummary" => graph_data_summary(),
-        "lastStatisticsComputationTime" => [non_neg_integer()],
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type get_graph_summary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_private_graph_endpoints_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_private_graph_endpoints_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_graph_input() :: %{}
-
-  """
-  @type stop_graph_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_private_graph_endpoints_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "privateGraphEndpoints" => list(private_graph_endpoint_summary())
-      }
-
-  """
-  @type list_private_graph_endpoints_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_query_input() :: %{
-        optional("explainMode") => list(any()),
-        optional("parameters") => map(),
-        optional("planCache") => list(any()),
-        optional("queryTimeoutMilliseconds") => [integer()],
-        required("graphIdentifier") => String.t() | atom(),
-        required("language") => list(any()),
-        required("queryString") => [String.t() | atom()]
-      }
-
-  """
-  @type execute_query_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_import_task_input() :: %{}
-
-  """
-  @type get_import_task_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       start_graph_output() :: %{
         "arn" => [String.t() | atom()],
         "buildNumber" => [String.t() | atom()],
@@ -1220,21 +1243,27 @@ defmodule AWS.NeptuneGraph do
 
   ## Example:
 
-      private_graph_endpoint_summary() :: %{
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcEndpointId" => String.t() | atom(),
-        "vpcId" => String.t() | atom()
+      cancel_query_input() :: %{
+        required("graphIdentifier") => String.t() | atom()
       }
 
   """
-  @type private_graph_endpoint_summary() :: %{(String.t() | atom()) => any()}
+  @type cancel_query_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_graph_snapshot_output() :: %{
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_graph_snapshot_output() :: %{
         "arn" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "kmsKeyIdentifier" => String.t() | atom(),
@@ -1245,315 +1274,286 @@ defmodule AWS.NeptuneGraph do
       }
 
   """
-  @type get_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
+  @type delete_graph_snapshot_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
+      start_import_task_output() :: %{
+        "format" => list(any()),
+        "graphId" => String.t() | atom(),
+        "importOptions" => list(),
+        "parquetType" => list(any()),
+        "roleArn" => String.t() | atom(),
+        "source" => [String.t() | atom()],
         "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type reset_graph_output() :: %{(String.t() | atom()) => any()}
+  @type start_import_task_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_export_task_output() :: %{
-        "destination" => [String.t() | atom()],
-        "exportFilter" => export_filter(),
-        "exportTaskDetails" => export_task_details(),
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_import_task_output() :: %{
+        "attemptNumber" => [integer()],
         "format" => list(any()),
         "graphId" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
+        "importOptions" => list(),
+        "importTaskDetails" => import_task_details(),
         "parquetType" => list(any()),
         "roleArn" => String.t() | atom(),
+        "source" => [String.t() | atom()],
         "status" => list(any()),
         "statusReason" => [String.t() | atom()],
         "taskId" => String.t() | atom()
       }
 
   """
-  @type get_export_task_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_import_tasks_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_import_tasks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_graph_output() :: %{
-        "arn" => [String.t() | atom()],
-        "buildNumber" => [String.t() | atom()],
-        "createTime" => [non_neg_integer()],
-        "deletionProtection" => [boolean()],
-        "endpoint" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provisionedMemory" => integer(),
-        "publicConnectivity" => [boolean()],
-        "replicaCount" => integer(),
-        "sourceSnapshotId" => String.t() | atom(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()],
-        "vectorSearchConfiguration" => vector_search_configuration()
-      }
-
-  """
-  @type stop_graph_output() :: %{(String.t() | atom()) => any()}
+  @type get_import_task_output() :: %{(String.t() | atom()) => any()}
 
   @type cancel_export_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type cancel_import_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type cancel_query_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_graph_snapshot_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_graph_using_import_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_private_graph_endpoint_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_graph_snapshot_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type delete_private_graph_endpoint_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type execute_query_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
           | unprocessable_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_export_task_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_graph_snapshot_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_graph_summary_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_import_task_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_private_graph_endpoint_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_query_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_export_tasks_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_graph_snapshots_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_graphs_errors() ::
-          throttling_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | throttling_exception()
 
   @type list_import_tasks_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_private_graph_endpoints_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_queries_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type reset_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type restore_graph_from_snapshot_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_export_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_import_task_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type stop_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_graph_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   def metadata do
     %{

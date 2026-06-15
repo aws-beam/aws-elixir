@@ -16,298 +16,86 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      payment_session() :: %{
-        "availableLimits" => available_limits(),
-        "createdAt" => non_neg_integer(),
-        "expiryTimeInMinutes" => [integer()],
-        "limits" => session_limits(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentSessionId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "userId" => String.t() | atom()
+      cloud_watch_logs_source() :: %{
+        "filterConfig" => cloud_watch_filter_config(),
+        "logGroupNames" => list([String.t() | atom()]()),
+        "serviceNames" => list([String.t() | atom()]())
       }
 
   """
-  @type payment_session() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_logs_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      branch() :: %{
-        "name" => String.t() | atom(),
-        "rootEventId" => String.t() | atom()
+      get_workload_access_token_request() :: %{
+        required("workloadName") => String.t() | atom()
       }
 
   """
-  @type branch() :: %{(String.t() | atom()) => any()}
+  @type get_workload_access_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      browser_enterprise_policy() :: %{
-        "location" => list(),
-        "type" => list(any())
-      }
-
-  """
-  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_description_output() :: %{
-        "explanation" => String.t() | atom(),
-        "recommendedToolDescription" => String.t() | atom(),
-        "toolName" => String.t() | atom()
-      }
-
-  """
-  @type tool_description_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_remote_mcp_config() :: %{
-        "headers" => map(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_payment_instrument_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("paymentConnectorId") => String.t() | atom(),
-        required("paymentInstrumentDetails") => list(),
-        required("paymentInstrumentType") => list(any()),
-        required("paymentManagerArn") => String.t() | atom()
-      }
-
-  """
-  @type create_payment_instrument_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conversational() :: %{
-        "content" => list(),
-        "role" => list(any())
-      }
-
-  """
-  @type conversational() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      live_view_stream() :: %{
-        "streamEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type live_view_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_evaluator_reference() :: %{
-        "evaluatorArn" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_evaluator_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_result_content() :: %{
-        "context" => list(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "evaluatorArn" => String.t() | atom(),
-        "evaluatorId" => String.t() | atom(),
-        "evaluatorName" => String.t() | atom(),
-        "explanation" => String.t() | atom(),
-        "ignoredReferenceInputFields" => list(String.t() | atom()),
-        "label" => [String.t() | atom()],
-        "tokenUsage" => token_usage(),
-        "value" => [float()]
-      }
-
-  """
-  @type evaluation_result_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_memory_records_input() :: %{
-        required("records") => list(memory_record_update_input())
-      }
-
-  """
-  @type batch_update_memory_records_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      root_cause_cluster() :: %{
-        "affectedSessionCount" => [integer()],
-        "affectedSessions" => list(affected_session()),
-        "clusterId" => [integer()],
-        "name" => [String.t() | atom()],
-        "recommendation" => [String.t() | atom()],
-        "rootCause" => [String.t() | atom()]
-      }
-
-  """
-  @type root_cause_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_memory_records_output() :: %{
-        "memoryRecordSummaries" => list(memory_record_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type retrieve_memory_records_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automation_stream() :: %{
-        "streamEndpoint" => String.t() | atom(),
-        "streamStatus" => list(any())
-      }
-
-  """
-  @type automation_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a2a_descriptor() :: %{
-        "agentCard" => agent_card_definition()
-      }
-
-  """
-  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_drag_arguments() :: %{
-        "button" => list(any()),
-        "endX" => [integer()],
-        "endY" => [integer()],
-        "startX" => [integer()],
-        "startY" => [integer()]
-      }
-
-  """
-  @type mouse_drag_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_batch_evaluation_request() :: %{}
-
-  """
-  @type stop_batch_evaluation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      key_press_result() :: %{
+      key_shortcut_result() :: %{
         "error" => [String.t() | atom()],
         "status" => list(any())
       }
 
   """
-  @type key_press_result() :: %{(String.t() | atom()) => any()}
+  @type key_shortcut_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_create_memory_records_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("records") => list(memory_record_create_input())
+      get_payment_instrument_response() :: %{
+        "paymentInstrument" => payment_instrument()
       }
 
   """
-  @type batch_create_memory_records_input() :: %{(String.t() | atom()) => any()}
+  @type get_payment_instrument_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ground_truth_turn() :: %{
-        "expectedResponse" => list(),
-        "input" => list()
+      evaluator_metric() :: %{
+        "controlStats" => control_stats(),
+        "evaluatorArn" => [String.t() | atom()],
+        "variantResults" => list(variant_result())
       }
 
   """
-  @type ground_truth_turn() :: %{(String.t() | atom()) => any()}
+  @type evaluator_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_evaluation_config() :: %{
-        "evaluators" => list(recommendation_evaluator_reference())
+      mouse_scroll_arguments() :: %{
+        "deltaX" => [integer()],
+        "deltaY" => [integer()],
+        "x" => [integer()],
+        "y" => [integer()]
       }
 
   """
-  @type recommendation_evaluation_config() :: %{(String.t() | atom()) => any()}
+  @type mouse_scroll_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_summary() :: %{
-        "actorId" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "sessionId" => String.t() | atom()
+      evaluator_statistics() :: %{
+        "averageScore" => [float()]
       }
 
   """
-  @type session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_scroll_result() :: %{
-        "error" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type mouse_scroll_result() :: %{(String.t() | atom()) => any()}
+  @type evaluator_statistics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -326,88 +114,12 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      duplicate_id_exception() :: %{
-        "message" => String.t() | atom()
+      get_event_output() :: %{
+        "event" => event()
       }
 
   """
-  @type duplicate_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_record_output() :: %{
-        "errorCode" => [integer()],
-        "errorMessage" => [String.t() | atom()],
-        "memoryRecordId" => String.t() | atom(),
-        "requestIdentifier" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type memory_record_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_actors_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_actors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_code_interpreter_request() :: %{
-        optional("arguments") => tool_arguments(),
-        optional("sessionId") => String.t() | atom(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        required("name") => list(any())
-      }
-
-  """
-  @type invoke_code_interpreter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      per_variant_online_evaluation_config() :: %{
-        "name" => String.t() | atom(),
-        "onlineEvaluationConfigArn" => String.t() | atom()
-      }
-
-  """
-  @type per_variant_online_evaluation_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retryable_conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type get_event_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -425,196 +137,37 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      list_browser_sessions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_browser_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_descriptor() :: %{
-        "inlineContent" => String.t() | atom()
-      }
-
-  """
-  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_agent_runtime_command_request_body() :: %{
-        "command" => [String.t() | atom()],
-        "timeout" => [integer()]
-      }
-
-  """
-  @type invoke_agent_runtime_command_request_body() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_browser_request() :: %{
-        required("action") => list(),
-        required("sessionId") => String.t() | atom()
-      }
-
-  """
-  @type invoke_browser_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_output_config() :: %{
-        "logGroupName" => [String.t() | atom()],
-        "logStreamName" => [String.t() | atom()]
-      }
-
-  """
-  @type cloud_watch_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_intent_affected_session() :: %{
-        "sessionId" => [String.t() | atom()],
-        "userMessages" => list([String.t() | atom()]())
-      }
-
-  """
-  @type user_intent_affected_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_payment_instruments_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "paymentInstruments" => list(payment_instrument_summary())
-      }
-
-  """
-  @type list_payment_instruments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_stop_event() :: %{
-        "exitCode" => [integer()],
+      mouse_move_result() :: %{
+        "error" => [String.t() | atom()],
         "status" => list(any())
       }
 
   """
-  @type content_stop_event() :: %{(String.t() | atom()) => any()}
+  @type mouse_move_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      memory_record_create_input() :: %{
-        "content" => list(),
-        "memoryStrategyId" => String.t() | atom(),
-        "metadata" => map(),
-        "namespaces" => list(String.t() | atom()),
-        "requestIdentifier" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()]
+      harness_stream_metrics() :: %{
+        "latencyMs" => [float()]
       }
 
   """
-  @type memory_record_create_input() :: %{(String.t() | atom()) => any()}
+  @type harness_stream_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      extraction_job_filter_input() :: %{
-        "actorId" => [String.t() | atom()],
-        "sessionId" => [String.t() | atom()],
-        "status" => list(any()),
-        "strategyId" => [String.t() | atom()]
+      update_browser_stream_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("sessionId") => String.t() | atom(),
+        required("streamUpdate") => list()
       }
 
   """
-  @type extraction_job_filter_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_memory_records_input() :: %{
-        required("records") => list(memory_record_delete_input())
-      }
-
-  """
-  @type batch_delete_memory_records_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_access_token_for_j_w_t_response() :: %{
-        "workloadAccessToken" => String.t() | atom()
-      }
-
-  """
-  @type get_workload_access_token_for_j_w_t_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_access_token_request() :: %{
-        required("workloadName") => String.t() | atom()
-      }
-
-  """
-  @type get_workload_access_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_metadata_filter_expression() :: %{
-        "left" => list(),
-        "operator" => list(any()),
-        "right" => list()
-      }
-
-  """
-  @type event_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_content_block_start_event() :: %{
-        "contentBlockIndex" => [integer()],
-        "start" => list()
-      }
-
-  """
-  @type harness_content_block_start_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluator_statistics() :: %{
-        "averageScore" => [float()]
-      }
-
-  """
-  @type evaluator_statistics() :: %{(String.t() | atom()) => any()}
+  @type update_browser_stream_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -638,53 +191,44 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      external_proxy() :: %{
-        "credentials" => list(),
-        "domainPatterns" => list(String.t() | atom()),
-        "port" => [integer()],
-        "server" => String.t() | atom()
+      input_content_block() :: %{
+        "blob" => binary(),
+        "path" => String.t() | atom(),
+        "text" => String.t() | atom()
       }
 
   """
-  @type external_proxy() :: %{(String.t() | atom()) => any()}
+  @type input_content_block() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_skill_s3_source() :: %{
-        "uri" => String.t() | atom()
+      harness_bedrock_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
       }
 
   """
-  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
+  @type harness_bedrock_model_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_a_b_test_response() :: %{
-        "abTestArn" => String.t() | atom(),
-        "abTestId" => String.t() | atom(),
-        "executionStatus" => list(any()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
+      stripe_privy_token_response_output() :: %{
+        "appId" => String.t() | atom(),
+        "authorizationSignature" => String.t() | atom(),
+        "basicAuthToken" => String.t() | atom(),
+        "requestExpiry" => [float()]
       }
 
   """
-  @type update_a_b_test_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_api_key_request() :: %{
-        required("resourceCredentialProviderName") => String.t() | atom(),
-        required("workloadIdentityToken") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_api_key_request() :: %{(String.t() | atom()) => any()}
+  @type stripe_privy_token_response_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -706,333 +250,113 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      control_stats() :: %{
-        "mean" => [float()],
-        "sampleSize" => [integer()],
-        "variantName" => [String.t() | atom()]
+      batch_create_memory_records_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("records") => list(memory_record_create_input())
       }
 
   """
-  @type control_stats() :: %{(String.t() | atom()) => any()}
+  @type batch_create_memory_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      failure_category_cluster() :: %{
-        "affectedSessionCount" => [integer()],
-        "clusterId" => [integer()],
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "subCategories" => list(failure_sub_category_cluster())
+      memory_metadata_filter_expression() :: %{
+        "left" => list(),
+        "operator" => list(any()),
+        "right" => list()
       }
 
   """
-  @type failure_category_cluster() :: %{(String.t() | atom()) => any()}
+  @type memory_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      complete_resource_token_auth_request() :: %{
-        required("sessionUri") => String.t() | atom(),
-        required("userIdentifier") => list()
+      process_payment_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentOutput" => list(),
+        "paymentSessionId" => String.t() | atom(),
+        "paymentType" => list(any()),
+        "processPaymentId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type complete_resource_token_auth_request() :: %{(String.t() | atom()) => any()}
+  @type process_payment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_recommendation_request() :: %{}
+      browser_session_summary() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "sessionId" => String.t() | atom(),
+        "status" => list(any())
+      }
 
   """
-  @type get_recommendation_request() :: %{}
+  @type browser_session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      memory_record_update_input() :: %{
+      memory_record() :: %{
         "content" => list(),
+        "createdAt" => [non_neg_integer()],
         "memoryRecordId" => String.t() | atom(),
         "memoryStrategyId" => String.t() | atom(),
         "metadata" => map(),
-        "namespaces" => list(String.t() | atom()),
-        "timestamp" => [non_neg_integer()]
+        "namespaces" => list(String.t() | atom())
       }
 
   """
-  @type memory_record_update_input() :: %{(String.t() | atom()) => any()}
+  @type memory_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      mouse_click_result() :: %{
-        "error" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type mouse_click_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_b_test_response() :: %{
-        "abTestArn" => String.t() | atom(),
-        "abTestId" => String.t() | atom(),
+      session_summary() :: %{
+        "actorId" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
-        "executionStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_a_b_test_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_batch_evaluations_response() :: %{
-        "batchEvaluations" => list(batch_evaluation_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_batch_evaluations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_agent_core_gateway_config() :: %{
-        "gatewayArn" => String.t() | atom(),
-        "outboundAuth" => list()
-      }
-
-  """
-  @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_trace_config() :: %{
-        "endTime" => [non_neg_integer()],
-        "logGroupArns" => list([String.t() | atom()]()),
-        "rule" => cloud_watch_logs_rule(),
-        "serviceNames" => list(String.t() | atom()),
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type cloud_watch_logs_trace_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_summary_cluster() :: %{
-        "affectedSessionCount" => [integer()],
-        "affectedSessions" => list(execution_summary_affected_session()),
-        "clusterId" => [integer()],
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type execution_summary_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_skill_git_source() :: %{
-        "auth" => harness_skill_git_auth(),
-        "path" => [String.t() | atom()],
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_browser_session_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        required("sessionId") => String.t() | atom()
-      }
-
-  """
-  @type stop_browser_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_memory_record_input() :: %{}
-
-  """
-  @type delete_memory_record_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_account_developer_jwt() :: %{
-        "kid" => String.t() | atom(),
-        "sub" => [String.t() | atom()]
-      }
-
-  """
-  @type linked_account_developer_jwt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_runtime_session_response() :: %{
-        "runtimeSessionId" => String.t() | atom(),
-        "statusCode" => integer()
-      }
-
-  """
-  @type stop_runtime_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      variant_configuration() :: %{
-        "configurationBundle" => configuration_bundle_ref(),
-        "target" => target_ref()
-      }
-
-  """
-  @type variant_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_session_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom(),
-        required("paymentSessionId") => String.t() | atom()
-      }
-
-  """
-  @type get_payment_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_drag_result() :: %{
-        "error" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type mouse_drag_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_browser_response() :: %{
-        "result" => list(),
         "sessionId" => String.t() | atom()
       }
 
   """
-  @type invoke_browser_response() :: %{(String.t() | atom()) => any()}
+  @type session_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_payment_instrument_response() :: %{
-        "status" => list(any())
+      invoke_agent_runtime_request() :: %{
+        optional("accept") => String.t() | atom(),
+        optional("accountId") => [String.t() | atom()],
+        optional("baggage") => [String.t() | atom()],
+        optional("contentType") => String.t() | atom(),
+        optional("mcpProtocolVersion") => String.t() | atom(),
+        optional("mcpSessionId") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom(),
+        optional("runtimeUserId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        optional("traceState") => [String.t() | atom()],
+        required("payload") => binary()
       }
 
   """
-  @type delete_payment_instrument_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_access_token_response() :: %{
-        "workloadAccessToken" => String.t() | atom()
-      }
-
-  """
-  @type get_workload_access_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_description_input() :: %{
-        "toolDescription" => list(),
-        "toolName" => String.t() | atom()
-      }
-
-  """
-  @type tool_description_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memory_extraction_jobs_output() :: %{
-        "jobs" => list(extraction_job_metadata()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_memory_extraction_jobs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_a_b_test_request() :: %{}
-
-  """
-  @type delete_a_b_test_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_arguments() :: %{
-        "clearContext" => [boolean()],
-        "code" => String.t() | atom(),
-        "command" => String.t() | atom(),
-        "content" => list(input_content_block()),
-        "directoryPath" => String.t() | atom(),
-        "language" => list(any()),
-        "path" => String.t() | atom(),
-        "paths" => list(String.t() | atom()),
-        "runtime" => list(any()),
-        "taskId" => String.t() | atom()
-      }
-
-  """
-  @type tool_arguments() :: %{(String.t() | atom()) => any()}
+  @type invoke_agent_runtime_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1057,55 +381,76 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      coinbase_cdp_token_response_output() :: %{
-        "bearerToken" => String.t() | atom(),
-        "walletAuthToken" => String.t() | atom()
-      }
-
-  """
-  @type coinbase_cdp_token_response_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memory_extraction_jobs_input() :: %{
-        optional("filter") => extraction_job_filter_input(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_memory_extraction_jobs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_instrument_summary() :: %{
+      get_browser_session_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "certificates" => list(certificate()),
         "createdAt" => non_neg_integer(),
-        "paymentConnectorId" => String.t() | atom(),
-        "paymentInstrumentId" => String.t() | atom(),
-        "paymentInstrumentType" => list(any()),
-        "paymentManagerArn" => String.t() | atom(),
+        "enterprisePolicies" => list(browser_enterprise_policy()),
+        "extensions" => list(browser_extension()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "profileConfiguration" => browser_profile_configuration(),
+        "proxyConfiguration" => proxy_configuration(),
+        "sessionId" => String.t() | atom(),
+        "sessionReplayArtifact" => [String.t() | atom()],
+        "sessionTimeoutSeconds" => integer(),
         "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "userId" => String.t() | atom()
+        "streams" => browser_session_stream(),
+        "viewPort" => view_port()
       }
 
   """
-  @type payment_instrument_summary() :: %{(String.t() | atom()) => any()}
+  @type get_browser_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_browser_session_request() :: %{
-        required("sessionId") => String.t() | atom()
+      screenshot_arguments() :: %{
+        "format" => list(any())
       }
 
   """
-  @type get_browser_session_request() :: %{(String.t() | atom()) => any()}
+  @type screenshot_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amount() :: %{
+        "currency" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type amount() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_category_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "subCategories" => list(failure_sub_category_cluster())
+      }
+
+  """
+  @type failure_category_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_bundle_tool_entry() :: %{
+        "toolDescriptionJsonPath" => [String.t() | atom()],
+        "toolName" => String.t() | atom()
+      }
+
+  """
+  @type configuration_bundle_tool_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1123,110 +468,419 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      input_content_block() :: %{
-        "blob" => binary(),
-        "path" => String.t() | atom(),
-        "text" => String.t() | atom()
+      evaluation_job_results() :: %{
+        "evaluatorSummaries" => list(evaluator_summary()),
+        "numberOfSessionsCompleted" => [integer()],
+        "numberOfSessionsFailed" => [integer()],
+        "numberOfSessionsIgnored" => [integer()],
+        "numberOfSessionsInProgress" => [integer()],
+        "totalNumberOfSessions" => [integer()]
       }
 
   """
-  @type input_content_block() :: %{(String.t() | atom()) => any()}
+  @type evaluation_job_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      process_payment_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
+      recommendation_evaluator_reference() :: %{
+        "evaluatorArn" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_evaluator_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_instrument() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentInstrumentDetails" => list(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentInstrumentType" => list(any()),
+        "paymentManagerArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_instrument() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_memory_extraction_job_output() :: %{
+        "jobId" => [String.t() | atom()]
+      }
+
+  """
+  @type start_memory_extraction_job_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_instrument_request() :: %{
         optional("userId") => String.t() | atom(),
-        required("paymentInput") => list(),
+        required("paymentConnectorId") => String.t() | atom(),
         required("paymentInstrumentId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom(),
-        required("paymentSessionId") => String.t() | atom(),
-        required("paymentType") => list(any())
+        required("paymentManagerArn") => String.t() | atom()
       }
 
   """
-  @type process_payment_request() :: %{(String.t() | atom()) => any()}
+  @type delete_payment_instrument_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_message() :: %{
-        "content" => list(list()),
+      harness_message_start_event() :: %{
         "role" => list(any())
       }
 
   """
-  @type harness_message() :: %{(String.t() | atom()) => any()}
+  @type harness_message_start_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_batch_evaluation_response() :: %{
-        "batchEvaluationArn" => String.t() | atom(),
-        "batchEvaluationId" => String.t() | atom(),
+      list_memory_extraction_jobs_output() :: %{
+        "jobs" => list(extraction_job_metadata()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_memory_extraction_jobs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      span_context() :: %{
+        "sessionId" => [String.t() | atom()],
+        "spanId" => [String.t() | atom()],
+        "traceId" => [String.t() | atom()]
+      }
+
+  """
+  @type span_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_access_token_for_user_id_request() :: %{
+        required("userId") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
+      }
+
+  """
+  @type get_workload_access_token_for_user_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_response() :: %{
+        "evaluationResults" => list(evaluation_result_content())
+      }
+
+  """
+  @type evaluate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_b_test_results() :: %{
+        "analysisTimestamp" => [non_neg_integer()],
+        "evaluatorMetrics" => list(evaluator_metric())
+      }
+
+  """
+  @type a_b_test_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_session() :: %{
+        "availableLimits" => available_limits(),
+        "createdAt" => non_neg_integer(),
+        "expiryTimeInMinutes" => [integer()],
+        "limits" => session_limits(),
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentSessionId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_git_auth() :: %{
+        "credentialArn" => String.t() | atom(),
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_profile_configuration() :: %{
+        "profileIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type browser_profile_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight() :: %{
+        "insightId" => String.t() | atom()
+      }
+
+  """
+  @type insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_delete_input() :: %{
+        "memoryRecordId" => String.t() | atom()
+      }
+
+  """
+  @type memory_record_delete_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommendation_request() :: %{}
+
+  """
+  @type get_recommendation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      descriptors() :: %{
+        "a2a" => a2a_descriptor(),
+        "agentSkills" => agent_skills_descriptor(),
+        "custom" => custom_descriptor(),
+        "mcp" => mcp_descriptor()
+      }
+
+  """
+  @type descriptors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      per_variant_online_evaluation_config() :: %{
+        "name" => String.t() | atom(),
+        "onlineEvaluationConfigArn" => String.t() | atom()
+      }
+
+  """
+  @type per_variant_online_evaluation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      online_evaluation_config_source() :: %{
+        "onlineEvaluationConfigArn" => String.t() | atom(),
+        "sessionFilterConfig" => session_filter_config()
+      }
+
+  """
+  @type online_evaluation_config_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tools_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "protocolVersion" => String.t() | atom()
+      }
+
+  """
+  @type tools_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_session_response() :: %{
+        "paymentSession" => payment_session()
+      }
+
+  """
+  @type create_payment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_stop_event() :: %{
+        "exitCode" => [integer()],
         "status" => list(any())
       }
 
   """
-  @type delete_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
+  @type content_stop_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_update_memory_records_output() :: %{
-        "failedRecords" => list(memory_record_output()),
-        "successfulRecords" => list(memory_record_output())
+      get_payment_instrument_balance_response() :: %{
+        "paymentInstrumentId" => String.t() | atom(),
+        "tokenBalance" => token_balance()
       }
 
   """
-  @type batch_update_memory_records_output() :: %{(String.t() | atom()) => any()}
+  @type get_payment_instrument_balance_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_payment_token_request() :: %{
-        required("paymentTokenRequest") => list(),
-        required("resourceCredentialProviderName") => String.t() | atom(),
-        required("workloadIdentityToken") => String.t() | atom()
-      }
+      get_a_b_test_request() :: %{}
 
   """
-  @type get_resource_payment_token_request() :: %{(String.t() | atom()) => any()}
+  @type get_a_b_test_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      harness_tool_result_block() :: %{
-        "content" => list(list()),
-        "status" => list(any()),
-        "toolUseId" => String.t() | atom(),
-        "type" => list(any())
+      evaluator_summary() :: %{
+        "evaluatorId" => [String.t() | atom()],
+        "statistics" => evaluator_statistics(),
+        "totalEvaluated" => [integer()],
+        "totalFailed" => [integer()]
       }
 
   """
-  @type harness_tool_result_block() :: %{(String.t() | atom()) => any()}
+  @type evaluator_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_tool_use_block_start() :: %{
-        "name" => String.t() | atom(),
-        "serverName" => [String.t() | atom()],
-        "toolUseId" => String.t() | atom(),
-        "type" => list(any())
+      crypto_x402_payment_output() :: %{
+        "payload" => any(),
+        "version" => [String.t() | atom()]
       }
 
   """
-  @type harness_tool_use_block_start() :: %{(String.t() | atom()) => any()}
+  @type crypto_x402_payment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_summary_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "affectedSessions" => list(execution_summary_affected_session()),
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type execution_summary_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_lite_llm_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiBase" => String.t() | atom(),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_summary() :: %{
+        "content" => list(),
+        "createdAt" => [non_neg_integer()],
+        "memoryRecordId" => String.t() | atom(),
+        "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
+        "namespaces" => list(String.t() | atom()),
+        "score" => [float()]
+      }
+
+  """
+  @type memory_record_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_card_response() :: %{
+        "agentCard" => any(),
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer()
+      }
+
+  """
+  @type get_agent_card_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1246,485 +900,504 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      start_memory_extraction_job_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("extractionJob") => extraction_job()
-      }
-
-  """
-  @type start_memory_extraction_job_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_filter_config() :: %{
-        "endTime" => [non_neg_integer()],
-        "startTime" => [non_neg_integer()]
-      }
-
-  """
-  @type session_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_filter_config() :: %{
-        "sessionIds" => list([String.t() | atom()]()),
-        "timeRange" => session_filter_config()
-      }
-
-  """
-  @type cloud_watch_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      affected_session() :: %{
-        "explanation" => [String.t() | atom()],
-        "failureSpans" => list(failure_span_detail()),
-        "fixType" => [String.t() | atom()],
-        "recommendation" => [String.t() | atom()],
-        "sessionId" => [String.t() | atom()]
-      }
-
-  """
-  @type affected_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_shortcut_result() :: %{
-        "error" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type key_shortcut_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommendation_response() :: %{
-        "recommendationId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_recommendation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_inline_function_config() :: %{
+      get_batch_evaluation_response() :: %{
+        "batchEvaluationArn" => String.t() | atom(),
+        "batchEvaluationId" => String.t() | atom(),
+        "batchEvaluationName" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "dataSourceConfig" => list(),
         "description" => String.t() | atom(),
-        "inputSchema" => any()
+        "errorDetails" => list([String.t() | atom()]()),
+        "evaluationResults" => evaluation_job_results(),
+        "evaluators" => list(evaluator()),
+        "executionSummaryResult" => execution_summary_clustering_result_content(),
+        "failureAnalysisResult" => failure_analysis_result_content(),
+        "insights" => list(insight()),
+        "kmsKeyArn" => String.t() | atom(),
+        "outputConfig" => list(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "userIntentResult" => user_intent_clustering_result_content()
       }
 
   """
-  @type harness_inline_function_config() :: %{(String.t() | atom()) => any()}
+  @type get_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      content_start_event() :: %{}
-
-  """
-  @type content_start_event() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_session_response() :: %{
-        "paymentSession" => payment_session()
+      batch_create_memory_records_output() :: %{
+        "failedRecords" => list(memory_record_output()),
+        "successfulRecords" => list(memory_record_output())
       }
 
   """
-  @type get_payment_session_response() :: %{(String.t() | atom()) => any()}
+  @type batch_create_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttled_exception() :: %{
-        "message" => [String.t() | atom()]
+      stop_runtime_session_response() :: %{
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer()
       }
 
   """
-  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+  @type stop_runtime_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_browser_session_response() :: %{
-        "browserIdentifier" => [String.t() | atom()],
+      list_batch_evaluations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_batch_evaluations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_instrument_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_instrument_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_output() :: %{
+        "eventId" => String.t() | atom()
+      }
+
+  """
+  @type delete_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_sessions_response() :: %{
+        "items" => list(browser_session_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_browser_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_instruments_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "paymentInstruments" => list(payment_instrument_summary())
+      }
+
+  """
+  @type list_payment_instruments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
+      }
+
+  """
+  @type skill_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a2a_descriptor() :: %{
+        "agentCard" => agent_card_definition()
+      }
+
+  """
+  @type a2a_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_create_input() :: %{
+        "content" => list(),
+        "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
+        "namespaces" => list(String.t() | atom()),
+        "requestIdentifier" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()]
+      }
+
+  """
+  @type memory_record_create_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_recommendation_config() :: %{
+        "agentTraces" => list(),
+        "toolDescription" => list()
+      }
+
+  """
+  @type tool_description_recommendation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_b_tests_response() :: %{
+        "abTests" => list(a_b_test_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_a_b_tests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_code_interpreter_session_response() :: %{
+        "codeInterpreterIdentifier" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
-        "sessionId" => String.t() | atom(),
-        "streams" => browser_session_stream()
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type start_browser_session_response() :: %{(String.t() | atom()) => any()}
+  @type start_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_result_configuration_bundle() :: %{
+      code_interpreter_result() :: %{
+        "content" => list(content_block()),
+        "isError" => [boolean()],
+        "structuredContent" => tool_result_structured_content()
+      }
+
+  """
+  @type code_interpreter_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_filter() :: %{
+        "key" => [String.t() | atom()],
+        "operator" => list(any()),
+        "value" => list()
+      }
+
+  """
+  @type cloud_watch_logs_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_code_interpreter_response() :: %{
+        "sessionId" => String.t() | atom(),
+        "stream" => list()
+      }
+
+  """
+  @type invoke_code_interpreter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      save_browser_session_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        required("browserIdentifier") => [String.t() | atom()],
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type save_browser_session_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_client_error() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type runtime_client_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_reasoning_text_block() :: %{
+        "signature" => [String.t() | atom()],
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type harness_reasoning_text_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_memory_record_input() :: %{}
+
+  """
+  @type get_memory_record_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluator() :: %{
+        "evaluatorId" => String.t() | atom()
+      }
+
+  """
+  @type evaluator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_stream_update() :: %{
+        "streamStatus" => list(any())
+      }
+
+  """
+  @type automation_stream_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_limits() :: %{
+        "maxSpendAmount" => amount()
+      }
+
+  """
+  @type session_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_crypto_wallet() :: %{
+        "linkedAccounts" => list(list()),
+        "network" => list(any()),
+        "redirectUrl" => [String.t() | atom()],
+        "walletAddress" => [String.t() | atom()]
+      }
+
+  """
+  @type embedded_crypto_wallet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluate_request() :: %{
+        optional("evaluationReferenceInputs") => list(evaluation_reference_input()),
+        optional("evaluationTarget") => list(),
+        required("evaluationInput") => list()
+      }
+
+  """
+  @type evaluate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_prompt_configuration_bundle() :: %{
         "bundleArn" => String.t() | atom(),
+        "systemPromptJsonPath" => [String.t() | atom()],
         "versionId" => String.t() | atom()
       }
 
   """
-  @type recommendation_result_configuration_bundle() :: %{(String.t() | atom()) => any()}
+  @type system_prompt_configuration_bundle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_browser_session_request() :: %{
-        optional("certificates") => list(certificate()),
-        optional("clientToken") => String.t() | atom(),
-        optional("enterprisePolicies") => list(browser_enterprise_policy()),
-        optional("extensions") => list(browser_extension()),
-        optional("name") => String.t() | atom(),
-        optional("profileConfiguration") => browser_profile_configuration(),
-        optional("proxyConfiguration") => proxy_configuration(),
-        optional("sessionTimeoutSeconds") => integer(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        optional("viewPort") => view_port()
-      }
-
-  """
-  @type start_browser_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      branch_filter() :: %{
-        "includeParentBranches" => [boolean()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type branch_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_memory_extraction_job_output() :: %{
-        "jobId" => [String.t() | atom()]
-      }
-
-  """
-  @type start_memory_extraction_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_reference_input() :: %{
-        "assertions" => list(list()),
-        "context" => list(),
-        "expectedResponse" => list(),
-        "expectedTrajectory" => evaluation_expected_trajectory()
-      }
-
-  """
-  @type evaluation_reference_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_a_b_test_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("enableOnCreate") => [boolean()],
-        optional("gatewayFilter") => gateway_filter(),
-        optional("tags") => map(),
-        required("evaluationConfig") => list(),
-        required("gatewayArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("roleArn") => String.t() | atom(),
-        required("variants") => list(variant())
-      }
-
-  """
-  @type create_a_b_test_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_oauth2_token_request() :: %{
-        optional("audiences") => list(String.t() | atom()),
-        optional("customParameters") => map(),
-        optional("customState") => String.t() | atom(),
-        optional("forceAuthentication") => [boolean()],
-        optional("resourceOauth2ReturnUrl") => String.t() | atom(),
-        optional("resources") => list(String.t() | atom()),
-        optional("sessionUri") => String.t() | atom(),
-        required("oauth2Flow") => list(any()),
-        required("resourceCredentialProviderName") => String.t() | atom(),
-        required("scopes") => list(String.t() | atom()),
-        required("workloadIdentityToken") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_oauth2_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      screenshot_arguments() :: %{
-        "format" => list(any())
-      }
-
-  """
-  @type screenshot_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_memory_records_input() :: %{
-        optional("maxResults") => integer(),
-        optional("memoryStrategyId") => String.t() | atom(),
-        optional("metadataFilters") => list(memory_metadata_filter_expression()),
-        optional("namespace") => String.t() | atom(),
-        optional("namespacePath") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_memory_records_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amount() :: %{
-        "currency" => list(any()),
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type amount() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recommendation_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("recommendationConfig") => list(),
-        required("type") => list(any())
-      }
-
-  """
-  @type start_recommendation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_token_usage() :: %{
-        "cacheReadInputTokens" => [integer()],
-        "cacheWriteInputTokens" => [integer()],
-        "inputTokens" => [integer()],
-        "outputTokens" => [integer()],
-        "totalTokens" => [integer()]
-      }
-
-  """
-  @type harness_token_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extraction_job_metadata() :: %{
-        "actorId" => [String.t() | atom()],
-        "failureReason" => [String.t() | atom()],
-        "jobID" => [String.t() | atom()],
-        "messages" => list(),
-        "sessionId" => [String.t() | atom()],
-        "status" => list(any()),
-        "strategyId" => [String.t() | atom()]
-      }
-
-  """
-  @type extraction_job_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_move_arguments() :: %{
-        "x" => [integer()],
-        "y" => [integer()]
-      }
-
-  """
-  @type mouse_move_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_instrument_balance_response() :: %{
-        "paymentInstrumentId" => String.t() | atom(),
-        "tokenBalance" => token_balance()
-      }
-
-  """
-  @type get_payment_instrument_balance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_input() :: %{}
-
-  """
-  @type get_event_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_a_b_test_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("evaluationConfig") => list(),
-        optional("executionStatus") => list(any()),
-        optional("gatewayFilter") => gateway_filter(),
-        optional("name") => String.t() | atom(),
-        optional("roleArn") => String.t() | atom(),
-        optional("variants") => list(variant())
-      }
-
-  """
-  @type update_a_b_test_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_access_token_for_j_w_t_request() :: %{
-        required("userToken") => String.t() | atom(),
-        required("workloadName") => String.t() | atom()
-      }
-
-  """
-  @type get_workload_access_token_for_j_w_t_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_input() :: %{
-        "branch" => branch_filter(),
-        "eventMetadata" => list(event_metadata_filter_expression())
-      }
-
-  """
-  @type filter_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_description_recommendation_result() :: %{
-        "configurationBundle" => recommendation_result_configuration_bundle(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "tools" => list(tool_description_output())
-      }
-
-  """
-  @type tool_description_recommendation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_b_test_summary() :: %{
-        "abTestArn" => String.t() | atom(),
-        "abTestId" => String.t() | atom(),
+      recommendation_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
-        "executionStatus" => list(any()),
-        "gatewayArn" => String.t() | atom(),
         "name" => String.t() | atom(),
+        "recommendationArn" => String.t() | atom(),
+        "recommendationId" => String.t() | atom(),
         "status" => list(any()),
+        "type" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type a_b_test_summary() :: %{(String.t() | atom()) => any()}
+  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stripe_privy_token_response_output() :: %{
-        "appId" => String.t() | atom(),
-        "authorizationSignature" => String.t() | atom(),
-        "basicAuthToken" => String.t() | atom(),
-        "requestExpiry" => [float()]
+      retrieve_memory_records_input() :: %{
+        optional("maxResults") => integer(),
+        optional("namespace") => String.t() | atom(),
+        optional("namespacePath") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        required("searchCriteria") => search_criteria()
       }
 
   """
-  @type stripe_privy_token_response_output() :: %{(String.t() | atom()) => any()}
+  @type retrieve_memory_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_recommendation_request() :: %{}
+      list_memory_extraction_jobs_input() :: %{
+        optional("filter") => extraction_job_filter_input(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom()
+      }
 
   """
-  @type delete_recommendation_request() :: %{}
+  @type list_memory_extraction_jobs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_metadata_shape() :: %{
+        "groundTruth" => list(),
+        "metadata" => map(),
+        "sessionId" => [String.t() | atom()],
+        "testScenarioId" => [String.t() | atom()]
+      }
+
+  """
+  @type session_metadata_shape() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant() :: %{
+        "name" => String.t() | atom(),
+        "variantConfiguration" => variant_configuration(),
+        "weight" => [integer()]
+      }
+
+  """
+  @type variant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_result_block() :: %{
+        "content" => list(list()),
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_result_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_span_detail() :: %{
+        "signals" => list(insights_failure_signal()),
+        "spanId" => [String.t() | atom()],
+        "traceId" => [String.t() | atom()]
+      }
+
+  """
+  @type failure_span_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_payment_instruments_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("paymentConnectorId") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type list_payment_instruments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_b_test_request() :: %{}
+
+  """
+  @type delete_a_b_test_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_evaluation_config() :: %{
+        "evaluators" => list(recommendation_evaluator_reference())
+      }
+
+  """
+  @type recommendation_evaluation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1751,508 +1424,83 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      evaluator_metric() :: %{
-        "controlStats" => control_stats(),
-        "evaluatorArn" => [String.t() | atom()],
-        "variantResults" => list(variant_result())
-      }
-
-  """
-  @type evaluator_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_filter() :: %{
-        "key" => [String.t() | atom()],
-        "operator" => list(any()),
-        "value" => list()
-      }
-
-  """
-  @type cloud_watch_logs_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_type_arguments() :: %{
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type key_type_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_registry_records_response() :: %{
-        "registryRecords" => list(registry_record_summary())
-      }
-
-  """
-  @type search_registry_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_interpreter_session_response() :: %{
-        "codeInterpreterIdentifier" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type start_code_interpreter_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_oauth2_token_response() :: %{
-        "accessToken" => String.t() | atom(),
-        "authorizationUrl" => String.t() | atom(),
-        "sessionStatus" => list(any()),
-        "sessionUri" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_oauth2_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_browser_stream_response() :: %{
-        "browserIdentifier" => [String.t() | atom()],
-        "sessionId" => String.t() | atom(),
-        "streams" => browser_session_stream(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_browser_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_code_interpreter_session_request() :: %{
-        optional("certificates") => list(certificate()),
-        optional("clientToken") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("sessionTimeoutSeconds") => integer(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()]
-      }
-
-  """
-  @type start_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_tool_result_block_start() :: %{
-        "status" => list(any()),
-        "toolUseId" => String.t() | atom()
-      }
-
-  """
-  @type harness_tool_result_block_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_agent_card_request() :: %{
-        optional("qualifier") => [String.t() | atom()],
-        optional("runtimeSessionId") => String.t() | atom()
-      }
-
-  """
-  @type get_agent_card_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_move_result() :: %{
-        "error" => [String.t() | atom()],
+      delete_recommendation_response() :: %{
+        "recommendationId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type mouse_move_result() :: %{(String.t() | atom()) => any()}
+  @type delete_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_agent_core_browser_config() :: %{
-        "browserArn" => String.t() | atom()
+      search_registry_records_request() :: %{
+        optional("filters") => any(),
+        optional("maxResults") => [integer()],
+        required("registryIds") => list(String.t() | atom()),
+        required("searchQuery") => [String.t() | atom()]
       }
 
   """
-  @type harness_agent_core_browser_config() :: %{(String.t() | atom()) => any()}
+  @type search_registry_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      memory_record_summary() :: %{
-        "content" => list(),
-        "createdAt" => [non_neg_integer()],
-        "memoryRecordId" => String.t() | atom(),
-        "memoryStrategyId" => String.t() | atom(),
-        "metadata" => map(),
-        "namespaces" => list(String.t() | atom()),
-        "score" => [float()]
+      agent_card_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
       }
 
   """
-  @type memory_record_summary() :: %{(String.t() | atom()) => any()}
+  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_events_output() :: %{
-        "events" => list(event()),
-        "nextToken" => String.t() | atom()
+      invoke_agent_runtime_response() :: %{
+        "baggage" => [String.t() | atom()],
+        "contentType" => [String.t() | atom()],
+        "mcpProtocolVersion" => [String.t() | atom()],
+        "mcpSessionId" => String.t() | atom(),
+        "response" => binary(),
+        "runtimeSessionId" => String.t() | atom(),
+        "statusCode" => integer(),
+        "traceId" => [String.t() | atom()],
+        "traceParent" => [String.t() | atom()],
+        "traceState" => [String.t() | atom()]
       }
 
   """
-  @type list_events_output() :: %{(String.t() | atom()) => any()}
+  @type invoke_agent_runtime_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_payment_session_response() :: %{
-        "paymentSession" => payment_session()
+      evaluation_expected_trajectory() :: %{
+        "toolNames" => list(String.t() | atom())
       }
 
   """
-  @type create_payment_session_response() :: %{(String.t() | atom()) => any()}
+  @type evaluation_expected_trajectory() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      key_type_result() :: %{
-        "error" => [String.t() | atom()],
-        "status" => list(any())
+      insights_failure_signal() :: %{
+        "category" => list(any()),
+        "confidence" => [float()],
+        "evidence" => [String.t() | atom()]
       }
 
   """
-  @type key_type_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      save_browser_session_profile_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        required("browserIdentifier") => [String.t() | atom()],
-        required("sessionId") => String.t() | atom()
-      }
-
-  """
-  @type save_browser_session_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_batch_evaluation_response() :: %{
-        "batchEvaluationArn" => String.t() | atom(),
-        "batchEvaluationId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type stop_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_metadata() :: %{
-        "eventId" => [String.t() | atom()],
-        "messageIndex" => [integer()]
-      }
-
-  """
-  @type message_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_memory_records_output() :: %{
-        "failedRecords" => list(memory_record_output()),
-        "successfulRecords" => list(memory_record_output())
-      }
-
-  """
-  @type batch_create_memory_records_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_instrument_balance_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("chain") => list(any()),
-        required("paymentConnectorId") => String.t() | atom(),
-        required("paymentInstrumentId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom(),
-        required("token") => list(any())
-      }
-
-  """
-  @type get_payment_instrument_balance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_memory_records_input() :: %{
-        optional("maxResults") => integer(),
-        optional("namespace") => String.t() | atom(),
-        optional("namespacePath") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        required("searchCriteria") => search_criteria()
-      }
-
-  """
-  @type retrieve_memory_records_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_agent_runtime_command_request() :: %{
-        optional("accept") => String.t() | atom(),
-        optional("accountId") => [String.t() | atom()],
-        optional("baggage") => [String.t() | atom()],
-        optional("contentType") => String.t() | atom(),
-        optional("qualifier") => [String.t() | atom()],
-        optional("runtimeSessionId") => String.t() | atom(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        optional("traceState") => [String.t() | atom()],
-        required("body") => invoke_agent_runtime_command_request_body()
-      }
-
-  """
-  @type invoke_agent_runtime_command_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_input_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_filter() :: %{
-        "targetPaths" => list(String.t() | atom())
-      }
-
-  """
-  @type gateway_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_interpreter_session_request() :: %{
-        required("sessionId") => String.t() | atom()
-      }
-
-  """
-  @type get_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_bundle_tool_entry() :: %{
-        "toolDescriptionJsonPath" => [String.t() | atom()],
-        "toolName" => String.t() | atom()
-      }
-
-  """
-  @type configuration_bundle_tool_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stripe_privy_token_request_input() :: %{
-        "includeAuthorizationSignature" => [boolean()],
-        "requestBody" => String.t() | atom(),
-        "requestHost" => String.t() | atom(),
-        "requestPath" => String.t() | atom()
-      }
-
-  """
-  @type stripe_privy_token_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_session_summary() :: %{
-        "browserIdentifier" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "sessionId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type browser_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      response_chunk() :: %{
-        "contentDelta" => content_delta_event(),
-        "contentStart" => content_start_event(),
-        "contentStop" => content_stop_event()
-      }
-
-  """
-  @type response_chunk() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_browser_session_response() :: %{
-        "browserIdentifier" => [String.t() | atom()],
-        "lastUpdatedAt" => non_neg_integer(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type stop_browser_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_gemini_model_config() :: %{
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topK" => integer(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_harness_request() :: %{
-        optional("actorId") => [String.t() | atom()],
-        optional("allowedTools") => list(String.t() | atom()),
-        optional("maxIterations") => [integer()],
-        optional("maxTokens") => [integer()],
-        optional("model") => list(),
-        optional("runtimeUserId") => [String.t() | atom()],
-        optional("skills") => list(list()),
-        optional("systemPrompt") => list(list()),
-        optional("timeoutSeconds") => [integer()],
-        optional("tools") => list(harness_tool()),
-        required("harnessArn") => String.t() | atom(),
-        required("messages") => list(harness_message()),
-        required("runtimeSessionId") => String.t() | atom()
-      }
-
-  """
-  @type invoke_harness_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_press_arguments() :: %{
-        "key" => [String.t() | atom()],
-        "presses" => [integer()]
-      }
-
-  """
-  @type key_press_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_content_block_delta_event() :: %{
-        "contentBlockIndex" => [integer()],
-        "delta" => list()
-      }
-
-  """
-  @type harness_content_block_delta_event() :: %{(String.t() | atom()) => any()}
+  @type insights_failure_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2274,14 +1522,74 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      cloud_watch_logs_source() :: %{
-        "filterConfig" => cloud_watch_filter_config(),
-        "logGroupNames" => list([String.t() | atom()]()),
-        "serviceNames" => list([String.t() | atom()]())
+      get_memory_record_output() :: %{
+        "memoryRecord" => memory_record()
       }
 
   """
-  @type cloud_watch_logs_source() :: %{(String.t() | atom()) => any()}
+  @type get_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_browser_response() :: %{
+        "result" => list(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type invoke_browser_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_agent_core_gateway_config() :: %{
+        "gatewayArn" => String.t() | atom(),
+        "outboundAuth" => list()
+      }
+
+  """
+  @type harness_agent_core_gateway_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_content_block_start_event() :: %{
+        "contentBlockIndex" => [integer()],
+        "start" => list()
+      }
+
+  """
+  @type harness_content_block_start_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_payment_token_request() :: %{
+        required("paymentTokenRequest") => list(),
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("workloadIdentityToken") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_payment_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool() :: %{
+        "config" => list(),
+        "name" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2316,36 +1624,24 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      harness_metadata_event() :: %{
-        "metrics" => harness_stream_metrics(),
-        "usage" => harness_token_usage()
+      create_payment_instrument_response() :: %{
+        "paymentInstrument" => payment_instrument()
       }
 
   """
-  @type harness_metadata_event() :: %{(String.t() | atom()) => any()}
+  @type create_payment_instrument_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_skill_git_auth() :: %{
-        "credentialArn" => String.t() | atom(),
-        "username" => [String.t() | atom()]
+      list_actors_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type harness_skill_git_auth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_content_block_stop_event() :: %{
-        "contentBlockIndex" => [integer()]
-      }
-
-  """
-  @type harness_content_block_stop_event() :: %{(String.t() | atom()) => any()}
+  @type list_actors_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2364,235 +1660,6 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      o_auth2_authentication() :: %{
-        "emailAddress" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "sub" => [String.t() | atom()],
-        "username" => [String.t() | atom()]
-      }
-
-  """
-  @type o_auth2_authentication() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      basic_auth() :: %{
-        "secretArn" => String.t() | atom()
-      }
-
-  """
-  @type basic_auth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_a_b_tests_response() :: %{
-        "abTests" => list(a_b_test_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_a_b_tests_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_prompt_recommendation_config() :: %{
-        "agentTraces" => list(),
-        "evaluationConfig" => recommendation_evaluation_config(),
-        "systemPrompt" => list()
-      }
-
-  """
-  @type system_prompt_recommendation_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_evaluation_trace_config() :: %{
-        "batchEvaluationArn" => String.t() | atom()
-      }
-
-  """
-  @type batch_evaluation_trace_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proxy_bypass() :: %{
-        "domainPatterns" => list(String.t() | atom())
-      }
-
-  """
-  @type proxy_bypass() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_sub_category_cluster() :: %{
-        "affectedSessionCount" => [integer()],
-        "clusterId" => [integer()],
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "rootCauses" => list(root_cause_cluster())
-      }
-
-  """
-  @type failure_sub_category_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_summary_clustering_result_content() :: %{
-        "executionSummaries" => list(execution_summary_cluster())
-      }
-
-  """
-  @type execution_summary_clustering_result_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tools_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "protocolVersion" => String.t() | atom()
-      }
-
-  """
-  @type tools_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth_credential_provider() :: %{
-        "customParameters" => map(),
-        "defaultReturnUrl" => String.t() | atom(),
-        "grantType" => list(any()),
-        "providerArn" => String.t() | atom(),
-        "scopes" => list(String.t() | atom())
-      }
-
-  """
-  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      save_browser_session_profile_response() :: %{
-        "browserIdentifier" => [String.t() | atom()],
-        "lastUpdatedAt" => non_neg_integer(),
-        "profileIdentifier" => String.t() | atom(),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type save_browser_session_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_output() :: %{
-        "eventId" => String.t() | atom()
-      }
-
-  """
-  @type delete_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      span_context() :: %{
-        "sessionId" => [String.t() | atom()],
-        "spanId" => [String.t() | atom()],
-        "traceId" => [String.t() | atom()]
-      }
-
-  """
-  @type span_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluate_response() :: %{
-        "evaluationResults" => list(evaluation_result_content())
-      }
-
-  """
-  @type evaluate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_memory_record_input() :: %{}
-
-  """
-  @type get_memory_record_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      server_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
-      }
-
-  """
-  @type server_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workload_access_token_for_user_id_request() :: %{
-        required("userId") => String.t() | atom(),
-        required("workloadName") => String.t() | atom()
-      }
-
-  """
-  @type get_workload_access_token_for_user_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_span_detail() :: %{
-        "signals" => list(insights_failure_signal()),
-        "spanId" => [String.t() | atom()],
-        "traceId" => [String.t() | atom()]
-      }
-
-  """
-  @type failure_span_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_batch_evaluation_request() :: %{}
-
-  """
-  @type delete_batch_evaluation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       mcp_descriptor() :: %{
         "server" => server_definition(),
         "tools" => tools_definition()
@@ -2600,277 +1667,6 @@ defmodule AWS.BedrockAgentCore do
 
   """
   @type mcp_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_tool() :: %{
-        "config" => list(),
-        "name" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type harness_tool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_bundle_ref() :: %{
-        "bundleArn" => String.t() | atom(),
-        "bundleVersion" => String.t() | atom()
-      }
-
-  """
-  @type configuration_bundle_ref() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_intent_clustering_result_content() :: %{
-        "userIntents" => list(user_intent_cluster())
-      }
-
-  """
-  @type user_intent_clustering_result_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_memory_record_output() :: %{
-        "memoryRecord" => memory_record()
-      }
-
-  """
-  @type get_memory_record_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_tool_use_block() :: %{
-        "input" => any(),
-        "name" => String.t() | atom(),
-        "serverName" => [String.t() | atom()],
-        "toolUseId" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type harness_tool_use_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_registry_records_request() :: %{
-        optional("filters") => any(),
-        optional("maxResults") => [integer()],
-        required("registryIds") => list(String.t() | atom()),
-        required("searchQuery") => [String.t() | atom()]
-      }
-
-  """
-  @type search_registry_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_payment_sessions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "paymentSessions" => list(payment_session_summary())
-      }
-
-  """
-  @type list_payment_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_runtime_session_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("qualifier") => [String.t() | atom()],
-        required("runtimeSessionId") => String.t() | atom()
-      }
-
-  """
-  @type stop_runtime_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate() :: %{
-        "location" => list()
-      }
-
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_batch_evaluation_request() :: %{}
-
-  """
-  @type get_batch_evaluation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tool_description_text_input() :: %{
-        "tools" => list(tool_description_input())
-      }
-
-  """
-  @type tool_description_text_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_payment_token_response() :: %{
-        "paymentTokenResponse" => list()
-      }
-
-  """
-  @type get_resource_payment_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_analysis_result_content() :: %{
-        "failures" => list(failure_category_cluster())
-      }
-
-  """
-  @type failure_analysis_result_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_filter() :: %{
-        "eventFilter" => list(any())
-      }
-
-  """
-  @type session_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event() :: %{
-        "actorId" => String.t() | atom(),
-        "branch" => branch(),
-        "eventId" => String.t() | atom(),
-        "eventTimestamp" => [non_neg_integer()],
-        "memoryId" => String.t() | atom(),
-        "metadata" => map(),
-        "payload" => list(list()),
-        "sessionId" => String.t() | atom()
-      }
-
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      screenshot_result() :: %{
-        "data" => [binary()],
-        "error" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type screenshot_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_events_input() :: %{
-        optional("filter") => filter_input(),
-        optional("includePayloads") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      skill_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
-      }
-
-  """
-  @type skill_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_message_stop_event() :: %{
-        "stopReason" => list(any())
-      }
-
-  """
-  @type harness_message_stop_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_record() :: %{
-        "content" => list(),
-        "createdAt" => [non_neg_integer()],
-        "memoryRecordId" => String.t() | atom(),
-        "memoryStrategyId" => String.t() | atom(),
-        "metadata" => map(),
-        "namespaces" => list(String.t() | atom())
-      }
-
-  """
-  @type memory_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_message_start_event() :: %{
-        "role" => list(any())
-      }
-
-  """
-  @type harness_message_start_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2891,158 +1687,307 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      create_event_input() :: %{
-        optional("branch") => branch(),
-        optional("clientToken") => [String.t() | atom()],
-        optional("metadata") => map(),
-        optional("sessionId") => String.t() | atom(),
-        required("actorId") => String.t() | atom(),
-        required("eventTimestamp") => [non_neg_integer()],
-        required("payload") => list(list())
+      harness_message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
       }
 
   """
-  @type create_event_input() :: %{(String.t() | atom()) => any()}
+  @type harness_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      confidence_interval() :: %{
-        "lower" => [float()],
-        "upper" => [float()]
+      harness_skill_git_source() :: %{
+        "auth" => harness_skill_git_auth(),
+        "path" => [String.t() | atom()],
+        "url" => String.t() | atom()
       }
 
   """
-  @type confidence_interval() :: %{(String.t() | atom()) => any()}
+  @type harness_skill_git_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_batch_evaluations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      key_press_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
       }
 
   """
-  @type list_batch_evaluations_request() :: %{(String.t() | atom()) => any()}
+  @type key_press_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_reasoning_text_block() :: %{
-        "signature" => [String.t() | atom()],
-        "text" => [String.t() | atom()]
+      get_resource_oauth2_token_request() :: %{
+        optional("audiences") => list(String.t() | atom()),
+        optional("customParameters") => map(),
+        optional("customState") => String.t() | atom(),
+        optional("forceAuthentication") => [boolean()],
+        optional("resourceOauth2ReturnUrl") => String.t() | atom(),
+        optional("resources") => list(String.t() | atom()),
+        optional("sessionUri") => String.t() | atom(),
+        required("oauth2Flow") => list(any()),
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("scopes") => list(String.t() | atom()),
+        required("workloadIdentityToken") => String.t() | atom()
       }
 
   """
-  @type harness_reasoning_text_block() :: %{(String.t() | atom()) => any()}
+  @type get_resource_oauth2_token_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_payment_instrument_request() :: %{
+      harness_gemini_model_config() :: %{
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topK" => integer(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_gemini_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_credential_provider() :: %{
+        "customParameters" => map(),
+        "defaultReturnUrl" => String.t() | atom(),
+        "grantType" => list(any()),
+        "providerArn" => String.t() | atom(),
+        "scopes" => list(String.t() | atom())
+      }
+
+  """
+  @type o_auth_credential_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_type_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type key_type_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_trace_config() :: %{
+        "endTime" => [non_neg_integer()],
+        "logGroupArns" => list([String.t() | atom()]()),
+        "rule" => cloud_watch_logs_rule(),
+        "serviceNames" => list(String.t() | atom()),
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type cloud_watch_logs_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_browser_session_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type stop_browser_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_input() :: %{
+        "toolDescription" => list(),
+        "toolName" => String.t() | atom()
+      }
+
+  """
+  @type tool_description_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_payment_session_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("limits") => session_limits(),
         optional("userId") => String.t() | atom(),
-        required("paymentConnectorId") => String.t() | atom(),
+        required("expiryTimeInMinutes") => [integer()],
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_remote_mcp_config() :: %{
+        "headers" => map(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type harness_remote_mcp_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      live_view_stream() :: %{
+        "streamEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type live_view_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recommendation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("recommendationConfig") => list(),
+        required("type") => list(any())
+      }
+
+  """
+  @type start_recommendation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      skill_md_definition() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_session_response() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_payment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_job_metadata() :: %{
+        "actorId" => [String.t() | atom()],
+        "failureReason" => [String.t() | atom()],
+        "jobID" => [String.t() | atom()],
+        "messages" => list(),
+        "sessionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "strategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type extraction_job_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_content_block_delta_event() :: %{
+        "contentBlockIndex" => [integer()],
+        "delta" => list()
+      }
+
+  """
+  @type harness_content_block_delta_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      a_b_test_summary() :: %{
+        "abTestArn" => String.t() | atom(),
+        "abTestId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "executionStatus" => list(any()),
+        "gatewayArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type a_b_test_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automation_stream() :: %{
+        "streamEndpoint" => String.t() | atom(),
+        "streamStatus" => list(any())
+      }
+
+  """
+  @type automation_stream() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_instrument_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("paymentConnectorId") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
         required("paymentInstrumentId") => String.t() | atom(),
         required("paymentManagerArn") => String.t() | atom()
       }
 
   """
-  @type delete_payment_instrument_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_batch_evaluation_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("evaluationMetadata") => list(),
-        optional("evaluators") => list(evaluator()),
-        optional("insights") => list(insight()),
-        optional("kmsKeyArn") => String.t() | atom(),
-        optional("tags") => map(),
-        required("batchEvaluationName") => String.t() | atom(),
-        required("dataSourceConfig") => list()
-      }
-
-  """
-  @type start_batch_evaluation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_payment_session_request() :: %{
-        optional("userId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom(),
-        required("paymentSessionId") => String.t() | atom()
-      }
-
-  """
-  @type delete_payment_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      token_usage() :: %{
-        "inputTokens" => [integer()],
-        "outputTokens" => [integer()],
-        "totalTokens" => [integer()]
-      }
-
-  """
-  @type token_usage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_agent_runtime_response() :: %{
-        "baggage" => [String.t() | atom()],
-        "contentType" => [String.t() | atom()],
-        "mcpProtocolVersion" => [String.t() | atom()],
-        "mcpSessionId" => String.t() | atom(),
-        "response" => binary(),
-        "runtimeSessionId" => String.t() | atom(),
-        "statusCode" => integer(),
-        "traceId" => [String.t() | atom()],
-        "traceParent" => [String.t() | atom()],
-        "traceState" => [String.t() | atom()]
-      }
-
-  """
-  @type invoke_agent_runtime_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_click_arguments() :: %{
-        "button" => list(any()),
-        "clickCount" => [integer()],
-        "x" => [integer()],
-        "y" => [integer()]
-      }
-
-  """
-  @type mouse_click_arguments() :: %{(String.t() | atom()) => any()}
+  @type get_payment_instrument_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3059,140 +2004,83 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      harness_tool_use_block_delta() :: %{
-        "input" => String.t() | atom()
+      tool_arguments() :: %{
+        "clearContext" => [boolean()],
+        "code" => String.t() | atom(),
+        "command" => String.t() | atom(),
+        "content" => list(input_content_block()),
+        "directoryPath" => String.t() | atom(),
+        "language" => list(any()),
+        "path" => String.t() | atom(),
+        "paths" => list(String.t() | atom()),
+        "runtime" => list(any()),
+        "taskId" => String.t() | atom()
       }
 
   """
-  @type harness_tool_use_block_delta() :: %{(String.t() | atom()) => any()}
+  @type tool_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_metadata_shape() :: %{
-        "groundTruth" => list(),
-        "metadata" => map(),
-        "sessionId" => [String.t() | atom()],
-        "testScenarioId" => [String.t() | atom()]
+      get_payment_instrument_balance_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("chain") => list(any()),
+        required("paymentConnectorId") => String.t() | atom(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("token") => list(any())
       }
 
   """
-  @type session_metadata_shape() :: %{(String.t() | atom()) => any()}
+  @type get_payment_instrument_balance_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      embedded_crypto_wallet() :: %{
-        "linkedAccounts" => list(list()),
-        "network" => list(any()),
-        "redirectUrl" => [String.t() | atom()],
-        "walletAddress" => [String.t() | atom()]
-      }
+      stop_batch_evaluation_request() :: %{}
 
   """
-  @type embedded_crypto_wallet() :: %{(String.t() | atom()) => any()}
+  @type stop_batch_evaluation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      evaluator() :: %{
-        "evaluatorId" => String.t() | atom()
+      event_metadata_filter_expression() :: %{
+        "left" => list(),
+        "operator" => list(any()),
+        "right" => list()
       }
 
   """
-  @type evaluator() :: %{(String.t() | atom()) => any()}
+  @type event_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invoke_agent_runtime_request() :: %{
-        optional("accept") => String.t() | atom(),
-        optional("accountId") => [String.t() | atom()],
-        optional("baggage") => [String.t() | atom()],
-        optional("contentType") => String.t() | atom(),
-        optional("mcpProtocolVersion") => String.t() | atom(),
-        optional("mcpSessionId") => String.t() | atom(),
-        optional("qualifier") => [String.t() | atom()],
-        optional("runtimeSessionId") => String.t() | atom(),
-        optional("runtimeUserId") => String.t() | atom(),
-        optional("traceId") => [String.t() | atom()],
-        optional("traceParent") => [String.t() | atom()],
-        optional("traceState") => [String.t() | atom()],
-        required("payload") => binary()
+      content_delta_event() :: %{
+        "stderr" => [String.t() | atom()],
+        "stdout" => [String.t() | atom()]
       }
 
   """
-  @type invoke_agent_runtime_request() :: %{(String.t() | atom()) => any()}
+  @type content_delta_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_lite_llm_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiBase" => String.t() | atom(),
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type harness_lite_llm_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_browser_session_response() :: %{
-        "browserIdentifier" => [String.t() | atom()],
-        "certificates" => list(certificate()),
-        "createdAt" => non_neg_integer(),
-        "enterprisePolicies" => list(browser_enterprise_policy()),
-        "extensions" => list(browser_extension()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "profileConfiguration" => browser_profile_configuration(),
-        "proxyConfiguration" => proxy_configuration(),
-        "sessionId" => String.t() | atom(),
-        "sessionReplayArtifact" => [String.t() | atom()],
-        "sessionTimeoutSeconds" => integer(),
-        "status" => list(any()),
-        "streams" => browser_session_stream(),
-        "viewPort" => view_port()
-      }
-
-  """
-  @type get_browser_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_shortcut_arguments() :: %{
-        "keys" => list([String.t() | atom()]())
-      }
-
-  """
-  @type key_shortcut_arguments() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3207,166 +2095,72 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      memory_record_delete_input() :: %{
-        "memoryRecordId" => String.t() | atom()
-      }
+      delete_batch_evaluation_request() :: %{}
 
   """
-  @type memory_record_delete_input() :: %{(String.t() | atom()) => any()}
+  @type delete_batch_evaluation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      resource_content() :: %{
-        "blob" => [binary()],
-        "mimeType" => [String.t() | atom()],
-        "text" => [String.t() | atom()],
-        "type" => list(any()),
-        "uri" => [String.t() | atom()]
+      actor_summary() :: %{
+        "actorId" => String.t() | atom()
       }
 
   """
-  @type resource_content() :: %{(String.t() | atom()) => any()}
+  @type actor_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harness_bedrock_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiFormat" => list(any()),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
+      start_browser_session_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "sessionId" => String.t() | atom(),
+        "streams" => browser_session_stream()
       }
 
   """
-  @type harness_bedrock_model_config() :: %{(String.t() | atom()) => any()}
+  @type start_browser_session_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      variant_result() :: %{
-        "absoluteChange" => [float()],
-        "confidenceInterval" => confidence_interval(),
-        "isSignificant" => [boolean()],
-        "mean" => [float()],
-        "pValue" => [float()],
-        "percentChange" => [float()],
-        "sampleSize" => [integer()],
-        "variantName" => [String.t() | atom()]
+      affected_session() :: %{
+        "explanation" => [String.t() | atom()],
+        "failureSpans" => list(failure_span_detail()),
+        "fixType" => [String.t() | atom()],
+        "recommendation" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
       }
 
   """
-  @type variant_result() :: %{(String.t() | atom()) => any()}
+  @type affected_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
+      duplicate_id_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type duplicate_id_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      token_balance() :: %{
-        "amount" => [String.t() | atom()],
-        "chain" => list(any()),
-        "decimals" => [integer()],
-        "network" => list(any()),
-        "token" => list(any())
+      search_registry_records_response() :: %{
+        "registryRecords" => list(registry_record_summary())
       }
 
   """
-  @type token_balance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_browser_sessions_response() :: %{
-        "items" => list(browser_session_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_browser_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_extension() :: %{
-        "location" => list()
-      }
-
-  """
-  @type browser_extension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_open_ai_model_config() :: %{
-        "additionalParams" => [any()],
-        "apiFormat" => list(any()),
-        "apiKeyArn" => String.t() | atom(),
-        "maxTokens" => integer(),
-        "modelId" => String.t() | atom(),
-        "temperature" => float(),
-        "topP" => float()
-      }
-
-  """
-  @type harness_open_ai_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mouse_scroll_arguments() :: %{
-        "deltaX" => [integer()],
-        "deltaY" => [integer()],
-        "x" => [integer()],
-        "y" => [integer()]
-      }
-
-  """
-  @type mouse_scroll_arguments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      system_prompt_configuration_bundle() :: %{
-        "bundleArn" => String.t() | atom(),
-        "systemPromptJsonPath" => [String.t() | atom()],
-        "versionId" => String.t() | atom()
-      }
-
-  """
-  @type system_prompt_configuration_bundle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      crypto_x402_payment_input() :: %{
-        "payload" => any(),
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type crypto_x402_payment_input() :: %{(String.t() | atom()) => any()}
+  @type search_registry_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3385,79 +2179,475 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      delete_a_b_test_response() :: %{
+      linked_account_developer_jwt() :: %{
+        "kid" => String.t() | atom(),
+        "sub" => [String.t() | atom()]
+      }
+
+  """
+  @type linked_account_developer_jwt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      available_limits() :: %{
+        "availableSpendAmount" => amount(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type available_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_b_test_response() :: %{
         "abTestArn" => String.t() | atom(),
         "abTestId" => String.t() | atom(),
+        "executionStatus" => list(any()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_a_b_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_payment_session_request() :: %{
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_payment_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_filter() :: %{
+        "eventFilter" => list(any())
+      }
+
+  """
+  @type session_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_text_input() :: %{
+        "tools" => list(tool_description_input())
+      }
+
+  """
+  @type tool_description_text_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      basic_auth() :: %{
+        "secretArn" => String.t() | atom()
+      }
+
+  """
+  @type basic_auth() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_batch_evaluations_response() :: %{
+        "batchEvaluations" => list(batch_evaluation_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_batch_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_events_input() :: %{
+        optional("filter") => filter_input(),
+        optional("includePayloads") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      save_browser_session_profile_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
+        "profileIdentifier" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type save_browser_session_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block() :: %{
+        "input" => any(),
+        "name" => String.t() | atom(),
+        "serverName" => [String.t() | atom()],
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_use_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_descriptor() :: %{
+        "inlineContent" => String.t() | atom()
+      }
+
+  """
+  @type custom_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_agent_card_request() :: %{
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_agent_card_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_memory_records_output() :: %{
+        "failedRecords" => list(memory_record_output()),
+        "successfulRecords" => list(memory_record_output())
+      }
+
+  """
+  @type batch_update_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proxy_bypass() :: %{
+        "domainPatterns" => list(String.t() | atom())
+      }
+
+  """
+  @type proxy_bypass() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_browser_request() :: %{
+        required("action") => list(),
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type invoke_browser_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "sessionSummaries" => list(session_summary())
+      }
+
+  """
+  @type list_sessions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_session_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_payment_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      memory_record_output() :: %{
+        "errorCode" => [integer()],
+        "errorMessage" => [String.t() | atom()],
+        "memoryRecordId" => String.t() | atom(),
+        "requestIdentifier" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_a_b_test_response() :: %{(String.t() | atom()) => any()}
+  @type memory_record_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cloud_watch_logs_rule() :: %{
-        "filters" => list(cloud_watch_logs_filter())
+      cloud_watch_filter_config() :: %{
+        "sessionIds" => list([String.t() | atom()]()),
+        "timeRange" => session_filter_config()
       }
 
   """
-  @type cloud_watch_logs_rule() :: %{(String.t() | atom()) => any()}
+  @type cloud_watch_filter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      coinbase_cdp_token_request_input() :: %{
-        "includeWalletAuthToken" => [boolean()],
-        "requestBody" => String.t() | atom(),
-        "requestHost" => String.t() | atom(),
-        "requestMethod" => list(any()),
-        "requestPath" => String.t() | atom()
+      list_recommendations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("statusFilter") => list(any())
       }
 
   """
-  @type coinbase_cdp_token_request_input() :: %{(String.t() | atom()) => any()}
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_event_output() :: %{
-        "event" => event()
+      browser_session_stream() :: %{
+        "automationStream" => automation_stream(),
+        "liveViewStream" => live_view_stream()
       }
 
   """
-  @type get_event_output() :: %{(String.t() | atom()) => any()}
+  @type browser_session_stream() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_agent_card_response() :: %{
-        "agentCard" => any(),
-        "runtimeSessionId" => String.t() | atom(),
-        "statusCode" => integer()
+      screenshot_result() :: %{
+        "data" => [binary()],
+        "error" => [String.t() | atom()],
+        "status" => list(any())
       }
 
   """
-  @type get_agent_card_response() :: %{(String.t() | atom()) => any()}
+  @type screenshot_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      system_prompt_recommendation_result() :: %{
-        "configurationBundle" => recommendation_result_configuration_bundle(),
-        "errorCode" => String.t() | atom(),
-        "errorMessage" => String.t() | atom(),
-        "explanation" => String.t() | atom(),
-        "recommendedSystemPrompt" => String.t() | atom()
+      harness_skill_s3_source() :: %{
+        "uri" => String.t() | atom()
       }
 
   """
-  @type system_prompt_recommendation_result() :: %{(String.t() | atom()) => any()}
+  @type harness_skill_s3_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_drag_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_drag_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block_delta() :: %{
+        "input" => String.t() | atom()
+      }
+
+  """
+  @type harness_tool_use_block_delta() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_bundle_ref() :: %{
+        "bundleArn" => String.t() | atom(),
+        "bundleVersion" => String.t() | atom()
+      }
+
+  """
+  @type configuration_bundle_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_configuration_bundle() :: %{
+        "bundleArn" => String.t() | atom(),
+        "tools" => list(configuration_bundle_tool_entry()),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type tool_description_configuration_bundle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_instrument_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "paymentConnectorId" => String.t() | atom(),
+        "paymentInstrumentId" => String.t() | atom(),
+        "paymentInstrumentType" => list(any()),
+        "paymentManagerArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_instrument_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_scroll_result() :: %{
+        "error" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type mouse_scroll_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conversational() :: %{
+        "content" => list(),
+        "role" => list(any())
+      }
+
+  """
+  @type conversational() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      confidence_interval() :: %{
+        "lower" => [float()],
+        "upper" => [float()]
+      }
+
+  """
+  @type confidence_interval() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_a_b_test_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("evaluationConfig") => list(),
+        optional("executionStatus") => list(any()),
+        optional("gatewayFilter") => gateway_filter(),
+        optional("name") => String.t() | atom(),
+        optional("roleArn") => String.t() | atom(),
+        optional("variants") => list(variant())
+      }
+
+  """
+  @type update_a_b_test_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_start_event() :: %{}
+
+  """
+  @type content_start_event() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_metadata_event() :: %{
+        "metrics" => harness_stream_metrics(),
+        "usage" => harness_token_usage()
+      }
+
+  """
+  @type harness_metadata_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_type_arguments() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type key_type_arguments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3484,77 +2674,191 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      tool_description_configuration_bundle() :: %{
-        "bundleArn" => String.t() | atom(),
-        "tools" => list(configuration_bundle_tool_entry()),
-        "versionId" => String.t() | atom()
+      list_memory_records_output() :: %{
+        "memoryRecordSummaries" => list(memory_record_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type tool_description_configuration_bundle() :: %{(String.t() | atom()) => any()}
+  @type list_memory_records_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      evaluation_expected_trajectory() :: %{
-        "toolNames" => list(String.t() | atom())
+      extraction_job() :: %{
+        "jobId" => [String.t() | atom()]
       }
 
   """
-  @type evaluation_expected_trajectory() :: %{(String.t() | atom()) => any()}
+  @type extraction_job() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sessions_output() :: %{
+      coinbase_cdp_token_request_input() :: %{
+        "includeWalletAuthToken" => [boolean()],
+        "requestBody" => String.t() | atom(),
+        "requestHost" => String.t() | atom(),
+        "requestMethod" => list(any()),
+        "requestPath" => String.t() | atom()
+      }
+
+  """
+  @type coinbase_cdp_token_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_response() :: %{
         "nextToken" => String.t() | atom(),
-        "sessionSummaries" => list(session_summary())
+        "recommendationSummaries" => list(recommendation_summary())
       }
 
   """
-  @type list_sessions_output() :: %{(String.t() | atom()) => any()}
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      evaluation_job_results() :: %{
-        "evaluatorSummaries" => list(evaluator_summary()),
-        "numberOfSessionsCompleted" => [integer()],
-        "numberOfSessionsFailed" => [integer()],
-        "numberOfSessionsIgnored" => [integer()],
-        "numberOfSessionsInProgress" => [integer()],
-        "totalNumberOfSessions" => [integer()]
+      get_code_interpreter_session_request() :: %{
+        required("sessionId") => String.t() | atom()
       }
 
   """
-  @type evaluation_job_results() :: %{(String.t() | atom()) => any()}
+  @type get_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      agent_card_definition() :: %{
-        "inlineContent" => String.t() | atom(),
-        "schemaVersion" => String.t() | atom()
+      ground_truth_turn() :: %{
+        "expectedResponse" => list(),
+        "input" => list()
       }
 
   """
-  @type agent_card_definition() :: %{(String.t() | atom()) => any()}
+  @type ground_truth_turn() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_a_b_tests_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
       }
 
   """
-  @type list_a_b_tests_request() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agent_skills_descriptor() :: %{
+        "skillDefinition" => skill_definition(),
+        "skillMd" => skill_md_definition()
+      }
+
+  """
+  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_open_ai_model_config() :: %{
+        "additionalParams" => [any()],
+        "apiFormat" => list(any()),
+        "apiKeyArn" => String.t() | atom(),
+        "maxTokens" => integer(),
+        "modelId" => String.t() | atom(),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type harness_open_ai_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_input() :: %{
+        "branch" => branch_filter(),
+        "eventMetadata" => list(event_metadata_filter_expression())
+      }
+
+  """
+  @type filter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_click_arguments() :: %{
+        "button" => list(any()),
+        "clickCount" => [integer()],
+        "x" => [integer()],
+        "y" => [integer()]
+      }
+
+  """
+  @type mouse_click_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_a_b_test_response() :: %{
+        "abTestArn" => String.t() | atom(),
+        "abTestId" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "executionStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_a_b_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_intent_clustering_result_content() :: %{
+        "userIntents" => list(user_intent_cluster())
+      }
+
+  """
+  @type user_intent_clustering_result_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant_configuration() :: %{
+        "configurationBundle" => configuration_bundle_ref(),
+        "target" => target_ref()
+      }
+
+  """
+  @type variant_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_access_token_for_j_w_t_response() :: %{
+        "workloadAccessToken" => String.t() | atom()
+      }
+
+  """
+  @type get_workload_access_token_for_j_w_t_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3577,23 +2881,243 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      invoke_harness_response() :: %{
-        "stream" => list()
+      retryable_conflict_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type invoke_harness_response() :: %{(String.t() | atom()) => any()}
+  @type retryable_conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_payment_instrument_response() :: %{
-        "paymentInstrument" => payment_instrument()
+      stop_browser_session_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
+        "sessionId" => String.t() | atom()
       }
 
   """
-  @type get_payment_instrument_response() :: %{(String.t() | atom()) => any()}
+  @type stop_browser_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_memory_records_output() :: %{
+        "memoryRecordSummaries" => list(memory_record_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type retrieve_memory_records_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_content() :: %{
+        "blob" => [binary()],
+        "mimeType" => [String.t() | atom()],
+        "text" => [String.t() | atom()],
+        "type" => list(any()),
+        "uri" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_authentication() :: %{
+        "emailAddress" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sub" => [String.t() | atom()],
+        "username" => [String.t() | atom()]
+      }
+
+  """
+  @type o_auth2_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_batch_evaluation_request() :: %{}
+
+  """
+  @type get_batch_evaluation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      crypto_x402_payment_input() :: %{
+        "payload" => any(),
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type crypto_x402_payment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_content_block_stop_event() :: %{
+        "contentBlockIndex" => [integer()]
+      }
+
+  """
+  @type harness_content_block_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_browser_session_request() :: %{
+        required("sessionId") => String.t() | atom()
+      }
+
+  """
+  @type get_browser_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_output() :: %{
+        "event" => event()
+      }
+
+  """
+  @type create_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      payment_session_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "expiryTimeInMinutes" => [integer()],
+        "paymentManagerArn" => String.t() | atom(),
+        "paymentSessionId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type payment_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      root_cause_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "affectedSessions" => list(affected_session()),
+        "clusterId" => [integer()],
+        "name" => [String.t() | atom()],
+        "recommendation" => [String.t() | atom()],
+        "rootCause" => [String.t() | atom()]
+      }
+
+  """
+  @type root_cause_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_batch_evaluation_response() :: %{
+        "batchEvaluationArn" => String.t() | atom(),
+        "batchEvaluationId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type stop_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sessions_input() :: %{
+        optional("filter") => session_filter(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_result_block_start() :: %{
+        "status" => list(any()),
+        "toolUseId" => String.t() | atom()
+      }
+
+  """
+  @type harness_tool_result_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_api_key_request() :: %{
+        required("resourceCredentialProviderName") => String.t() | atom(),
+        required("workloadIdentityToken") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_api_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_browser_session_request() :: %{
+        optional("certificates") => list(certificate()),
+        optional("clientToken") => String.t() | atom(),
+        optional("enterprisePolicies") => list(browser_enterprise_policy()),
+        optional("extensions") => list(browser_extension()),
+        optional("name") => String.t() | atom(),
+        optional("profileConfiguration") => browser_profile_configuration(),
+        optional("proxyConfiguration") => proxy_configuration(),
+        optional("sessionTimeoutSeconds") => integer(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        optional("viewPort") => view_port()
+      }
+
+  """
+  @type start_browser_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_batch_evaluation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("evaluationMetadata") => list(),
+        optional("evaluators") => list(evaluator()),
+        optional("insights") => list(insight()),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("tags") => map(),
+        required("batchEvaluationName") => String.t() | atom(),
+        required("dataSourceConfig") => list()
+      }
+
+  """
+  @type start_batch_evaluation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3611,38 +3135,23 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      get_workload_access_token_for_user_id_response() :: %{
-        "workloadAccessToken" => String.t() | atom()
+      batch_update_memory_records_input() :: %{
+        required("records") => list(memory_record_update_input())
       }
 
   """
-  @type get_workload_access_token_for_user_id_response() :: %{(String.t() | atom()) => any()}
+  @type batch_update_memory_records_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_payment_instruments_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("paymentConnectorId") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom()
-      }
-
-  """
-  @type list_payment_instruments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_summary() :: %{
+      start_recommendation_response() :: %{
         "createdAt" => [non_neg_integer()],
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
         "recommendationArn" => String.t() | atom(),
+        "recommendationConfig" => list(),
         "recommendationId" => String.t() | atom(),
         "status" => list(any()),
         "type" => list(any()),
@@ -3650,27 +3159,68 @@ defmodule AWS.BedrockAgentCore do
       }
 
   """
-  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+  @type start_recommendation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_event_input() :: %{}
-
-  """
-  @type delete_event_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_account_email() :: %{
-        "emailAddress" => String.t() | atom()
+      list_payment_sessions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "paymentSessions" => list(payment_session_summary())
       }
 
   """
-  @type linked_account_email() :: %{(String.t() | atom()) => any()}
+  @type list_payment_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_metadata() :: %{
+        "eventId" => [String.t() | atom()],
+        "messageIndex" => [integer()]
+      }
+
+  """
+  @type message_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_memory_record_input() :: %{}
+
+  """
+  @type delete_memory_record_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_memory_records_input() :: %{
+        optional("maxResults") => integer(),
+        optional("memoryStrategyId") => String.t() | atom(),
+        optional("metadataFilters") => list(memory_metadata_filter_expression()),
+        optional("namespace") => String.t() | atom(),
+        optional("namespacePath") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_events_output() :: %{
+        "events" => list(event()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3689,306 +3239,233 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      automation_stream_update() :: %{
-        "streamStatus" => list(any())
+      server_definition() :: %{
+        "inlineContent" => String.t() | atom(),
+        "schemaVersion" => String.t() | atom()
       }
 
   """
-  @type automation_stream_update() :: %{(String.t() | atom()) => any()}
+  @type server_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_interpreter_result() :: %{
-        "content" => list(content_block()),
-        "isError" => [boolean()],
-        "structuredContent" => tool_result_structured_content()
-      }
-
-  """
-  @type code_interpreter_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      skill_md_definition() :: %{
-        "inlineContent" => String.t() | atom()
-      }
-
-  """
-  @type skill_md_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_payment_instrument_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("paymentConnectorId") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("paymentInstrumentId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom()
-      }
-
-  """
-  @type get_payment_instrument_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight() :: %{
-        "insightId" => String.t() | atom()
-      }
-
-  """
-  @type insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harness_stream_metrics() :: %{
-        "latencyMs" => [float()]
-      }
-
-  """
-  @type harness_stream_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluate_request() :: %{
-        optional("evaluationReferenceInputs") => list(evaluation_reference_input()),
-        optional("evaluationTarget") => list(),
-        required("evaluationInput") => list()
-      }
-
-  """
-  @type evaluate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_api_key_response() :: %{
-        "apiKey" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_api_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      process_payment_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "paymentInstrumentId" => String.t() | atom(),
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentOutput" => list(),
-        "paymentSessionId" => String.t() | atom(),
-        "paymentType" => list(any()),
-        "processPaymentId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type process_payment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_code_interpreter_response() :: %{
-        "sessionId" => String.t() | atom(),
-        "stream" => list()
-      }
-
-  """
-  @type invoke_code_interpreter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "recommendationSummaries" => list(recommendation_summary())
-      }
-
-  """
-  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      content_delta_event() :: %{
-        "stderr" => [String.t() | atom()],
-        "stdout" => [String.t() | atom()]
-      }
-
-  """
-  @type content_delta_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_session_stream() :: %{
-        "automationStream" => automation_stream(),
-        "liveViewStream" => live_view_stream()
-      }
-
-  """
-  @type browser_session_stream() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      actor_summary() :: %{
-        "actorId" => String.t() | atom()
-      }
-
-  """
-  @type actor_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      descriptors() :: %{
-        "a2a" => a2a_descriptor(),
-        "agentSkills" => agent_skills_descriptor(),
-        "custom" => custom_descriptor(),
-        "mcp" => mcp_descriptor()
-      }
-
-  """
-  @type descriptors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_output() :: %{
-        "event" => event()
-      }
-
-  """
-  @type create_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      available_limits() :: %{
-        "availableSpendAmount" => amount(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type available_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_criteria() :: %{
-        "memoryStrategyId" => String.t() | atom(),
-        "metadataFilters" => list(memory_metadata_filter_expression()),
-        "searchQuery" => String.t() | atom(),
-        "topK" => [integer()]
-      }
-
-  """
-  @type search_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_summary_affected_session() :: %{
-        "approachTaken" => [String.t() | atom()],
-        "finalOutcome" => [String.t() | atom()],
-        "sessionId" => [String.t() | atom()]
-      }
-
-  """
-  @type execution_summary_affected_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_payment_session_request() :: %{
-        optional("agentName") => String.t() | atom(),
+      start_code_interpreter_session_request() :: %{
+        optional("certificates") => list(certificate()),
         optional("clientToken") => String.t() | atom(),
-        optional("limits") => session_limits(),
-        optional("userId") => String.t() | atom(),
-        required("expiryTimeInMinutes") => [integer()],
-        required("paymentManagerArn") => String.t() | atom()
+        optional("name") => String.t() | atom(),
+        optional("sessionTimeoutSeconds") => integer(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()]
       }
 
   """
-  @type create_payment_session_request() :: %{(String.t() | atom()) => any()}
+  @type start_code_interpreter_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_payment_sessions_request() :: %{
-        optional("agentName") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("userId") => String.t() | atom(),
-        required("paymentManagerArn") => String.t() | atom()
-      }
-
-  """
-  @type list_payment_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_interpreter_sessions_response() :: %{
-        "items" => list(code_interpreter_session_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_interpreter_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_browser_stream_request() :: %{
+      create_a_b_test_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("sessionId") => String.t() | atom(),
-        required("streamUpdate") => list()
+        optional("description") => String.t() | atom(),
+        optional("enableOnCreate") => [boolean()],
+        optional("gatewayFilter") => gateway_filter(),
+        optional("tags") => map(),
+        required("evaluationConfig") => list(),
+        required("gatewayArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("roleArn") => String.t() | atom(),
+        required("variants") => list(variant())
       }
 
   """
-  @type update_browser_stream_request() :: %{(String.t() | atom()) => any()}
+  @type create_a_b_test_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_payment_session_response() :: %{
+      token_balance() :: %{
+        "amount" => [String.t() | atom()],
+        "chain" => list(any()),
+        "decimals" => [integer()],
+        "network" => list(any()),
+        "token" => list(any())
+      }
+
+  """
+  @type token_balance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_access_token_response() :: %{
+        "workloadAccessToken" => String.t() | atom()
+      }
+
+  """
+  @type get_workload_access_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_shortcut_arguments() :: %{
+        "keys" => list([String.t() | atom()]())
+      }
+
+  """
+  @type key_shortcut_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_filter() :: %{
+        "targetPaths" => list(String.t() | atom())
+      }
+
+  """
+  @type gateway_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_harness_request() :: %{
+        optional("actorId") => [String.t() | atom()],
+        optional("allowedTools") => list(String.t() | atom()),
+        optional("maxIterations") => [integer()],
+        optional("maxTokens") => [integer()],
+        optional("model") => list(),
+        optional("runtimeUserId") => [String.t() | atom()],
+        optional("skills") => list(list()),
+        optional("systemPrompt") => list(list()),
+        optional("timeoutSeconds") => [integer()],
+        optional("tools") => list(harness_tool()),
+        required("harnessArn") => String.t() | atom(),
+        required("messages") => list(harness_message()),
+        required("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type invoke_harness_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_input_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_click_result() :: %{
+        "error" => [String.t() | atom()],
         "status" => list(any())
       }
 
   """
-  @type delete_payment_session_response() :: %{(String.t() | atom()) => any()}
+  @type mouse_click_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_output_config() :: %{
+        "logGroupName" => [String.t() | atom()],
+        "logStreamName" => [String.t() | atom()]
+      }
+
+  """
+  @type cloud_watch_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_harness_response() :: %{
+        "stream" => list()
+      }
+
+  """
+  @type invoke_harness_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_result_content() :: %{
+        "context" => list(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "evaluatorArn" => String.t() | atom(),
+        "evaluatorId" => String.t() | atom(),
+        "evaluatorName" => String.t() | atom(),
+        "explanation" => String.t() | atom(),
+        "ignoredReferenceInputFields" => list(String.t() | atom()),
+        "label" => [String.t() | atom()],
+        "tokenUsage" => token_usage(),
+        "value" => [float()]
+      }
+
+  """
+  @type evaluation_result_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate() :: %{
+        "location" => list()
+      }
+
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_payment_session_response() :: %{
+        "paymentSession" => payment_session()
+      }
+
+  """
+  @type get_payment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_extension() :: %{
+        "location" => list()
+      }
+
+  """
+  @type browser_extension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_prompt_recommendation_config() :: %{
+        "agentTraces" => list(),
+        "evaluationConfig" => recommendation_evaluation_config(),
+        "systemPrompt" => list()
+      }
+
+  """
+  @type system_prompt_recommendation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4016,10 +3493,333 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      get_a_b_test_request() :: %{}
+      key_press_arguments() :: %{
+        "key" => [String.t() | atom()],
+        "presses" => [integer()]
+      }
 
   """
-  @type get_a_b_test_request() :: %{}
+  @type key_press_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_memory_extraction_job_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("extractionJob") => extraction_job()
+      }
+
+  """
+  @type start_memory_extraction_job_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_token_usage() :: %{
+        "cacheReadInputTokens" => [integer()],
+        "cacheWriteInputTokens" => [integer()],
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type harness_token_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_a_b_test_response() :: %{
+        "abTestArn" => String.t() | atom(),
+        "abTestId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_a_b_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_message_stop_event() :: %{
+        "stopReason" => list(any())
+      }
+
+  """
+  @type harness_message_stop_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_access_token_for_j_w_t_request() :: %{
+        required("userToken") => String.t() | atom(),
+        required("workloadName") => String.t() | atom()
+      }
+
+  """
+  @type get_workload_access_token_for_j_w_t_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_analysis_result_content() :: %{
+        "failures" => list(failure_category_cluster())
+      }
+
+  """
+  @type failure_analysis_result_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_api_key_response() :: %{
+        "apiKey" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_api_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      variant_result() :: %{
+        "absoluteChange" => [float()],
+        "confidenceInterval" => confidence_interval(),
+        "isSignificant" => [boolean()],
+        "mean" => [float()],
+        "pValue" => [float()],
+        "percentChange" => [float()],
+        "sampleSize" => [integer()],
+        "variantName" => [String.t() | atom()]
+      }
+
+  """
+  @type variant_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_rule() :: %{
+        "filters" => list(cloud_watch_logs_filter())
+      }
+
+  """
+  @type cloud_watch_logs_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_evaluation_trace_config() :: %{
+        "batchEvaluationArn" => String.t() | atom()
+      }
+
+  """
+  @type batch_evaluation_trace_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      token_usage() :: %{
+        "inputTokens" => [integer()],
+        "outputTokens" => [integer()],
+        "totalTokens" => [integer()]
+      }
+
+  """
+  @type token_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      response_chunk() :: %{
+        "contentDelta" => content_delta_event(),
+        "contentStart" => content_start_event(),
+        "contentStop" => content_stop_event()
+      }
+
+  """
+  @type response_chunk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_memory_records_input() :: %{
+        required("records") => list(memory_record_delete_input())
+      }
+
+  """
+  @type batch_delete_memory_records_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_criteria() :: %{
+        "memoryStrategyId" => String.t() | atom(),
+        "metadataFilters" => list(memory_metadata_filter_expression()),
+        "searchQuery" => String.t() | atom(),
+        "topK" => [integer()]
+      }
+
+  """
+  @type search_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_reference_input() :: %{
+        "assertions" => list(list()),
+        "context" => list(),
+        "expectedResponse" => list(),
+        "expectedTrajectory" => evaluation_expected_trajectory()
+      }
+
+  """
+  @type evaluation_reference_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_input() :: %{}
+
+  """
+  @type delete_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_tool_use_block_start() :: %{
+        "name" => String.t() | atom(),
+        "serverName" => [String.t() | atom()],
+        "toolUseId" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type harness_tool_use_block_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extraction_job_filter_input() :: %{
+        "actorId" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()],
+        "status" => list(any()),
+        "strategyId" => [String.t() | atom()]
+      }
+
+  """
+  @type extraction_job_filter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      control_stats() :: %{
+        "mean" => [float()],
+        "sampleSize" => [integer()],
+        "variantName" => [String.t() | atom()]
+      }
+
+  """
+  @type control_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_recommendation_result() :: %{
+        "configurationBundle" => recommendation_result_configuration_bundle(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "tools" => list(tool_description_output())
+      }
+
+  """
+  @type tool_description_recommendation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_account_email() :: %{
+        "emailAddress" => String.t() | atom()
+      }
+
+  """
+  @type linked_account_email() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_result_configuration_bundle() :: %{
+        "bundleArn" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_result_configuration_bundle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_intent_affected_session() :: %{
+        "sessionId" => [String.t() | atom()],
+        "userMessages" => list([String.t() | atom()]())
+      }
+
+  """
+  @type user_intent_affected_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_input() :: %{}
+
+  """
+  @type get_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_payment_token_response() :: %{
+        "paymentTokenResponse" => list()
+      }
+
+  """
+  @type get_resource_payment_token_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4046,25 +3846,101 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      online_evaluation_config_source() :: %{
-        "onlineEvaluationConfigArn" => String.t() | atom(),
-        "sessionFilterConfig" => session_filter_config()
+      memory_record_update_input() :: %{
+        "content" => list(),
+        "memoryRecordId" => String.t() | atom(),
+        "memoryStrategyId" => String.t() | atom(),
+        "metadata" => map(),
+        "namespaces" => list(String.t() | atom()),
+        "timestamp" => [non_neg_integer()]
       }
 
   """
-  @type online_evaluation_config_source() :: %{(String.t() | atom()) => any()}
+  @type memory_record_update_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tool_description_recommendation_config() :: %{
-        "agentTraces" => list(),
-        "toolDescription" => list()
+      execution_summary_affected_session() :: %{
+        "approachTaken" => [String.t() | atom()],
+        "finalOutcome" => [String.t() | atom()],
+        "sessionId" => [String.t() | atom()]
       }
 
   """
-  @type tool_description_recommendation_config() :: %{(String.t() | atom()) => any()}
+  @type execution_summary_affected_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event() :: %{
+        "actorId" => String.t() | atom(),
+        "branch" => branch(),
+        "eventId" => String.t() | atom(),
+        "eventTimestamp" => [non_neg_integer()],
+        "memoryId" => String.t() | atom(),
+        "metadata" => map(),
+        "payload" => list(list()),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workload_access_token_for_user_id_response() :: %{
+        "workloadAccessToken" => String.t() | atom()
+      }
+
+  """
+  @type get_workload_access_token_for_user_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      coinbase_cdp_token_response_output() :: %{
+        "bearerToken" => String.t() | atom(),
+        "walletAuthToken" => String.t() | atom()
+      }
+
+  """
+  @type coinbase_cdp_token_response_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_input() :: %{
+        optional("branch") => branch(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("metadata") => map(),
+        optional("sessionId") => String.t() | atom(),
+        required("actorId") => String.t() | atom(),
+        required("eventTimestamp") => [non_neg_integer()],
+        required("payload") => list(list())
+      }
+
+  """
+  @type create_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tool_description_output() :: %{
+        "explanation" => String.t() | atom(),
+        "recommendedToolDescription" => String.t() | atom(),
+        "toolName" => String.t() | atom()
+      }
+
+  """
+  @type tool_description_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4081,59 +3957,179 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      agent_skills_descriptor() :: %{
-        "skillDefinition" => skill_definition(),
-        "skillMd" => skill_md_definition()
+      list_payment_sessions_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom()
       }
 
   """
-  @type agent_skills_descriptor() :: %{(String.t() | atom()) => any()}
+  @type list_payment_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_memory_records_output() :: %{
-        "memoryRecordSummaries" => list(memory_record_summary()),
+      create_payment_instrument_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentConnectorId") => String.t() | atom(),
+        required("paymentInstrumentDetails") => list(),
+        required("paymentInstrumentType") => list(any()),
+        required("paymentManagerArn") => String.t() | atom()
+      }
+
+  """
+  @type create_payment_instrument_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_interpreter_sessions_response() :: %{
+        "items" => list(code_interpreter_session_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_memory_records_output() :: %{(String.t() | atom()) => any()}
+  @type list_code_interpreter_sessions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_memory_record_output() :: %{
-        "memoryRecordId" => String.t() | atom()
+      stripe_privy_token_request_input() :: %{
+        "includeAuthorizationSignature" => [boolean()],
+        "requestBody" => String.t() | atom(),
+        "requestHost" => String.t() | atom(),
+        "requestPath" => String.t() | atom()
       }
 
   """
-  @type delete_memory_record_output() :: %{(String.t() | atom()) => any()}
+  @type stripe_privy_token_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      crypto_x402_payment_output() :: %{
-        "payload" => any(),
-        "version" => [String.t() | atom()]
+      external_proxy() :: %{
+        "credentials" => list(),
+        "domainPatterns" => list(String.t() | atom()),
+        "port" => [integer()],
+        "server" => String.t() | atom()
       }
 
   """
-  @type crypto_x402_payment_output() :: %{(String.t() | atom()) => any()}
+  @type external_proxy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      target_ref() :: %{
-        "name" => String.t() | atom()
+      process_payment_request() :: %{
+        optional("agentName") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("userId") => String.t() | atom(),
+        required("paymentInput") => list(),
+        required("paymentInstrumentId") => String.t() | atom(),
+        required("paymentManagerArn") => String.t() | atom(),
+        required("paymentSessionId") => String.t() | atom(),
+        required("paymentType") => list(any())
       }
 
   """
-  @type target_ref() :: %{(String.t() | atom()) => any()}
+  @type process_payment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_code_interpreter_request() :: %{
+        optional("arguments") => tool_arguments(),
+        optional("sessionId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        required("name") => list(any())
+      }
+
+  """
+  @type invoke_code_interpreter_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_drag_arguments() :: %{
+        "button" => list(any()),
+        "endX" => [integer()],
+        "endY" => [integer()],
+        "startX" => [integer()],
+        "startY" => [integer()]
+      }
+
+  """
+  @type mouse_drag_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mouse_move_arguments() :: %{
+        "x" => [integer()],
+        "y" => [integer()]
+      }
+
+  """
+  @type mouse_move_arguments() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_agent_runtime_command_request() :: %{
+        optional("accept") => String.t() | atom(),
+        optional("accountId") => [String.t() | atom()],
+        optional("baggage") => [String.t() | atom()],
+        optional("contentType") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        optional("runtimeSessionId") => String.t() | atom(),
+        optional("traceId") => [String.t() | atom()],
+        optional("traceParent") => [String.t() | atom()],
+        optional("traceState") => [String.t() | atom()],
+        required("body") => invoke_agent_runtime_command_request_body()
+      }
+
+  """
+  @type invoke_agent_runtime_command_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_oauth2_token_response() :: %{
+        "accessToken" => String.t() | atom(),
+        "authorizationUrl" => String.t() | atom(),
+        "sessionStatus" => list(any()),
+        "sessionUri" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_oauth2_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_a_b_tests_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_a_b_tests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4150,25 +4146,150 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      create_payment_instrument_response() :: %{
-        "paymentInstrument" => payment_instrument()
+      harness_agent_core_browser_config() :: %{
+        "browserArn" => String.t() | atom()
       }
 
   """
-  @type create_payment_instrument_response() :: %{(String.t() | atom()) => any()}
+  @type harness_agent_core_browser_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      variant() :: %{
-        "name" => String.t() | atom(),
-        "variantConfiguration" => variant_configuration(),
-        "weight" => [integer()]
+      invoke_agent_runtime_command_request_body() :: %{
+        "command" => [String.t() | atom()],
+        "timeout" => [integer()]
       }
 
   """
-  @type variant() :: %{(String.t() | atom()) => any()}
+  @type invoke_agent_runtime_command_request_body() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_ref() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type target_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_memory_record_output() :: %{
+        "memoryRecordId" => String.t() | atom()
+      }
+
+  """
+  @type delete_memory_record_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      system_prompt_recommendation_result() :: %{
+        "configurationBundle" => recommendation_result_configuration_bundle(),
+        "errorCode" => String.t() | atom(),
+        "errorMessage" => String.t() | atom(),
+        "explanation" => String.t() | atom(),
+        "recommendedSystemPrompt" => String.t() | atom()
+      }
+
+  """
+  @type system_prompt_recommendation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      complete_resource_token_auth_request() :: %{
+        required("sessionUri") => String.t() | atom(),
+        required("userIdentifier") => list()
+      }
+
+  """
+  @type complete_resource_token_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      browser_enterprise_policy() :: %{
+        "location" => list(),
+        "type" => list(any())
+      }
+
+  """
+  @type browser_enterprise_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_runtime_session_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("qualifier") => [String.t() | atom()],
+        required("runtimeSessionId") => String.t() | atom()
+      }
+
+  """
+  @type stop_runtime_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      branch() :: %{
+        "name" => String.t() | atom(),
+        "rootEventId" => String.t() | atom()
+      }
+
+  """
+  @type branch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_sub_category_cluster() :: %{
+        "affectedSessionCount" => [integer()],
+        "clusterId" => [integer()],
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "rootCauses" => list(root_cause_cluster())
+      }
+
+  """
+  @type failure_sub_category_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_batch_evaluation_response() :: %{
+        "batchEvaluationArn" => String.t() | atom(),
+        "batchEvaluationId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_filter_config() :: %{
+        "endTime" => [non_neg_integer()],
+        "startTime" => [non_neg_integer()]
+      }
+
+  """
+  @type session_filter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4186,743 +4307,622 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
-      evaluator_summary() :: %{
-        "evaluatorId" => [String.t() | atom()],
-        "statistics" => evaluator_statistics(),
-        "totalEvaluated" => [integer()],
-        "totalFailed" => [integer()]
-      }
+      delete_recommendation_request() :: %{}
 
   """
-  @type evaluator_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_recommendation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_sessions_input() :: %{
-        optional("filter") => session_filter(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sessions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_limits() :: %{
-        "maxSpendAmount" => amount()
-      }
-
-  """
-  @type session_limits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insights_failure_signal() :: %{
-        "category" => list(any()),
-        "confidence" => [float()],
-        "evidence" => [String.t() | atom()]
-      }
-
-  """
-  @type insights_failure_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      memory_metadata_filter_expression() :: %{
-        "left" => list(),
-        "operator" => list(any()),
-        "right" => list()
-      }
-
-  """
-  @type memory_metadata_filter_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("statusFilter") => list(any())
-      }
-
-  """
-  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_batch_evaluation_response() :: %{
-        "batchEvaluationArn" => String.t() | atom(),
-        "batchEvaluationId" => String.t() | atom(),
-        "batchEvaluationName" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "dataSourceConfig" => list(),
-        "description" => String.t() | atom(),
-        "errorDetails" => list([String.t() | atom()]()),
-        "evaluationResults" => evaluation_job_results(),
-        "evaluators" => list(evaluator()),
-        "executionSummaryResult" => execution_summary_clustering_result_content(),
-        "failureAnalysisResult" => failure_analysis_result_content(),
-        "insights" => list(insight()),
-        "kmsKeyArn" => String.t() | atom(),
-        "outputConfig" => list(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()],
-        "userIntentResult" => user_intent_clustering_result_content()
-      }
-
-  """
-  @type get_batch_evaluation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      browser_profile_configuration() :: %{
-        "profileIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type browser_profile_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recommendation_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "recommendationArn" => String.t() | atom(),
-        "recommendationConfig" => list(),
-        "recommendationId" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type start_recommendation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_instrument() :: %{
-        "createdAt" => non_neg_integer(),
-        "paymentConnectorId" => String.t() | atom(),
-        "paymentInstrumentDetails" => list(),
-        "paymentInstrumentId" => String.t() | atom(),
-        "paymentInstrumentType" => list(any()),
-        "paymentManagerArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type payment_instrument() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extraction_job() :: %{
-        "jobId" => [String.t() | atom()]
-      }
-
-  """
-  @type extraction_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      a_b_test_results() :: %{
-        "analysisTimestamp" => [non_neg_integer()],
-        "evaluatorMetrics" => list(evaluator_metric())
-      }
-
-  """
-  @type a_b_test_results() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      payment_session_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "expiryTimeInMinutes" => [integer()],
-        "paymentManagerArn" => String.t() | atom(),
-        "paymentSessionId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type payment_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_client_error() :: %{
+      service_quota_exceeded_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type runtime_client_error() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      branch_filter() :: %{
+        "includeParentBranches" => [boolean()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type branch_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_browser_stream_response() :: %{
+        "browserIdentifier" => [String.t() | atom()],
+        "sessionId" => String.t() | atom(),
+        "streams" => browser_session_stream(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_browser_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_summary_clustering_result_content() :: %{
+        "executionSummaries" => list(execution_summary_cluster())
+      }
+
+  """
+  @type execution_summary_clustering_result_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_inline_function_config() :: %{
+        "description" => String.t() | atom(),
+        "inputSchema" => any()
+      }
+
+  """
+  @type harness_inline_function_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_browser_sessions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_browser_sessions_request() :: %{(String.t() | atom()) => any()}
 
   @type batch_create_memory_records_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type batch_delete_memory_records_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type batch_update_memory_records_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type complete_resource_token_auth_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_a_b_test_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_event_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | invalid_input_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | invalid_input_exception()
           | retryable_conflict_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_payment_instrument_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_payment_session_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_a_b_test_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_batch_evaluation_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_event_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_memory_record_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_payment_instrument_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_payment_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_recommendation_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type evaluate_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
-          | unauthorized_exception()
           | duplicate_id_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_a_b_test_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_agent_card_errors() ::
-          runtime_client_error()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | retryable_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | runtime_client_error()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_batch_evaluation_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_browser_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_code_interpreter_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_event_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_memory_record_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_payment_instrument_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_payment_instrument_balance_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_payment_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_recommendation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_api_key_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_resource_oauth2_token_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_resource_payment_token_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workload_access_token_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workload_access_token_for_j_w_t_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workload_access_token_for_user_id_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type invoke_agent_runtime_errors() ::
-          runtime_client_error()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | retryable_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | runtime_client_error()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type invoke_agent_runtime_command_errors() ::
-          runtime_client_error()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | retryable_conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | runtime_client_error()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type invoke_browser_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type invoke_code_interpreter_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type invoke_harness_errors() ::
-          runtime_client_error()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | runtime_client_error()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_a_b_tests_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_actors_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_batch_evaluations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_browser_sessions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_code_interpreter_sessions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_events_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_memory_extraction_jobs_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_memory_records_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_payment_instruments_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_payment_sessions_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_recommendations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_sessions_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type process_payment_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type retrieve_memory_records_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
+          | throttled_exception()
           | invalid_input_exception()
           | service_exception()
-          | service_quota_exceeded_exception()
           | resource_not_found_exception()
-          | throttled_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type save_browser_session_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_registry_records_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_batch_evaluation_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_browser_session_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_code_interpreter_session_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_memory_extraction_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | service_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | throttled_exception()
+          | service_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_recommendation_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_batch_evaluation_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type stop_browser_session_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_code_interpreter_session_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_runtime_session_errors() ::
-          runtime_client_error()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          service_quota_exceeded_exception()
           | retryable_conflict_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | runtime_client_error()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_a_b_test_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | unauthorized_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_browser_stream_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

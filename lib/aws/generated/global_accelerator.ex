@@ -89,35 +89,63 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      create_custom_routing_endpoint_group_response() :: %{
-        "EndpointGroup" => custom_routing_endpoint_group()
+      describe_custom_routing_listener_response() :: %{
+        "Listener" => custom_routing_listener()
       }
       
   """
-  @type create_custom_routing_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+  @type describe_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_cross_account_resource_accounts_request() :: %{}
+      update_custom_routing_accelerator_attributes_response() :: %{
+        "AcceleratorAttributes" => custom_routing_accelerator_attributes()
+      }
       
   """
-  @type list_cross_account_resource_accounts_request() :: %{}
+  @type update_custom_routing_accelerator_attributes_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
       
-      endpoint_configuration() :: %{
-        "AttachmentArn" => String.t() | atom(),
-        "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t() | atom(),
-        "Weight" => integer()
+      withdraw_byoip_cidr_response() :: %{
+        "ByoipCidr" => byoip_cidr()
       }
       
   """
-  @type endpoint_configuration() :: %{(String.t() | atom()) => any()}
+  @type withdraw_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_endpoints_request() :: %{
+        required("EndpointConfigurations") => list(endpoint_configuration()),
+        required("EndpointGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type add_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cross_account_attachment_request() :: %{
+        optional("Principals") => list(String.t() | atom()),
+        optional("Resources") => list(resource()),
+        optional("Tags") => list(tag()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -136,237 +164,369 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      describe_accelerator_attributes_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
+      attachment_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type describe_accelerator_attributes_request() :: %{(String.t() | atom()) => any()}
+  @type attachment_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      port_override() :: %{
+        "EndpointPort" => integer(),
+        "ListenerPort" => integer()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type port_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_cross_account_attachments_response() :: %{
-        "CrossAccountAttachments" => list(attachment()),
+      accelerator_not_disabled_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type accelerator_not_disabled_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cross_account_resource() :: %{
+        "AttachmentArn" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type cross_account_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoint_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_endpoint_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byoip_cidr_event() :: %{
+        "Message" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type byoip_cidr_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_routing_listener_request() :: %{
+        required("ListenerArn") => String.t() | atom(),
+        required("PortRanges") => list(port_range())
+      }
+      
+  """
+  @type update_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_byoip_cidr_response() :: %{
+        "ByoipCidr" => byoip_cidr()
+      }
+      
+  """
+  @type provision_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_listener_request() :: %{
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_endpoint_group_request() :: %{
+        optional("EndpointConfigurations") => list(endpoint_configuration()),
+        optional("HealthCheckIntervalSeconds") => integer(),
+        optional("HealthCheckPath") => String.t() | atom(),
+        optional("HealthCheckPort") => integer(),
+        optional("HealthCheckProtocol") => list(any()),
+        optional("PortOverrides") => list(port_override()),
+        optional("ThresholdCount") => integer(),
+        optional("TrafficDialPercentage") => float(),
+        required("EndpointGroupRegion") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_listeners_response() :: %{
+        "Listeners" => list(listener()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_cross_account_attachments_response() :: %{(String.t() | atom()) => any()}
+  @type list_listeners_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_accelerator_attributes_response() :: %{
-        "AcceleratorAttributes" => accelerator_attributes()
-      }
-      
-  """
-  @type update_accelerator_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_accelerator_response() :: %{
-        "Accelerator" => custom_routing_accelerator()
-      }
-      
-  """
-  @type describe_custom_routing_accelerator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_accelerator_request() :: %{
-        optional("Enabled") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t() | atom()),
-        optional("Name") => String.t() | atom(),
+      list_custom_routing_port_mappings_request() :: %{
+        optional("EndpointGroupArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         required("AcceleratorArn") => String.t() | atom()
       }
       
   """
-  @type update_accelerator_request() :: %{(String.t() | atom()) => any()}
+  @type list_custom_routing_port_mappings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      accelerator_attributes() :: %{
-        "FlowLogsEnabled" => boolean(),
-        "FlowLogsS3Bucket" => String.t() | atom(),
-        "FlowLogsS3Prefix" => String.t() | atom()
+      list_accelerators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type accelerator_attributes() :: %{(String.t() | atom()) => any()}
+  @type list_accelerators_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_accelerator_response() :: %{
-        "Accelerator" => accelerator()
+      associated_listener_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type create_accelerator_response() :: %{(String.t() | atom()) => any()}
+  @type associated_listener_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_listener_response() :: %{
-        "Listener" => listener()
+      endpoint_identifier() :: %{
+        "ClientIPPreservationEnabled" => boolean(),
+        "EndpointId" => String.t() | atom()
       }
       
   """
-  @type create_listener_response() :: %{(String.t() | atom()) => any()}
+  @type endpoint_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_routing_destination_configuration() :: %{
+      deny_custom_routing_traffic_request() :: %{
+        optional("DenyAllTrafficToEndpoint") => boolean(),
+        optional("DestinationAddresses") => list(String.t() | atom()),
+        optional("DestinationPorts") => list(integer()),
+        required("EndpointGroupArn") => String.t() | atom(),
+        required("EndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type deny_custom_routing_traffic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_endpoints_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom(),
+        required("EndpointIdentifiers") => list(endpoint_identifier())
+      }
+      
+  """
+  @type remove_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cross_account_attachment_response() :: %{
+        "CrossAccountAttachment" => attachment()
+      }
+      
+  """
+  @type describe_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_accelerator_attributes_response() :: %{
+        "AcceleratorAttributes" => custom_routing_accelerator_attributes()
+      }
+      
+  """
+  @type describe_custom_routing_accelerator_attributes_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_accelerator_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_custom_routing_endpoints_request() :: %{
+        required("EndpointConfigurations") => list(custom_routing_endpoint_configuration()),
+        required("EndpointGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type add_custom_routing_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byoip_cidr_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type byoip_cidr_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_routing_listeners_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_routing_listeners_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_routing_endpoint_group_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set() :: %{
+        "IpAddressFamily" => list(any()),
+        "IpAddresses" => list(String.t() | atom()),
+        "IpFamily" => String.t() | atom()
+      }
+      
+  """
+  @type ip_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_endpoint_group_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_destination_description() :: %{
         "FromPort" => integer(),
         "Protocols" => list(list(any())()),
         "ToPort" => integer()
       }
       
   """
-  @type custom_routing_destination_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cross_account_attachments_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_cross_account_attachments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deprovision_byoip_cidr_response() :: %{
-        "ByoipCidr" => byoip_cidr()
-      }
-      
-  """
-  @type deprovision_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      listener() :: %{
-        "ClientAffinity" => list(any()),
-        "ListenerArn" => String.t() | atom(),
-        "PortRanges" => list(port_range()),
-        "Protocol" => list(any())
-      }
-      
-  """
-  @type listener() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_listener_response() :: %{
-        "Listener" => custom_routing_listener()
-      }
-      
-  """
-  @type update_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      socket_address() :: %{
-        "IpAddress" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type socket_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_routing_endpoint_group() :: %{
-        "DestinationDescriptions" => list(custom_routing_destination_description()),
-        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
-        "EndpointGroupArn" => String.t() | atom(),
-        "EndpointGroupRegion" => String.t() | atom()
-      }
-      
-  """
-  @type custom_routing_endpoint_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_routing_listener_response() :: %{
-        "Listener" => custom_routing_listener()
-      }
-      
-  """
-  @type create_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
+  @type custom_routing_destination_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,609 +555,26 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      byoip_cidr_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type byoip_cidr_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_routing_destination_description() :: %{
-        "FromPort" => integer(),
-        "Protocols" => list(list(any())()),
-        "ToPort" => integer()
-      }
-      
-  """
-  @type custom_routing_destination_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attachment() :: %{
-        "AttachmentArn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Principals" => list(String.t() | atom()),
-        "Resources" => list(resource())
-      }
-      
-  """
-  @type attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_port_mappings_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PortMappings" => list(port_mapping())
-      }
-      
-  """
-  @type list_custom_routing_port_mappings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      provision_byoip_cidr_response() :: %{
+      advertise_byoip_cidr_response() :: %{
         "ByoipCidr" => byoip_cidr()
       }
       
   """
-  @type provision_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
+  @type advertise_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t() | atom()
+      custom_routing_endpoint_group() :: %{
+        "DestinationDescriptions" => list(custom_routing_destination_description()),
+        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
+        "EndpointGroupArn" => String.t() | atom(),
+        "EndpointGroupRegion" => String.t() | atom()
       }
       
   """
-  @type describe_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      incorrect_cidr_state_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type incorrect_cidr_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_endpoint_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attachment_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type attachment_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_service_error_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_accelerator_attributes_request() :: %{
-        optional("FlowLogsEnabled") => boolean(),
-        optional("FlowLogsS3Bucket") => String.t() | atom(),
-        optional("FlowLogsS3Prefix") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_accelerator_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_description() :: %{
-        "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t() | atom(),
-        "HealthReason" => String.t() | atom(),
-        "HealthState" => list(any()),
-        "Weight" => integer()
-      }
-      
-  """
-  @type endpoint_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cross_account_attachment_response() :: %{
-        "CrossAccountAttachment" => attachment()
-      }
-      
-  """
-  @type describe_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_routing_listener_request() :: %{
-        required("AcceleratorArn") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("PortRanges") => list(port_range())
-      }
-      
-  """
-  @type create_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accelerator_not_disabled_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type accelerator_not_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_custom_routing_endpoints_request() :: %{
-        required("EndpointGroupArn") => String.t() | atom(),
-        required("EndpointIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type remove_custom_routing_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_accelerator_request() :: %{
-        optional("Enabled") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_cross_account_attachment_request() :: %{
-        required("AttachmentArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_byoip_cidrs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_byoip_cidrs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_listeners_response() :: %{
-        "Listeners" => list(custom_routing_listener()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_listeners_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cross_account_attachment_request() :: %{
-        optional("AddPrincipals") => list(String.t() | atom()),
-        optional("AddResources") => list(resource()),
-        optional("Name") => String.t() | atom(),
-        optional("RemovePrincipals") => list(String.t() | atom()),
-        optional("RemoveResources") => list(resource()),
-        required("AttachmentArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_identifier() :: %{
-        "ClientIPPreservationEnabled" => boolean(),
-        "EndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_cross_account_attachment_response() :: %{
-        "CrossAccountAttachment" => attachment()
-      }
-      
-  """
-  @type update_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_endpoints_request() :: %{
-        required("EndpointConfigurations") => list(endpoint_configuration()),
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cross_account_attachment_response() :: %{
-        "CrossAccountAttachment" => attachment()
-      }
-      
-  """
-  @type create_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_port_mappings_by_destination_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("DestinationAddress") => String.t() | atom(),
-        required("EndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_port_mappings_by_destination_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_accelerator_response() :: %{
-        "Accelerator" => accelerator()
-      }
-      
-  """
-  @type describe_accelerator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      port_override() :: %{
-        "EndpointPort" => integer(),
-        "ListenerPort" => integer()
-      }
-      
-  """
-  @type port_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_endpoint_group_response() :: %{
-        "EndpointGroup" => endpoint_group()
-      }
-      
-  """
-  @type create_endpoint_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_listeners_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_listeners_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      advertise_byoip_cidr_request() :: %{
-        required("Cidr") => String.t() | atom()
-      }
-      
-  """
-  @type advertise_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_endpoints_request() :: %{
-        required("EndpointGroupArn") => String.t() | atom(),
-        required("EndpointIdentifiers") => list(endpoint_identifier())
-      }
-      
-  """
-  @type remove_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accelerator_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type accelerator_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_accelerator_attributes_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_custom_routing_accelerator_attributes_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listener_response() :: %{
-        "Listener" => listener()
-      }
-      
-  """
-  @type describe_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accelerators_response() :: %{
-        "Accelerators" => list(accelerator()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_accelerators_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cross_account_resource() :: %{
-        "AttachmentArn" => String.t() | atom(),
-        "Cidr" => String.t() | atom(),
-        "EndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type cross_account_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_endpoint_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t() | atom(),
-        required("PortRanges") => list(port_range())
-      }
-      
-  """
-  @type update_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listener_request() :: %{
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_endpoint_group_response() :: %{
-        "EndpointGroup" => custom_routing_endpoint_group()
-      }
-      
-  """
-  @type describe_custom_routing_endpoint_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_port_mappings_by_destination_response() :: %{
-        "DestinationPortMappings" => list(destination_port_mapping()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_port_mappings_by_destination_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_routing_listener() :: %{
-        "ListenerArn" => String.t() | atom(),
-        "PortRanges" => list(port_range())
-      }
-      
-  """
-  @type custom_routing_listener() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cross_account_resources_request() :: %{
-        optional("AcceleratorArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceOwnerAwsAccountId") => String.t() | atom()
-      }
-      
-  """
-  @type list_cross_account_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set() :: %{
-        "IpAddressFamily" => list(any()),
-        "IpAddresses" => list(String.t() | atom()),
-        "IpFamily" => String.t() | atom()
-      }
-      
-  """
-  @type ip_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type custom_routing_endpoint_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,575 +601,24 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      advertise_byoip_cidr_response() :: %{
-        "ByoipCidr" => byoip_cidr()
+      update_accelerator_attributes_response() :: %{
+        "AcceleratorAttributes" => accelerator_attributes()
       }
       
   """
-  @type advertise_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
+  @type update_accelerator_attributes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_routing_endpoint_configuration() :: %{
-        "AttachmentArn" => String.t() | atom(),
-        "EndpointId" => String.t() | atom()
+      list_custom_routing_port_mappings_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PortMappings" => list(port_mapping())
       }
       
   """
-  @type custom_routing_endpoint_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_port_range_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_port_range_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_accelerator_attributes_response() :: %{
-        "AcceleratorAttributes" => custom_routing_accelerator_attributes()
-      }
-      
-  """
-  @type update_custom_routing_accelerator_attributes_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_custom_routing_accelerator_request() :: %{
-        optional("Enabled") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_listeners_response() :: %{
-        "Listeners" => list(listener()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_listeners_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      withdraw_byoip_cidr_response() :: %{
-        "ByoipCidr" => byoip_cidr()
-      }
-      
-  """
-  @type withdraw_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      allow_custom_routing_traffic_request() :: %{
-        optional("AllowAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t() | atom()),
-        optional("DestinationPorts") => list(integer()),
-        required("EndpointGroupArn") => String.t() | atom(),
-        required("EndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type allow_custom_routing_traffic_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deny_custom_routing_traffic_request() :: %{
-        optional("DenyAllTrafficToEndpoint") => boolean(),
-        optional("DestinationAddresses") => list(String.t() | atom()),
-        optional("DestinationPorts") => list(integer()),
-        required("EndpointGroupArn") => String.t() | atom(),
-        required("EndpointId") => String.t() | atom()
-      }
-      
-  """
-  @type deny_custom_routing_traffic_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_listeners_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_listeners_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_endpoint_group_response() :: %{
-        "EndpointGroup" => endpoint_group()
-      }
-      
-  """
-  @type describe_endpoint_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cross_account_attachment_request() :: %{
-        optional("Principals") => list(String.t() | atom()),
-        optional("Resources") => list(resource()),
-        optional("Tags") => list(tag()),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_accelerator_response() :: %{
-        "Accelerator" => accelerator()
-      }
-      
-  """
-  @type update_accelerator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_cross_account_resources_response() :: %{
-        "CrossAccountResources" => list(cross_account_resource()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_cross_account_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associated_listener_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type associated_listener_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      port_range() :: %{
-        "FromPort" => integer(),
-        "ToPort" => integer()
-      }
-      
-  """
-  @type port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_port_mappings_request() :: %{
-        optional("EndpointGroupArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_port_mappings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_endpoints_response() :: %{
-        "EndpointDescriptions" => list(endpoint_description()),
-        "EndpointGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type add_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_routing_listener_request() :: %{
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      byoip_cidr_event() :: %{
-        "Message" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
-      }
-      
-  """
-  @type byoip_cidr_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associated_endpoint_group_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type associated_endpoint_group_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_endpoint_group_request() :: %{
-        optional("EndpointConfigurations") => list(endpoint_configuration()),
-        optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t() | atom(),
-        optional("HealthCheckPort") => integer(),
-        optional("HealthCheckProtocol") => list(any()),
-        optional("PortOverrides") => list(port_override()),
-        optional("ThresholdCount") => integer(),
-        optional("TrafficDialPercentage") => float(),
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_endpoint_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_accelerator_request() :: %{
-        optional("Enabled") => boolean(),
-        optional("IpAddressType") => list(any()),
-        optional("IpAddresses") => list(String.t() | atom()),
-        optional("Name") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_endpoint_group_request() :: %{
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_endpoint_groups_response() :: %{
-        "EndpointGroups" => list(endpoint_group()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_endpoint_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cross_account_attachment_request() :: %{
-        required("AttachmentArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_listener_request() :: %{
-        optional("ClientAffinity") => list(any()),
-        optional("PortRanges") => list(port_range()),
-        optional("Protocol") => list(any()),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_listener_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_listener_response() :: %{
-        "Listener" => listener()
-      }
-      
-  """
-  @type update_listener_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      custom_routing_accelerator_attributes() :: %{
-        "FlowLogsEnabled" => boolean(),
-        "FlowLogsS3Bucket" => String.t() | atom(),
-        "FlowLogsS3Prefix" => String.t() | atom()
-      }
-      
-  """
-  @type custom_routing_accelerator_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_argument_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cidr_authorization_context() :: %{
-        "Message" => String.t() | atom(),
-        "Signature" => String.t() | atom()
-      }
-      
-  """
-  @type cidr_authorization_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      port_mapping() :: %{
-        "AcceleratorPort" => integer(),
-        "DestinationSocketAddress" => socket_address(),
-        "DestinationTrafficState" => list(any()),
-        "EndpointGroupArn" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "Protocols" => list(list(any())())
-      }
-      
-  """
-  @type port_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_accelerator_response() :: %{
-        "Accelerator" => custom_routing_accelerator()
-      }
-      
-  """
-  @type update_custom_routing_accelerator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_custom_routing_endpoints_request() :: %{
-        required("EndpointConfigurations") => list(custom_routing_endpoint_configuration()),
-        required("EndpointGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_custom_routing_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_byoip_cidrs_response() :: %{
-        "ByoipCidrs" => list(byoip_cidr()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_byoip_cidrs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      transaction_in_progress_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type transaction_in_progress_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_endpoint_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_endpoint_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      withdraw_byoip_cidr_request() :: %{
-        required("Cidr") => String.t() | atom()
-      }
-      
-  """
-  @type withdraw_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      endpoint_group_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type endpoint_group_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_accelerators_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_accelerators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_custom_routing_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
+  @type list_custom_routing_port_mappings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1610,101 +636,34 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      custom_routing_accelerator() :: %{
-        "AcceleratorArn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "DnsName" => String.t() | atom(),
-        "Enabled" => boolean(),
-        "IpAddressType" => list(any()),
-        "IpSets" => list(ip_set()),
-        "LastModifiedTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type custom_routing_accelerator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_custom_routing_accelerator_attributes_request() :: %{
-        optional("FlowLogsEnabled") => boolean(),
-        optional("FlowLogsS3Bucket") => String.t() | atom(),
-        optional("FlowLogsS3Prefix") => String.t() | atom(),
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_custom_routing_accelerator_attributes_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_accelerator_request() :: %{
-        required("AcceleratorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_accelerator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_custom_routing_endpoints_response() :: %{
-        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
-        "EndpointGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type add_custom_routing_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_custom_routing_endpoint_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_custom_routing_endpoint_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listener_not_found_exception() :: %{
+      endpoint_group_already_exists_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type listener_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type endpoint_group_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      destination_port_mapping() :: %{
-        "AcceleratorArn" => String.t() | atom(),
-        "AcceleratorSocketAddresses" => list(socket_address()),
-        "DestinationSocketAddress" => socket_address(),
-        "DestinationTrafficState" => list(any()),
-        "EndpointGroupArn" => String.t() | atom(),
-        "EndpointGroupRegion" => String.t() | atom(),
-        "EndpointId" => String.t() | atom(),
-        "IpAddressType" => list(any())
+      update_accelerator_response() :: %{
+        "Accelerator" => accelerator()
       }
       
   """
-  @type destination_port_mapping() :: %{(String.t() | atom()) => any()}
+  @type update_accelerator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_cross_account_attachment_request() :: %{
+        required("AttachmentArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1721,57 +680,74 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      delete_listener_request() :: %{
-        required("ListenerArn") => String.t() | atom()
+      update_accelerator_attributes_request() :: %{
+        optional("FlowLogsEnabled") => boolean(),
+        optional("FlowLogsS3Bucket") => String.t() | atom(),
+        optional("FlowLogsS3Prefix") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
       }
       
   """
-  @type delete_listener_request() :: %{(String.t() | atom()) => any()}
+  @type update_accelerator_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      accelerator_event() :: %{
-        "Message" => String.t() | atom(),
-        "Timestamp" => non_neg_integer()
+      list_custom_routing_listeners_response() :: %{
+        "Listeners" => list(custom_routing_listener()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type accelerator_event() :: %{(String.t() | atom()) => any()}
+  @type list_custom_routing_listeners_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      endpoint_group_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      custom_routing_endpoint_description() :: %{
+        "EndpointId" => String.t() | atom()
       }
       
   """
-  @type endpoint_group_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type custom_routing_endpoint_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_endpoint_group_response() :: %{
-        "EndpointGroup" => endpoint_group()
+      update_cross_account_attachment_response() :: %{
+        "CrossAccountAttachment" => attachment()
       }
       
   """
-  @type update_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+  @type update_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_custom_routing_accelerator_attributes_response() :: %{
-        "AcceleratorAttributes" => custom_routing_accelerator_attributes()
+      list_listeners_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
       }
       
   """
-  @type describe_custom_routing_accelerator_attributes_response() :: %{
+  @type list_listeners_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_routing_port_mappings_by_destination_response() :: %{
+        "DestinationPortMappings" => list(destination_port_mapping()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_routing_port_mappings_by_destination_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1779,15 +755,140 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      create_custom_routing_endpoint_group_request() :: %{
-        required("DestinationConfigurations") => list(custom_routing_destination_configuration()),
-        required("EndpointGroupRegion") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
-        required("ListenerArn") => String.t() | atom()
+      delete_cross_account_attachment_request() :: %{
+        required("AttachmentArn") => String.t() | atom()
       }
       
   """
-  @type create_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+  @type delete_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      socket_address() :: %{
+        "IpAddress" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type socket_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cross_account_attachments_response() :: %{
+        "CrossAccountAttachments" => list(attachment()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cross_account_attachments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accelerator_attributes() :: %{
+        "FlowLogsEnabled" => boolean(),
+        "FlowLogsS3Bucket" => String.t() | atom(),
+        "FlowLogsS3Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type accelerator_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_accelerator_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cross_account_resource_accounts_request() :: %{}
+      
+  """
+  @type list_cross_account_resource_accounts_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_port_range_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_port_range_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accelerator_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type accelerator_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attachment() :: %{
+        "AttachmentArn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Principals" => list(String.t() | atom()),
+        "Resources" => list(resource())
+      }
+      
+  """
+  @type attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_accelerator_attributes_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_routing_accelerator_attributes_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_routing_accelerator_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t() | atom()),
+        optional("Name") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1813,46 +914,454 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      deprovision_byoip_cidr_request() :: %{
-        required("Cidr") => String.t() | atom()
+      update_endpoint_group_response() :: %{
+        "EndpointGroup" => endpoint_group()
       }
       
   """
-  @type deprovision_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+  @type update_endpoint_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_routing_endpoint_description() :: %{
-        "EndpointId" => String.t() | atom()
+      create_cross_account_attachment_response() :: %{
+        "CrossAccountAttachment" => attachment()
       }
       
   """
-  @type custom_routing_endpoint_description() :: %{(String.t() | atom()) => any()}
+  @type create_cross_account_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_custom_routing_accelerators_request() :: %{
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_endpoint_group_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_error_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_accelerator_attributes_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_accelerator_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accelerator_event() :: %{
+        "Message" => String.t() | atom(),
+        "Timestamp" => non_neg_integer()
+      }
+      
+  """
+  @type accelerator_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_description() :: %{
+        "ClientIPPreservationEnabled" => boolean(),
+        "EndpointId" => String.t() | atom(),
+        "HealthReason" => String.t() | atom(),
+        "HealthState" => list(any()),
+        "Weight" => integer()
+      }
+      
+  """
+  @type endpoint_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_listener_response() :: %{
+        "Listener" => listener()
+      }
+      
+  """
+  @type describe_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cross_account_attachments_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_custom_routing_accelerators_request() :: %{(String.t() | atom()) => any()}
+  @type list_cross_account_attachments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_custom_routing_endpoint_group_request() :: %{
+      invalid_argument_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_accelerator_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_endpoints_response() :: %{
+        "EndpointDescriptions" => list(endpoint_description()),
+        "EndpointGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type add_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_accelerator_response() :: %{
+        "Accelerator" => accelerator()
+      }
+      
+  """
+  @type describe_accelerator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_routing_accelerator_response() :: %{
+        "Accelerator" => custom_routing_accelerator()
+      }
+      
+  """
+  @type update_custom_routing_accelerator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listener_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type listener_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_mapping() :: %{
+        "AcceleratorPort" => integer(),
+        "DestinationSocketAddress" => socket_address(),
+        "DestinationTrafficState" => list(any()),
+        "EndpointGroupArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "Protocols" => list(list(any())())
+      }
+      
+  """
+  @type port_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_accelerator_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t() | atom()),
+        optional("Name") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_configuration() :: %{
+        "AttachmentArn" => String.t() | atom(),
+        "ClientIPPreservationEnabled" => boolean(),
+        "EndpointId" => String.t() | atom(),
+        "Weight" => integer()
+      }
+      
+  """
+  @type endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_endpoint_group_request() :: %{
+        optional("EndpointConfigurations") => list(endpoint_configuration()),
+        optional("HealthCheckIntervalSeconds") => integer(),
+        optional("HealthCheckPath") => String.t() | atom(),
+        optional("HealthCheckPort") => integer(),
+        optional("HealthCheckProtocol") => list(any()),
+        optional("PortOverrides") => list(port_override()),
+        optional("ThresholdCount") => integer(),
+        optional("TrafficDialPercentage") => float(),
         required("EndpointGroupArn") => String.t() | atom()
       }
       
   """
-  @type delete_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+  @type update_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_listener_response() :: %{
+        "Listener" => listener()
+      }
+      
+  """
+  @type create_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_listener_response() :: %{
+        "Listener" => listener()
+      }
+      
+  """
+  @type update_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_listener() :: %{
+        "ListenerArn" => String.t() | atom(),
+        "PortRanges" => list(port_range())
+      }
+      
+  """
+  @type custom_routing_listener() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_routing_listener_response() :: %{
+        "Listener" => custom_routing_listener()
+      }
+      
+  """
+  @type update_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_byoip_cidrs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_byoip_cidrs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      incorrect_cidr_state_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type incorrect_cidr_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_group_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint_group_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_routing_accelerator_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_cross_account_attachment_request() :: %{
+        optional("AddPrincipals") => list(String.t() | atom()),
+        optional("AddResources") => list(resource()),
+        optional("Name") => String.t() | atom(),
+        optional("RemovePrincipals") => list(String.t() | atom()),
+        optional("RemoveResources") => list(resource()),
+        required("AttachmentArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_cross_account_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_accelerator() :: %{
+        "AcceleratorArn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "DnsName" => String.t() | atom(),
+        "Enabled" => boolean(),
+        "IpAddressType" => list(any()),
+        "IpSets" => list(ip_set()),
+        "LastModifiedTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type custom_routing_accelerator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      allow_custom_routing_traffic_request() :: %{
+        optional("AllowAllTrafficToEndpoint") => boolean(),
+        optional("DestinationAddresses") => list(String.t() | atom()),
+        optional("DestinationPorts") => list(integer()),
+        required("EndpointGroupArn") => String.t() | atom(),
+        required("EndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type allow_custom_routing_traffic_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_routing_endpoint_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_routing_endpoint_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1864,17 +1373,6 @@ defmodule AWS.GlobalAccelerator do
       
   """
   @type create_custom_routing_accelerator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_custom_routing_listener_response() :: %{
-        "Listener" => custom_routing_listener()
-      }
-      
-  """
-  @type describe_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1895,13 +1393,373 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      provision_byoip_cidr_request() :: %{
-        required("Cidr") => String.t() | atom(),
-        required("CidrAuthorizationContext") => cidr_authorization_context()
+      describe_endpoint_group_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom()
       }
       
   """
-  @type provision_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+  @type describe_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_listener_request() :: %{
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_routing_accelerator_request() :: %{
+        optional("Enabled") => boolean(),
+        optional("IpAddressType") => list(any()),
+        optional("IpAddresses") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_routing_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deprovision_byoip_cidr_response() :: %{
+        "ByoipCidr" => byoip_cidr()
+      }
+      
+  """
+  @type deprovision_byoip_cidr_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      destination_port_mapping() :: %{
+        "AcceleratorArn" => String.t() | atom(),
+        "AcceleratorSocketAddresses" => list(socket_address()),
+        "DestinationSocketAddress" => socket_address(),
+        "DestinationTrafficState" => list(any()),
+        "EndpointGroupArn" => String.t() | atom(),
+        "EndpointGroupRegion" => String.t() | atom(),
+        "EndpointId" => String.t() | atom(),
+        "IpAddressType" => list(any())
+      }
+      
+  """
+  @type destination_port_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_routing_accelerators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_routing_accelerators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      advertise_byoip_cidr_request() :: %{
+        required("Cidr") => String.t() | atom()
+      }
+      
+  """
+  @type advertise_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cross_account_resources_request() :: %{
+        optional("AcceleratorArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceOwnerAwsAccountId") => String.t() | atom()
+      }
+      
+  """
+  @type list_cross_account_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_custom_routing_port_mappings_by_destination_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("DestinationAddress") => String.t() | atom(),
+        required("EndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type list_custom_routing_port_mappings_by_destination_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_routing_endpoint_group_response() :: %{
+        "EndpointGroup" => custom_routing_endpoint_group()
+      }
+      
+  """
+  @type create_custom_routing_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_custom_routing_endpoints_response() :: %{
+        "EndpointDescriptions" => list(custom_routing_endpoint_description()),
+        "EndpointGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type add_custom_routing_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_endpoint_groups_response() :: %{
+        "EndpointGroups" => list(endpoint_group()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_endpoint_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_routing_endpoint_group_request() :: %{
+        required("DestinationConfigurations") => list(custom_routing_destination_configuration()),
+        required("EndpointGroupRegion") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_custom_routing_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_endpoint_group_response() :: %{
+        "EndpointGroup" => endpoint_group()
+      }
+      
+  """
+  @type create_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_byoip_cidrs_response() :: %{
+        "ByoipCidrs" => list(byoip_cidr()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_byoip_cidrs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_accelerator_response() :: %{
+        "Accelerator" => accelerator()
+      }
+      
+  """
+  @type create_accelerator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_accelerator_request() :: %{
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_accelerator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_endpoint_group_response() :: %{
+        "EndpointGroup" => endpoint_group()
+      }
+      
+  """
+  @type describe_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_custom_routing_accelerator_attributes_request() :: %{
+        optional("FlowLogsEnabled") => boolean(),
+        optional("FlowLogsS3Bucket") => String.t() | atom(),
+        optional("FlowLogsS3Prefix") => String.t() | atom(),
+        required("AcceleratorArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_custom_routing_accelerator_attributes_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_endpoint_configuration() :: %{
+        "AttachmentArn" => String.t() | atom(),
+        "EndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type custom_routing_endpoint_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_endpoint_group_response() :: %{
+        "EndpointGroup" => custom_routing_endpoint_group()
+      }
+      
+  """
+  @type describe_custom_routing_endpoint_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_accelerators_response() :: %{
+        "Accelerators" => list(accelerator()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_accelerators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_destination_configuration() :: %{
+        "FromPort" => integer(),
+        "Protocols" => list(list(any())()),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type custom_routing_destination_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_custom_routing_listener_request() :: %{
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_listener_request() :: %{
+        optional("ClientAffinity") => list(any()),
+        optional("PortRanges") => list(port_range()),
+        optional("Protocol") => list(any()),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deprovision_byoip_cidr_request() :: %{
+        required("Cidr") => String.t() | atom()
+      }
+      
+  """
+  @type deprovision_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_cross_account_resources_response() :: %{
+        "CrossAccountResources" => list(cross_account_resource()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_cross_account_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_routing_accelerator_attributes() :: %{
+        "FlowLogsEnabled" => boolean(),
+        "FlowLogsS3Bucket" => String.t() | atom(),
+        "FlowLogsS3Prefix" => String.t() | atom()
+      }
+      
+  """
+  @type custom_routing_accelerator_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1920,46 +1778,188 @@ defmodule AWS.GlobalAccelerator do
 
   ## Example:
       
-      create_endpoint_group_request() :: %{
-        optional("EndpointConfigurations") => list(endpoint_configuration()),
-        optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t() | atom(),
-        optional("HealthCheckPort") => integer(),
-        optional("HealthCheckProtocol") => list(any()),
-        optional("PortOverrides") => list(port_override()),
-        optional("ThresholdCount") => integer(),
-        optional("TrafficDialPercentage") => float(),
-        required("EndpointGroupRegion") => String.t() | atom(),
-        required("IdempotencyToken") => String.t() | atom(),
+      remove_custom_routing_endpoints_request() :: %{
+        required("EndpointGroupArn") => String.t() | atom(),
+        required("EndpointIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_custom_routing_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cidr_authorization_context() :: %{
+        "Message" => String.t() | atom(),
+        "Signature" => String.t() | atom()
+      }
+      
+  """
+  @type cidr_authorization_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_routing_listener_response() :: %{
+        "Listener" => custom_routing_listener()
+      }
+      
+  """
+  @type create_custom_routing_listener_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_listener_request() :: %{
         required("ListenerArn") => String.t() | atom()
       }
       
   """
-  @type create_endpoint_group_request() :: %{(String.t() | atom()) => any()}
+  @type delete_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      provision_byoip_cidr_request() :: %{
+        required("Cidr") => String.t() | atom(),
+        required("CidrAuthorizationContext") => cidr_authorization_context()
+      }
+      
+  """
+  @type provision_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      transaction_in_progress_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type transaction_in_progress_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      withdraw_byoip_cidr_request() :: %{
+        required("Cidr") => String.t() | atom()
+      }
+      
+  """
+  @type withdraw_byoip_cidr_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_custom_routing_listener_request() :: %{
+        required("AcceleratorArn") => String.t() | atom(),
+        required("IdempotencyToken") => String.t() | atom(),
+        required("PortRanges") => list(port_range())
+      }
+      
+  """
+  @type create_custom_routing_listener_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      endpoint_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type endpoint_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_custom_routing_accelerator_response() :: %{
+        "Accelerator" => custom_routing_accelerator()
+      }
+      
+  """
+  @type describe_custom_routing_accelerator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associated_endpoint_group_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type associated_endpoint_group_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listener() :: %{
+        "ClientAffinity" => list(any()),
+        "ListenerArn" => String.t() | atom(),
+        "PortRanges" => list(port_range()),
+        "Protocol" => list(any())
+      }
+      
+  """
+  @type listener() :: %{(String.t() | atom()) => any()}
 
   @type add_custom_routing_endpoints_errors() ::
           endpoint_group_not_found_exception()
-          | limit_exceeded_exception()
-          | invalid_argument_exception()
-          | access_denied_exception()
           | conflict_exception()
-          | internal_service_error_exception()
           | endpoint_already_exists_exception()
+          | invalid_argument_exception()
+          | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type add_endpoints_errors() ::
-          endpoint_group_not_found_exception()
-          | limit_exceeded_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
+          | endpoint_group_not_found_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type advertise_byoip_cidr_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
+          incorrect_cidr_state_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
-          | incorrect_cidr_state_exception()
           | byoip_cidr_not_found_exception()
+          | access_denied_exception()
 
   @type allow_custom_routing_traffic_errors() ::
           endpoint_group_not_found_exception()
@@ -1967,81 +1967,81 @@ defmodule AWS.GlobalAccelerator do
           | internal_service_error_exception()
 
   @type create_accelerator_errors() ::
-          limit_exceeded_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_cross_account_attachment_errors() ::
-          limit_exceeded_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_custom_routing_accelerator_errors() ::
-          limit_exceeded_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type create_custom_routing_endpoint_group_errors() ::
           listener_not_found_exception()
+          | invalid_argument_exception()
+          | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | invalid_port_range_exception()
           | endpoint_group_already_exists_exception()
           | limit_exceeded_exception()
-          | invalid_argument_exception()
           | access_denied_exception()
-          | invalid_port_range_exception()
-          | accelerator_not_found_exception()
-          | internal_service_error_exception()
 
   @type create_custom_routing_listener_errors() ::
-          limit_exceeded_exception()
-          | invalid_argument_exception()
-          | invalid_port_range_exception()
-          | accelerator_not_found_exception()
+          invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | invalid_port_range_exception()
+          | limit_exceeded_exception()
 
   @type create_endpoint_group_errors() ::
           listener_not_found_exception()
+          | invalid_argument_exception()
+          | internal_service_error_exception()
+          | accelerator_not_found_exception()
           | endpoint_group_already_exists_exception()
           | limit_exceeded_exception()
-          | invalid_argument_exception()
           | access_denied_exception()
-          | accelerator_not_found_exception()
-          | internal_service_error_exception()
 
   @type create_listener_errors() ::
-          limit_exceeded_exception()
-          | invalid_argument_exception()
-          | invalid_port_range_exception()
-          | accelerator_not_found_exception()
+          invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | invalid_port_range_exception()
+          | limit_exceeded_exception()
 
   @type delete_accelerator_errors() ::
           transaction_in_progress_exception()
           | invalid_argument_exception()
-          | associated_listener_found_exception()
-          | accelerator_not_found_exception()
-          | accelerator_not_disabled_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | associated_listener_found_exception()
+          | accelerator_not_disabled_exception()
 
   @type delete_cross_account_attachment_errors() ::
           transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
           | attachment_not_found_exception()
 
   @type delete_custom_routing_accelerator_errors() ::
           transaction_in_progress_exception()
           | invalid_argument_exception()
-          | associated_listener_found_exception()
-          | accelerator_not_found_exception()
-          | accelerator_not_disabled_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | associated_listener_found_exception()
+          | accelerator_not_disabled_exception()
 
   @type delete_custom_routing_endpoint_group_errors() ::
           endpoint_group_not_found_exception()
@@ -2049,9 +2049,9 @@ defmodule AWS.GlobalAccelerator do
           | internal_service_error_exception()
 
   @type delete_custom_routing_listener_errors() ::
-          listener_not_found_exception()
+          associated_endpoint_group_found_exception()
+          | listener_not_found_exception()
           | invalid_argument_exception()
-          | associated_endpoint_group_found_exception()
           | internal_service_error_exception()
 
   @type delete_endpoint_group_errors() ::
@@ -2060,9 +2060,9 @@ defmodule AWS.GlobalAccelerator do
           | internal_service_error_exception()
 
   @type delete_listener_errors() ::
-          listener_not_found_exception()
+          associated_endpoint_group_found_exception()
+          | listener_not_found_exception()
           | invalid_argument_exception()
-          | associated_endpoint_group_found_exception()
           | internal_service_error_exception()
 
   @type deny_custom_routing_traffic_errors() ::
@@ -2071,37 +2071,37 @@ defmodule AWS.GlobalAccelerator do
           | internal_service_error_exception()
 
   @type deprovision_byoip_cidr_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
+          incorrect_cidr_state_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
-          | incorrect_cidr_state_exception()
           | byoip_cidr_not_found_exception()
+          | access_denied_exception()
 
   @type describe_accelerator_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type describe_accelerator_attributes_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type describe_cross_account_attachment_errors() ::
           invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
           | attachment_not_found_exception()
 
   @type describe_custom_routing_accelerator_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type describe_custom_routing_accelerator_attributes_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type describe_custom_routing_endpoint_group_errors() ::
           endpoint_group_not_found_exception()
@@ -2124,178 +2124,178 @@ defmodule AWS.GlobalAccelerator do
           | internal_service_error_exception()
 
   @type list_accelerators_errors() ::
-          invalid_argument_exception()
-          | invalid_next_token_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
 
   @type list_byoip_cidrs_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
-          | invalid_next_token_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_cross_account_attachments_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
-          | invalid_next_token_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type list_cross_account_resource_accounts_errors() ::
-          access_denied_exception() | internal_service_error_exception()
+          internal_service_error_exception() | access_denied_exception()
 
   @type list_cross_account_resources_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
-          | invalid_next_token_exception()
-          | accelerator_not_found_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | access_denied_exception()
 
   @type list_custom_routing_accelerators_errors() ::
-          invalid_argument_exception()
-          | invalid_next_token_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
 
   @type list_custom_routing_endpoint_groups_errors() ::
-          listener_not_found_exception()
+          invalid_next_token_exception()
+          | listener_not_found_exception()
           | invalid_argument_exception()
-          | invalid_next_token_exception()
           | internal_service_error_exception()
 
   @type list_custom_routing_listeners_errors() ::
-          invalid_argument_exception()
-          | invalid_next_token_exception()
-          | accelerator_not_found_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type list_custom_routing_port_mappings_errors() ::
-          endpoint_group_not_found_exception()
+          invalid_next_token_exception()
+          | endpoint_group_not_found_exception()
           | invalid_argument_exception()
-          | invalid_next_token_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type list_custom_routing_port_mappings_by_destination_errors() ::
-          invalid_argument_exception()
-          | endpoint_not_found_exception()
+          endpoint_not_found_exception()
           | invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
 
   @type list_endpoint_groups_errors() ::
-          listener_not_found_exception()
+          invalid_next_token_exception()
+          | listener_not_found_exception()
           | invalid_argument_exception()
-          | invalid_next_token_exception()
           | internal_service_error_exception()
 
   @type list_listeners_errors() ::
-          invalid_argument_exception()
-          | invalid_next_token_exception()
-          | accelerator_not_found_exception()
+          invalid_next_token_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type list_tags_for_resource_errors() ::
           endpoint_group_not_found_exception()
           | listener_not_found_exception()
           | invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
           | attachment_not_found_exception()
 
   @type provision_byoip_cidr_errors() ::
-          limit_exceeded_exception()
+          incorrect_cidr_state_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
-          | incorrect_cidr_state_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type remove_custom_routing_endpoints_errors() ::
-          endpoint_group_not_found_exception()
-          | invalid_argument_exception()
-          | access_denied_exception()
-          | endpoint_not_found_exception()
+          endpoint_not_found_exception()
+          | endpoint_group_not_found_exception()
           | conflict_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type remove_endpoints_errors() ::
-          endpoint_group_not_found_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
+          | endpoint_group_not_found_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type untag_resource_errors() ::
           invalid_argument_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type update_accelerator_errors() ::
           transaction_in_progress_exception()
-          | invalid_argument_exception()
-          | access_denied_exception()
-          | accelerator_not_found_exception()
           | conflict_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | access_denied_exception()
 
   @type update_accelerator_attributes_errors() ::
           transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | access_denied_exception()
 
   @type update_cross_account_attachment_errors() ::
-          limit_exceeded_exception()
-          | transaction_in_progress_exception()
+          transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
           | attachment_not_found_exception()
 
   @type update_custom_routing_accelerator_errors() ::
           transaction_in_progress_exception()
-          | invalid_argument_exception()
-          | accelerator_not_found_exception()
           | conflict_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
 
   @type update_custom_routing_accelerator_attributes_errors() ::
           transaction_in_progress_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
-          | accelerator_not_found_exception()
           | internal_service_error_exception()
+          | accelerator_not_found_exception()
+          | access_denied_exception()
 
   @type update_custom_routing_listener_errors() ::
           listener_not_found_exception()
-          | limit_exceeded_exception()
           | invalid_argument_exception()
-          | invalid_port_range_exception()
           | internal_service_error_exception()
+          | invalid_port_range_exception()
+          | limit_exceeded_exception()
 
   @type update_endpoint_group_errors() ::
           endpoint_group_not_found_exception()
-          | limit_exceeded_exception()
           | invalid_argument_exception()
-          | access_denied_exception()
           | internal_service_error_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
 
   @type update_listener_errors() ::
           listener_not_found_exception()
-          | limit_exceeded_exception()
           | invalid_argument_exception()
-          | invalid_port_range_exception()
           | internal_service_error_exception()
+          | invalid_port_range_exception()
+          | limit_exceeded_exception()
 
   @type withdraw_byoip_cidr_errors() ::
-          invalid_argument_exception()
-          | access_denied_exception()
+          incorrect_cidr_state_exception()
+          | invalid_argument_exception()
           | internal_service_error_exception()
-          | incorrect_cidr_state_exception()
           | byoip_cidr_not_found_exception()
+          | access_denied_exception()
 
   def metadata do
     %{
@@ -2342,7 +2342,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, add_custom_routing_endpoints_errors()}
   def add_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddCustomRoutingEndpoints", input, options)
   end
@@ -2386,7 +2387,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, add_endpoints_errors()}
   def add_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddEndpoints", input, options)
   end
@@ -2413,7 +2415,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, advertise_byoip_cidr_errors()}
   def advertise_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AdvertiseByoipCidr", input, options)
   end
@@ -2439,7 +2442,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, allow_custom_routing_traffic_errors()}
   def allow_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AllowCustomRoutingTraffic", input, options)
   end
@@ -2464,7 +2468,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_accelerator_errors()}
   def create_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAccelerator", input, options)
   end
@@ -2508,7 +2513,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_cross_account_attachment_errors()}
   def create_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCrossAccountAttachment", input, options)
   end
@@ -2544,7 +2550,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_accelerator_errors()}
   def create_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingAccelerator", input, options)
   end
@@ -2566,7 +2573,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_endpoint_group_errors()}
   def create_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingEndpointGroup", input, options)
   end
@@ -2584,7 +2592,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_custom_routing_listener_errors()}
   def create_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCustomRoutingListener", input, options)
   end
@@ -2608,7 +2617,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_endpoint_group_errors()}
   def create_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateEndpointGroup", input, options)
   end
@@ -2625,7 +2635,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
@@ -2663,7 +2674,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_accelerator_errors()}
   def delete_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAccelerator", input, options)
   end
@@ -2688,7 +2700,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_cross_account_attachment_errors()}
   def delete_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCrossAccountAttachment", input, options)
   end
@@ -2729,7 +2742,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_accelerator_errors()}
   def delete_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingAccelerator", input, options)
   end
@@ -2747,7 +2761,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_endpoint_group_errors()}
   def delete_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingEndpointGroup", input, options)
   end
@@ -2761,7 +2776,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_custom_routing_listener_errors()}
   def delete_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCustomRoutingListener", input, options)
   end
@@ -2775,7 +2791,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_endpoint_group_errors()}
   def delete_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteEndpointGroup", input, options)
   end
@@ -2789,7 +2806,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
@@ -2815,7 +2833,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, deny_custom_routing_traffic_errors()}
   def deny_custom_routing_traffic(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DenyCustomRoutingTraffic", input, options)
   end
@@ -2842,7 +2861,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, deprovision_byoip_cidr_errors()}
   def deprovision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeprovisionByoipCidr", input, options)
   end
@@ -2856,7 +2876,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_accelerator_errors()}
   def describe_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccelerator", input, options)
   end
@@ -2870,7 +2891,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_accelerator_attributes_errors()}
   def describe_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAcceleratorAttributes", input, options)
   end
@@ -2888,7 +2910,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_cross_account_attachment_errors()}
   def describe_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCrossAccountAttachment", input, options)
   end
@@ -2906,7 +2929,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_accelerator_errors()}
   def describe_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingAccelerator", input, options)
   end
@@ -2924,7 +2948,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_accelerator_attributes_errors()}
   def describe_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -2948,7 +2973,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_endpoint_group_errors()}
   def describe_custom_routing_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingEndpointGroup", input, options)
   end
@@ -2966,7 +2992,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_custom_routing_listener_errors()}
   def describe_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCustomRoutingListener", input, options)
   end
@@ -2980,7 +3007,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_endpoint_group_errors()}
   def describe_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEndpointGroup", input, options)
   end
@@ -2994,7 +3022,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, describe_listener_errors()}
   def describe_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListener", input, options)
   end
@@ -3008,7 +3037,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_accelerators_errors()}
   def list_accelerators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAccelerators", input, options)
   end
@@ -3025,7 +3055,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_byoip_cidrs_errors()}
   def list_byoip_cidrs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListByoipCidrs", input, options)
   end
@@ -3039,7 +3070,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_attachments_errors()}
   def list_cross_account_attachments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountAttachments", input, options)
   end
@@ -3063,7 +3095,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_resource_accounts_errors()}
   def list_cross_account_resource_accounts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountResourceAccounts", input, options)
   end
@@ -3077,7 +3110,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_cross_account_resources_errors()}
   def list_cross_account_resources(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCrossAccountResources", input, options)
   end
@@ -3095,7 +3129,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_accelerators_errors()}
   def list_custom_routing_accelerators(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingAccelerators", input, options)
   end
@@ -3114,7 +3149,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_endpoint_groups_errors()}
   def list_custom_routing_endpoint_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingEndpointGroups", input, options)
   end
@@ -3128,7 +3164,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_listeners_errors()}
   def list_custom_routing_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingListeners", input, options)
   end
@@ -3165,7 +3202,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_port_mappings_errors()}
   def list_custom_routing_port_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCustomRoutingPortMappings", input, options)
   end
@@ -3191,7 +3229,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_custom_routing_port_mappings_by_destination_errors()}
   def list_custom_routing_port_mappings_by_destination(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -3211,7 +3250,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_endpoint_groups_errors()}
   def list_endpoint_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListEndpointGroups", input, options)
   end
@@ -3225,7 +3265,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_listeners_errors()}
   def list_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListListeners", input, options)
   end
@@ -3243,7 +3284,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -3267,7 +3309,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, provision_byoip_cidr_errors()}
   def provision_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ProvisionByoipCidr", input, options)
   end
@@ -3281,7 +3324,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, remove_custom_routing_endpoints_errors()}
   def remove_custom_routing_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveCustomRoutingEndpoints", input, options)
   end
@@ -3317,7 +3361,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, remove_endpoints_errors()}
   def remove_endpoints(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveEndpoints", input, options)
   end
@@ -3335,7 +3380,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -3358,7 +3404,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -3398,7 +3445,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_accelerator_errors()}
   def update_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAccelerator", input, options)
   end
@@ -3412,7 +3460,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_accelerator_attributes_errors()}
   def update_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAcceleratorAttributes", input, options)
   end
@@ -3437,7 +3486,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_cross_account_attachment_errors()}
   def update_cross_account_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCrossAccountAttachment", input, options)
   end
@@ -3455,7 +3505,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_accelerator_errors()}
   def update_custom_routing_accelerator(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingAccelerator", input, options)
   end
@@ -3473,7 +3524,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_accelerator_attributes_errors()}
   def update_custom_routing_accelerator_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingAcceleratorAttributes", input, options)
   end
@@ -3487,7 +3539,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_custom_routing_listener_errors()}
   def update_custom_routing_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateCustomRoutingListener", input, options)
   end
@@ -3503,7 +3556,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_endpoint_group_errors()}
   def update_endpoint_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateEndpointGroup", input, options)
   end
@@ -3517,7 +3571,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, update_listener_errors()}
   def update_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateListener", input, options)
   end
@@ -3543,7 +3598,8 @@ defmodule AWS.GlobalAccelerator do
           | {:error, term()}
           | {:error, withdraw_byoip_cidr_errors()}
   def withdraw_byoip_cidr(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "WithdrawByoipCidr", input, options)
   end

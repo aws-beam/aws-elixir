@@ -18,82 +18,95 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      user_pending_changes() :: %{
+      broker_engine_type() :: %{
+        "EngineType" => list(any()),
+        "EngineVersions" => list(engine_version())
+      }
+
+  """
+  @type broker_engine_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promote_request() :: %{
+        required("Mode") => list(any())
+      }
+
+  """
+  @type promote_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_user_response() :: %{
+        "BrokerId" => String.t() | atom(),
         "ConsoleAccess" => boolean(),
         "Groups" => list(String.t() | atom()),
-        "PendingChange" => list(any())
-      }
-
-  """
-  @type user_pending_changes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sanitization_warning() :: %{
-        "AttributeName" => String.t() | atom(),
-        "ElementName" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type sanitization_warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_summary() :: %{
-        "PendingChange" => list(any()),
+        "Pending" => user_pending_changes(),
+        "ReplicationUser" => boolean(),
         "Username" => String.t() | atom()
       }
 
   """
-  @type user_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_broker_response() :: %{
-        "PendingSecurityGroups" => list(String.t() | atom()),
-        "Tags" => map(),
-        "AuthenticationStrategy" => list(any()),
-        "BrokerName" => String.t() | atom(),
-        "PendingLdapServerMetadata" => ldap_server_metadata_output(),
-        "Configurations" => configurations(),
-        "Logs" => logs_summary(),
-        "LdapServerMetadata" => ldap_server_metadata_output(),
-        "BrokerArn" => String.t() | atom(),
-        "EngineType" => list(any()),
-        "Created" => non_neg_integer(),
-        "ActionsRequired" => list(action_required()),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "PendingHostInstanceType" => String.t() | atom(),
-        "DataReplicationMode" => list(any()),
-        "EncryptionOptions" => encryption_options(),
-        "MaintenanceWindowStartTime" => weekly_start_time(),
-        "HostInstanceType" => String.t() | atom(),
-        "Users" => list(user_summary()),
-        "DeploymentMode" => list(any()),
-        "PendingEngineVersion" => String.t() | atom(),
-        "BrokerId" => String.t() | atom(),
-        "BrokerInstances" => list(broker_instance()),
-        "PendingAuthenticationStrategy" => list(any()),
-        "SubnetIds" => list(String.t() | atom()),
-        "StorageType" => list(any()),
-        "PendingDataReplicationMetadata" => data_replication_metadata_output(),
-        "BrokerState" => list(any()),
-        "PubliclyAccessible" => boolean(),
-        "EngineVersion" => String.t() | atom(),
-        "PendingDataReplicationMode" => list(any()),
-        "DataReplicationMetadata" => data_replication_metadata_output(),
-        "SecurityGroups" => list(String.t() | atom())
+      update_broker_request() :: %{
+        optional("AuthenticationStrategy") => list(any()),
+        optional("AutoMinorVersionUpgrade") => boolean(),
+        optional("Configuration") => configuration_id(),
+        optional("DataReplicationMode") => list(any()),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("HostInstanceType") => String.t() | atom(),
+        optional("LdapServerMetadata") => ldap_server_metadata_input(),
+        optional("Logs") => logs(),
+        optional("MaintenanceWindowStartTime") => weekly_start_time(),
+        optional("SecurityGroups") => list(String.t() | atom())
       }
 
   """
-  @type describe_broker_response() :: %{(String.t() | atom()) => any()}
+  @type update_broker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logs() :: %{
+        "Audit" => boolean(),
+        "General" => boolean()
+      }
+
+  """
+  @type logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pending_logs() :: %{
+        "Audit" => boolean(),
+        "General" => boolean()
+      }
+
+  """
+  @type pending_logs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_response() :: %{
+        "ConfigurationId" => String.t() | atom()
+      }
+
+  """
+  @type delete_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -110,12 +123,61 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      delete_tags_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      update_configuration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        required("Data") => String.t() | atom()
       }
 
   """
-  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+  @type update_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engine_version() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type engine_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_broker_response() :: %{
+        "AuthenticationStrategy" => list(any()),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "BrokerId" => String.t() | atom(),
+        "Configuration" => configuration_id(),
+        "DataReplicationMetadata" => data_replication_metadata_output(),
+        "DataReplicationMode" => list(any()),
+        "EngineVersion" => String.t() | atom(),
+        "HostInstanceType" => String.t() | atom(),
+        "LdapServerMetadata" => ldap_server_metadata_output(),
+        "Logs" => logs(),
+        "MaintenanceWindowStartTime" => weekly_start_time(),
+        "PendingDataReplicationMetadata" => data_replication_metadata_output(),
+        "PendingDataReplicationMode" => list(any()),
+        "SecurityGroups" => list(String.t() | atom())
+      }
+
+  """
+  @type update_broker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_broker_instance_options_response() :: %{
+        "BrokerInstanceOptions" => list(broker_instance_option()),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_broker_instance_options_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,13 +194,80 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      unauthorized_exception() :: %{
-        "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      create_configuration_request() :: %{
+        optional("AuthenticationStrategy") => list(any()),
+        optional("EngineVersion") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("EngineType") => list(any()),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_configuration_request() :: %{}
+
+  """
+  @type delete_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_request() :: %{
+        optional("ConsoleAccess") => boolean(),
+        optional("Groups") => list(String.t() | atom()),
+        optional("Password") => String.t() | atom(),
+        optional("ReplicationUser") => boolean()
+      }
+
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ldap_server_metadata_input() :: %{
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
+        "RoleSearchSubtree" => boolean(),
+        "ServiceAccountPassword" => String.t() | atom(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
+        "UserSearchSubtree" => boolean()
+      }
+
+  """
+  @type ldap_server_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ldap_server_metadata_output() :: %{
+        "Hosts" => list(String.t() | atom()),
+        "RoleBase" => String.t() | atom(),
+        "RoleName" => String.t() | atom(),
+        "RoleSearchMatching" => String.t() | atom(),
+        "RoleSearchSubtree" => boolean(),
+        "ServiceAccountUsername" => String.t() | atom(),
+        "UserBase" => String.t() | atom(),
+        "UserRoleName" => String.t() | atom(),
+        "UserSearchMatching" => String.t() | atom(),
+        "UserSearchSubtree" => boolean()
+      }
+
+  """
+  @type ldap_server_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -175,38 +304,50 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      update_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        required("Data") => String.t() | atom()
+      unauthorized_exception() :: %{
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type update_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_broker_engine_types_response() :: %{
-        "BrokerEngineTypes" => list(broker_engine_type()),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom()
+      data_replication_counterpart() :: %{
+        "BrokerId" => String.t() | atom(),
+        "Region" => String.t() | atom()
       }
 
   """
-  @type describe_broker_engine_types_response() :: %{(String.t() | atom()) => any()}
+  @type data_replication_counterpart() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_broker_response() :: %{
-        "BrokerArn" => String.t() | atom(),
-        "BrokerId" => String.t() | atom()
+      list_brokers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type create_broker_response() :: %{(String.t() | atom()) => any()}
+  @type list_brokers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_pending_changes() :: %{
+        "ConsoleAccess" => boolean(),
+        "Groups" => list(String.t() | atom()),
+        "PendingChange" => list(any())
+      }
+
+  """
+  @type user_pending_changes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -216,85 +357,6 @@ defmodule AWS.Mq do
 
   """
   @type update_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      engine_version() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type engine_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configurations_response() :: %{
-        "Configurations" => list(configuration()),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reboot_broker_response() :: %{}
-
-  """
-  @type reboot_broker_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_metadata_output() :: %{
-        "DataReplicationCounterpart" => data_replication_counterpart(),
-        "DataReplicationRole" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_broker_response() :: %{
-        "BrokerId" => String.t() | atom()
-      }
-
-  """
-  @type delete_broker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,298 +382,52 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      logs() :: %{
-        "Audit" => boolean(),
-        "General" => boolean()
-      }
-
-  """
-  @type logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_options() :: %{
-        "KmsKeyId" => String.t() | atom(),
-        "UseAwsOwnedKey" => boolean()
-      }
-
-  """
-  @type encryption_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_configuration_response() :: %{
-        "ConfigurationId" => String.t() | atom()
-      }
-
-  """
-  @type delete_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tags_request() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pending_logs() :: %{
-        "Audit" => boolean(),
-        "General" => boolean()
-      }
-
-  """
-  @type pending_logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_brokers_response() :: %{
-        "BrokerSummaries" => list(broker_summary()),
+      describe_broker_engine_types_response() :: %{
+        "BrokerEngineTypes" => list(broker_engine_type()),
+        "MaxResults" => integer(),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_brokers_response() :: %{(String.t() | atom()) => any()}
+  @type describe_broker_engine_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      weekly_start_time() :: %{
+        "DayOfWeek" => list(any()),
+        "TimeOfDay" => String.t() | atom(),
+        "TimeZone" => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type weekly_start_time() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_configuration_request() :: %{}
-
-  """
-  @type delete_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_broker_engine_types_request() :: %{
-        optional("EngineType") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      user_summary() :: %{
+        "PendingChange" => list(any()),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type describe_broker_engine_types_request() :: %{(String.t() | atom()) => any()}
+  @type user_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      promote_request() :: %{
-        required("Mode") => list(any())
+      broker_instance() :: %{
+        "ConsoleURL" => String.t() | atom(),
+        "Endpoints" => list(String.t() | atom()),
+        "IpAddress" => String.t() | atom()
       }
 
   """
-  @type promote_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reboot_broker_request() :: %{}
-
-  """
-  @type reboot_broker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_configuration_revision_request() :: %{}
-
-  """
-  @type describe_configuration_revision_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_response() :: %{
-        "BrokerId" => String.t() | atom(),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom(),
-        "Users" => list(user_summary())
-      }
-
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      broker_summary() :: %{
-        "BrokerArn" => String.t() | atom(),
-        "BrokerId" => String.t() | atom(),
-        "BrokerName" => String.t() | atom(),
-        "BrokerState" => list(any()),
-        "Created" => non_neg_integer(),
-        "DeploymentMode" => list(any()),
-        "EngineType" => list(any()),
-        "HostInstanceType" => String.t() | atom()
-      }
-
-  """
-  @type broker_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_request() :: %{
-        optional("AuthenticationStrategy") => list(any()),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("EngineType") => list(any()),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_configuration_revisions_response() :: %{
-        "ConfigurationId" => String.t() | atom(),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom(),
-        "Revisions" => list(configuration_revision())
-      }
-
-  """
-  @type list_configuration_revisions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_request() :: %{}
-
-  """
-  @type delete_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_configuration_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AuthenticationStrategy" => list(any()),
-        "Created" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ldap_server_metadata_input() :: %{
-        "Hosts" => list(String.t() | atom()),
-        "RoleBase" => String.t() | atom(),
-        "RoleName" => String.t() | atom(),
-        "RoleSearchMatching" => String.t() | atom(),
-        "RoleSearchSubtree" => boolean(),
-        "ServiceAccountPassword" => String.t() | atom(),
-        "ServiceAccountUsername" => String.t() | atom(),
-        "UserBase" => String.t() | atom(),
-        "UserRoleName" => String.t() | atom(),
-        "UserSearchMatching" => String.t() | atom(),
-        "UserSearchSubtree" => boolean()
-      }
-
-  """
-  @type ldap_server_metadata_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_broker_request() :: %{}
-
-  """
-  @type delete_broker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_response() :: %{}
-
-  """
-  @type delete_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_broker_instance_options_request() :: %{
-        optional("EngineType") => String.t() | atom(),
-        optional("HostInstanceType") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StorageType") => String.t() | atom()
-      }
-
-  """
-  @type describe_broker_instance_options_request() :: %{(String.t() | atom()) => any()}
+  @type broker_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -633,144 +449,12 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      broker_engine_type() :: %{
-        "EngineType" => list(any()),
-        "EngineVersions" => list(engine_version())
-      }
-
-  """
-  @type broker_engine_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_configuration_revision_response() :: %{
-        "ConfigurationId" => String.t() | atom(),
-        "Created" => non_neg_integer(),
-        "Data" => String.t() | atom(),
-        "Description" => String.t() | atom()
-      }
-
-  """
-  @type describe_configuration_revision_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_user_response() :: %{
-        "BrokerId" => String.t() | atom(),
-        "ConsoleAccess" => boolean(),
-        "Groups" => list(String.t() | atom()),
-        "Pending" => user_pending_changes(),
-        "ReplicationUser" => boolean(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type describe_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ldap_server_metadata_output() :: %{
-        "Hosts" => list(String.t() | atom()),
-        "RoleBase" => String.t() | atom(),
-        "RoleName" => String.t() | atom(),
-        "RoleSearchMatching" => String.t() | atom(),
-        "RoleSearchSubtree" => boolean(),
-        "ServiceAccountUsername" => String.t() | atom(),
-        "UserBase" => String.t() | atom(),
-        "UserRoleName" => String.t() | atom(),
-        "UserSearchMatching" => String.t() | atom(),
-        "UserSearchSubtree" => boolean()
-      }
-
-  """
-  @type ldap_server_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      broker_instance() :: %{
-        "ConsoleURL" => String.t() | atom(),
-        "Endpoints" => list(String.t() | atom()),
-        "IpAddress" => String.t() | atom()
-      }
-
-  """
-  @type broker_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_configuration_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AuthenticationStrategy" => list(any()),
-        "Created" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EngineType" => list(any()),
-        "EngineVersion" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LatestRevision" => configuration_revision(),
-        "Name" => String.t() | atom(),
+      list_tags_response() :: %{
         "Tags" => map()
       }
 
   """
-  @type describe_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      weekly_start_time() :: %{
-        "DayOfWeek" => list(any()),
-        "TimeOfDay" => String.t() | atom(),
-        "TimeZone" => String.t() | atom()
-      }
-
-  """
-  @type weekly_start_time() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_user_request() :: %{}
-
-  """
-  @type describe_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_request() :: %{
-        optional("ConsoleAccess") => boolean(),
-        optional("Groups") => list(String.t() | atom()),
-        optional("Password") => String.t() | atom(),
-        optional("ReplicationUser") => boolean()
-      }
-
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -791,199 +475,22 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      logs_summary() :: %{
-        "Audit" => boolean(),
-        "AuditLogGroup" => String.t() | atom(),
-        "General" => boolean(),
-        "GeneralLogGroup" => String.t() | atom(),
-        "Pending" => pending_logs()
-      }
-
-  """
-  @type logs_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_broker_request() :: %{}
-
-  """
-  @type describe_broker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      broker_instance_option() :: %{
-        "AvailabilityZones" => list(availability_zone()),
-        "EngineType" => list(any()),
-        "HostInstanceType" => String.t() | atom(),
-        "StorageType" => list(any()),
-        "SupportedDeploymentModes" => list(list(any())()),
-        "SupportedEngineVersions" => list(String.t() | atom())
-      }
-
-  """
-  @type broker_instance_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_configuration_request() :: %{}
-
-  """
-  @type describe_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_id() :: %{
-        "Id" => String.t() | atom(),
-        "Revision" => integer()
-      }
-
-  """
-  @type configuration_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
+      internal_server_error_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
         "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_broker_response() :: %{
-        "AuthenticationStrategy" => list(any()),
-        "AutoMinorVersionUpgrade" => boolean(),
-        "BrokerId" => String.t() | atom(),
-        "Configuration" => configuration_id(),
-        "DataReplicationMetadata" => data_replication_metadata_output(),
-        "DataReplicationMode" => list(any()),
-        "EngineVersion" => String.t() | atom(),
-        "HostInstanceType" => String.t() | atom(),
-        "LdapServerMetadata" => ldap_server_metadata_output(),
-        "Logs" => logs(),
-        "MaintenanceWindowStartTime" => weekly_start_time(),
-        "PendingDataReplicationMetadata" => data_replication_metadata_output(),
-        "PendingDataReplicationMode" => list(any()),
-        "SecurityGroups" => list(String.t() | atom())
-      }
+      delete_user_response() :: %{}
 
   """
-  @type update_broker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_replication_counterpart() :: %{
-        "BrokerId" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type data_replication_counterpart() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configurations() :: %{
-        "Current" => configuration_id(),
-        "History" => list(configuration_id()),
-        "Pending" => configuration_id()
-      }
-
-  """
-  @type configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration_revision() :: %{
-        "Created" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Revision" => integer()
-      }
-
-  """
-  @type configuration_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_request() :: %{}
-
-  """
-  @type list_tags_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_broker_instance_options_response() :: %{
-        "BrokerInstanceOptions" => list(broker_instance_option()),
-        "MaxResults" => integer(),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_broker_instance_options_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_broker_request() :: %{
-        optional("AuthenticationStrategy") => list(any()),
-        optional("AutoMinorVersionUpgrade") => boolean(),
-        optional("Configuration") => configuration_id(),
-        optional("DataReplicationMode") => list(any()),
-        optional("EngineVersion") => String.t() | atom(),
-        optional("HostInstanceType") => String.t() | atom(),
-        optional("LdapServerMetadata") => ldap_server_metadata_input(),
-        optional("Logs") => logs(),
-        optional("MaintenanceWindowStartTime") => weekly_start_time(),
-        optional("SecurityGroups") => list(String.t() | atom())
-      }
-
-  """
-  @type update_broker_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_response() :: %{}
-
-  """
-  @type create_user_response() :: %{}
+  @type delete_user_response() :: %{}
 
   @typedoc """
 
@@ -1013,13 +520,453 @@ defmodule AWS.Mq do
 
   ## Example:
 
-      list_brokers_request() :: %{
+      reboot_broker_response() :: %{}
+
+  """
+  @type reboot_broker_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_broker_response() :: %{
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom()
+      }
+
+  """
+  @type create_broker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_response() :: %{}
+
+  """
+  @type create_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_configuration_request() :: %{}
+
+  """
+  @type describe_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_configuration_revision_response() :: %{
+        "ConfigurationId" => String.t() | atom(),
+        "Created" => non_neg_integer(),
+        "Data" => String.t() | atom(),
+        "Description" => String.t() | atom()
+      }
+
+  """
+  @type describe_configuration_revision_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sanitization_warning() :: %{
+        "AttributeName" => String.t() | atom(),
+        "ElementName" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type sanitization_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_brokers_request() :: %{(String.t() | atom()) => any()}
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_request() :: %{}
+
+  """
+  @type delete_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_broker_request() :: %{}
+
+  """
+  @type describe_broker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tags_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_revision() :: %{
+        "Created" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Revision" => integer()
+      }
+
+  """
+  @type configuration_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_broker_response() :: %{
+        "BrokerState" => list(any()),
+        "BrokerId" => String.t() | atom(),
+        "ActionsRequired" => list(action_required()),
+        "BrokerArn" => String.t() | atom(),
+        "StorageType" => list(any()),
+        "MaintenanceWindowStartTime" => weekly_start_time(),
+        "PendingHostInstanceType" => String.t() | atom(),
+        "AuthenticationStrategy" => list(any()),
+        "AutoMinorVersionUpgrade" => boolean(),
+        "PubliclyAccessible" => boolean(),
+        "LdapServerMetadata" => ldap_server_metadata_output(),
+        "DataReplicationMode" => list(any()),
+        "SubnetIds" => list(String.t() | atom()),
+        "HostInstanceType" => String.t() | atom(),
+        "PendingEngineVersion" => String.t() | atom(),
+        "PendingDataReplicationMode" => list(any()),
+        "PendingLdapServerMetadata" => ldap_server_metadata_output(),
+        "BrokerInstances" => list(broker_instance()),
+        "EncryptionOptions" => encryption_options(),
+        "DataReplicationMetadata" => data_replication_metadata_output(),
+        "PendingAuthenticationStrategy" => list(any()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Configurations" => configurations(),
+        "Logs" => logs_summary(),
+        "EngineType" => list(any()),
+        "DeploymentMode" => list(any()),
+        "PendingDataReplicationMetadata" => data_replication_metadata_output(),
+        "PendingSecurityGroups" => list(String.t() | atom()),
+        "EngineVersion" => String.t() | atom(),
+        "BrokerName" => String.t() | atom(),
+        "Tags" => map(),
+        "Users" => list(user_summary()),
+        "Created" => non_neg_integer()
+      }
+
+  """
+  @type describe_broker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_request() :: %{}
+
+  """
+  @type list_tags_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_broker_response() :: %{
+        "BrokerId" => String.t() | atom()
+      }
+
+  """
+  @type delete_broker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_replication_metadata_output() :: %{
+        "DataReplicationCounterpart" => data_replication_counterpart(),
+        "DataReplicationRole" => String.t() | atom()
+      }
+
+  """
+  @type data_replication_metadata_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_response() :: %{
+        "BrokerId" => String.t() | atom(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom(),
+        "Users" => list(user_summary())
+      }
+
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration_id() :: %{
+        "Id" => String.t() | atom(),
+        "Revision" => integer()
+      }
+
+  """
+  @type configuration_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_user_request() :: %{}
+
+  """
+  @type describe_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "ErrorAttribute" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reboot_broker_request() :: %{}
+
+  """
+  @type reboot_broker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      broker_summary() :: %{
+        "BrokerArn" => String.t() | atom(),
+        "BrokerId" => String.t() | atom(),
+        "BrokerName" => String.t() | atom(),
+        "BrokerState" => list(any()),
+        "Created" => non_neg_integer(),
+        "DeploymentMode" => list(any()),
+        "EngineType" => list(any()),
+        "HostInstanceType" => String.t() | atom()
+      }
+
+  """
+  @type broker_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_brokers_response() :: %{
+        "BrokerSummaries" => list(broker_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_brokers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_configuration_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AuthenticationStrategy" => list(any()),
+        "Created" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EngineType" => list(any()),
+        "EngineVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LatestRevision" => configuration_revision(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_broker_request() :: %{}
+
+  """
+  @type delete_broker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configuration_revisions_response() :: %{
+        "ConfigurationId" => String.t() | atom(),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom(),
+        "Revisions" => list(configuration_revision())
+      }
+
+  """
+  @type list_configuration_revisions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_broker_engine_types_request() :: %{
+        optional("EngineType") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_broker_engine_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_broker_instance_options_request() :: %{
+        optional("EngineType") => String.t() | atom(),
+        optional("HostInstanceType") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StorageType") => String.t() | atom()
+      }
+
+  """
+  @type describe_broker_instance_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_configuration_revision_request() :: %{}
+
+  """
+  @type describe_configuration_revision_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      broker_instance_option() :: %{
+        "AvailabilityZones" => list(availability_zone()),
+        "EngineType" => list(any()),
+        "HostInstanceType" => String.t() | atom(),
+        "StorageType" => list(any()),
+        "SupportedDeploymentModes" => list(list(any())()),
+        "SupportedEngineVersions" => list(String.t() | atom())
+      }
+
+  """
+  @type broker_instance_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tags_request() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_configuration_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AuthenticationStrategy" => list(any()),
+        "Created" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LatestRevision" => configuration_revision(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1035,143 +982,196 @@ defmodule AWS.Mq do
   """
   @type create_user_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      configurations() :: %{
+        "Current" => configuration_id(),
+        "History" => list(configuration_id()),
+        "Pending" => configuration_id()
+      }
+
+  """
+  @type configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_options() :: %{
+        "KmsKeyId" => String.t() | atom(),
+        "UseAwsOwnedKey" => boolean()
+      }
+
+  """
+  @type encryption_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_configurations_response() :: %{
+        "Configurations" => list(configuration()),
+        "MaxResults" => integer(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logs_summary() :: %{
+        "Audit" => boolean(),
+        "AuditLogGroup" => String.t() | atom(),
+        "General" => boolean(),
+        "GeneralLogGroup" => String.t() | atom(),
+        "Pending" => pending_logs()
+      }
+
+  """
+  @type logs_summary() :: %{(String.t() | atom()) => any()}
+
   @type create_broker_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
           | forbidden_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
           | unauthorized_exception()
 
   @type create_configuration_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
           | forbidden_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
 
   @type create_tags_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type create_user_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
-          | forbidden_exception()
+          | internal_server_error_exception()
 
   @type delete_broker_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type delete_configuration_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
-          | forbidden_exception()
+          | internal_server_error_exception()
 
   @type delete_tags_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type delete_user_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type describe_broker_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type describe_broker_engine_types_errors() ::
-          bad_request_exception() | internal_server_error_exception() | forbidden_exception()
+          bad_request_exception() | forbidden_exception() | internal_server_error_exception()
 
   @type describe_broker_instance_options_errors() ::
-          bad_request_exception() | internal_server_error_exception() | forbidden_exception()
+          bad_request_exception() | forbidden_exception() | internal_server_error_exception()
 
   @type describe_configuration_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type describe_configuration_revision_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type describe_user_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type list_brokers_errors() ::
-          bad_request_exception() | internal_server_error_exception() | forbidden_exception()
+          bad_request_exception() | forbidden_exception() | internal_server_error_exception()
 
   @type list_configuration_revisions_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type list_configurations_errors() ::
-          bad_request_exception() | internal_server_error_exception() | forbidden_exception()
+          bad_request_exception() | forbidden_exception() | internal_server_error_exception()
 
   @type list_tags_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type list_users_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type promote_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type reboot_broker_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type update_broker_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
-          | forbidden_exception()
+          | internal_server_error_exception()
 
   @type update_configuration_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
-          | forbidden_exception()
+          | internal_server_error_exception()
 
   @type update_user_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
-          | forbidden_exception()
+          | internal_server_error_exception()
 
   def metadata do
     %{

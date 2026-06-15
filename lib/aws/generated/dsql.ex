@@ -23,6 +23,58 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      create_cluster_input() :: %{
+        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("deletionProtectionEnabled") => boolean(),
+        optional("kmsEncryptionKey") => String.t() | atom(),
+        optional("multiRegionProperties") => multi_region_properties(),
+        optional("policy") => String.t() | atom(),
+        optional("tags") => map()
+      }
+
+  """
+  @type create_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multi_region_properties() :: %{
+        "clusters" => list(String.t() | atom()),
+        "witnessRegion" => String.t() | atom()
+      }
+
+  """
+  @type multi_region_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_streams_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_streams_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_cluster_input() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("deletionProtectionEnabled") => boolean(),
@@ -32,6 +84,207 @@ defmodule AWS.DSQL do
 
   """
   @type update_cluster_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => map(),
+        required("format") => list(any()),
+        required("ordering") => list(any()),
+        required("targetDefinition") => list()
+      }
+
+  """
+  @type create_stream_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "quotaCode" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()],
+        "serviceCode" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_details() :: %{
+        "encryptionStatus" => list(any()),
+        "encryptionType" => list(any()),
+        "kmsKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_clusters_output() :: %{
+        "clusters" => list(cluster_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_clusters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_endpoint_service_name_input() :: %{}
+
+  """
+  @type get_vpc_endpoint_service_name_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cluster_input() :: %{}
+
+  """
+  @type get_cluster_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_output() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "deletionProtectionEnabled" => boolean(),
+        "encryptionDetails" => encryption_details(),
+        "endpoint" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "multiRegionProperties" => multi_region_properties(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_cluster_policy_output() :: %{
+        "policyVersion" => String.t() | atom()
+      }
+
+  """
+  @type put_cluster_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cluster_output() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "deletionProtectionEnabled" => boolean(),
+        "encryptionDetails" => encryption_details(),
+        "endpoint" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "multiRegionProperties" => multi_region_properties(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type get_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "fieldList" => list(validation_exception_field()),
+        "message" => [String.t() | atom()],
+        "reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_summary() :: %{
+        "arn" => String.t() | atom(),
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_policy_output() :: %{
+        "policyVersion" => String.t() | atom()
+      }
+
+  """
+  @type delete_cluster_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "retryAfterSeconds" => [integer()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -49,6 +302,44 @@ defmodule AWS.DSQL do
 
   ## Example:
 
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cluster_output() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "identifier" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_cluster_policy_output() :: %{
         "policy" => String.t() | atom(),
         "policyVersion" => String.t() | atom()
@@ -61,18 +352,129 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      create_cluster_input() :: %{
-        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("clientToken") => String.t() | atom(),
-        optional("deletionProtectionEnabled") => boolean(),
-        optional("kmsEncryptionKey") => String.t() | atom(),
-        optional("multiRegionProperties") => multi_region_properties(),
-        optional("policy") => String.t() | atom(),
-        optional("tags") => map()
+      get_vpc_endpoint_service_name_output() :: %{
+        "clusterVpcEndpoint" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
       }
 
   """
-  @type create_cluster_input() :: %{(String.t() | atom()) => any()}
+  @type get_vpc_endpoint_service_name_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_policy_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("expectedPolicyVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_cluster_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_stream_output() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "status" => list(any()),
+        "streamIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type delete_stream_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "resourceId" => [String.t() | atom()],
+        "resourceType" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stream_summary() :: %{
+        "arn" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "status" => list(any()),
+        "streamIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kinesis_target_definition() :: %{
+        "roleArn" => String.t() | atom(),
+        "streamArn" => String.t() | atom()
+      }
+
+  """
+  @type kinesis_target_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_output() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "identifier" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_cluster_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_cluster_policy_input() :: %{
+        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("expectedPolicyVersion") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_cluster_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
 
   @typedoc """
 
@@ -98,56 +500,13 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      delete_stream_input() :: %{
-        optional("clientToken") => String.t() | atom()
+      list_clusters_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type delete_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cluster_input() :: %{}
-
-  """
-  @type get_cluster_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      kinesis_target_definition() :: %{
-        "roleArn" => String.t() | atom(),
-        "streamArn" => String.t() | atom()
-      }
-
-  """
-  @type kinesis_target_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_output() :: %{
-        "clusters" => list(cluster_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_output() :: %{(String.t() | atom()) => any()}
+  @type list_clusters_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,76 +524,30 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      get_vpc_endpoint_service_name_output() :: %{
-        "clusterVpcEndpoint" => String.t() | atom(),
-        "serviceName" => String.t() | atom()
-      }
+      get_stream_input() :: %{}
 
   """
-  @type get_vpc_endpoint_service_name_output() :: %{(String.t() | atom()) => any()}
+  @type get_stream_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      cluster_summary() :: %{
-        "arn" => String.t() | atom(),
-        "identifier" => String.t() | atom()
-      }
+      get_cluster_policy_input() :: %{}
 
   """
-  @type cluster_summary() :: %{(String.t() | atom()) => any()}
+  @type get_cluster_policy_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
+      delete_stream_input() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "resourceId" => [String.t() | atom()],
-        "resourceType" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_policy_output() :: %{
-        "policyVersion" => String.t() | atom()
-      }
-
-  """
-  @type delete_cluster_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_output() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "identifier" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_cluster_output() :: %{(String.t() | atom()) => any()}
+  @type delete_stream_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,286 +568,6 @@ defmodule AWS.DSQL do
 
   ## Example:
 
-      get_cluster_output() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "deletionProtectionEnabled" => boolean(),
-        "encryptionDetails" => encryption_details(),
-        "endpoint" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "multiRegionProperties" => multi_region_properties(),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type get_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_stream_input() :: %{}
-
-  """
-  @type get_stream_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_output() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "identifier" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_input() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_cluster_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_output() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "deletionProtectionEnabled" => boolean(),
-        "encryptionDetails" => encryption_details(),
-        "endpoint" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "multiRegionProperties" => multi_region_properties(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_cluster_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_streams_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_streams_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_policy_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("expectedPolicyVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_cluster_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_cluster_policy_input() :: %{
-        optional("bypassPolicyLockoutSafetyCheck") => boolean(),
-        optional("clientToken") => String.t() | atom(),
-        optional("expectedPolicyVersion") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_cluster_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "fieldList" => list(validation_exception_field()),
-        "message" => [String.t() | atom()],
-        "reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "quotaCode" => [String.t() | atom()],
-        "retryAfterSeconds" => [integer()],
-        "serviceCode" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stream_summary() :: %{
-        "arn" => String.t() | atom(),
-        "clusterIdentifier" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "status" => list(any()),
-        "streamIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type stream_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_stream_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => map(),
-        required("format") => list(any()),
-        required("ordering") => list(any()),
-        required("targetDefinition") => list()
-      }
-
-  """
-  @type create_stream_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_details() :: %{
-        "encryptionStatus" => list(any()),
-        "encryptionType" => list(any()),
-        "kmsKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type encryption_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multi_region_properties() :: %{
-        "clusters" => list(String.t() | atom()),
-        "witnessRegion" => String.t() | atom()
-      }
-
-  """
-  @type multi_region_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_cluster_policy_output() :: %{
-        "policyVersion" => String.t() | atom()
-      }
-
-  """
-  @type put_cluster_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_stream_output() :: %{
         "arn" => String.t() | atom(),
         "clusterIdentifier" => String.t() | atom(),
@@ -548,66 +581,33 @@ defmodule AWS.DSQL do
   """
   @type create_stream_output() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_endpoint_service_name_input() :: %{}
-
-  """
-  @type get_vpc_endpoint_service_name_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_stream_output() :: %{
-        "arn" => String.t() | atom(),
-        "clusterIdentifier" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "status" => list(any()),
-        "streamIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type delete_stream_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cluster_policy_input() :: %{}
-
-  """
-  @type get_cluster_policy_input() :: %{}
-
   @type create_cluster_errors() ::
-          validation_exception() | service_quota_exceeded_exception() | conflict_exception()
+          service_quota_exceeded_exception() | conflict_exception() | validation_exception()
 
   @type create_stream_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
-  @type delete_cluster_errors() :: resource_not_found_exception() | conflict_exception()
+  @type delete_cluster_errors() :: conflict_exception() | resource_not_found_exception()
 
   @type delete_cluster_policy_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
-  @type delete_stream_errors() :: resource_not_found_exception() | conflict_exception()
+  @type delete_stream_errors() :: conflict_exception() | resource_not_found_exception()
 
   @type get_cluster_errors() :: resource_not_found_exception()
 
-  @type get_cluster_policy_errors() :: validation_exception() | resource_not_found_exception()
+  @type get_cluster_policy_errors() :: resource_not_found_exception() | validation_exception()
 
   @type get_stream_errors() :: resource_not_found_exception()
 
   @type get_vpc_endpoint_service_name_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_clusters_errors() :: resource_not_found_exception()
 
@@ -616,7 +616,7 @@ defmodule AWS.DSQL do
   @type list_tags_for_resource_errors() :: resource_not_found_exception()
 
   @type put_cluster_policy_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type tag_resource_errors() ::
           service_quota_exceeded_exception() | resource_not_found_exception()
@@ -624,7 +624,7 @@ defmodule AWS.DSQL do
   @type untag_resource_errors() :: resource_not_found_exception()
 
   @type update_cluster_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   def metadata do
     %{

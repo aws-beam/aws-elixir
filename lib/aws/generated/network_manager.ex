@@ -15,47 +15,104 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      get_core_network_policy_request() :: %{
-        optional("Alias") => list(any()),
-        optional("PolicyVersionId") => integer()
+      create_vpc_attachment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Options") => vpc_options(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("SubnetArns") => list(String.t() | atom()),
+        required("VpcArn") => String.t() | atom()
       }
 
   """
-  @type get_core_network_policy_request() :: %{(String.t() | atom()) => any()}
+  @type create_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      core_network_policy_version() :: %{
-        "Alias" => list(any()),
-        "ChangeSetState" => list(any()),
-        "CoreNetworkId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "PolicyVersionId" => integer()
+      get_core_network_change_events_response() :: %{
+        "CoreNetworkChangeEvents" => list(core_network_change_event()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type core_network_policy_version() :: %{(String.t() | atom()) => any()}
+  @type get_core_network_change_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_network_telemetry_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AwsRegion") => String.t() | atom(),
-        optional("CoreNetworkId") => String.t() | atom(),
+      get_site_to_site_vpn_attachment_response() :: %{
+        "SiteToSiteVpnAttachment" => site_to_site_vpn_attachment()
+      }
+
+  """
+  @type get_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_device_request() :: %{}
+
+  """
+  @type delete_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachment_routing_policy_associations_request() :: %{
+        optional("AttachmentId") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegisteredGatewayArn") => String.t() | atom(),
-        optional("ResourceArn") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_network_telemetry_request() :: %{(String.t() | atom()) => any()}
+  @type list_attachment_routing_policy_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transit_gateway_peering_response() :: %{
+        "TransitGatewayPeering" => transit_gateway_peering()
+      }
+
+  """
+  @type get_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_information_next_hop() :: %{
+        "CoreNetworkAttachmentId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
+      }
+
+  """
+  @type routing_information_next_hop() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type attachment_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -67,184 +124,6 @@ defmodule AWS.NetworkManager do
 
   """
   @type deregister_transit_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_link_response() :: %{
-        "Link" => link()
-      }
-
-  """
-  @type delete_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connection_request() :: %{
-        optional("ConnectedLinkId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LinkId") => String.t() | atom()
-      }
-
-  """
-  @type update_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_peering_request() :: %{}
-
-  """
-  @type delete_peering_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_resource_counts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type get_network_resource_counts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_customer_gateway_response() :: %{
-        "CustomerGatewayAssociation" => customer_gateway_association()
-      }
-
-  """
-  @type associate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transit_gateway_peering() :: %{
-        "Peering" => peering(),
-        "TransitGatewayArn" => String.t() | atom(),
-        "TransitGatewayPeeringAttachmentId" => String.t() | atom()
-      }
-
-  """
-  @type transit_gateway_peering() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_transit_gateway_peering_response() :: %{
-        "TransitGatewayPeering" => transit_gateway_peering()
-      }
-
-  """
-  @type create_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      edge_override() :: %{
-        "EdgeSets" => list(list(String.t() | atom())()),
-        "UseEdge" => String.t() | atom()
-      }
-
-  """
-  @type edge_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_response() :: %{
-        "Device" => device()
-      }
-
-  """
-  @type update_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_devices_request() :: %{
-        optional("DeviceIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SiteId") => String.t() | atom()
-      }
-
-  """
-  @type get_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_response() :: %{}
-
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_network_policy_versions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_core_network_policy_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_attachment_routing_policy_label_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("AttachmentId") => String.t() | atom(),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("RoutingPolicyLabel") => String.t() | atom()
-      }
-
-  """
-  @type put_attachment_routing_policy_label_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_connect_peer_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association())
-      }
-
-  """
-  @type get_transit_gateway_connect_peer_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
 
   @typedoc """
 
@@ -265,192 +144,369 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      get_core_network_policy_response() :: %{
-        "CoreNetworkPolicy" => core_network_policy()
+      service_insertion_action() :: %{
+        "Action" => list(any()),
+        "Mode" => list(any()),
+        "Via" => via(),
+        "WhenSentTo" => when_sent_to()
       }
 
   """
-  @type get_core_network_policy_response() :: %{(String.t() | atom()) => any()}
+  @type service_insertion_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      path_component() :: %{
-        "DestinationCidrBlock" => String.t() | atom(),
-        "Resource" => network_resource_summary(),
-        "Sequence" => integer()
-      }
-
-  """
-  @type path_component() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_resource_counts_response() :: %{
-        "NetworkResourceCounts" => list(network_resource_count()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_network_resource_counts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_link_request() :: %{
-        required("DeviceId") => String.t() | atom(),
-        required("LinkId") => String.t() | atom()
-      }
-
-  """
-  @type associate_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_peering_request() :: %{}
-
-  """
-  @type get_transit_gateway_peering_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_insertion_segments() :: %{
-        "SendTo" => list(String.t() | atom()),
-        "SendVia" => list(String.t() | atom())
-      }
-
-  """
-  @type service_insertion_segments() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_core_network_response() :: %{
-        "CoreNetwork" => core_network()
-      }
-
-  """
-  @type delete_core_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_attachment_options() :: %{
-        "Protocol" => list(any())
-      }
-
-  """
-  @type connect_attachment_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_device_response() :: %{
-        "Device" => device()
-      }
-
-  """
-  @type create_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_transit_gateway_connect_peer_request() :: %{}
-
-  """
-  @type disassociate_transit_gateway_connect_peer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      route_analysis() :: %{
-        "Destination" => route_analysis_endpoint_options(),
-        "ForwardPath" => route_analysis_path(),
+      customer_gateway_association() :: %{
+        "CustomerGatewayArn" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
         "GlobalNetworkId" => String.t() | atom(),
-        "IncludeReturnPath" => boolean(),
-        "OwnerAccountId" => String.t() | atom(),
-        "ReturnPath" => route_analysis_path(),
-        "RouteAnalysisId" => String.t() | atom(),
-        "Source" => route_analysis_endpoint_options(),
-        "StartTimestamp" => non_neg_integer(),
-        "Status" => list(any()),
-        "UseMiddleboxes" => boolean()
+        "LinkId" => String.t() | atom(),
+        "State" => list(any())
       }
 
   """
-  @type route_analysis() :: %{(String.t() | atom()) => any()}
+  @type customer_gateway_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_network_resources_response() :: %{
-        "NetworkResources" => list(network_resource()),
+      put_resource_policy_request() :: %{
+        required("PolicyDocument") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_networks_response() :: %{
+        "CoreNetworks" => list(core_network_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_network_resources_response() :: %{(String.t() | atom()) => any()}
+  @type list_core_networks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_global_network_request() :: %{
-        optional("Description") => String.t() | atom()
+      bgp_options() :: %{
+        "PeerAsn" => float()
       }
 
   """
-  @type update_global_network_request() :: %{(String.t() | atom()) => any()}
+  @type bgp_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_connect_peer_associations_request() :: %{
-        optional("ConnectPeerIds") => list(String.t() | atom()),
+      get_site_to_site_vpn_attachment_request() :: %{}
+
+  """
+  @type get_site_to_site_vpn_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachment_routing_policy_associations_response() :: %{
+        "AttachmentRoutingPolicyAssociations" => list(attachment_routing_policy_association_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attachment_routing_policy_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_policy_versions_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_connect_peer_associations_request() :: %{(String.t() | atom()) => any()}
+  @type list_core_network_policy_versions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_global_network_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag())
+      get_vpc_attachment_response() :: %{
+        "VpcAttachment" => vpc_attachment()
       }
 
   """
-  @type create_global_network_request() :: %{(String.t() | atom()) => any()}
+  @type get_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_site_to_site_vpn_attachment_response() :: %{
-        "SiteToSiteVpnAttachment" => site_to_site_vpn_attachment()
+      network_resource() :: %{
+        "AccountId" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "Definition" => String.t() | atom(),
+        "DefinitionTimestamp" => non_neg_integer(),
+        "Metadata" => map(),
+        "RegisteredGatewayArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "Tags" => list(tag())
       }
 
   """
-  @type create_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type network_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connection_response() :: %{
+        "Connection" => connection()
+      }
+
+  """
+  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_global_networks_request() :: %{
+        optional("GlobalNetworkIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_global_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_analysis_endpoint_options() :: %{
+        "IpAddress" => String.t() | atom(),
+        "TransitGatewayArn" => String.t() | atom(),
+        "TransitGatewayAttachmentArn" => String.t() | atom()
+      }
+
+  """
+  @type route_analysis_endpoint_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_vpc_attachment_response() :: %{
+        "VpcAttachment" => vpc_attachment()
+      }
+
+  """
+  @type create_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_prefix_list_association_request() :: %{}
+
+  """
+  @type delete_core_network_prefix_list_association_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachments_response() :: %{
+        "Attachments" => list(attachment()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_attachments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_attachment_routing_policy_label_response() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "RoutingPolicyLabel" => String.t() | atom()
+      }
+
+  """
+  @type remove_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type get_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connect_attachment_response() :: %{
+        "ConnectAttachment" => connect_attachment()
+      }
+
+  """
+  @type create_connect_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_analysis_path() :: %{
+        "CompletionStatus" => route_analysis_completion(),
+        "Path" => list(path_component())
+      }
+
+  """
+  @type route_analysis_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_response() :: %{
+        "CoreNetwork" => core_network()
+      }
+
+  """
+  @type get_core_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_request() :: %{}
+
+  """
+  @type delete_core_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_peer_summary() :: %{
+        "ConnectAttachmentId" => String.t() | atom(),
+        "ConnectPeerId" => String.t() | atom(),
+        "ConnectPeerState" => list(any()),
+        "CoreNetworkId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "EdgeLocation" => String.t() | atom(),
+        "SubnetArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type connect_peer_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_change() :: %{
+        "Action" => list(any()),
+        "Identifier" => String.t() | atom(),
+        "IdentifierPath" => String.t() | atom(),
+        "NewValues" => core_network_change_values(),
+        "PreviousValues" => core_network_change_values(),
+        "Type" => list(any())
+      }
+
+  """
+  @type core_network_change() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_core_network_change_set_response() :: %{}
+
+  """
+  @type execute_core_network_change_set_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network() :: %{
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Edges" => list(core_network_edge()),
+        "GlobalNetworkId" => String.t() | atom(),
+        "NetworkFunctionGroups" => list(core_network_network_function_group()),
+        "Segments" => list(core_network_segment()),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type core_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_direct_connect_gateway_attachment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("DirectConnectGatewayArn") => String.t() | atom(),
+        required("EdgeLocations") => list(String.t() | atom())
+      }
+
+  """
+  @type create_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -469,40 +525,58 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      get_connect_peer_request() :: %{}
 
   """
-  @type untag_resource_response() :: %{}
+  @type get_connect_peer_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_device_request() :: %{
-        optional("AWSLocation") => aws_location(),
+      delete_peering_request() :: %{}
+
+  """
+  @type delete_peering_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("Location") => location(),
-        optional("Model") => String.t() | atom(),
-        optional("SerialNumber") => String.t() | atom(),
-        optional("SiteId") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
+        optional("Tags") => list(tag()),
         optional("Type") => String.t() | atom(),
-        optional("Vendor") => String.t() | atom()
+        required("Bandwidth") => bandwidth(),
+        required("SiteId") => String.t() | atom()
       }
 
   """
-  @type update_device_request() :: %{(String.t() | atom()) => any()}
+  @type create_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_core_network_change_events_response() :: %{
-        "CoreNetworkChangeEvents" => list(core_network_change_event()),
-        "NextToken" => String.t() | atom()
+      permissions_error_context() :: %{
+        "MissingPermission" => String.t() | atom()
       }
 
   """
-  @type get_core_network_change_events_response() :: %{(String.t() | atom()) => any()}
+  @type permissions_error_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_insertion_segments() :: %{
+        "SendTo" => list(String.t() | atom()),
+        "SendVia" => list(String.t() | atom())
+      }
+
+  """
+  @type service_insertion_segments() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -520,112 +594,778 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      get_network_resource_relationships_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Relationships" => list(relationship())
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type get_network_resource_relationships_response() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_core_network_prefix_list_association_request() :: %{
+      disassociate_connect_peer_request() :: %{}
+
+  """
+  @type disassociate_connect_peer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connect_peers_response() :: %{
+        "ConnectPeers" => list(connect_peer_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connect_peers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_transit_gateway_connect_peer_response() :: %{
+        "TransitGatewayConnectPeerAssociation" => transit_gateway_connect_peer_association()
+      }
+
+  """
+  @type disassociate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_change_event() :: %{
+        "Action" => list(any()),
+        "EventTime" => non_neg_integer(),
+        "IdentifierPath" => String.t() | atom(),
+        "Status" => list(any()),
+        "Type" => list(any()),
+        "Values" => core_network_change_event_values()
+      }
+
+  """
+  @type core_network_change_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_customer_gateway_response() :: %{
+        "CustomerGatewayAssociation" => customer_gateway_association()
+      }
+
+  """
+  @type associate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_resource_counts_response() :: %{
+        "NetworkResourceCounts" => list(network_resource_count()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_network_resource_counts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_attachments_request() :: %{
+        optional("AttachmentType") => list(any()),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("EdgeLocation") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_attachments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_core_network_change_set_request() :: %{}
+
+  """
+  @type execute_core_network_change_set_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_core_network_policy_version_response() :: %{
+        "CoreNetworkPolicy" => core_network_policy()
+      }
+
+  """
+  @type restore_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_request() :: %{
+        optional("Bandwidth") => bandwidth(),
+        optional("Description") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
+      }
+
+  """
+  @type update_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_core_network_policy_request() :: %{
         optional("ClientToken") => String.t() | atom(),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("PrefixListAlias") => String.t() | atom(),
-        required("PrefixListArn") => String.t() | atom()
+        optional("Description") => String.t() | atom(),
+        optional("LatestVersionId") => integer(),
+        required("PolicyDocument") => String.t() | atom()
       }
 
   """
-  @type create_core_network_prefix_list_association_request() :: %{(String.t() | atom()) => any()}
+  @type put_core_network_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      site_to_site_vpn_attachment() :: %{
-        "Attachment" => attachment(),
-        "VpnConnectionArn" => String.t() | atom()
-      }
-
-  """
-  @type site_to_site_vpn_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_attachment_request() :: %{}
-
-  """
-  @type accept_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      relationship() :: %{
-        "From" => String.t() | atom(),
-        "To" => String.t() | atom()
-      }
-
-  """
-  @type relationship() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_global_networks_response() :: %{
-        "GlobalNetworks" => list(global_network()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_global_networks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_telemetry_response() :: %{
-        "NetworkTelemetry" => list(network_telemetry()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_network_telemetry_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transit_gateway_connect_peer_association() :: %{
+      device() :: %{
+        "AWSLocation" => aws_location(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DeviceArn" => String.t() | atom(),
         "DeviceId" => String.t() | atom(),
         "GlobalNetworkId" => String.t() | atom(),
-        "LinkId" => String.t() | atom(),
+        "Location" => location(),
+        "Model" => String.t() | atom(),
+        "SerialNumber" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
         "State" => list(any()),
-        "TransitGatewayConnectPeerArn" => String.t() | atom()
+        "Tags" => list(tag()),
+        "Type" => String.t() | atom(),
+        "Vendor" => String.t() | atom()
       }
 
   """
-  @type transit_gateway_connect_peer_association() :: %{(String.t() | atom()) => any()}
+  @type device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_attachment_routing_policy_label_response() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "RoutingPolicyLabel" => String.t() | atom()
+      get_transit_gateway_registrations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TransitGatewayArns") => list(String.t() | atom())
       }
 
   """
-  @type remove_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
+  @type get_transit_gateway_registrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_location() :: %{
+        "SubnetArn" => String.t() | atom(),
+        "Zone" => String.t() | atom()
+      }
+
+  """
+  @type aws_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_vpc_attachment_request() :: %{}
+
+  """
+  @type get_vpc_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_policy_association_detail() :: %{
+        "RoutingPolicyNames" => list(String.t() | atom()),
+        "SharedSegments" => list(String.t() | atom())
+      }
+
+  """
+  @type routing_policy_association_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_prefix_list_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PrefixListAssociations" => list(prefix_list_association())
+      }
+
+  """
+  @type list_core_network_prefix_list_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_core_network_policy_version_request() :: %{}
+
+  """
+  @type restore_core_network_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_site_to_site_vpn_attachment_response() :: %{
+        "SiteToSiteVpnAttachment" => site_to_site_vpn_attachment()
+      }
+
+  """
+  @type create_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_telemetry() :: %{
+        "AccountId" => String.t() | atom(),
+        "Address" => String.t() | atom(),
+        "AwsRegion" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "Health" => connection_health(),
+        "RegisteredGatewayArn" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type network_telemetry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_connect_peer_response() :: %{
+        "ConnectPeerAssociation" => connect_peer_association()
+      }
+
+  """
+  @type associate_connect_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_attachment_request() :: %{
+        optional("AddSubnetArns") => list(String.t() | atom()),
+        optional("Options") => vpc_options(),
+        optional("RemoveSubnetArns") => list(String.t() | atom())
+      }
+
+  """
+  @type update_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_health() :: %{
+        "Status" => list(any()),
+        "Timestamp" => non_neg_integer(),
+        "Type" => list(any())
+      }
+
+  """
+  @type connection_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_transit_gateway_connect_peer_request() :: %{}
+
+  """
+  @type disassociate_transit_gateway_connect_peer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_route_analysis_request() :: %{
+        optional("IncludeReturnPath") => boolean(),
+        optional("UseMiddleboxes") => boolean(),
+        required("Destination") => route_analysis_endpoint_options_specification(),
+        required("Source") => route_analysis_endpoint_options_specification()
+      }
+
+  """
+  @type start_route_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prefix_list_association() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "PrefixListAlias" => String.t() | atom(),
+        "PrefixListArn" => String.t() | atom()
+      }
+
+  """
+  @type prefix_list_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_transit_gateway_response() :: %{
+        "TransitGatewayRegistration" => transit_gateway_registration()
+      }
+
+  """
+  @type register_transit_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type create_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_site_request() :: %{}
+
+  """
+  @type delete_site_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_direct_connect_gateway_attachment_request() :: %{}
+
+  """
+  @type get_direct_connect_gateway_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      peering() :: %{
+        "CoreNetworkArn" => String.t() | atom(),
+        "CoreNetworkId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "EdgeLocation" => String.t() | atom(),
+        "LastModificationErrors" => list(peering_error()),
+        "OwnerAccountId" => String.t() | atom(),
+        "PeeringId" => String.t() | atom(),
+        "PeeringType" => list(any()),
+        "ResourceArn" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type peering() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_link_associations_request() :: %{
+        optional("DeviceId") => String.t() | atom(),
+        optional("LinkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_link_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_networks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_core_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_route() :: %{
+        "DestinationCidrBlock" => String.t() | atom(),
+        "Destinations" => list(network_route_destination()),
+        "PrefixListId" => String.t() | atom(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type network_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_links_response() :: %{
+        "Links" => list(link()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_links_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sites_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sites" => list(site())
+      }
+
+  """
+  @type get_sites_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      via() :: %{
+        "NetworkFunctionGroups" => list(network_function_group()),
+        "WithEdgeOverrides" => list(edge_override())
+      }
+
+  """
+  @type via() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_attachment_response() :: %{
+        "Attachment" => attachment()
+      }
+
+  """
+  @type delete_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connect_peer_request() :: %{}
+
+  """
+  @type delete_connect_peer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Fields" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_policy_versions_response() :: %{
+        "CoreNetworkPolicyVersions" => list(core_network_policy_version()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_policy_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_attachment_routing_policy_label_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AttachmentId") => String.t() | atom(),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("RoutingPolicyLabel") => String.t() | atom()
+      }
+
+  """
+  @type put_attachment_routing_policy_label_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      direct_connect_gateway_attachment() :: %{
+        "Attachment" => attachment(),
+        "DirectConnectGatewayArn" => String.t() | atom()
+      }
+
+  """
+  @type direct_connect_gateway_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_analysis_endpoint_options_specification() :: %{
+        "IpAddress" => String.t() | atom(),
+        "TransitGatewayAttachmentArn" => String.t() | atom()
+      }
+
+  """
+  @type route_analysis_endpoint_options_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_vpc_attachment_response() :: %{
+        "VpcAttachment" => vpc_attachment()
+      }
+
+  """
+  @type update_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_change_set_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_core_network_change_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_prefix_list_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PrefixListArn") => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_prefix_list_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_link_response() :: %{
+        "LinkAssociation" => link_association()
+      }
+
+  """
+  @type disassociate_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_response() :: %{
+        "Link" => link()
+      }
+
+  """
+  @type delete_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_customer_gateway_associations_response() :: %{
+        "CustomerGatewayAssociations" => list(customer_gateway_association()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_customer_gateway_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_response() :: %{
+        "Connection" => connection()
+      }
+
+  """
+  @type update_connection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      site() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "Location" => location(),
+        "SiteArn" => String.t() | atom(),
+        "SiteId" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type site() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_route_analysis_response() :: %{
+        "RouteAnalysis" => route_analysis()
+      }
+
+  """
+  @type start_route_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_response() :: %{
+        "Site" => site()
+      }
+
+  """
+  @type update_site_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_association() :: %{
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkAssociationState" => list(any()),
+        "LinkId" => String.t() | atom()
+      }
+
+  """
+  @type link_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_customer_gateway_request() :: %{
+        optional("LinkId") => String.t() | atom(),
+        required("CustomerGatewayArn") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
+      }
+
+  """
+  @type associate_customer_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transit_gateway_route_table_attachment() :: %{
+        "Attachment" => attachment(),
+        "PeeringId" => String.t() | atom(),
+        "TransitGatewayRouteTableArn" => String.t() | atom()
+      }
+
+  """
+  @type transit_gateway_route_table_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connect_attachment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("EdgeLocation") => String.t() | atom(),
+        required("Options") => connect_attachment_options(),
+        required("TransportAttachmentId") => String.t() | atom()
+      }
+
+  """
+  @type create_connect_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_resources_response() :: %{
+        "NetworkResources" => list(network_resource()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_network_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_request() :: %{
+        optional("ConnectedLinkId") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LinkId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ConnectedDeviceId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
+      }
+
+  """
+  @type create_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -646,72 +1386,121 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      create_transit_gateway_route_table_attachment_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoutingPolicyLabel") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("PeeringId") => String.t() | atom(),
-        required("TransitGatewayRouteTableArn") => String.t() | atom()
+      get_link_associations_response() :: %{
+        "LinkAssociations" => list(link_association()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_transit_gateway_route_table_attachment_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_link_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_connections_request() :: %{
-        optional("ConnectionIds") => list(String.t() | atom()),
-        optional("DeviceId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_network_resource_relationships_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Relationships" => list(relationship())
       }
 
   """
-  @type get_connections_request() :: %{(String.t() | atom()) => any()}
+  @type get_network_resource_relationships_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_site_to_site_vpn_attachment_response() :: %{
-        "SiteToSiteVpnAttachment" => site_to_site_vpn_attachment()
+      connect_peer_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type get_site_to_site_vpn_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type connect_peer_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_insertion_action() :: %{
-        "Action" => list(any()),
-        "Mode" => list(any()),
-        "Via" => via(),
-        "WhenSentTo" => when_sent_to()
+      delete_connect_peer_response() :: %{
+        "ConnectPeer" => connect_peer()
       }
 
   """
-  @type service_insertion_action() :: %{(String.t() | atom()) => any()}
+  @type delete_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_site_to_site_vpn_attachment_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoutingPolicyLabel") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("VpnConnectionArn") => String.t() | atom()
+      network_resource_count() :: %{
+        "Count" => integer(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type create_site_to_site_vpn_attachment_request() :: %{(String.t() | atom()) => any()}
+  @type network_resource_count() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transit_gateway_registration() :: %{
+        "GlobalNetworkId" => String.t() | atom(),
+        "State" => transit_gateway_registration_state_reason(),
+        "TransitGatewayArn" => String.t() | atom()
+      }
+
+  """
+  @type transit_gateway_registration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_segment_edge_identifier() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "SegmentName" => String.t() | atom()
+      }
+
+  """
+  @type core_network_segment_edge_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connect_attachment_request() :: %{}
+
+  """
+  @type get_connect_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      relationship() :: %{
+        "From" => String.t() | atom(),
+        "To" => String.t() | atom()
+      }
+
+  """
+  @type relationship() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,45 +1521,101 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      proposed_network_function_group_change() :: %{
-        "AttachmentPolicyRuleNumber" => integer(),
-        "NetworkFunctionGroupName" => String.t() | atom(),
+      get_network_resources_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_network_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection() :: %{
+        "ConnectedDeviceId" => String.t() | atom(),
+        "ConnectedLinkId" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom(),
+        "ConnectionId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
+        "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type proposed_network_function_group_change() :: %{(String.t() | atom()) => any()}
+  @type connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      peering_error() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom(),
-        "MissingPermissionsContext" => permissions_error_context(),
-        "RequestId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
+      get_network_telemetry_response() :: %{
+        "NetworkTelemetry" => list(network_telemetry()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type peering_error() :: %{(String.t() | atom()) => any()}
+  @type get_network_telemetry_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      routing_information_next_hop() :: %{
-        "CoreNetworkAttachmentId" => String.t() | atom(),
-        "EdgeLocation" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SegmentName" => String.t() | atom()
+      get_network_resource_relationships_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
       }
 
   """
-  @type routing_information_next_hop() :: %{(String.t() | atom()) => any()}
+  @type get_network_resource_relationships_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connect_peer_response() :: %{
+        "ConnectPeer" => connect_peer()
+      }
+
+  """
+  @type create_connect_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_response() :: %{
+        "Link" => link()
+      }
+
+  """
+  @type create_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_request() :: %{}
+
+  """
+  @type get_core_network_request() :: %{}
 
   @typedoc """
 
@@ -804,45 +1649,501 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      delete_site_response() :: %{
-        "Site" => site()
+      account_status() :: %{
+        "AccountId" => String.t() | atom(),
+        "SLRDeploymentStatus" => String.t() | atom()
       }
 
   """
-  @type delete_site_response() :: %{(String.t() | atom()) => any()}
+  @type account_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_direct_connect_gateway_attachment_request() :: %{}
+      connect_attachment_options() :: %{
+        "Protocol" => list(any())
+      }
 
   """
-  @type get_direct_connect_gateway_attachment_request() :: %{}
+  @type connect_attachment_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      core_network_network_function_group_identifier() :: %{
+      resource_not_found_exception() :: %{
+        "Context" => map(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_routes_response() :: %{
+        "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
+        "NetworkRoutes" => list(network_route()),
+        "RouteTableArn" => String.t() | atom(),
+        "RouteTableTimestamp" => non_neg_integer(),
+        "RouteTableType" => list(any())
+      }
+
+  """
+  @type get_network_routes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_response() :: %{
+        "Device" => device()
+      }
+
+  """
+  @type update_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_attachment_routing_policy_label_response() :: %{
+        "AttachmentId" => String.t() | atom(),
         "CoreNetworkId" => String.t() | atom(),
-        "EdgeLocation" => String.t() | atom(),
-        "NetworkFunctionGroupName" => String.t() | atom()
+        "RoutingPolicyLabel" => String.t() | atom()
       }
 
   """
-  @type core_network_network_function_group_identifier() :: %{(String.t() | atom()) => any()}
+  @type put_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_policy_response() :: %{
-        "PolicyDocument" => String.t() | atom()
+      get_network_routes_request() :: %{
+        optional("DestinationFilters") => map(),
+        optional("ExactCidrMatches") => list(String.t() | atom()),
+        optional("LongestPrefixMatches") => list(String.t() | atom()),
+        optional("PrefixListIds") => list(String.t() | atom()),
+        optional("States") => list(list(any())()),
+        optional("SubnetOfMatches") => list(String.t() | atom()),
+        optional("SupernetOfMatches") => list(String.t() | atom()),
+        optional("Types") => list(list(any())()),
+        required("RouteTableIdentifier") => route_table_identifier()
       }
 
   """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+  @type get_network_routes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_peering_response() :: %{
+        "Peering" => peering()
+      }
+
+  """
+  @type delete_peering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_sites_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SiteIds") => list(String.t() | atom())
+      }
+
+  """
+  @type get_sites_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      site_to_site_vpn_attachment() :: %{
+        "Attachment" => attachment(),
+        "VpnConnectionArn" => String.t() | atom()
+      }
+
+  """
+  @type site_to_site_vpn_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_edge() :: %{
+        "Asn" => float(),
+        "EdgeLocation" => String.t() | atom(),
+        "InsideCidrBlocks" => list(String.t() | atom())
+      }
+
+  """
+  @type core_network_edge() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_transit_gateway_request() :: %{}
+
+  """
+  @type deregister_transit_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_transit_gateway_peering_response() :: %{
+        "TransitGatewayPeering" => transit_gateway_peering()
+      }
+
+  """
+  @type create_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_transit_gateway_request() :: %{
+        required("TransitGatewayArn") => String.t() | atom()
+      }
+
+  """
+  @type register_transit_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_direct_connect_gateway_attachment_request() :: %{
+        optional("EdgeLocations") => list(String.t() | atom())
+      }
+
+  """
+  @type update_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_global_network_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_global_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_core_network_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_core_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      global_network() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "GlobalNetworkArn" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => list(tag())
+      }
+
+  """
+  @type global_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_link_response() :: %{
+        "LinkAssociation" => link_association()
+      }
+
+  """
+  @type associate_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_customer_gateway_associations_request() :: %{
+        optional("CustomerGatewayArns") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_customer_gateway_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connect_peers_request() :: %{
+        optional("ConnectAttachmentId") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connect_peers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transit_gateway_registration_state_reason() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type transit_gateway_registration_state_reason() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_analysis_response() :: %{
+        "RouteAnalysis" => route_analysis()
+      }
+
+  """
+  @type get_route_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_policy_version() :: %{
+        "Alias" => list(any()),
+        "ChangeSetState" => list(any()),
+        "CoreNetworkId" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "PolicyVersionId" => integer()
+      }
+
+  """
+  @type core_network_policy_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connect_attachment_response() :: %{
+        "ConnectAttachment" => connect_attachment()
+      }
+
+  """
+  @type get_connect_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_connect_peer_request() :: %{
+        optional("LinkId") => String.t() | atom(),
+        required("ConnectPeerId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom()
+      }
+
+  """
+  @type associate_connect_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_route_destination() :: %{
+        "CoreNetworkAttachmentId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "SegmentName" => String.t() | atom(),
+        "TransitGatewayAttachmentId" => String.t() | atom()
+      }
+
+  """
+  @type network_route_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_network_prefix_list_association_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("PrefixListAlias") => String.t() | atom(),
+        required("PrefixListArn") => String.t() | atom()
+      }
+
+  """
+  @type create_core_network_prefix_list_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_direct_connect_gateway_attachment_response() :: %{
+        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      }
+
+  """
+  @type update_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_service_access_status_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_organization_service_access_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_response() :: %{
+        "Link" => link()
+      }
+
+  """
+  @type update_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_transit_gateway_connect_peer_request() :: %{
+        optional("LinkId") => String.t() | atom(),
+        required("DeviceId") => String.t() | atom(),
+        required("TransitGatewayConnectPeerArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_transit_gateway_connect_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_attachment_response() :: %{
+        "Attachment" => attachment()
+      }
+
+  """
+  @type reject_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_policy_response() :: %{
+        "CoreNetworkPolicy" => core_network_policy()
+      }
+
+  """
+  @type get_core_network_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_link_request() :: %{
+        required("DeviceId") => String.t() | atom(),
+        required("LinkId") => String.t() | atom()
+      }
+
+  """
+  @type associate_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_attachment_request() :: %{}
+
+  """
+  @type accept_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_customer_gateway_request() :: %{}
+
+  """
+  @type disassociate_customer_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bandwidth() :: %{
+        "DownloadSpeed" => integer(),
+        "UploadSpeed" => integer()
+      }
+
+  """
+  @type bandwidth() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -869,150 +2170,132 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      delete_device_request() :: %{}
+      connect_attachment() :: %{
+        "Attachment" => attachment(),
+        "Options" => connect_attachment_options(),
+        "TransportAttachmentId" => String.t() | atom()
+      }
 
   """
-  @type delete_device_request() :: %{}
+  @type connect_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_core_network_policy_request() :: %{
+      create_transit_gateway_peering_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CoreNetworkId") => String.t() | atom(),
+        required("TransitGatewayArn") => String.t() | atom()
+      }
+
+  """
+  @type create_transit_gateway_peering_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transit_gateway_connect_peer_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TransitGatewayConnectPeerAssociations" => list(transit_gateway_connect_peer_association())
+      }
+
+  """
+  @type get_transit_gateway_connect_peer_associations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      when_sent_to() :: %{
+        "WhenSentToSegmentsList" => list(String.t() | atom())
+      }
+
+  """
+  @type when_sent_to() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_attachment_response() :: %{
+        "Attachment" => attachment()
+      }
+
+  """
+  @type accept_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_core_network_response() :: %{
+        "CoreNetwork" => core_network()
+      }
+
+  """
+  @type create_core_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_site_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("LatestVersionId") => integer(),
-        required("PolicyDocument") => String.t() | atom()
+        optional("Location") => location()
       }
 
   """
-  @type put_core_network_policy_request() :: %{(String.t() | atom()) => any()}
+  @type update_site_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      network_route_destination() :: %{
-        "CoreNetworkAttachmentId" => String.t() | atom(),
-        "EdgeLocation" => String.t() | atom(),
-        "NetworkFunctionGroupName" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "SegmentName" => String.t() | atom(),
-        "TransitGatewayAttachmentId" => String.t() | atom()
+      get_resource_policy_response() :: %{
+        "PolicyDocument" => String.t() | atom()
       }
 
   """
-  @type network_route_destination() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_link_request() :: %{}
-
-  """
-  @type delete_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_peer_request() :: %{}
-
-  """
-  @type get_connect_peer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_vpc_attachment_request() :: %{
-        optional("AddSubnetArns") => list(String.t() | atom()),
-        optional("Options") => vpc_options(),
-        optional("RemoveSubnetArns") => list(String.t() | atom())
+      transit_gateway_peering() :: %{
+        "Peering" => peering(),
+        "TransitGatewayArn" => String.t() | atom(),
+        "TransitGatewayPeeringAttachmentId" => String.t() | atom()
       }
 
   """
-  @type update_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
+  @type transit_gateway_peering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_connect_peer_response() :: %{
-        "ConnectPeer" => connect_peer()
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type delete_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_global_networks_request() :: %{
-        optional("GlobalNetworkIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_global_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_analysis_path() :: %{
-        "CompletionStatus" => route_analysis_completion(),
-        "Path" => list(path_component())
-      }
-
-  """
-  @type route_analysis_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connections_response() :: %{
-        "Connections" => list(connection()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_connections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_routes_request() :: %{
-        optional("DestinationFilters") => map(),
-        optional("ExactCidrMatches") => list(String.t() | atom()),
-        optional("LongestPrefixMatches") => list(String.t() | atom()),
-        optional("PrefixListIds") => list(String.t() | atom()),
-        optional("States") => list(list(any())()),
-        optional("SubnetOfMatches") => list(String.t() | atom()),
-        optional("SupernetOfMatches") => list(String.t() | atom()),
-        optional("Types") => list(list(any())()),
-        required("RouteTableIdentifier") => route_table_identifier()
-      }
-
-  """
-  @type get_network_routes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_link_response() :: %{
-        "Link" => link()
-      }
-
-  """
-  @type create_link_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1029,273 +2312,124 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      permissions_error_context() :: %{
-        "MissingPermission" => String.t() | atom()
-      }
-
-  """
-  @type permissions_error_context() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_routes_response() :: %{
+      route_table_identifier() :: %{
+        "CoreNetworkNetworkFunctionGroup" => core_network_network_function_group_identifier(),
         "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
-        "NetworkRoutes" => list(network_route()),
-        "RouteTableArn" => String.t() | atom(),
-        "RouteTableTimestamp" => non_neg_integer(),
-        "RouteTableType" => list(any())
+        "TransitGatewayRouteTableArn" => String.t() | atom()
       }
 
   """
-  @type get_network_routes_response() :: %{(String.t() | atom()) => any()}
+  @type route_table_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_core_network_request() :: %{}
-
-  """
-  @type get_core_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      account_status() :: %{
-        "AccountId" => String.t() | atom(),
-        "SLRDeploymentStatus" => String.t() | atom()
+      core_network_policy_exception() :: %{
+        "Errors" => list(core_network_policy_error()),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type account_status() :: %{(String.t() | atom()) => any()}
+  @type core_network_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      register_transit_gateway_response() :: %{
-        "TransitGatewayRegistration" => transit_gateway_registration()
-      }
-
-  """
-  @type register_transit_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_core_network_change_set_request() :: %{}
-
-  """
-  @type execute_core_network_change_set_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_site_request() :: %{
+      update_connection_request() :: %{
+        optional("ConnectedLinkId") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        optional("Location") => location(),
-        optional("Tags") => list(tag())
+        optional("LinkId") => String.t() | atom()
       }
 
   """
-  @type create_site_request() :: %{(String.t() | atom()) => any()}
+  @type update_connection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_direct_connect_gateway_attachment_response() :: %{
-        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
-      }
+      delete_attachment_request() :: %{}
 
   """
-  @type get_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type delete_attachment_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      start_route_analysis_response() :: %{
-        "RouteAnalysis" => route_analysis()
+      disassociate_customer_gateway_response() :: %{
+        "CustomerGatewayAssociation" => customer_gateway_association()
       }
 
   """
-  @type start_route_analysis_response() :: %{(String.t() | atom()) => any()}
+  @type disassociate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_direct_connect_gateway_attachment_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoutingPolicyLabel") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("DirectConnectGatewayArn") => String.t() | atom(),
-        required("EdgeLocations") => list(String.t() | atom())
+      create_site_response() :: %{
+        "Site" => site()
       }
 
   """
-  @type create_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
+  @type create_site_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_organization_service_access_update_response() :: %{
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_attachment_request() :: %{}
+
+  """
+  @type reject_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      edge_override() :: %{
+        "EdgeSets" => list(list(String.t() | atom())()),
+        "UseEdge" => String.t() | atom()
+      }
+
+  """
+  @type edge_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_service_access_status_response() :: %{
+        "NextToken" => String.t() | atom(),
         "OrganizationStatus" => organization_status()
       }
 
   """
-  @type start_organization_service_access_update_response() :: %{(String.t() | atom()) => any()}
+  @type list_organization_service_access_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_transit_gateway_registrations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TransitGatewayArns") => list(String.t() | atom())
+      disassociate_link_request() :: %{
+        required("DeviceId") => String.t() | atom(),
+        required("LinkId") => String.t() | atom()
       }
 
   """
-  @type get_transit_gateway_registrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_organization_service_access_update_request() :: %{
-        required("Action") => String.t() | atom()
-      }
-
-  """
-  @type start_organization_service_access_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_peer_association() :: %{
-        "ConnectPeerId" => String.t() | atom(),
-        "DeviceId" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "LinkId" => String.t() | atom(),
-        "State" => list(any())
-      }
-
-  """
-  @type connect_peer_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_site_to_site_vpn_attachment_request() :: %{}
-
-  """
-  @type get_site_to_site_vpn_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_edge() :: %{
-        "Asn" => float(),
-        "EdgeLocation" => String.t() | atom(),
-        "InsideCidrBlocks" => list(String.t() | atom())
-      }
-
-  """
-  @type core_network_edge() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_analysis_request() :: %{}
-
-  """
-  @type get_route_analysis_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      link_association() :: %{
-        "DeviceId" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "LinkAssociationState" => list(any()),
-        "LinkId" => String.t() | atom()
-      }
-
-  """
-  @type link_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_analysis_endpoint_options() :: %{
-        "IpAddress" => String.t() | atom(),
-        "TransitGatewayArn" => String.t() | atom(),
-        "TransitGatewayAttachmentArn" => String.t() | atom()
-      }
-
-  """
-  @type route_analysis_endpoint_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connect_peer_response() :: %{
-        "ConnectPeer" => connect_peer()
-      }
-
-  """
-  @type create_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_attachment_request() :: %{}
-
-  """
-  @type get_connect_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_core_network_prefix_list_association_request() :: %{}
-
-  """
-  @type delete_core_network_prefix_list_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connect_attachment_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("RoutingPolicyLabel") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("EdgeLocation") => String.t() | atom(),
-        required("Options") => connect_attachment_options(),
-        required("TransportAttachmentId") => String.t() | atom()
-      }
-
-  """
-  @type create_connect_attachment_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1320,114 +2454,54 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      connect_peer_error() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
+      list_peerings_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Peerings" => list(peering())
       }
 
   """
-  @type connect_peer_error() :: %{(String.t() | atom()) => any()}
+  @type list_peerings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_connect_peer_request() :: %{}
-
-  """
-  @type disassociate_connect_peer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_peerings_request() :: %{
-        optional("CoreNetworkId") => String.t() | atom(),
-        optional("EdgeLocation") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PeeringType") => list(any()),
-        optional("State") => list(any())
+      proposed_network_function_group_change() :: %{
+        "AttachmentPolicyRuleNumber" => integer(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "Tags" => list(tag())
       }
 
   """
-  @type list_peerings_request() :: %{(String.t() | atom()) => any()}
+  @type proposed_network_function_group_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_link_request() :: %{
-        required("DeviceId") => String.t() | atom(),
-        required("LinkId") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_response() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type update_site_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      when_sent_to() :: %{
-        "WhenSentToSegmentsList" => list(String.t() | atom())
-      }
-
-  """
-  @type when_sent_to() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_transit_gateway_peering_request() :: %{
+      create_site_to_site_vpn_attachment_request() :: %{
         optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
         optional("Tags") => list(tag()),
         required("CoreNetworkId") => String.t() | atom(),
-        required("TransitGatewayArn") => String.t() | atom()
+        required("VpnConnectionArn") => String.t() | atom()
       }
 
   """
-  @type create_transit_gateway_peering_request() :: %{(String.t() | atom()) => any()}
+  @type create_site_to_site_vpn_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_customer_gateway_request() :: %{
-        optional("LinkId") => String.t() | atom(),
-        required("CustomerGatewayArn") => String.t() | atom(),
-        required("DeviceId") => String.t() | atom()
+      route_analysis_completion() :: %{
+        "ReasonCode" => list(any()),
+        "ReasonContext" => map(),
+        "ResultCode" => list(any())
       }
 
   """
-  @type associate_customer_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_transit_gateway_route_table_attachment_response() :: %{
-        "TransitGatewayRouteTableAttachment" => transit_gateway_route_table_attachment()
-      }
-
-  """
-  @type create_transit_gateway_route_table_attachment_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type route_analysis_completion() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1460,217 +2534,72 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      disassociate_connect_peer_response() :: %{
-        "ConnectPeerAssociation" => connect_peer_association()
+      proposed_segment_change() :: %{
+        "AttachmentPolicyRuleNumber" => integer(),
+        "SegmentName" => String.t() | atom(),
+        "Tags" => list(tag())
       }
 
   """
-  @type disassociate_connect_peer_response() :: %{(String.t() | atom()) => any()}
+  @type proposed_segment_change() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_core_network_prefix_list_associations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PrefixListArn") => String.t() | atom()
-      }
-
-  """
-  @type list_core_network_prefix_list_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_resources_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AwsRegion") => String.t() | atom(),
-        optional("CoreNetworkId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegisteredGatewayArn") => String.t() | atom(),
-        optional("ResourceArn") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type get_network_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attachment_routing_policy_associations_request() :: %{
-        optional("AttachmentId") => String.t() | atom(),
+      get_connect_peer_associations_request() :: %{
+        optional("ConnectPeerIds") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_attachment_routing_policy_associations_request() :: %{(String.t() | atom()) => any()}
+  @type get_connect_peer_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_link_associations_request() :: %{
-        optional("DeviceId") => String.t() | atom(),
-        optional("LinkId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      get_connections_response() :: %{
+        "Connections" => list(connection()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_link_associations_request() :: %{(String.t() | atom()) => any()}
+  @type get_connections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_core_network_response() :: %{
-        "CoreNetwork" => core_network()
+      put_resource_policy_response() :: %{}
+
+  """
+  @type put_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_global_network_response() :: %{
+        "GlobalNetwork" => global_network()
       }
 
   """
-  @type create_core_network_response() :: %{(String.t() | atom()) => any()}
+  @type create_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_core_network_policy_response() :: %{
-        "CoreNetworkPolicy" => core_network_policy()
+      core_network_network_function_group() :: %{
+        "EdgeLocations" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "Segments" => service_insertion_segments()
       }
 
   """
-  @type put_core_network_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_link_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Provider") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("Type") => String.t() | atom(),
-        required("Bandwidth") => bandwidth(),
-        required("SiteId") => String.t() | atom()
-      }
-
-  """
-  @type create_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_connect_peer_response() :: %{
-        "ConnectPeerAssociation" => connect_peer_association()
-      }
-
-  """
-  @type associate_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_route() :: %{
-        "DestinationCidrBlock" => String.t() | atom(),
-        "Destinations" => list(network_route_destination()),
-        "PrefixListId" => String.t() | atom(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type network_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_core_network_change_set_response() :: %{}
-
-  """
-  @type execute_core_network_change_set_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Context" => map(),
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bgp_options() :: %{
-        "PeerAsn" => float()
-      }
-
-  """
-  @type bgp_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_attachment_response() :: %{
-        "Attachment" => attachment()
-      }
-
-  """
-  @type reject_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_analysis_completion() :: %{
-        "ReasonCode" => list(any()),
-        "ReasonContext" => map(),
-        "ResultCode" => list(any())
-      }
-
-  """
-  @type route_analysis_completion() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type core_network_network_function_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1692,132 +2621,13 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      connection() :: %{
-        "ConnectedDeviceId" => String.t() | atom(),
-        "ConnectedLinkId" => String.t() | atom(),
-        "ConnectionArn" => String.t() | atom(),
-        "ConnectionId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DeviceId" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "LinkId" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_resource_metadata_request() :: %{
-        required("Metadata") => map()
-      }
-
-  """
-  @type update_network_resource_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_core_network_policy_version_response() :: %{
-        "CoreNetworkPolicy" => core_network_policy()
-      }
-
-  """
-  @type restore_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_attachment_request() :: %{}
-
-  """
-  @type delete_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "LimitCode" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_sites_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SiteIds") => list(String.t() | atom())
-      }
-
-  """
-  @type get_sites_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_attachment_response() :: %{
-        "ConnectAttachment" => connect_attachment()
-      }
-
-  """
-  @type get_connect_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attachment_routing_policy_association_summary() :: %{
-        "AssociatedRoutingPolicies" => list(String.t() | atom()),
-        "AttachmentId" => String.t() | atom(),
-        "PendingRoutingPolicies" => list(String.t() | atom()),
-        "RoutingPolicyLabel" => String.t() | atom()
-      }
-
-  """
-  @type attachment_routing_policy_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_peer_bgp_configuration() :: %{
-        "CoreNetworkAddress" => String.t() | atom(),
-        "CoreNetworkAsn" => float(),
-        "PeerAddress" => String.t() | atom(),
-        "PeerAsn" => float()
-      }
-
-  """
-  @type connect_peer_bgp_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_peer_associations_response() :: %{
-        "ConnectPeerAssociations" => list(connect_peer_association()),
+      describe_global_networks_response() :: %{
+        "GlobalNetworks" => list(global_network()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type get_connect_peer_associations_response() :: %{(String.t() | atom()) => any()}
+  @type describe_global_networks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1832,133 +2642,128 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      peering() :: %{
-        "CoreNetworkArn" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t() | atom(),
-        "LastModificationErrors" => list(peering_error()),
-        "OwnerAccountId" => String.t() | atom(),
-        "PeeringId" => String.t() | atom(),
-        "PeeringType" => list(any()),
-        "ResourceArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => list(tag())
+      create_connection_response() :: %{
+        "Connection" => connection()
       }
 
   """
-  @type peering() :: %{(String.t() | atom()) => any()}
+  @type create_connection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_organization_service_access_status_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "OrganizationStatus" => organization_status()
+      get_connect_peer_response() :: %{
+        "ConnectPeer" => connect_peer()
       }
 
   """
-  @type list_organization_service_access_status_response() :: %{(String.t() | atom()) => any()}
+  @type get_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_vpc_attachment_response() :: %{
-        "VpcAttachment" => vpc_attachment()
+      get_links_request() :: %{
+        optional("LinkIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Provider") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
+        optional("Type") => String.t() | atom()
       }
 
   """
-  @type update_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type get_links_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      customer_gateway_association() :: %{
-        "CustomerGatewayArn" => String.t() | atom(),
-        "DeviceId" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "LinkId" => String.t() | atom(),
-        "State" => list(any())
+      delete_global_network_response() :: %{
+        "GlobalNetwork" => global_network()
       }
 
   """
-  @type customer_gateway_association() :: %{(String.t() | atom()) => any()}
+  @type delete_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attachment_error() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
+      delete_resource_policy_response() :: %{}
 
   """
-  @type attachment_error() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_core_network_prefix_list_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PrefixListAssociations" => list(prefix_list_association())
+      list_tags_for_resource_response() :: %{
+        "TagList" => list(tag())
       }
 
   """
-  @type list_core_network_prefix_list_associations_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_site_request() :: %{}
+      create_transit_gateway_route_table_attachment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("RoutingPolicyLabel") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("PeeringId") => String.t() | atom(),
+        required("TransitGatewayRouteTableArn") => String.t() | atom()
+      }
 
   """
-  @type delete_site_request() :: %{}
+  @type create_transit_gateway_route_table_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      site() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "Location" => location(),
-        "SiteArn" => String.t() | atom(),
-        "SiteId" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => list(tag())
-      }
+      delete_connection_request() :: %{}
 
   """
-  @type site() :: %{(String.t() | atom()) => any()}
+  @type delete_connection_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      core_network() :: %{
-        "CoreNetworkArn" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Edges" => list(core_network_edge()),
-        "GlobalNetworkId" => String.t() | atom(),
-        "NetworkFunctionGroups" => list(core_network_network_function_group()),
-        "Segments" => list(core_network_segment()),
-        "State" => list(any()),
-        "Tags" => list(tag())
+      create_connect_peer_request() :: %{
+        optional("BgpOptions") => bgp_options(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("CoreNetworkAddress") => String.t() | atom(),
+        optional("InsideCidrBlocks") => list(String.t() | atom()),
+        optional("SubnetArn") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ConnectAttachmentId") => String.t() | atom(),
+        required("PeerAddress") => String.t() | atom()
       }
 
   """
-  @type core_network() :: %{(String.t() | atom()) => any()}
+  @type create_connect_peer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_devices_request() :: %{
+        optional("DeviceIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom()
+      }
+
+  """
+  @type get_devices_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1980,134 +2785,103 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      list_attachment_routing_policy_associations_response() :: %{
-        "AttachmentRoutingPolicyAssociations" => list(attachment_routing_policy_association_summary()),
-        "NextToken" => String.t() | atom()
+      delete_device_response() :: %{
+        "Device" => device()
       }
 
   """
-  @type list_attachment_routing_policy_associations_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type delete_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      transit_gateway_registration() :: %{
-        "GlobalNetworkId" => String.t() | atom(),
-        "State" => transit_gateway_registration_state_reason(),
-        "TransitGatewayArn" => String.t() | atom()
-      }
+      get_transit_gateway_route_table_attachment_request() :: %{}
 
   """
-  @type transit_gateway_registration() :: %{(String.t() | atom()) => any()}
+  @type get_transit_gateway_route_table_attachment_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "TagList" => list(tag())
+      update_device_request() :: %{
+        optional("AWSLocation") => aws_location(),
+        optional("Description") => String.t() | atom(),
+        optional("Location") => location(),
+        optional("Model") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
+        optional("Type") => String.t() | atom(),
+        optional("Vendor") => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+  @type update_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_connect_peers_request() :: %{
-        optional("ConnectAttachmentId") => String.t() | atom(),
-        optional("CoreNetworkId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      update_global_network_response() :: %{
+        "GlobalNetwork" => global_network()
       }
 
   """
-  @type list_connect_peers_request() :: %{(String.t() | atom()) => any()}
+  @type update_global_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_core_network_policy_version_response() :: %{
+      put_core_network_policy_response() :: %{
         "CoreNetworkPolicy" => core_network_policy()
       }
 
   """
-  @type delete_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
+  @type put_core_network_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_connection_response() :: %{
-        "Connection" => connection()
+      create_site_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Location") => location(),
+        optional("Tags") => list(tag())
       }
 
   """
-  @type update_connection_response() :: %{(String.t() | atom()) => any()}
+  @type create_site_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      core_network_change() :: %{
-        "Action" => list(any()),
-        "Identifier" => String.t() | atom(),
-        "IdentifierPath" => String.t() | atom(),
-        "NewValues" => core_network_change_values(),
-        "PreviousValues" => core_network_change_values(),
-        "Type" => list(any())
-      }
-
-  """
-  @type core_network_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_transit_gateway_request() :: %{}
-
-  """
-  @type deregister_transit_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_direct_connect_gateway_attachment_response() :: %{
-        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
-      }
-
-  """
-  @type update_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "Message" => String.t() | atom(),
+      network_function_group() :: %{
         "Name" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type network_function_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_link_response() :: %{
-        "Link" => link()
-      }
+      delete_global_network_request() :: %{}
 
   """
-  @type update_link_response() :: %{(String.t() | atom()) => any()}
+  @type delete_global_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_core_network_policy_version_request() :: %{}
+
+  """
+  @type delete_core_network_policy_version_request() :: %{}
 
   @typedoc """
 
@@ -2126,189 +2900,84 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      get_connect_peer_response() :: %{
-        "ConnectPeer" => connect_peer()
-      }
-
-  """
-  @type get_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_networks_response() :: %{
-        "CoreNetworks" => list(core_network_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_core_networks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_peer_summary() :: %{
-        "ConnectAttachmentId" => String.t() | atom(),
-        "ConnectPeerId" => String.t() | atom(),
-        "ConnectPeerState" => list(any()),
+      core_network_summary() :: %{
+        "CoreNetworkArn" => String.t() | atom(),
         "CoreNetworkId" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "EdgeLocation" => String.t() | atom(),
-        "SubnetArn" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type connect_peer_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_request() :: %{}
-
-  """
-  @type get_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_global_network_response() :: %{
-        "GlobalNetwork" => global_network()
-      }
-
-  """
-  @type delete_global_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attachments_request() :: %{
-        optional("AttachmentType") => list(any()),
-        optional("CoreNetworkId") => String.t() | atom(),
-        optional("EdgeLocation") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_attachments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_policy_exception() :: %{
-        "Errors" => list(core_network_policy_error()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type core_network_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restore_core_network_policy_version_request() :: %{}
-
-  """
-  @type restore_core_network_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      global_network() :: %{
-        "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
-        "GlobalNetworkArn" => String.t() | atom(),
         "GlobalNetworkId" => String.t() | atom(),
+        "OwnerAccountId" => String.t() | atom(),
         "State" => list(any()),
         "Tags" => list(tag())
       }
 
   """
-  @type global_network() :: %{(String.t() | atom()) => any()}
+  @type core_network_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_device_response() :: %{
-        "Device" => device()
+      get_transit_gateway_registrations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TransitGatewayRegistrations" => list(transit_gateway_registration())
       }
 
   """
-  @type delete_device_response() :: %{(String.t() | atom()) => any()}
+  @type get_transit_gateway_registrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_links_response() :: %{
-        "Links" => list(link()),
-        "NextToken" => String.t() | atom()
+      transit_gateway_connect_peer_association() :: %{
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
+        "State" => list(any()),
+        "TransitGatewayConnectPeerArn" => String.t() | atom()
       }
 
   """
-  @type get_links_response() :: %{(String.t() | atom()) => any()}
+  @type transit_gateway_connect_peer_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
+      update_network_resource_metadata_response() :: %{
+        "Metadata" => map(),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type update_network_resource_metadata_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_direct_connect_gateway_attachment_response() :: %{
-        "DirectConnectGatewayAttachment" => direct_connect_gateway_attachment()
+      create_transit_gateway_route_table_attachment_response() :: %{
+        "TransitGatewayRouteTableAttachment" => transit_gateway_route_table_attachment()
       }
 
   """
-  @type create_direct_connect_gateway_attachment_response() :: %{(String.t() | atom()) => any()}
+  @type create_transit_gateway_route_table_attachment_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      create_vpc_attachment_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Options") => vpc_options(),
-        optional("RoutingPolicyLabel") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CoreNetworkId") => String.t() | atom(),
-        required("SubnetArns") => list(String.t() | atom()),
-        required("VpcArn") => String.t() | atom()
+      get_connections_request() :: %{
+        optional("ConnectionIds") => list(String.t() | atom()),
+        optional("DeviceId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type create_vpc_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_function_group() :: %{
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type network_function_group() :: %{(String.t() | atom()) => any()}
+  @type get_connections_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2323,6 +2992,122 @@ defmodule AWS.NetworkManager do
   @type delete_core_network_prefix_list_association_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      create_global_network_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_global_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_core_network_routing_information_response() :: %{
+        "CoreNetworkRoutingInformation" => list(core_network_routing_information()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_core_network_routing_information_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_route_analysis_request() :: %{}
+
+  """
+  @type get_route_analysis_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_policy_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Path" => String.t() | atom()
+      }
+
+  """
+  @type core_network_policy_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_segment() :: %{
+        "EdgeLocations" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "SharedSegments" => list(String.t() | atom())
+      }
+
+  """
+  @type core_network_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_transit_gateway_route_table_attachment_response() :: %{
+        "TransitGatewayRouteTableAttachment" => transit_gateway_route_table_attachment()
+      }
+
+  """
+  @type get_transit_gateway_route_table_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_resource_metadata_request() :: %{
+        required("Metadata") => map()
+      }
+
+  """
+  @type update_network_resource_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_connect_peer_response() :: %{
+        "ConnectPeerAssociation" => connect_peer_association()
+      }
+
+  """
+  @type disassociate_connect_peer_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_core_network_change_events_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_core_network_change_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_devices_response() :: %{
+        "Devices" => list(device()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2346,750 +3131,17 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      register_transit_gateway_request() :: %{
-        required("TransitGatewayArn") => String.t() | atom()
-      }
-
-  """
-  @type register_transit_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_site_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Location") => location()
-      }
-
-  """
-  @type update_site_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_connect_peer_request() :: %{
-        optional("LinkId") => String.t() | atom(),
-        required("ConnectPeerId") => String.t() | atom(),
-        required("DeviceId") => String.t() | atom()
-      }
-
-  """
-  @type associate_connect_peer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connect_peer_request() :: %{}
-
-  """
-  @type delete_connect_peer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_link_associations_response() :: %{
-        "LinkAssociations" => list(link_association()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_link_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transit_gateway_route_table_attachment() :: %{
-        "Attachment" => attachment(),
-        "PeeringId" => String.t() | atom(),
-        "TransitGatewayRouteTableArn" => String.t() | atom()
-      }
-
-  """
-  @type transit_gateway_route_table_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_device_request() :: %{
-        optional("AWSLocation") => aws_location(),
-        optional("Description") => String.t() | atom(),
-        optional("Location") => location(),
-        optional("Model") => String.t() | atom(),
-        optional("SerialNumber") => String.t() | atom(),
-        optional("SiteId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("Type") => String.t() | atom(),
-        optional("Vendor") => String.t() | atom()
-      }
-
-  """
-  @type create_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_customer_gateway_response() :: %{
-        "CustomerGatewayAssociation" => customer_gateway_association()
-      }
-
-  """
-  @type disassociate_customer_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_direct_connect_gateway_attachment_request() :: %{
-        optional("EdgeLocations") => list(String.t() | atom())
-      }
-
-  """
-  @type update_direct_connect_gateway_attachment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_peering_response() :: %{
-        "Peering" => peering()
-      }
-
-  """
-  @type delete_peering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_vpc_attachment_response() :: %{
-        "VpcAttachment" => vpc_attachment()
-      }
-
-  """
-  @type create_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_request() :: %{
-        required("PolicyDocument") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      direct_connect_gateway_attachment() :: %{
-        "Attachment" => attachment(),
-        "DirectConnectGatewayArn" => String.t() | atom()
-      }
-
-  """
-  @type direct_connect_gateway_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_peering_response() :: %{
-        "TransitGatewayPeering" => transit_gateway_peering()
-      }
-
-  """
-  @type get_transit_gateway_peering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_change_event_values() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "Cidr" => String.t() | atom(),
-        "EdgeLocation" => String.t() | atom(),
-        "NetworkFunctionGroupName" => String.t() | atom(),
-        "PeerEdgeLocation" => String.t() | atom(),
-        "RoutingPolicyAssociationDetails" => list(routing_policy_association_detail()),
-        "RoutingPolicyDirection" => list(any()),
-        "SegmentName" => String.t() | atom()
-      }
-
-  """
-  @type core_network_change_event_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_route_table_attachment_request() :: %{}
-
-  """
-  @type get_transit_gateway_route_table_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_core_network_request() :: %{}
-
-  """
-  @type delete_core_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_global_network_request() :: %{}
-
-  """
-  @type delete_global_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_networks_request() :: %{
+      list_peerings_request() :: %{
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("EdgeLocation") => String.t() | atom(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("NextToken") => String.t() | atom(),
+        optional("PeeringType") => list(any()),
+        optional("State") => list(any())
       }
 
   """
-  @type list_core_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_devices_response() :: %{
-        "Devices" => list(device()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_resource_count() :: %{
-        "Count" => integer(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type network_resource_count() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_global_network_response() :: %{
-        "GlobalNetwork" => global_network()
-      }
-
-  """
-  @type create_global_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_link_response() :: %{
-        "LinkAssociation" => link_association()
-      }
-
-  """
-  @type disassociate_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bandwidth() :: %{
-        "DownloadSpeed" => integer(),
-        "UploadSpeed" => integer()
-      }
-
-  """
-  @type bandwidth() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connect_attachment_response() :: %{
-        "ConnectAttachment" => connect_attachment()
-      }
-
-  """
-  @type create_connect_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_transit_gateway_connect_peer_response() :: %{
-        "TransitGatewayConnectPeerAssociation" => transit_gateway_connect_peer_association()
-      }
-
-  """
-  @type associate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connect_attachment() :: %{
-        "Attachment" => attachment(),
-        "Options" => connect_attachment_options(),
-        "TransportAttachmentId" => String.t() | atom()
-      }
-
-  """
-  @type connect_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_transit_gateway_connect_peer_response() :: %{
-        "TransitGatewayConnectPeerAssociation" => transit_gateway_connect_peer_association()
-      }
-
-  """
-  @type disassociate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_attachment_response() :: %{
-        "Attachment" => attachment()
-      }
-
-  """
-  @type accept_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_policy_association_detail() :: %{
-        "RoutingPolicyNames" => list(String.t() | atom()),
-        "SharedSegments" => list(String.t() | atom())
-      }
-
-  """
-  @type routing_policy_association_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_policy_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Path" => String.t() | atom()
-      }
-
-  """
-  @type core_network_policy_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connection_response() :: %{
-        "Connection" => connection()
-      }
-
-  """
-  @type delete_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_route_table_attachment_response() :: %{
-        "TransitGatewayRouteTableAttachment" => transit_gateway_route_table_attachment()
-      }
-
-  """
-  @type get_transit_gateway_route_table_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_segment() :: %{
-        "EdgeLocations" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "SharedSegments" => list(String.t() | atom())
-      }
-
-  """
-  @type core_network_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_network_change_events_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_core_network_change_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proposed_segment_change() :: %{
-        "AttachmentPolicyRuleNumber" => integer(),
-        "SegmentName" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type proposed_segment_change() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_attachment_request() :: %{}
-
-  """
-  @type reject_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      transit_gateway_registration_state_reason() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type transit_gateway_registration_state_reason() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_network_function_group() :: %{
-        "EdgeLocations" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "Segments" => service_insertion_segments()
-      }
-
-  """
-  @type core_network_network_function_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_customer_gateway_associations_request() :: %{
-        optional("CustomerGatewayArns") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_customer_gateway_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_core_network_routing_information_response() :: %{
-        "CoreNetworkRoutingInformation" => list(core_network_routing_information()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_core_network_routing_information_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_global_network_response() :: %{
-        "GlobalNetwork" => global_network()
-      }
-
-  """
-  @type update_global_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_customer_gateway_associations_response() :: %{
-        "CustomerGatewayAssociations" => list(customer_gateway_association()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type get_customer_gateway_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_options() :: %{
-        "ApplianceModeSupport" => boolean(),
-        "DnsSupport" => boolean(),
-        "Ipv6Support" => boolean(),
-        "SecurityGroupReferencingSupport" => boolean()
-      }
-
-  """
-  @type vpc_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_resource() :: %{
-        "AccountId" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "Definition" => String.t() | atom(),
-        "DefinitionTimestamp" => non_neg_integer(),
-        "Metadata" => map(),
-        "RegisteredGatewayArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-
-  """
-  @type network_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{}
-
-  """
-  @type put_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      route_table_identifier() :: %{
-        "CoreNetworkNetworkFunctionGroup" => core_network_network_function_group_identifier(),
-        "CoreNetworkSegmentEdge" => core_network_segment_edge_identifier(),
-        "TransitGatewayRouteTableArn" => String.t() | atom()
-      }
-
-  """
-  @type route_table_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_telemetry() :: %{
-        "AccountId" => String.t() | atom(),
-        "Address" => String.t() | atom(),
-        "AwsRegion" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "Health" => connection_health(),
-        "RegisteredGatewayArn" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type network_telemetry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_route_analysis_request() :: %{
-        optional("IncludeReturnPath") => boolean(),
-        optional("UseMiddleboxes") => boolean(),
-        required("Destination") => route_analysis_endpoint_options_specification(),
-        required("Source") => route_analysis_endpoint_options_specification()
-      }
-
-  """
-  @type start_route_analysis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connection_response() :: %{
-        "Connection" => connection()
-      }
-
-  """
-  @type create_connection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_attachment_routing_policy_label_response() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "RoutingPolicyLabel" => String.t() | atom()
-      }
-
-  """
-  @type put_attachment_routing_policy_label_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_transit_gateway_connect_peer_request() :: %{
-        optional("LinkId") => String.t() | atom(),
-        required("DeviceId") => String.t() | atom(),
-        required("TransitGatewayConnectPeerArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_transit_gateway_connect_peer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_segment_edge_identifier() :: %{
-        "CoreNetworkId" => String.t() | atom(),
-        "EdgeLocation" => String.t() | atom(),
-        "SegmentName" => String.t() | atom()
-      }
-
-  """
-  @type core_network_segment_edge_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_core_network_prefix_list_association_response() :: %{
-        "CoreNetworkId" => String.t() | atom(),
-        "PrefixListAlias" => String.t() | atom(),
-        "PrefixListArn" => String.t() | atom()
-      }
-
-  """
-  @type create_core_network_prefix_list_association_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_request() :: %{}
-
-  """
-  @type delete_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_network_change_set_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_core_network_change_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prefix_list_association() :: %{
-        "CoreNetworkId" => String.t() | atom(),
-        "PrefixListAlias" => String.t() | atom(),
-        "PrefixListArn" => String.t() | atom()
-      }
-
-  """
-  @type prefix_list_association() :: %{(String.t() | atom()) => any()}
+  @type list_peerings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3115,228 +3167,201 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      connection_health() :: %{
-        "Status" => list(any()),
-        "Timestamp" => non_neg_integer(),
-        "Type" => list(any())
+      vpc_options() :: %{
+        "ApplianceModeSupport" => boolean(),
+        "DnsSupport" => boolean(),
+        "Ipv6Support" => boolean(),
+        "SecurityGroupReferencingSupport" => boolean()
       }
 
   """
-  @type connection_health() :: %{(String.t() | atom()) => any()}
+  @type vpc_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_links_request() :: %{
-        optional("LinkIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Provider") => String.t() | atom(),
-        optional("SiteId") => String.t() | atom(),
-        optional("Type") => String.t() | atom()
-      }
+      delete_link_request() :: %{}
 
   """
-  @type get_links_request() :: %{(String.t() | atom()) => any()}
+  @type delete_link_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      update_network_resource_metadata_response() :: %{
-        "Metadata" => map(),
+      create_core_network_prefix_list_association_response() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "PrefixListAlias" => String.t() | atom(),
+        "PrefixListArn" => String.t() | atom()
+      }
+
+  """
+  @type create_core_network_prefix_list_association_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_response() :: %{
+        "Device" => device()
+      }
+
+  """
+  @type create_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_organization_service_access_update_request() :: %{
+        required("Action") => String.t() | atom()
+      }
+
+  """
+  @type start_organization_service_access_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_organization_service_access_update_response() :: %{
+        "OrganizationStatus" => organization_status()
+      }
+
+  """
+  @type start_organization_service_access_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attachment_routing_policy_association_summary() :: %{
+        "AssociatedRoutingPolicies" => list(String.t() | atom()),
+        "AttachmentId" => String.t() | atom(),
+        "PendingRoutingPolicies" => list(String.t() | atom()),
+        "RoutingPolicyLabel" => String.t() | atom()
+      }
+
+  """
+  @type attachment_routing_policy_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connect_peer_associations_response() :: %{
+        "ConnectPeerAssociations" => list(connect_peer_association()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type get_connect_peer_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_peer_association() :: %{
+        "ConnectPeerId" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "GlobalNetworkId" => String.t() | atom(),
+        "LinkId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type connect_peer_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      path_component() :: %{
+        "DestinationCidrBlock" => String.t() | atom(),
+        "Resource" => network_resource_summary(),
+        "Sequence" => integer()
+      }
+
+  """
+  @type path_component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      peering_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom(),
+        "MissingPermissionsContext" => permissions_error_context(),
+        "RequestId" => String.t() | atom(),
         "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type update_network_resource_metadata_response() :: %{(String.t() | atom()) => any()}
+  @type peering_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      aws_location() :: %{
-        "SubnetArn" => String.t() | atom(),
-        "Zone" => String.t() | atom()
-      }
-
-  """
-  @type aws_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_service_access_status_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_organization_service_access_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device() :: %{
-        "AWSLocation" => aws_location(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DeviceArn" => String.t() | atom(),
-        "DeviceId" => String.t() | atom(),
-        "GlobalNetworkId" => String.t() | atom(),
-        "Location" => location(),
-        "Model" => String.t() | atom(),
-        "SerialNumber" => String.t() | atom(),
-        "SiteId" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => list(tag()),
-        "Type" => String.t() | atom(),
-        "Vendor" => String.t() | atom()
-      }
-
-  """
-  @type device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_change_event() :: %{
-        "Action" => list(any()),
-        "EventTime" => non_neg_integer(),
-        "IdentifierPath" => String.t() | atom(),
-        "Status" => list(any()),
-        "Type" => list(any()),
-        "Values" => core_network_change_event_values()
-      }
-
-  """
-  @type core_network_change_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_attachment_request() :: %{}
-
-  """
-  @type get_vpc_attachment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_core_network_response() :: %{
+      delete_core_network_response() :: %{
         "CoreNetwork" => core_network()
       }
 
   """
-  @type get_core_network_response() :: %{(String.t() | atom()) => any()}
+  @type delete_core_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_site_response() :: %{
-        "Site" => site()
-      }
-
-  """
-  @type create_site_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      core_network_summary() :: %{
-        "CoreNetworkArn" => String.t() | atom(),
-        "CoreNetworkId" => String.t() | atom(),
-        "Description" => String.t() | atom(),
+      route_analysis() :: %{
+        "Destination" => route_analysis_endpoint_options(),
+        "ForwardPath" => route_analysis_path(),
         "GlobalNetworkId" => String.t() | atom(),
+        "IncludeReturnPath" => boolean(),
         "OwnerAccountId" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => list(tag())
+        "ReturnPath" => route_analysis_path(),
+        "RouteAnalysisId" => String.t() | atom(),
+        "Source" => route_analysis_endpoint_options(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "UseMiddleboxes" => boolean()
       }
 
   """
-  @type core_network_summary() :: %{(String.t() | atom()) => any()}
+  @type route_analysis() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_connection_request() :: %{}
+      create_device_request() :: %{
+        optional("AWSLocation") => aws_location(),
+        optional("Description") => String.t() | atom(),
+        optional("Location") => location(),
+        optional("Model") => String.t() | atom(),
+        optional("SerialNumber") => String.t() | atom(),
+        optional("SiteId") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("Type") => String.t() | atom(),
+        optional("Vendor") => String.t() | atom()
+      }
 
   """
-  @type delete_connection_request() :: %{}
+  @type create_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_core_network_policy_versions_response() :: %{
-        "CoreNetworkPolicyVersions" => list(core_network_policy_version()),
-        "NextToken" => String.t() | atom()
-      }
+      get_transit_gateway_peering_request() :: %{}
 
   """
-  @type list_core_network_policy_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connect_peers_response() :: %{
-        "ConnectPeers" => list(connect_peer_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connect_peers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_peerings_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Peerings" => list(peering())
-      }
-
-  """
-  @type list_peerings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_resource_relationships_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("AwsRegion") => String.t() | atom(),
-        optional("CoreNetworkId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RegisteredGatewayArn") => String.t() | atom(),
-        optional("ResourceArn") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type get_network_resource_relationships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_route_analysis_response() :: %{
-        "RouteAnalysis" => route_analysis()
-      }
-
-  """
-  @type get_route_analysis_response() :: %{(String.t() | atom()) => any()}
+  @type get_transit_gateway_peering_request() :: %{}
 
   @typedoc """
 
@@ -3353,132 +3378,24 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      get_sites_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Sites" => list(site())
+      get_core_network_policy_request() :: %{
+        optional("Alias") => list(any()),
+        optional("PolicyVersionId") => integer()
       }
 
   """
-  @type get_sites_response() :: %{(String.t() | atom()) => any()}
+  @type get_core_network_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_customer_gateway_request() :: %{}
-
-  """
-  @type disassociate_customer_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_core_network_request() :: %{
-        optional("Description") => String.t() | atom()
+      delete_site_response() :: %{
+        "Site" => site()
       }
 
   """
-  @type update_core_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_transit_gateway_registrations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TransitGatewayRegistrations" => list(transit_gateway_registration())
-      }
-
-  """
-  @type get_transit_gateway_registrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_attachment_response() :: %{
-        "Attachment" => attachment()
-      }
-
-  """
-  @type delete_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_link_response() :: %{
-        "LinkAssociation" => link_association()
-      }
-
-  """
-  @type associate_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connection_request() :: %{
-        optional("ConnectedLinkId") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LinkId") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ConnectedDeviceId") => String.t() | atom(),
-        required("DeviceId") => String.t() | atom()
-      }
-
-  """
-  @type create_connection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_attachments_response() :: %{
-        "Attachments" => list(attachment()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_attachments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_analysis_endpoint_options_specification() :: %{
-        "IpAddress" => String.t() | atom(),
-        "TransitGatewayAttachmentArn" => String.t() | atom()
-      }
-
-  """
-  @type route_analysis_endpoint_options_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_vpc_attachment_response() :: %{
-        "VpcAttachment" => vpc_attachment()
-      }
-
-  """
-  @type get_vpc_attachment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_request() :: %{
-        optional("Bandwidth") => bandwidth(),
-        optional("Description") => String.t() | atom(),
-        optional("Provider") => String.t() | atom(),
-        optional("Type") => String.t() | atom()
-      }
-
-  """
-  @type update_link_request() :: %{(String.t() | atom()) => any()}
+  @type delete_site_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3498,766 +3415,849 @@ defmodule AWS.NetworkManager do
 
   ## Example:
 
-      via() :: %{
-        "NetworkFunctionGroups" => list(network_function_group()),
-        "WithEdgeOverrides" => list(edge_override())
+      associate_transit_gateway_connect_peer_response() :: %{
+        "TransitGatewayConnectPeerAssociation" => transit_gateway_connect_peer_association()
       }
 
   """
-  @type via() :: %{(String.t() | atom()) => any()}
+  @type associate_transit_gateway_connect_peer_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_connect_peer_request() :: %{
-        optional("BgpOptions") => bgp_options(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("CoreNetworkAddress") => String.t() | atom(),
-        optional("InsideCidrBlocks") => list(String.t() | atom()),
-        optional("SubnetArn") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("ConnectAttachmentId") => String.t() | atom(),
-        required("PeerAddress") => String.t() | atom()
+      core_network_change_event_values() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "Cidr" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom(),
+        "PeerEdgeLocation" => String.t() | atom(),
+        "RoutingPolicyAssociationDetails" => list(routing_policy_association_detail()),
+        "RoutingPolicyDirection" => list(any()),
+        "SegmentName" => String.t() | atom()
       }
 
   """
-  @type create_connect_peer_request() :: %{(String.t() | atom()) => any()}
+  @type core_network_change_event_values() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_core_network_policy_version_request() :: %{}
+      delete_core_network_policy_version_response() :: %{
+        "CoreNetworkPolicy" => core_network_policy()
+      }
 
   """
-  @type delete_core_network_policy_version_request() :: %{}
+  @type delete_core_network_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connect_peer_bgp_configuration() :: %{
+        "CoreNetworkAddress" => String.t() | atom(),
+        "CoreNetworkAsn" => float(),
+        "PeerAddress" => String.t() | atom(),
+        "PeerAsn" => float()
+      }
+
+  """
+  @type connect_peer_bgp_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_telemetry_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("AwsRegion") => String.t() | atom(),
+        optional("CoreNetworkId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RegisteredGatewayArn") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_network_telemetry_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_resource_counts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_network_resource_counts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "LimitCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      core_network_network_function_group_identifier() :: %{
+        "CoreNetworkId" => String.t() | atom(),
+        "EdgeLocation" => String.t() | atom(),
+        "NetworkFunctionGroupName" => String.t() | atom()
+      }
+
+  """
+  @type core_network_network_function_group_identifier() :: %{(String.t() | atom()) => any()}
 
   @type accept_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_connect_peer_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_customer_gateway_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_transit_gateway_connect_peer_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_connect_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_connect_peer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_connection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_core_network_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | core_network_policy_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | core_network_policy_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_core_network_prefix_list_association_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_device_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_direct_connect_gateway_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_global_network_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_site_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_site_to_site_vpn_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_transit_gateway_peering_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_transit_gateway_route_table_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_vpc_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_connect_peer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_connection_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_core_network_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_core_network_policy_version_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_core_network_prefix_list_association_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_device_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_global_network_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_peering_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_site_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type deregister_transit_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_global_networks_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_connect_peer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_customer_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_transit_gateway_connect_peer_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type execute_core_network_change_set_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_connect_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_connect_peer_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_connect_peer_associations_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_connections_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_core_network_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_core_network_change_events_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_core_network_change_set_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_core_network_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_customer_gateway_associations_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_devices_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_direct_connect_gateway_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_link_associations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_links_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_resource_counts_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_network_resource_relationships_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_resources_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_routes_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_telemetry_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_policy_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_route_analysis_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_site_to_site_vpn_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_sites_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_transit_gateway_connect_peer_associations_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_transit_gateway_peering_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_transit_gateway_registrations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_transit_gateway_route_table_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_vpc_attachment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_attachment_routing_policy_associations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_attachments_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_connect_peers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_core_network_policy_versions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_core_network_prefix_list_associations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_core_network_routing_information_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_core_networks_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_peerings_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_attachment_routing_policy_label_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_core_network_policy_errors() ::
-          throttling_exception()
+          core_network_policy_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | core_network_policy_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type register_transit_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type reject_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type remove_attachment_routing_policy_label_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type restore_core_network_policy_version_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_organization_service_access_update_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_route_analysis_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_connection_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_core_network_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_device_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_direct_connect_gateway_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_global_network_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_network_resource_metadata_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_site_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_vpc_attachment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

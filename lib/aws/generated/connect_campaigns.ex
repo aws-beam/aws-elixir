@@ -13,48 +13,115 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      answer_machine_detection_config() :: %{
-        "awaitAnswerMachinePrompt" => [boolean()],
-        "enableAnswerMachineDetection" => [boolean()]
+      update_campaign_dialer_config_request() :: %{
+        "dialerConfig" => list()
       }
 
   """
-  @type answer_machine_detection_config() :: %{(String.t() | atom()) => any()}
+  @type update_campaign_dialer_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_campaign_response() :: %{
-        "campaign" => campaign()
+      get_instance_onboarding_job_status_response() :: %{
+        "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
       }
 
   """
-  @type describe_campaign_response() :: %{(String.t() | atom()) => any()}
+  @type get_instance_onboarding_job_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
+      get_connect_instance_config_response() :: %{
+        "connectInstanceConfig" => instance_config()
+      }
+
+  """
+  @type get_connect_instance_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_campaign_state_exception() :: %{
+        "message" => [String.t() | atom()],
+        "state" => String.t() | atom(),
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type invalid_campaign_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_instance_onboarding_job_request() :: %{
+        "encryptionConfig" => encryption_config()
+      }
+
+  """
+  @type start_instance_onboarding_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connect_instance_config_request() :: %{}
+
+  """
+  @type get_connect_instance_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resume_campaign_request() :: %{}
+
+  """
+  @type resume_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_campaign_request() :: %{
+        "connectInstanceId" => String.t() | atom(),
+        "dialerConfig" => list(),
+        "name" => String.t() | atom(),
+        "outboundCallConfig" => outbound_call_config(),
         "tags" => map()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_config() :: %{
-        "enabled" => boolean(),
-        "encryptionType" => String.t() | atom(),
-        "keyArn" => String.t() | atom()
-      }
-
-  """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
+  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -77,13 +144,72 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      successful_request() :: %{
-        "clientToken" => String.t() | atom(),
-        "id" => String.t() | atom()
+      campaign_summary() :: %{
+        "arn" => String.t() | atom(),
+        "connectInstanceId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type successful_request() :: %{(String.t() | atom()) => any()}
+  @type campaign_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_campaign_response() :: %{
+        "campaign" => campaign()
+      }
+
+  """
+  @type describe_campaign_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_instance_onboarding_job_response() :: %{
+        "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
+      }
+
+  """
+  @type start_instance_onboarding_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_state_response() :: %{
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type get_campaign_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,22 +224,13 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      delete_connect_instance_config_request() :: %{}
-
-  """
-  @type delete_connect_instance_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_state_batch_response() :: %{
-        "failedRequests" => list(failed_campaign_state_response()),
-        "successfulRequests" => list(successful_campaign_state_response())
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type get_campaign_state_batch_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -132,24 +249,24 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      list_campaigns_response() :: %{
-        "campaignSummaryList" => list(campaign_summary()),
-        "nextToken" => String.t() | atom()
+      tag_resource_request() :: %{
+        "tags" => map()
       }
 
   """
-  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_campaign_state_response() :: %{
-        "state" => String.t() | atom()
+      put_dial_request_batch_response() :: %{
+        "failedRequests" => list(failed_request()),
+        "successfulRequests" => list(successful_request())
       }
 
   """
-  @type get_campaign_state_response() :: %{(String.t() | atom()) => any()}
+  @type put_dial_request_batch_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -159,6 +276,78 @@ defmodule AWS.ConnectCampaigns do
 
   """
   @type delete_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      outbound_call_config() :: %{
+        "answerMachineDetectionConfig" => answer_machine_detection_config(),
+        "connectContactFlowId" => String.t() | atom(),
+        "connectQueueId" => String.t() | atom(),
+        "connectSourcePhoneNumber" => String.t() | atom()
+      }
+
+  """
+  @type outbound_call_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_config() :: %{
+        "connectInstanceId" => String.t() | atom(),
+        "encryptionConfig" => encryption_config(),
+        "serviceLinkedRoleArn" => String.t() | atom()
+      }
+
+  """
+  @type instance_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_state_batch_response() :: %{
+        "failedRequests" => list(failed_campaign_state_response()),
+        "successfulRequests" => list(successful_campaign_state_response())
+      }
+
+  """
+  @type get_campaign_state_batch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connect_instance_config_request() :: %{}
+
+  """
+  @type delete_connect_instance_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_campaign_state_response() :: %{
+        "campaignId" => String.t() | atom(),
+        "state" => String.t() | atom()
+      }
+
+  """
+  @type successful_campaign_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -184,51 +373,62 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      invalid_state_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
+      get_campaign_state_request() :: %{}
 
   """
-  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+  @type get_campaign_state_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      instance_id_filter() :: %{
-        "operator" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type instance_id_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_campaign_state_exception() :: %{
-        "message" => [String.t() | atom()],
-        "state" => String.t() | atom(),
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type invalid_campaign_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_campaigns_request() :: %{
-        "filters" => campaign_filters(),
-        "maxResults" => integer(),
+      list_campaigns_response() :: %{
+        "campaignSummaryList" => list(campaign_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
+  @type list_campaigns_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_campaign_request() :: %{}
+
+  """
+  @type stop_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_campaign_state_batch_request() :: %{
+        "campaignIds" => list(String.t() | atom())
+      }
+
+  """
+  @type get_campaign_state_batch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pause_campaign_request() :: %{}
+
+  """
+  @type pause_campaign_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_dial_request_batch_request() :: %{
+        "dialRequests" => list(dial_request())
+      }
+
+  """
+  @type put_dial_request_batch_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,131 +448,14 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      update_campaign_name_request() :: %{
-        "name" => String.t() | atom()
+      failed_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "failureCode" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type update_campaign_name_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_instance_onboarding_job_response() :: %{
-        "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
-      }
-
-  """
-  @type start_instance_onboarding_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_state_request() :: %{}
-
-  """
-  @type get_campaign_state_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      agentless_dialer_config() :: %{
-        "dialingCapacity" => float()
-      }
-
-  """
-  @type agentless_dialer_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_dial_request_batch_response() :: %{
-        "failedRequests" => list(failed_request()),
-        "successfulRequests" => list(successful_request())
-      }
-
-  """
-  @type put_dial_request_batch_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resume_campaign_request() :: %{}
-
-  """
-  @type resume_campaign_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_instance_config_request() :: %{}
-
-  """
-  @type get_connect_instance_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_campaign_state_batch_request() :: %{
-        "campaignIds" => list(String.t() | atom())
-      }
-
-  """
-  @type get_campaign_state_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_campaign_dialer_config_request() :: %{
-        "dialerConfig" => list()
-      }
-
-  """
-  @type update_campaign_dialer_config_request() :: %{(String.t() | atom()) => any()}
+  @type failed_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -389,66 +472,58 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      put_dial_request_batch_request() :: %{
-        "dialRequests" => list(dial_request())
-      }
-
-  """
-  @type put_dial_request_batch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      progressive_dialer_config() :: %{
+      predictive_dialer_config() :: %{
         "bandwidthAllocation" => float(),
         "dialingCapacity" => float()
       }
 
   """
-  @type progressive_dialer_config() :: %{(String.t() | atom()) => any()}
+  @type predictive_dialer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_campaign_request() :: %{}
+      campaign_filters() :: %{
+        "instanceIdFilter" => instance_id_filter()
+      }
 
   """
-  @type stop_campaign_request() :: %{}
+  @type campaign_filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pause_campaign_request() :: %{}
+      get_instance_onboarding_job_status_request() :: %{}
 
   """
-  @type pause_campaign_request() :: %{}
+  @type get_instance_onboarding_job_status_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
+      invalid_state_exception() :: %{
         "message" => [String.t() | atom()],
         "xAmzErrorType" => String.t() | atom()
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_config() :: %{
+        "enabled" => boolean(),
+        "encryptionType" => String.t() | atom(),
+        "keyArn" => String.t() | atom()
+      }
+
+  """
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -463,136 +538,37 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      create_campaign_request() :: %{
-        "connectInstanceId" => String.t() | atom(),
-        "dialerConfig" => list(),
-        "name" => String.t() | atom(),
-        "outboundCallConfig" => outbound_call_config(),
-        "tags" => map()
+      list_campaigns_request() :: %{
+        "filters" => campaign_filters(),
+        "maxResults" => integer(),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type create_campaign_request() :: %{(String.t() | atom()) => any()}
+  @type list_campaigns_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_instance_onboarding_job_status_response() :: %{
-        "connectInstanceOnboardingJobStatus" => instance_onboarding_job_status()
+      update_campaign_name_request() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type get_instance_onboarding_job_status_response() :: %{(String.t() | atom()) => any()}
+  @type update_campaign_name_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
+      failed_campaign_state_response() :: %{
+        "campaignId" => String.t() | atom(),
+        "failureCode" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connect_instance_config_response() :: %{
-        "connectInstanceConfig" => instance_config()
-      }
-
-  """
-  @type get_connect_instance_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_config() :: %{
-        "connectInstanceId" => String.t() | atom(),
-        "encryptionConfig" => encryption_config(),
-        "serviceLinkedRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type instance_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()],
-        "xAmzErrorType" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      outbound_call_config() :: %{
-        "answerMachineDetectionConfig" => answer_machine_detection_config(),
-        "connectContactFlowId" => String.t() | atom(),
-        "connectQueueId" => String.t() | atom(),
-        "connectSourcePhoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type outbound_call_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_campaign_outbound_call_config_request() :: %{
-        "answerMachineDetectionConfig" => answer_machine_detection_config(),
-        "connectContactFlowId" => String.t() | atom(),
-        "connectSourcePhoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type update_campaign_outbound_call_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failed_request() :: %{
-        "clientToken" => String.t() | atom(),
-        "failureCode" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type failed_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      predictive_dialer_config() :: %{
-        "bandwidthAllocation" => float(),
-        "dialingCapacity" => float()
-      }
-
-  """
-  @type predictive_dialer_config() :: %{(String.t() | atom()) => any()}
+  @type failed_campaign_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -611,230 +587,254 @@ defmodule AWS.ConnectCampaigns do
 
   ## Example:
 
-      successful_campaign_state_response() :: %{
-        "campaignId" => String.t() | atom(),
-        "state" => String.t() | atom()
+      instance_id_filter() :: %{
+        "operator" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type successful_campaign_state_response() :: %{(String.t() | atom()) => any()}
+  @type instance_id_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      campaign_summary() :: %{
-        "arn" => String.t() | atom(),
-        "connectInstanceId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
+      update_campaign_outbound_call_config_request() :: %{
+        "answerMachineDetectionConfig" => answer_machine_detection_config(),
+        "connectContactFlowId" => String.t() | atom(),
+        "connectSourcePhoneNumber" => String.t() | atom()
       }
 
   """
-  @type campaign_summary() :: %{(String.t() | atom()) => any()}
+  @type update_campaign_outbound_call_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_instance_onboarding_job_status_request() :: %{}
+      answer_machine_detection_config() :: %{
+        "awaitAnswerMachinePrompt" => [boolean()],
+        "enableAnswerMachineDetection" => [boolean()]
+      }
 
   """
-  @type get_instance_onboarding_job_status_request() :: %{}
+  @type answer_machine_detection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      failed_campaign_state_response() :: %{
-        "campaignId" => String.t() | atom(),
-        "failureCode" => String.t() | atom()
+      agentless_dialer_config() :: %{
+        "dialingCapacity" => float()
       }
 
   """
-  @type failed_campaign_state_response() :: %{(String.t() | atom()) => any()}
+  @type agentless_dialer_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_instance_onboarding_job_request() :: %{
-        "encryptionConfig" => encryption_config()
+      successful_request() :: %{
+        "clientToken" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type start_instance_onboarding_job_request() :: %{(String.t() | atom()) => any()}
+  @type successful_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      campaign_filters() :: %{
-        "instanceIdFilter" => instance_id_filter()
+      progressive_dialer_config() :: %{
+        "bandwidthAllocation" => float(),
+        "dialingCapacity" => float()
       }
 
   """
-  @type campaign_filters() :: %{(String.t() | atom()) => any()}
+  @type progressive_dialer_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()],
+        "xAmzErrorType" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @type create_campaign_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_campaign_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_connect_instance_config_errors() ::
-          throttling_exception()
+          invalid_state_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | invalid_state_exception()
+          | throttling_exception()
 
   @type delete_instance_onboarding_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          invalid_state_exception()
           | resource_not_found_exception()
-          | invalid_state_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_campaign_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_campaign_state_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_campaign_state_batch_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_connect_instance_config_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_instance_onboarding_job_status_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_campaigns_errors() ::
-          validation_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type pause_campaign_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | invalid_campaign_state_exception()
 
   @type put_dial_request_batch_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | invalid_campaign_state_exception()
 
   @type resume_campaign_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | invalid_campaign_state_exception()
 
   @type start_campaign_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | invalid_campaign_state_exception()
 
   @type start_instance_onboarding_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_campaign_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
           | invalid_campaign_state_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_campaign_dialer_config_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
-
-  @type update_campaign_name_errors() ::
-          validation_exception()
-          | access_denied_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-
-  @type update_campaign_outbound_call_config_errors() ::
-          throttling_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+
+  @type update_campaign_name_errors() ::
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+
+  @type update_campaign_outbound_call_config_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

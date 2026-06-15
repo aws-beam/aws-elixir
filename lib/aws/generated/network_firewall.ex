@@ -126,64 +126,265 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      update_firewall_description_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom()
+      describe_firewall_policy_response() :: %{
+        "FirewallPolicy" => firewall_policy(),
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type update_firewall_description_request() :: %{(String.t() | atom()) => any()}
+  @type describe_firewall_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_t_l_s_inspection_configurations_request() :: %{
+      delete_proxy_response() :: %{
+        "NatGatewayId" => String.t() | atom(),
+        "ProxyArn" => String.t() | atom(),
+        "ProxyName" => String.t() | atom()
+      }
+      
+  """
+  @type delete_proxy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rule() :: %{
+        "Priority" => integer(),
+        "RuleDefinition" => rule_definition()
+      }
+      
+  """
+  @type stateless_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleGroups" => list(rule_group_metadata())
+      }
+      
+  """
+  @type list_rule_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_definition() :: %{
+        "Actions" => list(String.t() | atom()),
+        "MatchAttributes" => match_attributes()
+      }
+      
+  """
+  @type rule_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_operation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_delete_protection_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("DeleteProtection") => boolean()
+      }
+      
+  """
+  @type update_firewall_delete_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_configuration() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DefaultRulePhaseActions" => proxy_config_default_rule_phase_actions_request(),
+        "DeleteTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ProxyConfigurationArn" => String.t() | atom(),
+        "ProxyConfigurationName" => String.t() | atom(),
+        "RuleGroups" => list(proxy_config_rule_group()),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rules_source_list() :: %{
+        "GeneratedRulesType" => list(any()),
+        "TargetTypes" => list(list(any())()),
+        "Targets" => list(String.t() | atom())
+      }
+      
+  """
+  @type rules_source_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flow_operation_metadata() :: %{
+        "FlowOperationId" => String.t() | atom(),
+        "FlowOperationStatus" => list(any()),
+        "FlowOperationType" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer()
+      }
+      
+  """
+  @type flow_operation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate_scope() :: %{
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(address()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(address())
+      }
+      
+  """
+  @type server_certificate_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group_response() :: %{
+        "AnalysisResults" => list(analysis_result()),
+        "Capacity" => integer(),
+        "ConsumedCapacity" => integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "RuleGroupArn" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom(),
+        "RuleGroupStatus" => list(any()),
+        "SnsTopic" => String.t() | atom(),
+        "SourceMetadata" => source_metadata(),
+        "SummaryConfiguration" => summary_configuration(),
+        "Tags" => list(tag()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_firewall_policy_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("FirewallPolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type associate_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_description_response() :: %{
+        "Description" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_description_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_analysis_reports_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_t_l_s_inspection_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type list_analysis_reports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      server_certificate_configuration() :: %{
-        "CertificateAuthorityArn" => String.t() | atom(),
-        "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
-        "Scopes" => list(server_certificate_scope()),
-        "ServerCertificates" => list(server_certificate())
+      update_availability_zone_change_protection_response() :: %{
+        "AvailabilityZoneChangeProtection" => boolean(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type server_certificate_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_availability_zone_change_protection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      t_c_p_flag_field() :: %{
-        "Flags" => list(list(any())()),
-        "Masks" => list(list(any())())
+      server_certificate() :: %{
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type t_c_p_flag_field() :: %{(String.t() | atom()) => any()}
+  @type server_certificate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      a_z_sync_state() :: %{
-        "Attachment" => attachment()
+      update_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type a_z_sync_state() :: %{(String.t() | atom()) => any()}
+  @type update_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_resource_policy_request() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -202,13 +403,269 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      encryption_configuration() :: %{
-        "KeyId" => String.t() | atom(),
-        "Type" => list(any())
+      disassociate_availability_zones_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("AvailabilityZoneMappings") => list(availability_zone_mapping())
       }
       
   """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+  @type disassociate_availability_zones_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_request() :: %{
+        optional("ListenerProperties") => list(listener_property_request()),
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("NatGatewayId") => String.t() | atom(),
+        required("ProxyName") => String.t() | atom(),
+        required("TlsInterceptProperties") => tls_intercept_properties_request()
+      }
+      
+  """
+  @type create_proxy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_mapping() :: %{
+        "IPAddressType" => list(any()),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_rule_request() :: %{
+        optional("Action") => list(any()),
+        optional("AddConditions") => list(proxy_rule_condition()),
+        optional("Description") => String.t() | atom(),
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom(),
+        optional("RemoveConditions") => list(proxy_rule_condition()),
+        required("ProxyRuleName") => String.t() | atom(),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_subnets_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "SubnetMappings" => list(subnet_mapping()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type associate_subnets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type describe_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallPolicyArn") => String.t() | atom(),
+        optional("FirewallPolicyName") => String.t() | atom(),
+        required("FirewallPolicy") => firewall_policy(),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      publish_metric_action() :: %{
+        "Dimensions" => list(dimension())
+      }
+      
+  """
+  @type publish_metric_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type accept_network_firewall_transit_gateway_attachment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_mapping() :: %{
+        "AvailabilityZone" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_analysis_settings_response() :: %{
+        "EnabledAnalysisTypes" => list(list(any())()),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_analysis_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_delete_protection_response() :: %{
+        "DeleteProtection" => boolean(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_delete_protection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      match_attributes() :: %{
+        "DestinationPorts" => list(port_range()),
+        "Destinations" => list(address()),
+        "Protocols" => list(integer()),
+        "SourcePorts" => list(port_range()),
+        "Sources" => list(address()),
+        "TCPFlags" => list(t_c_p_flag_field())
+      }
+      
+  """
+  @type match_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_proxy_rule_group_request() :: %{
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      custom_action() :: %{
+        "ActionDefinition" => action_definition(),
+        "ActionName" => String.t() | atom()
+      }
+      
+  """
+  @type custom_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_destination_config() :: %{
+        "LogDestination" => map(),
+        "LogDestinationType" => list(any()),
+        "LogType" => list(any())
+      }
+      
+  """
+  @type log_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -228,13 +685,1130 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      update_rule_group_response() :: %{
+      update_proxy_rule_priorities_request() :: %{
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom(),
+        required("RuleGroupRequestPhase") => list(any()),
+        required("Rules") => list(proxy_rule_priority()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_rule_priorities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_association() :: %{
+        "Description" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "SubnetMapping" => subnet_mapping(),
+        "Tags" => list(tag()),
+        "VpcEndpointAssociationArn" => String.t() | atom(),
+        "VpcEndpointAssociationId" => String.t() | atom(),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type delete_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_response() :: %{
+        "RuleGroup" => rule_group(),
         "RuleGroupResponse" => rule_group_response(),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type update_rule_group_response() :: %{(String.t() | atom()) => any()}
+  @type describe_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_subnets_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_subnets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_t_l_s_inspection_configuration_request() :: %{
+        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
+        optional("TLSInspectionConfigurationName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_firewall_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_firewall_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_firewall_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_association_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("FirewallArn") => String.t() | atom(),
+        required("SubnetMapping") => subnet_mapping(),
+        required("VpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_encryption_configuration_response() :: %{
+        "EncryptionConfiguration" => encryption_configuration(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_summary_request() :: %{
+        optional("RuleGroupArn") => String.t() | atom(),
+        optional("RuleGroupName") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_rule_group_summary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group() :: %{
+        "ReferenceSets" => reference_sets(),
+        "RuleVariables" => rule_variables(),
+        "RulesSource" => rules_source(),
+        "StatefulRuleOptions" => stateful_rule_options()
+      }
+      
+  """
+  @type rule_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_availability_zones_response() :: %{
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_availability_zones_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set() :: %{
+        "Definition" => list(String.t() | atom())
+      }
+      
+  """
+  @type ip_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayAttachmentStatus" => list(any())
+      }
+      
+  """
+  @type reject_network_firewall_transit_gateway_attachment_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "VendorName" => String.t() | atom()
+      }
+      
+  """
+  @type rule_group_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_type_report_result() :: %{
+        "Domain" => String.t() | atom(),
+        "FirstAccessed" => non_neg_integer(),
+        "Hits" => hits(),
+        "LastAccessed" => non_neg_integer(),
+        "Protocol" => String.t() | atom(),
+        "UniqueSources" => unique_sources()
+      }
+      
+  """
+  @type analysis_type_report_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sync_state() :: %{
+        "Attachment" => attachment(),
+        "Config" => map()
+      }
+      
+  """
+  @type sync_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_condition() :: %{
+        "ConditionKey" => String.t() | atom(),
+        "ConditionOperator" => String.t() | atom(),
+        "ConditionValues" => list(String.t() | atom())
+      }
+      
+  """
+  @type proxy_rule_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      insufficient_capacity_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flow_operation_results_response() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FlowOperationId" => String.t() | atom(),
+        "FlowOperationStatus" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer(),
+        "Flows" => list(flow()),
+        "NextToken" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "VpcEndpointAssociationArn" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type list_flow_operation_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_capture_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FlowOperationId" => String.t() | atom(),
+        "FlowOperationStatus" => list(any())
+      }
+      
+  """
+  @type start_flow_capture_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set_reference() :: %{
+        "ReferenceArn" => String.t() | atom()
+      }
+      
+  """
+  @type ip_set_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_rule_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Rules") => proxy_rules_by_request_phase(),
+        optional("Tags") => list(tag()),
+        required("ProxyRuleGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_endpoint_association_response() :: %{
+        "VpcEndpointAssociation" => vpc_endpoint_association(),
+        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
+      }
+      
+  """
+  @type create_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_group_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_rule_group_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response()
+      }
+      
+  """
+  @type delete_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_proxy_configuration_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxy_configurations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProxyConfigurations" => list(proxy_configuration_metadata())
+      }
+      
+  """
+  @type list_proxy_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_metadata_request() :: %{
+        optional("RuleGroupArn") => String.t() | atom(),
+        optional("RuleGroupName") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type describe_rule_group_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_rule_groups_to_proxy_configuration_response() :: %{
+        "ProxyConfiguration" => proxy_configuration(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type attach_rule_groups_to_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attach_rule_groups_to_proxy_configuration_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom(),
+        required("RuleGroups") => list(proxy_rule_group_attachment()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type attach_rule_groups_to_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_group_priority_result() :: %{
+        "Priority" => integer(),
+        "ProxyRuleGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_rule_group_priority_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reject_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type reject_network_firewall_transit_gateway_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      check_certificate_revocation_status_actions() :: %{
+        "RevokedStatusAction" => list(any()),
+        "UnknownStatusAction" => list(any())
+      }
+      
+  """
+  @type check_certificate_revocation_status_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_t_l_s_inspection_configuration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
+        optional("TLSInspectionConfigurationName") => String.t() | atom(),
+        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_subnet_change_protection_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("SubnetChangeProtection") => boolean()
+      }
+      
+  """
+  @type update_subnet_change_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_option() :: %{
+        "Keyword" => String.t() | atom(),
+        "Settings" => list(String.t() | atom())
+      }
+      
+  """
+  @type rule_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_association_metadata() :: %{
+        "VpcEndpointAssociationArn" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_endpoint_association_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_metadata_response() :: %{
+        "Description" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallPolicyArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "SupportedAvailabilityZones" => map(),
+        "TransitGatewayAttachmentId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      address() :: %{
+        "AddressDefinition" => String.t() | atom()
+      }
+      
+  """
+  @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_configuration_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_configuration_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_variables() :: %{
+        "RuleVariables" => map()
+      }
+      
+  """
+  @type policy_variables() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_summary_response() :: %{
+        "Description" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom(),
+        "Summary" => summary()
+      }
+      
+  """
+  @type describe_rule_group_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_metadata() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "TransitGatewayAttachmentId" => String.t() | atom()
+      }
+      
+  """
+  @type firewall_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rule_group_reference() :: %{
+        "Priority" => integer(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type stateless_rule_group_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_response() :: %{
+        "Proxy" => proxy(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_metadata_request() :: %{
+        optional("FirewallArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_logging_configuration_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rule_groups_request() :: %{
+        optional("ManagedType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Scope") => list(any()),
+        optional("SubscriptionStatus") => list(any()),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type list_rule_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_analysis_report_results_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AnalysisReportId") => String.t() | atom()
+      }
+      
+  """
+  @type get_analysis_report_results_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_sets() :: %{
+        "IPSetReferences" => map()
+      }
+      
+  """
+  @type reference_sets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "LogDestinationConfigs" => list(log_destination_config())
+      }
+      
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_s_inspection_configuration() :: %{
+        "ServerCertificateConfigurations" => list(server_certificate_configuration())
+      }
+      
+  """
+  @type t_l_s_inspection_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_flush_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("MinimumFlowAgeInSeconds") => integer(),
+        optional("VpcEndpointAssociationArn") => String.t() | atom(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("FirewallArn") => String.t() | atom(),
+        required("FlowFilters") => list(flow_filter())
+      }
+      
+  """
+  @type start_flow_flush_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_response() :: %{
+        "Proxy" => proxy(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_network_firewall_transit_gateway_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_subnets_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("SubnetMappings") => list(subnet_mapping())
+      }
+      
+  """
+  @type associate_subnets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flow_operations_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("FlowOperationType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VpcEndpointAssociationArn") => String.t() | atom(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("FirewallArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_flow_operations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_request() :: %{
+        optional("AvailabilityZoneChangeProtection") => boolean(),
+        optional("AvailabilityZoneMappings") => list(availability_zone_mapping()),
+        optional("DeleteProtection") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("EnabledAnalysisTypes") => list(list(any())()),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("FirewallPolicyChangeProtection") => boolean(),
+        optional("SubnetChangeProtection") => boolean(),
+        optional("SubnetMappings") => list(subnet_mapping()),
+        optional("Tags") => list(tag()),
+        optional("TransitGatewayId") => String.t() | atom(),
+        optional("VpcId") => String.t() | atom(),
+        required("FirewallName") => String.t() | atom(),
+        required("FirewallPolicyArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_firewall_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_endpoint_association_status() :: %{
+        "AssociationSyncState" => map(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type vpc_endpoint_association_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_proxy_response() :: %{
+        "Proxy" => describe_proxy_resource(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_proxy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule() :: %{
+        "Action" => list(any()),
+        "Header" => header(),
+        "RuleOptions" => list(rule_option())
+      }
+      
+  """
+  @type stateful_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_logging_configuration_response() :: %{
+        "EnableMonitoringDashboard" => boolean(),
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type update_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_vpc_endpoint_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata())
+      }
+      
+  """
+  @type list_vpc_endpoint_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_config_default_rule_phase_actions_request() :: %{
+        "PostRESPONSE" => list(any()),
+        "PreDNS" => list(any()),
+        "PreREQUEST" => list(any())
+      }
+      
+  """
+  @type proxy_config_default_rule_phase_actions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_t_l_s_inspection_configuration_response() :: %{
+        "TLSInspectionConfiguration" => t_l_s_inspection_configuration(),
+        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_proxy_rules_response() :: %{
+        "ProxyRuleGroup" => proxy_rule_group()
+      }
+      
+  """
+  @type delete_proxy_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary_configuration() :: %{
+        "RuleOptions" => list(list(any())())
+      }
+      
+  """
+  @type summary_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_owner_check_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_owner_check_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DeleteTime" => non_neg_integer(),
+        "FailureCode" => String.t() | atom(),
+        "FailureMessage" => String.t() | atom(),
+        "ListenerProperties" => list(listener_property()),
+        "NatGatewayId" => String.t() | atom(),
+        "ProxyArn" => String.t() | atom(),
+        "ProxyConfigurationArn" => String.t() | atom(),
+        "ProxyConfigurationName" => String.t() | atom(),
+        "ProxyModifyState" => list(any()),
+        "ProxyName" => String.t() | atom(),
+        "ProxyState" => list(any()),
+        "Tags" => list(tag()),
+        "TlsInterceptProperties" => tls_intercept_properties(),
+        "UpdateTime" => non_neg_integer()
+      }
+      
+  """
+  @type proxy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attachment() :: %{
+        "EndpointId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "SubnetId" => String.t() | atom()
+      }
+      
+  """
+  @type attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_rule_response() :: %{
+        "ProxyRule" => proxy_rule(),
+        "RemovedConditions" => list(proxy_rule_condition()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_request() :: %{
+        optional("RuleGroupArn") => String.t() | atom(),
+        optional("RuleGroupName") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+      
+  """
+  @type delete_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hits() :: %{
+        "Count" => integer()
+      }
+      
+  """
+  @type hits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_rules_response() :: %{
+        "ProxyRuleGroup" => proxy_rule_group(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_rule_groups_from_proxy_configuration_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom(),
+        optional("RuleGroupArns") => list(String.t() | atom()),
+        optional("RuleGroupNames") => list(String.t() | atom()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type detach_rule_groups_from_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tls_certificate_data() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "CertificateSerial" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
+      
+  """
+  @type tls_certificate_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_proxy_rule_request() :: %{
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom(),
+        required("ProxyRuleName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_proxy_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_priority() :: %{
+        "NewPosition" => integer(),
+        "ProxyRuleName" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_rule_priority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      t_l_s_inspection_configuration_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type t_l_s_inspection_configuration_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -267,471 +1841,40 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      proxy() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DeleteTime" => non_neg_integer(),
-        "FailureCode" => String.t() | atom(),
-        "FailureMessage" => String.t() | atom(),
-        "ListenerProperties" => list(listener_property()),
-        "NatGatewayId" => String.t() | atom(),
-        "ProxyArn" => String.t() | atom(),
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom(),
-        "ProxyModifyState" => list(any()),
-        "ProxyName" => String.t() | atom(),
-        "ProxyState" => list(any()),
-        "Tags" => list(tag()),
-        "TlsInterceptProperties" => tls_intercept_properties(),
-        "UpdateTime" => non_neg_integer()
+      proxy_config_rule_group() :: %{
+        "Priority" => integer(),
+        "ProxyRuleGroupArn" => String.t() | atom(),
+        "ProxyRuleGroupName" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
       
   """
-  @type proxy() :: %{(String.t() | atom()) => any()}
+  @type proxy_config_rule_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_resource_policy_response() :: %{}
-      
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_group_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_operation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rules_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateful_rule_group_override() :: %{
-        "Action" => list(any())
-      }
-      
-  """
-  @type stateful_rule_group_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_group_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "VendorName" => String.t() | atom()
-      }
-      
-  """
-  @type rule_group_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rule_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuleGroups" => list(rule_group_metadata())
-      }
-      
-  """
-  @type list_rule_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_flow_capture_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("MinimumFlowAgeInSeconds") => integer(),
-        optional("VpcEndpointAssociationArn") => String.t() | atom(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("FirewallArn") => String.t() | atom(),
-        required("FlowFilters") => list(flow_filter())
-      }
-      
-  """
-  @type start_flow_capture_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_configuration() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DefaultRulePhaseActions" => proxy_config_default_rule_phase_actions_request(),
-        "DeleteTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom(),
-        "RuleGroups" => list(proxy_config_rule_group()),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type proxy_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_flow_operation_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("VpcEndpointAssociationArn") => String.t() | atom(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("FirewallArn") => String.t() | atom(),
-        required("FlowOperationId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_flow_operation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_availability_zone_change_protection_response() :: %{
-        "AvailabilityZoneChangeProtection" => boolean(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_availability_zone_change_protection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_flow_operation_response() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "FlowOperation" => flow_operation(),
-        "FlowOperationId" => String.t() | atom(),
-        "FlowOperationStatus" => list(any()),
-        "FlowOperationType" => list(any()),
-        "FlowRequestTimestamp" => non_neg_integer(),
-        "StatusMessage" => String.t() | atom(),
-        "VpcEndpointAssociationArn" => String.t() | atom(),
-        "VpcEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type describe_flow_operation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_subnets_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "SubnetMappings" => list(subnet_mapping()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type associate_subnets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_availability_zones_response() :: %{
-        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type associate_availability_zones_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_request() :: %{
-        optional("ProxyArn") => String.t() | atom(),
-        optional("ProxyName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_policy_change_protection_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("FirewallPolicyChangeProtection") => boolean()
-      }
-      
-  """
-  @type update_firewall_policy_change_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateful_engine_options() :: %{
-        "FlowTimeouts" => flow_timeouts(),
-        "RuleOrder" => list(any()),
-        "StreamExceptionPolicy" => list(any())
-      }
-      
-  """
-  @type stateful_engine_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_definition() :: %{
-        "Actions" => list(String.t() | atom()),
-        "MatchAttributes" => match_attributes()
-      }
-      
-  """
-  @type rule_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_owner_check_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_owner_check_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      t_l_s_inspection_configuration_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type t_l_s_inspection_configuration_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_t_l_s_inspection_configuration_request() :: %{
-        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
-        optional("TLSInspectionConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_group_metadata_request() :: %{
-        optional("RuleGroupArn") => String.t() | atom(),
-        optional("RuleGroupName") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type describe_rule_group_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_endpoint_association_response() :: %{
-        "VpcEndpointAssociation" => vpc_endpoint_association(),
-        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
-      }
-      
-  """
-  @type delete_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_analysis_report_results_response() :: %{
-        "AnalysisReportResults" => list(analysis_type_report_result()),
-        "AnalysisType" => list(any()),
-        "EndTime" => non_neg_integer(),
-        "NextToken" => String.t() | atom(),
-        "ReportTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type get_analysis_report_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_configurations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProxyConfigurations" => list(proxy_configuration_metadata())
-      }
-      
-  """
-  @type list_proxy_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rule() :: %{
-        "Action" => list(any()),
-        "Conditions" => list(proxy_rule_condition()),
-        "Description" => String.t() | atom(),
+      proxy_rule_group_attachment() :: %{
         "InsertPosition" => integer(),
-        "ProxyRuleName" => String.t() | atom()
+        "ProxyRuleGroupName" => String.t() | atom()
       }
       
   """
-  @type create_proxy_rule() :: %{(String.t() | atom()) => any()}
+  @type proxy_rule_group_attachment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_rule_group_request() :: %{
-        optional("AnalyzeRuleGroup") => boolean(),
-        optional("RuleGroupArn") => String.t() | atom(),
-        optional("RuleGroupName") => String.t() | atom(),
-        optional("Type") => list(any())
+      proxy_rules_by_request_phase() :: %{
+        "PostRESPONSE" => list(proxy_rule()),
+        "PreDNS" => list(proxy_rule()),
+        "PreREQUEST" => list(proxy_rule())
       }
       
   """
-  @type describe_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_condition() :: %{
-        "ConditionKey" => String.t() | atom(),
-        "ConditionOperator" => String.t() | atom(),
-        "ConditionValues" => list(String.t() | atom())
-      }
-      
-  """
-  @type proxy_rule_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_group() :: %{
-        "ReferenceSets" => reference_sets(),
-        "RuleVariables" => rule_variables(),
-        "RulesSource" => rules_source(),
-        "StatefulRuleOptions" => stateful_rule_options()
-      }
-      
-  """
-  @type rule_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_operation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attachment() :: %{
-        "EndpointId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "SubnetId" => String.t() | atom()
-      }
-      
-  """
-  @type attachment() :: %{(String.t() | atom()) => any()}
+  @type proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -751,201 +1894,94 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      t_l_s_inspection_configuration() :: %{
-        "ServerCertificateConfigurations" => list(server_certificate_configuration())
+      list_firewalls_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("VpcIds") => list(String.t() | atom())
       }
       
   """
-  @type t_l_s_inspection_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_firewalls_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_configuration_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      describe_proxy_request() :: %{
+        optional("ProxyArn") => String.t() | atom(),
+        optional("ProxyName") => String.t() | atom()
       }
       
   """
-  @type proxy_configuration_metadata() :: %{(String.t() | atom()) => any()}
+  @type describe_proxy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_logging_configuration_request() :: %{
-        optional("EnableMonitoringDashboard") => boolean(),
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("LoggingConfiguration") => logging_configuration()
+      list_firewalls_response() :: %{
+        "Firewalls" => list(firewall_metadata()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type update_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type list_firewalls_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      subnet_mapping() :: %{
-        "IPAddressType" => list(any()),
-        "SubnetId" => String.t() | atom()
+      unsupported_operation_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type subnet_mapping() :: %{(String.t() | atom()) => any()}
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_firewall_encryption_configuration_response() :: %{
-        "EncryptionConfiguration" => encryption_configuration(),
+      update_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("RuleGroup") => rule_group(),
+        optional("RuleGroupArn") => String.t() | atom(),
+        optional("RuleGroupName") => String.t() | atom(),
+        optional("Rules") => String.t() | atom(),
+        optional("SourceMetadata") => source_metadata(),
+        optional("SummaryConfiguration") => summary_configuration(),
+        optional("Type") => list(any()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_availability_zones_response() :: %{
+        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
         "FirewallArn" => String.t() | atom(),
         "FirewallName" => String.t() | atom(),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type update_firewall_encryption_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type associate_availability_zones_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_proxies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type list_proxies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      publish_metric_action() :: %{
-        "Dimensions" => list(dimension())
-      }
-      
-  """
-  @type publish_metric_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_priority() :: %{
-        "NewPosition" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_priority() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      header() :: %{
-        "Destination" => String.t() | atom(),
-        "DestinationPort" => String.t() | atom(),
-        "Direction" => list(any()),
-        "Protocol" => list(any()),
-        "Source" => String.t() | atom(),
-        "SourcePort" => String.t() | atom()
-      }
-      
-  """
-  @type header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_group_priorities_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("RuleGroups") => list(proxy_rule_group_priority()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_group_priorities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_firewall_metadata_response() :: %{
-        "Description" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallPolicyArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "SupportedAvailabilityZones" => map(),
-        "TransitGatewayAttachmentId" => String.t() | atom()
-      }
-      
-  """
-  @type describe_firewall_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t() | atom(),
-        "TransitGatewayAttachmentStatus" => list(any())
-      }
-      
-  """
-  @type delete_network_firewall_transit_gateway_attachment_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_policy_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("Tags") => list(tag()),
-        required("FirewallPolicy") => firewall_policy(),
-        required("FirewallPolicyName") => String.t() | atom()
-      }
-      
-  """
-  @type create_firewall_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_firewall_policy_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("FirewallPolicyArn") => String.t() | atom()
-      }
-      
-  """
-  @type associate_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -963,63 +1999,13 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      list_vpc_endpoint_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata())
+      delete_proxy_configuration_response() :: %{
+        "ProxyConfigurationArn" => String.t() | atom(),
+        "ProxyConfigurationName" => String.t() | atom()
       }
       
   """
-  @type list_vpc_endpoint_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      logging_configuration() :: %{
-        "LogDestinationConfigs" => list(log_destination_config())
-      }
-      
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_response() :: %{
-        "ProxyRule" => proxy_rule(),
-        "RemovedConditions" => list(proxy_rule_condition()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tls_certificate_data() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "CertificateSerial" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-      
-  """
-  @type tls_certificate_data() :: %{(String.t() | atom()) => any()}
+  @type delete_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1045,911 +2031,25 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      describe_vpc_endpoint_association_response() :: %{
-        "VpcEndpointAssociation" => vpc_endpoint_association(),
-        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
-      }
-      
-  """
-  @type describe_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_configuration_response() :: %{
-        "ProxyConfigurationArn" => String.t() | atom(),
-        "ProxyConfigurationName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_analysis_report_results_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AnalysisReportId") => String.t() | atom()
-      }
-      
-  """
-  @type get_analysis_report_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      detach_rule_groups_from_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type detach_rule_groups_from_proxy_configuration_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      reject_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t() | atom(),
-        "TransitGatewayAttachmentStatus" => list(any())
-      }
-      
-  """
-  @type reject_network_firewall_transit_gateway_attachment_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_policy_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("FirewallPolicyArn") => String.t() | atom(),
-        optional("FirewallPolicyName") => String.t() | atom(),
-        required("FirewallPolicy") => firewall_policy(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rule_group_response() :: %{
-        "RuleGroupResponse" => rule_group_response(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rule_group_request() :: %{
-        optional("AnalyzeRuleGroup") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("RuleGroup") => rule_group(),
-        optional("Rules") => String.t() | atom(),
-        optional("SourceMetadata") => source_metadata(),
-        optional("SummaryConfiguration") => summary_configuration(),
-        optional("Tags") => list(tag()),
-        required("Capacity") => integer(),
-        required("RuleGroupName") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-      
-  """
-  @type create_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set_metadata() :: %{
-        "ResolvedCIDRCount" => integer()
-      }
-      
-  """
-  @type ip_set_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_response() :: %{
-        "Proxy" => proxy(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_capacity_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rules_by_request_phase() :: %{
-        "PostRESPONSE" => list(proxy_rule()),
-        "PreDNS" => list(proxy_rule()),
-        "PreREQUEST" => list(proxy_rule())
-      }
-      
-  """
-  @type proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_analysis_reports_response() :: %{
-        "AnalysisReports" => list(analysis_report()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_analysis_reports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_status() :: %{
-        "CapacityUsageSummary" => capacity_usage_summary(),
-        "ConfigurationSyncStateSummary" => list(any()),
-        "Status" => list(any()),
-        "SyncStates" => map(),
-        "TransitGatewayAttachmentSyncState" => transit_gateway_attachment_sync_state()
-      }
-      
-  """
-  @type firewall_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_association_status() :: %{
-        "AssociationSyncState" => map(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type vpc_endpoint_association_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_response() :: %{
-        "Firewall" => firewall(),
-        "FirewallStatus" => firewall_status()
-      }
-      
-  """
-  @type delete_firewall_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_flow_operations_response() :: %{
-        "FlowOperations" => list(flow_operation_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_flow_operations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_network_firewall_transit_gateway_attachment_response() :: %{
-        "TransitGatewayAttachmentId" => String.t() | atom(),
-        "TransitGatewayAttachmentStatus" => list(any())
-      }
-      
-  """
-  @type accept_network_firewall_transit_gateway_attachment_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_request() :: %{
-        optional("ListenerProperties") => list(listener_property_request()),
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("NatGatewayId") => String.t() | atom(),
-        required("ProxyName") => String.t() | atom(),
-        required("TlsInterceptProperties") => tls_intercept_properties_request()
-      }
-      
-  """
-  @type create_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_group_summary_request() :: %{
-        optional("RuleGroupArn") => String.t() | atom(),
-        optional("RuleGroupName") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type describe_rule_group_summary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rule_group_response() :: %{
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_endpoint_association_request() :: %{
-        required("VpcEndpointAssociationArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rules_response() :: %{
-        "ProxyRuleGroup" => proxy_rule_group()
-      }
-      
-  """
-  @type delete_proxy_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_firewall_policy_response() :: %{
-        "FirewallPolicyResponse" => firewall_policy_response()
-      }
-      
-  """
-  @type delete_firewall_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_association_metadata() :: %{
-        "VpcEndpointAssociationArn" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_endpoint_association_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_group_summary_response() :: %{
-        "Description" => String.t() | atom(),
-        "RuleGroupName" => String.t() | atom(),
-        "Summary" => summary()
-      }
-      
-  """
-  @type describe_rule_group_summary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_policy_response() :: %{
-        "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_firewall_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      server_certificate_scope() :: %{
-        "DestinationPorts" => list(port_range()),
-        "Destinations" => list(address()),
-        "Protocols" => list(integer()),
-        "SourcePorts" => list(port_range()),
-        "Sources" => list(address())
-      }
-      
-  """
-  @type server_certificate_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_response() :: %{
-        "Proxy" => describe_proxy_resource(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_priorities_response() :: %{
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "RuleGroupRequestPhase" => list(any()),
-        "Rules" => list(proxy_rule_priority()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_priorities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      flow_operation_metadata() :: %{
-        "FlowOperationId" => String.t() | atom(),
-        "FlowOperationStatus" => list(any()),
-        "FlowOperationType" => list(any()),
-        "FlowRequestTimestamp" => non_neg_integer()
-      }
-      
-  """
-  @type flow_operation_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      availability_zone_mapping() :: %{
-        "AvailabilityZone" => String.t() | atom()
-      }
-      
-  """
-  @type availability_zone_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_logging_configuration_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_subnets_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "SubnetMappings" => list(subnet_mapping()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_subnets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_rule_groups_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProxyRuleGroups" => list(proxy_rule_group_metadata())
-      }
-      
-  """
-  @type list_proxy_rule_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_request() :: %{
-        optional("Action") => list(any()),
-        optional("AddConditions") => list(proxy_rule_condition()),
-        optional("Description") => String.t() | atom(),
+      delete_proxy_rules_request() :: %{
         optional("ProxyRuleGroupArn") => String.t() | atom(),
         optional("ProxyRuleGroupName") => String.t() | atom(),
-        optional("RemoveConditions") => list(proxy_rule_condition()),
-        required("ProxyRuleName") => String.t() | atom(),
-        required("UpdateToken") => String.t() | atom()
+        required("Rules") => list(String.t() | atom())
       }
       
   """
-  @type update_proxy_rule_request() :: %{(String.t() | atom()) => any()}
+  @type delete_proxy_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      detach_rule_groups_from_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        optional("RuleGroupArns") => list(String.t() | atom()),
-        optional("RuleGroupNames") => list(String.t() | atom()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type detach_rule_groups_from_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sync_state() :: %{
-        "Attachment" => attachment(),
-        "Config" => map()
-      }
-      
-  """
-  @type sync_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hits() :: %{
-        "Count" => integer()
-      }
-      
-  """
-  @type hits() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tls_intercept_properties_request() :: %{
-        "PcaArn" => String.t() | atom(),
-        "TlsInterceptMode" => list(any())
-      }
-      
-  """
-  @type tls_intercept_properties_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_firewall_response() :: %{
-        "Firewall" => firewall(),
-        "FirewallStatus" => firewall_status()
-      }
-      
-  """
-  @type create_firewall_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      per_object_status() :: %{
-        "SyncStatus" => list(any()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type per_object_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_endpoint_association() :: %{
-        "Description" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "SubnetMapping" => subnet_mapping(),
-        "Tags" => list(tag()),
-        "VpcEndpointAssociationArn" => String.t() | atom(),
-        "VpcEndpointAssociationId" => String.t() | atom(),
-        "VpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_endpoint_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_response() :: %{
-        "ProxyRule" => proxy_rule(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_firewall_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_firewall_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_t_l_s_inspection_configuration_request() :: %{
-        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
-        optional("TLSInspectionConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_group_response() :: %{
-        "AnalysisResults" => list(analysis_result()),
-        "Capacity" => integer(),
-        "ConsumedCapacity" => integer(),
-        "Description" => String.t() | atom(),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "LastModifiedTime" => non_neg_integer(),
-        "NumberOfAssociations" => integer(),
-        "RuleGroupArn" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom(),
-        "RuleGroupName" => String.t() | atom(),
-        "RuleGroupStatus" => list(any()),
-        "SnsTopic" => String.t() | atom(),
-        "SourceMetadata" => source_metadata(),
-        "SummaryConfiguration" => summary_configuration(),
-        "Tags" => list(tag()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_rule_priorities_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("RuleGroupRequestPhase") => list(any()),
-        required("Rules") => list(proxy_rule_priority()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_priorities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      analysis_report() :: %{
-        "AnalysisReportId" => String.t() | atom(),
-        "AnalysisType" => list(any()),
-        "ReportTime" => non_neg_integer(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type analysis_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set() :: %{
+      port_set() :: %{
         "Definition" => list(String.t() | atom())
       }
       
   """
-  @type ip_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_flow_operation_results_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VpcEndpointAssociationArn") => String.t() | atom(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("FirewallArn") => String.t() | atom(),
-        required("FlowOperationId") => String.t() | atom()
-      }
-      
-  """
-  @type list_flow_operation_results_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_network_firewall_transit_gateway_attachment_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      stateful_rule() :: %{
-        "Action" => list(any()),
-        "Header" => header(),
-        "RuleOptions" => list(rule_option())
-      }
-      
-  """
-  @type stateful_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listener_property() :: %{
-        "Port" => integer(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type listener_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_endpoint_association_response() :: %{
-        "VpcEndpointAssociation" => vpc_endpoint_association(),
-        "VpcEndpointAssociationStatus" => vpc_endpoint_association_status()
-      }
-      
-  """
-  @type create_vpc_endpoint_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateful_rule_group_reference() :: %{
-        "DeepThreatInspection" => boolean(),
-        "Override" => stateful_rule_group_override(),
-        "Priority" => integer(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type stateful_rule_group_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewalls_response() :: %{
-        "Firewalls" => list(firewall_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewalls_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_t_l_s_inspection_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("Tags") => list(tag()),
-        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
-        required("TLSInspectionConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type create_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_analysis_reports_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_analysis_reports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_request() :: %{
-        optional("ProxyArn") => String.t() | atom(),
-        optional("ProxyName") => String.t() | atom(),
-        required("NatGatewayId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_policy_response() :: %{
-        "ConsumedStatefulDomainCapacity" => integer(),
-        "ConsumedStatefulRuleCapacity" => integer(),
-        "ConsumedStatelessRuleCapacity" => integer(),
-        "Description" => String.t() | atom(),
-        "EncryptionConfiguration" => encryption_configuration(),
-        "FirewallPolicyArn" => String.t() | atom(),
-        "FirewallPolicyId" => String.t() | atom(),
-        "FirewallPolicyName" => String.t() | atom(),
-        "FirewallPolicyStatus" => list(any()),
-        "LastModifiedTime" => non_neg_integer(),
-        "NumberOfAssociations" => integer(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type firewall_policy_response() :: %{(String.t() | atom()) => any()}
+  @type port_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1967,107 +2067,37 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      start_flow_capture_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FlowOperationId" => String.t() | atom(),
-        "FlowOperationStatus" => list(any())
+      capacity_usage_summary() :: %{
+        "CIDRs" => c_id_r_summary()
       }
       
   """
-  @type start_flow_capture_response() :: %{(String.t() | atom()) => any()}
+  @type capacity_usage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_firewall_policy_change_protection_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "FirewallPolicyChangeProtection" => boolean(),
+      describe_proxy_configuration_response() :: %{
+        "ProxyConfiguration" => proxy_configuration(),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type update_firewall_policy_change_protection_response() :: %{(String.t() | atom()) => any()}
+  @type describe_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_proxy_rule_group_priorities_response() :: %{
-        "ProxyRuleGroups" => list(proxy_rule_group_priority_result()),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_rule_group_priorities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_sets() :: %{
-        "IPSetReferences" => map()
-      }
-      
-  """
-  @type reference_sets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rule_group_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_subnet_change_protection_request() :: %{
+      list_vpc_endpoint_associations_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("SubnetChangeProtection") => boolean()
-      }
-      
-  """
-  @type update_subnet_change_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_network_firewall_transit_gateway_attachment_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      list_flow_operations_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("FlowOperationType") => list(any()),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VpcEndpointAssociationArn") => String.t() | atom(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("FirewallArn") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_flow_operations_request() :: %{(String.t() | atom()) => any()}
+  @type list_vpc_endpoint_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2101,89 +2131,313 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      policy_variables() :: %{
-        "RuleVariables" => map()
+      create_proxy_rules_request() :: %{
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom(),
+        required("Rules") => create_proxy_rules_by_request_phase()
       }
       
   """
-  @type policy_variables() :: %{(String.t() | atom()) => any()}
+  @type create_proxy_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_proxy_rule_group_response() :: %{
+      flow_timeouts() :: %{
+        "TcpIdleTimeoutSeconds" => integer()
+      }
+      
+  """
+  @type flow_timeouts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateless_rules_and_custom_actions() :: %{
+        "CustomActions" => list(custom_action()),
+        "StatelessRules" => list(stateless_rule())
+      }
+      
+  """
+  @type stateless_rules_and_custom_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action_definition() :: %{
+        "PublishMetricAction" => publish_metric_action()
+      }
+      
+  """
+  @type action_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      summary() :: %{
+        "RuleSummaries" => list(rule_summary())
+      }
+      
+  """
+  @type summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_policy_request() :: %{
+        optional("FirewallPolicyArn") => String.t() | atom(),
+        optional("FirewallPolicyName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      c_id_r_summary() :: %{
+        "AvailableCIDRCount" => integer(),
+        "IPSetReferences" => map(),
+        "UtilizedCIDRCount" => integer()
+      }
+      
+  """
+  @type c_id_r_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_proxy_rule_group_response() :: %{
         "ProxyRuleGroup" => proxy_rule_group(),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type create_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
+  @type describe_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_firewall_request() :: %{
-        optional("AvailabilityZoneChangeProtection") => boolean(),
-        optional("AvailabilityZoneMappings") => list(availability_zone_mapping()),
-        optional("DeleteProtection") => boolean(),
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_rule_group_priorities_response() :: %{
+        "ProxyRuleGroups" => list(proxy_rule_group_priority_result()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_rule_group_priorities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      per_object_status() :: %{
+        "SyncStatus" => list(any()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type per_object_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_rule() :: %{
+        "Action" => list(any()),
+        "Conditions" => list(proxy_rule_condition()),
+        "Description" => String.t() | atom(),
+        "InsertPosition" => integer(),
+        "ProxyRuleName" => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_policy_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("EnabledAnalysisTypes") => list(list(any())()),
+        optional("DryRun") => boolean(),
         optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("FirewallPolicyChangeProtection") => boolean(),
-        optional("SubnetChangeProtection") => boolean(),
-        optional("SubnetMappings") => list(subnet_mapping()),
         optional("Tags") => list(tag()),
-        optional("TransitGatewayId") => String.t() | atom(),
-        optional("VpcId") => String.t() | atom(),
-        required("FirewallName") => String.t() | atom(),
-        required("FirewallPolicyArn") => String.t() | atom()
+        required("FirewallPolicy") => firewall_policy(),
+        required("FirewallPolicyName") => String.t() | atom()
       }
       
   """
-  @type create_firewall_request() :: %{(String.t() | atom()) => any()}
+  @type create_firewall_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      analysis_type_report_result() :: %{
-        "Domain" => String.t() | atom(),
-        "FirstAccessed" => non_neg_integer(),
-        "Hits" => hits(),
-        "LastAccessed" => non_neg_integer(),
-        "Protocol" => String.t() | atom(),
-        "UniqueSources" => unique_sources()
+      proxy_rule() :: %{
+        "Action" => list(any()),
+        "Conditions" => list(proxy_rule_condition()),
+        "Description" => String.t() | atom(),
+        "ProxyRuleName" => String.t() | atom()
       }
       
   """
-  @type analysis_type_report_result() :: %{(String.t() | atom()) => any()}
+  @type proxy_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_firewall_request() :: %{
+      create_proxy_configuration_response() :: %{
+        "ProxyConfiguration" => proxy_configuration(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set_metadata() :: %{
+        "ResolvedCIDRCount" => integer()
+      }
+      
+  """
+  @type ip_set_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxies_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_proxies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_status() :: %{
+        "CapacityUsageSummary" => capacity_usage_summary(),
+        "ConfigurationSyncStateSummary" => list(any()),
+        "Status" => list(any()),
+        "SyncStates" => map(),
+        "TransitGatewayAttachmentSyncState" => transit_gateway_attachment_sync_state()
+      }
+      
+  """
+  @type firewall_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule_group_override() :: %{
+        "Action" => list(any())
+      }
+      
+  """
+  @type stateful_rule_group_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_availability_zone_change_protection_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom()
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("AvailabilityZoneChangeProtection") => boolean()
       }
       
   """
-  @type delete_firewall_request() :: %{(String.t() | atom()) => any()}
+  @type update_availability_zone_change_protection_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_summary() :: %{
-        "Metadata" => String.t() | atom(),
-        "Msg" => String.t() | atom(),
-        "SID" => String.t() | atom()
+      update_firewall_description_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom()
       }
       
   """
-  @type rule_summary() :: %{(String.t() | atom()) => any()}
+  @type update_firewall_description_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_flush_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FlowOperationId" => String.t() | atom(),
+        "FlowOperationStatus" => list(any())
+      }
+      
+  """
+  @type start_flow_flush_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_rule_group_priorities_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom(),
+        required("RuleGroups") => list(proxy_rule_group_priority()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_rule_group_priorities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2201,30 +2455,26 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      start_flow_flush_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("MinimumFlowAgeInSeconds") => integer(),
-        optional("VpcEndpointAssociationArn") => String.t() | atom(),
-        optional("VpcEndpointId") => String.t() | atom(),
-        required("FirewallArn") => String.t() | atom(),
-        required("FlowFilters") => list(flow_filter())
+      log_destination_permission_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type start_flow_flush_request() :: %{(String.t() | atom()) => any()}
+  @type log_destination_permission_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_flow_flush_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FlowOperationId" => String.t() | atom(),
-        "FlowOperationStatus" => list(any())
+      update_logging_configuration_request() :: %{
+        optional("EnableMonitoringDashboard") => boolean(),
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("LoggingConfiguration") => logging_configuration()
       }
       
   """
-  @type start_flow_flush_response() :: %{(String.t() | atom()) => any()}
+  @type update_logging_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2251,117 +2501,47 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      describe_t_l_s_inspection_configuration_response() :: %{
-        "TLSInspectionConfiguration" => t_l_s_inspection_configuration(),
-        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+      describe_proxy_rule_response() :: %{
+        "ProxyRule" => proxy_rule(),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type describe_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type describe_proxy_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      flow_timeouts() :: %{
-        "TcpIdleTimeoutSeconds" => integer()
+      update_subnet_change_protection_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "SubnetChangeProtection" => boolean(),
+        "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type flow_timeouts() :: %{(String.t() | atom()) => any()}
+  @type update_subnet_change_protection_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      custom_action() :: %{
-        "ActionDefinition" => action_definition(),
-        "ActionName" => String.t() | atom()
+      describe_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("RuleGroupArn") => String.t() | atom(),
+        optional("RuleGroupName") => String.t() | atom(),
+        optional("Type") => list(any())
       }
       
   """
-  @type custom_action() :: %{(String.t() | atom()) => any()}
+  @type describe_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      port_range() :: %{
-        "FromPort" => integer(),
-        "ToPort" => integer()
-      }
-      
-  """
-  @type port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxies_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Proxies" => list(proxy_metadata())
-      }
-      
-  """
-  @type list_proxies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_rules_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("Rules") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_proxy_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rules_source_list() :: %{
-        "GeneratedRulesType" => list(any()),
-        "TargetTypes" => list(list(any())()),
-        "Targets" => list(String.t() | atom())
-      }
-      
-  """
-  @type rules_source_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_request() :: %{
-        required("Policy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewall_policies_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_availability_zones_request() :: %{
+      associate_availability_zones_request() :: %{
         optional("FirewallArn") => String.t() | atom(),
         optional("FirewallName") => String.t() | atom(),
         optional("UpdateToken") => String.t() | atom(),
@@ -2369,105 +2549,78 @@ defmodule AWS.NetworkFirewall do
       }
       
   """
-  @type disassociate_availability_zones_request() :: %{(String.t() | atom()) => any()}
+  @type associate_availability_zones_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_firewall_policies_response() :: %{
-        "FirewallPolicies" => list(firewall_policy_metadata()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_firewall_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_delete_protection_response() :: %{
-        "DeleteProtection" => boolean(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
+      update_proxy_rule_priorities_response() :: %{
+        "ProxyRuleGroupArn" => String.t() | atom(),
+        "ProxyRuleGroupName" => String.t() | atom(),
+        "RuleGroupRequestPhase" => list(any()),
+        "Rules" => list(proxy_rule_priority()),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type update_firewall_delete_protection_response() :: %{(String.t() | atom()) => any()}
+  @type update_proxy_rule_priorities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_config_rule_group() :: %{
-        "Priority" => integer(),
+      delete_proxy_rule_group_response() :: %{
         "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "Type" => String.t() | atom()
+        "ProxyRuleGroupName" => String.t() | atom()
       }
       
   """
-  @type proxy_config_rule_group() :: %{(String.t() | atom()) => any()}
+  @type delete_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      port_set() :: %{
-        "Definition" => list(String.t() | atom())
+      unique_sources() :: %{
+        "Count" => integer()
       }
       
   """
-  @type port_set() :: %{(String.t() | atom()) => any()}
+  @type unique_sources() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      internal_server_error() :: %{
-        "Message" => String.t() | atom()
+      firewall_policy_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
+  @type firewall_policy_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_rule_priority() :: %{
-        "NewPosition" => integer(),
-        "ProxyRuleName" => String.t() | atom()
+      delete_proxy_configuration_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom()
       }
       
   """
-  @type proxy_rule_priority() :: %{(String.t() | atom()) => any()}
+  @type delete_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      transit_gateway_attachment_sync_state() :: %{
-        "AttachmentId" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "TransitGatewayAttachmentStatus" => list(any())
-      }
+      put_resource_policy_response() :: %{}
       
   """
-  @type transit_gateway_attachment_sync_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_usage_summary() :: %{
-        "CIDRs" => c_id_r_summary()
-      }
-      
-  """
-  @type capacity_usage_summary() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_response() :: %{}
 
   @typedoc """
 
@@ -2487,162 +2640,15 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      delete_t_l_s_inspection_configuration_response() :: %{
-        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response()
-      }
-      
-  """
-  @type delete_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_group_request() :: %{
-        optional("AnalyzeRuleGroup") => boolean(),
-        optional("Description") => String.t() | atom(),
-        optional("DryRun") => boolean(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("RuleGroup") => rule_group(),
-        optional("RuleGroupArn") => String.t() | atom(),
-        optional("RuleGroupName") => String.t() | atom(),
-        optional("Rules") => String.t() | atom(),
-        optional("SourceMetadata") => source_metadata(),
-        optional("SummaryConfiguration") => summary_configuration(),
-        optional("Type") => list(any()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_group_response() :: %{
-        "RuleGroupResponse" => rule_group_response()
-      }
-      
-  """
-  @type delete_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_t_l_s_inspection_configuration_response() :: %{
-        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
+      disassociate_subnets_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "SubnetMappings" => list(subnet_mapping()),
         "UpdateToken" => String.t() | atom()
       }
       
   """
-  @type create_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_rule_groups_to_proxy_configuration_response() :: %{
-        "ProxyConfiguration" => proxy_configuration(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type attach_rule_groups_to_proxy_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_proxy_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_attachment() :: %{
-        "InsertPosition" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_group_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_policy_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_policy_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_response() :: %{
-        "Proxy" => proxy(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateful_rule_options() :: %{
-        "RuleOrder" => list(any())
-      }
-      
-  """
-  @type stateful_rule_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_firewalls_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("VpcIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type list_firewalls_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_subnets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2662,14 +2668,37 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      log_destination_config() :: %{
-        "LogDestination" => map(),
-        "LogDestinationType" => list(any()),
-        "LogType" => list(any())
+      delete_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status()
       }
       
   """
-  @type log_destination_config() :: %{(String.t() | atom()) => any()}
+  @type delete_firewall_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_firewall_policies_response() :: %{
+        "FirewallPolicies" => list(firewall_policy_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_firewall_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxy_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_proxy_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2686,112 +2715,104 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      delete_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom()
+      stateful_rule_options() :: %{
+        "RuleOrder" => list(any())
       }
       
   """
-  @type delete_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type stateful_rule_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_firewall_response() :: %{
-        "Firewall" => firewall(),
-        "FirewallStatus" => firewall_status(),
-        "UpdateToken" => String.t() | atom()
+      header() :: %{
+        "Destination" => String.t() | atom(),
+        "DestinationPort" => String.t() | atom(),
+        "Direction" => list(any()),
+        "Protocol" => list(any()),
+        "Source" => String.t() | atom(),
+        "SourcePort" => String.t() | atom()
       }
       
   """
-  @type describe_firewall_response() :: %{(String.t() | atom()) => any()}
+  @type header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      unique_sources() :: %{
-        "Count" => integer()
-      }
+      delete_resource_policy_response() :: %{}
       
   """
-  @type unique_sources() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
+      list_tags_for_resource_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxy_rule_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_proxy_rule_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flow_operation_results_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
+        optional("VpcEndpointAssociationArn") => String.t() | atom(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("FirewallArn") => String.t() | atom(),
+        required("FlowOperationId") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_flow_operation_results_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_t_l_s_inspection_configuration_response() :: %{
-        "TLSInspectionConfigurationResponse" => t_l_s_inspection_configuration_response(),
-        "UpdateToken" => String.t() | atom()
+      listener_property() :: %{
+        "Port" => integer(),
+        "Type" => list(any())
       }
       
   """
-  @type update_t_l_s_inspection_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type listener_property() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_variables() :: %{
-        "IPSets" => map(),
-        "PortSets" => map()
+      delete_network_firewall_transit_gateway_attachment_response() :: %{
+        "TransitGatewayAttachmentId" => String.t() | atom(),
+        "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type rule_variables() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_analysis_settings_response() :: %{
-        "EnabledAnalysisTypes" => list(list(any())()),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_analysis_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_logging_configuration_response() :: %{
-        "EnableMonitoringDashboard" => boolean(),
-        "FirewallArn" => String.t() | atom(),
-        "LoggingConfiguration" => logging_configuration()
-      }
-      
-  """
-  @type describe_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type delete_network_firewall_transit_gateway_attachment_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2820,37 +2841,55 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      disassociate_subnets_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
+      transit_gateway_attachment_sync_state() :: %{
+        "AttachmentId" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "TransitGatewayAttachmentStatus" => list(any())
       }
       
   """
-  @type disassociate_subnets_request() :: %{(String.t() | atom()) => any()}
+  @type transit_gateway_attachment_sync_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      log_destination_permission_exception() :: %{
-        "Message" => String.t() | atom()
+      create_t_l_s_inspection_configuration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("Tags") => list(tag()),
+        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
+        required("TLSInspectionConfigurationName") => String.t() | atom()
       }
       
   """
-  @type log_destination_permission_exception() :: %{(String.t() | atom()) => any()}
+  @type create_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      availability_zone_metadata() :: %{
-        "IPAddressType" => list(any())
+      tls_intercept_properties_request() :: %{
+        "PcaArn" => String.t() | atom(),
+        "TlsInterceptMode" => list(any())
       }
       
   """
-  @type availability_zone_metadata() :: %{(String.t() | atom()) => any()}
+  @type tls_intercept_properties_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      detach_rule_groups_from_proxy_configuration_response() :: %{
+        "ProxyConfiguration" => proxy_configuration(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type detach_rule_groups_from_proxy_configuration_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -2863,54 +2902,6 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type delete_firewall_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_proxy_response() :: %{
-        "NatGatewayId" => String.t() | atom(),
-        "ProxyArn" => String.t() | atom(),
-        "ProxyName" => String.t() | atom()
-      }
-      
-  """
-  @type delete_proxy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_resource_policy_response() :: %{}
-      
-  """
-  @type put_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_endpoint_association_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("FirewallArn") => String.t() | atom(),
-        required("SubnetMapping") => subnet_mapping(),
-        required("VpcId") => String.t() | atom()
-      }
-      
-  """
-  @type create_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2929,552 +2920,14 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      reject_network_firewall_transit_gateway_attachment_request() :: %{
-        required("TransitGatewayAttachmentId") => String.t() | atom()
-      }
-      
-  """
-  @type reject_network_firewall_transit_gateway_attachment_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-      
-      dimension() :: %{
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_proxy_rule_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_proxy_rule_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RuleGroupArns") => list(String.t() | atom()),
-        optional("RuleGroupNames") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
-        required("ProxyConfigurationName") => String.t() | atom()
-      }
-      
-  """
-  @type create_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summary_configuration() :: %{
-        "RuleOptions" => list(list(any())())
-      }
-      
-  """
-  @type summary_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_availability_zones_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("AvailabilityZoneMappings") => list(availability_zone_mapping())
-      }
-      
-  """
-  @type associate_availability_zones_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_t_l_s_inspection_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionConfiguration") => encryption_configuration(),
-        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
-        optional("TLSInspectionConfigurationName") => String.t() | atom(),
-        required("TLSInspectionConfiguration") => t_l_s_inspection_configuration(),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type update_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_flow_operation_results_response() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "FlowOperationId" => String.t() | atom(),
-        "FlowOperationStatus" => list(any()),
-        "FlowRequestTimestamp" => non_neg_integer(),
-        "Flows" => list(flow()),
-        "NextToken" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "VpcEndpointAssociationArn" => String.t() | atom(),
-        "VpcEndpointId" => String.t() | atom()
-      }
-      
-  """
-  @type list_flow_operation_results_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_delete_protection_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("DeleteProtection") => boolean()
-      }
-      
-  """
-  @type update_firewall_delete_protection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_metadata() :: %{
-        "SourceArn" => String.t() | atom(),
-        "SourceUpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type source_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_policy_response() :: %{
-        "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group_priority_result() :: %{
-        "Priority" => integer(),
-        "ProxyRuleGroupName" => String.t() | atom()
-      }
-      
-  """
-  @type proxy_rule_group_priority_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_firewall_description_response() :: %{
-        "Description" => String.t() | atom(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_firewall_description_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      match_attributes() :: %{
-        "DestinationPorts" => list(port_range()),
-        "Destinations" => list(address()),
-        "Protocols" => list(integer()),
-        "SourcePorts" => list(port_range()),
-        "Sources" => list(address()),
-        "TCPFlags" => list(t_c_p_flag_field())
-      }
-      
-  """
-  @type match_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_group_metadata_response() :: %{
-        "Capacity" => integer(),
-        "Description" => String.t() | atom(),
-        "LastModifiedTime" => non_neg_integer(),
-        "ListingName" => String.t() | atom(),
-        "ProductId" => String.t() | atom(),
-        "RuleGroupArn" => String.t() | atom(),
-        "RuleGroupName" => String.t() | atom(),
-        "StatefulRuleOptions" => stateful_rule_options(),
-        "Type" => list(any()),
-        "VendorName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_rule_group_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_proxy_rules_by_request_phase() :: %{
-        "PostRESPONSE" => list(create_proxy_rule()),
-        "PreDNS" => list(create_proxy_rule()),
-        "PreREQUEST" => list(create_proxy_rule())
-      }
-      
-  """
-  @type create_proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associate_subnets_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("SubnetMappings") => list(subnet_mapping())
-      }
-      
-  """
-  @type associate_subnets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      address() :: %{
-        "AddressDefinition" => String.t() | atom()
-      }
-      
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_proxy_rule_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("ProxyRuleName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_proxy_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_firewall_metadata_request() :: %{
-        optional("FirewallArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_firewall_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      flow() :: %{
-        "Age" => integer(),
-        "ByteCount" => float(),
-        "DestinationAddress" => address(),
-        "DestinationPort" => String.t() | atom(),
-        "PacketCount" => integer(),
-        "Protocol" => String.t() | atom(),
-        "SourceAddress" => address(),
-        "SourcePort" => String.t() | atom()
-      }
-      
-  """
-  @type flow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_logging_configuration_response() :: %{
-        "EnableMonitoringDashboard" => boolean(),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "LoggingConfiguration" => logging_configuration()
-      }
-      
-  """
-  @type update_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_rule_group_response() :: %{
-        "RuleGroup" => rule_group(),
-        "RuleGroupResponse" => rule_group_response(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      proxy_rule_group() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DeleteTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ProxyRuleGroupArn" => String.t() | atom(),
-        "ProxyRuleGroupName" => String.t() | atom(),
-        "Rules" => proxy_rules_by_request_phase(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type proxy_rule_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateless_rule() :: %{
-        "Priority" => integer(),
-        "RuleDefinition" => rule_definition()
-      }
-      
-  """
-  @type stateless_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attach_rule_groups_to_proxy_configuration_request() :: %{
-        optional("ProxyConfigurationArn") => String.t() | atom(),
-        optional("ProxyConfigurationName") => String.t() | atom(),
-        required("RuleGroups") => list(proxy_rule_group_attachment()),
-        required("UpdateToken") => String.t() | atom()
-      }
-      
-  """
-  @type attach_rule_groups_to_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_proxy_request() :: %{
-        optional("ListenerPropertiesToAdd") => list(listener_property_request()),
-        optional("ListenerPropertiesToRemove") => list(listener_property_request()),
+      delete_proxy_request() :: %{
         optional("ProxyArn") => String.t() | atom(),
         optional("ProxyName") => String.t() | atom(),
-        optional("TlsInterceptProperties") => tls_intercept_properties_request(),
-        required("NatGatewayId") => String.t() | atom(),
-        required("UpdateToken") => String.t() | atom()
+        required("NatGatewayId") => String.t() | atom()
       }
       
   """
-  @type update_proxy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_group_request() :: %{
-        optional("RuleGroupArn") => String.t() | atom(),
-        optional("RuleGroupName") => String.t() | atom(),
-        optional("Type") => list(any())
-      }
-      
-  """
-  @type delete_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateless_rule_group_reference() :: %{
-        "Priority" => integer(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type stateless_rule_group_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      firewall_metadata() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "TransitGatewayAttachmentId" => String.t() | atom()
-      }
-      
-  """
-  @type firewall_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tls_intercept_properties() :: %{
-        "PcaArn" => String.t() | atom(),
-        "TlsInterceptMode" => list(any())
-      }
-      
-  """
-  @type tls_intercept_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_endpoint_association_request() :: %{
-        required("VpcEndpointAssociationArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      summary() :: %{
-        "RuleSummaries" => list(rule_summary())
-      }
-      
-  """
-  @type summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      c_id_r_summary() :: %{
-        "AvailableCIDRCount" => integer(),
-        "IPSetReferences" => map(),
-        "UtilizedCIDRCount" => integer()
-      }
-      
-  """
-  @type c_id_r_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_subnet_change_protection_response() :: %{
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "SubnetChangeProtection" => boolean(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_subnet_change_protection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stateless_rules_and_custom_actions() :: %{
-        "CustomActions" => list(custom_action()),
-        "StatelessRules" => list(stateless_rule())
-      }
-      
-  """
-  @type stateless_rules_and_custom_actions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_option() :: %{
-        "Keyword" => String.t() | atom(),
-        "Settings" => list(String.t() | atom())
-      }
-      
-  """
-  @type rule_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      disassociate_availability_zones_response() :: %{
-        "AvailabilityZoneMappings" => list(availability_zone_mapping()),
-        "FirewallArn" => String.t() | atom(),
-        "FirewallName" => String.t() | atom(),
-        "UpdateToken" => String.t() | atom()
-      }
-      
-  """
-  @type disassociate_availability_zones_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      check_certificate_revocation_status_actions() :: %{
-        "RevokedStatusAction" => list(any()),
-        "UnknownStatusAction" => list(any())
-      }
-      
-  """
-  @type check_certificate_revocation_status_actions() :: %{(String.t() | atom()) => any()}
+  @type delete_proxy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3491,90 +2944,123 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      ip_set_reference() :: %{
-        "ReferenceArn" => String.t() | atom()
+      dimension() :: %{
+        "Value" => String.t() | atom()
       }
       
   """
-  @type ip_set_reference() :: %{(String.t() | atom()) => any()}
+  @type dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_proxy_rule_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Rules") => proxy_rules_by_request_phase(),
-        optional("Tags") => list(tag()),
-        required("ProxyRuleGroupName") => String.t() | atom()
+      delete_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response()
       }
       
   """
-  @type create_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
+  @type delete_firewall_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_rule() :: %{
-        "Action" => list(any()),
-        "Conditions" => list(proxy_rule_condition()),
-        "Description" => String.t() | atom(),
-        "ProxyRuleName" => String.t() | atom()
+      delete_vpc_endpoint_association_request() :: %{
+        required("VpcEndpointAssociationArn") => String.t() | atom()
       }
       
   """
-  @type proxy_rule() :: %{(String.t() | atom()) => any()}
+  @type delete_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_rule_groups_request() :: %{
-        optional("ManagedType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Scope") => list(any()),
-        optional("SubscriptionStatus") => list(any()),
-        optional("Type") => list(any())
+      update_proxy_configuration_request() :: %{
+        optional("ProxyConfigurationArn") => String.t() | atom(),
+        optional("ProxyConfigurationName") => String.t() | atom(),
+        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
+        required("UpdateToken") => String.t() | atom()
       }
       
   """
-  @type list_rule_groups_request() :: %{(String.t() | atom()) => any()}
+  @type update_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      action_definition() :: %{
-        "PublishMetricAction" => publish_metric_action()
+      rule_variables() :: %{
+        "IPSets" => map(),
+        "PortSets" => map()
       }
       
   """
-  @type action_definition() :: %{(String.t() | atom()) => any()}
+  @type rule_variables() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_firewall_policy_request() :: %{
-        optional("FirewallPolicyArn") => String.t() | atom(),
-        optional("FirewallPolicyName") => String.t() | atom()
+      describe_vpc_endpoint_association_request() :: %{
+        required("VpcEndpointAssociationArn") => String.t() | atom()
       }
       
   """
-  @type describe_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+  @type describe_vpc_endpoint_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      server_certificate() :: %{
-        "ResourceArn" => String.t() | atom()
+      t_c_p_flag_field() :: %{
+        "Flags" => list(list(any())()),
+        "Masks" => list(list(any())())
       }
       
   """
-  @type server_certificate() :: %{(String.t() | atom()) => any()}
+  @type t_c_p_flag_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_flow_capture_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("MinimumFlowAgeInSeconds") => integer(),
+        optional("VpcEndpointAssociationArn") => String.t() | atom(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("FirewallArn") => String.t() | atom(),
+        required("FlowFilters") => list(flow_filter())
+      }
+      
+  """
+  @type start_flow_capture_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxy_rule_groups_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProxyRuleGroups" => list(proxy_rule_group_metadata())
+      }
+      
+  """
+  @type list_proxy_rule_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status()
+      }
+      
+  """
+  @type create_firewall_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3591,53 +3077,72 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      create_proxy_rules_request() :: %{
-        optional("ProxyRuleGroupArn") => String.t() | atom(),
-        optional("ProxyRuleGroupName") => String.t() | atom(),
-        required("Rules") => create_proxy_rules_by_request_phase()
+      get_analysis_report_results_response() :: %{
+        "AnalysisReportResults" => list(analysis_type_report_result()),
+        "AnalysisType" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "NextToken" => String.t() | atom(),
+        "ReportTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type create_proxy_rules_request() :: %{(String.t() | atom()) => any()}
+  @type get_analysis_report_results_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_vpc_endpoint_associations_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      describe_flow_operation_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("VpcEndpointAssociationArn") => String.t() | atom(),
+        optional("VpcEndpointId") => String.t() | atom(),
+        required("FirewallArn") => String.t() | atom(),
+        required("FlowOperationId") => String.t() | atom()
       }
       
   """
-  @type list_vpc_endpoint_associations_request() :: %{(String.t() | atom()) => any()}
+  @type describe_flow_operation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_firewall_policy_response() :: %{
-        "FirewallPolicy" => firewall_policy(),
-        "FirewallPolicyResponse" => firewall_policy_response(),
-        "UpdateToken" => String.t() | atom()
+      stateful_engine_options() :: %{
+        "FlowTimeouts" => flow_timeouts(),
+        "RuleOrder" => list(any()),
+        "StreamExceptionPolicy" => list(any())
       }
       
   """
-  @type describe_firewall_policy_response() :: %{(String.t() | atom()) => any()}
+  @type stateful_engine_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      proxy_config_default_rule_phase_actions_request() :: %{
-        "PostRESPONSE" => list(any()),
-        "PreDNS" => list(any()),
-        "PreREQUEST" => list(any())
+      encryption_configuration() :: %{
+        "KeyId" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type proxy_config_default_rule_phase_actions_request() :: %{(String.t() | atom()) => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_certificate_configuration() :: %{
+        "CertificateAuthorityArn" => String.t() | atom(),
+        "CheckCertificateRevocationStatus" => check_certificate_revocation_status_actions(),
+        "Scopes" => list(server_certificate_scope()),
+        "ServerCertificates" => list(server_certificate())
+      }
+      
+  """
+  @type server_certificate_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3670,520 +3175,1015 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
-      update_availability_zone_change_protection_request() :: %{
-        optional("FirewallArn") => String.t() | atom(),
-        optional("FirewallName") => String.t() | atom(),
-        optional("UpdateToken") => String.t() | atom(),
-        required("AvailabilityZoneChangeProtection") => boolean()
+      create_proxy_configuration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RuleGroupArns") => list(String.t() | atom()),
+        optional("RuleGroupNames") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        required("DefaultRulePhaseActions") => proxy_config_default_rule_phase_actions_request(),
+        required("ProxyConfigurationName") => String.t() | atom()
       }
       
   """
-  @type update_availability_zone_change_protection_request() :: %{(String.t() | atom()) => any()}
+  @type create_proxy_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_request() :: %{
+        optional("AnalyzeRuleGroup") => boolean(),
+        optional("Description") => String.t() | atom(),
+        optional("DryRun") => boolean(),
+        optional("EncryptionConfiguration") => encryption_configuration(),
+        optional("RuleGroup") => rule_group(),
+        optional("Rules") => String.t() | atom(),
+        optional("SourceMetadata") => source_metadata(),
+        optional("SummaryConfiguration") => summary_configuration(),
+        optional("Tags") => list(tag()),
+        required("Capacity") => integer(),
+        required("RuleGroupName") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response()
+      }
+      
+  """
+  @type delete_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_response() :: %{
+        "FirewallPolicyResponse" => firewall_policy_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_firewall_response() :: %{
+        "Firewall" => firewall(),
+        "FirewallStatus" => firewall_status(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_firewall_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_summary() :: %{
+        "Metadata" => String.t() | atom(),
+        "Msg" => String.t() | atom(),
+        "SID" => String.t() | atom()
+      }
+      
+  """
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      firewall_policy_response() :: %{
+        "ConsumedStatefulDomainCapacity" => integer(),
+        "ConsumedStatefulRuleCapacity" => integer(),
+        "ConsumedStatelessRuleCapacity" => integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionConfiguration" => encryption_configuration(),
+        "FirewallPolicyArn" => String.t() | atom(),
+        "FirewallPolicyId" => String.t() | atom(),
+        "FirewallPolicyName" => String.t() | atom(),
+        "FirewallPolicyStatus" => list(any()),
+        "LastModifiedTime" => non_neg_integer(),
+        "NumberOfAssociations" => integer(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type firewall_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_group() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DeleteTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ProxyRuleGroupArn" => String.t() | atom(),
+        "ProxyRuleGroupName" => String.t() | atom(),
+        "Rules" => proxy_rules_by_request_phase(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type proxy_rule_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_proxy_rule_group_request() :: %{
+        optional("ProxyRuleGroupArn") => String.t() | atom(),
+        optional("ProxyRuleGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_proxy_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_change_protection_request() :: %{
+        optional("FirewallArn") => String.t() | atom(),
+        optional("FirewallName") => String.t() | atom(),
+        optional("UpdateToken") => String.t() | atom(),
+        required("FirewallPolicyChangeProtection") => boolean()
+      }
+      
+  """
+  @type update_firewall_policy_change_protection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_proxy_request() :: %{
+        optional("ListenerPropertiesToAdd") => list(listener_property_request()),
+        optional("ListenerPropertiesToRemove") => list(listener_property_request()),
+        optional("ProxyArn") => String.t() | atom(),
+        optional("ProxyName") => String.t() | atom(),
+        optional("TlsInterceptProperties") => tls_intercept_properties_request(),
+        required("NatGatewayId") => String.t() | atom(),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_proxy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stateful_rule_group_reference() :: %{
+        "DeepThreatInspection" => boolean(),
+        "Override" => stateful_rule_group_override(),
+        "Priority" => integer(),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type stateful_rule_group_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_proxies_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Proxies" => list(proxy_metadata())
+      }
+      
+  """
+  @type list_proxies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      flow() :: %{
+        "Age" => integer(),
+        "ByteCount" => float(),
+        "DestinationAddress" => address(),
+        "DestinationPort" => String.t() | atom(),
+        "PacketCount" => integer(),
+        "Protocol" => String.t() | atom(),
+        "SourceAddress" => address(),
+        "SourcePort" => String.t() | atom()
+      }
+      
+  """
+  @type flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_metadata() :: %{
+        "IPAddressType" => list(any())
+      }
+      
+  """
+  @type availability_zone_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_z_sync_state() :: %{
+        "Attachment" => attachment()
+      }
+      
+  """
+  @type a_z_sync_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_analysis_reports_response() :: %{
+        "AnalysisReports" => list(analysis_report()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_analysis_reports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_rule_group_response() :: %{
+        "ProxyRuleGroup" => proxy_rule_group(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_metadata() :: %{
+        "SourceArn" => String.t() | atom(),
+        "SourceUpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type source_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_t_l_s_inspection_configuration_request() :: %{
+        optional("TLSInspectionConfigurationArn") => String.t() | atom(),
+        optional("TLSInspectionConfigurationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_t_l_s_inspection_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rule_group_metadata_response() :: %{
+        "Capacity" => integer(),
+        "Description" => String.t() | atom(),
+        "LastModifiedTime" => non_neg_integer(),
+        "ListingName" => String.t() | atom(),
+        "ProductId" => String.t() | atom(),
+        "RuleGroupArn" => String.t() | atom(),
+        "RuleGroupName" => String.t() | atom(),
+        "StatefulRuleOptions" => stateful_rule_options(),
+        "Type" => list(any()),
+        "VendorName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_rule_group_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_network_firewall_transit_gateway_attachment_request() :: %{
+        required("TransitGatewayAttachmentId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_network_firewall_transit_gateway_attachment_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      tls_intercept_properties() :: %{
+        "PcaArn" => String.t() | atom(),
+        "TlsInterceptMode" => list(any())
+      }
+      
+  """
+  @type tls_intercept_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_rule_group_priority() :: %{
+        "NewPosition" => integer(),
+        "ProxyRuleGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_rule_group_priority() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      proxy_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type proxy_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      analysis_report() :: %{
+        "AnalysisReportId" => String.t() | atom(),
+        "AnalysisType" => list(any()),
+        "ReportTime" => non_neg_integer(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type analysis_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_flow_operations_response() :: %{
+        "FlowOperations" => list(flow_operation_metadata()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_flow_operations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_firewall_policy_change_protection_response() :: %{
+        "FirewallArn" => String.t() | atom(),
+        "FirewallName" => String.t() | atom(),
+        "FirewallPolicyChangeProtection" => boolean(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_firewall_policy_change_protection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_group_response() :: %{
+        "RuleGroupResponse" => rule_group_response(),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_logging_configuration_response() :: %{
+        "EnableMonitoringDashboard" => boolean(),
+        "FirewallArn" => String.t() | atom(),
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type describe_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_flow_operation_response() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "FirewallArn" => String.t() | atom(),
+        "FlowOperation" => flow_operation(),
+        "FlowOperationId" => String.t() | atom(),
+        "FlowOperationStatus" => list(any()),
+        "FlowOperationType" => list(any()),
+        "FlowRequestTimestamp" => non_neg_integer(),
+        "StatusMessage" => String.t() | atom(),
+        "VpcEndpointAssociationArn" => String.t() | atom(),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type describe_flow_operation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_t_l_s_inspection_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_t_l_s_inspection_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_proxy_rules_by_request_phase() :: %{
+        "PostRESPONSE" => list(create_proxy_rule()),
+        "PreDNS" => list(create_proxy_rule()),
+        "PreREQUEST" => list(create_proxy_rule())
+      }
+      
+  """
+  @type create_proxy_rules_by_request_phase() :: %{(String.t() | atom()) => any()}
 
   @type accept_network_firewall_transit_gateway_attachment_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type associate_availability_zones_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
           | insufficient_capacity_exception()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type associate_firewall_policy_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type associate_subnets_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
           | insufficient_capacity_exception()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type attach_rule_groups_to_proxy_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type create_firewall_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_request_exception()
           | internal_server_error()
-          | invalid_request_exception()
           | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type create_firewall_policy_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_request_exception()
           | internal_server_error()
-          | invalid_request_exception()
           | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_proxy_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_proxy_configuration_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_proxy_rule_group_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_request_exception()
           | internal_server_error()
-          | invalid_request_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_proxy_rules_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type create_rule_group_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_request_exception()
           | internal_server_error()
-          | invalid_request_exception()
           | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_t_l_s_inspection_configuration_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
+          invalid_request_exception()
           | internal_server_error()
-          | invalid_request_exception()
           | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_vpc_endpoint_association_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
           | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type delete_firewall_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
+          | invalid_operation_exception()
 
   @type delete_firewall_policy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
+          | invalid_operation_exception()
 
   @type delete_network_firewall_transit_gateway_attachment_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_proxy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_proxy_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_proxy_rule_group_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_proxy_rules_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
+          invalid_request_exception()
           | invalid_resource_policy_exception()
-          | internal_server_error()
-          | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type delete_rule_group_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | invalid_operation_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
+          | invalid_operation_exception()
 
   @type delete_t_l_s_inspection_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type delete_vpc_endpoint_association_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type describe_firewall_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_firewall_metadata_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_firewall_policy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_flow_operation_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_logging_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_proxy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_proxy_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_proxy_rule_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_proxy_rule_group_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_resource_policy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_rule_group_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_rule_group_metadata_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_rule_group_summary_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_t_l_s_inspection_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_vpc_endpoint_association_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type detach_rule_groups_from_proxy_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type disassociate_availability_zones_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type disassociate_subnets_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
           | invalid_operation_exception()
 
   @type get_analysis_report_results_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_analysis_reports_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_firewall_policies_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type list_firewalls_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type list_flow_operation_results_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_flow_operations_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_proxies_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type list_proxy_configurations_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_proxy_rule_groups_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_rule_groups_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type list_t_l_s_inspection_configurations_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type list_vpc_endpoint_associations_errors() ::
-          throttling_exception() | internal_server_error() | invalid_request_exception()
+          invalid_request_exception() | internal_server_error() | throttling_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
+          invalid_request_exception()
           | invalid_resource_policy_exception()
-          | internal_server_error()
-          | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type reject_network_firewall_transit_gateway_attachment_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type start_analysis_report_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type start_flow_capture_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type start_flow_flush_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_availability_zone_change_protection_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_analysis_settings_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_delete_protection_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_description_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_encryption_configuration_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_policy_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_firewall_policy_change_protection_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_logging_configuration_errors() ::
           invalid_token_exception()
-          | log_destination_permission_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
+          | log_destination_permission_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_proxy_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_proxy_configuration_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_proxy_rule_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_proxy_rule_group_priorities_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_proxy_rule_priorities_errors() ::
-          throttling_exception()
-          | internal_server_error()
-          | invalid_request_exception()
+          invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_rule_group_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_subnet_change_protection_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type update_t_l_s_inspection_configuration_errors() ::
           invalid_token_exception()
-          | throttling_exception()
-          | internal_server_error()
           | invalid_request_exception()
           | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   def metadata do
     %{
@@ -4228,7 +4228,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, accept_network_firewall_transit_gateway_attachment_errors()}
   def accept_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4257,7 +4258,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_availability_zones_errors()}
   def associate_availability_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateAvailabilityZones", input, options)
   end
@@ -4279,7 +4281,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_firewall_policy_errors()}
   def associate_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateFirewallPolicy", input, options)
   end
@@ -4304,7 +4307,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, associate_subnets_errors()}
   def associate_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AssociateSubnets", input, options)
   end
@@ -4328,7 +4332,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, attach_rule_groups_to_proxy_configuration_errors()}
   def attach_rule_groups_to_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AttachRuleGroupsToProxyConfiguration", input, options)
   end
@@ -4365,7 +4370,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_firewall_errors()}
   def create_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewall", input, options)
   end
@@ -4385,7 +4391,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_firewall_policy_errors()}
   def create_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFirewallPolicy", input, options)
   end
@@ -4406,7 +4413,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_proxy_errors()}
   def create_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProxy", input, options)
   end
@@ -4433,7 +4441,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_proxy_configuration_errors()}
   def create_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProxyConfiguration", input, options)
   end
@@ -4462,7 +4471,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_proxy_rule_group_errors()}
   def create_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProxyRuleGroup", input, options)
   end
@@ -4481,7 +4491,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_proxy_rules_errors()}
   def create_proxy_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateProxyRules", input, options)
   end
@@ -4500,7 +4511,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -4543,7 +4555,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_t_l_s_inspection_configuration_errors()}
   def create_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTLSInspectionConfiguration", input, options)
   end
@@ -4563,7 +4576,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, create_vpc_endpoint_association_errors()}
   def create_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcEndpointAssociation", input, options)
   end
@@ -4594,7 +4608,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_firewall_errors()}
   def delete_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewall", input, options)
   end
@@ -4608,7 +4623,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_firewall_policy_errors()}
   def delete_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFirewallPolicy", input, options)
   end
@@ -4635,7 +4651,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_network_firewall_transit_gateway_attachment_errors()}
   def delete_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -4657,7 +4674,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_proxy_errors()}
   def delete_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProxy", input, options)
   end
@@ -4671,7 +4689,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_proxy_configuration_errors()}
   def delete_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProxyConfiguration", input, options)
   end
@@ -4685,7 +4704,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_proxy_rule_group_errors()}
   def delete_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProxyRuleGroup", input, options)
   end
@@ -4701,7 +4721,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_proxy_rules_errors()}
   def delete_proxy_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteProxyRules", input, options)
   end
@@ -4715,7 +4736,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -4729,7 +4751,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4747,7 +4770,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_t_l_s_inspection_configuration_errors()}
   def delete_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTLSInspectionConfiguration", input, options)
   end
@@ -4771,7 +4795,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, delete_vpc_endpoint_association_errors()}
   def delete_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointAssociation", input, options)
   end
@@ -4785,7 +4810,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_errors()}
   def describe_firewall(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewall", input, options)
   end
@@ -4801,7 +4827,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_metadata_errors()}
   def describe_firewall_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewallMetadata", input, options)
   end
@@ -4815,7 +4842,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_firewall_policy_errors()}
   def describe_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFirewallPolicy", input, options)
   end
@@ -4829,7 +4857,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_flow_operation_errors()}
   def describe_flow_operation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFlowOperation", input, options)
   end
@@ -4843,7 +4872,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_logging_configuration_errors()}
   def describe_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoggingConfiguration", input, options)
   end
@@ -4857,7 +4887,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_proxy_errors()}
   def describe_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProxy", input, options)
   end
@@ -4871,7 +4902,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_proxy_configuration_errors()}
   def describe_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProxyConfiguration", input, options)
   end
@@ -4886,7 +4918,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_proxy_rule_errors()}
   def describe_proxy_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProxyRule", input, options)
   end
@@ -4900,7 +4933,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_proxy_rule_group_errors()}
   def describe_proxy_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeProxyRuleGroup", input, options)
   end
@@ -4914,7 +4948,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_resource_policy_errors()}
   def describe_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeResourcePolicy", input, options)
   end
@@ -4928,7 +4963,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_errors()}
   def describe_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroup", input, options)
   end
@@ -4947,7 +4983,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_metadata_errors()}
   def describe_rule_group_metadata(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroupMetadata", input, options)
   end
@@ -4969,7 +5006,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_rule_group_summary_errors()}
   def describe_rule_group_summary(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuleGroupSummary", input, options)
   end
@@ -4987,7 +5025,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_t_l_s_inspection_configuration_errors()}
   def describe_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTLSInspectionConfiguration", input, options)
   end
@@ -5005,7 +5044,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, describe_vpc_endpoint_association_errors()}
   def describe_vpc_endpoint_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcEndpointAssociation", input, options)
   end
@@ -5029,7 +5069,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, detach_rule_groups_from_proxy_configuration_errors()}
   def detach_rule_groups_from_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DetachRuleGroupsFromProxyConfiguration", input, options)
   end
@@ -5054,7 +5095,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, disassociate_availability_zones_errors()}
   def disassociate_availability_zones(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateAvailabilityZones", input, options)
   end
@@ -5073,7 +5115,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, disassociate_subnets_errors()}
   def disassociate_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DisassociateSubnets", input, options)
   end
@@ -5090,7 +5133,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, get_analysis_report_results_errors()}
   def get_analysis_report_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAnalysisReportResults", input, options)
   end
@@ -5105,7 +5149,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_analysis_reports_errors()}
   def list_analysis_reports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAnalysisReports", input, options)
   end
@@ -5124,7 +5169,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_firewall_policies_errors()}
   def list_firewall_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewallPolicies", input, options)
   end
@@ -5145,7 +5191,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_firewalls_errors()}
   def list_firewalls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFirewalls", input, options)
   end
@@ -5167,7 +5214,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_flow_operation_results_errors()}
   def list_flow_operation_results(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowOperationResults", input, options)
   end
@@ -5192,7 +5240,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_flow_operations_errors()}
   def list_flow_operations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFlowOperations", input, options)
   end
@@ -5210,7 +5259,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_proxies_errors()}
   def list_proxies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProxies", input, options)
   end
@@ -5229,7 +5279,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_proxy_configurations_errors()}
   def list_proxy_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProxyConfigurations", input, options)
   end
@@ -5248,7 +5299,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_proxy_rule_groups_errors()}
   def list_proxy_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListProxyRuleGroups", input, options)
   end
@@ -5267,7 +5319,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -5289,7 +5342,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_t_l_s_inspection_configurations_errors()}
   def list_t_l_s_inspection_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTLSInspectionConfigurations", input, options)
   end
@@ -5316,7 +5370,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5337,7 +5392,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, list_vpc_endpoint_associations_errors()}
   def list_vpc_endpoint_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListVpcEndpointAssociations", input, options)
   end
@@ -5381,7 +5437,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -5411,7 +5468,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, reject_network_firewall_transit_gateway_attachment_errors()}
   def reject_network_firewall_transit_gateway_attachment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(
       client,
@@ -5435,7 +5493,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_analysis_report_errors()}
   def start_analysis_report(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAnalysisReport", input, options)
   end
@@ -5464,7 +5523,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_flow_capture_errors()}
   def start_flow_capture(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFlowCapture", input, options)
   end
@@ -5489,7 +5549,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, start_flow_flush_errors()}
   def start_flow_flush(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFlowFlush", input, options)
   end
@@ -5515,7 +5576,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5542,7 +5604,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5569,7 +5632,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_availability_zone_change_protection_errors()}
   def update_availability_zone_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityZoneChangeProtection", input, options)
   end
@@ -5587,7 +5651,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_analysis_settings_errors()}
   def update_firewall_analysis_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallAnalysisSettings", input, options)
   end
@@ -5611,7 +5676,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_delete_protection_errors()}
   def update_firewall_delete_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDeleteProtection", input, options)
   end
@@ -5628,7 +5694,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_description_errors()}
   def update_firewall_description(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallDescription", input, options)
   end
@@ -5646,7 +5713,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_encryption_configuration_errors()}
   def update_firewall_encryption_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallEncryptionConfiguration", input, options)
   end
@@ -5660,7 +5728,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_policy_errors()}
   def update_firewall_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallPolicy", input, options)
   end
@@ -5683,7 +5752,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_firewall_policy_change_protection_errors()}
   def update_firewall_policy_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFirewallPolicyChangeProtection", input, options)
   end
@@ -5726,7 +5796,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_logging_configuration_errors()}
   def update_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateLoggingConfiguration", input, options)
   end
@@ -5740,7 +5811,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_proxy_errors()}
   def update_proxy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProxy", input, options)
   end
@@ -5754,7 +5826,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_proxy_configuration_errors()}
   def update_proxy_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProxyConfiguration", input, options)
   end
@@ -5768,7 +5841,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_proxy_rule_errors()}
   def update_proxy_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProxyRule", input, options)
   end
@@ -5786,7 +5860,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_proxy_rule_group_priorities_errors()}
   def update_proxy_rule_group_priorities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProxyRuleGroupPriorities", input, options)
   end
@@ -5800,7 +5875,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_proxy_rule_priorities_errors()}
   def update_proxy_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateProxyRulePriorities", input, options)
   end
@@ -5823,7 +5899,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -5834,7 +5911,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_subnet_change_protection_errors()}
   def update_subnet_change_protection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSubnetChangeProtection", input, options)
   end
@@ -5864,7 +5942,8 @@ defmodule AWS.NetworkFirewall do
           | {:error, term()}
           | {:error, update_t_l_s_inspection_configuration_errors()}
   def update_t_l_s_inspection_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateTLSInspectionConfiguration", input, options)
   end

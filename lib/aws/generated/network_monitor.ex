@@ -38,92 +38,10 @@ defmodule AWS.NetworkMonitor do
 
   ## Example:
 
-      list_monitors_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("state") => [String.t() | atom()]
-      }
+      get_monitor_input() :: %{}
 
   """
-  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_monitor_output() :: %{
-        "aggregationPeriod" => float(),
-        "createdAt" => non_neg_integer(),
-        "modifiedAt" => non_neg_integer(),
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "probes" => list(probe()),
-        "state" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitors_output() :: %{
-        "monitors" => list(monitor_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_monitor_probe_input() :: %{
-        "destination" => String.t() | atom(),
-        "destinationPort" => integer(),
-        "packetSize" => integer(),
-        "probeTags" => map(),
-        "protocol" => list(any()),
-        "sourceArn" => String.t() | atom()
-      }
-
-  """
-  @type create_monitor_probe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_probe_output() :: %{
-        "addressFamily" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "destination" => String.t() | atom(),
-        "destinationPort" => integer(),
-        "modifiedAt" => non_neg_integer(),
-        "packetSize" => integer(),
-        "probeArn" => String.t() | atom(),
-        "probeId" => String.t() | atom(),
-        "protocol" => list(any()),
-        "sourceArn" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type update_probe_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_monitor_output() :: %{}
-
-  """
-  @type delete_monitor_output() :: %{}
+  @type get_monitor_input() :: %{}
 
   @typedoc """
 
@@ -135,278 +53,6 @@ defmodule AWS.NetworkMonitor do
 
   """
   @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_monitor_input() :: %{}
-
-  """
-  @type delete_monitor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_probe_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("tags") => map(),
-        required("probe") => probe_input()
-      }
-
-  """
-  @type create_probe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_probe_input() :: %{}
-
-  """
-  @type delete_probe_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_probe_input() :: %{}
-
-  """
-  @type get_probe_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_monitor_input() :: %{}
-
-  """
-  @type get_monitor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_probe_output() :: %{
-        "addressFamily" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "destination" => String.t() | atom(),
-        "destinationPort" => integer(),
-        "modifiedAt" => non_neg_integer(),
-        "packetSize" => integer(),
-        "probeArn" => String.t() | atom(),
-        "probeId" => String.t() | atom(),
-        "protocol" => list(any()),
-        "sourceArn" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type create_probe_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_probe_output() :: %{}
-
-  """
-  @type delete_probe_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_probe_input() :: %{
-        optional("destination") => String.t() | atom(),
-        optional("destinationPort") => integer(),
-        optional("packetSize") => integer(),
-        optional("protocol") => list(any()),
-        optional("state") => list(any())
-      }
-
-  """
-  @type update_probe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      probe_input() :: %{
-        "destination" => String.t() | atom(),
-        "destinationPort" => integer(),
-        "packetSize" => integer(),
-        "protocol" => list(any()),
-        "sourceArn" => String.t() | atom(),
-        "tags" => map()
-      }
-
-  """
-  @type probe_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_monitor_input() :: %{
-        required("aggregationPeriod") => float()
-      }
-
-  """
-  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      probe() :: %{
-        "addressFamily" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "destination" => String.t() | atom(),
-        "destinationPort" => integer(),
-        "modifiedAt" => non_neg_integer(),
-        "packetSize" => integer(),
-        "probeArn" => String.t() | atom(),
-        "probeId" => String.t() | atom(),
-        "protocol" => list(any()),
-        "sourceArn" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map(),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type probe() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -435,31 +81,55 @@ defmodule AWS.NetworkMonitor do
 
   ## Example:
 
-      create_monitor_output() :: %{
-        "aggregationPeriod" => float(),
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map()
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      monitor_summary() :: %{
-        "aggregationPeriod" => float(),
-        "monitorArn" => String.t() | atom(),
-        "monitorName" => String.t() | atom(),
-        "state" => list(any()),
-        "tags" => map()
+      list_monitors_output() :: %{
+        "monitors" => list(monitor_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type monitor_summary() :: %{(String.t() | atom()) => any()}
+  @type list_monitors_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_monitor_input() :: %{
+        required("aggregationPeriod") => float()
+      }
+
+  """
+  @type update_monitor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
 
   @typedoc """
 
@@ -480,6 +150,316 @@ defmodule AWS.NetworkMonitor do
 
   ## Example:
 
+      update_probe_input() :: %{
+        optional("destination") => String.t() | atom(),
+        optional("destinationPort") => integer(),
+        optional("packetSize") => integer(),
+        optional("protocol") => list(any()),
+        optional("state") => list(any())
+      }
+
+  """
+  @type update_probe_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_probe_input() :: %{}
+
+  """
+  @type get_probe_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      probe_input() :: %{
+        "destination" => String.t() | atom(),
+        "destinationPort" => integer(),
+        "packetSize" => integer(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t() | atom(),
+        "tags" => map()
+      }
+
+  """
+  @type probe_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_monitor_input() :: %{}
+
+  """
+  @type delete_monitor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_monitor_output() :: %{
+        "aggregationPeriod" => float(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type create_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_probe_output() :: %{}
+
+  """
+  @type delete_probe_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_monitor_probe_input() :: %{
+        "destination" => String.t() | atom(),
+        "destinationPort" => integer(),
+        "packetSize" => integer(),
+        "probeTags" => map(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t() | atom()
+      }
+
+  """
+  @type create_monitor_probe_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_monitor_output() :: %{
+        "aggregationPeriod" => float(),
+        "createdAt" => non_neg_integer(),
+        "modifiedAt" => non_neg_integer(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "probes" => list(probe()),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type get_monitor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_probe_input() :: %{}
+
+  """
+  @type delete_probe_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_probe_output() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t() | atom(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type update_probe_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_probe_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("tags") => map(),
+        required("probe") => probe_input()
+      }
+
+  """
+  @type create_probe_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      monitor_summary() :: %{
+        "aggregationPeriod" => float(),
+        "monitorArn" => String.t() | atom(),
+        "monitorName" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type monitor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_probe_output() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t() | atom(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type create_probe_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_monitor_output() :: %{}
+
+  """
+  @type delete_monitor_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitors_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("state") => [String.t() | atom()]
+      }
+
+  """
+  @type list_monitors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      probe() :: %{
+        "addressFamily" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "destination" => String.t() | atom(),
+        "destinationPort" => integer(),
+        "modifiedAt" => non_neg_integer(),
+        "packetSize" => integer(),
+        "probeArn" => String.t() | atom(),
+        "probeId" => String.t() | atom(),
+        "protocol" => list(any()),
+        "sourceArn" => String.t() | atom(),
+        "state" => list(any()),
+        "tags" => map(),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type probe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_monitor_input() :: %{
         optional("aggregationPeriod") => float(),
         optional("clientToken") => [String.t() | atom()],
@@ -491,96 +471,116 @@ defmodule AWS.NetworkMonitor do
   """
   @type create_monitor_input() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_output() :: %{}
+
+  """
+  @type untag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
   @type create_monitor_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_probe_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_monitor_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_probe_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_monitor_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_probe_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_monitors_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_monitor_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_probe_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

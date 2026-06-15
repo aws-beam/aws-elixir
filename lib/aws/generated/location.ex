@@ -14,545 +14,6 @@ defmodule AWS.Location do
 
   ## Example:
 
-      cancel_job_request() :: %{
-        required("JobId") => String.t() | atom()
-      }
-
-  """
-  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_position_request() :: %{}
-
-  """
-  @type get_device_position_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geofence_collections_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_geofence_collections_response_entry())
-      }
-
-  """
-  @type list_geofence_collections_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      truck_dimensions() :: %{
-        "Height" => float(),
-        "Length" => float(),
-        "Unit" => String.t() | atom(),
-        "Width" => float()
-      }
-
-  """
-  @type truck_dimensions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_geofence_response() :: %{
-        optional("GeofenceProperties") => map(),
-        required("CreateTime") => non_neg_integer(),
-        required("GeofenceId") => String.t() | atom(),
-        required("Geometry") => geofence_geometry(),
-        required("Status") => [String.t() | atom()],
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type get_geofence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_geofence_collection_request() :: %{}
-
-  """
-  @type describe_geofence_collection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_device_position_response() :: %{
-        required("Errors") => list(batch_update_device_position_error())
-      }
-
-  """
-  @type batch_update_device_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_positions_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_device_positions_response_entry())
-      }
-
-  """
-  @type list_device_positions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_tracker_consumer_request() :: %{
-        required("ConsumerArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_tracker_consumer_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_geofence_request() :: %{
-        required("Entries") => list(batch_put_geofence_request_entry())
-      }
-
-  """
-  @type batch_put_geofence_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_car_mode_options() :: %{
-        "AvoidFerries" => boolean(),
-        "AvoidTolls" => boolean()
-      }
-
-  """
-  @type calculate_route_car_mode_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_geofence_error() :: %{
-        "Error" => batch_item_error(),
-        "GeofenceId" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_geofence_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_action_options() :: %{
-        "ValidateAddress" => validate_address_action_options()
-      }
-
-  """
-  @type job_action_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forecasted_event() :: %{
-        "EventId" => String.t() | atom(),
-        "EventType" => String.t() | atom(),
-        "ForecastedBreachTime" => non_neg_integer(),
-        "GeofenceId" => String.t() | atom(),
-        "GeofenceProperties" => map(),
-        "IsDeviceInGeofence" => [boolean()],
-        "NearestDistance" => float()
-      }
-
-  """
-  @type forecasted_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_device_position_error() :: %{
-        "DeviceId" => String.t() | atom(),
-        "Error" => batch_item_error(),
-        "SampleTime" => non_neg_integer()
-      }
-
-  """
-  @type batch_update_device_position_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_geofence_response() :: %{
-        required("Errors") => list(batch_delete_geofence_error())
-      }
-
-  """
-  @type batch_delete_geofence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_key_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ExpireTime") => non_neg_integer(),
-        optional("NoExpiry") => [boolean()],
-        optional("Tags") => map(),
-        required("KeyName") => String.t() | atom(),
-        required("Restrictions") => api_key_restrictions()
-      }
-
-  """
-  @type create_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_place_index_request() :: %{
-        optional("DataSourceConfiguration") => data_source_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DataSource") => [String.t() | atom()],
-        required("IndexName") => String.t() | atom()
-      }
-
-  """
-  @type create_place_index_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_configuration() :: %{
-        "IntendedUse" => String.t() | atom()
-      }
-
-  """
-  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_calculator_response() :: %{
-        required("CalculatorArn") => String.t() | atom(),
-        required("CalculatorName") => String.t() | atom(),
-        required("CreateTime") => non_neg_integer()
-      }
-
-  """
-  @type create_route_calculator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tracker_response() :: %{
-        required("CreateTime") => non_neg_integer(),
-        required("TrackerArn") => String.t() | atom(),
-        required("TrackerName") => String.t() | atom()
-      }
-
-  """
-  @type create_tracker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_tile_response() :: %{
-        optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t() | atom()],
-        optional("ContentType") => [String.t() | atom()]
-      }
-
-  """
-  @type get_map_tile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_map_response() :: %{
-        required("MapArn") => String.t() | atom(),
-        required("MapName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_maps_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_maps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_calculator_response() :: %{}
-
-  """
-  @type delete_route_calculator_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_glyphs_response() :: %{
-        "Blob" => [binary()],
-        "CacheControl" => [String.t() | atom()],
-        "ContentType" => [String.t() | atom()]
-      }
-
-  """
-  @type get_map_glyphs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_place_index_request() :: %{}
-
-  """
-  @type describe_place_index_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_request() :: %{
-        optional("Filter") => jobs_filter(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_keys_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_keys_response_entry())
-      }
-
-  """
-  @type list_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_response() :: %{
-        "Legs" => list(leg()),
-        "Summary" => calculate_route_summary()
-      }
-
-  """
-  @type calculate_route_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_route_calculators_response_entry() :: %{
-        "CalculatorName" => String.t() | atom(),
-        "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t() | atom()],
-        "Description" => String.t() | atom(),
-        "PricingPlan" => String.t() | atom(),
-        "UpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type list_route_calculators_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "JobArn" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type start_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_key_response() :: %{
-        required("KeyArn") => String.t() | atom(),
-        required("KeyName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_position_response() :: %{
-        required("Results") => list(search_for_position_result()),
-        required("Summary") => search_place_index_for_position_summary()
-      }
-
-  """
-  @type search_place_index_for_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_maps_response_entry() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t() | atom()],
-        "Description" => String.t() | atom(),
-        "MapName" => String.t() | atom(),
-        "PricingPlan" => String.t() | atom(),
-        "UpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type list_maps_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trackers_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_trackers_response_entry())
-      }
-
-  """
-  @type list_trackers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_route_calculator_request() :: %{}
-
-  """
-  @type describe_route_calculator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_jobs_response() :: %{
-        "Entries" => list(list_jobs_response_entry()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_key_request() :: %{
-        optional("ForceDelete") => [boolean()]
-      }
-
-  """
-  @type delete_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_calculator_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom()
-      }
-
-  """
-  @type update_route_calculator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_for_position_result() :: %{
-        "Distance" => float(),
-        "Place" => place(),
-        "PlaceId" => String.t() | atom()
-      }
-
-  """
-  @type search_for_position_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_geofence_request() :: %{
-        optional("GeofenceProperties") => map(),
-        required("Geometry") => geofence_geometry()
-      }
-
-  """
-  @type put_geofence_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_jobs_response_entry() :: %{
         "Action" => String.t() | atom(),
         "ActionOptions" => job_action_options(),
@@ -576,211 +37,35 @@ defmodule AWS.Location do
 
   ## Example:
 
-      batch_put_geofence_success() :: %{
-        "CreateTime" => non_neg_integer(),
-        "GeofenceId" => String.t() | atom(),
-        "UpdateTime" => non_neg_integer()
-      }
+      describe_map_request() :: %{}
 
   """
-  @type batch_put_geofence_success() :: %{(String.t() | atom()) => any()}
+  @type describe_map_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      api_key_filter() :: %{
-        "KeyStatus" => String.t() | atom()
-      }
-
-  """
-  @type api_key_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list([String.t() | atom()]())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_for_suggestions_result() :: %{
-        "Categories" => list(String.t() | atom()),
-        "PlaceId" => String.t() | atom(),
-        "SupplementalCategories" => list(String.t() | atom()),
-        "Text" => String.t() | atom()
-      }
-
-  """
-  @type search_for_suggestions_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_tracker_consumer_response() :: %{}
-
-  """
-  @type associate_tracker_consumer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_text_summary() :: %{
-        "BiasPosition" => list([float()]()),
-        "DataSource" => [String.t() | atom()],
-        "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t() | atom()),
-        "FilterCountries" => list(String.t() | atom()),
-        "Language" => String.t() | atom(),
-        "MaxResults" => integer(),
-        "ResultBBox" => list([float()]()),
-        "Text" => String.t() | atom()
-      }
-
-  """
-  @type search_place_index_for_text_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_geofence_error() :: %{
-        "Error" => batch_item_error(),
-        "GeofenceId" => String.t() | atom()
-      }
-
-  """
-  @type batch_delete_geofence_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_evaluate_geofences_request() :: %{
-        required("DevicePositionUpdates") => list(device_position_update())
-      }
-
-  """
-  @type batch_evaluate_geofences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geofences_response() :: %{
+      list_geofence_collections_response() :: %{
         optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_geofence_response_entry())
+        required("Entries") => list(list_geofence_collections_response_entry())
       }
 
   """
-  @type list_geofences_response() :: %{(String.t() | atom()) => any()}
+  @type list_geofence_collections_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      route_matrix_entry_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type route_matrix_entry_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_place_index_response() :: %{}
-
-  """
-  @type delete_place_index_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_sprites_request() :: %{
-        optional("Key") => String.t() | atom()
-      }
-
-  """
-  @type get_map_sprites_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      jobs_filter() :: %{
-        "JobStatus" => String.t() | atom()
-      }
-
-  """
-  @type jobs_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_map_request() :: %{}
-
-  """
-  @type delete_map_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geofence_collections_request() :: %{
+      list_keys_request() :: %{
+        optional("Filter") => api_key_filter(),
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_geofence_collections_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_style_descriptor_response() :: %{
-        optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t() | atom()],
-        optional("ContentType") => [String.t() | atom()]
-      }
-
-  """
-  @type get_map_style_descriptor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_key_response() :: %{}
-
-  """
-  @type delete_key_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tracker_consumers_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_tracker_consumers_request() :: %{(String.t() | atom()) => any()}
+  @type list_keys_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,827 +86,13 @@ defmodule AWS.Location do
 
   ## Example:
 
-      list_keys_request() :: %{
-        optional("Filter") => api_key_filter(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_keys_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_position_summary() :: %{
-        "DataSource" => [String.t() | atom()],
-        "Language" => String.t() | atom(),
-        "MaxResults" => integer(),
-        "Position" => list([float()]())
-      }
-
-  """
-  @type search_place_index_for_position_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_place_index_response() :: %{
-        required("CreateTime") => non_neg_integer(),
-        required("IndexArn") => String.t() | atom(),
-        required("IndexName") => String.t() | atom()
-      }
-
-  """
-  @type create_place_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_route_calculator_request() :: %{}
-
-  """
-  @type delete_route_calculator_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_geofence_collection_response() :: %{
-        required("CollectionArn") => String.t() | atom(),
-        required("CollectionName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_geofence_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_key_request() :: %{}
-
-  """
-  @type describe_key_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_geofence_response() :: %{
-        required("CreateTime") => non_neg_integer(),
-        required("GeofenceId") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type put_geofence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_local_id() :: %{
-        "Earfcn" => integer(),
-        "Pci" => integer()
-      }
-
-  """
-  @type lte_local_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_geofence_response_entry() :: %{
-        "CreateTime" => non_neg_integer(),
-        "GeofenceId" => String.t() | atom(),
-        "GeofenceProperties" => map(),
-        "Geometry" => geofence_geometry(),
-        "Status" => [String.t() | atom()],
-        "UpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type list_geofence_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_map_response() :: %{}
-
-  """
-  @type delete_map_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_text_response() :: %{
-        required("Results") => list(search_for_text_result()),
-        required("Summary") => search_place_index_for_text_summary()
-      }
-
-  """
-  @type search_place_index_for_text_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_tile_request() :: %{
-        optional("Key") => String.t() | atom()
-      }
-
-  """
-  @type get_map_tile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_key_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ExpireTime") => non_neg_integer(),
-        optional("ForceUpdate") => [boolean()],
-        optional("NoExpiry") => [boolean()],
-        optional("Restrictions") => api_key_restrictions()
-      }
-
-  """
-  @type update_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_geofence_collection_response() :: %{
-        required("CollectionArn") => String.t() | atom(),
-        required("CollectionName") => String.t() | atom(),
-        required("CreateTime") => non_neg_integer()
-      }
-
-  """
-  @type create_geofence_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wi_fi_access_point() :: %{
-        "MacAddress" => [String.t() | atom()],
-        "Rss" => [integer()]
-      }
-
-  """
-  @type wi_fi_access_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_state() :: %{
-        "Accuracy" => positional_accuracy(),
-        "CellSignals" => cell_signals(),
-        "DeviceId" => String.t() | atom(),
-        "Ipv4Address" => [String.t() | atom()],
-        "Position" => list([float()]()),
-        "SampleTime" => non_neg_integer(),
-        "WiFiAccessPoints" => list(wi_fi_access_point())
-      }
-
-  """
-  @type device_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_tracker_request() :: %{}
-
-  """
-  @type describe_tracker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_route_calculator_response() :: %{
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("CalculatorArn") => String.t() | atom(),
-        required("CalculatorName") => String.t() | atom(),
-        required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t() | atom()],
-        required("Description") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_route_calculator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_map_request() :: %{}
-
-  """
-  @type describe_map_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      map_configuration_update() :: %{
-        "CustomLayers" => list(String.t() | atom()),
-        "PoliticalView" => String.t() | atom()
-      }
-
-  """
-  @type map_configuration_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_map_request() :: %{
-        optional("ConfigurationUpdate") => map_configuration_update(),
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom()
-      }
-
-  """
-  @type update_map_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      apple_app() :: %{
-        "BundleId" => String.t() | atom()
-      }
-
-  """
-  @type apple_app() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_route_calculator_response() :: %{
-        required("CalculatorArn") => String.t() | atom(),
-        required("CalculatorName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_route_calculator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      place_geometry() :: %{
-        "Point" => list([float()]())
-      }
-
-  """
-  @type place_geometry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_device_position_request() :: %{
-        required("DeviceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_device_position_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_place_indexes_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_place_indexes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      circle() :: %{
-        "Center" => list([float()]()),
-        "Radius" => float()
-      }
-
-  """
-  @type circle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_map_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Configuration") => map_configuration(),
-        required("MapName") => String.t() | atom()
-      }
-
-  """
-  @type create_map_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forecast_geofence_events_device_state() :: %{
-        "Position" => list([float()]()),
-        "Speed" => [float()]
-      }
-
-  """
-  @type forecast_geofence_events_device_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "Message" => [String.t() | atom()],
-        "Name" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_device_position_request() :: %{
-        optional("DistanceUnit") => String.t() | atom(),
-        required("DeviceState") => device_state()
-      }
-
-  """
-  @type verify_device_position_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_tracker_consumer_request() :: %{}
-
-  """
-  @type disassociate_tracker_consumer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_text_request() :: %{
-        optional("BiasPosition") => list([float()]()),
-        optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t() | atom()),
-        optional("FilterCountries") => list(String.t() | atom()),
-        optional("Key") => String.t() | atom(),
-        optional("Language") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        required("Text") => String.t() | atom()
-      }
-
-  """
-  @type search_place_index_for_text_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_place_request() :: %{
-        optional("Key") => String.t() | atom(),
-        optional("Language") => String.t() | atom()
-      }
-
-  """
-  @type get_place_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_zone() :: %{
-        "Name" => String.t() | atom(),
-        "Offset" => integer()
-      }
-
-  """
-  @type time_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_geofence_collection_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("PricingPlanDataSource") => [String.t() | atom()]
-      }
-
-  """
-  @type update_geofence_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validate_address_action_options() :: %{
-        "AdditionalFeatures" => list(String.t() | atom())
-      }
-
-  """
-  @type validate_address_action_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_input_options() :: %{
-        "Format" => String.t() | atom(),
-        "Location" => String.t() | atom()
-      }
-
-  """
-  @type job_input_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_geofence_collection_request() :: %{}
-
-  """
-  @type delete_geofence_collection_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_item_error() :: %{
+      route_matrix_entry_error() :: %{
         "Code" => String.t() | atom(),
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type batch_item_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_map_response() :: %{
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Configuration") => map_configuration(),
-        required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t() | atom()],
-        required("Description") => String.t() | atom(),
-        required("MapArn") => String.t() | atom(),
-        required("MapName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_suggestions_summary() :: %{
-        "BiasPosition" => list([float()]()),
-        "DataSource" => [String.t() | atom()],
-        "FilterBBox" => list([float()]()),
-        "FilterCategories" => list(String.t() | atom()),
-        "FilterCountries" => list(String.t() | atom()),
-        "Language" => String.t() | atom(),
-        "MaxResults" => [integer()],
-        "Text" => String.t() | atom()
-      }
-
-  """
-  @type search_place_index_for_suggestions_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_place_index_response() :: %{
-        required("IndexArn") => String.t() | atom(),
-        required("IndexName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_place_index_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_job_request() :: %{
-        optional("ActionOptions") => job_action_options(),
-        optional("ClientToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Action") => String.t() | atom(),
-        required("ExecutionRoleArn") => String.t() | atom(),
-        required("InputOptions") => job_input_options(),
-        required("OutputOptions") => job_output_options()
-      }
-
-  """
-  @type start_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_route_calculator_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("CalculatorName") => String.t() | atom(),
-        required("DataSource") => [String.t() | atom()]
-      }
-
-  """
-  @type create_route_calculator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_place_indexes_response_entry() :: %{
-        "CreateTime" => non_neg_integer(),
-        "DataSource" => [String.t() | atom()],
-        "Description" => String.t() | atom(),
-        "IndexName" => String.t() | atom(),
-        "PricingPlan" => String.t() | atom(),
-        "UpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type list_place_indexes_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_position_history_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("DevicePositions") => list(device_position())
-      }
-
-  """
-  @type get_device_position_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_evaluate_geofences_response() :: %{
-        required("Errors") => list(batch_evaluate_geofences_error())
-      }
-
-  """
-  @type batch_evaluate_geofences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_map_response() :: %{
-        required("CreateTime") => non_neg_integer(),
-        required("MapArn") => String.t() | atom(),
-        required("MapName") => String.t() | atom()
-      }
-
-  """
-  @type create_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forecast_geofence_events_request() :: %{
-        optional("DistanceUnit") => String.t() | atom(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom(),
-        optional("SpeedUnit") => String.t() | atom(),
-        optional("TimeHorizonMinutes") => [float()],
-        required("DeviceState") => forecast_geofence_events_device_state()
-      }
-
-  """
-  @type forecast_geofence_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_restrictions() :: %{
-        "AllowActions" => list(String.t() | atom()),
-        "AllowAndroidApps" => list(android_app()),
-        "AllowAppleApps" => list(apple_app()),
-        "AllowReferers" => list(String.t() | atom()),
-        "AllowResources" => list(String.t() | atom())
-      }
-
-  """
-  @type api_key_restrictions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_tracker_response() :: %{
-        required("TrackerArn") => String.t() | atom(),
-        required("TrackerName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type update_tracker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_place_indexes_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_place_indexes_response_entry())
-      }
-
-  """
-  @type list_place_indexes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_route_calculators_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_route_calculators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_maps_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_maps_response_entry())
-      }
-
-  """
-  @type list_maps_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_geofence_request_entry() :: %{
-        "GeofenceId" => String.t() | atom(),
-        "GeofenceProperties" => map(),
-        "Geometry" => geofence_geometry()
-      }
-
-  """
-  @type batch_put_geofence_request_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tracker_request() :: %{}
-
-  """
-  @type delete_tracker_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_sprites_response() :: %{
-        optional("Blob") => [binary()],
-        optional("CacheControl") => [String.t() | atom()],
-        optional("ContentType") => [String.t() | atom()]
-      }
-
-  """
-  @type get_map_sprites_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_place_index_response() :: %{
-        optional("PricingPlan") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("CreateTime") => non_neg_integer(),
-        required("DataSource") => [String.t() | atom()],
-        required("DataSourceConfiguration") => data_source_configuration(),
-        required("Description") => String.t() | atom(),
-        required("IndexArn") => String.t() | atom(),
-        required("IndexName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_place_index_response() :: %{(String.t() | atom()) => any()}
+  @type route_matrix_entry_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1641,453 +112,14 @@ defmodule AWS.Location do
 
   ## Example:
 
-      describe_tracker_response() :: %{
-        optional("EventBridgeEnabled") => [boolean()],
-        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("PositionFiltering") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("PricingPlanDataSource") => [String.t() | atom()],
-        optional("Tags") => map(),
+      create_tracker_response() :: %{
         required("CreateTime") => non_neg_integer(),
-        required("Description") => String.t() | atom(),
         required("TrackerArn") => String.t() | atom(),
-        required("TrackerName") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_tracker_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tracker_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventBridgeEnabled") => [boolean()],
-        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("PositionFiltering") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("PricingPlanDataSource") => [String.t() | atom()],
-        optional("Tags") => map(),
         required("TrackerName") => String.t() | atom()
       }
 
   """
-  @type create_tracker_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_geofence_collection_response() :: %{
-        optional("GeofenceCount") => [integer()],
-        optional("KmsKeyId") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("PricingPlanDataSource") => [String.t() | atom()],
-        optional("Tags") => map(),
-        required("CollectionArn") => String.t() | atom(),
-        required("CollectionName") => String.t() | atom(),
-        required("CreateTime") => non_neg_integer(),
-        required("Description") => String.t() | atom(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_geofence_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_matrix_response() :: %{
-        "RouteMatrix" => list(list(route_matrix_entry())()),
-        "SnappedDeparturePositions" => list(list([float()]())()),
-        "SnappedDestinationPositions" => list(list([float()]())()),
-        "Summary" => calculate_route_matrix_summary()
-      }
-
-  """
-  @type calculate_route_matrix_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      android_app() :: %{
-        "CertificateFingerprint" => String.t() | atom(),
-        "Package" => String.t() | atom()
-      }
-
-  """
-  @type android_app() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_device_position_error() :: %{
-        "DeviceId" => String.t() | atom(),
-        "Error" => batch_item_error()
-      }
-
-  """
-  @type batch_get_device_position_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_request() :: %{
-        optional("ArrivalTime") => non_neg_integer(),
-        optional("CarModeOptions") => calculate_route_car_mode_options(),
-        optional("DepartNow") => boolean(),
-        optional("DepartureTime") => non_neg_integer(),
-        optional("DistanceUnit") => String.t() | atom(),
-        optional("IncludeLegGeometry") => boolean(),
-        optional("Key") => String.t() | atom(),
-        optional("OptimizeFor") => String.t() | atom(),
-        optional("TravelMode") => String.t() | atom(),
-        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
-        optional("WaypointPositions") => list(list([float()]())()),
-        required("DeparturePosition") => list([float()]()),
-        required("DestinationPosition") => list([float()]())
-      }
-
-  """
-  @type calculate_route_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_response() :: %{
-        "Action" => String.t() | atom(),
-        "ActionOptions" => job_action_options(),
-        "CreatedAt" => non_neg_integer(),
-        "EndedAt" => non_neg_integer(),
-        "Error" => job_error(),
-        "ExecutionRoleArn" => String.t() | atom(),
-        "InputOptions" => job_input_options(),
-        "JobArn" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OutputOptions" => job_output_options(),
-        "Status" => String.t() | atom(),
-        "Tags" => map(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "FieldList" => list(validation_exception_field()),
-        "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_geofence_response() :: %{
-        required("Errors") => list(batch_put_geofence_error()),
-        required("Successes") => list(batch_put_geofence_success())
-      }
-
-  """
-  @type batch_put_geofence_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_device_position_history_error() :: %{
-        "DeviceId" => String.t() | atom(),
-        "Error" => batch_item_error()
-      }
-
-  """
-  @type batch_delete_device_position_history_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_place_response() :: %{
-        required("Place") => place()
-      }
-
-  """
-  @type get_place_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_job_request() :: %{}
-
-  """
-  @type get_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_device_position_response() :: %{
-        required("DevicePositions") => list(device_position()),
-        required("Errors") => list(batch_get_device_position_error())
-      }
-
-  """
-  @type batch_get_device_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_tracker_consumer_response() :: %{}
-
-  """
-  @type disassociate_tracker_consumer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      truck_weight() :: %{
-        "Total" => float(),
-        "Unit" => String.t() | atom()
-      }
-
-  """
-  @type truck_weight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_key_response() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("CreateTime") => non_neg_integer(),
-        required("ExpireTime") => non_neg_integer(),
-        required("Key") => String.t() | atom(),
-        required("KeyArn") => String.t() | atom(),
-        required("KeyName") => String.t() | atom(),
-        required("Restrictions") => api_key_restrictions(),
-        required("UpdateTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_device_position_request() :: %{
-        required("Updates") => list(device_position_update())
-      }
-
-  """
-  @type batch_update_device_position_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_position_update() :: %{
-        "Accuracy" => positional_accuracy(),
-        "DeviceId" => String.t() | atom(),
-        "Position" => list([float()]()),
-        "PositionProperties" => map(),
-        "SampleTime" => non_neg_integer()
-      }
-
-  """
-  @type device_position_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_cell_details() :: %{
-        "CellId" => integer(),
-        "LocalId" => lte_local_id(),
-        "Mcc" => [integer()],
-        "Mnc" => [integer()],
-        "NetworkMeasurements" => list(lte_network_measurements()),
-        "NrCapable" => [boolean()],
-        "Rsrp" => integer(),
-        "Rsrq" => float(),
-        "Tac" => [integer()],
-        "TimingAdvance" => [integer()]
-      }
-
-  """
-  @type lte_cell_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cell_signals() :: %{
-        "LteCellDetails" => list(lte_cell_details())
-      }
-
-  """
-  @type cell_signals() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_matrix_summary() :: %{
-        "DataSource" => [String.t() | atom()],
-        "DistanceUnit" => String.t() | atom(),
-        "ErrorCount" => [integer()],
-        "RouteCount" => [integer()]
-      }
-
-  """
-  @type calculate_route_matrix_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_geofence_request() :: %{
-        required("GeofenceIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_geofence_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_keys_response_entry() :: %{
-        "CreateTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExpireTime" => non_neg_integer(),
-        "KeyName" => String.t() | atom(),
-        "Restrictions" => api_key_restrictions(),
-        "UpdateTime" => non_neg_integer()
-      }
-
-  """
-  @type list_keys_response_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      calculate_route_summary() :: %{
-        "DataSource" => [String.t() | atom()],
-        "Distance" => float(),
-        "DistanceUnit" => String.t() | atom(),
-        "DurationSeconds" => float(),
-        "RouteBBox" => list([float()]())
-      }
-
-  """
-  @type calculate_route_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_network_measurements() :: %{
-        "CellId" => integer(),
-        "Earfcn" => integer(),
-        "Pci" => integer(),
-        "Rsrp" => integer(),
-        "Rsrq" => float()
-      }
-
-  """
-  @type lte_network_measurements() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      map_configuration() :: %{
-        "CustomLayers" => list(String.t() | atom()),
-        "PoliticalView" => String.t() | atom(),
-        "Style" => String.t() | atom()
-      }
-
-  """
-  @type map_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      positional_accuracy() :: %{
-        "Horizontal" => float()
-      }
-
-  """
-  @type positional_accuracy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_position() :: %{
-        "Accuracy" => positional_accuracy(),
-        "DeviceId" => String.t() | atom(),
-        "Position" => list([float()]()),
-        "PositionProperties" => map(),
-        "ReceivedTime" => non_neg_integer(),
-        "SampleTime" => non_neg_integer()
-      }
-
-  """
-  @type device_position() :: %{(String.t() | atom()) => any()}
+  @type create_tracker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2109,129 +141,51 @@ defmodule AWS.Location do
 
   ## Example:
 
-      step() :: %{
-        "Distance" => float(),
-        "DurationSeconds" => float(),
-        "EndPosition" => list([float()]()),
-        "GeometryOffset" => [integer()],
-        "StartPosition" => list([float()]())
+      map_configuration() :: %{
+        "CustomLayers" => list(String.t() | atom()),
+        "PoliticalView" => String.t() | atom(),
+        "Style" => String.t() | atom()
       }
 
   """
-  @type step() :: %{(String.t() | atom()) => any()}
+  @type map_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tracker_consumers_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("ConsumerArns") => list(String.t() | atom())
+      batch_delete_geofence_error() :: %{
+        "Error" => batch_item_error(),
+        "GeofenceId" => String.t() | atom()
       }
 
   """
-  @type list_tracker_consumers_response() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_geofence_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_map_style_descriptor_request() :: %{
-        optional("Key") => String.t() | atom()
+      validate_address_action_options() :: %{
+        "AdditionalFeatures" => list(String.t() | atom())
       }
 
   """
-  @type get_map_style_descriptor_request() :: %{(String.t() | atom()) => any()}
+  @type validate_address_action_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tracking_filter_geometry() :: %{
-        "Polygon" => list(list(list([float()]())())())
+      search_place_index_for_position_summary() :: %{
+        "DataSource" => [String.t() | atom()],
+        "Language" => String.t() | atom(),
+        "MaxResults" => integer(),
+        "Position" => list([float()]())
       }
 
   """
-  @type tracking_filter_geometry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_for_text_result() :: %{
-        "Distance" => float(),
-        "Place" => place(),
-        "PlaceId" => String.t() | atom(),
-        "Relevance" => float()
-      }
-
-  """
-  @type search_for_text_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_trackers_request() :: %{
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_trackers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_device_position_response() :: %{
-        "DeviceId" => String.t() | atom(),
-        "DistanceUnit" => String.t() | atom(),
-        "InferredState" => inferred_state(),
-        "ReceivedTime" => non_neg_integer(),
-        "SampleTime" => non_neg_integer()
-      }
-
-  """
-  @type verify_device_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_place_index_request() :: %{}
-
-  """
-  @type delete_place_index_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_tracker_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventBridgeEnabled") => [boolean()],
-        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
-        optional("PositionFiltering") => String.t() | atom(),
-        optional("PricingPlan") => String.t() | atom(),
-        optional("PricingPlanDataSource") => [String.t() | atom()]
-      }
-
-  """
-  @type update_tracker_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_positions_request() :: %{
-        optional("FilterGeometry") => tracking_filter_geometry(),
-        optional("MaxResults") => [integer()],
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_device_positions_request() :: %{(String.t() | atom()) => any()}
+  @type search_place_index_for_position_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,6 +197,70 @@ defmodule AWS.Location do
 
   """
   @type leg_geometry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_geofence_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "GeofenceId" => String.t() | atom(),
+        "GeofenceProperties" => map(),
+        "Geometry" => geofence_geometry(),
+        "Status" => [String.t() | atom()],
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_geofence_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_keys_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_keys_response_entry())
+      }
+
+  """
+  @type list_keys_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_device_position_history_request() :: %{
+        required("DeviceIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_device_position_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_map_request() :: %{
+        optional("ConfigurationUpdate") => map_configuration_update(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom()
+      }
+
+  """
+  @type update_map_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_device_position_error() :: %{
+        "DeviceId" => String.t() | atom(),
+        "Error" => batch_item_error()
+      }
+
+  """
+  @type batch_get_device_position_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2262,169 +280,243 @@ defmodule AWS.Location do
 
   ## Example:
 
-      cancel_job_response() :: %{
-        "JobArn" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => String.t() | atom()
+      place_geometry() :: %{
+        "Point" => list([float()]())
       }
 
   """
-  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+  @type place_geometry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_geofence_request() :: %{}
+      batch_evaluate_geofences_error() :: %{
+        "DeviceId" => String.t() | atom(),
+        "Error" => batch_item_error(),
+        "SampleTime" => non_neg_integer()
+      }
 
   """
-  @type get_geofence_request() :: %{}
+  @type batch_evaluate_geofences_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_route_calculators_response() :: %{
+      lte_local_id() :: %{
+        "Earfcn" => integer(),
+        "Pci" => integer()
+      }
+
+  """
+  @type lte_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_geofences_response() :: %{
         optional("NextToken") => String.t() | atom(),
-        required("Entries") => list(list_route_calculators_response_entry())
+        required("Entries") => list(list_geofence_response_entry())
       }
 
   """
-  @type list_route_calculators_response() :: %{(String.t() | atom()) => any()}
+  @type list_geofences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_device_position_history_request() :: %{
-        optional("EndTimeExclusive") => non_neg_integer(),
-        optional("MaxResults") => [integer()],
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      map_configuration_update() :: %{
+        "CustomLayers" => list(String.t() | atom()),
+        "PoliticalView" => String.t() | atom()
+      }
+
+  """
+  @type map_configuration_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tracker_response() :: %{
+        required("TrackerArn") => String.t() | atom(),
+        required("TrackerName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_tracker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_calculator_response() :: %{
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_route_calculator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_map_response() :: %{}
+
+  """
+  @type delete_map_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_calculator_response() :: %{}
+
+  """
+  @type delete_route_calculator_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_place_index_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom()
+      }
+
+  """
+  @type create_place_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_device_position_history_error() :: %{
+        "DeviceId" => String.t() | atom(),
+        "Error" => batch_item_error()
+      }
+
+  """
+  @type batch_delete_device_position_history_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_for_suggestions_result() :: %{
+        "Categories" => list(String.t() | atom()),
+        "PlaceId" => String.t() | atom(),
+        "SupplementalCategories" => list(String.t() | atom()),
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type search_for_suggestions_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_action_options() :: %{
+        "ValidateAddress" => validate_address_action_options()
+      }
+
+  """
+  @type job_action_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tracker_consumers_response() :: %{
         optional("NextToken") => String.t() | atom(),
-        optional("StartTimeInclusive") => non_neg_integer()
+        required("ConsumerArns") => list(String.t() | atom())
       }
 
   """
-  @type get_device_position_history_request() :: %{(String.t() | atom()) => any()}
+  @type list_tracker_consumers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      route_matrix_entry() :: %{
-        "Distance" => float(),
-        "DurationSeconds" => float(),
-        "Error" => route_matrix_entry_error()
-      }
-
-  """
-  @type route_matrix_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inferred_state() :: %{
-        "Accuracy" => positional_accuracy(),
-        "DeviationDistance" => [float()],
-        "Position" => list([float()]()),
-        "ProxyDetected" => [boolean()]
-      }
-
-  """
-  @type inferred_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_device_position_response() :: %{
-        optional("Accuracy") => positional_accuracy(),
-        optional("DeviceId") => String.t() | atom(),
-        optional("PositionProperties") => map(),
-        required("Position") => list([float()]()),
-        required("ReceivedTime") => non_neg_integer(),
-        required("SampleTime") => non_neg_integer()
-      }
-
-  """
-  @type get_device_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_suggestions_request() :: %{
-        optional("BiasPosition") => list([float()]()),
-        optional("FilterBBox") => list([float()]()),
-        optional("FilterCategories") => list(String.t() | atom()),
-        optional("FilterCountries") => list(String.t() | atom()),
-        optional("Key") => String.t() | atom(),
-        optional("Language") => String.t() | atom(),
-        optional("MaxResults") => [integer()],
-        required("Text") => String.t() | atom()
-      }
-
-  """
-  @type search_place_index_for_suggestions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_device_position_history_response() :: %{
-        required("Errors") => list(batch_delete_device_position_history_error())
-      }
-
-  """
-  @type batch_delete_device_position_history_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tracker_response() :: %{}
-
-  """
-  @type delete_tracker_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_place_index_for_suggestions_response() :: %{
-        required("Results") => list(search_for_suggestions_result()),
-        required("Summary") => search_place_index_for_suggestions_summary()
-      }
-
-  """
-  @type search_place_index_for_suggestions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_map_glyphs_request() :: %{
+      get_map_sprites_request() :: %{
         optional("Key") => String.t() | atom()
       }
 
   """
-  @type get_map_glyphs_request() :: %{(String.t() | atom()) => any()}
+  @type get_map_sprites_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      leg() :: %{
-        "Distance" => float(),
-        "DurationSeconds" => float(),
-        "EndPosition" => list([float()]()),
-        "Geometry" => leg_geometry(),
-        "StartPosition" => list([float()]()),
-        "Steps" => list(step())
+      calculate_route_matrix_summary() :: %{
+        "DataSource" => [String.t() | atom()],
+        "DistanceUnit" => String.t() | atom(),
+        "ErrorCount" => [integer()],
+        "RouteCount" => [integer()]
       }
 
   """
-  @type leg() :: %{(String.t() | atom()) => any()}
+  @type calculate_route_matrix_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_route_calculators_response_entry() :: %{
+        "CalculatorName" => String.t() | atom(),
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_route_calculators_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_sprites_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
+      }
+
+  """
+  @type get_map_sprites_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2457,6 +549,288 @@ defmodule AWS.Location do
 
   ## Example:
 
+      create_route_calculator_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("CalculatorName") => String.t() | atom(),
+        required("DataSource") => [String.t() | atom()]
+      }
+
+  """
+  @type create_route_calculator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_device_position_request() :: %{
+        optional("DistanceUnit") => String.t() | atom(),
+        required("DeviceState") => device_state()
+      }
+
+  """
+  @type verify_device_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      apple_app() :: %{
+        "BundleId" => String.t() | atom()
+      }
+
+  """
+  @type apple_app() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_tile_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
+      }
+
+  """
+  @type get_map_tile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type start_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_geofence_response() :: %{
+        required("Errors") => list(batch_delete_geofence_error())
+      }
+
+  """
+  @type batch_delete_geofence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_position() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviceId" => String.t() | atom(),
+        "Position" => list([float()]()),
+        "PositionProperties" => map(),
+        "ReceivedTime" => non_neg_integer(),
+        "SampleTime" => non_neg_integer()
+      }
+
+  """
+  @type device_position() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_key_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ExpireTime") => non_neg_integer(),
+        optional("NoExpiry") => [boolean()],
+        optional("Tags") => map(),
+        required("KeyName") => String.t() | atom(),
+        required("Restrictions") => api_key_restrictions()
+      }
+
+  """
+  @type create_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lte_network_measurements() :: %{
+        "CellId" => integer(),
+        "Earfcn" => integer(),
+        "Pci" => integer(),
+        "Rsrp" => integer(),
+        "Rsrq" => float()
+      }
+
+  """
+  @type lte_network_measurements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_geofence_request_entry() :: %{
+        "GeofenceId" => String.t() | atom(),
+        "GeofenceProperties" => map(),
+        "Geometry" => geofence_geometry()
+      }
+
+  """
+  @type batch_put_geofence_request_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_route_calculators_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_route_calculators_response_entry())
+      }
+
+  """
+  @type list_route_calculators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_geofence_request() :: %{
+        required("GeofenceIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_geofence_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_glyphs_request() :: %{
+        optional("Key") => String.t() | atom()
+      }
+
+  """
+  @type get_map_glyphs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_style_descriptor_request() :: %{
+        optional("Key") => String.t() | atom()
+      }
+
+  """
+  @type get_map_style_descriptor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trackers_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_trackers_response_entry())
+      }
+
+  """
+  @type list_trackers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_device_position_request() :: %{
+        required("DeviceIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_device_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      truck_dimensions() :: %{
+        "Height" => float(),
+        "Length" => float(),
+        "Unit" => String.t() | atom(),
+        "Width" => float()
+      }
+
+  """
+  @type truck_dimensions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tracker_response() :: %{}
+
+  """
+  @type delete_tracker_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_tracker_consumer_request() :: %{}
+
+  """
+  @type disassociate_tracker_consumer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_geofence_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("GeofenceId") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type put_geofence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "FieldList" => list(validation_exception_field()),
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tracking_filter_geometry() :: %{
+        "Polygon" => list(list(list([float()]())())())
+      }
+
+  """
+  @type tracking_filter_geometry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_map_request() :: %{}
+
+  """
+  @type delete_map_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       job_error() :: %{
         "Code" => String.t() | atom(),
         "Messages" => list(String.t() | atom())
@@ -2469,14 +843,1112 @@ defmodule AWS.Location do
 
   ## Example:
 
-      batch_evaluate_geofences_error() :: %{
-        "DeviceId" => String.t() | atom(),
-        "Error" => batch_item_error(),
-        "SampleTime" => non_neg_integer()
+      forecast_geofence_events_response() :: %{
+        "DistanceUnit" => String.t() | atom(),
+        "ForecastedEvents" => list(forecasted_event()),
+        "NextToken" => String.t() | atom(),
+        "SpeedUnit" => String.t() | atom()
       }
 
   """
-  @type batch_evaluate_geofences_error() :: %{(String.t() | atom()) => any()}
+  @type forecast_geofence_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_geofence_response() :: %{
+        required("Errors") => list(batch_put_geofence_error()),
+        required("Successes") => list(batch_put_geofence_success())
+      }
+
+  """
+  @type batch_put_geofence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_map_response() :: %{
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Configuration") => map_configuration(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t() | atom()],
+        required("Description") => String.t() | atom(),
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_tracker_consumer_response() :: %{}
+
+  """
+  @type disassociate_tracker_consumer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_place_request() :: %{
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom()
+      }
+
+  """
+  @type get_place_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_geofence_collection_response() :: %{
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_geofence_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_device_position_request() :: %{
+        required("Updates") => list(device_position_update())
+      }
+
+  """
+  @type batch_update_device_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forecast_geofence_events_request() :: %{
+        optional("DistanceUnit") => String.t() | atom(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("SpeedUnit") => String.t() | atom(),
+        optional("TimeHorizonMinutes") => [float()],
+        required("DeviceState") => forecast_geofence_events_device_state()
+      }
+
+  """
+  @type forecast_geofence_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_matrix_entry() :: %{
+        "Distance" => float(),
+        "DurationSeconds" => float(),
+        "Error" => route_matrix_entry_error()
+      }
+
+  """
+  @type route_matrix_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_positions_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_device_positions_response_entry())
+      }
+
+  """
+  @type list_device_positions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_route_calculator_request() :: %{}
+
+  """
+  @type delete_route_calculator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_position_response() :: %{
+        required("Results") => list(search_for_position_result()),
+        required("Summary") => search_place_index_for_position_summary()
+      }
+
+  """
+  @type search_place_index_for_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_zone() :: %{
+        "Name" => String.t() | atom(),
+        "Offset" => integer()
+      }
+
+  """
+  @type time_zone() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_device_position_history_response() :: %{
+        required("Errors") => list(batch_delete_device_position_history_error())
+      }
+
+  """
+  @type batch_delete_device_position_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      jobs_filter() :: %{
+        "JobStatus" => String.t() | atom()
+      }
+
+  """
+  @type jobs_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step() :: %{
+        "Distance" => float(),
+        "DurationSeconds" => float(),
+        "EndPosition" => list([float()]()),
+        "GeometryOffset" => [integer()],
+        "StartPosition" => list([float()]())
+      }
+
+  """
+  @type step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_key_response() :: %{}
+
+  """
+  @type delete_key_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_item_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_item_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_key_response() :: %{
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_job_request() :: %{
+        optional("ActionOptions") => job_action_options(),
+        optional("ClientToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Action") => String.t() | atom(),
+        required("ExecutionRoleArn") => String.t() | atom(),
+        required("InputOptions") => job_input_options(),
+        required("OutputOptions") => job_output_options()
+      }
+
+  """
+  @type start_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_route_calculator_response() :: %{
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
+        required("CreateTime") => non_neg_integer()
+      }
+
+  """
+  @type create_route_calculator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wi_fi_access_point() :: %{
+        "MacAddress" => [String.t() | atom()],
+        "Rss" => [integer()]
+      }
+
+  """
+  @type wi_fi_access_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_glyphs_response() :: %{
+        "Blob" => [binary()],
+        "CacheControl" => [String.t() | atom()],
+        "ContentType" => [String.t() | atom()]
+      }
+
+  """
+  @type get_map_glyphs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_place_indexes_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_place_indexes_response_entry())
+      }
+
+  """
+  @type list_place_indexes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_maps_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Entries") => list(list_maps_response_entry())
+      }
+
+  """
+  @type list_maps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_route_calculator_request() :: %{}
+
+  """
+  @type describe_route_calculator_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_positions_request() :: %{
+        optional("FilterGeometry") => tracking_filter_geometry(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_device_positions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_response() :: %{
+        "Entries" => list(list_jobs_response_entry()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_request() :: %{}
+
+  """
+  @type get_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_geofence_collections_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_geofence_collections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_for_position_result() :: %{
+        "Distance" => float(),
+        "Place" => place(),
+        "PlaceId" => String.t() | atom()
+      }
+
+  """
+  @type search_for_position_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_geofence_collection_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()]
+      }
+
+  """
+  @type update_geofence_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_place_response() :: %{
+        required("Place") => place()
+      }
+
+  """
+  @type get_place_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_response() :: %{
+        "Action" => String.t() | atom(),
+        "ActionOptions" => job_action_options(),
+        "CreatedAt" => non_neg_integer(),
+        "EndedAt" => non_neg_integer(),
+        "Error" => job_error(),
+        "ExecutionRoleArn" => String.t() | atom(),
+        "InputOptions" => job_input_options(),
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OutputOptions" => job_output_options(),
+        "Status" => String.t() | atom(),
+        "Tags" => map(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inferred_state() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviationDistance" => [float()],
+        "Position" => list([float()]()),
+        "ProxyDetected" => [boolean()]
+      }
+
+  """
+  @type inferred_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_key_request() :: %{
+        optional("ForceDelete") => [boolean()]
+      }
+
+  """
+  @type delete_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_map_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom()
+      }
+
+  """
+  @type create_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_position_response() :: %{
+        optional("Accuracy") => positional_accuracy(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("PositionProperties") => map(),
+        required("Position") => list([float()]()),
+        required("ReceivedTime") => non_neg_integer(),
+        required("SampleTime") => non_neg_integer()
+      }
+
+  """
+  @type get_device_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_map_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Configuration") => map_configuration(),
+        required("MapName") => String.t() | atom()
+      }
+
+  """
+  @type create_map_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_request() :: %{
+        optional("ArrivalTime") => non_neg_integer(),
+        optional("CarModeOptions") => calculate_route_car_mode_options(),
+        optional("DepartNow") => boolean(),
+        optional("DepartureTime") => non_neg_integer(),
+        optional("DistanceUnit") => String.t() | atom(),
+        optional("IncludeLegGeometry") => boolean(),
+        optional("Key") => String.t() | atom(),
+        optional("OptimizeFor") => String.t() | atom(),
+        optional("TravelMode") => String.t() | atom(),
+        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
+        optional("WaypointPositions") => list(list([float()]())()),
+        required("DeparturePosition") => list([float()]()),
+        required("DestinationPosition") => list([float()]())
+      }
+
+  """
+  @type calculate_route_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_filter() :: %{
+        "KeyStatus" => String.t() | atom()
+      }
+
+  """
+  @type api_key_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tracker_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("TrackerName") => String.t() | atom()
+      }
+
+  """
+  @type create_tracker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_response() :: %{
+        "JobArn" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_geofence_request() :: %{}
+
+  """
+  @type get_geofence_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      positional_accuracy() :: %{
+        "Horizontal" => float()
+      }
+
+  """
+  @type positional_accuracy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_position_history_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("DevicePositions") => list(device_position())
+      }
+
+  """
+  @type get_device_position_history_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      circle() :: %{
+        "Center" => list([float()]()),
+        "Radius" => float()
+      }
+
+  """
+  @type circle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_suggestions_request() :: %{
+        optional("BiasPosition") => list([float()]()),
+        optional("FilterBBox") => list([float()]()),
+        optional("FilterCategories") => list(String.t() | atom()),
+        optional("FilterCountries") => list(String.t() | atom()),
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
+        optional("MaxResults") => [integer()],
+        required("Text") => String.t() | atom()
+      }
+
+  """
+  @type search_place_index_for_suggestions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_text_response() :: %{
+        required("Results") => list(search_for_text_result()),
+        required("Summary") => search_place_index_for_text_summary()
+      }
+
+  """
+  @type search_place_index_for_text_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_map_response() :: %{
+        required("MapArn") => String.t() | atom(),
+        required("MapName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Message" => [String.t() | atom()],
+        "Name" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list([String.t() | atom()]())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tracker_consumers_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_tracker_consumers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_maps_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "MapName" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_maps_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trackers_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "PricingPlanDataSource" => [String.t() | atom()],
+        "TrackerName" => String.t() | atom(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_trackers_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_position_history_request() :: %{
+        optional("EndTimeExclusive") => non_neg_integer(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTimeInclusive") => non_neg_integer()
+      }
+
+  """
+  @type get_device_position_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_tracker_consumer_request() :: %{
+        required("ConsumerArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_tracker_consumer_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_job_request() :: %{
+        required("JobId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_car_mode_options() :: %{
+        "AvoidFerries" => boolean(),
+        "AvoidTolls" => boolean()
+      }
+
+  """
+  @type calculate_route_car_mode_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_geofence_response() :: %{
+        optional("GeofenceProperties") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("GeofenceId") => String.t() | atom(),
+        required("Geometry") => geofence_geometry(),
+        required("Status") => [String.t() | atom()],
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type get_geofence_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_place_indexes_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_place_indexes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_place_indexes_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "DataSource" => [String.t() | atom()],
+        "Description" => String.t() | atom(),
+        "IndexName" => String.t() | atom(),
+        "PricingPlan" => String.t() | atom(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_place_indexes_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_input_options() :: %{
+        "Format" => String.t() | atom(),
+        "Location" => String.t() | atom()
+      }
+
+  """
+  @type job_input_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_matrix_request() :: %{
+        optional("CarModeOptions") => calculate_route_car_mode_options(),
+        optional("DepartNow") => boolean(),
+        optional("DepartureTime") => non_neg_integer(),
+        optional("DistanceUnit") => String.t() | atom(),
+        optional("Key") => String.t() | atom(),
+        optional("TravelMode") => String.t() | atom(),
+        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
+        required("DeparturePositions") => list(list([float()]())()),
+        required("DestinationPositions") => list(list([float()]())())
+      }
+
+  """
+  @type calculate_route_matrix_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forecasted_event() :: %{
+        "EventId" => String.t() | atom(),
+        "EventType" => String.t() | atom(),
+        "ForecastedBreachTime" => non_neg_integer(),
+        "GeofenceId" => String.t() | atom(),
+        "GeofenceProperties" => map(),
+        "IsDeviceInGeofence" => [boolean()],
+        "NearestDistance" => float()
+      }
+
+  """
+  @type forecasted_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_summary() :: %{
+        "DataSource" => [String.t() | atom()],
+        "Distance" => float(),
+        "DistanceUnit" => String.t() | atom(),
+        "DurationSeconds" => float(),
+        "RouteBBox" => list([float()]())
+      }
+
+  """
+  @type calculate_route_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_tile_request() :: %{
+        optional("Key") => String.t() | atom()
+      }
+
+  """
+  @type get_map_tile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_suggestions_summary() :: %{
+        "BiasPosition" => list([float()]()),
+        "DataSource" => [String.t() | atom()],
+        "FilterBBox" => list([float()]()),
+        "FilterCategories" => list(String.t() | atom()),
+        "FilterCountries" => list(String.t() | atom()),
+        "Language" => String.t() | atom(),
+        "MaxResults" => [integer()],
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type search_place_index_for_suggestions_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_position_request() :: %{
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        required("Position") => list([float()]())
+      }
+
+  """
+  @type search_place_index_for_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_geofence_collection_response() :: %{}
+
+  """
+  @type delete_geofence_collection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_key_response() :: %{
+        required("CreateTime") => non_neg_integer(),
+        required("Key") => String.t() | atom(),
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom()
+      }
+
+  """
+  @type create_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_keys_response_entry() :: %{
+        "CreateTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpireTime" => non_neg_integer(),
+        "KeyName" => String.t() | atom(),
+        "Restrictions" => api_key_restrictions(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type list_keys_response_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_place_index_request() :: %{}
+
+  """
+  @type describe_place_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_geofence_collection_request() :: %{}
+
+  """
+  @type describe_geofence_collection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_geofence_success() :: %{
+        "CreateTime" => non_neg_integer(),
+        "GeofenceId" => String.t() | atom(),
+        "UpdateTime" => non_neg_integer()
+      }
+
+  """
+  @type batch_put_geofence_success() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_geofence_request() :: %{
+        optional("GeofenceProperties") => map(),
+        required("Geometry") => geofence_geometry()
+      }
+
+  """
+  @type put_geofence_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_for_text_result() :: %{
+        "Distance" => float(),
+        "Place" => place(),
+        "PlaceId" => String.t() | atom(),
+        "Relevance" => float()
+      }
+
+  """
+  @type search_for_text_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_geofences_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_geofences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_response() :: %{
+        "Legs" => list(leg()),
+        "Summary" => calculate_route_summary()
+      }
+
+  """
+  @type calculate_route_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2511,99 +1983,626 @@ defmodule AWS.Location do
 
   ## Example:
 
-      create_key_response() :: %{
+      delete_place_index_response() :: %{}
+
+  """
+  @type delete_place_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_route_calculator_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom()
+      }
+
+  """
+  @type update_route_calculator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tracker_response() :: %{
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
+        optional("Tags") => map(),
         required("CreateTime") => non_neg_integer(),
-        required("Key") => String.t() | atom(),
-        required("KeyArn") => String.t() | atom(),
-        required("KeyName") => String.t() | atom()
+        required("Description") => String.t() | atom(),
+        required("TrackerArn") => String.t() | atom(),
+        required("TrackerName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
       }
 
   """
-  @type create_key_response() :: %{(String.t() | atom()) => any()}
+  @type describe_tracker_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_place_index_for_position_request() :: %{
-        optional("Key") => String.t() | atom(),
-        optional("Language") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        required("Position") => list([float()]())
+      batch_evaluate_geofences_response() :: %{
+        required("Errors") => list(batch_evaluate_geofences_error())
       }
 
   """
-  @type search_place_index_for_position_request() :: %{(String.t() | atom()) => any()}
+  @type batch_evaluate_geofences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      calculate_route_matrix_request() :: %{
-        optional("CarModeOptions") => calculate_route_car_mode_options(),
-        optional("DepartNow") => boolean(),
-        optional("DepartureTime") => non_neg_integer(),
-        optional("DistanceUnit") => String.t() | atom(),
-        optional("Key") => String.t() | atom(),
-        optional("TravelMode") => String.t() | atom(),
-        optional("TruckModeOptions") => calculate_route_truck_mode_options(),
-        required("DeparturePositions") => list(list([float()]())()),
-        required("DestinationPositions") => list(list([float()]())())
+      truck_weight() :: %{
+        "Total" => float(),
+        "Unit" => String.t() | atom()
       }
 
   """
-  @type calculate_route_matrix_request() :: %{(String.t() | atom()) => any()}
+  @type truck_weight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_geofence_collection_response() :: %{}
+      update_key_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ExpireTime") => non_neg_integer(),
+        optional("ForceUpdate") => [boolean()],
+        optional("NoExpiry") => [boolean()],
+        optional("Restrictions") => api_key_restrictions()
+      }
 
   """
-  @type delete_geofence_collection_response() :: %{}
+  @type update_key_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_geofences_request() :: %{
+      batch_evaluate_geofences_request() :: %{
+        required("DevicePositionUpdates") => list(device_position_update())
+      }
+
+  """
+  @type batch_evaluate_geofences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      leg() :: %{
+        "Distance" => float(),
+        "DurationSeconds" => float(),
+        "EndPosition" => list([float()]()),
+        "Geometry" => leg_geometry(),
+        "StartPosition" => list([float()]()),
+        "Steps" => list(step())
+      }
+
+  """
+  @type leg() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_maps_request() :: %{
         optional("MaxResults") => [integer()],
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_geofences_request() :: %{(String.t() | atom()) => any()}
+  @type list_maps_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_trackers_response_entry() :: %{
-        "CreateTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "PricingPlan" => String.t() | atom(),
-        "PricingPlanDataSource" => [String.t() | atom()],
-        "TrackerName" => String.t() | atom(),
-        "UpdateTime" => non_neg_integer()
+      describe_key_request() :: %{}
+
+  """
+  @type describe_key_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_tracker_request() :: %{}
+
+  """
+  @type describe_tracker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tracker_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventBridgeEnabled") => [boolean()],
+        optional("KmsKeyEnableGeospatialQueries") => [boolean()],
+        optional("PositionFiltering") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()]
       }
 
   """
-  @type list_trackers_response_entry() :: %{(String.t() | atom()) => any()}
+  @type update_tracker_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      forecast_geofence_events_response() :: %{
+      lte_cell_details() :: %{
+        "CellId" => integer(),
+        "LocalId" => lte_local_id(),
+        "Mcc" => [integer()],
+        "Mnc" => [integer()],
+        "NetworkMeasurements" => list(lte_network_measurements()),
+        "NrCapable" => [boolean()],
+        "Rsrp" => integer(),
+        "Rsrq" => float(),
+        "Tac" => [integer()],
+        "TimingAdvance" => [integer()]
+      }
+
+  """
+  @type lte_cell_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_state() :: %{
+        "Accuracy" => positional_accuracy(),
+        "CellSignals" => cell_signals(),
+        "DeviceId" => String.t() | atom(),
+        "Ipv4Address" => [String.t() | atom()],
+        "Position" => list([float()]()),
+        "SampleTime" => non_neg_integer(),
+        "WiFiAccessPoints" => list(wi_fi_access_point())
+      }
+
+  """
+  @type device_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_configuration() :: %{
+        "IntendedUse" => String.t() | atom()
+      }
+
+  """
+  @type data_source_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forecast_geofence_events_device_state() :: %{
+        "Position" => list([float()]()),
+        "Speed" => [float()]
+      }
+
+  """
+  @type forecast_geofence_events_device_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_map_style_descriptor_response() :: %{
+        optional("Blob") => [binary()],
+        optional("CacheControl") => [String.t() | atom()],
+        optional("ContentType") => [String.t() | atom()]
+      }
+
+  """
+  @type get_map_style_descriptor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_route_calculator_response() :: %{
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("CalculatorArn") => String.t() | atom(),
+        required("CalculatorName") => String.t() | atom(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t() | atom()],
+        required("Description") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_route_calculator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cell_signals() :: %{
+        "LteCellDetails" => list(lte_cell_details())
+      }
+
+  """
+  @type cell_signals() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_tracker_consumer_response() :: %{}
+
+  """
+  @type associate_tracker_consumer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_place_index_response() :: %{
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("DataSource") => [String.t() | atom()],
+        required("DataSourceConfiguration") => data_source_configuration(),
+        required("Description") => String.t() | atom(),
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_place_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_suggestions_response() :: %{
+        required("Results") => list(search_for_suggestions_result()),
+        required("Summary") => search_place_index_for_suggestions_summary()
+      }
+
+  """
+  @type search_place_index_for_suggestions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_geofence_request() :: %{
+        required("Entries") => list(batch_put_geofence_request_entry())
+      }
+
+  """
+  @type batch_put_geofence_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_text_request() :: %{
+        optional("BiasPosition") => list([float()]()),
+        optional("FilterBBox") => list([float()]()),
+        optional("FilterCategories") => list(String.t() | atom()),
+        optional("FilterCountries") => list(String.t() | atom()),
+        optional("Key") => String.t() | atom(),
+        optional("Language") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        required("Text") => String.t() | atom()
+      }
+
+  """
+  @type search_place_index_for_text_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_place_index_request() :: %{}
+
+  """
+  @type delete_place_index_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_restrictions() :: %{
+        "AllowActions" => list(String.t() | atom()),
+        "AllowAndroidApps" => list(android_app()),
+        "AllowAppleApps" => list(apple_app()),
+        "AllowReferers" => list(String.t() | atom()),
+        "AllowResources" => list(String.t() | atom())
+      }
+
+  """
+  @type api_key_restrictions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_device_position_response() :: %{
+        required("DevicePositions") => list(device_position()),
+        required("Errors") => list(batch_get_device_position_error())
+      }
+
+  """
+  @type batch_get_device_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_device_position_response() :: %{
+        required("Errors") => list(batch_update_device_position_error())
+      }
+
+  """
+  @type batch_update_device_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_place_index_request() :: %{
+        optional("DataSourceConfiguration") => data_source_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DataSource") => [String.t() | atom()],
+        required("IndexName") => String.t() | atom()
+      }
+
+  """
+  @type create_place_index_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_place_index_for_text_summary() :: %{
+        "BiasPosition" => list([float()]()),
+        "DataSource" => [String.t() | atom()],
+        "FilterBBox" => list([float()]()),
+        "FilterCategories" => list(String.t() | atom()),
+        "FilterCountries" => list(String.t() | atom()),
+        "Language" => String.t() | atom(),
+        "MaxResults" => integer(),
+        "ResultBBox" => list([float()]()),
+        "Text" => String.t() | atom()
+      }
+
+  """
+  @type search_place_index_for_text_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculate_route_matrix_response() :: %{
+        "RouteMatrix" => list(list(route_matrix_entry())()),
+        "SnappedDeparturePositions" => list(list([float()]())()),
+        "SnappedDestinationPositions" => list(list([float()]())()),
+        "Summary" => calculate_route_matrix_summary()
+      }
+
+  """
+  @type calculate_route_matrix_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_geofence_collection_response() :: %{
+        optional("GeofenceCount") => [integer()],
+        optional("KmsKeyId") => String.t() | atom(),
+        optional("PricingPlan") => String.t() | atom(),
+        optional("PricingPlanDataSource") => [String.t() | atom()],
+        optional("Tags") => map(),
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
+        required("CreateTime") => non_neg_integer(),
+        required("Description") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_geofence_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_geofence_collection_request() :: %{}
+
+  """
+  @type delete_geofence_collection_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_route_calculators_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_route_calculators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_jobs_request() :: %{
+        optional("Filter") => jobs_filter(),
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_position_update() :: %{
+        "Accuracy" => positional_accuracy(),
+        "DeviceId" => String.t() | atom(),
+        "Position" => list([float()]()),
+        "PositionProperties" => map(),
+        "SampleTime" => non_neg_integer()
+      }
+
+  """
+  @type device_position_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_key_response() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("CreateTime") => non_neg_integer(),
+        required("ExpireTime") => non_neg_integer(),
+        required("Key") => String.t() | atom(),
+        required("KeyArn") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
+        required("Restrictions") => api_key_restrictions(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_geofence_error() :: %{
+        "Error" => batch_item_error(),
+        "GeofenceId" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_geofence_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_device_position_response() :: %{
+        "DeviceId" => String.t() | atom(),
         "DistanceUnit" => String.t() | atom(),
-        "ForecastedEvents" => list(forecasted_event()),
-        "NextToken" => String.t() | atom(),
-        "SpeedUnit" => String.t() | atom()
+        "InferredState" => inferred_state(),
+        "ReceivedTime" => non_neg_integer(),
+        "SampleTime" => non_neg_integer()
       }
 
   """
-  @type forecast_geofence_events_response() :: %{(String.t() | atom()) => any()}
+  @type verify_device_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_position_request() :: %{}
+
+  """
+  @type get_device_position_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_device_position_error() :: %{
+        "DeviceId" => String.t() | atom(),
+        "Error" => batch_item_error(),
+        "SampleTime" => non_neg_integer()
+      }
+
+  """
+  @type batch_update_device_position_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tracker_request() :: %{}
+
+  """
+  @type delete_tracker_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_trackers_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_trackers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_place_index_response() :: %{
+        required("IndexArn") => String.t() | atom(),
+        required("IndexName") => String.t() | atom(),
+        required("UpdateTime") => non_neg_integer()
+      }
+
+  """
+  @type update_place_index_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_geofence_collection_response() :: %{
+        required("CollectionArn") => String.t() | atom(),
+        required("CollectionName") => String.t() | atom(),
+        required("CreateTime") => non_neg_integer()
+      }
+
+  """
+  @type create_geofence_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2621,459 +2620,460 @@ defmodule AWS.Location do
 
   ## Example:
 
-      batch_delete_device_position_history_request() :: %{
-        required("DeviceIds") => list(String.t() | atom())
+      android_app() :: %{
+        "CertificateFingerprint" => String.t() | atom(),
+        "Package" => String.t() | atom()
       }
 
   """
-  @type batch_delete_device_position_history_request() :: %{(String.t() | atom()) => any()}
+  @type android_app() :: %{(String.t() | atom()) => any()}
 
   @type associate_tracker_consumer_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_delete_device_position_history_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_delete_geofence_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_evaluate_geofences_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_get_device_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_put_geofence_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_update_device_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type calculate_route_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type calculate_route_matrix_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type cancel_job_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type create_geofence_collection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_key_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_map_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_place_index_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_route_calculator_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_tracker_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_geofence_collection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_map_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_place_index_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_route_calculator_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_tracker_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_geofence_collection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_map_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_place_index_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_route_calculator_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_tracker_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_tracker_consumer_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type forecast_geofence_events_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_device_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_device_position_history_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_geofence_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_map_glyphs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_map_sprites_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_map_style_descriptor_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_map_tile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_place_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_device_positions_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_geofence_collections_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_geofences_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_keys_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_maps_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_place_indexes_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_route_calculators_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tracker_consumers_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_trackers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type put_geofence_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_place_index_for_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type search_place_index_for_suggestions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type search_place_index_for_text_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_job_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_geofence_collection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_key_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_map_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_place_index_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_route_calculator_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_tracker_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type verify_device_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

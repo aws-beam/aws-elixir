@@ -37,138 +37,13 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      put_channel_policy_request() :: %{
-        required("Policy") => String.t() | atom()
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type put_channel_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_request() :: %{}
-
-  """
-  @type delete_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_switch_configuration() :: %{
-        "MQCSInputSwitching" => [boolean()],
-        "PreferredInput" => [integer()]
-      }
-
-  """
-  @type input_switch_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_harvest_job_response() :: %{}
-
-  """
-  @type cancel_harvest_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_program_information() :: %{
-        "Copyright" => [String.t() | atom()],
-        "LanguageCode" => [String.t() | atom()],
-        "MoreInformationUrl" => [String.t() | atom()],
-        "Source" => [String.t() | atom()],
-        "Title" => [String.t() | atom()]
-      }
-
-  """
-  @type dash_program_information() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_request() :: %{}
-
-  """
-  @type get_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_channel_policy_response() :: %{}
-
-  """
-  @type put_channel_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_origin_endpoint_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("DashManifests") => list(create_dash_manifest_configuration()),
-        optional("Description") => String.t() | atom(),
-        optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
-        optional("HlsManifests") => list(create_hls_manifest_configuration()),
-        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
-        optional("MssManifests") => list(create_mss_manifest_configuration()),
-        optional("Segment") => segment(),
-        optional("StartoverWindowSeconds") => [integer()],
-        optional("Tags") => map(),
-        optional("UriSeparator") => list(any()),
-        required("ContainerType") => list(any()),
-        required("OriginEndpointName") => String.t() | atom()
-      }
-
-  """
-  @type create_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_list_configuration() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "ChannelName" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "InputType" => list(any()),
-        "ModifiedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type channel_list_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harvester_schedule_configuration() :: %{
-        "EndTime" => [non_neg_integer()],
-        "StartTime" => [non_neg_integer()]
-      }
-
-  """
-  @type harvester_schedule_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -196,140 +71,45 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      list_dash_manifest_configuration() :: %{
-        "ManifestName" => String.t() | atom(),
-        "Url" => [String.t() | atom()]
-      }
+      delete_channel_group_response() :: %{}
 
   """
-  @type list_dash_manifest_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      channel_group_list_configuration() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "ModifiedAt" => [non_neg_integer()]
+      encryption_contract_configuration() :: %{
+        "PresetSpeke20Audio" => list(any()),
+        "PresetSpeke20Video" => list(any())
       }
 
   """
-  @type channel_group_list_configuration() :: %{(String.t() | atom()) => any()}
+  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_channel_response() :: %{}
+      update_channel_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ETag") => String.t() | atom(),
+        optional("InputSwitchConfiguration") => input_switch_configuration(),
+        optional("OutputHeaderConfiguration") => output_header_configuration()
+      }
 
   """
-  @type delete_channel_response() :: %{}
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "ManifestName" => String.t() | atom(),
-        "Url" => [String.t() | atom()]
-      }
+      get_origin_endpoint_request() :: %{}
 
   """
-  @type list_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_origin_endpoint_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
-        "ContainerType" => list(any()),
-        "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(get_dash_manifest_configuration()),
-        "Description" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(get_hls_manifest_configuration()),
-        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
-        "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(get_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t() | atom(),
-        "Segment" => segment(),
-        "StartoverWindowSeconds" => [integer()],
-        "Tags" => map(),
-        "UriSeparator" => list(any())
-      }
-
-  """
-  @type create_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls(),
-        "StartTag" => start_tag(),
-        "UriPathType" => list(any()),
-        "UrlEncodeChildManifest" => [boolean()]
-      }
-
-  """
-  @type create_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dash_manifest_configuration() :: %{
-        "AudioTimelinePattern" => list(any()),
-        "AvailabilityStartTimeConfiguration" => list(),
-        "BaseUrls" => list(dash_base_url()),
-        "Compactness" => list(any()),
-        "DrmSignaling" => list(any()),
-        "DvbSettings" => dash_dvb_settings(),
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "MinBufferTimeSeconds" => [integer()],
-        "MinUpdatePeriodSeconds" => [integer()],
-        "PeriodTriggers" => list(list(any())()),
-        "Profiles" => list(list(any())()),
-        "ProgramInformation" => dash_program_information(),
-        "ScteDash" => scte_dash(),
-        "SegmentTemplateFormat" => list(any()),
-        "SubtitleConfiguration" => dash_subtitle_configuration(),
-        "SuggestedPresentationDelaySeconds" => [integer()],
-        "UriPathType" => list(any()),
-        "UtcTiming" => dash_utc_timing()
-      }
-
-  """
-  @type create_dash_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_dvb_font_download() :: %{
-        "FontFamily" => [String.t() | atom()],
-        "MimeType" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type dash_dvb_font_download() :: %{(String.t() | atom()) => any()}
+  @type get_origin_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -356,324 +136,52 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      delete_channel_policy_request() :: %{}
-
-  """
-  @type delete_channel_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      harvested_dash_manifest() :: %{
-        "ManifestName" => String.t() | atom()
+      reset_channel_state_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => [String.t() | atom()],
+        "ChannelName" => [String.t() | atom()],
+        "ResetAt" => [non_neg_integer()]
       }
 
   """
-  @type harvested_dash_manifest() :: %{(String.t() | atom()) => any()}
+  @type reset_channel_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_origin_endpoint_policy_request() :: %{
-        optional("CdnAuthConfiguration") => cdn_auth_configuration(),
-        required("Policy") => String.t() | atom()
+      s3_destination_config() :: %{
+        "BucketName" => String.t() | atom(),
+        "DestinationPath" => String.t() | atom()
       }
 
   """
-  @type put_origin_endpoint_policy_request() :: %{(String.t() | atom()) => any()}
+  @type s3_destination_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dash_utc_timing() :: %{
-        "TimingMode" => list(any()),
-        "TimingSource" => [String.t() | atom()]
+      harvested_manifests() :: %{
+        "DashManifests" => list(harvested_dash_manifest()),
+        "HlsManifests" => list(harvested_hls_manifest()),
+        "LowLatencyHlsManifests" => list(harvested_low_latency_hls_manifest())
       }
 
   """
-  @type dash_utc_timing() :: %{(String.t() | atom()) => any()}
+  @type harvested_manifests() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_harvest_jobs_request() :: %{
-        optional("ChannelName") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()],
-        optional("OriginEndpointName") => String.t() | atom(),
-        optional("Status") => list(any())
+      harvester_schedule_configuration() :: %{
+        "EndTime" => [non_neg_integer()],
+        "StartTime" => [non_neg_integer()]
       }
 
   """
-  @type list_harvest_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_origin_endpoint_response() :: %{}
-
-  """
-  @type delete_origin_endpoint_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_origin_endpoint_request() :: %{}
-
-  """
-  @type delete_origin_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_mss_manifest_configuration() :: %{
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestLayout" => list(any()),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type get_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls(),
-        "StartTag" => start_tag(),
-        "UriPathType" => list(any()),
-        "Url" => [String.t() | atom()],
-        "UrlEncodeChildManifest" => [boolean()]
-      }
-
-  """
-  @type get_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls(),
-        "StartTag" => start_tag(),
-        "UriPathType" => list(any()),
-        "Url" => [String.t() | atom()],
-        "UrlEncodeChildManifest" => [boolean()]
-      }
-
-  """
-  @type get_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_channel_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment() :: %{
-        "Encryption" => encryption(),
-        "IncludeIframeOnlyStreams" => [boolean()],
-        "Scte" => scte(),
-        "SegmentDurationSeconds" => [integer()],
-        "SegmentName" => [String.t() | atom()],
-        "TsIncludeDvbSubtitles" => [boolean()],
-        "TsUseAudioRenditionGroup" => [boolean()]
-      }
-
-  """
-  @type segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_origin_endpoints_response() :: %{
-        "Items" => list(origin_endpoint_list_configuration()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_origin_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_group_request() :: %{}
-
-  """
-  @type delete_channel_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_harvest_job_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("HarvestJobName") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Destination") => destination(),
-        required("HarvestedManifests") => harvested_manifests(),
-        required("ScheduleConfiguration") => harvester_schedule_configuration()
-      }
-
-  """
-  @type create_harvest_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harvested_low_latency_hls_manifest() :: %{
-        "ManifestName" => String.t() | atom()
-      }
-
-  """
-  @type harvested_low_latency_hls_manifest() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_tag() :: %{
-        "Precise" => [boolean()],
-        "TimeOffset" => [float()]
-      }
-
-  """
-  @type start_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      force_endpoint_error_configuration() :: %{
-        "EndpointErrorConditions" => list(list(any())())
-      }
-
-  """
-  @type force_endpoint_error_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_header_configuration() :: %{
-        "PublishMQCS" => [boolean()]
-      }
-
-  """
-  @type output_header_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_origin_endpoint_policy_response() :: %{}
-
-  """
-  @type put_origin_endpoint_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_mss_manifest_configuration() :: %{
-        "ManifestName" => String.t() | atom(),
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type list_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_ttml_configuration() :: %{
-        "TtmlProfile" => list(any())
-      }
-
-  """
-  @type dash_ttml_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "ConflictExceptionType" => list(any()),
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "ResourceTypeNotFound" => list(any())
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cdn_auth_configuration() :: %{
-        "CdnIdentifierSecretArns" => list(String.t() | atom()),
-        "SecretsRoleArn" => [String.t() | atom()]
-      }
-
-  """
-  @type cdn_auth_configuration() :: %{(String.t() | atom()) => any()}
+  @type harvester_schedule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -690,15 +198,10 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      create_channel_group_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ChannelGroupName") => String.t() | atom()
-      }
+      delete_channel_policy_request() :: %{}
 
   """
-  @type create_channel_group_request() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_policy_request() :: %{}
 
   @typedoc """
 
@@ -716,201 +219,27 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
+      throttling_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dash_base_url() :: %{
-        "DvbPriority" => [integer()],
-        "DvbWeight" => [integer()],
-        "ServiceLocation" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
+      dash_program_information() :: %{
+        "Copyright" => [String.t() | atom()],
+        "LanguageCode" => [String.t() | atom()],
+        "MoreInformationUrl" => [String.t() | atom()],
+        "Source" => [String.t() | atom()],
+        "Title" => [String.t() | atom()]
       }
 
   """
-  @type dash_base_url() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_origin_endpoint_policy_response() :: %{}
-
-  """
-  @type delete_origin_endpoint_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_origin_endpoint_policy_request() :: %{}
-
-  """
-  @type get_origin_endpoint_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_policy_response() :: %{}
-
-  """
-  @type delete_channel_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_origin_endpoint_state_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
-        "OriginEndpointName" => String.t() | atom(),
-        "ResetAt" => [non_neg_integer()]
-      }
-
-  """
-  @type reset_origin_endpoint_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dash_dvb_settings() :: %{
-        "ErrorMetrics" => list(dash_dvb_metrics_reporting()),
-        "FontDownload" => dash_dvb_font_download()
-      }
-
-  """
-  @type dash_dvb_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("ETag") => String.t() | atom()
-      }
-
-  """
-  @type update_channel_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      speke_key_provider() :: %{
-        "CertificateArn" => [String.t() | atom()],
-        "DrmSystems" => list(list(any())()),
-        "EncryptionContractConfiguration" => encryption_contract_configuration(),
-        "ResourceId" => [String.t() | atom()],
-        "RoleArn" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption() :: %{
-        "CmafExcludeSegmentDrmMetadata" => [boolean()],
-        "ConstantInitializationVector" => [String.t() | atom()],
-        "EncryptionMethod" => encryption_method(),
-        "KeyRotationIntervalSeconds" => [integer()],
-        "SpekeKeyProvider" => speke_key_provider()
-      }
-
-  """
-  @type encryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ingest_endpoint() :: %{
-        "Id" => [String.t() | atom()],
-        "Url" => [String.t() | atom()]
-      }
-
-  """
-  @type ingest_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_group_response() :: %{}
-
-  """
-  @type delete_channel_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("InputSwitchConfiguration") => input_switch_configuration(),
-        optional("InputType") => list(any()),
-        optional("OutputHeaderConfiguration") => output_header_configuration(),
-        optional("Tags") => map(),
-        required("ChannelName") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_configuration() :: %{
-        "ClipStartTime" => [non_neg_integer()],
-        "DrmSettings" => [String.t() | atom()],
-        "End" => [non_neg_integer()],
-        "ManifestFilter" => [String.t() | atom()],
-        "Start" => [non_neg_integer()],
-        "TimeDelaySeconds" => [integer()]
-      }
-
-  """
-  @type filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_policy_response() :: %{
-        "ChannelGroupName" => [String.t() | atom()],
-        "ChannelName" => [String.t() | atom()],
-        "Policy" => String.t() | atom()
-      }
-
-  """
-  @type get_channel_policy_response() :: %{(String.t() | atom()) => any()}
+  @type dash_program_information() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -947,114 +276,122 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      list_channels_response() :: %{
-        "Items" => list(channel_list_configuration()),
-        "NextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_origin_endpoint_policy_request() :: %{}
-
-  """
-  @type delete_origin_endpoint_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_mss_manifest_configuration() :: %{
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestLayout" => list(any()),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()]
-      }
-
-  """
-  @type create_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_group_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "EgressDomain" => [String.t() | atom()],
-        "ModifiedAt" => [non_neg_integer()],
-        "Tags" => map()
-      }
-
-  """
-  @type update_channel_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_request() :: %{
+      create_channel_group_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        optional("ETag") => String.t() | atom(),
-        optional("InputSwitchConfiguration") => input_switch_configuration(),
-        optional("OutputHeaderConfiguration") => output_header_configuration()
+        optional("Tags") => map(),
+        required("ChannelGroupName") => String.t() | atom()
       }
 
   """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+  @type create_channel_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      encryption_contract_configuration() :: %{
-        "PresetSpeke20Audio" => list(any()),
-        "PresetSpeke20Video" => list(any())
-      }
-
-  """
-  @type encryption_contract_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
+      access_denied_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      harvested_hls_manifest() :: %{
+      list_dash_manifest_configuration() :: %{
+        "ManifestName" => String.t() | atom(),
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dash_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvested_low_latency_hls_manifest() :: %{
         "ManifestName" => String.t() | atom()
       }
 
   """
-  @type harvested_hls_manifest() :: %{(String.t() | atom()) => any()}
+  @type harvested_low_latency_hls_manifest() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scte_dash() :: %{
-        "AdMarkerDash" => list(any()),
-        "ScteInManifests" => list(any())
+      filter_configuration() :: %{
+        "ClipStartTime" => [non_neg_integer()],
+        "DrmSettings" => [String.t() | atom()],
+        "End" => [non_neg_integer()],
+        "ManifestFilter" => [String.t() | atom()],
+        "Start" => [non_neg_integer()],
+        "TimeDelaySeconds" => [integer()]
       }
 
   """
-  @type scte_dash() :: %{(String.t() | atom()) => any()}
+  @type filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_harvest_job_response() :: %{}
+
+  """
+  @type cancel_harvest_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_policy_response() :: %{}
+
+  """
+  @type delete_channel_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dash_manifest_configuration() :: %{
+        "AudioTimelinePattern" => list(any()),
+        "AvailabilityStartTimeConfiguration" => list(),
+        "BaseUrls" => list(dash_base_url()),
+        "Compactness" => list(any()),
+        "DrmSignaling" => list(any()),
+        "DvbSettings" => dash_dvb_settings(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "MinBufferTimeSeconds" => [integer()],
+        "MinUpdatePeriodSeconds" => [integer()],
+        "PeriodTriggers" => list(list(any())()),
+        "Profiles" => list(list(any())()),
+        "ProgramInformation" => dash_program_information(),
+        "ScteDash" => scte_dash(),
+        "SegmentTemplateFormat" => list(any()),
+        "SubtitleConfiguration" => dash_subtitle_configuration(),
+        "SuggestedPresentationDelaySeconds" => [integer()],
+        "UriPathType" => list(any()),
+        "UtcTiming" => dash_utc_timing()
+      }
+
+  """
+  @type create_dash_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_origin_endpoint_request() :: %{}
+
+  """
+  @type delete_origin_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -1072,66 +409,23 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      cancel_harvest_job_request() :: %{
-        optional("ETag") => String.t() | atom()
+      delete_origin_endpoint_response() :: %{}
+
+  """
+  @type delete_origin_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "ManifestName" => String.t() | atom(),
+        "Url" => [String.t() | atom()]
       }
 
   """
-  @type cancel_harvest_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encryption_method() :: %{
-        "CmafEncryptionMethod" => list(any()),
-        "IsmEncryptionMethod" => list(any()),
-        "TsEncryptionMethod" => list(any())
-      }
-
-  """
-  @type encryption_method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte_hls() :: %{
-        "AdMarkerHls" => list(any()),
-        "ScteInManifests" => list(any())
-      }
-
-  """
-  @type scte_hls() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_origin_endpoint_state_request() :: %{}
-
-  """
-  @type reset_origin_endpoint_state_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_harvest_job_request() :: %{}
-
-  """
-  @type get_harvest_job_request() :: %{}
+  @type list_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1149,70 +443,89 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      destination() :: %{
-        "S3Destination" => s3_destination_config()
+      list_channel_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
       }
 
   """
-  @type destination() :: %{(String.t() | atom()) => any()}
+  @type list_channel_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
+      delete_channel_response() :: %{}
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "ManifestName" => String.t() | atom(),
-        "Url" => [String.t() | atom()]
-      }
+      reset_origin_endpoint_state_request() :: %{}
 
   """
-  @type list_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+  @type reset_origin_endpoint_state_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_harvest_job_response() :: %{
+      channel_list_configuration() :: %{
         "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
+        "ChannelGroupName" => [String.t() | atom()],
+        "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t() | atom(),
-        "Destination" => destination(),
+        "InputType" => list(any()),
+        "ModifiedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type channel_list_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_group_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
         "ETag" => String.t() | atom(),
-        "ErrorMessage" => [String.t() | atom()],
-        "HarvestJobName" => String.t() | atom(),
-        "HarvestedManifests" => harvested_manifests(),
+        "EgressDomain" => [String.t() | atom()],
         "ModifiedAt" => [non_neg_integer()],
-        "OriginEndpointName" => String.t() | atom(),
-        "ScheduleConfiguration" => harvester_schedule_configuration(),
-        "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_harvest_job_response() :: %{(String.t() | atom()) => any()}
+  @type get_channel_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => [String.t() | atom()],
+        "ChannelName" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "IngestEndpoints" => list(ingest_endpoint()),
+        "InputSwitchConfiguration" => input_switch_configuration(),
+        "InputType" => list(any()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OutputHeaderConfiguration" => output_header_configuration(),
+        "ResetAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
+  """
+  @type get_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1242,55 +555,67 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      get_channel_group_request() :: %{}
-
-  """
-  @type get_channel_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scte() :: %{
-        "CustomAdTypes" => list(list(any())()),
-        "ScteFilter" => list(list(any())()),
-        "ScteInSegments" => list(any())
+      encryption() :: %{
+        "CmafExcludeSegmentDrmMetadata" => [boolean()],
+        "ConstantInitializationVector" => [String.t() | atom()],
+        "EncryptionMethod" => encryption_method(),
+        "KeyRotationIntervalSeconds" => [integer()],
+        "SpekeKeyProvider" => speke_key_provider()
       }
 
   """
-  @type scte() :: %{(String.t() | atom()) => any()}
+  @type encryption() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_channel_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "ChannelName" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "IngestEndpoints" => list(ingest_endpoint()),
-        "InputSwitchConfiguration" => input_switch_configuration(),
-        "InputType" => list(any()),
-        "ModifiedAt" => [non_neg_integer()],
-        "OutputHeaderConfiguration" => output_header_configuration(),
-        "ResetAt" => [non_neg_integer()],
-        "Tags" => map()
+      list_harvest_jobs_request() :: %{
+        optional("ChannelName") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("OriginEndpointName") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type get_channel_response() :: %{(String.t() | atom()) => any()}
+  @type list_harvest_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_channel_state_request() :: %{}
+      create_mss_manifest_configuration() :: %{
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestLayout" => list(any()),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()]
+      }
 
   """
-  @type reset_channel_state_request() :: %{}
+  @type create_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvested_dash_manifest() :: %{
+        "ManifestName" => String.t() | atom()
+      }
+
+  """
+  @type harvested_dash_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1321,6 +646,346 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
+      create_origin_endpoint_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(get_dash_manifest_configuration()),
+        "Description" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
+        "HlsManifests" => list(get_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(get_low_latency_hls_manifest_configuration()),
+        "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(get_mss_manifest_configuration()),
+        "OriginEndpointName" => String.t() | atom(),
+        "Segment" => segment(),
+        "StartoverWindowSeconds" => [integer()],
+        "Tags" => map(),
+        "UriSeparator" => list(any())
+      }
+
+  """
+  @type create_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_dvb_settings() :: %{
+        "ErrorMetrics" => list(dash_dvb_metrics_reporting()),
+        "FontDownload" => dash_dvb_font_download()
+      }
+
+  """
+  @type dash_dvb_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_policy_response() :: %{
+        "ChannelGroupName" => [String.t() | atom()],
+        "ChannelName" => [String.t() | atom()],
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type get_channel_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "ResourceTypeNotFound" => list(any())
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_ttml_configuration() :: %{
+        "TtmlProfile" => list(any())
+      }
+
+  """
+  @type dash_ttml_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_request() :: %{}
+
+  """
+  @type get_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_origin_endpoint_policy_request() :: %{}
+
+  """
+  @type get_origin_endpoint_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_base_url() :: %{
+        "DvbPriority" => [integer()],
+        "DvbWeight" => [integer()],
+        "ServiceLocation" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type dash_base_url() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      speke_key_provider() :: %{
+        "CertificateArn" => [String.t() | atom()],
+        "DrmSystems" => list(list(any())()),
+        "EncryptionContractConfiguration" => encryption_contract_configuration(),
+        "ResourceId" => [String.t() | atom()],
+        "RoleArn" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type speke_key_provider() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_group_request() :: %{}
+
+  """
+  @type delete_channel_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      destination() :: %{
+        "S3Destination" => s3_destination_config()
+      }
+
+  """
+  @type destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_request() :: %{}
+
+  """
+  @type delete_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("InputSwitchConfiguration") => input_switch_configuration(),
+        optional("InputType") => list(any()),
+        optional("OutputHeaderConfiguration") => output_header_configuration(),
+        optional("Tags") => map(),
+        required("ChannelName") => String.t() | atom()
+      }
+
+  """
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_origin_endpoint_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("DashManifests") => list(create_dash_manifest_configuration()),
+        optional("Description") => String.t() | atom(),
+        optional("ForceEndpointErrorConfiguration") => force_endpoint_error_configuration(),
+        optional("HlsManifests") => list(create_hls_manifest_configuration()),
+        optional("LowLatencyHlsManifests") => list(create_low_latency_hls_manifest_configuration()),
+        optional("MssManifests") => list(create_mss_manifest_configuration()),
+        optional("Segment") => segment(),
+        optional("StartoverWindowSeconds") => [integer()],
+        optional("Tags") => map(),
+        optional("UriSeparator") => list(any()),
+        required("ContainerType") => list(any()),
+        required("OriginEndpointName") => String.t() | atom()
+      }
+
+  """
+  @type create_origin_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "ConflictExceptionType" => list(any()),
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_utc_timing() :: %{
+        "TimingMode" => list(any()),
+        "TimingSource" => [String.t() | atom()]
+      }
+
+  """
+  @type dash_utc_timing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_group_request() :: %{}
+
+  """
+  @type get_channel_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
+        "UriPathType" => list(any()),
+        "Url" => [String.t() | atom()],
+        "UrlEncodeChildManifest" => [boolean()]
+      }
+
+  """
+  @type get_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_origin_endpoint_state_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "OriginEndpointName" => String.t() | atom(),
+        "ResetAt" => [non_neg_integer()]
+      }
+
+  """
+  @type reset_origin_endpoint_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harvest_job_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "Destination" => destination(),
+        "ETag" => String.t() | atom(),
+        "ErrorMessage" => [String.t() | atom()],
+        "HarvestJobName" => String.t() | atom(),
+        "HarvestedManifests" => harvested_manifests(),
+        "ModifiedAt" => [non_neg_integer()],
+        "OriginEndpointName" => String.t() | atom(),
+        "ScheduleConfiguration" => harvester_schedule_configuration(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_harvest_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
+        "UriPathType" => list(any()),
+        "UrlEncodeChildManifest" => [boolean()]
+      }
+
+  """
+  @type create_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dash_dvb_font_download() :: %{
+        "FontFamily" => [String.t() | atom()],
+        "MimeType" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type dash_dvb_font_download() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_harvest_jobs_response() :: %{
         "Items" => list(harvest_job()),
         "NextToken" => [String.t() | atom()]
@@ -1333,56 +998,82 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      get_origin_endpoint_request() :: %{}
+      list_origin_endpoints_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()]
+      }
 
   """
-  @type get_origin_endpoint_request() :: %{}
+  @type list_origin_endpoints_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_channel_response() :: %{
+      update_channel_group_response() :: %{
         "Arn" => [String.t() | atom()],
         "ChannelGroupName" => [String.t() | atom()],
-        "ChannelName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t() | atom(),
         "ETag" => String.t() | atom(),
-        "IngestEndpoints" => list(ingest_endpoint()),
-        "InputSwitchConfiguration" => input_switch_configuration(),
-        "InputType" => list(any()),
+        "EgressDomain" => [String.t() | atom()],
         "ModifiedAt" => [non_neg_integer()],
-        "OutputHeaderConfiguration" => output_header_configuration(),
         "Tags" => map()
       }
 
   """
-  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+  @type update_channel_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      origin_endpoint_list_configuration() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
-        "ContainerType" => list(any()),
-        "CreatedAt" => [non_neg_integer()],
-        "DashManifests" => list(list_dash_manifest_configuration()),
-        "Description" => String.t() | atom(),
-        "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
-        "HlsManifests" => list(list_hls_manifest_configuration()),
-        "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()),
-        "ModifiedAt" => [non_neg_integer()],
-        "MssManifests" => list(list_mss_manifest_configuration()),
-        "OriginEndpointName" => String.t() | atom(),
-        "UriSeparator" => list(any())
+      delete_origin_endpoint_policy_request() :: %{}
+
+  """
+  @type delete_origin_endpoint_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_mss_manifest_configuration() :: %{
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestLayout" => list(any()),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "Url" => [String.t() | atom()]
       }
 
   """
-  @type origin_endpoint_list_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cdn_auth_configuration() :: %{
+        "CdnIdentifierSecretArns" => list(String.t() | atom()),
+        "SecretsRoleArn" => [String.t() | atom()]
+      }
+
+  """
+  @type cdn_auth_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_origin_endpoint_policy_response() :: %{
+        "CdnAuthConfiguration" => cdn_auth_configuration(),
+        "ChannelGroupName" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "OriginEndpointName" => String.t() | atom(),
+        "Policy" => String.t() | atom()
+      }
+
+  """
+  @type get_origin_endpoint_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1397,83 +1088,33 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      reset_channel_state_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "ChannelName" => [String.t() | atom()],
-        "ResetAt" => [non_neg_integer()]
-      }
-
-  """
-  @type reset_channel_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_group_response() :: %{
+      channel_group_list_configuration() :: %{
         "Arn" => [String.t() | atom()],
         "ChannelGroupName" => [String.t() | atom()],
         "CreatedAt" => [non_neg_integer()],
         "Description" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "EgressDomain" => [String.t() | atom()],
-        "ModifiedAt" => [non_neg_integer()],
-        "Tags" => map()
+        "ModifiedAt" => [non_neg_integer()]
       }
 
   """
-  @type get_channel_group_response() :: %{(String.t() | atom()) => any()}
+  @type channel_group_list_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_low_latency_hls_manifest_configuration() :: %{
-        "ChildManifestName" => String.t() | atom(),
-        "FilterConfiguration" => filter_configuration(),
-        "ManifestName" => String.t() | atom(),
-        "ManifestWindowSeconds" => [integer()],
-        "ProgramDateTimeIntervalSeconds" => [integer()],
-        "ScteHls" => scte_hls(),
-        "StartTag" => start_tag(),
-        "UriPathType" => list(any()),
-        "UrlEncodeChildManifest" => [boolean()]
+      create_harvest_job_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("HarvestJobName") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Destination") => destination(),
+        required("HarvestedManifests") => harvested_manifests(),
+        required("ScheduleConfiguration") => harvester_schedule_configuration()
       }
 
   """
-  @type create_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_group_response() :: %{
-        "Arn" => [String.t() | atom()],
-        "ChannelGroupName" => [String.t() | atom()],
-        "CreatedAt" => [non_neg_integer()],
-        "Description" => String.t() | atom(),
-        "ETag" => String.t() | atom(),
-        "EgressDomain" => [String.t() | atom()],
-        "ModifiedAt" => [non_neg_integer()],
-        "Tags" => map()
-      }
-
-  """
-  @type create_channel_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      harvested_manifests() :: %{
-        "DashManifests" => list(harvested_dash_manifest()),
-        "HlsManifests" => list(harvested_hls_manifest()),
-        "LowLatencyHlsManifests" => list(harvested_low_latency_hls_manifest())
-      }
-
-  """
-  @type harvested_manifests() :: %{(String.t() | atom()) => any()}
+  @type create_harvest_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1507,52 +1148,278 @@ defmodule AWS.MediaPackageV2 do
 
   ## Example:
 
-      list_channels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
+      delete_origin_endpoint_policy_response() :: %{}
 
   """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+  @type delete_origin_endpoint_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_origin_endpoints_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => [String.t() | atom()]
-      }
+      put_origin_endpoint_policy_response() :: %{}
 
   """
-  @type list_origin_endpoints_request() :: %{(String.t() | atom()) => any()}
+  @type put_origin_endpoint_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      s3_destination_config() :: %{
-        "BucketName" => String.t() | atom(),
-        "DestinationPath" => String.t() | atom()
+      scte_hls() :: %{
+        "AdMarkerHls" => list(any()),
+        "ScteInManifests" => list(any())
       }
 
   """
-  @type s3_destination_config() :: %{(String.t() | atom()) => any()}
+  @type scte_hls() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_origin_endpoint_policy_response() :: %{
-        "CdnAuthConfiguration" => cdn_auth_configuration(),
-        "ChannelGroupName" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
-        "OriginEndpointName" => String.t() | atom(),
-        "Policy" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type get_origin_endpoint_policy_response() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_policy_response() :: %{}
+
+  """
+  @type put_channel_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => [String.t() | atom()],
+        "ChannelName" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "IngestEndpoints" => list(ingest_endpoint()),
+        "InputSwitchConfiguration" => input_switch_configuration(),
+        "InputType" => list(any()),
+        "ModifiedAt" => [non_neg_integer()],
+        "OutputHeaderConfiguration" => output_header_configuration(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_origin_endpoints_response() :: %{
+        "Items" => list(origin_endpoint_list_configuration()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_origin_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      force_endpoint_error_configuration() :: %{
+        "EndpointErrorConditions" => list(list(any())())
+      }
+
+  """
+  @type force_endpoint_error_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_header_configuration() :: %{
+        "PublishMQCS" => [boolean()]
+      }
+
+  """
+  @type output_header_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_harvest_job_request() :: %{
+        optional("ETag") => String.t() | atom()
+      }
+
+  """
+  @type cancel_harvest_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_channel_state_request() :: %{}
+
+  """
+  @type reset_channel_state_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "ManifestName" => String.t() | atom(),
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type list_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("ETag") => String.t() | atom()
+      }
+
+  """
+  @type update_channel_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
+        "Items" => list(channel_list_configuration()),
+        "NextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_mss_manifest_configuration() :: %{
+        "ManifestName" => String.t() | atom(),
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type list_mss_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_low_latency_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
+        "UriPathType" => list(any()),
+        "UrlEncodeChildManifest" => [boolean()]
+      }
+
+  """
+  @type create_low_latency_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_policy_request() :: %{
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_channel_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_origin_endpoint_policy_request() :: %{
+        optional("CdnAuthConfiguration") => cdn_auth_configuration(),
+        required("Policy") => String.t() | atom()
+      }
+
+  """
+  @type put_origin_endpoint_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harvested_hls_manifest() :: %{
+        "ManifestName" => String.t() | atom()
+      }
+
+  """
+  @type harvested_hls_manifest() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_hls_manifest_configuration() :: %{
+        "ChildManifestName" => String.t() | atom(),
+        "FilterConfiguration" => filter_configuration(),
+        "ManifestName" => String.t() | atom(),
+        "ManifestWindowSeconds" => [integer()],
+        "ProgramDateTimeIntervalSeconds" => [integer()],
+        "ScteHls" => scte_hls(),
+        "StartTag" => start_tag(),
+        "UriPathType" => list(any()),
+        "Url" => [String.t() | atom()],
+        "UrlEncodeChildManifest" => [boolean()]
+      }
+
+  """
+  @type get_hls_manifest_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ingest_endpoint() :: %{
+        "Id" => [String.t() | atom()],
+        "Url" => [String.t() | atom()]
+      }
+
+  """
+  @type ingest_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment() :: %{
+        "Encryption" => encryption(),
+        "IncludeIframeOnlyStreams" => [boolean()],
+        "Scte" => scte(),
+        "SegmentDurationSeconds" => [integer()],
+        "SegmentName" => [String.t() | atom()],
+        "TsIncludeDvbSubtitles" => [boolean()],
+        "TsUseAudioRenditionGroup" => [boolean()]
+      }
+
+  """
+  @type segment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1583,215 +1450,348 @@ defmodule AWS.MediaPackageV2 do
   """
   @type get_origin_endpoint_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      origin_endpoint_list_configuration() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "ContainerType" => list(any()),
+        "CreatedAt" => [non_neg_integer()],
+        "DashManifests" => list(list_dash_manifest_configuration()),
+        "Description" => String.t() | atom(),
+        "ForceEndpointErrorConfiguration" => force_endpoint_error_configuration(),
+        "HlsManifests" => list(list_hls_manifest_configuration()),
+        "LowLatencyHlsManifests" => list(list_low_latency_hls_manifest_configuration()),
+        "ModifiedAt" => [non_neg_integer()],
+        "MssManifests" => list(list_mss_manifest_configuration()),
+        "OriginEndpointName" => String.t() | atom(),
+        "UriSeparator" => list(any())
+      }
+
+  """
+  @type origin_endpoint_list_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_switch_configuration() :: %{
+        "MQCSInputSwitching" => [boolean()],
+        "PreferredInput" => [integer()]
+      }
+
+  """
+  @type input_switch_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_tag() :: %{
+        "Precise" => [boolean()],
+        "TimeOffset" => [float()]
+      }
+
+  """
+  @type start_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encryption_method() :: %{
+        "CmafEncryptionMethod" => list(any()),
+        "IsmEncryptionMethod" => list(any()),
+        "TsEncryptionMethod" => list(any())
+      }
+
+  """
+  @type encryption_method() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harvest_job_request() :: %{}
+
+  """
+  @type get_harvest_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_group_response() :: %{
+        "Arn" => [String.t() | atom()],
+        "ChannelGroupName" => [String.t() | atom()],
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "EgressDomain" => [String.t() | atom()],
+        "ModifiedAt" => [non_neg_integer()],
+        "Tags" => map()
+      }
+
+  """
+  @type create_channel_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte_dash() :: %{
+        "AdMarkerDash" => list(any()),
+        "ScteInManifests" => list(any())
+      }
+
+  """
+  @type scte_dash() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte() :: %{
+        "CustomAdTypes" => list(list(any())()),
+        "ScteFilter" => list(list(any())()),
+        "ScteInSegments" => list(any())
+      }
+
+  """
+  @type scte() :: %{(String.t() | atom()) => any()}
+
   @type cancel_harvest_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_channel_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_channel_group_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_harvest_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_origin_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_channel_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_channel_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_channel_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_origin_endpoint_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type delete_origin_endpoint_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_channel_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_channel_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_channel_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_harvest_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_origin_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_origin_endpoint_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_channel_groups_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_channels_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_harvest_jobs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_origin_endpoints_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() :: validation_exception()
 
   @type put_channel_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_origin_endpoint_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type reset_channel_state_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type reset_origin_endpoint_state_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() :: validation_exception()
 
   @type untag_resource_errors() :: validation_exception()
 
   @type update_channel_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_channel_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_origin_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

@@ -66,63 +66,63 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      rule_transform() :: %{
-        "HostHeaderRewriteConfig" => host_header_rewrite_config(),
-        "Type" => list(any()),
-        "UrlRewriteConfig" => url_rewrite_config()
-      }
-      
-  """
-  @type rule_transform() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_health() :: %{
-        "Description" => String.t() | atom(),
-        "Reason" => list(any()),
-        "State" => list(any())
-      }
-      
-  """
-  @type target_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_target_exception() :: %{
+      invalid_load_balancer_action_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_target_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_load_balancer_action_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_rules_input() :: %{
-        optional("ListenerArn") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        optional("RuleArns") => list(String.t() | atom())
+      create_trust_store_output() :: %{
+        "TrustStores" => list(trust_store())
       }
       
   """
-  @type describe_rules_input() :: %{(String.t() | atom()) => any()}
+  @type create_trust_store_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_trust_store_ca_certificates_bundle_output() :: %{
-        "Location" => String.t() | atom()
+      add_listener_certificates_output() :: %{
+        "Certificates" => list(certificate())
       }
       
   """
-  @type get_trust_store_ca_certificates_bundle_output() :: %{(String.t() | atom()) => any()}
+  @type add_listener_certificates_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_rules_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_rules_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_target_group_output() :: %{}
+      
+  """
+  @type delete_target_group_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trust_store_output() :: %{}
+      
+  """
+  @type delete_trust_store_output() :: %{}
 
   @typedoc """
 
@@ -142,87 +142,46 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      rewrite_config() :: %{
-        "Regex" => String.t() | atom(),
-        "Replace" => String.t() | atom()
+      rule_priority_pair() :: %{
+        "Priority" => integer(),
+        "RuleArn" => String.t() | atom()
       }
       
   """
-  @type rewrite_config() :: %{(String.t() | atom()) => any()}
+  @type rule_priority_pair() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      trust_store_revocation() :: %{
-        "NumberOfRevokedEntries" => float(),
-        "RevocationId" => float(),
-        "RevocationType" => list(any()),
-        "TrustStoreArn" => String.t() | atom()
+      certificate_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type trust_store_revocation() :: %{(String.t() | atom()) => any()}
+  @type certificate_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      minimum_load_balancer_capacity() :: %{
-        "CapacityUnits" => integer()
+      allocation_id_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type minimum_load_balancer_capacity() :: %{(String.t() | atom()) => any()}
+  @type allocation_id_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      availability_zone() :: %{
-        "LoadBalancerAddresses" => list(load_balancer_address()),
-        "OutpostId" => String.t() | atom(),
-        "SourceNatIpv6Prefixes" => list(String.t() | atom()),
-        "SubnetId" => String.t() | atom(),
-        "ZoneName" => String.t() | atom()
+      modify_target_group_attributes_output() :: %{
+        "Attributes" => list(target_group_attribute())
       }
       
   """
-  @type availability_zone() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_output() :: %{
-        "Policy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revocation_content() :: %{
-        "RevocationType" => list(any()),
-        "S3Bucket" => String.t() | atom(),
-        "S3Key" => String.t() | atom(),
-        "S3ObjectVersion" => String.t() | atom()
-      }
-      
-  """
-  @type revocation_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_listener_output() :: %{}
-      
-  """
-  @type delete_listener_output() :: %{}
+  @type modify_target_group_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,12 +200,59 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      add_trust_store_revocations_output() :: %{
-        "TrustStoreRevocations" => list(trust_store_revocation())
+      invalid_ca_certificates_bundle_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type add_trust_store_revocations_output() :: %{(String.t() | atom()) => any()}
+  @type invalid_ca_certificates_bundle_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      zonal_capacity_reservation_state() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "EffectiveCapacityUnits" => float(),
+        "State" => capacity_reservation_status()
+      }
+      
+  """
+  @type zonal_capacity_reservation_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_status() :: %{
+        "Code" => list(any()),
+        "Reason" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_reservation_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_header_rewrite_config() :: %{
+        "Rewrites" => list(rewrite_config())
+      }
+      
+  """
+  @type host_header_rewrite_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_target_group_attributes_output() :: %{
+        "Attributes" => list(target_group_attribute())
+      }
+      
+  """
+  @type describe_target_group_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,167 +269,23 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      listener() :: %{
-        "AlpnPolicy" => list(String.t() | atom()),
-        "Certificates" => list(certificate()),
-        "DefaultActions" => list(action()),
-        "ListenerArn" => String.t() | atom(),
-        "LoadBalancerArn" => String.t() | atom(),
-        "MutualAuthentication" => mutual_authentication_attributes(),
-        "Port" => integer(),
-        "Protocol" => list(any()),
-        "SslPolicy" => String.t() | atom()
+      remove_trust_store_revocations_output() :: %{}
+      
+  """
+  @type remove_trust_store_revocations_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_subnets_output() :: %{
+        "AvailabilityZones" => list(availability_zone()),
+        "EnablePrefixForIpv6SourceNat" => list(any()),
+        "IpAddressType" => list(any())
       }
       
   """
-  @type listener() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      availability_zone_not_supported_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type availability_zone_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_listener_input() :: %{
-        optional("AlpnPolicy") => list(String.t() | atom()),
-        optional("Certificates") => list(certificate()),
-        optional("MutualAuthentication") => mutual_authentication_attributes(),
-        optional("Port") => integer(),
-        optional("Protocol") => list(any()),
-        optional("SslPolicy") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("DefaultActions") => list(action()),
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_listener_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_load_balancer_output() :: %{}
-      
-  """
-  @type delete_load_balancer_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_listener_certificates_output() :: %{
-        "Certificates" => list(certificate())
-      }
-      
-  """
-  @type add_listener_certificates_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_target_group_output() :: %{
-        "TargetGroups" => list(target_group())
-      }
-      
-  """
-  @type modify_target_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_security_groups_input() :: %{
-        optional("EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic") => list(any()),
-        required("LoadBalancerArn") => String.t() | atom(),
-        required("SecurityGroups") => list(String.t() | atom())
-      }
-      
-  """
-  @type set_security_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_tags_output() :: %{}
-      
-  """
-  @type add_tags_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_trust_store_input() :: %{
-        optional("CaCertificatesBundleS3ObjectVersion") => String.t() | atom(),
-        required("CaCertificatesBundleS3Bucket") => String.t() | atom(),
-        required("CaCertificatesBundleS3Key") => String.t() | atom(),
-        required("TrustStoreArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_trust_store_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_target_group_attributes_input() :: %{
-        required("Attributes") => list(target_group_attribute()),
-        required("TargetGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_target_group_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_listener_certificates_input() :: %{
-        required("Certificates") => list(certificate()),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_listener_certificates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_subnets_input() :: %{
-        optional("EnablePrefixForIpv6SourceNat") => list(any()),
-        optional("IpAddressType") => list(any()),
-        optional("SubnetMappings") => list(subnet_mapping()),
-        optional("Subnets") => list(String.t() | atom()),
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type set_subnets_input() :: %{(String.t() | atom()) => any()}
+  @type set_subnets_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -444,74 +306,76 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      ssl_policy() :: %{
-        "Ciphers" => list(cipher()),
-        "Name" => String.t() | atom(),
-        "SslProtocols" => list(String.t() | atom()),
-        "SupportedLoadBalancerTypes" => list(String.t() | atom())
+      describe_load_balancers_input() :: %{
+        optional("LoadBalancerArns") => list(String.t() | atom()),
+        optional("Marker") => String.t() | atom(),
+        optional("Names") => list(String.t() | atom()),
+        optional("PageSize") => integer()
       }
       
   """
-  @type ssl_policy() :: %{(String.t() | atom()) => any()}
+  @type describe_load_balancers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      fixed_response_action_config() :: %{
-        "ContentType" => String.t() | atom(),
-        "MessageBody" => String.t() | atom(),
-        "StatusCode" => String.t() | atom()
+      rule() :: %{
+        "Actions" => list(action()),
+        "Conditions" => list(rule_condition()),
+        "IsDefault" => boolean(),
+        "Priority" => String.t() | atom(),
+        "RuleArn" => String.t() | atom(),
+        "Transforms" => list(rule_transform())
       }
       
   """
-  @type fixed_response_action_config() :: %{(String.t() | atom()) => any()}
+  @type rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_listener_output() :: %{
-        "Listeners" => list(listener())
+      health_unavailable_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type modify_listener_output() :: %{(String.t() | atom()) => any()}
+  @type health_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      deregister_targets_input() :: %{
-        required("TargetGroupArn") => String.t() | atom(),
-        required("Targets") => list(target_description())
+      describe_target_health_output() :: %{
+        "TargetHealthDescriptions" => list(target_health_description())
       }
       
   """
-  @type deregister_targets_input() :: %{(String.t() | atom()) => any()}
+  @type describe_target_health_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      trust_store_association() :: %{
-        "ResourceArn" => String.t() | atom()
+      too_many_targets_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type trust_store_association() :: %{(String.t() | atom()) => any()}
+  @type too_many_targets_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      add_tags_input() :: %{
-        required("ResourceArns") => list(String.t() | atom()),
-        required("Tags") => list(tag())
+      target_group_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type add_tags_input() :: %{(String.t() | atom()) => any()}
+  @type target_group_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -532,430 +396,130 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      limit() :: %{
-        "Max" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      delete_load_balancer_input() :: %{
+        required("LoadBalancerArn") => String.t() | atom()
       }
       
   """
-  @type limit() :: %{(String.t() | atom()) => any()}
+  @type delete_load_balancer_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      invalid_configuration_request_exception() :: %{
+      ssl_policy() :: %{
+        "Ciphers" => list(cipher()),
+        "Name" => String.t() | atom(),
+        "SslProtocols" => list(String.t() | atom()),
+        "SupportedLoadBalancerTypes" => list(String.t() | atom())
+      }
+      
+  """
+  @type ssl_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_state() :: %{
+        "Code" => list(any()),
+        "Reason" => String.t() | atom()
+      }
+      
+  """
+  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ca_certificates_bundle_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_configuration_request_exception() :: %{(String.t() | atom()) => any()}
+  @type ca_certificates_bundle_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      subnet_not_found_exception() :: %{
+      cipher() :: %{
+        "Name" => String.t() | atom(),
+        "Priority" => integer()
+      }
+      
+  """
+  @type cipher() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_listener_certificates_input() :: %{
+        required("Certificates") => list(certificate()),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type remove_listener_certificates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_security_group_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type subnet_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_security_group_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rule_output() :: %{
-        "Rules" => list(rule())
-      }
-      
-  """
-  @type create_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      add_trust_store_revocations_input() :: %{
-        optional("RevocationContents") => list(revocation_content()),
-        required("TrustStoreArn") => String.t() | atom()
-      }
-      
-  """
-  @type add_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_target_group_attributes_output() :: %{
-        "Attributes" => list(target_group_attribute())
-      }
-      
-  """
-  @type describe_target_group_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_rules_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_rules_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_description() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Port" => integer(),
-        "QuicServerId" => String.t() | atom()
-      }
-      
-  """
-  @type target_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trust_stores_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "TrustStores" => list(trust_store())
-      }
-      
-  """
-  @type describe_trust_stores_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ssl_policies_input() :: %{
-        optional("LoadBalancerType") => list(any()),
+      describe_trust_stores_input() :: %{
         optional("Marker") => String.t() | atom(),
         optional("Names") => list(String.t() | atom()),
-        optional("PageSize") => integer()
+        optional("PageSize") => integer(),
+        optional("TrustStoreArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_ssl_policies_input() :: %{(String.t() | atom()) => any()}
+  @type describe_trust_stores_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_load_balancer_output() :: %{
-        "LoadBalancers" => list(load_balancer())
+      modify_listener_attributes_output() :: %{
+        "Attributes" => list(listener_attribute())
       }
       
   """
-  @type create_load_balancer_output() :: %{(String.t() | atom()) => any()}
+  @type modify_listener_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_target_group_output() :: %{}
+      delete_shared_trust_store_association_output() :: %{}
       
   """
-  @type delete_target_group_output() :: %{}
+  @type delete_shared_trust_store_association_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      too_many_load_balancers_exception() :: %{
-        "Message" => String.t() | atom()
+      anomaly_detection() :: %{
+        "MitigationInEffect" => list(any()),
+        "Result" => list(any())
       }
       
   """
-  @type too_many_load_balancers_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_output() :: %{}
-      
-  """
-  @type remove_tags_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      allocation_id_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type allocation_id_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      insufficient_capacity_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_output() :: %{}
-      
-  """
-  @type delete_rule_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trust_store_input() :: %{
-        optional("CaCertificatesBundleS3ObjectVersion") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("CaCertificatesBundleS3Bucket") => String.t() | atom(),
-        required("CaCertificatesBundleS3Key") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_trust_store_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_association_same_account_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type delete_association_same_account_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_string_condition_config() :: %{
-        "Values" => list(query_string_key_value_pair())
-      }
-      
-  """
-  @type query_string_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_listener_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_listener_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      query_string_key_value_pair() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type query_string_key_value_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_trust_store_revocation_content_output() :: %{
-        "Location" => String.t() | atom()
-      }
-      
-  """
-  @type get_trust_store_revocation_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      host_header_condition_config() :: %{
-        "RegexValues" => list(String.t() | atom()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type host_header_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ssl_policies_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "SslPolicies" => list(ssl_policy())
-      }
-      
-  """
-  @type describe_ssl_policies_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trust_store_revocation() :: %{
-        "NumberOfRevokedEntries" => float(),
-        "RevocationId" => float(),
-        "RevocationType" => list(any()),
-        "TrustStoreArn" => String.t() | atom()
-      }
-      
-  """
-  @type describe_trust_store_revocation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      authenticate_oidc_action_config() :: %{
-        "AuthenticationRequestExtraParams" => map(),
-        "AuthorizationEndpoint" => String.t() | atom(),
-        "ClientId" => String.t() | atom(),
-        "ClientSecret" => String.t() | atom(),
-        "Issuer" => String.t() | atom(),
-        "OnUnauthenticatedRequest" => list(any()),
-        "Scope" => String.t() | atom(),
-        "SessionCookieName" => String.t() | atom(),
-        "SessionTimeout" => float(),
-        "TokenEndpoint" => String.t() | atom(),
-        "UseExistingClientSecret" => boolean(),
-        "UserInfoEndpoint" => String.t() | atom()
-      }
-      
-  """
-  @type authenticate_oidc_action_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      redirect_action_config() :: %{
-        "Host" => String.t() | atom(),
-        "Path" => String.t() | atom(),
-        "Port" => String.t() | atom(),
-        "Protocol" => String.t() | atom(),
-        "Query" => String.t() | atom(),
-        "StatusCode" => list(any())
-      }
-      
-  """
-  @type redirect_action_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      url_rewrite_config() :: %{
-        "Rewrites" => list(rewrite_config())
-      }
-      
-  """
-  @type url_rewrite_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_tags_input() :: %{
-        required("ResourceArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_tags_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      priority_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type priority_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_target_group_input() :: %{
-        optional("HealthCheckEnabled") => boolean(),
-        optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t() | atom(),
-        optional("HealthCheckPort") => String.t() | atom(),
-        optional("HealthCheckProtocol") => list(any()),
-        optional("HealthCheckTimeoutSeconds") => integer(),
-        optional("HealthyThresholdCount") => integer(),
-        optional("IpAddressType") => list(any()),
-        optional("Matcher") => matcher(),
-        optional("Port") => integer(),
-        optional("Protocol") => list(any()),
-        optional("ProtocolVersion") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("TargetControlPort") => integer(),
-        optional("TargetType") => list(any()),
-        optional("UnhealthyThresholdCount") => integer(),
-        optional("VpcId") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_target_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type certificate_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_targets_output() :: %{}
-      
-  """
-  @type deregister_targets_output() :: %{}
+  @type anomaly_detection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -968,6 +532,21 @@ defmodule AWS.ElasticLoadBalancingv2 do
       
   """
   @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone() :: %{
+        "LoadBalancerAddresses" => list(load_balancer_address()),
+        "OutpostId" => String.t() | atom(),
+        "SourceNatIpv6Prefixes" => list(String.t() | atom()),
+        "SubnetId" => String.t() | atom(),
+        "ZoneName" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1002,129 +581,25 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      too_many_unique_target_groups_per_load_balancer_exception() :: %{
+      revocation_content_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_unique_target_groups_per_load_balancer_exception() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type revocation_content_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_load_balancer_input() :: %{
-        required("LoadBalancerArn") => String.t() | atom()
+      set_security_groups_input() :: %{
+        optional("EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic") => list(any()),
+        required("LoadBalancerArn") => String.t() | atom(),
+        required("SecurityGroups") => list(String.t() | atom())
       }
       
   """
-  @type delete_load_balancer_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_rule_priorities_output() :: %{
-        "Rules" => list(rule())
-      }
-      
-  """
-  @type set_rule_priorities_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_description() :: %{
-        "ResourceArn" => String.t() | atom(),
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type tag_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_target_group_input() :: %{
-        required("TargetGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_target_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_group_tuple() :: %{
-        "TargetGroupArn" => String.t() | atom(),
-        "Weight" => integer()
-      }
-      
-  """
-  @type target_group_tuple() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_subnets_output() :: %{
-        "AvailabilityZones" => list(availability_zone()),
-        "EnablePrefixForIpv6SourceNat" => list(any()),
-        "IpAddressType" => list(any())
-      }
-      
-  """
-  @type set_subnets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      incompatible_protocols_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type incompatible_protocols_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_listener_output() :: %{
-        "Listeners" => list(listener())
-      }
-      
-  """
-  @type create_listener_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      revocation_id_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type revocation_id_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_ip_address_type_input() :: %{
-        required("IpAddressType") => list(any()),
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type set_ip_address_type_input() :: %{(String.t() | atom()) => any()}
+  @type set_security_groups_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1139,81 +614,27 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      too_many_target_groups_exception() :: %{
-        "Message" => String.t() | atom()
+      modify_rule_input() :: %{
+        optional("Actions") => list(action()),
+        optional("Conditions") => list(rule_condition()),
+        optional("ResetTransforms") => boolean(),
+        optional("Transforms") => list(rule_transform()),
+        required("RuleArn") => String.t() | atom()
       }
       
   """
-  @type too_many_target_groups_exception() :: %{(String.t() | atom()) => any()}
+  @type modify_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_shared_trust_store_association_input() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TrustStoreArn") => String.t() | atom()
+      delete_target_group_input() :: %{
+        required("TargetGroupArn") => String.t() | atom()
       }
       
   """
-  @type delete_shared_trust_store_association_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_listener_input() :: %{
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_listener_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listener_attributes_output() :: %{
-        "Attributes" => list(listener_attribute())
-      }
-      
-  """
-  @type describe_listener_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      load_balancer_state() :: %{
-        "Code" => list(any()),
-        "Reason" => String.t() | atom()
-      }
-      
-  """
-  @type load_balancer_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trust_store_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type trust_store_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_listener_certificates_input() :: %{
-        required("Certificates") => list(certificate()),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type remove_listener_certificates_input() :: %{(String.t() | atom()) => any()}
+  @type delete_target_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1231,23 +652,350 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      get_trust_store_ca_certificates_bundle_input() :: %{
-        required("TrustStoreArn") => String.t() | atom()
+      too_many_target_groups_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type get_trust_store_ca_certificates_bundle_input() :: %{(String.t() | atom()) => any()}
+  @type too_many_target_groups_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      load_balancer_not_found_exception() :: %{
+      insufficient_capacity_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type load_balancer_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type insufficient_capacity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listener_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type listener_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_load_balancer_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_load_balancer_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_trust_store_revocations_input() :: %{
+        optional("RevocationContents") => list(revocation_content()),
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type add_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_group_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type target_group_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_rule_priorities_output() :: %{
+        "Rules" => list(rule())
+      }
+      
+  """
+  @type set_rule_priorities_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_trust_store_input() :: %{
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_trust_store_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_configuration_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_configuration_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_trust_stores_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_trust_stores_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ip_pools_input() :: %{
+        optional("IpamPools") => ipam_pools(),
+        optional("RemoveIpamPools") => list(list(any())()),
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type modify_ip_pools_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      matcher() :: %{
+        "GrpcCode" => String.t() | atom(),
+        "HttpCode" => String.t() | atom()
+      }
+      
+  """
+  @type matcher() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_string_key_value_pair() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type query_string_key_value_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_target_groups_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TargetGroups" => list(target_group())
+      }
+      
+  """
+  @type describe_target_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unsupported_protocol_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unsupported_protocol_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_target_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_target_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_listener_input() :: %{
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_listener_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_target_group_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_target_group_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_reservation_pending_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_reservation_pending_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type rule_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ssl_policies_input() :: %{
+        optional("LoadBalancerType") => list(any()),
+        optional("Marker") => String.t() | atom(),
+        optional("Names") => list(String.t() | atom()),
+        optional("PageSize") => integer()
+      }
+      
+  """
+  @type describe_ssl_policies_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      authenticate_oidc_action_config() :: %{
+        "AuthenticationRequestExtraParams" => map(),
+        "AuthorizationEndpoint" => String.t() | atom(),
+        "ClientId" => String.t() | atom(),
+        "ClientSecret" => String.t() | atom(),
+        "Issuer" => String.t() | atom(),
+        "OnUnauthenticatedRequest" => list(any()),
+        "Scope" => String.t() | atom(),
+        "SessionCookieName" => String.t() | atom(),
+        "SessionTimeout" => float(),
+        "TokenEndpoint" => String.t() | atom(),
+        "UseExistingClientSecret" => boolean(),
+        "UserInfoEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type authenticate_oidc_action_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      query_string_condition_config() :: %{
+        "Values" => list(query_string_key_value_pair())
+      }
+      
+  """
+  @type query_string_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_trust_store_output() :: %{
+        "TrustStores" => list(trust_store())
+      }
+      
+  """
+  @type modify_trust_store_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_account_limits_output() :: %{
+        "Limits" => list(limit()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type describe_account_limits_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer() :: %{
+        "AvailabilityZones" => list(availability_zone()),
+        "CanonicalHostedZoneId" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "CustomerOwnedIpv4Pool" => String.t() | atom(),
+        "DNSName" => String.t() | atom(),
+        "EnablePrefixForIpv6SourceNat" => list(any()),
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => String.t() | atom(),
+        "IpAddressType" => list(any()),
+        "IpamPools" => ipam_pools(),
+        "LoadBalancerArn" => String.t() | atom(),
+        "LoadBalancerName" => String.t() | atom(),
+        "Scheme" => list(any()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "State" => load_balancer_state(),
+        "Type" => list(any()),
+        "VpcId" => String.t() | atom()
+      }
+      
+  """
+  @type load_balancer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_group_association_limit_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type target_group_association_limit_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_subnets_input() :: %{
+        optional("EnablePrefixForIpv6SourceNat") => list(any()),
+        optional("IpAddressType") => list(any()),
+        optional("SubnetMappings") => list(subnet_mapping()),
+        optional("Subnets") => list(String.t() | atom()),
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type set_subnets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1264,59 +1012,47 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      too_many_actions_exception() :: %{
-        "Message" => String.t() | atom()
+      get_trust_store_ca_certificates_bundle_input() :: %{
+        required("TrustStoreArn") => String.t() | atom()
       }
       
   """
-  @type too_many_actions_exception() :: %{(String.t() | atom()) => any()}
+  @type get_trust_store_ca_certificates_bundle_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      trust_store_association_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      set_security_groups_output() :: %{
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => list(any()),
+        "SecurityGroupIds" => list(String.t() | atom())
       }
       
   """
-  @type trust_store_association_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type set_security_groups_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_trust_stores_input() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("Names") => list(String.t() | atom()),
-        optional("PageSize") => integer(),
-        optional("TrustStoreArns") => list(String.t() | atom())
+      describe_ssl_policies_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "SslPolicies" => list(ssl_policy())
       }
       
   """
-  @type describe_trust_stores_input() :: %{(String.t() | atom()) => any()}
+  @type describe_ssl_policies_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_targets_exception() :: %{
-        "Message" => String.t() | atom()
+      set_ip_address_type_output() :: %{
+        "IpAddressType" => list(any())
       }
       
   """
-  @type too_many_targets_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      operation_not_permitted_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
+  @type set_ip_address_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1334,14 +1070,36 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      describe_trust_store_associations_input() :: %{
+      describe_account_limits_input() :: %{
         optional("Marker") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("TrustStoreArn") => String.t() | atom()
+        optional("PageSize") => integer()
       }
       
   """
-  @type describe_trust_store_associations_input() :: %{(String.t() | atom()) => any()}
+  @type describe_account_limits_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit() :: %{
+        "Max" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1362,322 +1120,94 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      invalid_load_balancer_action_exception() :: %{
+      jwt_validation_action_additional_claim() :: %{
+        "Format" => list(any()),
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type jwt_validation_action_additional_claim() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_targets_input() :: %{
+        required("TargetGroupArn") => String.t() | atom(),
+        required("Targets") => list(target_description())
+      }
+      
+  """
+  @type register_targets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type invalid_load_balancer_action_exception() :: %{(String.t() | atom()) => any()}
+  @type load_balancer_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule() :: %{
-        "Actions" => list(action()),
-        "Conditions" => list(rule_condition()),
-        "IsDefault" => boolean(),
-        "Priority" => String.t() | atom(),
-        "RuleArn" => String.t() | atom(),
-        "Transforms" => list(rule_transform())
+      trust_store_association() :: %{
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type rule() :: %{(String.t() | atom()) => any()}
+  @type trust_store_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rule_input() :: %{
-        optional("Tags") => list(tag()),
-        optional("Transforms") => list(rule_transform()),
-        required("Actions") => list(action()),
-        required("Conditions") => list(rule_condition()),
-        required("ListenerArn") => String.t() | atom(),
-        required("Priority") => integer()
-      }
-      
-  """
-  @type create_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_rule_priorities_input() :: %{
-        required("RulePriorities") => list(rule_priority_pair())
-      }
-      
-  """
-  @type set_rule_priorities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_account_limits_output() :: %{
-        "Limits" => list(limit()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type describe_account_limits_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_trust_store_output() :: %{}
-      
-  """
-  @type delete_trust_store_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      revocation_content_not_found_exception() :: %{
+      invalid_revocation_content_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type revocation_content_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_revocation_content_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_listeners_exception() :: %{
-        "Message" => String.t() | atom()
+      create_listener_output() :: %{
+        "Listeners" => list(listener())
       }
       
   """
-  @type too_many_listeners_exception() :: %{(String.t() | atom()) => any()}
+  @type create_listener_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_load_balancers_input() :: %{
-        optional("LoadBalancerArns") => list(String.t() | atom()),
+      delete_rule_input() :: %{
+        required("RuleArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trust_store_associations_input() :: %{
         optional("Marker") => String.t() | atom(),
-        optional("Names") => list(String.t() | atom()),
-        optional("PageSize") => integer()
-      }
-      
-  """
-  @type describe_load_balancers_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_priority_pair() :: %{
-        "Priority" => integer(),
-        "RuleArn" => String.t() | atom()
-      }
-      
-  """
-  @type rule_priority_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_target_group_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_target_group_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_ip_pools_output() :: %{
-        "IpamPools" => ipam_pools()
-      }
-      
-  """
-  @type modify_ip_pools_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_reservation_pending_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type capacity_reservation_pending_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listeners_output() :: %{
-        "Listeners" => list(listener()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type describe_listeners_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_load_balancer_attributes_output() :: %{
-        "Attributes" => list(load_balancer_attribute())
-      }
-      
-  """
-  @type describe_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate() :: %{
-        "CertificateArn" => String.t() | atom(),
-        "IsDefault" => boolean()
-      }
-      
-  """
-  @type certificate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_load_balancer_attributes_output() :: %{
-        "Attributes" => list(load_balancer_attribute())
-      }
-      
-  """
-  @type modify_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      load_balancer_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type load_balancer_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_trust_store_revocations_input() :: %{
-        required("RevocationIds") => list(float()),
+        optional("PageSize") => integer(),
         required("TrustStoreArn") => String.t() | atom()
       }
       
   """
-  @type remove_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      host_header_rewrite_config() :: %{
-        "Rewrites" => list(rewrite_config())
-      }
-      
-  """
-  @type host_header_rewrite_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_certificates_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_certificates_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ssl_policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type ssl_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_listener_certificates_output() :: %{}
-      
-  """
-  @type remove_listener_certificates_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_security_group_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_security_group_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action() :: %{
-        "AuthenticateCognitoConfig" => authenticate_cognito_action_config(),
-        "AuthenticateOidcConfig" => authenticate_oidc_action_config(),
-        "FixedResponseConfig" => fixed_response_action_config(),
-        "ForwardConfig" => forward_action_config(),
-        "JwtValidationConfig" => jwt_validation_action_config(),
-        "Order" => integer(),
-        "RedirectConfig" => redirect_action_config(),
-        "TargetGroupArn" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_listener_attributes_output() :: %{
-        "Attributes" => list(listener_attribute())
-      }
-      
-  """
-  @type modify_listener_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trust_store_associations_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "TrustStoreAssociations" => list(trust_store_association())
-      }
-      
-  """
-  @type describe_trust_store_associations_output() :: %{(String.t() | atom()) => any()}
+  @type describe_trust_store_associations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,57 +1231,12 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      delete_trust_store_input() :: %{
-        required("TrustStoreArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_trust_store_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_target_groups_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "TargetGroups" => list(target_group())
-      }
-      
-  """
-  @type describe_target_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_trust_store_revocations_output() :: %{}
-      
-  """
-  @type remove_trust_store_revocations_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_units_limit_exceeded_exception() :: %{
+      duplicate_tag_keys_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type capacity_units_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_validation_action_additional_claim() :: %{
-        "Format" => list(any()),
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type jwt_validation_action_additional_claim() :: %{(String.t() | atom()) => any()}
+  @type duplicate_tag_keys_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1769,67 +1254,59 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      http_request_method_condition_config() :: %{
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type http_request_method_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_input() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trust_store_revocations_input() :: %{
+      describe_rules_input() :: %{
+        optional("ListenerArn") => String.t() | atom(),
         optional("Marker") => String.t() | atom(),
         optional("PageSize") => integer(),
-        optional("RevocationIds") => list(float()),
-        required("TrustStoreArn") => String.t() | atom()
+        optional("RuleArns") => list(String.t() | atom())
       }
       
   """
-  @type describe_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
+  @type describe_rules_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      too_many_trust_store_revocation_entries_exception() :: %{
+      too_many_certificates_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type too_many_trust_store_revocation_entries_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_certificates_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_condition() :: %{
-        "Field" => String.t() | atom(),
-        "HostHeaderConfig" => host_header_condition_config(),
-        "HttpHeaderConfig" => http_header_condition_config(),
-        "HttpRequestMethodConfig" => http_request_method_condition_config(),
-        "PathPatternConfig" => path_pattern_condition_config(),
-        "QueryStringConfig" => query_string_condition_config(),
-        "RegexValues" => list(String.t() | atom()),
-        "SourceIpConfig" => source_ip_condition_config(),
-        "Values" => list(String.t() | atom())
+      create_rule_output() :: %{
+        "Rules" => list(rule())
       }
       
   """
-  @type rule_condition() :: %{(String.t() | atom()) => any()}
+  @type create_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_subnet_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_subnet_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1849,48 +1326,58 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      modify_ip_pools_input() :: %{
-        optional("IpamPools") => ipam_pools(),
-        optional("RemoveIpamPools") => list(list(any())()),
-        required("LoadBalancerArn") => String.t() | atom()
+      target_health() :: %{
+        "Description" => String.t() | atom(),
+        "Reason" => list(any()),
+        "State" => list(any())
       }
       
   """
-  @type modify_ip_pools_input() :: %{(String.t() | atom()) => any()}
+  @type target_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      capacity_decrease_requests_limit_exceeded_exception() :: %{
+      modify_listener_output() :: %{
+        "Listeners" => list(listener())
+      }
+      
+  """
+  @type modify_listener_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listener_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type capacity_decrease_requests_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type listener_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      target_group_association_limit_exception() :: %{
+      incompatible_protocols_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type target_group_association_limit_exception() :: %{(String.t() | atom()) => any()}
+  @type incompatible_protocols_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_load_balancer_attributes_input() :: %{
-        required("Attributes") => list(load_balancer_attribute()),
-        required("LoadBalancerArn") => String.t() | atom()
+      trust_store_not_ready_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type modify_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
+  @type trust_store_not_ready_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1917,34 +1404,498 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      too_many_trust_stores_exception() :: %{
-        "Message" => String.t() | atom()
+      modify_trust_store_input() :: %{
+        optional("CaCertificatesBundleS3ObjectVersion") => String.t() | atom(),
+        required("CaCertificatesBundleS3Bucket") => String.t() | atom(),
+        required("CaCertificatesBundleS3Key") => String.t() | atom(),
+        required("TrustStoreArn") => String.t() | atom()
       }
       
   """
-  @type too_many_trust_stores_exception() :: %{(String.t() | atom()) => any()}
+  @type modify_trust_store_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_target_group_attributes_input() :: %{
+      get_trust_store_revocation_content_output() :: %{
+        "Location" => String.t() | atom()
+      }
+      
+  """
+  @type get_trust_store_revocation_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type load_balancer_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_shared_trust_store_association_input() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_shared_trust_store_association_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_trust_store_ca_certificates_bundle_output() :: %{
+        "Location" => String.t() | atom()
+      }
+      
+  """
+  @type get_trust_store_ca_certificates_bundle_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_output() :: %{}
+      
+  """
+  @type add_tags_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_trust_store_revocations_output() :: %{
+        "TrustStoreRevocations" => list(trust_store_revocation())
+      }
+      
+  """
+  @type add_trust_store_revocations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_header_condition_config() :: %{
+        "RegexValues" => list(String.t() | atom()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type host_header_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_target_groups_input() :: %{
+        optional("LoadBalancerArn") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("Names") => list(String.t() | atom()),
+        optional("PageSize") => integer(),
+        optional("TargetGroupArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_target_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_target_group_input() :: %{
+        optional("HealthCheckEnabled") => boolean(),
+        optional("HealthCheckIntervalSeconds") => integer(),
+        optional("HealthCheckPath") => String.t() | atom(),
+        optional("HealthCheckPort") => String.t() | atom(),
+        optional("HealthCheckProtocol") => list(any()),
+        optional("HealthCheckTimeoutSeconds") => integer(),
+        optional("HealthyThresholdCount") => integer(),
+        optional("Matcher") => matcher(),
+        optional("UnhealthyThresholdCount") => integer(),
         required("TargetGroupArn") => String.t() | atom()
       }
       
   """
-  @type describe_target_group_attributes_input() :: %{(String.t() | atom()) => any()}
+  @type modify_target_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      duplicate_tag_keys_exception() :: %{
+      describe_trust_store_revocation() :: %{
+        "NumberOfRevokedEntries" => float(),
+        "RevocationId" => float(),
+        "RevocationType" => list(any()),
+        "TrustStoreArn" => String.t() | atom()
+      }
+      
+  """
+  @type describe_trust_store_revocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_listeners_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type duplicate_tag_keys_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_listeners_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_load_balancers_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_load_balancers_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_listener_input() :: %{
+        optional("AlpnPolicy") => list(String.t() | atom()),
+        optional("Certificates") => list(certificate()),
+        optional("MutualAuthentication") => mutual_authentication_attributes(),
+        optional("Port") => integer(),
+        optional("Protocol") => list(any()),
+        optional("SslPolicy") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("DefaultActions") => list(action()),
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_listener_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_listener_certificates_input() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_listener_certificates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_header_condition_config() :: %{
+        "HttpHeaderName" => String.t() | atom(),
+        "RegexValues" => list(String.t() | atom()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type http_header_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_listener_output() :: %{}
+      
+  """
+  @type delete_listener_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_trust_store_revocation_entries_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_trust_store_revocation_entries_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_registrations_for_target_id_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_registrations_for_target_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ipam_pools() :: %{
+        "Ipv4IpamPoolId" => String.t() | atom()
+      }
+      
+  """
+  @type ipam_pools() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subnet_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type subnet_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      availability_zone_not_supported_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type availability_zone_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_target_group_input() :: %{
+        optional("HealthCheckEnabled") => boolean(),
+        optional("HealthCheckIntervalSeconds") => integer(),
+        optional("HealthCheckPath") => String.t() | atom(),
+        optional("HealthCheckPort") => String.t() | atom(),
+        optional("HealthCheckProtocol") => list(any()),
+        optional("HealthCheckTimeoutSeconds") => integer(),
+        optional("HealthyThresholdCount") => integer(),
+        optional("IpAddressType") => list(any()),
+        optional("Matcher") => matcher(),
+        optional("Port") => integer(),
+        optional("Protocol") => list(any()),
+        optional("ProtocolVersion") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("TargetControlPort") => integer(),
+        optional("TargetType") => list(any()),
+        optional("UnhealthyThresholdCount") => integer(),
+        optional("VpcId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_target_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_input() :: %{
+        optional("Tags") => list(tag()),
+        optional("Transforms") => list(rule_transform()),
+        required("Actions") => list(action()),
+        required("Conditions") => list(rule_condition()),
+        required("ListenerArn") => String.t() | atom(),
+        required("Priority") => integer()
+      }
+      
+  """
+  @type create_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_decrease_requests_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_decrease_requests_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_output() :: %{}
+      
+  """
+  @type remove_tags_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_listeners_input() :: %{
+        optional("ListenerArns") => list(String.t() | atom()),
+        optional("LoadBalancerArn") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("PageSize") => integer()
+      }
+      
+  """
+  @type describe_listeners_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trust_store_associations_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TrustStoreAssociations" => list(trust_store_association())
+      }
+      
+  """
+  @type describe_trust_store_associations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      path_pattern_condition_config() :: %{
+        "RegexValues" => list(String.t() | atom()),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type path_pattern_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_trust_store_revocation_content_input() :: %{
+        required("RevocationId") => float(),
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_trust_store_revocation_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_load_balancer_attributes_output() :: %{
+        "Attributes" => list(load_balancer_attribute())
+      }
+      
+  """
+  @type modify_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trust_store_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type trust_store_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_capacity_reservation_input() :: %{
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trust_store_revocations_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TrustStoreRevocations" => list(describe_trust_store_revocation())
+      }
+      
+  """
+  @type describe_trust_store_revocations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_condition() :: %{
+        "Field" => String.t() | atom(),
+        "HostHeaderConfig" => host_header_condition_config(),
+        "HttpHeaderConfig" => http_header_condition_config(),
+        "HttpRequestMethodConfig" => http_request_method_condition_config(),
+        "PathPatternConfig" => path_pattern_condition_config(),
+        "QueryStringConfig" => query_string_condition_config(),
+        "RegexValues" => list(String.t() | atom()),
+        "SourceIpConfig" => source_ip_condition_config(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type rule_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revocation_content() :: %{
+        "RevocationType" => list(any()),
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom()
+      }
+      
+  """
+  @type revocation_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fixed_response_action_config() :: %{
+        "ContentType" => String.t() | atom(),
+        "MessageBody" => String.t() | atom(),
+        "StatusCode" => String.t() | atom()
+      }
+      
+  """
+  @type fixed_response_action_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_targets_output() :: %{}
+      
+  """
+  @type deregister_targets_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_load_balancer_attributes_input() :: %{
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1979,27 +1930,199 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      load_balancer() :: %{
-        "AvailabilityZones" => list(availability_zone()),
-        "CanonicalHostedZoneId" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "CustomerOwnedIpv4Pool" => String.t() | atom(),
-        "DNSName" => String.t() | atom(),
-        "EnablePrefixForIpv6SourceNat" => list(any()),
-        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => String.t() | atom(),
-        "IpAddressType" => list(any()),
-        "IpamPools" => ipam_pools(),
-        "LoadBalancerArn" => String.t() | atom(),
-        "LoadBalancerName" => String.t() | atom(),
-        "Scheme" => list(any()),
-        "SecurityGroups" => list(String.t() | atom()),
-        "State" => load_balancer_state(),
-        "Type" => list(any()),
-        "VpcId" => String.t() | atom()
+      modify_target_group_output() :: %{
+        "TargetGroups" => list(target_group())
       }
       
   """
-  @type load_balancer() :: %{(String.t() | atom()) => any()}
+  @type modify_target_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_load_balancers_output() :: %{
+        "LoadBalancers" => list(load_balancer()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type describe_load_balancers_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redirect_action_config() :: %{
+        "Host" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Port" => String.t() | atom(),
+        "Protocol" => String.t() | atom(),
+        "Query" => String.t() | atom(),
+        "StatusCode" => list(any())
+      }
+      
+  """
+  @type redirect_action_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_listener_certificates_input() :: %{
+        required("Certificates") => list(certificate()),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type add_listener_certificates_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      url_rewrite_config() :: %{
+        "Rewrites" => list(rewrite_config())
+      }
+      
+  """
+  @type url_rewrite_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_unique_target_groups_per_load_balancer_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_unique_target_groups_per_load_balancer_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_trust_store_name_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_trust_store_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_tags_input() :: %{
+        required("ResourceArns") => list(String.t() | atom()),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type remove_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_ip_pools_output() :: %{
+        "IpamPools" => ipam_pools()
+      }
+      
+  """
+  @type modify_ip_pools_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revocation_id_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type revocation_id_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_actions_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_actions_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      operation_not_permitted_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_load_balancer_output() :: %{}
+      
+  """
+  @type delete_load_balancer_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_trust_store_revocations_input() :: %{
+        required("RevocationIds") => list(float()),
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type remove_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate() :: %{
+        "CertificateArn" => String.t() | atom(),
+        "IsDefault" => boolean()
+      }
+      
+  """
+  @type certificate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trust_stores_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TrustStores" => list(trust_store())
+      }
+      
+  """
+  @type describe_trust_stores_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2018,166 +2141,13 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      matcher() :: %{
-        "GrpcCode" => String.t() | atom(),
-        "HttpCode" => String.t() | atom()
+      describe_listeners_output() :: %{
+        "Listeners" => list(listener()),
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type matcher() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_trust_store_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_trust_store_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_trust_store_revocations_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "TrustStoreRevocations" => list(describe_trust_store_revocation())
-      }
-      
-  """
-  @type describe_trust_store_revocations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listeners_input() :: %{
-        optional("ListenerArns") => list(String.t() | atom()),
-        optional("LoadBalancerArn") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-      
-  """
-  @type describe_listeners_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      jwt_validation_action_config() :: %{
-        "AdditionalClaims" => list(jwt_validation_action_additional_claim()),
-        "Issuer" => String.t() | atom(),
-        "JwksEndpoint" => String.t() | atom()
-      }
-      
-  """
-  @type jwt_validation_action_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_targets_input() :: %{
-        required("TargetGroupArn") => String.t() | atom(),
-        required("Targets") => list(target_description())
-      }
-      
-  """
-  @type register_targets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_ip_address_type_output() :: %{
-        "IpAddressType" => list(any())
-      }
-      
-  """
-  @type set_ip_address_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_load_balancer_attributes_input() :: %{
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_revocation_content_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_revocation_content_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      a_l_p_n_policy_not_supported_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type a_l_p_n_policy_not_supported_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_group_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type target_group_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_listener_certificates_input() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("PageSize") => integer(),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_listener_certificates_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_registrations_for_target_id_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_registrations_for_target_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_trust_store_revocation_content_input() :: %{
-        required("RevocationId") => float(),
-        required("TrustStoreArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_trust_store_revocation_content_input() :: %{(String.t() | atom()) => any()}
+  @type describe_listeners_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2194,466 +2164,51 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      describe_rules_output() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Rules" => list(rule())
+      deregister_targets_input() :: %{
+        required("TargetGroupArn") => String.t() | atom(),
+        required("Targets") => list(target_description())
       }
       
   """
-  @type describe_rules_output() :: %{(String.t() | atom()) => any()}
+  @type deregister_targets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_account_limits_input() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("PageSize") => integer()
-      }
-      
-  """
-  @type describe_account_limits_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      load_balancer_address() :: %{
-        "AllocationId" => String.t() | atom(),
-        "IPv6Address" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "PrivateIPv4Address" => String.t() | atom()
-      }
-      
-  """
-  @type load_balancer_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_rule_input() :: %{
-        optional("Actions") => list(action()),
-        optional("Conditions") => list(rule_condition()),
-        optional("ResetTransforms") => boolean(),
-        optional("Transforms") => list(rule_transform()),
-        required("RuleArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_input() :: %{
-        required("RuleArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_capacity_reservation_input() :: %{
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ipam_pools() :: %{
-        "Ipv4IpamPoolId" => String.t() | atom()
-      }
-      
-  """
-  @type ipam_pools() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_ca_certificates_bundle_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_ca_certificates_bundle_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      health_unavailable_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type health_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_load_balancers_output() :: %{
-        "LoadBalancers" => list(load_balancer()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type describe_load_balancers_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_group_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type target_group_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_capacity_reservation_input() :: %{
-        optional("MinimumLoadBalancerCapacity") => minimum_load_balancer_capacity(),
-        optional("ResetCapacityReservation") => boolean(),
-        required("LoadBalancerArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_subnet_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_subnet_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trust_store_not_ready_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type trust_store_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_target_groups_input() :: %{
-        optional("LoadBalancerArn") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("Names") => list(String.t() | atom()),
-        optional("PageSize") => integer(),
-        optional("TargetGroupArns") => list(String.t() | atom())
-      }
-      
-  """
-  @type describe_target_groups_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      duplicate_load_balancer_name_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type duplicate_load_balancer_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      remove_tags_input() :: %{
-        required("ResourceArns") => list(String.t() | atom()),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type remove_tags_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      http_header_condition_config() :: %{
-        "HttpHeaderName" => String.t() | atom(),
-        "RegexValues" => list(String.t() | atom()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type http_header_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listener_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type listener_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      path_pattern_condition_config() :: %{
-        "RegexValues" => list(String.t() | atom()),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type path_pattern_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ca_certificates_bundle_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type ca_certificates_bundle_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      zonal_capacity_reservation_state() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "EffectiveCapacityUnits" => float(),
-        "State" => capacity_reservation_status()
-      }
-      
-  """
-  @type zonal_capacity_reservation_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_scheme_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_scheme_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      capacity_reservation_status() :: %{
-        "Code" => list(any()),
-        "Reason" => String.t() | atom()
-      }
-      
-  """
-  @type capacity_reservation_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anomaly_detection() :: %{
-        "MitigationInEffect" => list(any()),
-        "Result" => list(any())
-      }
-      
-  """
-  @type anomaly_detection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_target_health_output() :: %{
-        "TargetHealthDescriptions" => list(target_health_description())
-      }
-      
-  """
-  @type describe_target_health_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      source_ip_condition_config() :: %{
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type source_ip_condition_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cipher() :: %{
-        "Name" => String.t() | atom(),
-        "Priority" => integer()
-      }
-      
-  """
-  @type cipher() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type rule_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_trust_store_output() :: %{
-        "TrustStores" => list(trust_store())
-      }
-      
-  """
-  @type create_trust_store_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      set_security_groups_output() :: %{
-        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic" => list(any()),
-        "SecurityGroupIds" => list(String.t() | atom())
-      }
-      
-  """
-  @type set_security_groups_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_trust_store_output() :: %{
-        "TrustStores" => list(trust_store())
-      }
-      
-  """
-  @type modify_trust_store_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      listener_attribute() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type listener_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_protocol_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unsupported_protocol_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_listener_attributes_input() :: %{
-        required("Attributes") => list(listener_attribute()),
-        required("ListenerArn") => String.t() | atom()
-      }
-      
-  """
-  @type modify_listener_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_target_group_input() :: %{
-        optional("HealthCheckEnabled") => boolean(),
-        optional("HealthCheckIntervalSeconds") => integer(),
-        optional("HealthCheckPath") => String.t() | atom(),
-        optional("HealthCheckPort") => String.t() | atom(),
-        optional("HealthCheckProtocol") => list(any()),
-        optional("HealthCheckTimeoutSeconds") => integer(),
-        optional("HealthyThresholdCount") => integer(),
-        optional("Matcher") => matcher(),
-        optional("UnhealthyThresholdCount") => integer(),
+      describe_target_group_attributes_input() :: %{
         required("TargetGroupArn") => String.t() | atom()
       }
       
   """
-  @type modify_target_group_input() :: %{(String.t() | atom()) => any()}
+  @type describe_target_group_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      modify_rule_output() :: %{
-        "Rules" => list(rule())
+      set_ip_address_type_input() :: %{
+        required("IpAddressType") => list(any()),
+        required("LoadBalancerArn") => String.t() | atom()
       }
       
   """
-  @type modify_rule_output() :: %{(String.t() | atom()) => any()}
+  @type set_ip_address_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_shared_trust_store_association_output() :: %{}
+      create_trust_store_input() :: %{
+        optional("CaCertificatesBundleS3ObjectVersion") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("CaCertificatesBundleS3Bucket") => String.t() | atom(),
+        required("CaCertificatesBundleS3Key") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
       
   """
-  @type delete_shared_trust_store_association_output() :: %{}
+  @type create_trust_store_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2674,12 +2229,457 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   ## Example:
       
-      modify_target_group_attributes_output() :: %{
-        "Attributes" => list(target_group_attribute())
+      modify_target_group_attributes_input() :: %{
+        required("Attributes") => list(target_group_attribute()),
+        required("TargetGroupArn") => String.t() | atom()
       }
       
   """
-  @type modify_target_group_attributes_output() :: %{(String.t() | atom()) => any()}
+  @type modify_target_group_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      action() :: %{
+        "AuthenticateCognitoConfig" => authenticate_cognito_action_config(),
+        "AuthenticateOidcConfig" => authenticate_oidc_action_config(),
+        "FixedResponseConfig" => fixed_response_action_config(),
+        "ForwardConfig" => forward_action_config(),
+        "JwtValidationConfig" => jwt_validation_action_config(),
+        "Order" => integer(),
+        "RedirectConfig" => redirect_action_config(),
+        "TargetGroupArn" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_description() :: %{
+        "ResourceArn" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type tag_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      add_tags_input() :: %{
+        required("ResourceArns") => list(String.t() | atom()),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type add_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_input() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_rule_output() :: %{
+        "Rules" => list(rule())
+      }
+      
+  """
+  @type modify_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_load_balancer_attributes_input() :: %{
+        required("Attributes") => list(load_balancer_attribute()),
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type modify_load_balancer_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      jwt_validation_action_config() :: %{
+        "AdditionalClaims" => list(jwt_validation_action_additional_claim()),
+        "Issuer" => String.t() | atom(),
+        "JwksEndpoint" => String.t() | atom()
+      }
+      
+  """
+  @type jwt_validation_action_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_tags_input() :: %{
+        required("ResourceArns") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_tags_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      minimum_load_balancer_capacity() :: %{
+        "CapacityUnits" => integer()
+      }
+      
+  """
+  @type minimum_load_balancer_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trust_store_association_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type trust_store_association_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      duplicate_listener_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type duplicate_listener_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_description() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Port" => integer(),
+        "QuicServerId" => String.t() | atom()
+      }
+      
+  """
+  @type target_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_listener_attributes_output() :: %{
+        "Attributes" => list(listener_attribute())
+      }
+      
+  """
+  @type describe_listener_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_group_tuple() :: %{
+        "TargetGroupArn" => String.t() | atom(),
+        "Weight" => integer()
+      }
+      
+  """
+  @type target_group_tuple() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      capacity_units_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type capacity_units_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_rules_output() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Rules" => list(rule())
+      }
+      
+  """
+  @type describe_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_rule_priorities_input() :: %{
+        required("RulePriorities") => list(rule_priority_pair())
+      }
+      
+  """
+  @type set_rule_priorities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_output() :: %{}
+      
+  """
+  @type delete_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      remove_listener_certificates_output() :: %{}
+      
+  """
+  @type remove_listener_certificates_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      rewrite_config() :: %{
+        "Regex" => String.t() | atom(),
+        "Replace" => String.t() | atom()
+      }
+      
+  """
+  @type rewrite_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      http_request_method_condition_config() :: %{
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type http_request_method_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_listener_attributes_input() :: %{
+        required("Attributes") => list(listener_attribute()),
+        required("ListenerArn") => String.t() | atom()
+      }
+      
+  """
+  @type modify_listener_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_scheme_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_scheme_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ssl_policy_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type ssl_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      priority_in_use_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type priority_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_load_balancer_output() :: %{
+        "LoadBalancers" => list(load_balancer())
+      }
+      
+  """
+  @type create_load_balancer_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_transform() :: %{
+        "HostHeaderRewriteConfig" => host_header_rewrite_config(),
+        "Type" => list(any()),
+        "UrlRewriteConfig" => url_rewrite_config()
+      }
+      
+  """
+  @type rule_transform() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_capacity_reservation_input() :: %{
+        optional("MinimumLoadBalancerCapacity") => minimum_load_balancer_capacity(),
+        optional("ResetCapacityReservation") => boolean(),
+        required("LoadBalancerArn") => String.t() | atom()
+      }
+      
+  """
+  @type modify_capacity_reservation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      load_balancer_address() :: %{
+        "AllocationId" => String.t() | atom(),
+        "IPv6Address" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "PrivateIPv4Address" => String.t() | atom()
+      }
+      
+  """
+  @type load_balancer_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_trust_store_revocations_input() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("PageSize") => integer(),
+        optional("RevocationIds") => list(float()),
+        required("TrustStoreArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_trust_store_revocations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      source_ip_condition_config() :: %{
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type source_ip_condition_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      a_l_p_n_policy_not_supported_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type a_l_p_n_policy_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trust_store_revocation() :: %{
+        "NumberOfRevokedEntries" => float(),
+        "RevocationId" => float(),
+        "RevocationType" => list(any()),
+        "TrustStoreArn" => String.t() | atom()
+      }
+      
+  """
+  @type trust_store_revocation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_association_same_account_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type delete_association_same_account_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      listener() :: %{
+        "AlpnPolicy" => list(String.t() | atom()),
+        "Certificates" => list(certificate()),
+        "DefaultActions" => list(action()),
+        "ListenerArn" => String.t() | atom(),
+        "LoadBalancerArn" => String.t() | atom(),
+        "MutualAuthentication" => mutual_authentication_attributes(),
+        "Port" => integer(),
+        "Protocol" => list(any()),
+        "SslPolicy" => String.t() | atom()
+      }
+      
+  """
+  @type listener() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_output() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_load_balancer_attributes_output() :: %{
+        "Attributes" => list(load_balancer_attribute())
+      }
+      
+  """
+  @type describe_load_balancer_attributes_output() :: %{(String.t() | atom()) => any()}
 
   @type add_listener_certificates_errors() ::
           listener_not_found_exception()
@@ -2688,100 +2688,100 @@ defmodule AWS.ElasticLoadBalancingv2 do
 
   @type add_tags_errors() ::
           too_many_tags_exception()
-          | rule_not_found_exception()
+          | trust_store_not_found_exception()
           | listener_not_found_exception()
-          | target_group_not_found_exception()
           | duplicate_tag_keys_exception()
           | load_balancer_not_found_exception()
-          | trust_store_not_found_exception()
+          | rule_not_found_exception()
+          | target_group_not_found_exception()
 
   @type add_trust_store_revocations_errors() ::
-          invalid_revocation_content_exception()
+          trust_store_not_found_exception()
           | too_many_trust_store_revocation_entries_exception()
+          | invalid_revocation_content_exception()
           | revocation_content_not_found_exception()
-          | trust_store_not_found_exception()
 
   @type create_listener_errors() ::
-          unsupported_protocol_exception()
-          | too_many_tags_exception()
-          | trust_store_not_ready_exception()
-          | too_many_registrations_for_target_id_exception()
-          | target_group_not_found_exception()
-          | a_l_p_n_policy_not_supported_exception()
-          | target_group_association_limit_exception()
+          a_l_p_n_policy_not_supported_exception()
           | ssl_policy_not_found_exception()
-          | too_many_certificates_exception()
-          | too_many_listeners_exception()
-          | invalid_load_balancer_action_exception()
-          | too_many_targets_exception()
-          | too_many_actions_exception()
-          | load_balancer_not_found_exception()
-          | trust_store_not_found_exception()
-          | incompatible_protocols_exception()
-          | too_many_unique_target_groups_per_load_balancer_exception()
-          | certificate_not_found_exception()
           | duplicate_listener_exception()
+          | too_many_tags_exception()
+          | too_many_actions_exception()
+          | too_many_unique_target_groups_per_load_balancer_exception()
+          | trust_store_not_found_exception()
+          | too_many_registrations_for_target_id_exception()
+          | too_many_listeners_exception()
+          | trust_store_not_ready_exception()
+          | incompatible_protocols_exception()
+          | too_many_certificates_exception()
+          | load_balancer_not_found_exception()
+          | target_group_association_limit_exception()
+          | unsupported_protocol_exception()
           | invalid_configuration_request_exception()
+          | target_group_not_found_exception()
+          | too_many_targets_exception()
+          | certificate_not_found_exception()
+          | invalid_load_balancer_action_exception()
 
   @type create_load_balancer_errors() ::
-          too_many_tags_exception()
-          | invalid_scheme_exception()
-          | duplicate_load_balancer_name_exception()
-          | invalid_subnet_exception()
-          | duplicate_tag_keys_exception()
-          | invalid_security_group_exception()
+          invalid_scheme_exception()
+          | too_many_tags_exception()
           | operation_not_permitted_exception()
-          | allocation_id_not_found_exception()
-          | too_many_load_balancers_exception()
-          | subnet_not_found_exception()
-          | invalid_configuration_request_exception()
           | availability_zone_not_supported_exception()
+          | subnet_not_found_exception()
+          | too_many_load_balancers_exception()
+          | invalid_subnet_exception()
           | resource_in_use_exception()
+          | duplicate_tag_keys_exception()
+          | invalid_configuration_request_exception()
+          | duplicate_load_balancer_name_exception()
+          | invalid_security_group_exception()
+          | allocation_id_not_found_exception()
 
   @type create_rule_errors() ::
-          unsupported_protocol_exception()
+          priority_in_use_exception()
           | too_many_tags_exception()
-          | listener_not_found_exception()
-          | too_many_registrations_for_target_id_exception()
-          | target_group_not_found_exception()
-          | target_group_association_limit_exception()
-          | invalid_load_balancer_action_exception()
-          | too_many_targets_exception()
           | too_many_actions_exception()
-          | too_many_target_groups_exception()
-          | incompatible_protocols_exception()
           | too_many_unique_target_groups_per_load_balancer_exception()
-          | priority_in_use_exception()
-          | too_many_rules_exception()
+          | too_many_registrations_for_target_id_exception()
+          | incompatible_protocols_exception()
+          | listener_not_found_exception()
+          | target_group_association_limit_exception()
+          | unsupported_protocol_exception()
           | invalid_configuration_request_exception()
+          | target_group_not_found_exception()
+          | too_many_target_groups_exception()
+          | too_many_targets_exception()
+          | too_many_rules_exception()
+          | invalid_load_balancer_action_exception()
 
   @type create_target_group_errors() ::
           too_many_tags_exception()
           | duplicate_target_group_name_exception()
-          | too_many_target_groups_exception()
           | invalid_configuration_request_exception()
+          | too_many_target_groups_exception()
 
   @type create_trust_store_errors() ::
           too_many_tags_exception()
-          | ca_certificates_bundle_not_found_exception()
-          | invalid_ca_certificates_bundle_exception()
           | duplicate_trust_store_name_exception()
           | duplicate_tag_keys_exception()
           | too_many_trust_stores_exception()
+          | ca_certificates_bundle_not_found_exception()
+          | invalid_ca_certificates_bundle_exception()
 
   @type delete_listener_errors() :: listener_not_found_exception() | resource_in_use_exception()
 
   @type delete_load_balancer_errors() ::
           operation_not_permitted_exception()
-          | load_balancer_not_found_exception()
           | resource_in_use_exception()
+          | load_balancer_not_found_exception()
 
-  @type delete_rule_errors() :: rule_not_found_exception() | operation_not_permitted_exception()
+  @type delete_rule_errors() :: operation_not_permitted_exception() | rule_not_found_exception()
 
   @type delete_shared_trust_store_association_errors() ::
-          trust_store_association_not_found_exception()
+          delete_association_same_account_exception()
+          | trust_store_association_not_found_exception()
           | trust_store_not_found_exception()
-          | delete_association_same_account_exception()
 
   @type delete_target_group_errors() :: resource_in_use_exception()
 
@@ -2789,7 +2789,7 @@ defmodule AWS.ElasticLoadBalancingv2 do
           trust_store_in_use_exception() | trust_store_not_found_exception()
 
   @type deregister_targets_errors() ::
-          target_group_not_found_exception() | invalid_target_exception()
+          invalid_target_exception() | target_group_not_found_exception()
 
   @type describe_capacity_reservation_errors() :: load_balancer_not_found_exception()
 
@@ -2798,42 +2798,42 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @type describe_listener_certificates_errors() :: listener_not_found_exception()
 
   @type describe_listeners_errors() ::
-          unsupported_protocol_exception()
-          | listener_not_found_exception()
+          listener_not_found_exception()
           | load_balancer_not_found_exception()
+          | unsupported_protocol_exception()
 
   @type describe_load_balancer_attributes_errors() :: load_balancer_not_found_exception()
 
   @type describe_load_balancers_errors() :: load_balancer_not_found_exception()
 
   @type describe_rules_errors() ::
-          unsupported_protocol_exception()
+          listener_not_found_exception()
           | rule_not_found_exception()
-          | listener_not_found_exception()
+          | unsupported_protocol_exception()
 
   @type describe_ssl_policies_errors() :: ssl_policy_not_found_exception()
 
   @type describe_tags_errors() ::
-          rule_not_found_exception()
+          trust_store_not_found_exception()
           | listener_not_found_exception()
-          | target_group_not_found_exception()
           | load_balancer_not_found_exception()
-          | trust_store_not_found_exception()
+          | rule_not_found_exception()
+          | target_group_not_found_exception()
 
   @type describe_target_group_attributes_errors() :: target_group_not_found_exception()
 
   @type describe_target_groups_errors() ::
-          target_group_not_found_exception() | load_balancer_not_found_exception()
+          load_balancer_not_found_exception() | target_group_not_found_exception()
 
   @type describe_target_health_errors() ::
-          health_unavailable_exception()
+          invalid_target_exception()
           | target_group_not_found_exception()
-          | invalid_target_exception()
+          | health_unavailable_exception()
 
   @type describe_trust_store_associations_errors() :: trust_store_not_found_exception()
 
   @type describe_trust_store_revocations_errors() ::
-          trust_store_not_found_exception() | revocation_id_not_found_exception()
+          revocation_id_not_found_exception() | trust_store_not_found_exception()
 
   @type describe_trust_stores_errors() :: trust_store_not_found_exception()
 
@@ -2842,40 +2842,40 @@ defmodule AWS.ElasticLoadBalancingv2 do
   @type get_trust_store_ca_certificates_bundle_errors() :: trust_store_not_found_exception()
 
   @type get_trust_store_revocation_content_errors() ::
-          trust_store_not_found_exception() | revocation_id_not_found_exception()
+          revocation_id_not_found_exception() | trust_store_not_found_exception()
 
   @type modify_capacity_reservation_errors() ::
-          capacity_decrease_requests_limit_exceeded_exception()
-          | capacity_units_limit_exceeded_exception()
-          | capacity_reservation_pending_exception()
+          capacity_units_limit_exceeded_exception()
           | operation_not_permitted_exception()
+          | capacity_decrease_requests_limit_exceeded_exception()
           | load_balancer_not_found_exception()
-          | prior_request_not_complete_exception()
-          | insufficient_capacity_exception()
+          | capacity_reservation_pending_exception()
           | invalid_configuration_request_exception()
+          | insufficient_capacity_exception()
+          | prior_request_not_complete_exception()
 
   @type modify_ip_pools_errors() :: load_balancer_not_found_exception()
 
   @type modify_listener_errors() ::
-          unsupported_protocol_exception()
-          | listener_not_found_exception()
-          | trust_store_not_ready_exception()
-          | too_many_registrations_for_target_id_exception()
-          | target_group_not_found_exception()
-          | a_l_p_n_policy_not_supported_exception()
-          | target_group_association_limit_exception()
+          a_l_p_n_policy_not_supported_exception()
           | ssl_policy_not_found_exception()
-          | too_many_certificates_exception()
-          | too_many_listeners_exception()
-          | invalid_load_balancer_action_exception()
-          | too_many_targets_exception()
-          | too_many_actions_exception()
-          | trust_store_not_found_exception()
-          | incompatible_protocols_exception()
-          | too_many_unique_target_groups_per_load_balancer_exception()
-          | certificate_not_found_exception()
           | duplicate_listener_exception()
+          | too_many_actions_exception()
+          | too_many_unique_target_groups_per_load_balancer_exception()
+          | trust_store_not_found_exception()
+          | too_many_registrations_for_target_id_exception()
+          | too_many_listeners_exception()
+          | trust_store_not_ready_exception()
+          | incompatible_protocols_exception()
+          | listener_not_found_exception()
+          | too_many_certificates_exception()
+          | target_group_association_limit_exception()
+          | unsupported_protocol_exception()
           | invalid_configuration_request_exception()
+          | target_group_not_found_exception()
+          | too_many_targets_exception()
+          | certificate_not_found_exception()
+          | invalid_load_balancer_action_exception()
 
   @type modify_listener_attributes_errors() ::
           listener_not_found_exception() | invalid_configuration_request_exception()
@@ -2884,48 +2884,48 @@ defmodule AWS.ElasticLoadBalancingv2 do
           load_balancer_not_found_exception() | invalid_configuration_request_exception()
 
   @type modify_rule_errors() ::
-          unsupported_protocol_exception()
-          | rule_not_found_exception()
-          | too_many_registrations_for_target_id_exception()
-          | target_group_not_found_exception()
-          | target_group_association_limit_exception()
-          | invalid_load_balancer_action_exception()
-          | operation_not_permitted_exception()
-          | too_many_targets_exception()
+          operation_not_permitted_exception()
           | too_many_actions_exception()
-          | incompatible_protocols_exception()
           | too_many_unique_target_groups_per_load_balancer_exception()
+          | too_many_registrations_for_target_id_exception()
+          | incompatible_protocols_exception()
+          | target_group_association_limit_exception()
+          | rule_not_found_exception()
+          | unsupported_protocol_exception()
+          | target_group_not_found_exception()
+          | too_many_targets_exception()
+          | invalid_load_balancer_action_exception()
 
   @type modify_target_group_errors() ::
-          target_group_not_found_exception() | invalid_configuration_request_exception()
+          invalid_configuration_request_exception() | target_group_not_found_exception()
 
   @type modify_target_group_attributes_errors() ::
-          target_group_not_found_exception() | invalid_configuration_request_exception()
+          invalid_configuration_request_exception() | target_group_not_found_exception()
 
   @type modify_trust_store_errors() ::
-          ca_certificates_bundle_not_found_exception()
+          trust_store_not_found_exception()
+          | ca_certificates_bundle_not_found_exception()
           | invalid_ca_certificates_bundle_exception()
-          | trust_store_not_found_exception()
 
   @type register_targets_errors() ::
           too_many_registrations_for_target_id_exception()
+          | invalid_target_exception()
           | target_group_not_found_exception()
           | too_many_targets_exception()
-          | invalid_target_exception()
 
   @type remove_listener_certificates_errors() ::
-          listener_not_found_exception() | operation_not_permitted_exception()
+          operation_not_permitted_exception() | listener_not_found_exception()
 
   @type remove_tags_errors() ::
           too_many_tags_exception()
-          | rule_not_found_exception()
-          | listener_not_found_exception()
-          | target_group_not_found_exception()
-          | load_balancer_not_found_exception()
           | trust_store_not_found_exception()
+          | listener_not_found_exception()
+          | load_balancer_not_found_exception()
+          | rule_not_found_exception()
+          | target_group_not_found_exception()
 
   @type remove_trust_store_revocations_errors() ::
-          trust_store_not_found_exception() | revocation_id_not_found_exception()
+          revocation_id_not_found_exception() | trust_store_not_found_exception()
 
   @type set_ip_address_type_errors() ::
           invalid_subnet_exception()
@@ -2933,23 +2933,23 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | invalid_configuration_request_exception()
 
   @type set_rule_priorities_errors() ::
-          rule_not_found_exception()
+          priority_in_use_exception()
           | operation_not_permitted_exception()
-          | priority_in_use_exception()
+          | rule_not_found_exception()
 
   @type set_security_groups_errors() ::
-          invalid_security_group_exception()
-          | load_balancer_not_found_exception()
+          load_balancer_not_found_exception()
           | invalid_configuration_request_exception()
+          | invalid_security_group_exception()
 
   @type set_subnets_errors() ::
-          invalid_subnet_exception()
-          | capacity_reservation_pending_exception()
-          | load_balancer_not_found_exception()
-          | allocation_id_not_found_exception()
+          availability_zone_not_supported_exception()
           | subnet_not_found_exception()
+          | invalid_subnet_exception()
+          | load_balancer_not_found_exception()
+          | capacity_reservation_pending_exception()
           | invalid_configuration_request_exception()
-          | availability_zone_not_supported_exception()
+          | allocation_id_not_found_exception()
 
   def metadata do
     %{
@@ -2986,7 +2986,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_listener_certificates_errors()}
   def add_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddListenerCertificates", input, options)
   end
@@ -3009,7 +3010,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_tags_errors()}
   def add_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTags", input, options)
   end
@@ -3023,7 +3025,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, add_trust_store_revocations_errors()}
   def add_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AddTrustStoreRevocations", input, options)
   end
@@ -3060,7 +3063,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_listener_errors()}
   def create_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateListener", input, options)
   end
@@ -3094,7 +3098,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_load_balancer_errors()}
   def create_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLoadBalancer", input, options)
   end
@@ -3122,7 +3127,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3158,7 +3164,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_target_group_errors()}
   def create_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTargetGroup", input, options)
   end
@@ -3174,7 +3181,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, create_trust_store_errors()}
   def create_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateTrustStore", input, options)
   end
@@ -3192,7 +3200,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_listener_errors()}
   def delete_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteListener", input, options)
   end
@@ -3220,7 +3229,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_load_balancer_errors()}
   def delete_load_balancer(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoadBalancer", input, options)
   end
@@ -3236,7 +3246,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -3254,7 +3265,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_shared_trust_store_association_errors()}
   def delete_shared_trust_store_association(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSharedTrustStoreAssociation", input, options)
   end
@@ -3276,7 +3288,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_target_group_errors()}
   def delete_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTargetGroup", input, options)
   end
@@ -3290,7 +3303,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, delete_trust_store_errors()}
   def delete_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteTrustStore", input, options)
   end
@@ -3339,7 +3353,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, deregister_targets_errors()}
   def deregister_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterTargets", input, options)
   end
@@ -3371,7 +3386,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def describe_account_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAccountLimits", input, options)
   end
@@ -3385,7 +3401,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_capacity_reservation_errors()}
   def describe_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCapacityReservation", input, options)
   end
@@ -3399,7 +3416,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_attributes_errors()}
   def describe_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListenerAttributes", input, options)
   end
@@ -3426,7 +3444,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listener_certificates_errors()}
   def describe_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListenerCertificates", input, options)
   end
@@ -3445,7 +3464,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_listeners_errors()}
   def describe_listeners(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeListeners", input, options)
   end
@@ -3485,7 +3505,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancer_attributes_errors()}
   def describe_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancerAttributes", input, options)
   end
@@ -3499,7 +3520,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_load_balancers_errors()}
   def describe_load_balancers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeLoadBalancers", input, options)
   end
@@ -3516,7 +3538,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_rules_errors()}
   def describe_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRules", input, options)
   end
@@ -3535,7 +3558,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_ssl_policies_errors()}
   def describe_ssl_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeSSLPolicies", input, options)
   end
@@ -3554,7 +3578,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_tags_errors()}
   def describe_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTags", input, options)
   end
@@ -3588,7 +3613,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_group_attributes_errors()}
   def describe_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroupAttributes", input, options)
   end
@@ -3609,7 +3635,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_groups_errors()}
   def describe_target_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetGroups", input, options)
   end
@@ -3623,7 +3650,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_target_health_errors()}
   def describe_target_health(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTargetHealth", input, options)
   end
@@ -3641,7 +3669,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_associations_errors()}
   def describe_trust_store_associations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreAssociations", input, options)
   end
@@ -3656,7 +3685,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_store_revocations_errors()}
   def describe_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStoreRevocations", input, options)
   end
@@ -3670,7 +3700,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, describe_trust_stores_errors()}
   def describe_trust_stores(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeTrustStores", input, options)
   end
@@ -3684,7 +3715,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -3705,7 +3737,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_ca_certificates_bundle_errors()}
   def get_trust_store_ca_certificates_bundle(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreCaCertificatesBundle", input, options)
   end
@@ -3726,7 +3759,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, get_trust_store_revocation_content_errors()}
   def get_trust_store_revocation_content(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetTrustStoreRevocationContent", input, options)
   end
@@ -3744,7 +3778,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_capacity_reservation_errors()}
   def modify_capacity_reservation(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCapacityReservation", input, options)
   end
@@ -3758,7 +3793,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_ip_pools_errors()}
   def modify_ip_pools(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyIpPools", input, options)
   end
@@ -3787,7 +3823,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_errors()}
   def modify_listener(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyListener", input, options)
   end
@@ -3801,7 +3838,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_listener_attributes_errors()}
   def modify_listener_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyListenerAttributes", input, options)
   end
@@ -3821,7 +3859,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_load_balancer_attributes_errors()}
   def modify_load_balancer_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyLoadBalancerAttributes", input, options)
   end
@@ -3844,7 +3883,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_rule_errors()}
   def modify_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyRule", input, options)
   end
@@ -3860,7 +3900,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_errors()}
   def modify_target_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroup", input, options)
   end
@@ -3874,7 +3915,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_target_group_attributes_errors()}
   def modify_target_group_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTargetGroupAttributes", input, options)
   end
@@ -3888,7 +3930,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, modify_trust_store_errors()}
   def modify_trust_store(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyTrustStore", input, options)
   end
@@ -3930,7 +3973,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, register_targets_errors()}
   def register_targets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterTargets", input, options)
   end
@@ -3946,7 +3990,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_listener_certificates_errors()}
   def remove_listener_certificates(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveListenerCertificates", input, options)
   end
@@ -3965,7 +4010,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_tags_errors()}
   def remove_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTags", input, options)
   end
@@ -3979,7 +4025,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, remove_trust_store_revocations_errors()}
   def remove_trust_store_revocations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RemoveTrustStoreRevocations", input, options)
   end
@@ -3994,7 +4041,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_ip_address_type_errors()}
   def set_ip_address_type(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetIpAddressType", input, options)
   end
@@ -4012,7 +4060,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_rule_priorities_errors()}
   def set_rule_priorities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetRulePriorities", input, options)
   end
@@ -4037,7 +4086,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_security_groups_errors()}
   def set_security_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSecurityGroups", input, options)
   end
@@ -4056,7 +4106,8 @@ defmodule AWS.ElasticLoadBalancingv2 do
           | {:error, term()}
           | {:error, set_subnets_errors()}
   def set_subnets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SetSubnets", input, options)
   end

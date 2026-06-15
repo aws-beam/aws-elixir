@@ -14,263 +14,14 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      delete_hsm_request() :: %{
-        optional("EniId") => String.t() | atom(),
-        optional("EniIp") => String.t() | atom(),
-        optional("HsmId") => String.t() | atom(),
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_hsm_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_hsm_response() :: %{
-        "Hsm" => hsm()
-      }
-      
-  """
-  @type create_hsm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagList") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_backup_attributes_response() :: %{
-        "Backup" => backup()
-      }
-      
-  """
-  @type modify_backup_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TagList" => list(tag())
-      }
-      
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_resource_policy_response() :: %{
-        "Policy" => String.t() | atom()
-      }
-      
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceId") => String.t() | atom(),
-        required("TagKeyList") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_backup_response() :: %{
-        "Backup" => backup()
-      }
-      
-  """
-  @type restore_backup_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_backup_attributes_request() :: %{
-        required("BackupId") => String.t() | atom(),
-        required("NeverExpires") => boolean()
-      }
-      
-  """
-  @type modify_backup_attributes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_hsm_response() :: %{
-        "HsmId" => String.t() | atom()
-      }
-      
-  """
-  @type delete_hsm_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_resource_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type modify_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      destination_backup() :: %{
-        "CreateTimestamp" => non_neg_integer(),
-        "SourceBackup" => String.t() | atom(),
-        "SourceCluster" => String.t() | atom(),
-        "SourceRegion" => String.t() | atom()
-      }
-      
-  """
-  @type destination_backup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_internal_failure_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cloud_hsm_internal_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_cluster_request() :: %{
-        optional("BackupRetentionPolicy") => backup_retention_policy(),
-        optional("Mode") => list(any()),
-        optional("NetworkType") => list(any()),
-        optional("SourceBackupId") => String.t() | atom(),
-        optional("TagList") => list(tag()),
-        required("HsmType") => String.t() | atom(),
-        required("SubnetIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_backups_request() :: %{
+      describe_clusters_request() :: %{
         optional("Filters") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Shared") => boolean(),
-        optional("SortAscending") => boolean()
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type describe_backups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -304,25 +55,117 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      create_hsm_request() :: %{
-        optional("IpAddress") => String.t() | atom(),
-        required("AvailabilityZone") => String.t() | atom(),
-        required("ClusterId") => String.t() | atom()
+      delete_backup_request() :: %{
+        required("BackupId") => String.t() | atom()
       }
       
   """
-  @type create_hsm_request() :: %{(String.t() | atom()) => any()}
+  @type delete_backup_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_backup_response() :: %{
-        "Backup" => backup()
+      put_resource_policy_request() :: %{
+        optional("Policy") => String.t() | atom(),
+        optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type delete_backup_response() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup_retention_policy() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type backup_retention_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_backup_request() :: %{
+        required("BackupId") => String.t() | atom()
+      }
+      
+  """
+  @type restore_backup_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hsm_request() :: %{
+        optional("EniId") => String.t() | atom(),
+        optional("EniIp") => String.t() | atom(),
+        optional("HsmId") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_hsm_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      copy_backup_to_region_response() :: %{
+        "DestinationBackup" => destination_backup()
+      }
+      
+  """
+  @type copy_backup_to_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_cluster_response() :: %{
+        "Cluster" => cluster()
+      }
+      
+  """
+  @type modify_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -341,6 +184,39 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
+      cloud_hsm_access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_backup_attributes_response() :: %{
+        "Backup" => backup()
+      }
+      
+  """
+  @type modify_backup_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_hsm_response() :: %{
+        "HsmId" => String.t() | atom()
+      }
+      
+  """
+  @type delete_hsm_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_resource_policy_request() :: %{
         optional("ResourceArn") => String.t() | atom()
       }
@@ -352,83 +228,15 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      delete_cluster_response() :: %{
-        "Cluster" => cluster()
-      }
-      
-  """
-  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      modify_cluster_request() :: %{
-        optional("BackupRetentionPolicy") => backup_retention_policy(),
-        optional("HsmType") => String.t() | atom(),
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type modify_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      backup() :: %{
-        "BackupArn" => String.t() | atom(),
-        "BackupId" => String.t() | atom(),
-        "BackupState" => list(any()),
-        "ClusterId" => String.t() | atom(),
-        "CopyTimestamp" => non_neg_integer(),
+      destination_backup() :: %{
         "CreateTimestamp" => non_neg_integer(),
-        "DeleteTimestamp" => non_neg_integer(),
-        "HsmType" => String.t() | atom(),
-        "Mode" => list(any()),
-        "NeverExpires" => boolean(),
         "SourceBackup" => String.t() | atom(),
         "SourceCluster" => String.t() | atom(),
-        "SourceRegion" => String.t() | atom(),
-        "TagList" => list(tag())
+        "SourceRegion" => String.t() | atom()
       }
       
   """
-  @type backup() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      initialize_cluster_response() :: %{
-        "State" => list(any()),
-        "StateMessage" => String.t() | atom()
-      }
-      
-  """
-  @type initialize_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cluster_request() :: %{
-        required("ClusterId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      restore_backup_request() :: %{
-        required("BackupId") => String.t() | atom()
-      }
-      
-  """
-  @type restore_backup_request() :: %{(String.t() | atom()) => any()}
+  @type destination_backup() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -445,13 +253,181 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      put_resource_policy_request() :: %{
-        optional("Policy") => String.t() | atom(),
+      modify_backup_attributes_request() :: %{
+        required("BackupId") => String.t() | atom(),
+        required("NeverExpires") => boolean()
+      }
+      
+  """
+  @type modify_backup_attributes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagList") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_backups_response() :: %{
+        "Backups" => list(backup()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_backups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificates() :: %{
+        "AwsHardwareCertificate" => String.t() | atom(),
+        "ClusterCertificate" => String.t() | atom(),
+        "ClusterCsr" => String.t() | atom(),
+        "HsmCertificate" => String.t() | atom(),
+        "ManufacturerHardwareCertificate" => String.t() | atom()
+      }
+      
+  """
+  @type certificates() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_tag_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_tag_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      restore_backup_response() :: %{
+        "Backup" => backup()
+      }
+      
+  """
+  @type restore_backup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_cluster_request() :: %{
+        optional("BackupRetentionPolicy") => backup_retention_policy(),
+        optional("Mode") => list(any()),
+        optional("NetworkType") => list(any()),
+        optional("SourceBackupId") => String.t() | atom(),
+        optional("TagList") => list(tag()),
+        required("HsmType") => String.t() | atom(),
+        required("SubnetIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_resource_policy_response() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_backups_request() :: %{
+        optional("Filters") => map(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Shared") => boolean(),
+        optional("SortAscending") => boolean()
+      }
+      
+  """
+  @type describe_backups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceId") => String.t() | atom(),
+        required("TagKeyList") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_policy_request() :: %{
         optional("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_backup_response() :: %{
+        "Backup" => backup()
+      }
+      
+  """
+  @type delete_backup_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -477,59 +453,48 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_clusters_response() :: %{
-        "Clusters" => list(cluster()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_service_exception() :: %{
+      cloud_hsm_resource_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_service_exception() :: %{(String.t() | atom()) => any()}
+  @type cloud_hsm_resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      copy_backup_to_region_response() :: %{
-        "DestinationBackup" => destination_backup()
+      initialize_cluster_response() :: %{
+        "State" => list(any()),
+        "StateMessage" => String.t() | atom()
       }
       
   """
-  @type copy_backup_to_region_response() :: %{(String.t() | atom()) => any()}
+  @type initialize_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      certificates() :: %{
-        "AwsHardwareCertificate" => String.t() | atom(),
-        "ClusterCertificate" => String.t() | atom(),
-        "ClusterCsr" => String.t() | atom(),
-        "HsmCertificate" => String.t() | atom(),
-        "ManufacturerHardwareCertificate" => String.t() | atom()
+      modify_cluster_request() :: %{
+        optional("BackupRetentionPolicy") => backup_retention_policy(),
+        optional("HsmType") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type certificates() :: %{(String.t() | atom()) => any()}
+  @type modify_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_hsm_response() :: %{
+        "Hsm" => hsm()
+      }
+      
+  """
+  @type create_hsm_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -547,48 +512,49 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      initialize_cluster_request() :: %{
-        required("ClusterId") => String.t() | atom(),
-        required("SignedCert") => String.t() | atom(),
-        required("TrustAnchor") => String.t() | atom()
+      create_hsm_request() :: %{
+        optional("IpAddress") => String.t() | atom(),
+        required("AvailabilityZone") => String.t() | atom(),
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type initialize_cluster_request() :: %{(String.t() | atom()) => any()}
+  @type create_hsm_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_resource_policy_request() :: %{
-        optional("ResourceArn") => String.t() | atom()
+      delete_resource_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom()
       }
       
   """
-  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_backups_response() :: %{
-        "Backups" => list(backup()),
+      describe_clusters_response() :: %{
+        "Clusters" => list(cluster()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_backups_response() :: %{(String.t() | atom()) => any()}
+  @type describe_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_backup_request() :: %{
-        required("BackupId") => String.t() | atom()
+      cloud_hsm_resource_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type delete_backup_request() :: %{(String.t() | atom()) => any()}
+  @type cloud_hsm_resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,171 +573,205 @@ defmodule AWS.CloudHSMV2 do
 
   ## Example:
       
-      backup_retention_policy() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type backup_retention_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cloud_hsm_tag_exception() :: %{
+      cloud_hsm_service_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type cloud_hsm_tag_exception() :: %{(String.t() | atom()) => any()}
+  @type cloud_hsm_service_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_clusters_request() :: %{
-        optional("Filters") => map(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      delete_cluster_request() :: %{
+        required("ClusterId") => String.t() | atom()
       }
       
   """
-  @type describe_clusters_request() :: %{(String.t() | atom()) => any()}
+  @type delete_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      initialize_cluster_request() :: %{
+        required("ClusterId") => String.t() | atom(),
+        required("SignedCert") => String.t() | atom(),
+        required("TrustAnchor") => String.t() | atom()
+      }
+      
+  """
+  @type initialize_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cloud_hsm_internal_failure_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type cloud_hsm_internal_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      backup() :: %{
+        "BackupArn" => String.t() | atom(),
+        "BackupId" => String.t() | atom(),
+        "BackupState" => list(any()),
+        "ClusterId" => String.t() | atom(),
+        "CopyTimestamp" => non_neg_integer(),
+        "CreateTimestamp" => non_neg_integer(),
+        "DeleteTimestamp" => non_neg_integer(),
+        "HsmType" => String.t() | atom(),
+        "Mode" => list(any()),
+        "NeverExpires" => boolean(),
+        "SourceBackup" => String.t() | atom(),
+        "SourceCluster" => String.t() | atom(),
+        "SourceRegion" => String.t() | atom(),
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type backup() :: %{(String.t() | atom()) => any()}
 
   @type copy_backup_to_region_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type create_cluster_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type create_hsm_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type delete_backup_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type delete_cluster_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type delete_hsm_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type delete_resource_policy_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type describe_backups_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type describe_clusters_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
+          | cloud_hsm_tag_exception()
           | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
           | cloud_hsm_access_denied_exception()
 
   @type get_resource_policy_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type initialize_cluster_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type list_tags_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type modify_backup_attributes_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type modify_cluster_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type put_resource_policy_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type restore_backup_errors() ::
-          cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
+          cloud_hsm_internal_failure_exception()
+          | cloud_hsm_service_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type tag_resource_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
           | cloud_hsm_resource_limit_exceeded_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   @type untag_resource_errors() ::
-          cloud_hsm_tag_exception()
+          cloud_hsm_internal_failure_exception()
           | cloud_hsm_service_exception()
-          | cloud_hsm_invalid_request_exception()
-          | cloud_hsm_internal_failure_exception()
-          | cloud_hsm_access_denied_exception()
           | cloud_hsm_resource_not_found_exception()
+          | cloud_hsm_tag_exception()
+          | cloud_hsm_invalid_request_exception()
+          | cloud_hsm_access_denied_exception()
 
   def metadata do
     %{
@@ -801,7 +801,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, copy_backup_to_region_errors()}
   def copy_backup_to_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CopyBackupToRegion", input, options)
   end
@@ -819,7 +820,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, create_cluster_errors()}
   def create_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateCluster", input, options)
   end
@@ -837,7 +839,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, create_hsm_errors()}
   def create_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateHsm", input, options)
   end
@@ -859,7 +862,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_backup_errors()}
   def delete_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBackup", input, options)
   end
@@ -880,7 +884,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_cluster_errors()}
   def delete_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCluster", input, options)
   end
@@ -902,7 +907,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_hsm_errors()}
   def delete_hsm(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteHsm", input, options)
   end
@@ -925,7 +931,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, delete_resource_policy_errors()}
   def delete_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourcePolicy", input, options)
   end
@@ -954,7 +961,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, describe_backups_errors()}
   def describe_backups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBackups", input, options)
   end
@@ -980,7 +988,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, describe_clusters_errors()}
   def describe_clusters(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeClusters", input, options)
   end
@@ -997,7 +1006,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, get_resource_policy_errors()}
   def get_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetResourcePolicy", input, options)
   end
@@ -1020,7 +1030,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, initialize_cluster_errors()}
   def initialize_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "InitializeCluster", input, options)
   end
@@ -1046,7 +1057,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, list_tags_errors()}
   def list_tags(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTags", input, options)
   end
@@ -1063,7 +1075,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, modify_backup_attributes_errors()}
   def modify_backup_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyBackupAttributes", input, options)
   end
@@ -1080,7 +1093,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, modify_cluster_errors()}
   def modify_cluster(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyCluster", input, options)
   end
@@ -1122,7 +1136,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, put_resource_policy_errors()}
   def put_resource_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutResourcePolicy", input, options)
   end
@@ -1143,7 +1158,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, restore_backup_errors()}
   def restore_backup(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RestoreBackup", input, options)
   end
@@ -1160,7 +1176,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1177,7 +1194,8 @@ defmodule AWS.CloudHSMV2 do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

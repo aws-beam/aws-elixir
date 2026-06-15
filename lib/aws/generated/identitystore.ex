@@ -25,93 +25,6 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      photo() :: %{
-        "Display" => String.t() | atom(),
-        "Primary" => boolean(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type photo() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_id_request() :: %{
-        required("AlternateIdentifier") => list(),
-        required("IdentityStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type get_group_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      external_id() :: %{
-        "Id" => String.t() | atom(),
-        "Issuer" => String.t() | atom()
-      }
-      
-  """
-  @type external_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      name() :: %{
-        "FamilyName" => String.t() | atom(),
-        "Formatted" => String.t() | atom(),
-        "GivenName" => String.t() | atom(),
-        "HonorificPrefix" => String.t() | atom(),
-        "HonorificSuffix" => String.t() | atom(),
-        "MiddleName" => String.t() | atom()
-      }
-      
-  """
-  @type name() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_membership_id_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
-      }
-      
-  """
-  @type get_group_membership_id_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_response() :: %{}
-      
-  """
-  @type update_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      unique_attribute() :: %{
-        "AttributePath" => String.t() | atom(),
-        "AttributeValue" => any()
-      }
-      
-  """
-  @type unique_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_group_memberships_for_member_response() :: %{
         optional("NextToken") => String.t() | atom(),
         required("GroupMemberships") => list(group_membership())
@@ -119,136 +32,6 @@ defmodule AWS.Identitystore do
       
   """
   @type list_group_memberships_for_member_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      role() :: %{
-        "Primary" => boolean(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type role() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      phone_number() :: %{
-        "Primary" => boolean(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type phone_number() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      email() :: %{
-        "Primary" => boolean(),
-        "Type" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type email() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      is_member_in_groups_request() :: %{
-        required("GroupIds") => list(String.t() | atom()),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MemberId") => list()
-      }
-      
-  """
-  @type is_member_in_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_group_request() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("Operations") => list(attribute_operation())
-      }
-      
-  """
-  @type update_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_membership_id_request() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MemberId") => list()
-      }
-      
-  """
-  @type get_group_membership_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any()),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any()),
-        "RequestId" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => list(any())
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_users_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Users") => list(user())
-      }
-      
-  """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -263,131 +46,6 @@ defmodule AWS.Identitystore do
       
   """
   @type list_group_memberships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type create_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_operation() :: %{
-        "AttributePath" => String.t() | atom(),
-        "AttributeValue" => any()
-      }
-      
-  """
-  @type attribute_operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_membership_request() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MemberId") => list()
-      }
-      
-  """
-  @type create_group_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_group_membership_request() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_group_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      is_member_in_groups_response() :: %{
-        required("Results") => list(group_membership_existence_result())
-      }
-      
-  """
-  @type is_member_in_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_request() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter() :: %{
-        "AttributePath" => String.t() | atom(),
-        "AttributeValue" => String.t() | atom()
-      }
-      
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_membership() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "CreatedBy" => String.t() | atom(),
-        "GroupId" => String.t() | atom(),
-        "IdentityStoreId" => String.t() | atom(),
-        "MemberId" => list(),
-        "MembershipId" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer(),
-        "UpdatedBy" => String.t() | atom()
-      }
-      
-  """
-  @type group_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_user_response() :: %{}
-      
-  """
-  @type delete_user_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RequestId" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
-      }
-      
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -429,114 +87,28 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      describe_group_membership_response() :: %{
-        optional("CreatedAt") => non_neg_integer(),
-        optional("CreatedBy") => String.t() | atom(),
-        optional("UpdatedAt") => non_neg_integer(),
-        optional("UpdatedBy") => String.t() | atom(),
-        required("GroupId") => String.t() | atom(),
+      create_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type create_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_group_memberships_for_member_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom(),
-        required("MemberId") => list(),
-        required("MembershipId") => String.t() | atom()
+        required("MemberId") => list()
       }
       
   """
-  @type describe_group_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_group_membership_response() :: %{}
-      
-  """
-  @type delete_group_membership_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_group_response() :: %{}
-      
-  """
-  @type delete_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any()),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_user_request() :: %{
-        optional("Extensions") => list(String.t() | atom()),
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_user_request() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("Operations") => list(attribute_operation()),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Reason" => list(any()),
-        "RequestId" => String.t() | atom()
-      }
-      
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      group_membership_existence_result() :: %{
-        "GroupId" => String.t() | atom(),
-        "MemberId" => list(),
-        "MembershipExists" => boolean()
-      }
-      
-  """
-  @type group_membership_existence_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_group_membership_request() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_group_membership_request() :: %{(String.t() | atom()) => any()}
+  @type list_group_memberships_for_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -556,6 +128,57 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any()),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_membership_response() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MembershipId") => String.t() | atom()
+      }
+      
+  """
+  @type create_group_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_request() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("Operations") => list(attribute_operation()),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      phone_number() :: %{
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type phone_number() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       group() :: %{
         "CreatedAt" => non_neg_integer(),
         "CreatedBy" => String.t() | atom(),
@@ -570,6 +193,160 @@ defmodule AWS.Identitystore do
       
   """
   @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_operation() :: %{
+        "AttributePath" => String.t() | atom(),
+        "AttributeValue" => any()
+      }
+      
+  """
+  @type attribute_operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      address() :: %{
+        "Country" => String.t() | atom(),
+        "Formatted" => String.t() | atom(),
+        "Locality" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "Primary" => boolean(),
+        "Region" => String.t() | atom(),
+        "StreetAddress" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+      
+  """
+  @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_membership_request() :: %{
+        required("GroupId") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MemberId") => list()
+      }
+      
+  """
+  @type create_group_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validation_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any()),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      external_id() :: %{
+        "Id" => String.t() | atom(),
+        "Issuer" => String.t() | atom()
+      }
+      
+  """
+  @type external_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_id_request() :: %{
+        required("AlternateIdentifier") => list(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type get_group_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_user_response() :: %{}
+      
+  """
+  @type update_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_id_request() :: %{
+        required("AlternateIdentifier") => list(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_membership_id_request() :: %{
+        required("GroupId") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MemberId") => list()
+      }
+      
+  """
+  @type get_group_membership_id_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_group_response() :: %{
+        required("GroupId") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type create_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any()),
+        "RequestId" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => list(any())
+      }
+      
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -623,13 +400,137 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      delete_group_request() :: %{
+      photo() :: %{
+        "Display" => String.t() | atom(),
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type photo() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_response() :: %{}
+      
+  """
+  @type delete_user_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      email() :: %{
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type email() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      name() :: %{
+        "FamilyName" => String.t() | atom(),
+        "Formatted" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "HonorificPrefix" => String.t() | atom(),
+        "HonorificSuffix" => String.t() | atom(),
+        "MiddleName" => String.t() | atom()
+      }
+      
+  """
+  @type name() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_id_response() :: %{
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom()
       }
       
   """
-  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+  @type get_group_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_group_response() :: %{}
+      
+  """
+  @type delete_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_membership_existence_result() :: %{
+        "GroupId" => String.t() | atom(),
+        "MemberId" => list(),
+        "MembershipExists" => boolean()
+      }
+      
+  """
+  @type group_membership_existence_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_user_response() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Reason" => list(any()),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_user_id_response() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type get_user_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      role() :: %{
+        "Primary" => boolean(),
+        "Type" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type role() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -645,6 +546,36 @@ defmodule AWS.Identitystore do
       
   """
   @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_user_request() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_group_membership_response() :: %{}
+      
+  """
+  @type delete_group_membership_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_group_response() :: %{}
+      
+  """
+  @type update_group_response() :: %{}
 
   @typedoc """
 
@@ -669,30 +600,6 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      create_group_membership_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("MembershipId") => String.t() | atom()
-      }
-      
-  """
-  @type create_group_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_id_response() :: %{
-        required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_id_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_group_memberships_response() :: %{
         optional("NextToken") => String.t() | atom(),
         required("GroupMemberships") => list(group_membership())
@@ -700,6 +607,49 @@ defmodule AWS.Identitystore do
       
   """
   @type list_group_memberships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_users_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Users") => list(user())
+      }
+      
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_user_request() :: %{
+        optional("Extensions") => list(String.t() | atom()),
+        required("IdentityStoreId") => String.t() | atom(),
+        required("UserId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      group_membership() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "CreatedBy" => String.t() | atom(),
+        "GroupId" => String.t() | atom(),
+        "IdentityStoreId" => String.t() | atom(),
+        "MemberId" => list(),
+        "MembershipId" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer(),
+        "UpdatedBy" => String.t() | atom()
+      }
+      
+  """
+  @type group_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,90 +667,67 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      address() :: %{
-        "Country" => String.t() | atom(),
-        "Formatted" => String.t() | atom(),
-        "Locality" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "Primary" => boolean(),
-        "Region" => String.t() | atom(),
-        "StreetAddress" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-      
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_groups_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type list_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_user_id_request() :: %{
-        required("AlternateIdentifier") => list(),
-        required("IdentityStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type get_user_id_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_group_id_response() :: %{
-        required("GroupId") => String.t() | atom(),
-        required("IdentityStoreId") => String.t() | atom()
-      }
-      
-  """
-  @type get_group_id_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_user_response() :: %{
+      delete_group_membership_request() :: %{
         required("IdentityStoreId") => String.t() | atom(),
-        required("UserId") => String.t() | atom()
+        required("MembershipId") => String.t() | atom()
       }
       
   """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
+  @type delete_group_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_group_response() :: %{}
-      
-  """
-  @type update_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_group_response() :: %{
+      delete_group_request() :: %{
         required("GroupId") => String.t() | atom(),
         required("IdentityStoreId") => String.t() | atom()
       }
       
   """
-  @type create_group_response() :: %{(String.t() | atom()) => any()}
+  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_group_membership_request() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MembershipId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_group_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      unique_attribute() :: %{
+        "AttributePath" => String.t() | atom(),
+        "AttributeValue" => any()
+      }
+      
+  """
+  @type unique_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_group_membership_response() :: %{
+        optional("CreatedAt") => non_neg_integer(),
+        optional("CreatedBy") => String.t() | atom(),
+        optional("UpdatedAt") => non_neg_integer(),
+        optional("UpdatedBy") => String.t() | atom(),
+        required("GroupId") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MemberId") => list(),
+        required("MembershipId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_group_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -835,79 +762,152 @@ defmodule AWS.Identitystore do
 
   ## Example:
       
-      list_group_memberships_for_member_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
+      filter() :: %{
+        "AttributePath" => String.t() | atom(),
+        "AttributeValue" => String.t() | atom()
+      }
+      
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_group_request() :: %{
+        required("GroupId") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom(),
+        required("Operations") => list(attribute_operation())
+      }
+      
+  """
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_group_membership_id_response() :: %{
+        required("IdentityStoreId") => String.t() | atom(),
+        required("MembershipId") => String.t() | atom()
+      }
+      
+  """
+  @type get_group_membership_id_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      is_member_in_groups_request() :: %{
+        required("GroupIds") => list(String.t() | atom()),
         required("IdentityStoreId") => String.t() | atom(),
         required("MemberId") => list()
       }
       
   """
-  @type list_group_memberships_for_member_request() :: %{(String.t() | atom()) => any()}
+  @type is_member_in_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      is_member_in_groups_response() :: %{
+        required("Results") => list(group_membership_existence_result())
+      }
+      
+  """
+  @type is_member_in_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RequestId" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_groups_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("IdentityStoreId") => String.t() | atom()
+      }
+      
+  """
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
 
   @type create_group_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type create_group_membership_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type create_user_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type delete_group_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_group_membership_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
   @type delete_user_errors() ::
-          validation_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | validation_exception()
 
-  @type describe_group_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_group_errors() :: resource_not_found_exception() | validation_exception()
 
   @type describe_group_membership_errors() ::
-          validation_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception()
 
-  @type describe_user_errors() :: validation_exception() | resource_not_found_exception()
+  @type describe_user_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type get_group_id_errors() :: validation_exception() | resource_not_found_exception()
+  @type get_group_id_errors() :: resource_not_found_exception() | validation_exception()
 
   @type get_group_membership_id_errors() ::
-          validation_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception()
 
-  @type get_user_id_errors() :: validation_exception() | resource_not_found_exception()
+  @type get_user_id_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type is_member_in_groups_errors() :: validation_exception() | resource_not_found_exception()
+  @type is_member_in_groups_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type list_group_memberships_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_group_memberships_errors() :: resource_not_found_exception() | validation_exception()
 
   @type list_group_memberships_for_member_errors() ::
-          validation_exception() | resource_not_found_exception()
+          resource_not_found_exception() | validation_exception()
 
-  @type list_groups_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_groups_errors() :: resource_not_found_exception() | validation_exception()
 
-  @type list_users_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_users_errors() :: resource_not_found_exception() | validation_exception()
 
   @type update_group_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   @type update_user_errors() ::
-          validation_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | validation_exception()
 
   def metadata do
     %{
@@ -934,7 +934,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_errors()}
   def create_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroup", input, options)
   end
@@ -951,7 +952,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_group_membership_errors()}
   def create_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGroupMembership", input, options)
   end
@@ -965,7 +967,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, create_user_errors()}
   def create_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateUser", input, options)
   end
@@ -979,7 +982,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_errors()}
   def delete_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroup", input, options)
   end
@@ -993,7 +997,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_group_membership_errors()}
   def delete_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGroupMembership", input, options)
   end
@@ -1007,7 +1012,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, delete_user_errors()}
   def delete_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteUser", input, options)
   end
@@ -1026,7 +1032,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_errors()}
   def describe_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroup", input, options)
   end
@@ -1046,7 +1053,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_group_membership_errors()}
   def describe_group_membership(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGroupMembership", input, options)
   end
@@ -1066,7 +1074,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, describe_user_errors()}
   def describe_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeUser", input, options)
   end
@@ -1085,7 +1094,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_id_errors()}
   def get_group_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupId", input, options)
   end
@@ -1104,7 +1114,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_group_membership_id_errors()}
   def get_group_membership_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGroupMembershipId", input, options)
   end
@@ -1123,7 +1134,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, get_user_id_errors()}
   def get_user_id(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetUserId", input, options)
   end
@@ -1143,7 +1155,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, is_member_in_groups_errors()}
   def is_member_in_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "IsMemberInGroups", input, options)
   end
@@ -1163,7 +1176,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_errors()}
   def list_group_memberships(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMemberships", input, options)
   end
@@ -1187,7 +1201,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_group_memberships_for_member_errors()}
   def list_group_memberships_for_member(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroupMembershipsForMember", input, options)
   end
@@ -1210,7 +1225,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_groups_errors()}
   def list_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGroups", input, options)
   end
@@ -1232,7 +1248,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, list_users_errors()}
   def list_users(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListUsers", input, options)
   end
@@ -1247,7 +1264,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_group_errors()}
   def update_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGroup", input, options)
   end
@@ -1262,7 +1280,8 @@ defmodule AWS.Identitystore do
           | {:error, term()}
           | {:error, update_user_errors()}
   def update_user(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateUser", input, options)
   end

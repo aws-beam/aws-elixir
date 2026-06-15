@@ -25,159 +25,6 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      trust_store_configuration() :: %{
-        "certificateAuthorityCertificates" => list(String.t() | atom())
-      }
-
-  """
-  @type trust_store_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      link_application_log_configuration() :: %{
-        "sampling" => link_application_log_sampling()
-      }
-
-  """
-  @type link_application_log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_module_flow_request() :: %{
-        required("clientToken") => [String.t() | atom()],
-        required("modules") => list(module_configuration())
-      }
-
-  """
-  @type update_link_module_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_certificate_associations_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_certificate_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_link_response() :: %{
-        "linkId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_association_summary() :: %{
-        "acmCertificateArn" => String.t() | atom(),
-        "associatedAt" => [non_neg_integer()],
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type certificate_association_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_requester_gateway_request() :: %{}
-
-  """
-  @type get_requester_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_inbound_external_link_request() :: %{
-        optional("attributes") => link_attributes(),
-        optional("tags") => map(),
-        required("clientToken") => [String.t() | atom()],
-        required("logSettings") => link_log_settings()
-      }
-
-  """
-  @type create_inbound_external_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_link_routing_rule_response() :: %{
-        "ruleId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      header_tag_action() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type header_tag_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      module_configuration() :: %{
-        "dependsOn" => list(String.t() | atom()),
-        "moduleParameters" => list(),
-        "name" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type module_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
       filter_criterion() :: %{
         "path" => [String.t() | atom()],
         "values" => list([String.t() | atom()]())
@@ -190,258 +37,10 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      delete_requester_gateway_request() :: %{}
+      reject_link_request() :: %{}
 
   """
-  @type delete_requester_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_requester_gateway_request() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("tags") => map(),
-        required("clientToken") => [String.t() | atom()],
-        required("securityGroupIds") => list(String.t() | atom()),
-        required("subnetIds") => list(String.t() | atom()),
-        required("vpcId") => String.t() | atom()
-      }
-
-  """
-  @type create_requester_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_link_response() :: %{
-        "attributes" => link_attributes(),
-        "connectivityType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "direction" => list(any()),
-        "flowModules" => list(module_configuration()),
-        "gatewayId" => String.t() | atom(),
-        "linkId" => String.t() | atom(),
-        "logSettings" => link_log_settings(),
-        "peerGatewayId" => String.t() | atom(),
-        "pendingFlowModules" => list(module_configuration()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type accept_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_responder_gateways_response() :: %{
-        "gatewayIds" => list(String.t() | atom()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_responder_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_requester_gateway_response() :: %{
-        "activeLinksCount" => [integer()],
-        "createdAt" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "domainName" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "tags" => map(),
-        "totalLinksCount" => [integer()],
-        "updatedAt" => [non_neg_integer()],
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type get_requester_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_link_routing_rules_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_link_routing_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_inbound_external_link_response() :: %{
-        "attributes" => link_attributes(),
-        "connectivityType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "domainName" => String.t() | atom(),
-        "flowModules" => list(module_configuration()),
-        "gatewayId" => String.t() | atom(),
-        "linkId" => String.t() | atom(),
-        "logSettings" => link_log_settings(),
-        "pendingFlowModules" => list(module_configuration()),
-        "status" => list(any()),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_certificate_association_response() :: %{
-        "acmCertificateArn" => String.t() | atom(),
-        "associatedAt" => [non_neg_integer()],
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_certificate_association_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_responder_gateway_request() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("domainName") => String.t() | atom(),
-        optional("gatewayType") => list(any()),
-        optional("listenerConfig") => listener_config(),
-        optional("managedEndpointConfiguration") => list(),
-        optional("tags") => map(),
-        optional("trustStoreConfiguration") => trust_store_configuration(),
-        required("clientToken") => [String.t() | atom()],
-        required("port") => [integer()],
-        required("protocol") => list(any()),
-        required("securityGroupIds") => list(String.t() | atom()),
-        required("subnetIds") => list(String.t() | atom()),
-        required("vpcId") => String.t() | atom()
-      }
-
-  """
-  @type create_responder_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_requester_gateways_response() :: %{
-        "gatewayIds" => list(String.t() | atom()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_requester_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_requester_gateway_response() :: %{
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_requester_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_link_request() :: %{}
-
-  """
-  @type delete_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      eks_endpoints_configuration() :: %{
-        "clusterApiServerCaCertificateChain" => String.t() | atom(),
-        "clusterApiServerEndpointUri" => String.t() | atom(),
-        "clusterName" => String.t() | atom(),
-        "endpointsResourceName" => String.t() | atom(),
-        "endpointsResourceNamespace" => String.t() | atom(),
-        "roleArn" => [String.t() | atom()]
-      }
-
-  """
-  @type eks_endpoints_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_link_response() :: %{
-        "attributes" => link_attributes(),
-        "connectivityType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "customerProvidedId" => [String.t() | atom()],
-        "direction" => list(any()),
-        "flowModules" => list(module_configuration()),
-        "gatewayId" => String.t() | atom(),
-        "linkId" => String.t() | atom(),
-        "logSettings" => link_log_settings(),
-        "peerGatewayId" => String.t() | atom(),
-        "pendingFlowModules" => list(module_configuration()),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type create_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_responder_gateway_request() :: %{}
-
-  """
-  @type delete_responder_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      link_attributes() :: %{
-        "customerProvidedId" => String.t() | atom(),
-        "responderErrorMasking" => list(responder_error_masking_for_http_code())
-      }
-
-  """
-  @type link_attributes() :: %{(String.t() | atom()) => any()}
+  @type reject_link_request() :: %{}
 
   @typedoc """
 
@@ -453,150 +52,6 @@ defmodule AWS.RTBFabric do
 
   """
   @type get_certificate_association_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_link_routing_rule_response() :: %{
-        "createdAt" => [non_neg_integer()],
-        "ruleId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_links_response() :: %{
-        "links" => list(list_links_response_structure()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_links_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_certificate_response() :: %{
-        "acmCertificateArn" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type associate_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_requester_gateway_response() :: %{
-        "domainName" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_requester_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_string_key_value_pair() :: %{
-        "key" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type query_string_key_value_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_outbound_external_link_request() :: %{
-        optional("attributes") => link_attributes(),
-        optional("tags") => map(),
-        required("clientToken") => [String.t() | atom()],
-        required("logSettings") => link_log_settings(),
-        required("publicEndpoint") => String.t() | atom()
-      }
-
-  """
-  @type create_outbound_external_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_link_request() :: %{
-        optional("attributes") => link_attributes(),
-        optional("httpResponderAllowed") => [boolean()],
-        optional("tags") => map(),
-        optional("timeoutInMillis") => float(),
-        required("logSettings") => link_log_settings(),
-        required("peerGatewayId") => String.t() | atom()
-      }
-
-  """
-  @type create_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inbound_external_link_response() :: %{
-        "linkId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      link_routing_rule_summary() :: %{
-        "conditions" => rule_condition(),
-        "createdAt" => [non_neg_integer()],
-        "priority" => integer(),
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type link_routing_rule_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -621,10 +76,135 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      reject_link_request() :: %{}
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
 
   """
-  @type reject_link_request() :: %{}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listener_config() :: %{
+        "protocols" => list(list(any())())
+      }
+
+  """
+  @type listener_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outbound_external_link_response() :: %{
+        "linkId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_outbound_external_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_association_summary() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "associatedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type certificate_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_request() :: %{
+        optional("attributes") => link_attributes(),
+        optional("httpResponderAllowed") => [boolean()],
+        optional("tags") => map(),
+        optional("timeoutInMillis") => float(),
+        required("logSettings") => link_log_settings(),
+        required("peerGatewayId") => String.t() | atom()
+      }
+
+  """
+  @type create_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_certificate_associations_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_certificate_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trust_store_configuration() :: %{
+        "certificateAuthorityCertificates" => list(String.t() | atom())
+      }
+
+  """
+  @type trust_store_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_responder_gateway_response() :: %{
+        "externalInboundEndpoint" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "listenerConfig" => listener_config(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_responder_gateway_request() :: %{}
+
+  """
+  @type delete_responder_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_module_flow_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_link_module_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -654,12 +234,56 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
+      create_link_routing_rule_response() :: %{
+        "createdAt" => [non_neg_integer()],
+        "ruleId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type create_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_routing_rule_response() :: %{
+        "ruleId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_request() :: %{
+        optional("logSettings") => link_log_settings(),
+        optional("timeoutInMillis") => float()
+      }
+
+  """
+  @type update_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      health_check_config() :: %{
+        "healthyThresholdCount" => [integer()],
+        "intervalSeconds" => [integer()],
+        "path" => [String.t() | atom()],
+        "port" => [integer()],
+        "protocol" => list(any()),
+        "statusCodeMatcher" => String.t() | atom(),
+        "timeoutMs" => [integer()],
+        "unhealthyThresholdCount" => [integer()]
+      }
+
+  """
+  @type health_check_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -669,6 +293,529 @@ defmodule AWS.RTBFabric do
 
   """
   @type get_outbound_external_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_certificate_response() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type disassociate_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_link_request() :: %{
+        optional("attributes") => link_attributes(),
+        optional("timeoutInMillis") => float(),
+        required("logSettings") => link_log_settings()
+      }
+
+  """
+  @type accept_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_routing_rule_summary() :: %{
+        "conditions" => rule_condition(),
+        "createdAt" => [non_neg_integer()],
+        "priority" => integer(),
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type link_routing_rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_string_key_value_pair() :: %{
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type query_string_key_value_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      open_rtb_attribute_module_parameters() :: %{
+        "action" => list(),
+        "filterConfiguration" => list(filter()),
+        "filterType" => list(any()),
+        "holdbackPercentage" => [float()]
+      }
+
+  """
+  @type open_rtb_attribute_module_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_bid_module_parameters() :: %{
+        "passThroughPercentage" => [float()],
+        "reason" => [String.t() | atom()],
+        "reasonCode" => [integer()]
+      }
+
+  """
+  @type no_bid_module_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_scaling_groups_configuration() :: %{
+        "autoScalingGroupNames" => list(String.t() | atom()),
+        "healthCheckConfig" => health_check_config(),
+        "roleArn" => [String.t() | atom()]
+      }
+
+  """
+  @type auto_scaling_groups_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_requester_gateway_request() :: %{}
+
+  """
+  @type delete_requester_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_response() :: %{
+        "linkId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_requester_gateway_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_requester_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_responder_gateways_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_responder_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_certificate_request() :: %{
+        required("acmCertificateArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_link_routing_rule_request() :: %{}
+
+  """
+  @type get_link_routing_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_links_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_links_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eks_endpoints_configuration() :: %{
+        "clusterApiServerCaCertificateChain" => String.t() | atom(),
+        "clusterApiServerEndpointUri" => String.t() | atom(),
+        "clusterName" => String.t() | atom(),
+        "endpointsResourceName" => String.t() | atom(),
+        "endpointsResourceNamespace" => String.t() | atom(),
+        "roleArn" => [String.t() | atom()]
+      }
+
+  """
+  @type eks_endpoints_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_link_response() :: %{
+        "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "direction" => list(any()),
+        "flowModules" => list(module_configuration()),
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
+        "peerGatewayId" => String.t() | atom(),
+        "pendingFlowModules" => list(module_configuration()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type accept_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_certificate_request() :: %{
+        required("acmCertificateArn") => String.t() | atom(),
+        required("clientToken") => [String.t() | atom()]
+      }
+
+  """
+  @type associate_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_requester_gateway_request() :: %{}
+
+  """
+  @type get_requester_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_link_response() :: %{
+        "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "customerProvidedId" => [String.t() | atom()],
+        "direction" => list(any()),
+        "flowModules" => list(module_configuration()),
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
+        "peerGatewayId" => String.t() | atom(),
+        "pendingFlowModules" => list(module_configuration()),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type create_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_responder_gateway_request() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("domainName") => String.t() | atom(),
+        optional("listenerConfig") => listener_config(),
+        optional("managedEndpointConfiguration") => list(),
+        optional("trustStoreConfiguration") => trust_store_configuration(),
+        required("clientToken") => [String.t() | atom()],
+        required("port") => [integer()],
+        required("protocol") => list(any())
+      }
+
+  """
+  @type update_responder_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_outbound_external_link_request() :: %{}
+
+  """
+  @type delete_outbound_external_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_responder_gateways_response() :: %{
+        "gatewayIds" => list(String.t() | atom()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_responder_gateways_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_requester_gateway_request() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("tags") => map(),
+        required("clientToken") => [String.t() | atom()],
+        required("securityGroupIds") => list(String.t() | atom()),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type create_requester_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_link_routing_rules_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_link_routing_rules_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_responder_gateway_request() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("domainName") => String.t() | atom(),
+        optional("gatewayType") => list(any()),
+        optional("listenerConfig") => listener_config(),
+        optional("managedEndpointConfiguration") => list(),
+        optional("tags") => map(),
+        optional("trustStoreConfiguration") => trust_store_configuration(),
+        required("clientToken") => [String.t() | atom()],
+        required("port") => [integer()],
+        required("protocol") => list(any()),
+        required("securityGroupIds") => list(String.t() | atom()),
+        required("subnetIds") => list(String.t() | atom()),
+        required("vpcId") => String.t() | atom()
+      }
+
+  """
+  @type create_responder_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_response() :: %{
+        "linkId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_routing_rule_request() :: %{
+        required("conditions") => rule_condition(),
+        required("priority") => integer()
+      }
+
+  """
+  @type update_link_routing_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      no_bid_action() :: %{
+        "noBidReasonCode" => [integer()]
+      }
+
+  """
+  @type no_bid_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_inbound_external_link_response() :: %{
+        "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "domainName" => String.t() | atom(),
+        "flowModules" => list(module_configuration()),
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
+        "pendingFlowModules" => list(module_configuration()),
+        "status" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_routing_rule_request() :: %{}
+
+  """
+  @type delete_link_routing_rule_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inbound_external_link_request() :: %{
+        optional("attributes") => link_attributes(),
+        optional("tags") => map(),
+        required("clientToken") => [String.t() | atom()],
+        required("logSettings") => link_log_settings()
+      }
+
+  """
+  @type create_inbound_external_link_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      header_tag_action() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type header_tag_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_outbound_external_link_request() :: %{
+        optional("attributes") => link_attributes(),
+        optional("tags") => map(),
+        required("clientToken") => [String.t() | atom()],
+        required("logSettings") => link_log_settings(),
+        required("publicEndpoint") => String.t() | atom()
+      }
+
+  """
+  @type create_outbound_external_link_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -699,47 +846,10 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      list_responder_gateways_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
+      get_link_request() :: %{}
 
   """
-  @type list_responder_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_outbound_external_link_response() :: %{
-        "attributes" => link_attributes(),
-        "connectivityType" => list(any()),
-        "createdAt" => [non_neg_integer()],
-        "flowModules" => list(module_configuration()),
-        "gatewayId" => String.t() | atom(),
-        "linkId" => String.t() | atom(),
-        "logSettings" => link_log_settings(),
-        "pendingFlowModules" => list(module_configuration()),
-        "publicEndpoint" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => map(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_outbound_external_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_outbound_external_link_response() :: %{
-        "linkId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_outbound_external_link_response() :: %{(String.t() | atom()) => any()}
+  @type get_link_request() :: %{}
 
   @typedoc """
 
@@ -776,38 +886,6 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      delete_inbound_external_link_request() :: %{}
-
-  """
-  @type delete_inbound_external_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_response() :: %{
-        "linkId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_link_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_link_routing_rule_request() :: %{
         optional("tags") => map(),
         required("clientToken") => [String.t() | atom()],
@@ -822,206 +900,61 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      no_bid_action() :: %{
-        "noBidReasonCode" => [integer()]
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type no_bid_action() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_link_module_flow_response() :: %{
+      link_application_log_configuration() :: %{
+        "sampling" => link_application_log_sampling()
+      }
+
+  """
+  @type link_application_log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inbound_external_link_response() :: %{
+        "domainName" => String.t() | atom(),
         "gatewayId" => String.t() | atom(),
         "linkId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type update_link_module_flow_response() :: %{(String.t() | atom()) => any()}
+  @type create_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_requester_gateways_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_requester_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_certificate_request() :: %{
-        required("acmCertificateArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "criteria" => list(filter_criterion())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_responder_gateway_response() :: %{
-        "gatewayId" => String.t() | atom(),
+      delete_inbound_external_link_response() :: %{
+        "linkId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+  @type delete_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_links_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
+      list_requester_gateways_response() :: %{
+        "gatewayIds" => list(String.t() | atom()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type list_links_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      link_application_log_sampling() :: %{
-        "errorLog" => [float()],
-        "filterLog" => [float()]
-      }
-
-  """
-  @type link_application_log_sampling() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_certificate_request() :: %{
-        required("acmCertificateArn") => String.t() | atom(),
-        required("clientToken") => [String.t() | atom()]
-      }
-
-  """
-  @type associate_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_routing_rule_response() :: %{
-        "ruleId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type update_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_responder_gateway_request() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("domainName") => String.t() | atom(),
-        optional("listenerConfig") => listener_config(),
-        optional("managedEndpointConfiguration") => list(),
-        optional("trustStoreConfiguration") => trust_store_configuration(),
-        required("clientToken") => [String.t() | atom()],
-        required("port") => [integer()],
-        required("protocol") => list(any())
-      }
-
-  """
-  @type update_responder_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_link_routing_rule_request() :: %{}
-
-  """
-  @type delete_link_routing_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      no_bid_module_parameters() :: %{
-        "passThroughPercentage" => [float()],
-        "reason" => [String.t() | atom()],
-        "reasonCode" => [integer()]
-      }
-
-  """
-  @type no_bid_module_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_outbound_external_link_request() :: %{}
-
-  """
-  @type delete_outbound_external_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      responder_error_masking_for_http_code() :: %{
-        "action" => list(any()),
-        "httpCode" => [String.t() | atom()],
-        "loggingTypes" => list(list(any())()),
-        "responseLoggingPercentage" => [float()]
-      }
-
-  """
-  @type responder_error_masking_for_http_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_requester_gateway_request() :: %{
-        optional("description") => [String.t() | atom()],
-        required("clientToken") => [String.t() | atom()]
-      }
-
-  """
-  @type update_requester_gateway_request() :: %{(String.t() | atom()) => any()}
+  @type list_requester_gateways_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1049,46 +982,13 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      delete_requester_gateway_response() :: %{
+      delete_responder_gateway_response() :: %{
         "gatewayId" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type delete_requester_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_certificate_response() :: %{
-        "acmCertificateArn" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type disassociate_certificate_response() :: %{(String.t() | atom()) => any()}
+  @type delete_responder_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1110,6 +1010,29 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
+      list_requester_gateways_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_requester_gateways_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       link_log_settings() :: %{
         "applicationLogs" => link_application_log_configuration()
       }
@@ -1121,62 +1044,63 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
+      create_requester_gateway_response() :: %{
+        "domainName" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type create_requester_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      get_certificate_association_response() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "associatedAt" => [non_neg_integer()],
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type get_certificate_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      health_check_config() :: %{
-        "healthyThresholdCount" => [integer()],
-        "intervalSeconds" => [integer()],
-        "path" => [String.t() | atom()],
-        "port" => [integer()],
-        "protocol" => list(any()),
-        "statusCodeMatcher" => String.t() | atom(),
-        "timeoutMs" => [integer()],
-        "unhealthyThresholdCount" => [integer()]
+      update_requester_gateway_request() :: %{
+        optional("description") => [String.t() | atom()],
+        required("clientToken") => [String.t() | atom()]
       }
 
   """
-  @type health_check_config() :: %{(String.t() | atom()) => any()}
+  @type update_requester_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_certificate_associations_response() :: %{
-        "certificateAssociations" => list(certificate_association_summary()),
-        "nextToken" => [String.t() | atom()]
+      get_outbound_external_link_response() :: %{
+        "attributes" => link_attributes(),
+        "connectivityType" => list(any()),
+        "createdAt" => [non_neg_integer()],
+        "flowModules" => list(module_configuration()),
+        "gatewayId" => String.t() | atom(),
+        "linkId" => String.t() | atom(),
+        "logSettings" => link_log_settings(),
+        "pendingFlowModules" => list(module_configuration()),
+        "publicEndpoint" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => map(),
+        "updatedAt" => [non_neg_integer()]
       }
 
   """
-  @type list_certificate_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type get_outbound_external_link_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1188,6 +1112,190 @@ defmodule AWS.RTBFabric do
 
   """
   @type rate_limiter_module_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_requester_gateway_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_requester_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_links_response() :: %{
+        "links" => list(list_links_response_structure()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_links_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_requester_gateway_response() :: %{
+        "activeLinksCount" => [integer()],
+        "createdAt" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "domainName" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "tags" => map(),
+        "totalLinksCount" => [integer()],
+        "updatedAt" => [non_neg_integer()],
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type get_requester_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_link_routing_rules_response() :: %{
+        "nextToken" => [String.t() | atom()],
+        "rules" => list(link_routing_rule_summary())
+      }
+
+  """
+  @type list_link_routing_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      link_attributes() :: %{
+        "customerProvidedId" => String.t() | atom(),
+        "responderErrorMasking" => list(responder_error_masking_for_http_code())
+      }
+
+  """
+  @type link_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      responder_error_masking_for_http_code() :: %{
+        "action" => list(any()),
+        "httpCode" => [String.t() | atom()],
+        "loggingTypes" => list(list(any())()),
+        "responseLoggingPercentage" => [float()]
+      }
+
+  """
+  @type responder_error_masking_for_http_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_responder_gateway_response() :: %{
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_responder_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_inbound_external_link_request() :: %{}
+
+  """
+  @type get_inbound_external_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_link_request() :: %{}
+
+  """
+  @type delete_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      module_configuration() :: %{
+        "dependsOn" => list(String.t() | atom()),
+        "moduleParameters" => list(),
+        "name" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type module_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_responder_gateway_request() :: %{}
+
+  """
+  @type get_responder_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_module_flow_request() :: %{
+        required("clientToken") => [String.t() | atom()],
+        required("modules") => list(module_configuration())
+      }
+
+  """
+  @type update_link_module_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inbound_external_link_request() :: %{}
+
+  """
+  @type delete_inbound_external_link_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_certificate_response() :: %{
+        "acmCertificateArn" => String.t() | atom(),
+        "gatewayId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type associate_certificate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_link_routing_rule_response() :: %{
+        "ruleId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type update_link_routing_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1206,435 +1314,327 @@ defmodule AWS.RTBFabric do
 
   ## Example:
 
-      auto_scaling_groups_configuration() :: %{
-        "autoScalingGroupNames" => list(String.t() | atom()),
-        "healthCheckConfig" => health_check_config(),
-        "roleArn" => [String.t() | atom()]
+      filter() :: %{
+        "criteria" => list(filter_criterion())
       }
 
   """
-  @type auto_scaling_groups_configuration() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_inbound_external_link_response() :: %{
-        "domainName" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "linkId" => String.t() | atom(),
-        "status" => list(any())
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      link_application_log_sampling() :: %{
+        "errorLog" => [float()],
+        "filterLog" => [float()]
       }
 
   """
-  @type create_inbound_external_link_response() :: %{(String.t() | atom()) => any()}
+  @type link_application_log_sampling() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      open_rtb_attribute_module_parameters() :: %{
-        "action" => list(),
-        "filterConfiguration" => list(filter()),
-        "filterType" => list(any()),
-        "holdbackPercentage" => [float()]
+      list_certificate_associations_response() :: %{
+        "certificateAssociations" => list(certificate_association_summary()),
+        "nextToken" => [String.t() | atom()]
       }
 
   """
-  @type open_rtb_attribute_module_parameters() :: %{(String.t() | atom()) => any()}
+  @type list_certificate_associations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_responder_gateway_request() :: %{}
-
-  """
-  @type get_responder_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_inbound_external_link_request() :: %{}
-
-  """
-  @type get_inbound_external_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_routing_rule_request() :: %{
-        required("conditions") => rule_condition(),
-        required("priority") => integer()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type update_link_routing_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_responder_gateway_response() :: %{
-        "externalInboundEndpoint" => String.t() | atom(),
-        "gatewayId" => String.t() | atom(),
-        "listenerConfig" => listener_config(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_responder_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listener_config() :: %{
-        "protocols" => list(list(any())())
-      }
-
-  """
-  @type listener_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_link_routing_rules_response() :: %{
-        "nextToken" => [String.t() | atom()],
-        "rules" => list(link_routing_rule_summary())
-      }
-
-  """
-  @type list_link_routing_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_link_request() :: %{}
-
-  """
-  @type get_link_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_link_request() :: %{
-        optional("attributes") => link_attributes(),
-        optional("timeoutInMillis") => float(),
-        required("logSettings") => link_log_settings()
-      }
-
-  """
-  @type accept_link_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_link_routing_rule_request() :: %{}
-
-  """
-  @type get_link_routing_rule_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_responder_gateway_response() :: %{
-        "gatewayId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_responder_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_link_request() :: %{
-        optional("logSettings") => link_log_settings(),
-        optional("timeoutInMillis") => float()
-      }
-
-  """
-  @type update_link_request() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @type accept_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_certificate_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_inbound_external_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_link_routing_rule_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_outbound_external_link_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_requester_gateway_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_responder_gateway_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_inbound_external_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_link_routing_rule_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_outbound_external_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_requester_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_responder_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_certificate_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_certificate_association_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_inbound_external_link_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_link_routing_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_outbound_external_link_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_requester_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_responder_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_certificate_associations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_link_routing_rules_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_links_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
-  @type list_requester_gateways_errors() :: validation_exception() | internal_server_exception()
+  @type list_requester_gateways_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_responder_gateways_errors() :: validation_exception() | internal_server_exception()
+  @type list_responder_gateways_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type reject_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_link_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_link_module_flow_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_link_routing_rule_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_requester_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_responder_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

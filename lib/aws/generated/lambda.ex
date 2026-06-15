@@ -81,418 +81,126 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      list_functions_by_code_signing_config_response() :: %{
-        "FunctionArns" => list(String.t() | atom()),
-        "NextMarker" => String.t() | atom()
+      dead_letter_config() :: %{
+        "TargetArn" => String.t() | atom()
       }
 
   """
-  @type list_functions_by_code_signing_config_response() :: %{(String.t() | atom()) => any()}
+  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      account_usage() :: %{
-        "FunctionCount" => float(),
-        "TotalCodeSize" => float()
-      }
+      get_function_code_signing_config_request() :: %{}
 
   """
-  @type account_usage() :: %{(String.t() | atom()) => any()}
+  @type get_function_code_signing_config_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      function_event_invoke_config() :: %{
-        optional("DestinationConfig") => destination_config(),
-        optional("FunctionArn") => String.t() | atom(),
-        optional("LastModified") => non_neg_integer(),
-        optional("MaximumEventAgeInSeconds") => integer(),
-        optional("MaximumRetryAttempts") => integer()
-      }
+      get_layer_version_request() :: %{}
 
   """
-  @type function_event_invoke_config() :: %{(String.t() | atom()) => any()}
+  @type get_layer_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_aliases_response() :: %{
-        "Aliases" => list(alias_configuration()),
-        "NextMarker" => String.t() | atom()
+      execution_succeeded_details() :: %{
+        "Result" => event_result()
       }
 
   """
-  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
+  @type execution_succeeded_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unsupported_media_type_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_media_type_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      operation() :: %{
-        "CallbackDetails" => callback_details(),
-        "ChainedInvokeDetails" => chained_invoke_details(),
-        "ContextDetails" => context_details(),
-        "EndTimestamp" => non_neg_integer(),
-        "ExecutionDetails" => execution_details(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ParentId" => String.t() | atom(),
-        "StartTimestamp" => non_neg_integer(),
-        "Status" => list(any()),
-        "StepDetails" => step_details(),
-        "SubType" => String.t() | atom(),
-        "Type" => list(any()),
-        "WaitDetails" => wait_details()
-      }
-
-  """
-  @type operation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chained_invoke_stopped_details() :: %{
+      execution_stopped_details() :: %{
         "Error" => event_error()
       }
 
   """
-  @type chained_invoke_stopped_details() :: %{(String.t() | atom()) => any()}
+  @type execution_stopped_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kms_disabled_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_aliases_request() :: %{
-        optional("FunctionVersion") => String.t() | atom(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_code() :: %{
-        "ImageUri" => String.t() | atom(),
-        "S3Bucket" => String.t() | atom(),
-        "S3Key" => String.t() | atom(),
-        "S3ObjectVersion" => String.t() | atom(),
-        "SourceKMSKeyArn" => String.t() | atom(),
-        "ZipFile" => binary()
-      }
-
-  """
-  @type function_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_security_group_id_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_security_group_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_source_mapping_request() :: %{
-        optional("AmazonManagedKafkaEventSourceConfig") => amazon_managed_kafka_event_source_config(),
-        optional("BatchSize") => integer(),
-        optional("BisectBatchOnFunctionError") => boolean(),
-        optional("DestinationConfig") => destination_config(),
-        optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
-        optional("Enabled") => boolean(),
-        optional("FilterCriteria") => filter_criteria(),
-        optional("FunctionName") => String.t() | atom(),
-        optional("FunctionResponseTypes") => list(list(any())()),
-        optional("KMSKeyArn") => String.t() | atom(),
-        optional("LoggingConfig") => event_source_mapping_logging_config(),
-        optional("MaximumBatchingWindowInSeconds") => integer(),
-        optional("MaximumRecordAgeInSeconds") => integer(),
-        optional("MaximumRetryAttempts") => integer(),
-        optional("MetricsConfig") => event_source_mapping_metrics_config(),
-        optional("ParallelizationFactor") => integer(),
-        optional("ProvisionedPollerConfig") => provisioned_poller_config(),
-        optional("ScalingConfig") => scaling_config(),
-        optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
-        optional("SourceAccessConfigurations") => list(source_access_configuration()),
-        optional("TumblingWindowInSeconds") => integer()
-      }
-
-  """
-  @type update_event_source_mapping_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_capacity_provider_response() :: %{
-        "CapacityProvider" => capacity_provider()
-      }
-
-  """
-  @type delete_capacity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_version_config() :: %{
-        "Error" => runtime_version_error(),
-        "RuntimeVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type runtime_version_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_versions_by_capacity_provider_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_function_versions_by_capacity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_capacity_provider_request() :: %{}
-
-  """
-  @type delete_capacity_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      wait_succeeded_details() :: %{
-        "Duration" => integer()
-      }
-
-  """
-  @type wait_succeeded_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snap_start() :: %{
-        "ApplyOn" => list(any())
-      }
-
-  """
-  @type snap_start() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_managed_instances_capacity_provider_config() :: %{
-        "CapacityProviderArn" => String.t() | atom(),
-        "ExecutionEnvironmentMemoryGiBPerVCpu" => float(),
-        "PerExecutionEnvironmentMaxConcurrency" => integer()
-      }
-
-  """
-  @type lambda_managed_instances_capacity_provider_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_scaling_config_response() :: %{
-        "AppliedFunctionScalingConfig" => function_scaling_config(),
-        "FunctionArn" => String.t() | atom(),
-        "RequestedFunctionScalingConfig" => function_scaling_config()
-      }
-
-  """
-  @type get_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_signing_config_request() :: %{}
-
-  """
-  @type get_code_signing_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_scaling_config_request() :: %{
+      put_function_scaling_config_request() :: %{
+        optional("FunctionScalingConfig") => function_scaling_config(),
         required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
+  @type put_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_layer_version_permission_request() :: %{
-        optional("RevisionId") => String.t() | atom()
+      delete_provisioned_concurrency_config_request() :: %{
+        required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type remove_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
+  @type delete_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_function_code_signing_config_request() :: %{}
-
-  """
-  @type delete_function_code_signing_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_result() :: %{
-        "Payload" => String.t() | atom(),
-        "Truncated" => boolean()
+      invoke_response_stream_update() :: %{
+        "Payload" => binary()
       }
 
   """
-  @type event_result() :: %{(String.t() | atom()) => any()}
+  @type invoke_response_stream_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kafka_schema_validation_config() :: %{
-        "Attribute" => list(any())
+      checkpoint_durable_execution_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Updates") => list(operation_update()),
+        required("CheckpointToken") => String.t() | atom()
       }
 
   """
-  @type kafka_schema_validation_config() :: %{(String.t() | atom()) => any()}
+  @type checkpoint_durable_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      environment_response() :: %{
-        "Error" => environment_error(),
-        "Variables" => map()
+      get_code_signing_config_response() :: %{
+        "CodeSigningConfig" => code_signing_config()
       }
 
   """
-  @type environment_response() :: %{(String.t() | atom()) => any()}
+  @type get_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      provisioned_concurrency_config_list_item() :: %{
-        "AllocatedProvisionedConcurrentExecutions" => integer(),
-        "AvailableProvisionedConcurrentExecutions" => integer(),
+      create_function_url_config_response() :: %{
+        "AuthType" => list(any()),
+        "Cors" => cors(),
+        "CreationTime" => String.t() | atom(),
         "FunctionArn" => String.t() | atom(),
-        "LastModified" => String.t() | atom(),
-        "RequestedProvisionedConcurrentExecutions" => integer(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
+        "FunctionUrl" => String.t() | atom(),
+        "InvokeMode" => list(any())
       }
 
   """
-  @type provisioned_concurrency_config_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_object() :: %{
-        "ErrorData" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "ErrorType" => String.t() | atom(),
-        "StackTrace" => list(String.t() | atom())
-      }
-
-  """
-  @type error_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_alias_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("FunctionVersion") => String.t() | atom(),
-        optional("RevisionId") => String.t() | atom(),
-        optional("RoutingConfig") => alias_routing_configuration()
-      }
-
-  """
-  @type update_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_functions_response() :: %{
-        "Functions" => list(function_configuration()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_functions_response() :: %{(String.t() | atom()) => any()}
+  @type create_function_url_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,494 +217,33 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      policy_length_exceeded_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type policy_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      callback_timed_out_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type callback_timed_out_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_concurrency_configs_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item())
-      }
-
-  """
-  @type list_provisioned_concurrency_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      context_succeeded_details() :: %{
-        "Result" => event_result()
-      }
-
-  """
-  @type context_succeeded_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_signing_configs_response() :: %{
-        "CodeSigningConfigs" => list(code_signing_config()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_code_signing_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t() | atom(),
-        "SchemaRegistryConfig" => kafka_schema_registry_config()
-      }
-
-  """
-  @type amazon_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_with_response_stream_response() :: %{
-        "EventStream" => list(),
-        "ExecutedVersion" => String.t() | atom(),
-        "ResponseStreamContentType" => String.t() | atom(),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type invoke_with_response_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_details() :: %{
-        "InputPayload" => String.t() | atom()
-      }
-
-  """
-  @type execution_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_criteria() :: %{
-        "Filters" => list(filter())
-      }
-
-  """
-  @type filter_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_code_location() :: %{
-        "ImageUri" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "RepositoryType" => String.t() | atom(),
-        "ResolvedImageUri" => String.t() | atom(),
-        "SourceKMSKeyArn" => String.t() | atom()
-      }
-
-  """
-  @type function_code_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_settings_request() :: %{}
-
-  """
-  @type get_account_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_durable_execution_callback_failure_response() :: %{}
-
-  """
-  @type send_durable_execution_callback_failure_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_alias_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RoutingConfig") => alias_routing_configuration(),
-        required("FunctionVersion") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_alias_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      callback_failed_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type callback_failed_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step_started_details() :: %{}
-
-  """
-  @type step_started_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
+      e_f_s_mount_connectivity_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+  @type e_f_s_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_layer_version_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "RevisionId" => String.t() | atom()
-      }
+      delete_layer_version_request() :: %{}
 
   """
-  @type get_layer_version_policy_response() :: %{(String.t() | atom()) => any()}
+  @type delete_layer_version_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_account_settings_response() :: %{
-        "AccountLimit" => account_limit(),
-        "AccountUsage" => account_usage()
-      }
-
-  """
-  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_request() :: %{
+      get_runtime_management_config_request() :: %{
         optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_layer_version_response() :: %{
-        optional("CompatibleArchitectures") => list(list(any())()),
-        optional("CompatibleRuntimes") => list(list(any())()),
-        optional("Content") => layer_version_content_output(),
-        optional("CreatedDate") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LayerArn") => String.t() | atom(),
-        optional("LayerVersionArn") => String.t() | atom(),
-        optional("LicenseInfo") => String.t() | atom(),
-        optional("Version") => float()
-      }
-
-  """
-  @type get_layer_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_capacity_provider_request() :: %{
-        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
-        optional("PropagateTags") => propagate_tags()
-      }
-
-  """
-  @type update_capacity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_timed_out_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type execution_timed_out_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      context_options() :: %{
-        "ReplayChildren" => boolean()
-      }
-
-  """
-  @type context_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_function_recursion_config_response() :: %{
-        "RecursiveLoop" => list(any())
-      }
-
-  """
-  @type put_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_durable_execution_request() :: %{}
-
-  """
-  @type get_durable_execution_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_function_event_invoke_config_request() :: %{
-        optional("DestinationConfig") => destination_config(),
-        optional("MaximumEventAgeInSeconds") => integer(),
-        optional("MaximumRetryAttempts") => integer(),
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type put_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_async_request() :: %{
-        required("InvokeArgs") => binary()
-      }
-
-  """
-  @type invoke_async_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_layers_response() :: %{
-        "Layers" => list(layers_list_item()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_layers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chained_invoke_started_details() :: %{
-        "DurableExecutionArn" => String.t() | atom(),
-        "ExecutedVersion" => String.t() | atom(),
-        "FunctionName" => String.t() | atom(),
-        "Input" => event_input(),
-        "TenantId" => String.t() | atom()
-      }
-
-  """
-  @type chained_invoke_started_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution() :: %{
-        "DurableExecutionArn" => String.t() | atom(),
-        "DurableExecutionName" => String.t() | atom(),
-        "EndTimestamp" => non_neg_integer(),
-        "FunctionArn" => String.t() | atom(),
-        "StartTimestamp" => non_neg_integer(),
-        "Status" => list(any())
-      }
-
-  """
-  @type execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_access_configuration() :: %{
-        "Type" => list(any()),
-        "URI" => String.t() | atom()
-      }
-
-  """
-  @type source_access_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_layer_version_policy_request() :: %{}
-
-  """
-  @type get_layer_version_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_signing_configs_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_code_signing_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      layer_version_content_output() :: %{
-        "CodeSha256" => String.t() | atom(),
-        "CodeSize" => float(),
-        "Location" => String.t() | atom(),
-        "SigningJobArn" => String.t() | atom(),
-        "SigningProfileVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type layer_version_content_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_response() :: %{
-        "DurableExecutionArn" => String.t() | atom(),
-        "ExecutedVersion" => String.t() | atom(),
-        "FunctionError" => String.t() | atom(),
-        "LogResult" => String.t() | atom(),
-        "Payload" => binary(),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type invocation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_function_url_config_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type delete_function_url_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_recursion_config_request() :: %{}
-
-  """
-  @type get_function_recursion_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_access_denied_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type ec2_access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_durable_execution_history_request() :: %{
-        optional("IncludeExecutionData") => boolean(),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("ReverseOrder") => boolean()
-      }
-
-  """
-  @type get_durable_execution_history_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chained_invoke_timed_out_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type chained_invoke_timed_out_details() :: %{(String.t() | atom()) => any()}
+  @type get_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1015,282 +262,360 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      function_scaling_config() :: %{
-        "MaxExecutionEnvironments" => integer(),
-        "MinExecutionEnvironments" => integer()
+      callback_options() :: %{
+        "HeartbeatTimeoutSeconds" => integer(),
+        "TimeoutSeconds" => integer()
       }
 
   """
-  @type function_scaling_config() :: %{(String.t() | atom()) => any()}
+  @type callback_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_function_url_config_request() :: %{
-        optional("AuthType") => list(any()),
-        optional("Cors") => cors(),
-        optional("InvokeMode") => list(any()),
-        optional("Qualifier") => String.t() | atom()
+      chained_invoke_details() :: %{
+        "Error" => error_object(),
+        "Result" => String.t() | atom()
       }
 
   """
-  @type update_function_url_config_request() :: %{(String.t() | atom()) => any()}
+  @type chained_invoke_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      chained_invoke_succeeded_details() :: %{
-        "Result" => event_result()
+      send_durable_execution_callback_success_request() :: %{
+        optional("Result") => binary()
       }
 
   """
-  @type chained_invoke_succeeded_details() :: %{(String.t() | atom()) => any()}
+  @type send_durable_execution_callback_success_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_function_versions_by_capacity_provider_response() :: %{
-        "CapacityProviderArn" => String.t() | atom(),
-        "FunctionVersions" => list(function_versions_by_capacity_provider_list_item()),
-        "NextMarker" => String.t() | atom()
+      get_function_code_signing_config_response() :: %{
+        "CodeSigningConfigArn" => String.t() | atom(),
+        "FunctionName" => String.t() | atom()
       }
 
   """
-  @type list_function_versions_by_capacity_provider_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_function_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      self_managed_kafka_event_source_config() :: %{
-        "ConsumerGroupId" => String.t() | atom(),
-        "SchemaRegistryConfig" => kafka_schema_registry_config()
+      create_code_signing_config_response() :: %{
+        "CodeSigningConfig" => code_signing_config()
       }
 
   """
-  @type self_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
+  @type create_code_signing_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      target_tracking_scaling_policy() :: %{
-        "PredefinedMetricType" => list(any()),
-        "TargetValue" => float()
+      invalid_request_content_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type target_tracking_scaling_policy() :: %{(String.t() | atom()) => any()}
+  @type invalid_request_content_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      snap_start_not_ready_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type snap_start_not_ready_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_configuration_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type get_function_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_provider_vpc_config() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type capacity_provider_vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_response() :: %{
-        "Code" => function_code_location(),
-        "Concurrency" => concurrency(),
-        "Configuration" => function_configuration(),
-        "Tags" => map(),
-        "TagsError" => tags_error()
-      }
-
-  """
-  @type get_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      context_started_details() :: %{}
-
-  """
-  @type context_started_details() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_config() :: %{
-        "ApplicationLogLevel" => list(any()),
-        "LogFormat" => list(any()),
-        "LogGroup" => String.t() | atom(),
+      event_source_mapping_logging_config() :: %{
         "SystemLogLevel" => list(any())
       }
 
   """
-  @type logging_config() :: %{(String.t() | atom()) => any()}
+  @type event_source_mapping_logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      put_provisioned_concurrency_config_response() :: %{
+        "AllocatedProvisionedConcurrentExecutions" => integer(),
+        "AvailableProvisionedConcurrentExecutions" => integer(),
+        "LastModified" => String.t() | atom(),
+        "RequestedProvisionedConcurrentExecutions" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type put_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_function_concurrency_request() :: %{}
-
-  """
-  @type delete_function_concurrency_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      image_config() :: %{
-        "Command" => list(String.t() | atom()),
-        "EntryPoint" => list(String.t() | atom()),
-        "WorkingDirectory" => String.t() | atom()
+      kms_disabled_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type image_config() :: %{(String.t() | atom()) => any()}
+  @type kms_disabled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_function_url_config_response() :: %{
-        "AuthType" => list(any()),
-        "Cors" => cors(),
-        "CreationTime" => String.t() | atom(),
+      callback_started_details() :: %{
+        "CallbackId" => String.t() | atom(),
+        "HeartbeatTimeout" => integer(),
+        "Timeout" => integer()
+      }
+
+  """
+  @type callback_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layer_versions_list_item() :: %{
+        "CompatibleArchitectures" => list(list(any())()),
+        "CompatibleRuntimes" => list(list(any())()),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LayerVersionArn" => String.t() | atom(),
+        "LicenseInfo" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type layer_versions_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_access_denied_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type ec2_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type execution_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_by_code_signing_config_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_functions_by_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_subnet_id_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_subnet_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_layers_request() :: %{
+        optional("CompatibleArchitecture") => list(any()),
+        optional("CompatibleRuntime") => list(any()),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_layers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_configuration() :: %{
+        "ImageConfigResponse" => image_config_response(),
+        "CodeSha256" => String.t() | atom(),
         "FunctionArn" => String.t() | atom(),
-        "FunctionUrl" => String.t() | atom(),
-        "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | atom()
+        "CapacityProviderConfig" => capacity_provider_config(),
+        "RuntimeVersionConfig" => runtime_version_config(),
+        "Handler" => String.t() | atom(),
+        "State" => list(any()),
+        "DurableConfig" => durable_config(),
+        "TenancyConfig" => tenancy_config(),
+        "LoggingConfig" => logging_config(),
+        "LastUpdateStatusReason" => String.t() | atom(),
+        "RevisionId" => String.t() | atom(),
+        "Version" => String.t() | atom(),
+        "Runtime" => list(any()),
+        "MasterArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom(),
+        "Layers" => list(layer()),
+        "KMSKeyArn" => String.t() | atom(),
+        "LastUpdateStatus" => list(any()),
+        "Environment" => environment_response(),
+        "EphemeralStorage" => ephemeral_storage(),
+        "Description" => String.t() | atom(),
+        "StateReason" => String.t() | atom(),
+        "FileSystemConfigs" => list(file_system_config()),
+        "Timeout" => integer(),
+        "MemorySize" => integer(),
+        "FunctionName" => String.t() | atom(),
+        "ConfigSha256" => String.t() | atom(),
+        "VpcConfig" => vpc_config_response(),
+        "Architectures" => list(list(any())()),
+        "SnapStart" => snap_start_response(),
+        "LastUpdateStatusReasonCode" => list(any()),
+        "TracingConfig" => tracing_config_response(),
+        "CodeSize" => float(),
+        "LastModified" => String.t() | atom(),
+        "StateReasonCode" => list(any()),
+        "SigningJobArn" => String.t() | atom(),
+        "Role" => String.t() | atom(),
+        "DeadLetterConfig" => dead_letter_config(),
+        "PackageType" => list(any())
       }
 
   """
-  @type update_function_url_config_response() :: %{(String.t() | atom()) => any()}
+  @type function_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_requests_exception() :: %{
-        "Reason" => list(any()),
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "retryAfterSeconds" => String.t() | atom()
+      delete_function_url_config_request() :: %{
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_function_url_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_function_code_signing_config_request() :: %{}
+      send_durable_execution_callback_failure_response() :: %{}
 
   """
-  @type get_function_code_signing_config_request() :: %{}
+  @type send_durable_execution_callback_failure_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      put_function_recursion_config_request() :: %{
-        required("RecursiveLoop") => list(any())
+      on_success() :: %{
+        "Destination" => String.t() | atom()
       }
 
   """
-  @type put_function_recursion_config_request() :: %{(String.t() | atom()) => any()}
+  @type on_success() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      destination_config() :: %{
-        "OnFailure" => on_failure(),
-        "OnSuccess" => on_success()
+      event_input() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
       }
 
   """
-  @type destination_config() :: %{(String.t() | atom()) => any()}
+  @type event_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_files_mount_connectivity_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      invocation_request() :: %{
+        optional("ClientContext") => String.t() | atom(),
+        optional("DurableExecutionName") => String.t() | atom(),
+        optional("InvocationType") => list(any()),
+        optional("LogType") => list(any()),
+        optional("Payload") => binary(),
+        optional("Qualifier") => String.t() | atom(),
+        optional("TenantId") => String.t() | atom()
       }
 
   """
-  @type s3_files_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
+  @type invocation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      snap_start_timeout_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      chained_invoke_stopped_details() :: %{
+        "Error" => event_error()
       }
 
   """
-  @type snap_start_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type chained_invoke_stopped_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      callback_timeout_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      list_durable_executions_by_function_response() :: %{
+        "DurableExecutions" => list(execution()),
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type callback_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type list_durable_executions_by_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_schema_registry_config() :: %{
+        "AccessConfigs" => list(kafka_schema_registry_access_config()),
+        "EventRecordFormat" => list(any()),
+        "SchemaRegistryURI" => String.t() | atom(),
+        "SchemaValidationConfigs" => list(kafka_schema_validation_config())
+      }
+
+  """
+  @type kafka_schema_registry_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_history_response() :: %{
+        "Events" => list(event()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type get_durable_execution_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1314,126 +639,84 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      put_provisioned_concurrency_config_request() :: %{
-        required("ProvisionedConcurrentExecutions") => integer(),
-        required("Qualifier") => String.t() | atom()
+      callback_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type put_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
+  @type callback_timeout_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      serialized_request_entity_too_large_exception() :: %{
+      execution_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type execution_timed_out_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_layer_version_policy_request() :: %{}
+
+  """
+  @type get_layer_version_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Reason" => list(any()),
         "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
+        "message" => String.t() | atom(),
+        "retryAfterSeconds" => String.t() | atom()
       }
 
   """
-  @type serialized_request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_layer_version_request() :: %{}
-
-  """
-  @type delete_layer_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      operation_update() :: %{
-        "Action" => list(any()),
-        "CallbackOptions" => callback_options(),
-        "ChainedInvokeOptions" => chained_invoke_options(),
-        "ContextOptions" => context_options(),
+      step_details() :: %{
+        "Attempt" => integer(),
         "Error" => error_object(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "ParentId" => String.t() | atom(),
-        "Payload" => String.t() | atom(),
-        "StepOptions" => step_options(),
-        "SubType" => String.t() | atom(),
+        "NextAttemptTimestamp" => non_neg_integer(),
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type step_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_schema_registry_access_config() :: %{
         "Type" => list(any()),
-        "WaitOptions" => wait_options()
+        "URI" => String.t() | atom()
       }
 
   """
-  @type operation_update() :: %{(String.t() | atom()) => any()}
+  @type kafka_schema_registry_access_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      checkpoint_updated_execution_state() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Operations" => list(operation())
+      context_failed_details() :: %{
+        "Error" => event_error()
       }
 
   """
-  @type checkpoint_updated_execution_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_signing_config_response() :: %{
-        "CodeSigningConfig" => code_signing_config()
-      }
-
-  """
-  @type create_code_signing_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_response_stream_update() :: %{
-        "Payload" => binary()
-      }
-
-  """
-  @type invoke_response_stream_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_event_invoke_configs_response() :: %{
-        "FunctionEventInvokeConfigs" => list(function_event_invoke_config()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_function_event_invoke_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_concurrency_response() :: %{
-        "ReservedConcurrentExecutions" => integer()
-      }
-
-  """
-  @type get_function_concurrency_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_started_details() :: %{
-        "ExecutionTimeout" => integer(),
-        "Input" => event_input()
-      }
-
-  """
-  @type execution_started_details() :: %{(String.t() | atom()) => any()}
+  @type context_failed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1443,353 +726,6 @@ defmodule AWS.Lambda do
 
   """
   @type delete_event_source_mapping_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_durable_execution_callback_heartbeat_request() :: %{}
-
-  """
-  @type send_durable_execution_callback_heartbeat_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recursive_invocation_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type recursive_invocation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chained_invoke_failed_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type chained_invoke_failed_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_durable_execution_state_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Operations" => list(operation())
-      }
-
-  """
-  @type get_durable_execution_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_input() :: %{
-        "Payload" => String.t() | atom(),
-        "Truncated" => boolean()
-      }
-
-  """
-  @type event_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_runtime_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_runtime_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_concurrency_request() :: %{}
-
-  """
-  @type get_function_concurrency_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_alias_request() :: %{}
-
-  """
-  @type get_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      wait_options() :: %{
-        "WaitSeconds" => integer()
-      }
-
-  """
-  @type wait_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_capacity_providers_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        optional("State") => list(any())
-      }
-
-  """
-  @type list_capacity_providers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retry_details() :: %{
-        "CurrentAttempt" => integer(),
-        "NextAttemptDelaySeconds" => integer()
-      }
-
-  """
-  @type retry_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      on_failure() :: %{
-        "Destination" => String.t() | atom()
-      }
-
-  """
-  @type on_failure() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_source_mappings_response() :: %{
-        "EventSourceMappings" => list(event_source_mapping_configuration()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_event_source_mappings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_runtime_management_config_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type get_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_content_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_content_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_runtime_management_config_request() :: %{
-        optional("Qualifier") => String.t() | atom(),
-        optional("RuntimeVersionArn") => String.t() | atom(),
-        required("UpdateRuntimeOn") => list(any())
-      }
-
-  """
-  @type put_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type get_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      durable_config() :: %{
-        "ExecutionTimeout" => integer(),
-        "RetentionPeriodInDays" => integer()
-      }
-
-  """
-  @type durable_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      publish_layer_version_response() :: %{
-        "CompatibleArchitectures" => list(list(any())()),
-        "CompatibleRuntimes" => list(list(any())()),
-        "Content" => layer_version_content_output(),
-        "CreatedDate" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LayerArn" => String.t() | atom(),
-        "LayerVersionArn" => String.t() | atom(),
-        "LicenseInfo" => String.t() | atom(),
-        "Version" => float()
-      }
-
-  """
-  @type publish_layer_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_db_event_source_config() :: %{
-        "CollectionName" => String.t() | atom(),
-        "DatabaseName" => String.t() | atom(),
-        "FullDocument" => list(any())
-      }
-
-  """
-  @type document_db_event_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      durable_execution_already_started_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type durable_execution_already_started_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_code_signing_config_request() :: %{}
-
-  """
-  @type delete_code_signing_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_url_config_response() :: %{
-        "AuthType" => list(any()),
-        "Cors" => cors(),
-        "CreationTime" => String.t() | atom(),
-        "FunctionArn" => String.t() | atom(),
-        "FunctionUrl" => String.t() | atom(),
-        "InvokeMode" => list(any())
-      }
-
-  """
-  @type create_function_url_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_signing_config_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type code_signing_config_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment() :: %{
-        "Variables" => map()
-      }
-
-  """
-  @type environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_function_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type delete_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      publish_version_request() :: %{
-        optional("CodeSha256") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("PublishTo") => list(any()),
-        optional("RevisionId") => String.t() | atom()
-      }
-
-  """
-  @type publish_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_completed_details() :: %{
-        "EndTimestamp" => non_neg_integer(),
-        "Error" => event_error(),
-        "RequestId" => String.t() | atom(),
-        "StartTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type invocation_completed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1807,156 +743,13 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      list_capacity_providers_response() :: %{
-        "CapacityProviders" => list(capacity_provider()),
-        "NextMarker" => String.t() | atom()
+      chained_invoke_options() :: %{
+        "FunctionName" => String.t() | atom(),
+        "TenantId" => String.t() | atom()
       }
 
   """
-  @type list_capacity_providers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step_failed_details() :: %{
-        "Error" => event_error(),
-        "RetryDetails" => retry_details()
-      }
-
-  """
-  @type step_failed_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alias_configuration() :: %{
-        "AliasArn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "FunctionVersion" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RevisionId" => String.t() | atom(),
-        "RoutingConfig" => alias_routing_configuration()
-      }
-
-  """
-  @type alias_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_error() :: %{
-        "Payload" => error_object(),
-        "Truncated" => boolean()
-      }
-
-  """
-  @type event_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_function_code_request() :: %{
-        optional("Architectures") => list(list(any())()),
-        optional("DryRun") => boolean(),
-        optional("ImageUri") => String.t() | atom(),
-        optional("Publish") => boolean(),
-        optional("PublishTo") => list(any()),
-        optional("RevisionId") => String.t() | atom(),
-        optional("S3Bucket") => String.t() | atom(),
-        optional("S3Key") => String.t() | atom(),
-        optional("S3ObjectVersion") => String.t() | atom(),
-        optional("SourceKMSKeyArn") => String.t() | atom(),
-        optional("ZipFile") => binary()
-      }
-
-  """
-  @type update_function_code_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_signing_config_request() :: %{
-        optional("CodeSigningPolicies") => code_signing_policies(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("AllowedPublishers") => allowed_publishers()
-      }
-
-  """
-  @type create_code_signing_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_value_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_source_mapping_configuration() :: %{
-        "LastProcessingResult" => String.t() | atom(),
-        "ScalingConfig" => scaling_config(),
-        "ParallelizationFactor" => integer(),
-        "UUID" => String.t() | atom(),
-        "StartingPosition" => list(any()),
-        "SelfManagedEventSource" => self_managed_event_source(),
-        "DestinationConfig" => destination_config(),
-        "StateTransitionReason" => String.t() | atom(),
-        "KMSKeyArn" => String.t() | atom(),
-        "AmazonManagedKafkaEventSourceConfig" => amazon_managed_kafka_event_source_config(),
-        "MetricsConfig" => event_source_mapping_metrics_config(),
-        "BatchSize" => integer(),
-        "MaximumBatchingWindowInSeconds" => integer(),
-        "MaximumRetryAttempts" => integer(),
-        "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
-        "ProvisionedPollerConfig" => provisioned_poller_config(),
-        "State" => String.t() | atom(),
-        "Queues" => list(String.t() | atom()),
-        "DocumentDBEventSourceConfig" => document_db_event_source_config(),
-        "SourceAccessConfigurations" => list(source_access_configuration()),
-        "EventSourceMappingArn" => String.t() | atom(),
-        "FilterCriteria" => filter_criteria(),
-        "LastModified" => non_neg_integer(),
-        "FunctionResponseTypes" => list(list(any())()),
-        "TumblingWindowInSeconds" => integer(),
-        "FunctionArn" => String.t() | atom(),
-        "BisectBatchOnFunctionError" => boolean(),
-        "Topics" => list(String.t() | atom()),
-        "LoggingConfig" => event_source_mapping_logging_config(),
-        "FilterCriteriaError" => filter_criteria_error(),
-        "MaximumRecordAgeInSeconds" => integer(),
-        "EventSourceArn" => String.t() | atom(),
-        "StartingPositionTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provisioned_poller_config() :: %{
-        "MaximumPollers" => integer(),
-        "MinimumPollers" => integer(),
-        "PollerGroupName" => String.t() | atom()
-      }
-
-  """
-  @type provisioned_poller_config() :: %{(String.t() | atom()) => any()}
+  @type chained_invoke_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2000,143 +793,377 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      get_capacity_provider_request() :: %{}
-
-  """
-  @type get_capacity_provider_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      checkpoint_durable_execution_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("Updates") => list(operation_update()),
-        required("CheckpointToken") => String.t() | atom()
-      }
-
-  """
-  @type checkpoint_durable_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_url_config_request() :: %{
-        optional("Cors") => cors(),
-        optional("InvokeMode") => list(any()),
-        optional("Qualifier") => String.t() | atom(),
-        required("AuthType") => list(any())
-      }
-
-  """
-  @type create_function_url_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      layer() :: %{
-        "Arn" => String.t() | atom(),
-        "CodeSize" => float(),
-        "SigningJobArn" => String.t() | atom(),
-        "SigningProfileVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type layer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_durable_execution_state_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer(),
-        required("CheckpointToken") => String.t() | atom()
-      }
-
-  """
-  @type get_durable_execution_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioned_concurrency_config_response() :: %{
-        "AllocatedProvisionedConcurrentExecutions" => integer(),
-        "AvailableProvisionedConcurrentExecutions" => integer(),
-        "LastModified" => String.t() | atom(),
-        "RequestedProvisionedConcurrentExecutions" => integer(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-
-  """
-  @type get_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_function_response() :: %{
-        "StatusCode" => integer()
-      }
-
-  """
-  @type delete_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_config() :: %{
-        "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_exception() :: %{
+      no_published_version_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
+  @type no_published_version_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      publish_layer_version_request() :: %{
-        optional("CompatibleArchitectures") => list(list(any())()),
-        optional("CompatibleRuntimes") => list(list(any())()),
+      get_function_concurrency_request() :: %{}
+
+  """
+  @type get_function_concurrency_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_alias_request() :: %{}
+
+  """
+  @type get_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_failure_request() :: %{
+        optional("Error") => error_object()
+      }
+
+  """
+  @type send_durable_execution_callback_failure_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_recursion_config_request() :: %{}
+
+  """
+  @type get_function_recursion_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_source_mapping_metrics_config() :: %{
+        "Metrics" => list(list(any())())
+      }
+
+  """
+  @type event_source_mapping_metrics_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_layer_version_permission_response() :: %{
+        "RevisionId" => String.t() | atom(),
+        "Statement" => String.t() | atom()
+      }
+
+  """
+  @type add_layer_version_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alias_routing_configuration() :: %{
+        "AdditionalVersionWeights" => map()
+      }
+
+  """
+  @type alias_routing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_code() :: %{
+        "ImageUri" => String.t() | atom(),
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
+        "SourceKMSKeyArn" => String.t() | atom(),
+        "ZipFile" => binary()
+      }
+
+  """
+  @type function_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_heartbeat_request() :: %{}
+
+  """
+  @type send_durable_execution_callback_heartbeat_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type create_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snap_start() :: %{
+        "ApplyOn" => list(any())
+      }
+
+  """
+  @type snap_start() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_source_mapping_configuration() :: %{
+        "UUID" => String.t() | atom(),
+        "SelfManagedEventSource" => self_managed_event_source(),
+        "DocumentDBEventSourceConfig" => document_db_event_source_config(),
+        "TumblingWindowInSeconds" => integer(),
+        "FunctionArn" => String.t() | atom(),
+        "MaximumRetryAttempts" => integer(),
+        "EventSourceArn" => String.t() | atom(),
+        "MaximumRecordAgeInSeconds" => integer(),
+        "FunctionResponseTypes" => list(list(any())()),
+        "StateTransitionReason" => String.t() | atom(),
+        "State" => String.t() | atom(),
+        "StartingPosition" => list(any()),
+        "Topics" => list(String.t() | atom()),
+        "BatchSize" => integer(),
+        "FilterCriteriaError" => filter_criteria_error(),
+        "LoggingConfig" => event_source_mapping_logging_config(),
+        "ProvisionedPollerConfig" => provisioned_poller_config(),
+        "DestinationConfig" => destination_config(),
+        "KMSKeyArn" => String.t() | atom(),
+        "EventSourceMappingArn" => String.t() | atom(),
+        "ParallelizationFactor" => integer(),
+        "Queues" => list(String.t() | atom()),
+        "MaximumBatchingWindowInSeconds" => integer(),
+        "SelfManagedKafkaEventSourceConfig" => self_managed_kafka_event_source_config(),
+        "SourceAccessConfigurations" => list(source_access_configuration()),
+        "StartingPositionTimestamp" => non_neg_integer(),
+        "FilterCriteria" => filter_criteria(),
+        "ScalingConfig" => scaling_config(),
+        "BisectBatchOnFunctionError" => boolean(),
+        "AmazonManagedKafkaEventSourceConfig" => amazon_managed_kafka_event_source_config(),
+        "LastProcessingResult" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "MetricsConfig" => event_source_mapping_metrics_config()
+      }
+
+  """
+  @type event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snap_start_not_ready_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type snap_start_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      durable_execution_already_started_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type durable_execution_already_started_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snap_start_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type snap_start_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_started_details() :: %{}
+
+  """
+  @type context_started_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      step_options() :: %{
+        "NextAttemptDelaySeconds" => integer()
+      }
+
+  """
+  @type step_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_durable_execution_request() :: %{
+        optional("Error") => error_object()
+      }
+
+  """
+  @type stop_durable_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_version_request() :: %{
+        optional("CodeSha256") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        optional("LicenseInfo") => String.t() | atom(),
-        required("Content") => layer_version_content_input()
+        optional("PublishTo") => list(any()),
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type publish_layer_version_request() :: %{(String.t() | atom()) => any()}
+  @type publish_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subnet_ip_address_limit_reached_exception() :: %{
+      create_alias_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RoutingConfig") => alias_routing_configuration(),
+        required("FunctionVersion") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_aliases_request() :: %{
+        optional("FunctionVersion") => String.t() | atom(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_aliases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_request() :: %{
+        optional("FunctionVersion") => list(any()),
+        optional("Marker") => String.t() | atom(),
+        optional("MasterRegion") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_functions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_ready_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recursive_invocation_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type subnet_ip_address_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+  @type recursive_invocation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_media_type_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_media_type_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_criteria_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type filter_criteria_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_settings_request() :: %{}
+
+  """
+  @type get_account_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type callback_timed_out_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2154,62 +1181,478 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      execution_failed_details() :: %{
-        "Error" => event_error()
+      policy_length_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
       }
 
   """
-  @type execution_failed_details() :: %{(String.t() | atom()) => any()}
+  @type policy_length_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      account_limit() :: %{
-        "CodeSizeUnzipped" => float(),
-        "CodeSizeZipped" => float(),
-        "ConcurrentExecutions" => integer(),
-        "TotalCodeSize" => float(),
-        "UnreservedConcurrentExecutions" => integer()
+      context_details() :: %{
+        "Error" => error_object(),
+        "ReplayChildren" => boolean(),
+        "Result" => String.t() | atom()
       }
 
   """
-  @type account_limit() :: %{(String.t() | atom()) => any()}
+  @type context_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_function_event_invoke_config_request() :: %{
-        optional("DestinationConfig") => destination_config(),
-        optional("MaximumEventAgeInSeconds") => integer(),
-        optional("MaximumRetryAttempts") => integer(),
+      provisioned_poller_config() :: %{
+        "MaximumPollers" => integer(),
+        "MinimumPollers" => integer(),
+        "PollerGroupName" => String.t() | atom()
+      }
+
+  """
+  @type provisioned_poller_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_access_denied_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      allowed_publishers() :: %{
+        "SigningProfileVersionArns" => list(String.t() | atom())
+      }
+
+  """
+  @type allowed_publishers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_signing_config_request() :: %{
+        optional("AllowedPublishers") => allowed_publishers(),
+        optional("CodeSigningPolicies") => code_signing_policies(),
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_settings_response() :: %{
+        "AccountLimit" => account_limit(),
+        "AccountUsage" => account_usage()
+      }
+
+  """
+  @type get_account_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_value_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_response() :: %{
+        "Functions" => list(function_configuration()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_functions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_alias_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("FunctionVersion") => String.t() | atom(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("RoutingConfig") => alias_routing_configuration()
+      }
+
+  """
+  @type update_alias_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layers_list_item() :: %{
+        "LatestMatchingVersion" => layer_versions_list_item(),
+        "LayerArn" => String.t() | atom(),
+        "LayerName" => String.t() | atom()
+      }
+
+  """
+  @type layers_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_code_signing_config_request() :: %{
+        required("CodeSigningConfigArn") => String.t() | atom()
+      }
+
+  """
+  @type put_function_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invocation_response() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "ExecutedVersion" => String.t() | atom(),
+        "FunctionError" => String.t() | atom(),
+        "LogResult" => String.t() | atom(),
+        "Payload" => binary(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type invocation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_layer_version_response() :: %{
+        optional("CompatibleArchitectures") => list(list(any())()),
+        optional("CompatibleRuntimes") => list(list(any())()),
+        optional("Content") => layer_version_content_output(),
+        optional("CreatedDate") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LayerArn") => String.t() | atom(),
+        optional("LayerVersionArn") => String.t() | atom(),
+        optional("LicenseInfo") => String.t() | atom(),
+        optional("Version") => float()
+      }
+
+  """
+  @type get_layer_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_request() :: %{
         optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type update_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
+  @type delete_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_code_signing_config_response() :: %{}
-
-  """
-  @type delete_code_signing_config_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      file_system_config() :: %{
-        "Arn" => String.t() | atom(),
-        "LocalMountPath" => String.t() | atom()
+      self_managed_event_source() :: %{
+        "Endpoints" => map()
       }
 
   """
-  @type file_system_config() :: %{(String.t() | atom()) => any()}
+  @type self_managed_event_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type update_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_layers_response() :: %{
+        "Layers" => list(layers_list_item()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_layers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      instance_requirements() :: %{
+        "AllowedInstanceTypes" => list(String.t() | atom()),
+        "Architectures" => list(list(any())()),
+        "ExcludedInstanceTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type instance_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      serialized_request_entity_too_large_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type serialized_request_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subnet_ip_address_limit_reached_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type subnet_ip_address_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("State") => list(any())
+      }
+
+  """
+  @type list_capacity_providers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_response() :: %{
+        "Code" => function_code_location(),
+        "Concurrency" => concurrency(),
+        "Configuration" => function_configuration(),
+        "Tags" => map(),
+        "TagsError" => tags_error()
+      }
+
+  """
+  @type get_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_managed_kafka_event_source_config() :: %{
+        "ConsumerGroupId" => String.t() | atom(),
+        "SchemaRegistryConfig" => kafka_schema_registry_config()
+      }
+
+  """
+  @type amazon_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_with_response_stream_response() :: %{
+        "EventStream" => list(),
+        "ExecutedVersion" => String.t() | atom(),
+        "ResponseStreamContentType" => String.t() | atom(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type invoke_with_response_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tenancy_config() :: %{
+        "TenantIsolationMode" => list(any())
+      }
+
+  """
+  @type tenancy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_signing_config_request() :: %{
+        optional("CodeSigningPolicies") => code_signing_policies(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("AllowedPublishers") => allowed_publishers()
+      }
+
+  """
+  @type create_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_event_invoke_config_request() :: %{
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_event_invoke_configs_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_function_event_invoke_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snap_start_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type snap_start_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_error() :: %{
+        "Payload" => error_object(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type context_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_scaling_config() :: %{
+        "MaxExecutionEnvironments" => integer(),
+        "MinExecutionEnvironments" => integer()
+      }
+
+  """
+  @type function_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_capacity_providers_response() :: %{
+        "CapacityProviders" => list(capacity_provider()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_capacity_providers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_usage() :: %{
+        "FunctionCount" => float(),
+        "TotalCodeSize" => float()
+      }
+
+  """
+  @type account_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_db_event_source_config() :: %{
+        "CollectionName" => String.t() | atom(),
+        "DatabaseName" => String.t() | atom(),
+        "FullDocument" => list(any())
+      }
+
+  """
+  @type document_db_event_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_signing_config_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type code_signing_config_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2226,62 +1669,14 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      tracing_config() :: %{
-        "Mode" => list(any())
+      invoke_with_response_stream_complete_event() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ErrorDetails" => String.t() | atom(),
+        "LogResult" => String.t() | atom()
       }
 
   """
-  @type tracing_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_layer_version_by_arn_request() :: %{
-        required("Arn") => String.t() | atom()
-      }
-
-  """
-  @type get_layer_version_by_arn_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_verification_failed_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type code_verification_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ephemeral_storage() :: %{
-        "Size" => integer()
-      }
-
-  """
-  @type ephemeral_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_provisioned_concurrency_config_response() :: %{
-        "AllocatedProvisionedConcurrentExecutions" => integer(),
-        "AvailableProvisionedConcurrentExecutions" => integer(),
-        "LastModified" => String.t() | atom(),
-        "RequestedProvisionedConcurrentExecutions" => integer(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-
-  """
-  @type put_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
+  @type invoke_with_response_stream_complete_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2308,98 +1703,107 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      event_source_mapping_logging_config() :: %{
+      logging_config() :: %{
+        "ApplicationLogLevel" => list(any()),
+        "LogFormat" => list(any()),
+        "LogGroup" => String.t() | atom(),
         "SystemLogLevel" => list(any())
       }
 
   """
-  @type event_source_mapping_logging_config() :: %{(String.t() | atom()) => any()}
+  @type logging_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter() :: %{
-        "Pattern" => String.t() | atom()
+      account_limit() :: %{
+        "CodeSizeUnzipped" => float(),
+        "CodeSizeZipped" => float(),
+        "ConcurrentExecutions" => integer(),
+        "TotalCodeSize" => float(),
+        "UnreservedConcurrentExecutions" => integer()
       }
 
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type account_limit() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      layer_versions_list_item() :: %{
-        "CompatibleArchitectures" => list(list(any())()),
-        "CompatibleRuntimes" => list(list(any())()),
-        "CreatedDate" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "LayerVersionArn" => String.t() | atom(),
-        "LicenseInfo" => String.t() | atom(),
-        "Version" => float()
-      }
-
-  """
-  @type layer_versions_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_layer_versions_response() :: %{
-        "LayerVersions" => list(layer_versions_list_item()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_layer_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_files_mount_failure_exception() :: %{
+      s3_files_mount_connectivity_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type s3_files_mount_failure_exception() :: %{(String.t() | atom()) => any()}
+  @type s3_files_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invoke_async_response() :: %{
-        "Status" => integer()
+      get_policy_request() :: %{
+        optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type invoke_async_response() :: %{(String.t() | atom()) => any()}
+  @type get_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_versions_by_function_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
+      execution() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "DurableExecutionName" => String.t() | atom(),
+        "EndTimestamp" => non_neg_integer(),
+        "FunctionArn" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any())
       }
 
   """
-  @type list_versions_by_function_request() :: %{(String.t() | atom()) => any()}
+  @type execution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_capacity_provider_response() :: %{
-        "CapacityProvider" => capacity_provider()
+      code_verification_failed_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type create_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+  @type code_verification_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_event_invoke_config_request() :: %{
+        optional("DestinationConfig") => destination_config(),
+        optional("MaximumEventAgeInSeconds") => integer(),
+        optional("MaximumRetryAttempts") => integer(),
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type put_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2417,48 +1821,302 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      scaling_config() :: %{
-        "MaximumConcurrency" => integer()
-      }
-
-  """
-  @type scaling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_policy_response() :: %{
-        "Policy" => String.t() | atom(),
-        "RevisionId" => String.t() | atom()
-      }
-
-  """
-  @type get_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioned_concurrency_config_request() :: %{
-        required("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type get_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      callback_started_details() :: %{
+      callback_details() :: %{
         "CallbackId" => String.t() | atom(),
-        "HeartbeatTimeout" => integer(),
-        "Timeout" => integer()
+        "Error" => error_object(),
+        "Result" => String.t() | atom()
       }
 
   """
-  @type callback_started_details() :: %{(String.t() | atom()) => any()}
+  @type callback_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_history_request() :: %{
+        optional("IncludeExecutionData") => boolean(),
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer(),
+        optional("ReverseOrder") => boolean()
+      }
+
+  """
+  @type get_durable_execution_history_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_function_recursion_config_response() :: %{
+        "RecursiveLoop" => list(any())
+      }
+
+  """
+  @type put_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_by_function_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_versions_by_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provisioned_concurrency_config_list_item() :: %{
+        "AllocatedProvisionedConcurrentExecutions" => integer(),
+        "AvailableProvisionedConcurrentExecutions" => integer(),
+        "FunctionArn" => String.t() | atom(),
+        "LastModified" => String.t() | atom(),
+        "RequestedProvisionedConcurrentExecutions" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type provisioned_concurrency_config_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_mount_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_runtime_management_config_response() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "RuntimeVersionArn" => String.t() | atom(),
+        "UpdateRuntimeOn" => list(any())
+      }
+
+  """
+  @type get_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_managed_kafka_event_source_config() :: %{
+        "ConsumerGroupId" => String.t() | atom(),
+        "SchemaRegistryConfig" => kafka_schema_registry_config()
+      }
+
+  """
+  @type self_managed_kafka_event_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layer_version_content_input() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom(),
+        "ZipFile" => binary()
+      }
+
+  """
+  @type layer_version_content_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tags_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type tags_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_url_configs_response() :: %{
+        "FunctionUrlConfigs" => list(function_url_config()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_function_url_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layer_version_content_output() :: %{
+        "CodeSha256" => String.t() | atom(),
+        "CodeSize" => float(),
+        "Location" => String.t() | atom(),
+        "SigningJobArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type layer_version_content_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_signing_configs_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_code_signing_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type callback_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      precondition_failed_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_result() :: %{
+        "Payload" => String.t() | atom(),
+        "Truncated" => boolean()
+      }
+
+  """
+  @type event_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_config_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type image_config_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment() :: %{
+        "Variables" => map()
+      }
+
+  """
+  @type environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_details() :: %{
+        "CurrentAttempt" => integer(),
+        "NextAttemptDelaySeconds" => integer()
+      }
+
+  """
+  @type retry_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_url_config_response() :: %{
+        "AuthType" => list(any()),
+        "Cors" => cors(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
+        "InvokeMode" => list(any()),
+        "LastModifiedTime" => String.t() | atom()
+      }
+
+  """
+  @type get_function_url_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_request() :: %{
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_function_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2476,87 +2134,803 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      update_capacity_provider_response() :: %{
-        "CapacityProvider" => capacity_provider()
+      list_provisioned_concurrency_configs_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "ProvisionedConcurrencyConfigs" => list(provisioned_concurrency_config_list_item())
       }
 
   """
-  @type update_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+  @type list_provisioned_concurrency_configs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      chained_invoke_details() :: %{
-        "Error" => error_object(),
-        "Result" => String.t() | atom()
-      }
-
-  """
-  @type chained_invoke_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_stopped_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type execution_stopped_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_provider_permissions_config() :: %{
-        "CapacityProviderOperatorRoleArn" => String.t() | atom()
-      }
-
-  """
-  @type capacity_provider_permissions_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_functions_request() :: %{
-        optional("FunctionVersion") => list(any()),
-        optional("Marker") => String.t() | atom(),
-        optional("MasterRegion") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_functions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_layer_version_permission_request() :: %{
-        optional("OrganizationId") => String.t() | atom(),
+      add_permission_request() :: %{
+        optional("EventSourceToken") => String.t() | atom(),
+        optional("FunctionUrlAuthType") => list(any()),
+        optional("InvokedViaFunctionUrl") => boolean(),
+        optional("PrincipalOrgID") => String.t() | atom(),
+        optional("Qualifier") => String.t() | atom(),
         optional("RevisionId") => String.t() | atom(),
+        optional("SourceAccount") => String.t() | atom(),
+        optional("SourceArn") => String.t() | atom(),
         required("Action") => String.t() | atom(),
         required("Principal") => String.t() | atom(),
         required("StatementId") => String.t() | atom()
       }
 
   """
-  @type add_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
+  @type add_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_functions_by_code_signing_config_request() :: %{
+      step_succeeded_details() :: %{
+        "Result" => event_result(),
+        "RetryDetails" => retry_details()
+      }
+
+  """
+  @type step_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_files_mount_failure_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type s3_files_mount_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snap_start_response() :: %{
+        "ApplyOn" => list(any()),
+        "OptimizationStatus" => list(any())
+      }
+
+  """
+  @type snap_start_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_request() :: %{
+        optional("Architectures") => list(list(any())()),
+        optional("CapacityProviderConfig") => capacity_provider_config(),
+        optional("CodeSigningConfigArn") => String.t() | atom(),
+        optional("DeadLetterConfig") => dead_letter_config(),
+        optional("Description") => String.t() | atom(),
+        optional("DurableConfig") => durable_config(),
+        optional("Environment") => environment(),
+        optional("EphemeralStorage") => ephemeral_storage(),
+        optional("FileSystemConfigs") => list(file_system_config()),
+        optional("Handler") => String.t() | atom(),
+        optional("ImageConfig") => image_config(),
+        optional("KMSKeyArn") => String.t() | atom(),
+        optional("Layers") => list(String.t() | atom()),
+        optional("LoggingConfig") => logging_config(),
+        optional("MemorySize") => integer(),
+        optional("PackageType") => list(any()),
+        optional("Publish") => boolean(),
+        optional("PublishTo") => list(any()),
+        optional("Runtime") => list(any()),
+        optional("SnapStart") => snap_start(),
+        optional("Tags") => map(),
+        optional("TenancyConfig") => tenancy_config(),
+        optional("Timeout") => integer(),
+        optional("TracingConfig") => tracing_config(),
+        optional("VpcConfig") => vpc_config(),
+        required("Code") => function_code(),
+        required("FunctionName") => String.t() | atom(),
+        required("Role") => String.t() | atom()
+      }
+
+  """
+  @type create_function_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step_started_details() :: %{}
+
+  """
+  @type step_started_details() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_zip_file_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_zip_file_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_source_mapping_request() :: %{}
+
+  """
+  @type get_event_source_mapping_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_signing_configs_response() :: %{
+        "CodeSigningConfigs" => list(code_signing_config()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_code_signing_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      e_n_i_limit_reached_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type e_n_i_limit_reached_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tracing_config_response() :: %{
+        "Mode" => list(any())
+      }
+
+  """
+  @type tracing_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_concurrency_response() :: %{
+        "ReservedConcurrentExecutions" => integer()
+      }
+
+  """
+  @type get_function_concurrency_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      checkpoint_updated_execution_state() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Operations" => list(operation())
+      }
+
+  """
+  @type checkpoint_updated_execution_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_config_response() :: %{
+        "Error" => image_config_error(),
+        "ImageConfig" => image_config()
+      }
+
+  """
+  @type image_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_capacity_provider_request() :: %{
+        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
+        optional("InstanceRequirements") => instance_requirements(),
+        optional("KmsKeyArn") => String.t() | atom(),
+        optional("PropagateTags") => propagate_tags(),
+        optional("Tags") => map(),
+        required("CapacityProviderName") => String.t() | atom(),
+        required("PermissionsConfig") => capacity_provider_permissions_config(),
+        required("VpcConfig") => capacity_provider_vpc_config()
+      }
+
+  """
+  @type create_capacity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_function_url_config_request() :: %{
+        optional("Cors") => cors(),
+        optional("InvokeMode") => list(any()),
+        optional("Qualifier") => String.t() | atom(),
+        required("AuthType") => list(any())
+      }
+
+  """
+  @type create_function_url_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_alias_request() :: %{}
+
+  """
+  @type delete_alias_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      e_f_s_mount_timeout_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type e_f_s_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_signing_config_request() :: %{}
+
+  """
+  @type delete_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_layer_version_policy_response() :: %{
+        "Policy" => String.t() | atom(),
+        "RevisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_layer_version_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_started_details() :: %{
+        "ExecutionTimeout" => integer(),
+        "Input" => event_input()
+      }
+
+  """
+  @type execution_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_layer_version_by_arn_request() :: %{
+        required("Arn") => String.t() | atom()
+      }
+
+  """
+  @type get_layer_version_by_arn_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_options() :: %{
+        "WaitSeconds" => integer()
+      }
+
+  """
+  @type wait_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_runtime_management_config_request() :: %{
+        optional("Qualifier") => String.t() | atom(),
+        optional("RuntimeVersionArn") => String.t() | atom(),
+        required("UpdateRuntimeOn") => list(any())
+      }
+
+  """
+  @type put_runtime_management_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_conflict_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_limit_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type capacity_provider_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      concurrency() :: %{
+        optional("ReservedConcurrentExecutions") => integer()
+      }
+
+  """
+  @type concurrency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_url_configs_request() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer()
       }
 
   """
-  @type list_functions_by_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+  @type list_function_url_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_code_location() :: %{
+        "ImageUri" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "RepositoryType" => String.t() | atom(),
+        "ResolvedImageUri" => String.t() | atom(),
+        "SourceKMSKeyArn" => String.t() | atom()
+      }
+
+  """
+  @type function_code_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_request() :: %{}
+
+  """
+  @type get_capacity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      kafka_schema_validation_config() :: %{
+        "Attribute" => list(any())
+      }
+
+  """
+  @type kafka_schema_validation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_provisioned_concurrency_config_request() :: %{
+        required("ProvisionedConcurrentExecutions") => integer(),
+        required("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type put_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_response() :: %{
+        "StatusCode" => integer()
+      }
+
+  """
+  @type delete_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_url_config_request() :: %{
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_function_url_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_versions_by_capacity_provider_response() :: %{
+        "CapacityProviderArn" => String.t() | atom(),
+        "FunctionVersions" => list(function_versions_by_capacity_provider_list_item()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_function_versions_by_capacity_provider_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type get_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioned_concurrency_config_response() :: %{
+        "AllocatedProvisionedConcurrentExecutions" => integer(),
+        "AvailableProvisionedConcurrentExecutions" => integer(),
+        "LastModified" => String.t() | atom(),
+        "RequestedProvisionedConcurrentExecutions" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type get_provisioned_concurrency_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_signing_policies() :: %{
+        "UntrustedArtifactOnDeployment" => list(any())
+      }
+
+  """
+  @type code_signing_policies() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_permission_response() :: %{
+        "Statement" => String.t() | atom()
+      }
+
+  """
+  @type add_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_async_request() :: %{
+        required("InvokeArgs") => binary()
+      }
+
+  """
+  @type invoke_async_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_code_signature_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_code_signature_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      durable_config() :: %{
+        "ExecutionTimeout" => integer(),
+        "RetentionPeriodInDays" => integer()
+      }
+
+  """
+  @type durable_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_config() :: %{
+        "Command" => list(String.t() | atom()),
+        "EntryPoint" => list(String.t() | atom()),
+        "WorkingDirectory" => String.t() | atom()
+      }
+
+  """
+  @type image_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_security_group_id_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type invalid_security_group_id_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wait_succeeded_details() :: %{
+        "Duration" => integer()
+      }
+
+  """
+  @type wait_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_event_invoke_configs_response() :: %{
+        "FunctionEventInvokeConfigs" => list(function_event_invoke_config()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_function_event_invoke_configs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_timed_out_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type chained_invoke_timed_out_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_config() :: %{
+        "OnFailure" => on_failure(),
+        "OnSuccess" => on_success()
+      }
+
+  """
+  @type destination_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scaling_config() :: %{
+        "MaximumConcurrency" => integer()
+      }
+
+  """
+  @type scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_function_concurrency_request() :: %{}
+
+  """
+  @type delete_function_concurrency_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      on_failure() :: %{
+        "Destination" => String.t() | atom()
+      }
+
+  """
+  @type on_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      publish_layer_version_response() :: %{
+        "CompatibleArchitectures" => list(list(any())()),
+        "CompatibleRuntimes" => list(list(any())()),
+        "Content" => layer_version_content_output(),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LayerArn" => String.t() | atom(),
+        "LayerVersionArn" => String.t() | atom(),
+        "LicenseInfo" => String.t() | atom(),
+        "Version" => float()
+      }
+
+  """
+  @type publish_layer_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tracing_config() :: %{
+        "Mode" => list(any())
+      }
+
+  """
+  @type tracing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation() :: %{
+        "CallbackDetails" => callback_details(),
+        "ChainedInvokeDetails" => chained_invoke_details(),
+        "ContextDetails" => context_details(),
+        "EndTimestamp" => non_neg_integer(),
+        "ExecutionDetails" => execution_details(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentId" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer(),
+        "Status" => list(any()),
+        "StepDetails" => step_details(),
+        "SubType" => String.t() | atom(),
+        "Type" => list(any()),
+        "WaitDetails" => wait_details()
+      }
+
+  """
+  @type operation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_success_response() :: %{}
+
+  """
+  @type send_durable_execution_callback_success_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_capacity_provider_request() :: %{
+        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
+        optional("PropagateTags") => propagate_tags()
+      }
+
+  """
+  @type update_capacity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_version_config() :: %{
+        "Error" => runtime_version_error(),
+        "RuntimeVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type runtime_version_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_durable_execution_callback_heartbeat_response() :: %{}
+
+  """
+  @type send_durable_execution_callback_heartbeat_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ec2_unexpected_exception() :: %{
+        "EC2ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type ec2_unexpected_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2576,69 +2950,632 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      kms_access_denied_exception() :: %{
+      wait_details() :: %{
+        "ScheduledEndTimestamp" => non_neg_integer()
+      }
+
+  """
+  @type wait_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_request() :: %{}
+
+  """
+  @type list_tags_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_configuration_request() :: %{
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_function_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      context_options() :: %{
+        "ReplayChildren" => boolean()
+      }
+
+  """
+  @type context_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_request() :: %{}
+
+  """
+  @type delete_capacity_provider_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_code_signing_config_request() :: %{}
+
+  """
+  @type get_code_signing_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      layer() :: %{
+        "Arn" => String.t() | atom(),
+        "CodeSize" => float(),
+        "SigningJobArn" => String.t() | atom(),
+        "SigningProfileVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type layer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_concurrency_configs_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_provisioned_concurrency_configs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_function_versions_by_capacity_provider_request() :: %{
+        optional("Marker") => String.t() | atom(),
+        optional("MaxItems") => integer()
+      }
+
+  """
+  @type list_function_versions_by_capacity_provider_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_succeeded_details() :: %{
+        "Result" => event_result()
+      }
+
+  """
+  @type chained_invoke_succeeded_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_config() :: %{
+        "LambdaManagedInstancesCapacityProviderConfig" => lambda_managed_instances_capacity_provider_config()
+      }
+
+  """
+  @type capacity_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_event_invoke_config() :: %{
+        optional("DestinationConfig") => destination_config(),
+        optional("FunctionArn") => String.t() | atom(),
+        optional("LastModified") => non_neg_integer(),
+        optional("MaximumEventAgeInSeconds") => integer(),
+        optional("MaximumRetryAttempts") => integer()
+      }
+
+  """
+  @type function_event_invoke_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      callback_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type callback_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capacity_provider_vpc_config() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type capacity_provider_vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioned_concurrency_config_request() :: %{
+        required("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type get_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_async_response() :: %{
+        "Status" => integer()
+      }
+
+  """
+  @type invoke_async_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_runtime_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type kms_access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_runtime_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_code_signing_config_request() :: %{
-        optional("AllowedPublishers") => allowed_publishers(),
-        optional("CodeSigningPolicies") => code_signing_policies(),
-        optional("Description") => String.t() | atom()
+      file_system_config() :: %{
+        "Arn" => String.t() | atom(),
+        "LocalMountPath" => String.t() | atom()
       }
 
   """
-  @type update_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+  @type file_system_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_function_code_signing_config_request() :: %{
-        required("CodeSigningConfigArn") => String.t() | atom()
+      ec2_throttled_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type put_function_code_signing_config_request() :: %{(String.t() | atom()) => any()}
+  @type ec2_throttled_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_durable_execution_callback_success_response() :: %{}
-
-  """
-  @type send_durable_execution_callback_success_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_durable_execution_callback_success_request() :: %{
-        optional("Result") => binary()
+      e_f_s_mount_failure_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type send_durable_execution_callback_success_request() :: %{(String.t() | atom()) => any()}
+  @type e_f_s_mount_failure_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      add_layer_version_permission_response() :: %{
+      update_function_configuration_request() :: %{
+        optional("CapacityProviderConfig") => capacity_provider_config(),
+        optional("DeadLetterConfig") => dead_letter_config(),
+        optional("Description") => String.t() | atom(),
+        optional("DurableConfig") => durable_config(),
+        optional("Environment") => environment(),
+        optional("EphemeralStorage") => ephemeral_storage(),
+        optional("FileSystemConfigs") => list(file_system_config()),
+        optional("Handler") => String.t() | atom(),
+        optional("ImageConfig") => image_config(),
+        optional("KMSKeyArn") => String.t() | atom(),
+        optional("Layers") => list(String.t() | atom()),
+        optional("LoggingConfig") => logging_config(),
+        optional("MemorySize") => integer(),
+        optional("RevisionId") => String.t() | atom(),
+        optional("Role") => String.t() | atom(),
+        optional("Runtime") => list(any()),
+        optional("SnapStart") => snap_start(),
+        optional("Timeout") => integer(),
+        optional("TracingConfig") => tracing_config(),
+        optional("VpcConfig") => vpc_config()
+      }
+
+  """
+  @type update_function_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_source_mapping_request() :: %{
+        optional("AmazonManagedKafkaEventSourceConfig") => amazon_managed_kafka_event_source_config(),
+        optional("BatchSize") => integer(),
+        optional("BisectBatchOnFunctionError") => boolean(),
+        optional("DestinationConfig") => destination_config(),
+        optional("DocumentDBEventSourceConfig") => document_db_event_source_config(),
+        optional("Enabled") => boolean(),
+        optional("FilterCriteria") => filter_criteria(),
+        optional("FunctionName") => String.t() | atom(),
+        optional("FunctionResponseTypes") => list(list(any())()),
+        optional("KMSKeyArn") => String.t() | atom(),
+        optional("LoggingConfig") => event_source_mapping_logging_config(),
+        optional("MaximumBatchingWindowInSeconds") => integer(),
+        optional("MaximumRecordAgeInSeconds") => integer(),
+        optional("MaximumRetryAttempts") => integer(),
+        optional("MetricsConfig") => event_source_mapping_metrics_config(),
+        optional("ParallelizationFactor") => integer(),
+        optional("ProvisionedPollerConfig") => provisioned_poller_config(),
+        optional("ScalingConfig") => scaling_config(),
+        optional("SelfManagedKafkaEventSourceConfig") => self_managed_kafka_event_source_config(),
+        optional("SourceAccessConfigurations") => list(source_access_configuration()),
+        optional("TumblingWindowInSeconds") => integer()
+      }
+
+  """
+  @type update_event_source_mapping_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_functions_by_code_signing_config_response() :: %{
+        "FunctionArns" => list(String.t() | atom()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_functions_by_code_signing_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_function_scaling_config_response() :: %{
+        "AppliedFunctionScalingConfig" => function_scaling_config(),
+        "FunctionArn" => String.t() | atom(),
+        "RequestedFunctionScalingConfig" => function_scaling_config()
+      }
+
+  """
+  @type get_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_managed_instances_capacity_provider_config() :: %{
+        "CapacityProviderArn" => String.t() | atom(),
+        "ExecutionEnvironmentMemoryGiBPerVCpu" => float(),
+        "PerExecutionEnvironmentMaxConcurrency" => integer()
+      }
+
+  """
+  @type lambda_managed_instances_capacity_provider_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_code_request() :: %{
+        optional("Architectures") => list(list(any())()),
+        optional("DryRun") => boolean(),
+        optional("ImageUri") => String.t() | atom(),
+        optional("Publish") => boolean(),
+        optional("PublishTo") => list(any()),
+        optional("RevisionId") => String.t() | atom(),
+        optional("S3Bucket") => String.t() | atom(),
+        optional("S3Key") => String.t() | atom(),
+        optional("S3ObjectVersion") => String.t() | atom(),
+        optional("SourceKMSKeyArn") => String.t() | atom(),
+        optional("ZipFile") => binary()
+      }
+
+  """
+  @type update_function_code_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      e_f_s_i_o_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type e_f_s_i_o_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_failed_details() :: %{
+        "Error" => event_error()
+      }
+
+  """
+  @type chained_invoke_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_with_response_stream_request() :: %{
+        optional("ClientContext") => String.t() | atom(),
+        optional("InvocationType") => list(any()),
+        optional("LogType") => list(any()),
+        optional("Payload") => binary(),
+        optional("Qualifier") => String.t() | atom(),
+        optional("TenantId") => String.t() | atom()
+      }
+
+  """
+  @type invoke_with_response_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_aliases_response() :: %{
+        "Aliases" => list(alias_configuration()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_aliases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_code_signing_config_response() :: %{
+        "CodeSigningConfig" => code_signing_config()
+      }
+
+  """
+  @type update_code_signing_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_request() :: %{}
+
+  """
+  @type get_durable_execution_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_response() :: %{
+        "Error" => environment_error(),
+        "Variables" => map()
+      }
+
+  """
+  @type environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_tracking_scaling_policy() :: %{
+        "PredefinedMetricType" => list(any()),
+        "TargetValue" => float()
+      }
+
+  """
+  @type target_tracking_scaling_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_versions_by_capacity_provider_list_item() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type function_versions_by_capacity_provider_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type environment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cors() :: %{
+        "AllowCredentials" => boolean(),
+        "AllowHeaders" => list(String.t() | atom()),
+        "AllowMethods" => list(String.t() | atom()),
+        "AllowOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
+        "MaxAge" => integer()
+      }
+
+  """
+  @type cors() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      chained_invoke_started_details() :: %{
+        "DurableExecutionArn" => String.t() | atom(),
+        "ExecutedVersion" => String.t() | atom(),
+        "FunctionName" => String.t() | atom(),
+        "Input" => event_input(),
+        "TenantId" => String.t() | atom()
+      }
+
+  """
+  @type chained_invoke_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      runtime_version_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type runtime_version_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_url_config_request() :: %{
+        optional("AuthType") => list(any()),
+        optional("Cors") => cors(),
+        optional("InvokeMode") => list(any()),
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type update_function_url_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      step_failed_details() :: %{
+        "Error" => event_error(),
+        "RetryDetails" => retry_details()
+      }
+
+  """
+  @type step_failed_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_signing_config() :: %{
+        "AllowedPublishers" => allowed_publishers(),
+        "CodeSigningConfigArn" => String.t() | atom(),
+        "CodeSigningConfigId" => String.t() | atom(),
+        "CodeSigningPolicies" => code_signing_policies(),
+        "Description" => String.t() | atom(),
+        "LastModified" => String.t() | atom()
+      }
+
+  """
+  @type code_signing_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alias_configuration() :: %{
+        "AliasArn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "FunctionVersion" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "RevisionId" => String.t() | atom(),
-        "Statement" => String.t() | atom()
+        "RoutingConfig" => alias_routing_configuration()
       }
 
   """
-  @type add_layer_version_permission_response() :: %{(String.t() | atom()) => any()}
+  @type alias_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_function_event_invoke_config_request() :: %{
+        optional("DestinationConfig") => destination_config(),
+        optional("MaximumEventAgeInSeconds") => integer(),
+        optional("MaximumRetryAttempts") => integer(),
+        optional("Qualifier") => String.t() | atom()
+      }
+
+  """
+  @type update_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation_update() :: %{
+        "Action" => list(any()),
+        "CallbackOptions" => callback_options(),
+        "ChainedInvokeOptions" => chained_invoke_options(),
+        "ContextOptions" => context_options(),
+        "Error" => error_object(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ParentId" => String.t() | atom(),
+        "Payload" => String.t() | atom(),
+        "StepOptions" => step_options(),
+        "SubType" => String.t() | atom(),
+        "Type" => list(any()),
+        "WaitOptions" => wait_options()
+      }
+
+  """
+  @type operation_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_source_mappings_response() :: %{
+        "EventSourceMappings" => list(event_source_mapping_configuration()),
+        "NextMarker" => String.t() | atom()
+      }
+
+  """
+  @type list_event_source_mappings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config_response() :: %{
+        "Ipv6AllowedForDualStack" => boolean(),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom()),
+        "VpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2685,278 +3622,89 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      get_event_source_mapping_request() :: %{}
+      stop_durable_execution_response() :: %{
+        "StopTimestamp" => non_neg_integer()
+      }
 
   """
-  @type get_event_source_mapping_request() :: %{}
+  @type stop_durable_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kafka_schema_registry_access_config() :: %{
+      source_access_configuration() :: %{
         "Type" => list(any()),
         "URI" => String.t() | atom()
       }
 
   """
-  @type kafka_schema_registry_access_config() :: %{(String.t() | atom()) => any()}
+  @type source_access_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invocation_request() :: %{
-        optional("ClientContext") => String.t() | atom(),
-        optional("DurableExecutionName") => String.t() | atom(),
-        optional("InvocationType") => list(any()),
-        optional("LogType") => list(any()),
-        optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | atom(),
-        optional("TenantId") => String.t() | atom()
+      list_layer_versions_response() :: %{
+        "LayerVersions" => list(layer_versions_list_item()),
+        "NextMarker" => String.t() | atom()
       }
 
   """
-  @type invocation_request() :: %{(String.t() | atom()) => any()}
+  @type list_layer_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_zip_file_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      ephemeral_storage() :: %{
+        "Size" => integer()
       }
 
   """
-  @type invalid_zip_file_exception() :: %{(String.t() | atom()) => any()}
+  @type ephemeral_storage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_source_mapping_metrics_config() :: %{
-        "Metrics" => list(list(any())())
+      error_object() :: %{
+        "ErrorData" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "ErrorType" => String.t() | atom(),
+        "StackTrace" => list(String.t() | atom())
       }
 
   """
-  @type event_source_mapping_metrics_config() :: %{(String.t() | atom()) => any()}
+  @type error_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invoke_with_response_stream_complete_event() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "ErrorDetails" => String.t() | atom(),
-        "LogResult" => String.t() | atom()
+      update_function_url_config_response() :: %{
+        "AuthType" => list(any()),
+        "Cors" => cors(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
+        "InvokeMode" => list(any()),
+        "LastModifiedTime" => String.t() | atom()
       }
 
   """
-  @type invoke_with_response_stream_complete_event() :: %{(String.t() | atom()) => any()}
+  @type update_function_url_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kms_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type kms_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      callback_succeeded_details() :: %{
-        "Result" => event_result()
-      }
-
-  """
-  @type callback_succeeded_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invoke_with_response_stream_request() :: %{
-        optional("ClientContext") => String.t() | atom(),
-        optional("InvocationType") => list(any()),
-        optional("LogType") => list(any()),
-        optional("Payload") => binary(),
-        optional("Qualifier") => String.t() | atom(),
-        optional("TenantId") => String.t() | atom()
-      }
-
-  """
-  @type invoke_with_response_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_durable_execution_callback_failure_request() :: %{
-        optional("Error") => error_object()
-      }
-
-  """
-  @type send_durable_execution_callback_failure_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wait_started_details() :: %{
-        "Duration" => integer(),
-        "ScheduledEndTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type wait_started_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_url_config_request() :: %{
+      delete_function_event_invoke_config_request() :: %{
         optional("Qualifier") => String.t() | atom()
       }
 
   """
-  @type get_function_url_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      context_failed_details() :: %{
-        "Error" => event_error()
-      }
-
-  """
-  @type context_failed_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      propagate_tags() :: %{
-        "ExplicitTags" => map(),
-        "Mode" => list(any())
-      }
-
-  """
-  @type propagate_tags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_code_signing_config_response() :: %{
-        "CodeSigningConfig" => code_signing_config()
-      }
-
-  """
-  @type update_code_signing_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_requirements() :: %{
-        "AllowedInstanceTypes" => list(String.t() | atom()),
-        "Architectures" => list(list(any())()),
-        "ExcludedInstanceTypes" => list(String.t() | atom())
-      }
-
-  """
-  @type instance_requirements() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_versions_by_capacity_provider_list_item() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "State" => list(any())
-      }
-
-  """
-  @type function_versions_by_capacity_provider_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_capacity_provider_response() :: %{
-        "CapacityProvider" => capacity_provider()
-      }
-
-  """
-  @type get_capacity_provider_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dead_letter_config() :: %{
-        "TargetArn" => String.t() | atom()
-      }
-
-  """
-  @type dead_letter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      e_f_s_mount_timeout_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type e_f_s_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioned_concurrency_config_request() :: %{
-        required("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type delete_provisioned_concurrency_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_config_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type image_config_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_layers_request() :: %{
-        optional("CompatibleArchitecture") => list(any()),
-        optional("CompatibleRuntime") => list(any()),
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_layers_request() :: %{(String.t() | atom()) => any()}
+  @type delete_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2974,179 +3722,15 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      capacity_provider_limit_exceeded_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
+      invocation_completed_details() :: %{
+        "EndTimestamp" => non_neg_integer(),
+        "Error" => event_error(),
+        "RequestId" => String.t() | atom(),
+        "StartTimestamp" => non_neg_integer()
       }
 
   """
-  @type capacity_provider_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_code_signing_config_response() :: %{
-        "CodeSigningConfig" => code_signing_config()
-      }
-
-  """
-  @type get_code_signing_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      runtime_version_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type runtime_version_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_layer_version_request() :: %{}
-
-  """
-  @type get_layer_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      function_configuration() :: %{
-        "VpcConfig" => vpc_config_response(),
-        "TracingConfig" => tracing_config_response(),
-        "MemorySize" => integer(),
-        "Version" => String.t() | atom(),
-        "Handler" => String.t() | atom(),
-        "KMSKeyArn" => String.t() | atom(),
-        "SigningProfileVersionArn" => String.t() | atom(),
-        "MasterArn" => String.t() | atom(),
-        "Role" => String.t() | atom(),
-        "DurableConfig" => durable_config(),
-        "PackageType" => list(any()),
-        "CapacityProviderConfig" => capacity_provider_config(),
-        "StateReason" => String.t() | atom(),
-        "State" => list(any()),
-        "LastUpdateStatus" => list(any()),
-        "Architectures" => list(list(any())()),
-        "Environment" => environment_response(),
-        "Timeout" => integer(),
-        "LastModified" => String.t() | atom(),
-        "StateReasonCode" => list(any()),
-        "DeadLetterConfig" => dead_letter_config(),
-        "EphemeralStorage" => ephemeral_storage(),
-        "Layers" => list(layer()),
-        "CodeSha256" => String.t() | atom(),
-        "FileSystemConfigs" => list(file_system_config()),
-        "LastUpdateStatusReason" => String.t() | atom(),
-        "LastUpdateStatusReasonCode" => list(any()),
-        "ConfigSha256" => String.t() | atom(),
-        "TenancyConfig" => tenancy_config(),
-        "SnapStart" => snap_start_response(),
-        "Runtime" => list(any()),
-        "ImageConfigResponse" => image_config_response(),
-        "Description" => String.t() | atom(),
-        "RevisionId" => String.t() | atom(),
-        "FunctionArn" => String.t() | atom(),
-        "SigningJobArn" => String.t() | atom(),
-        "LoggingConfig" => logging_config(),
-        "CodeSize" => float(),
-        "RuntimeVersionConfig" => runtime_version_config(),
-        "FunctionName" => String.t() | atom()
-      }
-
-  """
-  @type function_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      e_f_s_mount_connectivity_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type e_f_s_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_runtime_management_config_response() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "RuntimeVersionArn" => String.t() | atom(),
-        "UpdateRuntimeOn" => list(any())
-      }
-
-  """
-  @type get_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_runtime_management_config_response() :: %{
-        "FunctionArn" => String.t() | atom(),
-        "RuntimeVersionArn" => String.t() | atom(),
-        "UpdateRuntimeOn" => list(any())
-      }
-
-  """
-  @type put_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      capacity_provider_config() :: %{
-        "LambdaManagedInstancesCapacityProviderConfig" => lambda_managed_instances_capacity_provider_config()
-      }
-
-  """
-  @type capacity_provider_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      e_n_i_limit_reached_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type e_n_i_limit_reached_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_durable_execution_response() :: %{
-        "StopTimestamp" => non_neg_integer()
-      }
-
-  """
-  @type stop_durable_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_url_configs_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_function_url_configs_request() :: %{(String.t() | atom()) => any()}
+  @type invocation_completed_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3166,217 +3750,68 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      put_function_scaling_config_request() :: %{
-        optional("FunctionScalingConfig") => function_scaling_config(),
-        required("Qualifier") => String.t() | atom()
+      filter_criteria() :: %{
+        "Filters" => list(filter())
       }
 
   """
-  @type put_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
+  @type filter_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_durable_executions_by_function_response() :: %{
-        "DurableExecutions" => list(execution()),
-        "NextMarker" => String.t() | atom()
+      get_function_recursion_config_response() :: %{
+        "RecursiveLoop" => list(any())
       }
 
   """
-  @type list_durable_executions_by_function_response() :: %{(String.t() | atom()) => any()}
+  @type get_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_function_event_invoke_config_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type delete_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      e_f_s_mount_failure_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type e_f_s_mount_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cors() :: %{
-        "AllowCredentials" => boolean(),
-        "AllowHeaders" => list(String.t() | atom()),
-        "AllowMethods" => list(String.t() | atom()),
-        "AllowOrigins" => list(String.t() | atom()),
-        "ExposeHeaders" => list(String.t() | atom()),
-        "MaxAge" => integer()
-      }
-
-  """
-  @type cors() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      function_url_config() :: %{
-        "AuthType" => list(any()),
-        "Cors" => cors(),
-        "CreationTime" => String.t() | atom(),
-        "FunctionArn" => String.t() | atom(),
-        "FunctionUrl" => String.t() | atom(),
-        "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | atom()
-      }
-
-  """
-  @type function_url_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wait_details() :: %{
+      wait_started_details() :: %{
+        "Duration" => integer(),
         "ScheduledEndTimestamp" => non_neg_integer()
       }
 
   """
-  @type wait_details() :: %{(String.t() | atom()) => any()}
+  @type wait_started_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      on_success() :: %{
-        "Destination" => String.t() | atom()
+      put_runtime_management_config_response() :: %{
+        "FunctionArn" => String.t() | atom(),
+        "RuntimeVersionArn" => String.t() | atom(),
+        "UpdateRuntimeOn" => list(any())
       }
 
   """
-  @type on_success() :: %{(String.t() | atom()) => any()}
+  @type put_runtime_management_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      self_managed_event_source() :: %{
-        "Endpoints" => map()
+      execution_details() :: %{
+        "InputPayload" => String.t() | atom()
       }
 
   """
-  @type self_managed_event_source() :: %{(String.t() | atom()) => any()}
+  @type execution_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_function_configuration_request() :: %{
-        optional("CapacityProviderConfig") => capacity_provider_config(),
-        optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t() | atom(),
-        optional("DurableConfig") => durable_config(),
-        optional("Environment") => environment(),
-        optional("EphemeralStorage") => ephemeral_storage(),
-        optional("FileSystemConfigs") => list(file_system_config()),
-        optional("Handler") => String.t() | atom(),
-        optional("ImageConfig") => image_config(),
-        optional("KMSKeyArn") => String.t() | atom(),
-        optional("Layers") => list(String.t() | atom()),
-        optional("LoggingConfig") => logging_config(),
-        optional("MemorySize") => integer(),
-        optional("RevisionId") => String.t() | atom(),
-        optional("Role") => String.t() | atom(),
-        optional("Runtime") => list(any()),
-        optional("SnapStart") => snap_start(),
-        optional("Timeout") => integer(),
-        optional("TracingConfig") => tracing_config(),
-        optional("VpcConfig") => vpc_config()
-      }
+      delete_function_code_signing_config_request() :: %{}
 
   """
-  @type update_function_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kafka_schema_registry_config() :: %{
-        "AccessConfigs" => list(kafka_schema_registry_access_config()),
-        "EventRecordFormat" => list(any()),
-        "SchemaRegistryURI" => String.t() | atom(),
-        "SchemaValidationConfigs" => list(kafka_schema_validation_config())
-      }
-
-  """
-  @type kafka_schema_registry_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_code_signing_config_response() :: %{
-        "CodeSigningConfigArn" => String.t() | atom(),
-        "FunctionName" => String.t() | atom()
-      }
-
-  """
-  @type get_function_code_signing_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_code_signature_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_code_signature_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_function_url_configs_response() :: %{
-        "FunctionUrlConfigs" => list(function_url_config()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type list_function_url_configs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      allowed_publishers() :: %{
-        "SigningProfileVersionArns" => list(String.t() | atom())
-      }
-
-  """
-  @type allowed_publishers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_durable_execution_history_response() :: %{
-        "Events" => list(event()),
-        "NextMarker" => String.t() | atom()
-      }
-
-  """
-  @type get_durable_execution_history_response() :: %{(String.t() | atom()) => any()}
+  @type delete_function_code_signing_config_request() :: %{}
 
   @typedoc """
 
@@ -3401,277 +3836,12 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
+      put_function_recursion_config_request() :: %{
+        required("RecursiveLoop") => list(any())
       }
 
   """
-  @type function_versions_per_capacity_provider_limit_exceeded_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      callback_options() :: %{
-        "HeartbeatTimeoutSeconds" => integer(),
-        "TimeoutSeconds" => integer()
-      }
-
-  """
-  @type callback_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_by_function_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Versions" => list(function_configuration())
-      }
-
-  """
-  @type list_versions_by_function_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_capacity_provider_request() :: %{
-        optional("CapacityProviderScalingConfig") => capacity_provider_scaling_config(),
-        optional("InstanceRequirements") => instance_requirements(),
-        optional("KmsKeyArn") => String.t() | atom(),
-        optional("PropagateTags") => propagate_tags(),
-        optional("Tags") => map(),
-        required("CapacityProviderName") => String.t() | atom(),
-        required("PermissionsConfig") => capacity_provider_permissions_config(),
-        required("VpcConfig") => capacity_provider_vpc_config()
-      }
-
-  """
-  @type create_capacity_provider_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_config_response() :: %{
-        "Ipv6AllowedForDualStack" => boolean(),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom()),
-        "VpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_unexpected_exception() :: %{
-        "EC2ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type ec2_unexpected_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_url_config_response() :: %{
-        "AuthType" => list(any()),
-        "Cors" => cors(),
-        "CreationTime" => String.t() | atom(),
-        "FunctionArn" => String.t() | atom(),
-        "FunctionUrl" => String.t() | atom(),
-        "InvokeMode" => list(any()),
-        "LastModifiedTime" => String.t() | atom()
-      }
-
-  """
-  @type get_function_url_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step_options() :: %{
-        "NextAttemptDelaySeconds" => integer()
-      }
-
-  """
-  @type step_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_event_invoke_config_request() :: %{
-        optional("Qualifier") => String.t() | atom()
-      }
-
-  """
-  @type get_function_event_invoke_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step_details() :: %{
-        "Attempt" => integer(),
-        "Error" => error_object(),
-        "NextAttemptTimestamp" => non_neg_integer(),
-        "Result" => String.t() | atom()
-      }
-
-  """
-  @type step_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_succeeded_details() :: %{
-        "Result" => event_result()
-      }
-
-  """
-  @type execution_succeeded_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_function_request() :: %{
-        optional("Architectures") => list(list(any())()),
-        optional("CapacityProviderConfig") => capacity_provider_config(),
-        optional("CodeSigningConfigArn") => String.t() | atom(),
-        optional("DeadLetterConfig") => dead_letter_config(),
-        optional("Description") => String.t() | atom(),
-        optional("DurableConfig") => durable_config(),
-        optional("Environment") => environment(),
-        optional("EphemeralStorage") => ephemeral_storage(),
-        optional("FileSystemConfigs") => list(file_system_config()),
-        optional("Handler") => String.t() | atom(),
-        optional("ImageConfig") => image_config(),
-        optional("KMSKeyArn") => String.t() | atom(),
-        optional("Layers") => list(String.t() | atom()),
-        optional("LoggingConfig") => logging_config(),
-        optional("MemorySize") => integer(),
-        optional("PackageType") => list(any()),
-        optional("Publish") => boolean(),
-        optional("PublishTo") => list(any()),
-        optional("Runtime") => list(any()),
-        optional("SnapStart") => snap_start(),
-        optional("Tags") => map(),
-        optional("TenancyConfig") => tenancy_config(),
-        optional("Timeout") => integer(),
-        optional("TracingConfig") => tracing_config(),
-        optional("VpcConfig") => vpc_config(),
-        required("Code") => function_code(),
-        required("FunctionName") => String.t() | atom(),
-        required("Role") => String.t() | atom()
-      }
-
-  """
-  @type create_function_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type environment_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      no_published_version_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type no_published_version_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_durable_execution_request() :: %{
-        optional("Error") => error_object()
-      }
-
-  """
-  @type stop_durable_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tags_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type tags_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ec2_throttled_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type ec2_throttled_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trace_header() :: %{
-        "XAmznTraceId" => String.t() | atom()
-      }
-
-  """
-  @type trace_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_request() :: %{}
-
-  """
-  @type list_tags_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      e_f_s_i_o_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type e_f_s_i_o_exception() :: %{(String.t() | atom()) => any()}
+  @type put_function_recursion_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3689,100 +3859,6 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      layers_list_item() :: %{
-        "LatestMatchingVersion" => layer_versions_list_item(),
-        "LayerArn" => String.t() | atom(),
-        "LayerName" => String.t() | atom()
-      }
-
-  """
-  @type layers_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      chained_invoke_options() :: %{
-        "FunctionName" => String.t() | atom(),
-        "TenantId" => String.t() | atom()
-      }
-
-  """
-  @type chained_invoke_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alias_routing_configuration() :: %{
-        "AdditionalVersionWeights" => map()
-      }
-
-  """
-  @type alias_routing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_config_response() :: %{
-        "Error" => image_config_error(),
-        "ImageConfig" => image_config()
-      }
-
-  """
-  @type image_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_function_scaling_config_response() :: %{
-        "FunctionState" => list(any())
-      }
-
-  """
-  @type put_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_subnet_id_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type invalid_subnet_id_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tenancy_config() :: %{
-        "TenantIsolationMode" => list(any())
-      }
-
-  """
-  @type tenancy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snap_start_response() :: %{
-        "ApplyOn" => list(any()),
-        "OptimizationStatus" => list(any())
-      }
-
-  """
-  @type snap_start_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       code_storage_exceeded_exception() :: %{
         "Type" => String.t() | atom(),
         "message" => String.t() | atom()
@@ -3795,277 +3871,201 @@ defmodule AWS.Lambda do
 
   ## Example:
 
-      layer_version_content_input() :: %{
-        "S3Bucket" => String.t() | atom(),
-        "S3Key" => String.t() | atom(),
-        "S3ObjectVersion" => String.t() | atom(),
-        "ZipFile" => binary()
+      remove_layer_version_permission_request() :: %{
+        optional("RevisionId") => String.t() | atom()
       }
 
   """
-  @type layer_version_content_input() :: %{(String.t() | atom()) => any()}
+  @type remove_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_ready_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
+      filter() :: %{
+        "Pattern" => String.t() | atom()
       }
 
   """
-  @type resource_not_ready_exception() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_signing_policies() :: %{
-        "UntrustedArtifactOnDeployment" => list(any())
+      propagate_tags() :: %{
+        "ExplicitTags" => map(),
+        "Mode" => list(any())
       }
 
   """
-  @type code_signing_policies() :: %{(String.t() | atom()) => any()}
+  @type propagate_tags() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      precondition_failed_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
+      publish_layer_version_request() :: %{
+        optional("CompatibleArchitectures") => list(list(any())()),
+        optional("CompatibleRuntimes") => list(list(any())()),
+        optional("Description") => String.t() | atom(),
+        optional("LicenseInfo") => String.t() | atom(),
+        required("Content") => layer_version_content_input()
       }
 
   """
-  @type precondition_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type publish_layer_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_durable_execution_callback_heartbeat_response() :: %{}
+      capacity_provider_permissions_config() :: %{
+        "CapacityProviderOperatorRoleArn" => String.t() | atom()
+      }
 
   """
-  @type send_durable_execution_callback_heartbeat_response() :: %{}
+  @type capacity_provider_permissions_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_function_event_invoke_configs_request() :: %{
+      list_versions_by_function_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Versions" => list(function_configuration())
+      }
+
+  """
+  @type list_versions_by_function_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      function_url_config() :: %{
+        "AuthType" => list(any()),
+        "Cors" => cors(),
+        "CreationTime" => String.t() | atom(),
+        "FunctionArn" => String.t() | atom(),
+        "FunctionUrl" => String.t() | atom(),
+        "InvokeMode" => list(any()),
+        "LastModifiedTime" => String.t() | atom()
+      }
+
+  """
+  @type function_url_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trace_header() :: %{
+        "XAmznTraceId" => String.t() | atom()
+      }
+
+  """
+  @type trace_header() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_code_signing_config_response() :: %{}
+
+  """
+  @type delete_code_signing_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_capacity_provider_response() :: %{
+        "CapacityProvider" => capacity_provider()
+      }
+
+  """
+  @type delete_capacity_provider_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_durable_execution_state_request() :: %{
         optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
+        optional("MaxItems") => integer(),
+        required("CheckpointToken") => String.t() | atom()
       }
 
   """
-  @type list_function_event_invoke_configs_request() :: %{(String.t() | atom()) => any()}
+  @type get_durable_execution_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      context_details() :: %{
-        "Error" => error_object(),
-        "ReplayChildren" => boolean(),
-        "Result" => String.t() | atom()
-      }
-
-  """
-  @type context_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_conflict_exception() :: %{
-        "Type" => String.t() | atom(),
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_files_mount_timeout_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type s3_files_mount_timeout_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      concurrency() :: %{
-        optional("ReservedConcurrentExecutions") => integer()
-      }
-
-  """
-  @type concurrency() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_alias_request() :: %{}
-
-  """
-  @type delete_alias_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      callback_details() :: %{
-        "CallbackId" => String.t() | atom(),
-        "Error" => error_object(),
-        "Result" => String.t() | atom()
-      }
-
-  """
-  @type callback_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_concurrency_configs_request() :: %{
-        optional("Marker") => String.t() | atom(),
-        optional("MaxItems") => integer()
-      }
-
-  """
-  @type list_provisioned_concurrency_configs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_permission_request() :: %{
-        optional("EventSourceToken") => String.t() | atom(),
-        optional("FunctionUrlAuthType") => list(any()),
-        optional("InvokedViaFunctionUrl") => boolean(),
-        optional("PrincipalOrgID") => String.t() | atom(),
-        optional("Qualifier") => String.t() | atom(),
+      add_layer_version_permission_request() :: %{
+        optional("OrganizationId") => String.t() | atom(),
         optional("RevisionId") => String.t() | atom(),
-        optional("SourceAccount") => String.t() | atom(),
-        optional("SourceArn") => String.t() | atom(),
         required("Action") => String.t() | atom(),
         required("Principal") => String.t() | atom(),
         required("StatementId") => String.t() | atom()
       }
 
   """
-  @type add_permission_request() :: %{(String.t() | atom()) => any()}
+  @type add_layer_version_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter_criteria_error() :: %{
-        "ErrorCode" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      get_function_scaling_config_request() :: %{
+        required("Qualifier") => String.t() | atom()
       }
 
   """
-  @type filter_criteria_error() :: %{(String.t() | atom()) => any()}
+  @type get_function_scaling_config_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tracing_config_response() :: %{
-        "Mode" => list(any())
+      get_durable_execution_state_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Operations" => list(operation())
       }
 
   """
-  @type tracing_config_response() :: %{(String.t() | atom()) => any()}
+  @type get_durable_execution_state_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      snap_start_exception() :: %{
-        "Message" => String.t() | atom(),
-        "Type" => String.t() | atom()
+      put_function_scaling_config_response() :: %{
+        "FunctionState" => list(any())
       }
 
   """
-  @type snap_start_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_function_recursion_config_response() :: %{
-        "RecursiveLoop" => list(any())
-      }
-
-  """
-  @type get_function_recursion_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      step_succeeded_details() :: %{
-        "Result" => event_result(),
-        "RetryDetails" => retry_details()
-      }
-
-  """
-  @type step_succeeded_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_permission_response() :: %{
-        "Statement" => String.t() | atom()
-      }
-
-  """
-  @type add_permission_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_signing_config() :: %{
-        "AllowedPublishers" => allowed_publishers(),
-        "CodeSigningConfigArn" => String.t() | atom(),
-        "CodeSigningConfigId" => String.t() | atom(),
-        "CodeSigningPolicies" => code_signing_policies(),
-        "Description" => String.t() | atom(),
-        "LastModified" => String.t() | atom()
-      }
-
-  """
-  @type code_signing_config() :: %{(String.t() | atom()) => any()}
+  @type put_function_scaling_config_response() :: %{(String.t() | atom()) => any()}
 
   @type add_layer_version_permission_errors() ::
           resource_conflict_exception()
-          | precondition_failed_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_value_exception()
           | policy_length_exceeded_exception()
+          | too_many_requests_exception()
 
   @type add_permission_errors() ::
           resource_conflict_exception()
-          | precondition_failed_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
-          | too_many_requests_exception()
+          | invalid_parameter_value_exception()
           | policy_length_exceeded_exception()
+          | too_many_requests_exception()
 
   @type checkpoint_durable_execution_errors() ::
           service_exception()
@@ -4075,13 +4075,13 @@ defmodule AWS.Lambda do
   @type create_alias_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type create_capacity_provider_errors() ::
-          resource_conflict_exception()
-          | capacity_provider_limit_exceeded_exception()
+          capacity_provider_limit_exceeded_exception()
+          | resource_conflict_exception()
           | service_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
@@ -4092,27 +4092,27 @@ defmodule AWS.Lambda do
   @type create_event_source_mapping_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type create_function_errors() ::
-          resource_conflict_exception()
-          | code_storage_exceeded_exception()
-          | function_versions_per_capacity_provider_limit_exceeded_exception()
+          code_storage_exceeded_exception()
           | invalid_code_signature_exception()
-          | code_verification_failed_exception()
+          | resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | code_signing_config_not_found_exception()
           | resource_not_found_exception()
+          | code_verification_failed_exception()
+          | code_signing_config_not_found_exception()
+          | function_versions_per_capacity_provider_limit_exceeded_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type create_function_url_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_alias_errors() ::
@@ -4124,51 +4124,51 @@ defmodule AWS.Lambda do
   @type delete_capacity_provider_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_code_signing_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
 
   @type delete_event_source_mapping_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
 
   @type delete_function_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_function_code_signing_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | code_signing_config_not_found_exception()
           | resource_not_found_exception()
+          | code_signing_config_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_function_concurrency_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_function_event_invoke_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type delete_function_url_config_errors() ::
@@ -4182,39 +4182,39 @@ defmodule AWS.Lambda do
   @type delete_provisioned_concurrency_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_account_settings_errors() :: service_exception() | too_many_requests_exception()
 
   @type get_alias_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_capacity_provider_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_code_signing_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
 
   @type get_durable_execution_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_durable_execution_history_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_durable_execution_state_errors() ::
@@ -4224,181 +4224,181 @@ defmodule AWS.Lambda do
 
   @type get_event_source_mapping_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_code_signing_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_concurrency_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_configuration_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_event_invoke_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_recursion_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_scaling_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_function_url_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_layer_version_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_layer_version_by_arn_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_layer_version_policy_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_policy_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_provisioned_concurrency_config_errors() ::
           provisioned_concurrency_config_not_found_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type get_runtime_management_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type invoke_errors() ::
-          snap_start_exception()
-          | s3_files_mount_timeout_exception()
-          | resource_conflict_exception()
-          | resource_not_ready_exception()
-          | invalid_subnet_id_exception()
-          | kms_invalid_state_exception()
+          kms_invalid_state_exception()
           | e_f_s_i_o_exception()
-          | ec2_throttled_exception()
-          | no_published_version_exception()
-          | ec2_unexpected_exception()
           | e_f_s_mount_failure_exception()
-          | e_n_i_limit_reached_exception()
-          | e_f_s_mount_connectivity_exception()
-          | e_f_s_mount_timeout_exception()
-          | kms_not_found_exception()
-          | invalid_zip_file_exception()
-          | kms_access_denied_exception()
-          | request_too_large_exception()
-          | s3_files_mount_failure_exception()
-          | subnet_ip_address_limit_reached_exception()
-          | service_exception()
-          | invalid_parameter_value_exception()
-          | durable_execution_already_started_exception()
-          | resource_not_found_exception()
-          | invalid_request_content_exception()
+          | ec2_throttled_exception()
           | invalid_runtime_exception()
-          | recursive_invocation_exception()
-          | serialized_request_entity_too_large_exception()
-          | snap_start_timeout_exception()
-          | s3_files_mount_connectivity_exception()
-          | too_many_requests_exception()
-          | snap_start_not_ready_exception()
-          | ec2_access_denied_exception()
+          | ec2_unexpected_exception()
           | invalid_security_group_id_exception()
-          | kms_disabled_exception()
+          | resource_conflict_exception()
+          | e_f_s_mount_timeout_exception()
+          | service_exception()
+          | e_n_i_limit_reached_exception()
+          | invalid_zip_file_exception()
+          | s3_files_mount_failure_exception()
+          | kms_not_found_exception()
+          | s3_files_mount_timeout_exception()
+          | request_too_large_exception()
+          | resource_not_found_exception()
+          | s3_files_mount_connectivity_exception()
+          | snap_start_exception()
+          | subnet_ip_address_limit_reached_exception()
+          | serialized_request_entity_too_large_exception()
+          | invalid_parameter_value_exception()
+          | kms_access_denied_exception()
           | unsupported_media_type_exception()
+          | recursive_invocation_exception()
+          | resource_not_ready_exception()
+          | snap_start_timeout_exception()
+          | durable_execution_already_started_exception()
+          | snap_start_not_ready_exception()
+          | no_published_version_exception()
+          | too_many_requests_exception()
+          | invalid_subnet_id_exception()
+          | ec2_access_denied_exception()
+          | kms_disabled_exception()
+          | invalid_request_content_exception()
+          | e_f_s_mount_connectivity_exception()
 
   @type invoke_async_errors() ::
-          resource_conflict_exception()
+          invalid_runtime_exception()
+          | resource_conflict_exception()
           | service_exception()
           | resource_not_found_exception()
           | invalid_request_content_exception()
-          | invalid_runtime_exception()
 
   @type invoke_with_response_stream_errors() ::
-          snap_start_exception()
-          | s3_files_mount_timeout_exception()
-          | resource_conflict_exception()
-          | resource_not_ready_exception()
-          | invalid_subnet_id_exception()
-          | kms_invalid_state_exception()
+          kms_invalid_state_exception()
           | e_f_s_i_o_exception()
-          | ec2_throttled_exception()
-          | no_published_version_exception()
-          | ec2_unexpected_exception()
           | e_f_s_mount_failure_exception()
-          | e_n_i_limit_reached_exception()
-          | e_f_s_mount_connectivity_exception()
-          | e_f_s_mount_timeout_exception()
-          | kms_not_found_exception()
-          | invalid_zip_file_exception()
-          | kms_access_denied_exception()
-          | request_too_large_exception()
-          | s3_files_mount_failure_exception()
-          | subnet_ip_address_limit_reached_exception()
-          | service_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | invalid_request_content_exception()
+          | ec2_throttled_exception()
           | invalid_runtime_exception()
-          | recursive_invocation_exception()
-          | serialized_request_entity_too_large_exception()
-          | snap_start_timeout_exception()
-          | s3_files_mount_connectivity_exception()
-          | too_many_requests_exception()
-          | snap_start_not_ready_exception()
-          | ec2_access_denied_exception()
+          | ec2_unexpected_exception()
           | invalid_security_group_id_exception()
-          | kms_disabled_exception()
+          | resource_conflict_exception()
+          | e_f_s_mount_timeout_exception()
+          | service_exception()
+          | e_n_i_limit_reached_exception()
+          | invalid_zip_file_exception()
+          | s3_files_mount_failure_exception()
+          | kms_not_found_exception()
+          | s3_files_mount_timeout_exception()
+          | request_too_large_exception()
+          | resource_not_found_exception()
+          | s3_files_mount_connectivity_exception()
+          | snap_start_exception()
+          | subnet_ip_address_limit_reached_exception()
+          | serialized_request_entity_too_large_exception()
+          | invalid_parameter_value_exception()
+          | kms_access_denied_exception()
           | unsupported_media_type_exception()
+          | recursive_invocation_exception()
+          | resource_not_ready_exception()
+          | snap_start_timeout_exception()
+          | snap_start_not_ready_exception()
+          | no_published_version_exception()
+          | too_many_requests_exception()
+          | invalid_subnet_id_exception()
+          | ec2_access_denied_exception()
+          | kms_disabled_exception()
+          | invalid_request_content_exception()
+          | e_f_s_mount_connectivity_exception()
 
   @type list_aliases_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_capacity_providers_errors() ::
@@ -4411,32 +4411,32 @@ defmodule AWS.Lambda do
 
   @type list_durable_executions_by_function_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_event_source_mappings_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_function_event_invoke_configs_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_function_url_configs_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_function_versions_by_capacity_provider_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_functions_errors() ::
@@ -4446,13 +4446,13 @@ defmodule AWS.Lambda do
 
   @type list_functions_by_code_signing_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
 
   @type list_layer_versions_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_layers_errors() ::
@@ -4462,204 +4462,204 @@ defmodule AWS.Lambda do
 
   @type list_provisioned_concurrency_configs_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_tags_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type list_versions_by_function_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type publish_layer_version_errors() ::
           code_storage_exceeded_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type publish_version_errors() ::
-          resource_conflict_exception()
-          | precondition_failed_exception()
-          | code_storage_exceeded_exception()
-          | function_versions_per_capacity_provider_limit_exceeded_exception()
+          code_storage_exceeded_exception()
+          | resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | function_versions_per_capacity_provider_limit_exceeded_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_function_code_signing_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | code_signing_config_not_found_exception()
           | resource_not_found_exception()
+          | code_signing_config_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_function_concurrency_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_function_event_invoke_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_function_recursion_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_function_scaling_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_provisioned_concurrency_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type put_runtime_management_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type remove_layer_version_permission_errors() ::
-          precondition_failed_exception()
-          | service_exception()
-          | invalid_parameter_value_exception()
+          service_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type remove_permission_errors() ::
-          precondition_failed_exception()
-          | service_exception()
-          | invalid_parameter_value_exception()
+          service_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type send_durable_execution_callback_failure_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
-          | callback_timeout_exception()
           | too_many_requests_exception()
+          | callback_timeout_exception()
 
   @type send_durable_execution_callback_heartbeat_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
-          | callback_timeout_exception()
           | too_many_requests_exception()
+          | callback_timeout_exception()
 
   @type send_durable_execution_callback_success_errors() ::
           service_exception()
           | invalid_parameter_value_exception()
-          | callback_timeout_exception()
           | too_many_requests_exception()
+          | callback_timeout_exception()
 
   @type stop_durable_execution_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type tag_resource_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type untag_resource_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_alias_errors() ::
           resource_conflict_exception()
-          | precondition_failed_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_capacity_provider_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_code_signing_config_errors() ::
           service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
 
   @type update_event_source_mapping_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | resource_not_found_exception()
-          | too_many_requests_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
 
   @type update_function_code_errors() ::
-          resource_conflict_exception()
-          | precondition_failed_exception()
-          | code_storage_exceeded_exception()
+          code_storage_exceeded_exception()
           | invalid_code_signature_exception()
-          | code_verification_failed_exception()
+          | resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | code_signing_config_not_found_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | code_verification_failed_exception()
+          | code_signing_config_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_function_configuration_errors() ::
-          resource_conflict_exception()
-          | precondition_failed_exception()
-          | invalid_code_signature_exception()
-          | code_verification_failed_exception()
+          invalid_code_signature_exception()
+          | resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | code_signing_config_not_found_exception()
+          | precondition_failed_exception()
           | resource_not_found_exception()
+          | code_verification_failed_exception()
+          | code_signing_config_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_function_event_invoke_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   @type update_function_url_config_errors() ::
           resource_conflict_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
   def metadata do

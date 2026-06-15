@@ -17,6 +17,372 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
+      import_disk_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type import_disk_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ssm_parameter_configuration() :: %{
+        "amiAccountId" => String.t() | atom(),
+        "dataType" => list(any()),
+        "parameterName" => String.t() | atom()
+      }
+
+  """
+  @type ssm_parameter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_scan_finding_aggregation() :: %{
+        "accountAggregation" => account_aggregation(),
+        "imageAggregation" => image_aggregation(),
+        "imagePipelineAggregation" => image_pipeline_aggregation(),
+        "vulnerabilityIdAggregation" => vulnerability_id_aggregation()
+      }
+
+  """
+  @type image_scan_finding_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_component_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribution_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "dateUpdated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "distributions" => list(distribution()),
+        "name" => String.t() | atom(),
+        "tags" => map(),
+        "timeoutMinutes" => integer()
+      }
+
+  """
+  @type distribution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_policy_request() :: %{
+        required("componentArn") => String.t() | atom()
+      }
+
+  """
+  @type get_component_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_container_recipes_response() :: %{
+        "containerRecipeSummaryList" => list(container_recipe_summary()),
+        "nextToken" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type list_container_recipes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_infrastructure_configuration_response() :: %{
+        "infrastructureConfigurationArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_waiting_workflow_steps_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_waiting_workflow_steps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss_score_adjustment() :: %{
+        "metric" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_distribution_configuration_response() :: %{
+        "distributionConfiguration" => distribution_configuration(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_execution_metadata() :: %{
+        "endTime" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "parallelGroup" => String.t() | atom(),
+        "retried" => boolean(),
+        "startTime" => String.t() | atom(),
+        "status" => list(any()),
+        "totalStepCount" => integer(),
+        "totalStepsFailed" => integer(),
+        "totalStepsSkipped" => integer(),
+        "totalStepsSucceeded" => integer(),
+        "type" => list(any()),
+        "workflowBuildVersionArn" => String.t() | atom(),
+        "workflowExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type workflow_execution_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_request() :: %{
+        required("componentBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_detail_action() :: %{
+        "includeResources" => lifecycle_policy_detail_action_include_resources(),
+        "type" => list(any())
+      }
+
+  """
+  @type lifecycle_policy_detail_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_configuration() :: %{
+        "blockDeviceMappings" => list(instance_block_device_mapping()),
+        "image" => String.t() | atom()
+      }
+
+  """
+  @type instance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution_resource() :: %{
+        "accountId" => String.t() | atom(),
+        "action" => lifecycle_execution_resource_action(),
+        "endTime" => non_neg_integer(),
+        "imageUris" => list(String.t() | atom()),
+        "region" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "snapshots" => list(lifecycle_execution_snapshot_resource()),
+        "startTime" => non_neg_integer(),
+        "state" => lifecycle_execution_resource_state()
+      }
+
+  """
+  @type lifecycle_execution_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_distribution_configurations_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_distribution_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_parameter() :: %{
+        "name" => String.t() | atom(),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type component_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_resource_selection_recipe() :: %{
+        "name" => String.t() | atom(),
+        "semanticVersion" => String.t() | atom()
+      }
+
+  """
+  @type lifecycle_policy_resource_selection_recipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_parameter_detail() :: %{
+        "defaultValue" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type component_parameter_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      placement() :: %{
+        "availabilityZone" => String.t() | atom(),
+        "hostId" => String.t() | atom(),
+        "hostResourceGroupArn" => String.t() | atom(),
+        "tenancy" => list(any())
+      }
+
+  """
+  @type placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_container_recipe_response() :: %{
+        "containerRecipe" => container_recipe(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_container_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_lifecycle_policy_response() :: %{
+        "lifecyclePolicyArn" => String.t() | atom()
+      }
+
+  """
+  @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_image_recipe_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_image_recipe_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_image_response() :: %{
+        "imageBuildVersionArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_tests_configuration() :: %{
+        "imageTestsEnabled" => boolean(),
+        "timeoutMinutes" => integer()
+      }
+
+  """
+  @type image_tests_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target_container_repository() :: %{
+        "repositoryName" => String.t() | atom(),
+        "service" => list(any())
+      }
+
+  """
+  @type target_container_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_workflow_executions_response() :: %{
         "imageBuildVersionArn" => String.t() | atom(),
         "message" => String.t() | atom(),
@@ -32,37 +398,588 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      cancel_lifecycle_execution_response() :: %{
-        "lifecycleExecutionId" => String.t() | atom()
+      get_image_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type cancel_lifecycle_execution_response() :: %{(String.t() | atom()) => any()}
+  @type get_image_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_workflow_build_versions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "workflowSummaryList" => list(workflow_summary())
+      delete_image_request() :: %{
+        required("imageBuildVersionArn") => String.t() | atom()
       }
 
   """
-  @type list_workflow_build_versions_response() :: %{(String.t() | atom()) => any()}
+  @type delete_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_distribution_configurations_request() :: %{
+      start_resource_state_update_response() :: %{
+        "lifecycleExecutionId" => String.t() | atom(),
+        "resourceArn" => String.t() | atom()
+      }
+
+  """
+  @type start_resource_state_update_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      distribute_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type distribute_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_recipe() :: %{
+        "additionalInstanceConfiguration" => additional_instance_configuration(),
+        "amiTags" => map(),
+        "arn" => String.t() | atom(),
+        "blockDeviceMappings" => list(instance_block_device_mapping()),
+        "components" => list(component_configuration()),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "parentImage" => String.t() | atom(),
+        "platform" => list(any()),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom(),
+        "workingDirectory" => String.t() | atom()
+      }
+
+  """
+  @type image_recipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_image_pipeline_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imagePipelineArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type create_image_pipeline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_state_update_include_resources() :: %{
+        "amis" => boolean(),
+        "containers" => boolean(),
+        "snapshots" => boolean()
+      }
+
+  """
+  @type resource_state_update_include_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lifecycle_policy_response() :: %{
+        "lifecyclePolicy" => lifecycle_policy()
+      }
+
+  """
+  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_response() :: %{
+        "latestVersionReferences" => latest_version_references(),
+        "workflow" => workflow()
+      }
+
+  """
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fast_launch_launch_template_specification() :: %{
+        "launchTemplateId" => String.t() | atom(),
+        "launchTemplateName" => String.t() | atom(),
+        "launchTemplateVersion" => String.t() | atom()
+      }
+
+  """
+  @type fast_launch_launch_template_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_build_versions_request() :: %{
+        optional("filters") => list(filter()),
+        optional("imageVersionArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_image_build_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_image_recipe_response() :: %{
+        "imageRecipe" => image_recipe(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_image_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_image_pipeline_response() :: %{
+        "imagePipeline" => image_pipeline(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_image_pipeline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution_snapshot_resource() :: %{
+        "snapshotId" => String.t() | atom(),
+        "state" => lifecycle_execution_resource_state()
+      }
+
+  """
+  @type lifecycle_execution_snapshot_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_marketplace_resource_request() :: %{
+        optional("resourceLocation") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type get_marketplace_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_scanning_configuration() :: %{
+        "ecrConfiguration" => ecr_configuration(),
+        "imageScanningEnabled" => boolean()
+      }
+
+  """
+  @type image_scanning_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_instance_configuration() :: %{
+        "systemsManagerAgent" => systems_manager_agent(),
+        "userDataOverride" => String.t() | atom()
+      }
+
+  """
+  @type additional_instance_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_version() :: %{
+        "arn" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type workflow_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container_distribution_configuration() :: %{
+        "containerTags" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "targetRepository" => target_container_repository()
+      }
+
+  """
+  @type container_distribution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_vulnerability_details() :: %{
+        "cvss" => list(cvss_score()),
+        "referenceUrls" => list(String.t() | atom()),
+        "relatedVulnerabilities" => list(String.t() | atom()),
+        "source" => String.t() | atom(),
+        "sourceUrl" => String.t() | atom(),
+        "vendorCreatedAt" => non_neg_integer(),
+        "vendorSeverity" => String.t() | atom(),
+        "vendorUpdatedAt" => non_neg_integer(),
+        "vulnerabilityId" => String.t() | atom(),
+        "vulnerablePackages" => list(vulnerable_package())
+      }
+
+  """
+  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_lifecycle_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecr_configuration() :: %{
+        "containerTags" => list(String.t() | atom()),
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type ecr_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fast_launch_snapshot_configuration() :: %{
+        "targetResourceCount" => integer()
+      }
+
+  """
+  @type fast_launch_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_container_recipe_request() :: %{
+        optional("components") => list(component_configuration()),
+        optional("description") => String.t() | atom(),
+        optional("dockerfileTemplateData") => String.t() | atom(),
+        optional("dockerfileTemplateUri") => String.t() | atom(),
+        optional("imageOsVersionOverride") => String.t() | atom(),
+        optional("instanceConfiguration") => instance_configuration(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("platformOverride") => list(any()),
+        optional("tags") => map(),
+        optional("workingDirectory") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("containerType") => list(any()),
+        required("name") => String.t() | atom(),
+        required("parentImage") => String.t() | atom(),
+        required("semanticVersion") => String.t() | atom(),
+        required("targetRepository") => target_container_repository()
+      }
+
+  """
+  @type create_container_recipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution() :: %{
+        "endTime" => non_neg_integer(),
+        "lifecycleExecutionId" => String.t() | atom(),
+        "lifecyclePolicyArn" => String.t() | atom(),
+        "resourcesImpactedSummary" => lifecycle_execution_resources_impacted_summary(),
+        "startTime" => non_neg_integer(),
+        "state" => lifecycle_execution_state()
+      }
+
+  """
+  @type lifecycle_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_combination_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_distribution_configuration_response() :: %{
+        "distributionConfigurationArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_component_response() :: %{
+        "componentBuildVersionArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_image_recipe_policy_request() :: %{
+        required("imageRecipeArn") => String.t() | atom()
+      }
+
+  """
+  @type get_image_recipe_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_component_request() :: %{
+        required("componentBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product_code_list_item() :: %{
+        "productCodeId" => String.t() | atom(),
+        "productCodeType" => list(any())
+      }
+
+  """
+  @type product_code_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_infrastructure_configuration_request() :: %{
+        required("infrastructureConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type get_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_summary() :: %{
+        "arn" => String.t() | atom(),
+        "changeDescription" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "state" => workflow_state(),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type workflow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idempotent_parameter_mismatch_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type lifecycle_execution_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_permission_configuration() :: %{
+        "organizationArns" => list(String.t() | atom()),
+        "organizationalUnitArns" => list(String.t() | atom()),
+        "userGroups" => list(String.t() | atom()),
+        "userIds" => list(String.t() | atom())
+      }
+
+  """
+  @type launch_permission_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_container_recipe_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "containerRecipeArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type create_container_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_distribution_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("distributionConfigurationArn") => String.t() | atom(),
+        required("distributions") => list(distribution())
+      }
+
+  """
+  @type update_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_policies_request() :: %{
         optional("filters") => list(filter()),
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type list_distribution_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type list_lifecycle_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_image_pipeline_response() :: %{
+        "imagePipelineArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_image_pipeline_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      container() :: %{
+        "imageUris" => list(String.t() | atom()),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type container() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -89,466 +1006,152 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      get_image_policy_request() :: %{
-        required("imageArn") => String.t() | atom()
-      }
-
-  """
-  @type get_image_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_resource_state_update_request() :: %{
-        optional("exclusionRules") => resource_state_update_exclusion_rules(),
-        optional("executionRole") => String.t() | atom(),
-        optional("includeResources") => resource_state_update_include_resources(),
-        optional("updateAt") => non_neg_integer(),
-        required("clientToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("state") => resource_state()
-      }
-
-  """
-  @type start_resource_state_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_pipeline_images_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("imagePipelineArn") => String.t() | atom()
-      }
-
-  """
-  @type list_image_pipeline_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_container_recipe_policy_response() :: %{
-        "containerRecipeArn" => String.t() | atom(),
+      update_image_pipeline_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imagePipelineArn" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type put_container_recipe_policy_response() :: %{(String.t() | atom()) => any()}
+  @type update_image_pipeline_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_policy_detail_exclusion_rules() :: %{
-        "amis" => lifecycle_policy_detail_exclusion_rules_amis(),
-        "tagMap" => map()
-      }
-
-  """
-  @type lifecycle_policy_detail_exclusion_rules() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_vm_image_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("loggingConfiguration") => image_logging_configuration(),
-        optional("osVersion") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("platform") => list(any()),
-        required("semanticVersion") => String.t() | atom(),
-        required("vmImportTaskId") => String.t() | atom()
-      }
-
-  """
-  @type import_vm_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_parameter_detail() :: %{
-        "defaultValue" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type component_parameter_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_scan_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type image_scan_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy_detail_action_include_resources() :: %{
-        "amis" => boolean(),
-        "containers" => boolean(),
-        "snapshots" => boolean()
-      }
-
-  """
-  @type lifecycle_policy_detail_action_include_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_step_executions_response() :: %{
-        "imageBuildVersionArn" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "steps" => list(workflow_step_metadata()),
-        "workflowBuildVersionArn" => String.t() | atom(),
-        "workflowExecutionId" => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_step_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_packages_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      get_image_request() :: %{
         required("imageBuildVersionArn") => String.t() | atom()
       }
 
   """
-  @type list_image_packages_request() :: %{(String.t() | atom()) => any()}
+  @type get_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      container() :: %{
-        "imageUris" => list(String.t() | atom()),
-        "region" => String.t() | atom()
+      distribution() :: %{
+        "amiDistributionConfiguration" => ami_distribution_configuration(),
+        "containerDistributionConfiguration" => container_distribution_configuration(),
+        "fastLaunchConfigurations" => list(fast_launch_configuration()),
+        "launchTemplateConfigurations" => list(launch_template_configuration()),
+        "licenseConfigurationArns" => list(String.t() | atom()),
+        "region" => String.t() | atom(),
+        "s3ExportConfiguration" => s3_export_configuration(),
+        "ssmParameterConfigurations" => list(ssm_parameter_configuration())
       }
 
   """
-  @type container() :: %{(String.t() | atom()) => any()}
+  @type distribution() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retry_image_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom()
+      invalid_parameter_value_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type retry_image_response() :: %{(String.t() | atom()) => any()}
+  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_distribution_configuration_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "distributionConfigurationArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
+      get_container_recipe_policy_request() :: %{
+        required("containerRecipeArn") => String.t() | atom()
       }
 
   """
-  @type update_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type get_container_recipe_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      infrastructure_configuration_summary() :: %{
-        "arn" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "dateUpdated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "instanceProfileName" => String.t() | atom(),
-        "instanceTypes" => list(String.t() | atom()),
-        "name" => String.t() | atom(),
-        "placement" => placement(),
-        "resourceTags" => map(),
-        "tags" => map()
+      get_lifecycle_execution_response() :: %{
+        "lifecycleExecution" => lifecycle_execution()
       }
 
   """
-  @type infrastructure_configuration_summary() :: %{(String.t() | atom()) => any()}
+  @type get_lifecycle_execution_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_image_recipes_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_image_recipes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_version() :: %{
+      component_version() :: %{
         "arn" => String.t() | atom(),
         "dateCreated" => String.t() | atom(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owner" => String.t() | atom(),
+        "platform" => list(any()),
+        "productCodes" => list(product_code_list_item()),
+        "status" => list(any()),
+        "supportedOsVersions" => list(String.t() | atom()),
         "type" => list(any()),
         "version" => String.t() | atom()
       }
 
   """
-  @type workflow_version() :: %{(String.t() | atom()) => any()}
+  @type component_version() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dry_run_operation_exception() :: %{
-        "message" => String.t() | atom()
+      delete_image_pipeline_request() :: %{
+        required("imagePipelineArn") => String.t() | atom()
       }
 
   """
-  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_image_pipeline_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_image_pipelines_response() :: %{
-        "imagePipelineList" => list(image_pipeline()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_image_pipelines_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_image_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_container_recipe_policy_request() :: %{
-        required("containerRecipeArn") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_container_recipe_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_waiting_workflow_steps_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "steps" => list(workflow_step_execution())
-      }
-
-  """
-  @type list_waiting_workflow_steps_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lifecycle_policy_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("clientToken") => String.t() | atom(),
-        required("executionRole") => String.t() | atom(),
-        required("lifecyclePolicyArn") => String.t() | atom(),
-        required("policyDetails") => list(lifecycle_policy_detail()),
-        required("resourceSelection") => lifecycle_policy_resource_selection(),
-        required("resourceType") => list(any())
-      }
-
-  """
-  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remediation() :: %{
-        "recommendation" => remediation_recommendation()
-      }
-
-  """
-  @type remediation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_scanning_configuration() :: %{
-        "ecrConfiguration" => ecr_configuration(),
-        "imageScanningEnabled" => boolean()
-      }
-
-  """
-  @type image_scanning_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_image_pipeline_execution_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type start_image_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_image_recipe_policy_response() :: %{
-        "imageRecipeArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type put_image_recipe_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_step_execution_response() :: %{
-        "action" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "endTime" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "inputs" => String.t() | atom(),
-        "message" => String.t() | atom(),
+      container_recipe_summary() :: %{
+        "arn" => String.t() | atom(),
+        "containerType" => list(any()),
+        "dateCreated" => String.t() | atom(),
+        "instanceImage" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "onFailure" => String.t() | atom(),
-        "outputs" => String.t() | atom(),
-        "requestId" => String.t() | atom(),
-        "rollbackStatus" => list(any()),
-        "startTime" => String.t() | atom(),
-        "status" => list(any()),
-        "stepExecutionId" => String.t() | atom(),
-        "timeoutSeconds" => integer(),
-        "workflowBuildVersionArn" => String.t() | atom(),
-        "workflowExecutionId" => String.t() | atom()
+        "owner" => String.t() | atom(),
+        "parentImage" => String.t() | atom(),
+        "platform" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type get_workflow_step_execution_response() :: %{(String.t() | atom()) => any()}
+  @type container_recipe_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      lifecycle_policy_detail_filter() :: %{
+        "retainAtLeast" => integer(),
+        "type" => list(any()),
+        "unit" => list(any()),
+        "value" => integer()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type lifecycle_policy_detail_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_version_number_exception() :: %{
+      client_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_version_number_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_execution_resources_response() :: %{
-        "lifecycleExecutionId" => String.t() | atom(),
-        "lifecycleExecutionState" => lifecycle_execution_state(),
-        "nextToken" => String.t() | atom(),
-        "resources" => list(lifecycle_execution_resource())
-      }
-
-  """
-  @type list_lifecycle_execution_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workflow_request() :: %{
-        required("workflowBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_scan_finding_aggregations_request() :: %{
-        optional("filter") => filter(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_image_scan_finding_aggregations_request() :: %{(String.t() | atom()) => any()}
+  @type client_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -588,139 +1191,200 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_parameter_detail() :: %{
-        "defaultValue" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type workflow_parameter_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_block_device_mapping() :: %{
-        "deviceName" => String.t() | atom(),
-        "ebs" => ebs_instance_block_device_specification(),
-        "noDevice" => String.t() | atom(),
-        "virtualName" => String.t() | atom()
-      }
-
-  """
-  @type instance_block_device_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_lifecycle_policy_response() :: %{
-        "lifecyclePolicyArn" => String.t() | atom()
-      }
-
-  """
-  @type update_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auto_disable_policy() :: %{
-        "failureCount" => integer()
-      }
-
-  """
-  @type auto_disable_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ebs_instance_block_device_specification() :: %{
-        "deleteOnTermination" => boolean(),
-        "encrypted" => boolean(),
-        "iops" => integer(),
-        "kmsKeyId" => String.t() | atom(),
-        "snapshotId" => String.t() | atom(),
-        "throughput" => integer(),
-        "volumeSize" => integer(),
-        "volumeType" => list(any())
-      }
-
-  """
-  @type ebs_instance_block_device_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_container_recipe_response() :: %{
-        "containerRecipe" => container_recipe(),
+      get_image_response() :: %{
+        "image" => image(),
         "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type get_container_recipe_response() :: %{(String.t() | atom()) => any()}
+  @type get_image_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      distribute_image_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom()
+      get_workflow_step_execution_request() :: %{
+        required("stepExecutionId") => String.t() | atom()
       }
 
   """
-  @type distribute_image_response() :: %{(String.t() | atom()) => any()}
+  @type get_workflow_step_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_lifecycle_execution_request() :: %{
-        required("lifecycleExecutionId") => String.t() | atom()
+      image_recipe_summary() :: %{
+        "arn" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "parentImage" => String.t() | atom(),
+        "platform" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type get_lifecycle_execution_request() :: %{(String.t() | atom()) => any()}
+  @type image_recipe_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vulnerability_id_aggregation() :: %{
-        "severityCounts" => severity_counts(),
-        "vulnerabilityId" => String.t() | atom()
+      create_distribution_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("distributions") => list(distribution()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type vulnerability_id_aggregation() :: %{(String.t() | atom()) => any()}
+  @type create_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_pagination_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type workflow_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cvss_score() :: %{
+        "baseScore" => float(),
+        "scoringVector" => String.t() | atom(),
+        "source" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type cvss_score() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_export_configuration() :: %{
+        "diskImageFormat" => list(any()),
+        "roleName" => String.t() | atom(),
+        "s3Bucket" => String.t() | atom(),
+        "s3Prefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_export_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_version_references() :: %{
+        "latestMajorVersionArn" => String.t() | atom(),
+        "latestMinorVersionArn" => String.t() | atom(),
+        "latestPatchVersionArn" => String.t() | atom(),
+        "latestVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type latest_version_references() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_package() :: %{
+        "packageName" => String.t() | atom(),
+        "packageVersion" => String.t() | atom()
+      }
+
+  """
+  @type image_package() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_summary() :: %{
+        "arn" => String.t() | atom(),
+        "buildType" => list(any()),
+        "dateCreated" => String.t() | atom(),
+        "deprecationTime" => non_neg_integer(),
+        "imageSource" => list(any()),
+        "lifecycleExecutionId" => String.t() | atom(),
+        "loggingConfiguration" => image_logging_configuration(),
+        "name" => String.t() | atom(),
+        "osVersion" => String.t() | atom(),
+        "outputResources" => output_resources(),
+        "owner" => String.t() | atom(),
+        "platform" => list(any()),
+        "state" => image_state(),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type image_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_detail() :: %{
+        "action" => lifecycle_policy_detail_action(),
+        "exclusionRules" => lifecycle_policy_detail_exclusion_rules(),
+        "filter" => lifecycle_policy_detail_filter()
+      }
+
+  """
+  @type lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_pipeline_images_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("imagePipelineArn") => String.t() | atom()
+      }
+
+  """
+  @type list_image_pipeline_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_step_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("workflowExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_step_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -742,1541 +1406,14 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      resource_state() :: %{
-        "status" => list(any())
-      }
-
-  """
-  @type resource_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_response() :: %{
-        "image" => image(),
-        "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_recipe_policy_response() :: %{
-        "policy" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_image_recipe_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_logging_configuration() :: %{
-        "imageLogGroupName" => String.t() | atom(),
-        "pipelineLogGroupName" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_policies_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_lifecycle_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_execution_resource_action() :: %{
-        "name" => list(any()),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type lifecycle_execution_resource_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_image_pipeline_response() :: %{
+      create_workflow_response() :: %{
         "clientToken" => String.t() | atom(),
-        "imagePipelineArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_image_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_infrastructure_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t() | atom()),
-        optional("keyPair") => String.t() | atom(),
-        optional("logging") => logging(),
-        optional("placement") => placement(),
-        optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("snsTopicArn") => String.t() | atom(),
-        optional("subnetId") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("terminateInstanceOnFailure") => boolean(),
-        required("clientToken") => String.t() | atom(),
-        required("instanceProfileName") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_component_request() :: %{
-        required("componentBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_workflow_step_action_request() :: %{
-        optional("reason") => String.t() | atom(),
-        required("action") => list(any()),
-        required("clientToken") => String.t() | atom(),
-        required("imageBuildVersionArn") => String.t() | atom(),
-        required("stepExecutionId") => String.t() | atom()
-      }
-
-  """
-  @type send_workflow_step_action_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecr_configuration() :: %{
-        "containerTags" => list(String.t() | atom()),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type ecr_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lifecycle_execution_response() :: %{
-        "lifecycleExecution" => lifecycle_execution()
-      }
-
-  """
-  @type get_lifecycle_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_component_response() :: %{
-        "component" => component(),
         "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_component_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_scan_findings_filter() :: %{
-        "name" => String.t() | atom(),
-        "values" => list(String.t() | atom())
-      }
-
-  """
-  @type image_scan_findings_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_image_recipe_request() :: %{
-        optional("additionalInstanceConfiguration") => additional_instance_configuration(),
-        optional("amiTags") => map(),
-        optional("blockDeviceMappings") => list(instance_block_device_mapping()),
-        optional("components") => list(component_configuration()),
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("workingDirectory") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("parentImage") => String.t() | atom(),
-        required("semanticVersion") => String.t() | atom()
-      }
-
-  """
-  @type create_image_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_container_recipe_policy_request() :: %{
-        required("containerRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type get_container_recipe_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_container_recipes_response() :: %{
-        "containerRecipeSummaryList" => list(container_recipe_summary()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_container_recipes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_infrastructure_configuration_response() :: %{
-        "infrastructureConfiguration" => infrastructure_configuration(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_image_creation_request() :: %{
-        required("clientToken") => String.t() | atom(),
-        required("imageBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type cancel_image_creation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_component_build_versions_request() :: %{
-        optional("componentVersionArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_component_build_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_component_request() :: %{
-        optional("changeDescription") => String.t() | atom(),
-        optional("data") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("tags") => map(),
-        optional("uri") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("format") => list(any()),
-        required("name") => String.t() | atom(),
-        required("platform") => list(any()),
-        required("semanticVersion") => String.t() | atom(),
-        required("type") => list(any())
-      }
-
-  """
-  @type import_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      call_rate_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type call_rate_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_summary() :: %{
-        "arn" => String.t() | atom(),
-        "changeDescription" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "obfuscate" => boolean(),
-        "owner" => String.t() | atom(),
-        "platform" => list(any()),
-        "publisher" => String.t() | atom(),
-        "state" => component_state(),
-        "supportedOsVersions" => list(String.t() | atom()),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type component_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      target_container_repository() :: %{
-        "repositoryName" => String.t() | atom(),
-        "service" => list(any())
-      }
-
-  """
-  @type target_container_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_distribution_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("distributions") => list(distribution()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_container_recipe_response() :: %{
-        "containerRecipeArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type delete_container_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_execution_metadata() :: %{
-        "endTime" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "parallelGroup" => String.t() | atom(),
-        "retried" => boolean(),
-        "startTime" => String.t() | atom(),
-        "status" => list(any()),
-        "totalStepCount" => integer(),
-        "totalStepsFailed" => integer(),
-        "totalStepsSkipped" => integer(),
-        "totalStepsSucceeded" => integer(),
-        "type" => list(any()),
-        "workflowBuildVersionArn" => String.t() | atom(),
-        "workflowExecutionId" => String.t() | atom()
-      }
-
-  """
-  @type workflow_execution_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type component_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_request() :: %{
-        required("workflowBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      severity_counts() :: %{
-        "all" => float(),
-        "critical" => float(),
-        "high" => float(),
-        "medium" => float()
-      }
-
-  """
-  @type severity_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_combination_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_combination_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_container_recipe_request() :: %{
-        required("containerRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_container_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_scan_finding_aggregation() :: %{
-        "accountAggregation" => account_aggregation(),
-        "imageAggregation" => image_aggregation(),
-        "imagePipelineAggregation" => image_pipeline_aggregation(),
-        "vulnerabilityIdAggregation" => vulnerability_id_aggregation()
-      }
-
-  """
-  @type image_scan_finding_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_version() :: %{
-        "arn" => String.t() | atom(),
-        "buildType" => list(any()),
-        "dateCreated" => String.t() | atom(),
-        "imageSource" => list(any()),
-        "name" => String.t() | atom(),
-        "osVersion" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "platform" => list(any()),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type image_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_step_execution_request() :: %{
-        required("stepExecutionId") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_step_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_resource_state_update_response() :: %{
-        "lifecycleExecutionId" => String.t() | atom(),
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type start_resource_state_update_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_image_pipeline_request() :: %{
-        required("imagePipelineArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_image_pipeline_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_parameter() :: %{
-        "name" => String.t() | atom(),
-        "value" => list(String.t() | atom())
-      }
-
-  """
-  @type workflow_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_request() :: %{
-        required("imageBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type get_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_step_execution() :: %{
-        "action" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "startTime" => String.t() | atom(),
-        "stepExecutionId" => String.t() | atom(),
-        "workflowBuildVersionArn" => String.t() | atom(),
-        "workflowExecutionId" => String.t() | atom()
-      }
-
-  """
-  @type workflow_step_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_distribution_configurations_response() :: %{
-        "distributionConfigurationSummaryList" => list(distribution_configuration_summary()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_distribution_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_policy_response() :: %{
-        "policy" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_image_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_component_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "componentBuildVersionArn" => String.t() | atom(),
-        "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_component_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workflow_response() :: %{
         "workflowBuildVersionArn" => String.t() | atom()
       }
 
   """
-  @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_lifecycle_policy_response() :: %{
-        "lifecyclePolicyArn" => String.t() | atom()
-      }
-
-  """
-  @type delete_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_execution_resource() :: %{
-        "accountId" => String.t() | atom(),
-        "action" => lifecycle_execution_resource_action(),
-        "endTime" => non_neg_integer(),
-        "imageUris" => list(String.t() | atom()),
-        "region" => String.t() | atom(),
-        "resourceId" => String.t() | atom(),
-        "snapshots" => list(lifecycle_execution_snapshot_resource()),
-        "startTime" => non_neg_integer(),
-        "state" => lifecycle_execution_resource_state()
-      }
-
-  """
-  @type lifecycle_execution_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_distribution_configuration_request() :: %{
-        required("distributionConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_recipe_request() :: %{
-        required("imageRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type get_image_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      systems_manager_agent() :: %{
-        "uninstallAfterBuild" => boolean()
-      }
-
-  """
-  @type systems_manager_agent() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_image_recipe_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageRecipeArn" => String.t() | atom(),
-        "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_image_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy_detail() :: %{
-        "action" => lifecycle_policy_detail_action(),
-        "exclusionRules" => lifecycle_policy_detail_exclusion_rules(),
-        "filter" => lifecycle_policy_detail_filter()
-      }
-
-  """
-  @type lifecycle_policy_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_image_recipe_request() :: %{
-        required("imageRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_image_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_export_configuration() :: %{
-        "diskImageFormat" => list(any()),
-        "roleName" => String.t() | atom(),
-        "s3Bucket" => String.t() | atom(),
-        "s3Prefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_export_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      client_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_infrastructure_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("instanceMetadataOptions") => instance_metadata_options(),
-        optional("instanceTypes") => list(String.t() | atom()),
-        optional("keyPair") => String.t() | atom(),
-        optional("logging") => logging(),
-        optional("placement") => placement(),
-        optional("resourceTags") => map(),
-        optional("securityGroupIds") => list(String.t() | atom()),
-        optional("snsTopicArn") => String.t() | atom(),
-        optional("subnetId") => String.t() | atom(),
-        optional("terminateInstanceOnFailure") => boolean(),
-        required("clientToken") => String.t() | atom(),
-        required("infrastructureConfigurationArn") => String.t() | atom(),
-        required("instanceProfileName") => String.t() | atom()
-      }
-
-  """
-  @type update_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_components_request() :: %{
-        optional("byName") => boolean(),
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_components_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_executions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("imageBuildVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy_summary() :: %{
-        "arn" => String.t() | atom(),
-        "dateCreated" => non_neg_integer(),
-        "dateLastRun" => non_neg_integer(),
-        "dateUpdated" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "executionRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resourceType" => list(any()),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_logs() :: %{
-        "s3BucketName" => String.t() | atom(),
-        "s3KeyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_logs() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_logging_configuration() :: %{
-        "logGroupName" => String.t() | atom()
-      }
-
-  """
-  @type image_logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_container_recipe_request() :: %{
-        optional("components") => list(component_configuration()),
-        optional("description") => String.t() | atom(),
-        optional("dockerfileTemplateData") => String.t() | atom(),
-        optional("dockerfileTemplateUri") => String.t() | atom(),
-        optional("imageOsVersionOverride") => String.t() | atom(),
-        optional("instanceConfiguration") => instance_configuration(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("platformOverride") => list(any()),
-        optional("tags") => map(),
-        optional("workingDirectory") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("containerType") => list(any()),
-        required("name") => String.t() | atom(),
-        required("parentImage") => String.t() | atom(),
-        required("semanticVersion") => String.t() | atom(),
-        required("targetRepository") => target_container_repository()
-      }
-
-  """
-  @type create_container_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_component_policy_request() :: %{
-        required("componentArn") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_component_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_request_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_disk_image_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type import_disk_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_image_request() :: %{
-        optional("containerRecipeArn") => String.t() | atom(),
-        optional("distributionConfigurationArn") => String.t() | atom(),
-        optional("enhancedImageMetadataEnabled") => boolean(),
-        optional("executionRole") => String.t() | atom(),
-        optional("imageRecipeArn") => String.t() | atom(),
-        optional("imageScanningConfiguration") => image_scanning_configuration(),
-        optional("imageTestsConfiguration") => image_tests_configuration(),
-        optional("loggingConfiguration") => image_logging_configuration(),
-        optional("tags") => map(),
-        optional("workflows") => list(workflow_configuration()),
-        required("clientToken") => String.t() | atom(),
-        required("infrastructureConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type create_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_pipeline_response() :: %{
-        "imagePipeline" => image_pipeline(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_image_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_policies_response() :: %{
-        "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_lifecycle_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_images_request() :: %{
-        optional("byName") => boolean(),
-        optional("filters") => list(filter()),
-        optional("includeDeprecated") => boolean(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_images_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component() :: %{
-        "arn" => String.t() | atom(),
-        "changeDescription" => String.t() | atom(),
-        "data" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "encrypted" => boolean(),
-        "kmsKeyId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "obfuscate" => boolean(),
-        "owner" => String.t() | atom(),
-        "parameters" => list(component_parameter_detail()),
-        "platform" => list(any()),
-        "productCodes" => list(product_code_list_item()),
-        "publisher" => String.t() | atom(),
-        "state" => component_state(),
-        "supportedOsVersions" => list(String.t() | atom()),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type component() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_state_update_include_resources() :: %{
-        "amis" => boolean(),
-        "containers" => boolean(),
-        "snapshots" => boolean()
-      }
-
-  """
-  @type resource_state_update_include_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_workflow_step_action_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "stepExecutionId" => String.t() | atom()
-      }
-
-  """
-  @type send_workflow_step_action_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      idempotent_parameter_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_value_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_value_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_image_recipe_policy_request() :: %{
-        required("imageRecipeArn") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_image_recipe_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_component_policy_response() :: %{
-        "policy" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_component_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_request() :: %{
-        optional("byName") => boolean(),
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_container_recipe_request() :: %{
-        required("containerRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type get_container_recipe_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      distribution_configuration() :: %{
-        "arn" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "dateUpdated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "distributions" => list(distribution()),
-        "name" => String.t() | atom(),
-        "tags" => map(),
-        "timeoutMinutes" => integer()
-      }
-
-  """
-  @type distribution_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_execution_resource_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type lifecycle_execution_resource_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_marketplace_resource_response() :: %{
-        "data" => String.t() | atom(),
-        "resourceArn" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type get_marketplace_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow() :: %{
-        "arn" => String.t() | atom(),
-        "changeDescription" => String.t() | atom(),
-        "data" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "parameters" => list(workflow_parameter_detail()),
-        "state" => workflow_state(),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type workflow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss_score_details() :: %{
-        "adjustments" => list(cvss_score_adjustment()),
-        "cvssSource" => String.t() | atom(),
-        "score" => float(),
-        "scoreSource" => String.t() | atom(),
-        "scoringVector" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_pipelines_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_image_pipelines_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      distribution() :: %{
-        "amiDistributionConfiguration" => ami_distribution_configuration(),
-        "containerDistributionConfiguration" => container_distribution_configuration(),
-        "fastLaunchConfigurations" => list(fast_launch_configuration()),
-        "launchTemplateConfigurations" => list(launch_template_configuration()),
-        "licenseConfigurationArns" => list(String.t() | atom()),
-        "region" => String.t() | atom(),
-        "s3ExportConfiguration" => s3_export_configuration(),
-        "ssmParameterConfigurations" => list(ssm_parameter_configuration())
-      }
-
-  """
-  @type distribution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_scan_findings_response() :: %{
-        "findings" => list(image_scan_finding()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_image_scan_findings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_image_recipe_response() :: %{
-        "imageRecipeArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type delete_image_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remediation_recommendation() :: %{
-        "text" => String.t() | atom(),
-        "url" => String.t() | atom()
-      }
-
-  """
-  @type remediation_recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inspector_score_details() :: %{
-        "adjustedCvss" => cvss_score_details()
-      }
-
-  """
-  @type inspector_score_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_component_request() :: %{
-        optional("changeDescription") => String.t() | atom(),
-        optional("data") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("dryRun") => boolean(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("supportedOsVersions") => list(String.t() | atom()),
-        optional("tags") => map(),
-        optional("uri") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("platform") => list(any()),
-        required("semanticVersion") => String.t() | atom()
-      }
-
-  """
-  @type create_component_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vulnerable_package() :: %{
-        "arch" => String.t() | atom(),
-        "epoch" => integer(),
-        "filePath" => String.t() | atom(),
-        "fixedInVersion" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "packageManager" => String.t() | atom(),
-        "release" => String.t() | atom(),
-        "remediation" => String.t() | atom(),
-        "sourceLayerHash" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type vulnerable_package() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_distribution_configuration_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("clientToken") => String.t() | atom(),
-        required("distributionConfigurationArn") => String.t() | atom(),
-        required("distributions") => list(distribution())
-      }
-
-  """
-  @type update_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_state_update_exclusion_rules() :: %{
-        "amis" => lifecycle_policy_detail_exclusion_rules_amis()
-      }
-
-  """
-  @type resource_state_update_exclusion_rules() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss_score_adjustment() :: %{
-        "metric" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type cvss_score_adjustment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_execution_snapshot_resource() :: %{
-        "snapshotId" => String.t() | atom(),
-        "state" => lifecycle_execution_resource_state()
-      }
-
-  """
-  @type lifecycle_execution_snapshot_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_infrastructure_configurations_response() :: %{
-        "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_infrastructure_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_recipe_summary() :: %{
-        "arn" => String.t() | atom(),
-        "containerType" => list(any()),
-        "dateCreated" => String.t() | atom(),
-        "instanceImage" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "parentImage" => String.t() | atom(),
-        "platform" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type container_recipe_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_execution_request() :: %{
-        required("workflowExecutionId") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_execution_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_executions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_lifecycle_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_version() :: %{
-        "arn" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "platform" => list(any()),
-        "productCodes" => list(product_code_list_item()),
-        "status" => list(any()),
-        "supportedOsVersions" => list(String.t() | atom()),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type component_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_lifecycle_policy_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "lifecyclePolicyArn" => String.t() | atom()
-      }
-
-  """
-  @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_image_options() :: %{
-        "secureBootEnabled" => boolean(),
-        "uefiData" => String.t() | atom()
-      }
-
-  """
-  @type register_image_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_image_policy_request() :: %{
-        required("imageArn") => String.t() | atom(),
-        required("policy") => String.t() | atom()
-      }
-
-  """
-  @type put_image_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_distribution_configuration_request() :: %{
-        required("distributionConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type get_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_component_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "componentBuildVersionArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type import_component_response() :: %{(String.t() | atom()) => any()}
+  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2309,41 +1446,219 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      lifecycle_policy_detail_filter() :: %{
-        "retainAtLeast" => integer(),
-        "type" => list(any()),
-        "unit" => list(any()),
-        "value" => integer()
+      list_image_pipeline_images_response() :: %{
+        "imageSummaryList" => list(image_summary()),
+        "nextToken" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type lifecycle_policy_detail_filter() :: %{(String.t() | atom()) => any()}
+  @type list_image_pipeline_images_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter() :: %{
+      delete_workflow_request() :: %{
+        required("workflowBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_infrastructure_configurations_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_infrastructure_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_aggregation() :: %{
+        "imageBuildVersionArn" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type image_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution_resource_action() :: %{
+        "name" => list(any()),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type lifecycle_execution_resource_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_container_recipe_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_container_recipe_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_scan_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type image_scan_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_scan_findings_filter() :: %{
         "name" => String.t() | atom(),
         "values" => list(String.t() | atom())
       }
 
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type image_scan_findings_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      placement() :: %{
-        "availabilityZone" => String.t() | atom(),
-        "hostId" => String.t() | atom(),
-        "hostResourceGroupArn" => String.t() | atom(),
-        "tenancy" => list(any())
+      instance_block_device_mapping() :: %{
+        "deviceName" => String.t() | atom(),
+        "ebs" => ebs_instance_block_device_specification(),
+        "noDevice" => String.t() | atom(),
+        "virtualName" => String.t() | atom()
       }
 
   """
-  @type placement() :: %{(String.t() | atom()) => any()}
+  @type instance_block_device_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ami_distribution_configuration() :: %{
+        "amiTags" => map(),
+        "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
+        "launchPermission" => launch_permission_configuration(),
+        "name" => String.t() | atom(),
+        "targetAccountIds" => list(String.t() | atom())
+      }
+
+  """
+  @type ami_distribution_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lifecycle_policy_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("executionRole") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("policyDetails") => list(lifecycle_policy_detail()),
+        required("resourceSelection") => lifecycle_policy_resource_selection(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_image_request() :: %{
+        optional("containerRecipeArn") => String.t() | atom(),
+        optional("distributionConfigurationArn") => String.t() | atom(),
+        optional("enhancedImageMetadataEnabled") => boolean(),
+        optional("executionRole") => String.t() | atom(),
+        optional("imageRecipeArn") => String.t() | atom(),
+        optional("imageScanningConfiguration") => image_scanning_configuration(),
+        optional("imageTestsConfiguration") => image_tests_configuration(),
+        optional("loggingConfiguration") => image_logging_configuration(),
+        optional("tags") => map(),
+        optional("workflows") => list(workflow_configuration()),
+        required("clientToken") => String.t() | atom(),
+        required("infrastructureConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type create_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_resource_state_update_request() :: %{
+        optional("exclusionRules") => resource_state_update_exclusion_rules(),
+        optional("executionRole") => String.t() | atom(),
+        optional("includeResources") => resource_state_update_include_resources(),
+        optional("updateAt") => non_neg_integer(),
+        required("clientToken") => String.t() | atom(),
+        required("resourceArn") => String.t() | atom(),
+        required("state") => resource_state()
+      }
+
+  """
+  @type start_resource_state_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      systems_manager_agent() :: %{
+        "uninstallAfterBuild" => boolean()
+      }
+
+  """
+  @type systems_manager_agent() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2362,124 +1677,34 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      delete_distribution_configuration_response() :: %{
-        "distributionConfigurationArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
+      create_component_request() :: %{
+        optional("changeDescription") => String.t() | atom(),
+        optional("data") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("dryRun") => boolean(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("supportedOsVersions") => list(String.t() | atom()),
+        optional("tags") => map(),
+        optional("uri") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("platform") => list(any()),
+        required("semanticVersion") => String.t() | atom()
       }
 
   """
-  @type delete_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type create_component_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_images_response() :: %{
-        "imageVersionList" => list(image_version()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
+      delete_infrastructure_configuration_request() :: %{
+        required("infrastructureConfigurationArn") => String.t() | atom()
       }
 
   """
-  @type list_images_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_executions_response() :: %{
-        "lifecycleExecutions" => list(lifecycle_execution()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_lifecycle_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_component_build_versions_response() :: %{
-        "componentSummaryList" => list(component_summary()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_component_build_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_packages_response() :: %{
-        "imagePackageList" => list(image_package()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_image_packages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_summary() :: %{
-        "arn" => String.t() | atom(),
-        "changeDescription" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "state" => workflow_state(),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type workflow_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_tests_configuration() :: %{
-        "imageTestsEnabled" => boolean(),
-        "timeoutMinutes" => integer()
-      }
-
-  """
-  @type image_tests_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_container_recipes_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owner") => list(any())
-      }
-
-  """
-  @type list_container_recipes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_build_versions_request() :: %{
-        optional("filters") => list(filter()),
-        optional("imageVersionArn") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_image_build_versions_request() :: %{(String.t() | atom()) => any()}
+  @type delete_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2501,128 +1726,468 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      delete_component_response() :: %{
-        "componentBuildVersionArn" => String.t() | atom(),
+      list_image_scan_finding_aggregations_request() :: %{
+        optional("filter") => filter(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_image_scan_finding_aggregations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_pipelines_response() :: %{
+        "imagePipelineList" => list(image_pipeline()),
+        "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type delete_component_response() :: %{(String.t() | atom()) => any()}
+  @type list_image_pipelines_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      additional_instance_configuration() :: %{
-        "systemsManagerAgent" => systems_manager_agent(),
-        "userDataOverride" => String.t() | atom()
+      delete_container_recipe_request() :: %{
+        required("containerRecipeArn") => String.t() | atom()
       }
 
   """
-  @type additional_instance_configuration() :: %{(String.t() | atom()) => any()}
+  @type delete_container_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_infrastructure_configuration_request() :: %{
-        required("infrastructureConfigurationArn") => String.t() | atom()
+      resource_state_update_exclusion_rules() :: %{
+        "amis" => lifecycle_policy_detail_exclusion_rules_amis()
       }
 
   """
-  @type get_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type resource_state_update_exclusion_rules() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_image_request() :: %{
-        required("imageBuildVersionArn") => String.t() | atom()
+      delete_image_recipe_response() :: %{
+        "imageRecipeArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type delete_image_request() :: %{(String.t() | atom()) => any()}
+  @type delete_image_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_execution_resources_impacted_summary() :: %{
-        "hasImpactedResources" => boolean()
+      update_infrastructure_configuration_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "infrastructureConfigurationArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type lifecycle_execution_resources_impacted_summary() :: %{(String.t() | atom()) => any()}
+  @type update_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image_recipe() :: %{
-        "additionalInstanceConfiguration" => additional_instance_configuration(),
-        "amiTags" => map(),
+      vulnerable_package() :: %{
+        "arch" => String.t() | atom(),
+        "epoch" => integer(),
+        "filePath" => String.t() | atom(),
+        "fixedInVersion" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "packageManager" => String.t() | atom(),
+        "release" => String.t() | atom(),
+        "remediation" => String.t() | atom(),
+        "sourceLayerHash" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type vulnerable_package() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_detail_exclusion_rules_amis() :: %{
+        "isPublic" => boolean(),
+        "lastLaunched" => lifecycle_policy_detail_exclusion_rules_amis_last_launched(),
+        "regions" => list(String.t() | atom()),
+        "sharedAccounts" => list(String.t() | atom()),
+        "tagMap" => map()
+      }
+
+  """
+  @type lifecycle_policy_detail_exclusion_rules_amis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom()
+      }
+
+  """
+  @type retry_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_distribution_configuration_request() :: %{
+        required("distributionConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type get_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow() :: %{
         "arn" => String.t() | atom(),
-        "blockDeviceMappings" => list(instance_block_device_mapping()),
-        "components" => list(component_configuration()),
+        "changeDescription" => String.t() | atom(),
+        "data" => String.t() | atom(),
         "dateCreated" => String.t() | atom(),
         "description" => String.t() | atom(),
+        "kmsKeyId" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owner" => String.t() | atom(),
-        "parentImage" => String.t() | atom(),
-        "platform" => list(any()),
+        "parameters" => list(workflow_parameter_detail()),
+        "state" => workflow_state(),
         "tags" => map(),
         "type" => list(any()),
-        "version" => String.t() | atom(),
-        "workingDirectory" => String.t() | atom()
+        "version" => String.t() | atom()
       }
 
   """
-  @type image_recipe() :: %{(String.t() | atom()) => any()}
+  @type workflow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      fast_launch_snapshot_configuration() :: %{
-        "targetResourceCount" => integer()
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type fast_launch_snapshot_configuration() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_policy() :: %{
+      auto_disable_policy() :: %{
+        "failureCount" => integer()
+      }
+
+  """
+  @type auto_disable_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_infrastructure_configurations_response() :: %{
+        "infrastructureConfigurationSummaryList" => list(infrastructure_configuration_summary()),
+        "nextToken" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type list_infrastructure_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      call_rate_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type call_rate_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_image_pipeline_execution_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type start_image_pipeline_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_packages_response() :: %{
+        "imagePackageList" => list(image_package()),
+        "nextToken" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type list_image_packages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remediation() :: %{
+        "recommendation" => remediation_recommendation()
+      }
+
+  """
+  @type remediation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_request() :: %{
+        required("workflowBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_pipelines_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_image_pipelines_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_waiting_workflow_steps_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "steps" => list(workflow_step_execution())
+      }
+
+  """
+  @type list_waiting_workflow_steps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type image_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_container_recipe_response() :: %{
+        "containerRecipeArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type delete_container_recipe_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_container_recipes_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
+      }
+
+  """
+  @type list_container_recipes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      infrastructure_configuration_summary() :: %{
         "arn" => String.t() | atom(),
-        "dateCreated" => non_neg_integer(),
-        "dateLastRun" => non_neg_integer(),
-        "dateUpdated" => non_neg_integer(),
+        "dateCreated" => String.t() | atom(),
+        "dateUpdated" => String.t() | atom(),
         "description" => String.t() | atom(),
-        "executionRole" => String.t() | atom(),
+        "instanceProfileName" => String.t() | atom(),
+        "instanceTypes" => list(String.t() | atom()),
         "name" => String.t() | atom(),
-        "policyDetails" => list(lifecycle_policy_detail()),
-        "resourceSelection" => lifecycle_policy_resource_selection(),
-        "resourceType" => list(any()),
-        "status" => list(any()),
+        "placement" => placement(),
+        "resourceTags" => map(),
         "tags" => map()
       }
 
   """
-  @type lifecycle_policy() :: %{(String.t() | atom()) => any()}
+  @type infrastructure_configuration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_component_policy_response() :: %{
-        "componentArn" => String.t() | atom(),
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_disk_image_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("executionRole") => String.t() | atom(),
+        optional("loggingConfiguration") => image_logging_configuration(),
+        optional("registerImageOptions") => register_image_options(),
+        optional("tags") => map(),
+        optional("windowsConfiguration") => windows_configuration(),
+        required("clientToken") => String.t() | atom(),
+        required("infrastructureConfigurationArn") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("osVersion") => String.t() | atom(),
+        required("platform") => String.t() | atom(),
+        required("semanticVersion") => String.t() | atom(),
+        required("uri") => String.t() | atom()
+      }
+
+  """
+  @type import_disk_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_scan_findings_response() :: %{
+        "findings" => list(image_scan_finding()),
+        "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type put_component_policy_response() :: %{(String.t() | atom()) => any()}
+  @type list_image_scan_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_execution_resources_response() :: %{
+        "lifecycleExecutionId" => String.t() | atom(),
+        "lifecycleExecutionState" => lifecycle_execution_state(),
+        "nextToken" => String.t() | atom(),
+        "resources" => list(lifecycle_execution_resource())
+      }
+
+  """
+  @type list_lifecycle_execution_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_build_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("workflowVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_build_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_step_metadata() :: %{
+        "action" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "endTime" => String.t() | atom(),
+        "inputs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "outputs" => String.t() | atom(),
+        "rollbackStatus" => list(any()),
+        "startTime" => String.t() | atom(),
+        "status" => list(any()),
+        "stepExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type workflow_step_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_workflow_step_action_request() :: %{
+        optional("reason") => String.t() | atom(),
+        required("action") => list(any()),
+        required("clientToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom(),
+        required("stepExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type send_workflow_step_action_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_lifecycle_policy_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("clientToken") => String.t() | atom(),
+        required("executionRole") => String.t() | atom(),
+        required("lifecyclePolicyArn") => String.t() | atom(),
+        required("policyDetails") => list(lifecycle_policy_detail()),
+        required("resourceSelection") => lifecycle_policy_resource_selection(),
+        required("resourceType") => list(any())
+      }
+
+  """
+  @type update_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2652,28 +2217,95 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      schedule() :: %{
-        "autoDisablePolicy" => auto_disable_policy(),
-        "pipelineExecutionStartCondition" => list(any()),
-        "scheduleExpression" => String.t() | atom(),
-        "timezone" => String.t() | atom()
+      put_image_recipe_policy_response() :: %{
+        "imageRecipeArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type schedule() :: %{(String.t() | atom()) => any()}
+  @type put_image_recipe_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_image_scan_findings_request() :: %{
-        optional("filters") => list(image_scan_findings_filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      lifecycle_execution_resources_impacted_summary() :: %{
+        "hasImpactedResources" => boolean()
       }
 
   """
-  @type list_image_scan_findings_request() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_execution_resources_impacted_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_recipes_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
+      }
+
+  """
+  @type list_image_recipes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "workflowVersionList" => list(workflow_version())
+      }
+
+  """
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_executions_response() :: %{
+        "lifecycleExecutions" => list(lifecycle_execution()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_lifecycle_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      windows_configuration() :: %{
+        "imageIndex" => float()
+      }
+
+  """
+  @type windows_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_distribution_configuration_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "distributionConfigurationArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type update_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2691,110 +2323,168 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      delete_lifecycle_policy_request() :: %{
-        required("lifecyclePolicyArn") => String.t() | atom()
+      put_image_policy_request() :: %{
+        required("imageArn") => String.t() | atom(),
+        required("policy") => String.t() | atom()
       }
 
   """
-  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+  @type put_image_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image_scan_finding() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "firstObservedAt" => non_neg_integer(),
-        "fixAvailable" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
-        "imagePipelineArn" => String.t() | atom(),
-        "inspectorScore" => float(),
-        "inspectorScoreDetails" => inspector_score_details(),
-        "packageVulnerabilityDetails" => package_vulnerability_details(),
-        "remediation" => remediation(),
-        "severity" => String.t() | atom(),
-        "title" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
       }
 
   """
-  @type image_scan_finding() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_marketplace_resource_request() :: %{
-        optional("resourceLocation") => String.t() | atom(),
-        required("resourceArn") => String.t() | atom(),
-        required("resourceType") => list(any())
+      logging() :: %{
+        "s3Logs" => s3_logs()
       }
 
   """
-  @type get_marketplace_resource_request() :: %{(String.t() | atom()) => any()}
+  @type logging() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_workflow_step_executions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("workflowExecutionId") => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_step_executions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_recipe_policy_request() :: %{
-        required("imageRecipeArn") => String.t() | atom()
-      }
-
-  """
-  @type get_image_recipe_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_aggregation() :: %{
-        "accountId" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type account_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_resources() :: %{
-        "amis" => list(ami()),
-        "containers" => list(container())
-      }
-
-  """
-  @type output_resources() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_image_creation_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageBuildVersionArn" => String.t() | atom(),
+      list_distribution_configurations_response() :: %{
+        "distributionConfigurationSummaryList" => list(distribution_configuration_summary()),
+        "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type cancel_image_creation_response() :: %{(String.t() | atom()) => any()}
+  @type list_distribution_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retry_image_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type retry_image_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_infrastructure_configuration_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "infrastructureConfigurationArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type create_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_execution_resource_state() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type lifecycle_execution_resource_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_step_execution_response() :: %{
+        "action" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "endTime" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "inputs" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "onFailure" => String.t() | atom(),
+        "outputs" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "rollbackStatus" => list(any()),
+        "startTime" => String.t() | atom(),
+        "status" => list(any()),
+        "stepExecutionId" => String.t() | atom(),
+        "timeoutSeconds" => integer(),
+        "workflowBuildVersionArn" => String.t() | atom(),
+        "workflowExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_step_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_vm_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type import_vm_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_container_recipe_policy_request() :: %{
+        required("containerRecipeArn") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_container_recipe_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_container_recipe_policy_response() :: %{
+        "containerRecipeArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type put_container_recipe_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_vm_image_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("loggingConfiguration") => image_logging_configuration(),
+        optional("osVersion") => String.t() | atom(),
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("platform") => list(any()),
+        required("semanticVersion") => String.t() | atom(),
+        required("vmImportTaskId") => String.t() | atom()
+      }
+
+  """
+  @type import_vm_image_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2837,205 +2527,12 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      delete_image_pipeline_response() :: %{
-        "imagePipelineArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
+      get_lifecycle_policy_request() :: %{
+        required("lifecyclePolicyArn") => String.t() | atom()
       }
 
   """
-  @type delete_image_pipeline_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_image_pipeline_request() :: %{
-        required("imagePipelineArn") => String.t() | atom()
-      }
-
-  """
-  @type get_image_pipeline_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      product_code_list_item() :: %{
-        "productCodeId" => String.t() | atom(),
-        "productCodeType" => list(any())
-      }
-
-  """
-  @type product_code_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_workflow_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "latestVersionReferences" => latest_version_references(),
-        "workflowBuildVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type create_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_image_policy_response() :: %{
-        "imageArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type put_image_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_vulnerability_details() :: %{
-        "cvss" => list(cvss_score()),
-        "referenceUrls" => list(String.t() | atom()),
-        "relatedVulnerabilities" => list(String.t() | atom()),
-        "source" => String.t() | atom(),
-        "sourceUrl" => String.t() | atom(),
-        "vendorCreatedAt" => non_neg_integer(),
-        "vendorSeverity" => String.t() | atom(),
-        "vendorUpdatedAt" => non_neg_integer(),
-        "vulnerabilityId" => String.t() | atom(),
-        "vulnerablePackages" => list(vulnerable_package())
-      }
-
-  """
-  @type package_vulnerability_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cvss_score() :: %{
-        "baseScore" => float(),
-        "scoringVector" => String.t() | atom(),
-        "source" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type cvss_score() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_metadata_options() :: %{
-        "httpPutResponseHopLimit" => integer(),
-        "httpTokens" => String.t() | atom()
-      }
-
-  """
-  @type instance_metadata_options() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_infrastructure_configuration_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "infrastructureConfigurationArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type update_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fast_launch_launch_template_specification() :: %{
-        "launchTemplateId" => String.t() | atom(),
-        "launchTemplateName" => String.t() | atom(),
-        "launchTemplateVersion" => String.t() | atom()
-      }
-
-  """
-  @type fast_launch_launch_template_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_build_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("workflowVersionArn") => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_build_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      import_vm_image_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imageArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type import_vm_image_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_infrastructure_configuration_request() :: %{
-        required("infrastructureConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ssm_parameter_configuration() :: %{
-        "amiAccountId" => String.t() | atom(),
-        "dataType" => list(any()),
-        "parameterName" => String.t() | atom()
-      }
-
-  """
-  @type ssm_parameter_configuration() :: %{(String.t() | atom()) => any()}
+  @type get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3055,275 +2552,234 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      image_recipe_summary() :: %{
-        "arn" => String.t() | atom(),
-        "dateCreated" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "parentImage" => String.t() | atom(),
-        "platform" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type image_recipe_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fast_launch_configuration() :: %{
-        "accountId" => String.t() | atom(),
-        "enabled" => boolean(),
-        "launchTemplate" => fast_launch_launch_template_specification(),
-        "maxParallelLaunches" => integer(),
-        "snapshotConfiguration" => fast_launch_snapshot_configuration()
-      }
-
-  """
-  @type fast_launch_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ami_distribution_configuration() :: %{
-        "amiTags" => map(),
-        "description" => String.t() | atom(),
-        "kmsKeyId" => String.t() | atom(),
-        "launchPermission" => launch_permission_configuration(),
-        "name" => String.t() | atom(),
-        "targetAccountIds" => list(String.t() | atom())
-      }
-
-  """
-  @type ami_distribution_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      component_configuration() :: %{
-        "componentArn" => String.t() | atom(),
-        "parameters" => list(component_parameter())
-      }
-
-  """
-  @type component_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      instance_configuration() :: %{
-        "blockDeviceMappings" => list(instance_block_device_mapping()),
-        "image" => String.t() | atom()
-      }
-
-  """
-  @type instance_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_infrastructure_configuration_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "infrastructureConfigurationArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_distribution_configuration() :: %{
-        "containerTags" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "targetRepository" => target_container_repository()
-      }
-
-  """
-  @type container_distribution_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lifecycle_policy_request() :: %{
-        required("lifecyclePolicyArn") => String.t() | atom()
-      }
-
-  """
-  @type get_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_aggregation() :: %{
-        "imageBuildVersionArn" => String.t() | atom(),
-        "severityCounts" => severity_counts()
-      }
-
-  """
-  @type image_aggregation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_container_recipe_policy_response() :: %{
-        "policy" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type get_container_recipe_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_container_recipe_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "containerRecipeArn" => String.t() | atom(),
-        "latestVersionReferences" => latest_version_references(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type create_container_recipe_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      container_recipe() :: %{
-        "arn" => String.t() | atom(),
-        "components" => list(component_configuration()),
-        "containerType" => list(any()),
-        "dateCreated" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "dockerfileTemplateData" => String.t() | atom(),
+      ebs_instance_block_device_specification() :: %{
+        "deleteOnTermination" => boolean(),
         "encrypted" => boolean(),
-        "instanceConfiguration" => instance_configuration(),
+        "iops" => integer(),
         "kmsKeyId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "parentImage" => String.t() | atom(),
-        "platform" => list(any()),
-        "tags" => map(),
-        "targetRepository" => target_container_repository(),
-        "version" => String.t() | atom(),
-        "workingDirectory" => String.t() | atom()
+        "snapshotId" => String.t() | atom(),
+        "throughput" => integer(),
+        "volumeSize" => integer(),
+        "volumeType" => list(any())
       }
 
   """
-  @type container_recipe() :: %{(String.t() | atom()) => any()}
+  @type ebs_instance_block_device_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_lifecycle_policy_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("tags") => map(),
-        required("clientToken") => String.t() | atom(),
-        required("executionRole") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("policyDetails") => list(lifecycle_policy_detail()),
-        required("resourceSelection") => lifecycle_policy_resource_selection(),
-        required("resourceType") => list(any())
+      s3_logs() :: %{
+        "s3BucketName" => String.t() | atom(),
+        "s3KeyPrefix" => String.t() | atom()
       }
 
   """
-  @type create_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
+  @type s3_logs() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_dependency_exception() :: %{
+      lifecycle_policy_detail_action_include_resources() :: %{
+        "amis" => boolean(),
+        "containers" => boolean(),
+        "snapshots" => boolean()
+      }
+
+  """
+  @type lifecycle_policy_detail_action_include_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_scan_findings_request() :: %{
+        optional("filters") => list(image_scan_findings_filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_image_scan_findings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lifecycle_policy_response() :: %{
+        "lifecyclePolicyArn" => String.t() | atom()
+      }
+
+  """
+  @type delete_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lifecycle_execution_request() :: %{
+        required("lifecycleExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type get_lifecycle_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_step_executions_response() :: %{
+        "imageBuildVersionArn" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "nextToken" => String.t() | atom(),
+        "requestId" => String.t() | atom(),
+        "steps" => list(workflow_step_metadata()),
+        "workflowBuildVersionArn" => String.t() | atom(),
+        "workflowExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_step_executions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_container_recipe_request() :: %{
+        required("containerRecipeArn") => String.t() | atom()
+      }
+
+  """
+  @type get_container_recipe_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dry_run_operation_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type resource_dependency_exception() :: %{(String.t() | atom()) => any()}
+  @type dry_run_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_execution_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
+      list_components_request() :: %{
+        optional("byName") => boolean(),
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
       }
 
   """
-  @type lifecycle_execution_state() :: %{(String.t() | atom()) => any()}
+  @type list_components_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image_package() :: %{
-        "packageName" => String.t() | atom(),
-        "packageVersion" => String.t() | atom()
+      list_workflow_build_versions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "workflowSummaryList" => list(workflow_summary())
       }
 
   """
-  @type image_package() :: %{(String.t() | atom()) => any()}
+  @type list_workflow_build_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_image_response() :: %{
-        "imageBuildVersionArn" => String.t() | atom(),
-        "requestId" => String.t() | atom()
+      get_image_recipe_request() :: %{
+        required("imageRecipeArn") => String.t() | atom()
       }
 
   """
-  @type delete_image_response() :: %{(String.t() | atom()) => any()}
+  @type get_image_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_execution() :: %{
-        "endTime" => non_neg_integer(),
-        "lifecycleExecutionId" => String.t() | atom(),
-        "lifecyclePolicyArn" => String.t() | atom(),
-        "resourcesImpactedSummary" => lifecycle_execution_resources_impacted_summary(),
-        "startTime" => non_neg_integer(),
-        "state" => lifecycle_execution_state()
+      cvss_score_details() :: %{
+        "adjustments" => list(cvss_score_adjustment()),
+        "cvssSource" => String.t() | atom(),
+        "score" => float(),
+        "scoreSource" => String.t() | atom(),
+        "scoringVector" => String.t() | atom(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type lifecycle_execution() :: %{(String.t() | atom()) => any()}
+  @type cvss_score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_images_request() :: %{
+        optional("byName") => boolean(),
+        optional("filters") => list(filter()),
+        optional("includeDeprecated") => boolean(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
+      }
+
+  """
+  @type list_images_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_version() :: %{
+        "arn" => String.t() | atom(),
+        "buildType" => list(any()),
+        "dateCreated" => String.t() | atom(),
+        "imageSource" => list(any()),
+        "name" => String.t() | atom(),
+        "osVersion" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "platform" => list(any()),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type image_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_request() :: %{
+        optional("byName") => boolean(),
+        optional("filters") => list(filter()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owner") => list(any())
+      }
+
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3342,111 +2798,35 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      lifecycle_policy_resource_selection_recipe() :: %{
-        "name" => String.t() | atom(),
-        "semanticVersion" => String.t() | atom()
-      }
-
-  """
-  @type lifecycle_policy_resource_selection_recipe() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_step_metadata() :: %{
-        "action" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "endTime" => String.t() | atom(),
-        "inputs" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "outputs" => String.t() | atom(),
-        "rollbackStatus" => list(any()),
-        "startTime" => String.t() | atom(),
-        "status" => list(any()),
-        "stepExecutionId" => String.t() | atom()
-      }
-
-  """
-  @type workflow_step_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_build_versions_response() :: %{
-        "imageSummaryList" => list(image_summary()),
-        "nextToken" => String.t() | atom(),
-        "requestId" => String.t() | atom()
-      }
-
-  """
-  @type list_image_build_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_image_pipeline_request() :: %{
-        optional("containerRecipeArn") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("distributionConfigurationArn") => String.t() | atom(),
-        optional("enhancedImageMetadataEnabled") => boolean(),
-        optional("executionRole") => String.t() | atom(),
-        optional("imageRecipeArn") => String.t() | atom(),
-        optional("imageScanningConfiguration") => image_scanning_configuration(),
-        optional("imageTags") => map(),
-        optional("imageTestsConfiguration") => image_tests_configuration(),
-        optional("loggingConfiguration") => pipeline_logging_configuration(),
-        optional("schedule") => schedule(),
-        optional("status") => list(any()),
-        optional("workflows") => list(workflow_configuration()),
-        required("clientToken") => String.t() | atom(),
-        required("imagePipelineArn") => String.t() | atom(),
-        required("infrastructureConfigurationArn") => String.t() | atom()
-      }
-
-  """
-  @type update_image_pipeline_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lifecycle_execution_resources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("parentResourceId") => String.t() | atom(),
-        required("lifecycleExecutionId") => String.t() | atom()
-      }
-
-  """
-  @type list_lifecycle_execution_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_state() :: %{
+      component_state() :: %{
         "reason" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type image_state() :: %{(String.t() | atom()) => any()}
+  @type component_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_lifecycle_execution_request() :: %{
-        required("clientToken") => String.t() | atom(),
-        required("lifecycleExecutionId") => String.t() | atom()
+      lifecycle_policy() :: %{
+        "arn" => String.t() | atom(),
+        "dateCreated" => non_neg_integer(),
+        "dateLastRun" => non_neg_integer(),
+        "dateUpdated" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyDetails" => list(lifecycle_policy_detail()),
+        "resourceSelection" => lifecycle_policy_resource_selection(),
+        "resourceType" => list(any()),
+        "status" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type cancel_lifecycle_execution_request() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3466,114 +2846,25 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      import_disk_image_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("executionRole") => String.t() | atom(),
-        optional("loggingConfiguration") => image_logging_configuration(),
-        optional("registerImageOptions") => register_image_options(),
-        optional("tags") => map(),
-        optional("windowsConfiguration") => windows_configuration(),
-        required("clientToken") => String.t() | atom(),
-        required("infrastructureConfigurationArn") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("osVersion") => String.t() | atom(),
-        required("platform") => String.t() | atom(),
-        required("semanticVersion") => String.t() | atom(),
-        required("uri") => String.t() | atom()
-      }
-
-  """
-  @type import_disk_image_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_state() :: %{
-        "reason" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type workflow_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      latest_version_references() :: %{
-        "latestMajorVersionArn" => String.t() | atom(),
-        "latestMinorVersionArn" => String.t() | atom(),
-        "latestPatchVersionArn" => String.t() | atom(),
-        "latestVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type latest_version_references() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_infrastructure_configurations_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_infrastructure_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      image_summary() :: %{
-        "arn" => String.t() | atom(),
-        "buildType" => list(any()),
-        "dateCreated" => String.t() | atom(),
-        "deprecationTime" => non_neg_integer(),
-        "imageSource" => list(any()),
-        "lifecycleExecutionId" => String.t() | atom(),
-        "loggingConfiguration" => image_logging_configuration(),
-        "name" => String.t() | atom(),
-        "osVersion" => String.t() | atom(),
-        "outputResources" => output_resources(),
-        "owner" => String.t() | atom(),
-        "platform" => list(any()),
-        "state" => image_state(),
-        "tags" => map(),
-        "type" => list(any()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type image_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy_detail_action() :: %{
-        "includeResources" => lifecycle_policy_detail_action_include_resources(),
-        "type" => list(any())
-      }
-
-  """
-  @type lifecycle_policy_detail_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_image_recipes_response() :: %{
-        "imageRecipeSummaryList" => list(image_recipe_summary()),
+      list_images_response() :: %{
+        "imageVersionList" => list(image_version()),
         "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type list_image_recipes_response() :: %{(String.t() | atom()) => any()}
+  @type list_images_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_lifecycle_policy_request() :: %{
+        required("lifecyclePolicyArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_lifecycle_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3590,53 +2881,23 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      retry_image_request() :: %{
-        required("clientToken") => String.t() | atom(),
-        required("imageBuildVersionArn") => String.t() | atom()
+      get_image_policy_request() :: %{
+        required("imageArn") => String.t() | atom()
       }
 
   """
-  @type retry_image_request() :: %{(String.t() | atom()) => any()}
+  @type get_image_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_waiting_workflow_steps_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      image_logging_configuration() :: %{
+        "logGroupName" => String.t() | atom()
       }
 
   """
-  @type list_waiting_workflow_steps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lifecycle_policy_detail_exclusion_rules_amis() :: %{
-        "isPublic" => boolean(),
-        "lastLaunched" => lifecycle_policy_detail_exclusion_rules_amis_last_launched(),
-        "regions" => list(String.t() | atom()),
-        "sharedAccounts" => list(String.t() | atom()),
-        "tagMap" => map()
-      }
-
-  """
-  @type lifecycle_policy_detail_exclusion_rules_amis() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_template_configuration() :: %{
-        "accountId" => String.t() | atom(),
-        "launchTemplateId" => String.t() | atom(),
-        "setDefaultVersion" => boolean()
-      }
-
-  """
-  @type launch_template_configuration() :: %{(String.t() | atom()) => any()}
+  @type image_logging_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3669,123 +2930,283 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      windows_configuration() :: %{
-        "imageIndex" => float()
+      workflow_parameter_detail() :: %{
+        "defaultValue" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type windows_configuration() :: %{(String.t() | atom()) => any()}
+  @type workflow_parameter_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_component_policy_request() :: %{
-        required("componentArn") => String.t() | atom()
+      resource_dependency_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type get_component_policy_request() :: %{(String.t() | atom()) => any()}
+  @type resource_dependency_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_workflows_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "workflowVersionList" => list(workflow_version())
-      }
-
-  """
-  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_image_pipeline_execution_request() :: %{
+      create_image_recipe_request() :: %{
+        optional("additionalInstanceConfiguration") => additional_instance_configuration(),
+        optional("amiTags") => map(),
+        optional("blockDeviceMappings") => list(instance_block_device_mapping()),
+        optional("components") => list(component_configuration()),
+        optional("description") => String.t() | atom(),
         optional("tags") => map(),
+        optional("workingDirectory") => String.t() | atom(),
         required("clientToken") => String.t() | atom(),
-        required("imagePipelineArn") => String.t() | atom()
+        required("name") => String.t() | atom(),
+        required("parentImage") => String.t() | atom(),
+        required("semanticVersion") => String.t() | atom()
       }
 
   """
-  @type start_image_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
+  @type create_image_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
-        "unit" => list(any()),
-        "value" => integer()
+      get_marketplace_resource_response() :: %{
+        "data" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "url" => String.t() | atom()
       }
 
   """
-  @type lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_marketplace_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      image_pipeline_aggregation() :: %{
-        "imagePipelineArn" => String.t() | atom(),
-        "severityCounts" => severity_counts()
+      delete_workflow_response() :: %{
+        "workflowBuildVersionArn" => String.t() | atom()
       }
 
   """
-  @type image_pipeline_aggregation() :: %{(String.t() | atom()) => any()}
+  @type delete_workflow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_infrastructure_configuration_response() :: %{
-        "infrastructureConfigurationArn" => String.t() | atom(),
+      output_resources() :: %{
+        "amis" => list(ami()),
+        "containers" => list(container())
+      }
+
+  """
+  @type output_resources() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_recipes_response() :: %{
+        "imageRecipeSummaryList" => list(image_recipe_summary()),
+        "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type delete_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_image_recipes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      component_parameter() :: %{
+      lifecycle_policy_summary() :: %{
+        "arn" => String.t() | atom(),
+        "dateCreated" => non_neg_integer(),
+        "dateLastRun" => non_neg_integer(),
+        "dateUpdated" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "executionRole" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "value" => list(String.t() | atom())
+        "resourceType" => list(any()),
+        "status" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type component_parameter() :: %{(String.t() | atom()) => any()}
+  @type lifecycle_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_image_recipe_response() :: %{
-        "imageRecipe" => image_recipe(),
+      put_component_policy_response() :: %{
+        "componentArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type put_component_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_configuration() :: %{
+        "componentArn" => String.t() | atom(),
+        "parameters" => list(component_parameter())
+      }
+
+  """
+  @type component_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_distribution_configuration_request() :: %{
+        required("distributionConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_distribution_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_component_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "componentBuildVersionArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type import_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_image_recipe_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageRecipeArn" => String.t() | atom(),
         "latestVersionReferences" => latest_version_references(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type get_image_recipe_response() :: %{(String.t() | atom()) => any()}
+  @type create_image_recipe_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_distribution_configuration_response() :: %{
-        "distributionConfiguration" => distribution_configuration(),
+      get_image_pipeline_request() :: %{
+        required("imagePipelineArn") => String.t() | atom()
+      }
+
+  """
+  @type get_image_pipeline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_build_versions_response() :: %{
+        "componentSummaryList" => list(component_summary()),
+        "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type get_distribution_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_component_build_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_image_options() :: %{
+        "secureBootEnabled" => boolean(),
+        "uefiData" => String.t() | atom()
+      }
+
+  """
+  @type register_image_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_infrastructure_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("instanceMetadataOptions") => instance_metadata_options(),
+        optional("instanceTypes") => list(String.t() | atom()),
+        optional("keyPair") => String.t() | atom(),
+        optional("logging") => logging(),
+        optional("placement") => placement(),
+        optional("resourceTags") => map(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("snsTopicArn") => String.t() | atom(),
+        optional("subnetId") => String.t() | atom(),
+        optional("terminateInstanceOnFailure") => boolean(),
+        required("clientToken") => String.t() | atom(),
+        required("infrastructureConfigurationArn") => String.t() | atom(),
+        required("instanceProfileName") => String.t() | atom()
+      }
+
+  """
+  @type update_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_component_policy_request() :: %{
+        required("componentArn") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_component_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_lifecycle_execution_response() :: %{
+        "lifecycleExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type cancel_lifecycle_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_image_recipe_request() :: %{
+        required("imageRecipeArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_image_recipe_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3808,762 +3229,1341 @@ defmodule AWS.Imagebuilder do
 
   ## Example:
 
-      launch_permission_configuration() :: %{
-        "organizationArns" => list(String.t() | atom()),
-        "organizationalUnitArns" => list(String.t() | atom()),
-        "userGroups" => list(String.t() | atom()),
-        "userIds" => list(String.t() | atom())
+      container_recipe() :: %{
+        "arn" => String.t() | atom(),
+        "components" => list(component_configuration()),
+        "containerType" => list(any()),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "dockerfileTemplateData" => String.t() | atom(),
+        "encrypted" => boolean(),
+        "instanceConfiguration" => instance_configuration(),
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "parentImage" => String.t() | atom(),
+        "platform" => list(any()),
+        "tags" => map(),
+        "targetRepository" => target_container_repository(),
+        "version" => String.t() | atom(),
+        "workingDirectory" => String.t() | atom()
       }
 
   """
-  @type launch_permission_configuration() :: %{(String.t() | atom()) => any()}
+  @type container_recipe() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      logging() :: %{
-        "s3Logs" => s3_logs()
+      vulnerability_id_aggregation() :: %{
+        "severityCounts" => severity_counts(),
+        "vulnerabilityId" => String.t() | atom()
       }
 
   """
-  @type logging() :: %{(String.t() | atom()) => any()}
+  @type vulnerability_id_aggregation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_image_pipeline_images_response() :: %{
+      remediation_recommendation() :: %{
+        "text" => String.t() | atom(),
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type remediation_recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_component_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "componentBuildVersionArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type create_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_image_creation_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type cancel_image_creation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_detail_exclusion_rules() :: %{
+        "amis" => lifecycle_policy_detail_exclusion_rules_amis(),
+        "tagMap" => map()
+      }
+
+  """
+  @type lifecycle_policy_detail_exclusion_rules() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component_summary() :: %{
+        "arn" => String.t() | atom(),
+        "changeDescription" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "obfuscate" => boolean(),
+        "owner" => String.t() | atom(),
+        "platform" => list(any()),
+        "publisher" => String.t() | atom(),
+        "state" => component_state(),
+        "supportedOsVersions" => list(String.t() | atom()),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type component_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_workflow_step_action_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "stepExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type send_workflow_step_action_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_infrastructure_configuration_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("instanceMetadataOptions") => instance_metadata_options(),
+        optional("instanceTypes") => list(String.t() | atom()),
+        optional("keyPair") => String.t() | atom(),
+        optional("logging") => logging(),
+        optional("placement") => placement(),
+        optional("resourceTags") => map(),
+        optional("securityGroupIds") => list(String.t() | atom()),
+        optional("snsTopicArn") => String.t() | atom(),
+        optional("subnetId") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("terminateInstanceOnFailure") => boolean(),
+        required("clientToken") => String.t() | atom(),
+        required("instanceProfileName") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_infrastructure_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_logging_configuration() :: %{
+        "imageLogGroupName" => String.t() | atom(),
+        "pipelineLogGroupName" => String.t() | atom()
+      }
+
+  """
+  @type pipeline_logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_policies_response() :: %{
+        "lifecyclePolicySummaryList" => list(lifecycle_policy_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_lifecycle_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_image_policy_response() :: %{
+        "imageArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type put_image_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import_component_request() :: %{
+        optional("changeDescription") => String.t() | atom(),
+        optional("data") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("uri") => String.t() | atom(),
+        required("clientToken") => String.t() | atom(),
+        required("format") => list(any()),
+        required("name") => String.t() | atom(),
+        required("platform") => list(any()),
+        required("semanticVersion") => String.t() | atom(),
+        required("type") => list(any())
+      }
+
+  """
+  @type import_component_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_image_recipe_policy_request() :: %{
+        required("imageRecipeArn") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_image_recipe_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_image_pipeline_request() :: %{
+        optional("containerRecipeArn") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("distributionConfigurationArn") => String.t() | atom(),
+        optional("enhancedImageMetadataEnabled") => boolean(),
+        optional("executionRole") => String.t() | atom(),
+        optional("imageRecipeArn") => String.t() | atom(),
+        optional("imageScanningConfiguration") => image_scanning_configuration(),
+        optional("imageTags") => map(),
+        optional("imageTestsConfiguration") => image_tests_configuration(),
+        optional("loggingConfiguration") => pipeline_logging_configuration(),
+        optional("schedule") => schedule(),
+        optional("status") => list(any()),
+        optional("workflows") => list(workflow_configuration()),
+        required("clientToken") => String.t() | atom(),
+        required("imagePipelineArn") => String.t() | atom(),
+        required("infrastructureConfigurationArn") => String.t() | atom()
+      }
+
+  """
+  @type update_image_pipeline_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_template_configuration() :: %{
+        "accountId" => String.t() | atom(),
+        "launchTemplateId" => String.t() | atom(),
+        "setDefaultVersion" => boolean()
+      }
+
+  """
+  @type launch_template_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_pipeline_aggregation() :: %{
+        "imagePipelineArn" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type image_pipeline_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_version_number_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_version_number_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_packages_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("imageBuildVersionArn") => String.t() | atom()
+      }
+
+  """
+  @type list_image_packages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
+        "unit" => list(any()),
+        "value" => integer()
+      }
+
+  """
+  @type lifecycle_policy_detail_exclusion_rules_amis_last_launched() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_component_build_versions_request() :: %{
+        optional("componentVersionArn") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_component_build_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_execution_request() :: %{
+        required("workflowExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_component_response() :: %{
+        "component" => component(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type get_component_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_lifecycle_policy_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "lifecyclePolicyArn" => String.t() | atom()
+      }
+
+  """
+  @type create_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fast_launch_configuration() :: %{
+        "accountId" => String.t() | atom(),
+        "enabled" => boolean(),
+        "launchTemplate" => fast_launch_launch_template_specification(),
+        "maxParallelLaunches" => integer(),
+        "snapshotConfiguration" => fast_launch_snapshot_configuration()
+      }
+
+  """
+  @type fast_launch_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      severity_counts() :: %{
+        "all" => float(),
+        "critical" => float(),
+        "high" => float(),
+        "medium" => float()
+      }
+
+  """
+  @type severity_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_scan_finding() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "firstObservedAt" => non_neg_integer(),
+        "fixAvailable" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "imagePipelineArn" => String.t() | atom(),
+        "inspectorScore" => float(),
+        "inspectorScoreDetails" => inspector_score_details(),
+        "packageVulnerabilityDetails" => package_vulnerability_details(),
+        "remediation" => remediation(),
+        "severity" => String.t() | atom(),
+        "title" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type image_scan_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lifecycle_execution_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("parentResourceId") => String.t() | atom(),
+        required("lifecycleExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type list_lifecycle_execution_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_lifecycle_execution_request() :: %{
+        required("clientToken") => String.t() | atom(),
+        required("lifecycleExecutionId") => String.t() | atom()
+      }
+
+  """
+  @type cancel_lifecycle_execution_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_image_build_versions_response() :: %{
         "imageSummaryList" => list(image_summary()),
         "nextToken" => String.t() | atom(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type list_image_pipeline_images_response() :: %{(String.t() | atom()) => any()}
+  @type list_image_build_versions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_component_request() :: %{
-        required("componentBuildVersionArn") => String.t() | atom()
+      start_image_pipeline_execution_request() :: %{
+        optional("tags") => map(),
+        required("clientToken") => String.t() | atom(),
+        required("imagePipelineArn") => String.t() | atom()
       }
 
   """
-  @type get_component_request() :: %{(String.t() | atom()) => any()}
+  @type start_image_pipeline_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_lifecycle_policy_response() :: %{
-        "lifecyclePolicy" => lifecycle_policy()
+      filter() :: %{
+        "name" => String.t() | atom(),
+        "values" => list(String.t() | atom())
       }
 
   """
-  @type get_lifecycle_policy_response() :: %{(String.t() | atom()) => any()}
+  @type filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_pagination_token_exception() :: %{
-        "message" => String.t() | atom()
+      workflow_parameter() :: %{
+        "name" => String.t() | atom(),
+        "value" => list(String.t() | atom())
       }
 
   """
-  @type invalid_pagination_token_exception() :: %{(String.t() | atom()) => any()}
+  @type workflow_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_image_pipeline_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "imagePipelineArn" => String.t() | atom(),
+      workflow_step_execution() :: %{
+        "action" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "startTime" => String.t() | atom(),
+        "stepExecutionId" => String.t() | atom(),
+        "workflowBuildVersionArn" => String.t() | atom(),
+        "workflowExecutionId" => String.t() | atom()
+      }
+
+  """
+  @type workflow_step_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_infrastructure_configuration_response() :: %{
+        "infrastructureConfiguration" => infrastructure_configuration(),
         "requestId" => String.t() | atom()
       }
 
   """
-  @type update_image_pipeline_response() :: %{(String.t() | atom()) => any()}
+  @type get_infrastructure_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_workflow_response() :: %{
-        "latestVersionReferences" => latest_version_references(),
-        "workflow" => workflow()
+      cancel_image_creation_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "requestId" => String.t() | atom()
       }
 
   """
-  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
+  @type cancel_image_creation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inspector_score_details() :: %{
+        "adjustedCvss" => cvss_score_details()
+      }
+
+  """
+  @type inspector_score_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_image_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "imageBuildVersionArn" => String.t() | atom(),
+        "latestVersionReferences" => latest_version_references(),
+        "requestId" => String.t() | atom()
+      }
+
+  """
+  @type create_image_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      component() :: %{
+        "arn" => String.t() | atom(),
+        "changeDescription" => String.t() | atom(),
+        "data" => String.t() | atom(),
+        "dateCreated" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "encrypted" => boolean(),
+        "kmsKeyId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "obfuscate" => boolean(),
+        "owner" => String.t() | atom(),
+        "parameters" => list(component_parameter_detail()),
+        "platform" => list(any()),
+        "productCodes" => list(product_code_list_item()),
+        "publisher" => String.t() | atom(),
+        "state" => component_state(),
+        "supportedOsVersions" => list(String.t() | atom()),
+        "tags" => map(),
+        "type" => list(any()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_aggregation() :: %{
+        "accountId" => String.t() | atom(),
+        "severityCounts" => severity_counts()
+      }
+
+  """
+  @type account_aggregation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instance_metadata_options() :: %{
+        "httpPutResponseHopLimit" => integer(),
+        "httpTokens" => String.t() | atom()
+      }
+
+  """
+  @type instance_metadata_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule() :: %{
+        "autoDisablePolicy" => auto_disable_policy(),
+        "pipelineExecutionStartCondition" => list(any()),
+        "scheduleExpression" => String.t() | atom(),
+        "timezone" => String.t() | atom()
+      }
+
+  """
+  @type schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_state() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type resource_state() :: %{(String.t() | atom()) => any()}
 
   @type cancel_image_creation_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type cancel_lifecycle_execution_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_component_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          service_quota_exceeded_exception()
           | invalid_version_number_exception()
+          | invalid_request_exception()
+          | forbidden_exception()
           | dry_run_operation_exception()
+          | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   @type create_container_recipe_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          service_quota_exceeded_exception()
           | invalid_version_number_exception()
+          | invalid_request_exception()
+          | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_distribution_configuration_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   @type create_image_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_image_pipeline_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_image_recipe_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          service_quota_exceeded_exception()
           | invalid_version_number_exception()
+          | invalid_request_exception()
+          | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_infrastructure_configuration_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_lifecycle_policy_errors() ::
-          resource_already_exists_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | resource_already_exists_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_workflow_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          service_quota_exceeded_exception()
           | invalid_version_number_exception()
+          | invalid_request_exception()
+          | forbidden_exception()
           | dry_run_operation_exception()
+          | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   @type delete_component_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_container_recipe_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_distribution_configuration_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_image_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_image_pipeline_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_image_recipe_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_infrastructure_configuration_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_lifecycle_policy_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type delete_workflow_errors() ::
-          resource_dependency_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | resource_dependency_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type distribute_image_errors() ::
-          access_denied_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | invalid_request_exception()
+          | forbidden_exception()
+          | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
+          | idempotent_parameter_mismatch_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
 
   @type get_component_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_component_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | service_unavailable_exception()
 
   @type get_container_recipe_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_container_recipe_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | service_unavailable_exception()
 
   @type get_distribution_configuration_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_image_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_image_pipeline_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_image_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | service_unavailable_exception()
 
   @type get_image_recipe_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_image_recipe_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | service_unavailable_exception()
 
   @type get_infrastructure_configuration_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_lifecycle_execution_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_lifecycle_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_marketplace_resource_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_workflow_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_workflow_execution_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type get_workflow_step_execution_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type import_component_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
+          invalid_version_number_exception()
           | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
-          | invalid_version_number_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   @type import_disk_image_errors() ::
-          access_denied_exception()
-          | service_unavailable_exception()
-          | service_exception()
+          service_exception()
           | client_exception()
+          | access_denied_exception()
           | too_many_requests_exception()
+          | service_unavailable_exception()
 
   @type import_vm_image_errors() ::
-          service_unavailable_exception() | service_exception() | client_exception()
+          service_exception() | client_exception() | service_unavailable_exception()
 
   @type list_component_build_versions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_components_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_container_recipes_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_distribution_configurations_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_build_versions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_packages_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_pipeline_images_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_pipelines_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_recipes_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_scan_finding_aggregations_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_image_scan_findings_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_images_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_infrastructure_configurations_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_lifecycle_execution_resources_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_lifecycle_executions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_lifecycle_policies_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_tags_for_resource_errors() ::
           invalid_parameter_exception() | service_exception() | resource_not_found_exception()
 
   @type list_waiting_workflow_steps_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_workflow_build_versions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_workflow_executions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_workflow_step_executions_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type list_workflows_errors() ::
-          invalid_pagination_token_exception()
-          | service_unavailable_exception()
-          | service_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
+          | call_rate_limit_exceeded_exception()
+          | invalid_pagination_token_exception()
+          | client_exception()
+          | service_unavailable_exception()
 
   @type put_component_policy_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | invalid_request_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
+          | invalid_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type put_container_recipe_policy_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | invalid_request_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
+          | invalid_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type put_image_policy_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | invalid_request_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
+          | invalid_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type put_image_recipe_policy_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | invalid_parameter_value_exception()
-          | invalid_request_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
+          | invalid_parameter_value_exception()
+          | service_unavailable_exception()
 
   @type retry_image_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type send_workflow_step_action_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | resource_not_found_exception()
+          | client_exception()
           | invalid_parameter_value_exception()
           | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          | service_unavailable_exception()
 
   @type start_image_pipeline_execution_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type start_resource_state_update_errors() ::
-          service_unavailable_exception()
+          invalid_request_exception()
+          | forbidden_exception()
           | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
+          | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
           | resource_not_found_exception()
           | client_exception()
-          | call_rate_limit_exceeded_exception()
-          | forbidden_exception()
-          | resource_in_use_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type tag_resource_errors() ::
           invalid_parameter_exception() | service_exception() | resource_not_found_exception()
@@ -4572,46 +4572,46 @@ defmodule AWS.Imagebuilder do
           invalid_parameter_exception() | service_exception() | resource_not_found_exception()
 
   @type update_distribution_configuration_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   @type update_image_pipeline_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type update_infrastructure_configuration_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type update_lifecycle_policy_errors() ::
-          service_unavailable_exception()
-          | service_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_request_exception()
-          | client_exception()
-          | invalid_parameter_combination_exception()
-          | call_rate_limit_exceeded_exception()
+          invalid_request_exception()
           | forbidden_exception()
+          | service_exception()
           | resource_in_use_exception()
+          | call_rate_limit_exceeded_exception()
+          | client_exception()
+          | idempotent_parameter_mismatch_exception()
+          | invalid_parameter_combination_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

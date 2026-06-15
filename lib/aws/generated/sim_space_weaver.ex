@@ -31,17 +31,147 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Example:
 
-      start_app_input() :: %{
-        optional("ClientToken") => String.t() | atom(),
+      stop_clock_output() :: %{}
+
+  """
+  @type stop_clock_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      launch_overrides() :: %{
+        "LaunchCommands" => list(String.t() | atom())
+      }
+
+  """
+  @type launch_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_output() :: %{
         optional("Description") => String.t() | atom(),
+        optional("Domain") => String.t() | atom(),
+        optional("EndpointInfo") => simulation_app_endpoint_info(),
         optional("LaunchOverrides") => launch_overrides(),
-        required("Domain") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Simulation") => String.t() | atom(),
+        optional("Status") => String.t() | atom(),
+        optional("TargetStatus") => String.t() | atom()
+      }
+
+  """
+  @type describe_app_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_clock_output() :: %{}
+
+  """
+  @type start_clock_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_output() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_simulation_input() :: %{
         required("Simulation") => String.t() | atom()
       }
 
   """
-  @type start_app_input() :: %{(String.t() | atom()) => any()}
+  @type stop_simulation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_clock_input() :: %{
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type start_clock_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain() :: %{
+        "Lifecycle" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type domain() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_output() :: %{}
+
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_logs_log_group() :: %{
+        "LogGroupArn" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_simulation_input() :: %{
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type delete_simulation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      simulation_app_port_mapping() :: %{
+        "Actual" => integer(),
+        "Declared" => integer()
+      }
+
+  """
+  @type simulation_app_port_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -60,25 +190,135 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Example:
 
-      simulation_clock() :: %{
-        "Status" => String.t() | atom(),
-        "TargetStatus" => String.t() | atom()
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type simulation_clock() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_simulations_output() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("Simulations") => list(simulation_metadata())
+      logging_configuration() :: %{
+        "Destinations" => list(log_destination())
       }
 
   """
-  @type list_simulations_output() :: %{(String.t() | atom()) => any()}
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_simulations_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_simulations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_snapshot_output() :: %{}
+
+  """
+  @type create_snapshot_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_input() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_destination() :: %{
+        "CloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
+      }
+
+  """
+  @type log_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_output() :: %{}
+
+  """
+  @type delete_app_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      simulation_metadata() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TargetStatus" => String.t() | atom()
+      }
+
+  """
+  @type simulation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_input() :: %{
+        "TagKeys" => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,6 +332,187 @@ defmodule AWS.SimSpaceWeaver do
 
   """
   @type stop_app_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apps_output() :: %{
+        optional("Apps") => list(simulation_app_metadata()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_apps_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      simulation_clock() :: %{
+        "Status" => String.t() | atom(),
+        "TargetStatus" => String.t() | atom()
+      }
+
+  """
+  @type simulation_clock() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      live_simulation_state() :: %{
+        "Clocks" => list(simulation_clock()),
+        "Domains" => list(domain())
+      }
+
+  """
+  @type live_simulation_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_apps_input() :: %{
+        optional("Domain") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type list_apps_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_app_input() :: %{
+        required("App") => String.t() | atom(),
+        required("Domain") => String.t() | atom(),
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type describe_app_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_snapshot_input() :: %{
+        required("Destination") => s3_destination(),
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type create_snapshot_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_simulation_output() :: %{}
+
+  """
+  @type delete_simulation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_simulation_input() :: %{
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type describe_simulation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_input() :: %{}
+
+  """
+  @type list_tags_for_resource_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_simulation_output() :: %{}
+
+  """
+  @type stop_simulation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_app_input() :: %{
+        required("App") => String.t() | atom(),
+        required("Domain") => String.t() | atom(),
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type delete_app_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_app_output() :: %{}
+
+  """
+  @type stop_app_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_app_output() :: %{
+        optional("Domain") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type start_app_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_clock_input() :: %{
+        required("Simulation") => String.t() | atom()
+      }
+
+  """
+  @type stop_clock_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -124,472 +545,17 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Example:
 
-      list_simulations_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_simulations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_clock_output() :: %{}
-
-  """
-  @type stop_clock_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain() :: %{
-        "Lifecycle" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type domain() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_clock_input() :: %{
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type start_clock_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_output() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_configuration() :: %{
-        "Destinations" => list(log_destination())
-      }
-
-  """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_snapshot_output() :: %{}
-
-  """
-  @type create_snapshot_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_clock_input() :: %{
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type stop_clock_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_simulation_output() :: %{}
-
-  """
-  @type delete_simulation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_simulation_input() :: %{
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type stop_simulation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_snapshot_input() :: %{
-        required("Destination") => s3_destination(),
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type create_snapshot_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_destination() :: %{
-        "CloudWatchLogsLogGroup" => cloud_watch_logs_log_group()
-      }
-
-  """
-  @type log_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_output() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Domain") => String.t() | atom(),
-        optional("EndpointInfo") => simulation_app_endpoint_info(),
-        optional("LaunchOverrides") => launch_overrides(),
-        optional("Name") => String.t() | atom(),
-        optional("Simulation") => String.t() | atom(),
-        optional("Status") => String.t() | atom(),
-        optional("TargetStatus") => String.t() | atom()
-      }
-
-  """
-  @type describe_app_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_logs_log_group() :: %{
-        "LogGroupArn" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_logs_log_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_simulation_input() :: %{
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type describe_simulation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "BucketName" => String.t() | atom(),
-        "ObjectKey" => String.t() | atom()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_input() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type tag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination() :: %{
-        "BucketName" => String.t() | atom(),
-        "ObjectKeyPrefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_apps_output() :: %{
-        optional("Apps") => list(simulation_app_metadata()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_apps_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_output() :: %{}
-
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      launch_overrides() :: %{
-        "LaunchCommands" => list(String.t() | atom())
-      }
-
-  """
-  @type launch_overrides() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_simulation_input() :: %{
+      start_app_input() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("Description") => String.t() | atom(),
-        optional("MaximumDuration") => String.t() | atom(),
-        optional("SchemaS3Location") => s3_location(),
-        optional("SnapshotS3Location") => s3_location(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type start_simulation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_input() :: %{
-        "TagKeys" => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      simulation_app_port_mapping() :: %{
-        "Actual" => integer(),
-        "Declared" => integer()
-      }
-
-  """
-  @type simulation_app_port_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_input() :: %{}
-
-  """
-  @type list_tags_for_resource_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_app_output() :: %{}
-
-  """
-  @type stop_app_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_output() :: %{}
-
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_app_output() :: %{}
-
-  """
-  @type delete_app_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_simulation_output() :: %{}
-
-  """
-  @type stop_simulation_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_simulation_input() :: %{
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type delete_simulation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_app_input() :: %{
-        required("App") => String.t() | atom(),
+        optional("LaunchOverrides") => launch_overrides(),
         required("Domain") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
         required("Simulation") => String.t() | atom()
       }
 
   """
-  @type describe_app_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_apps_input() :: %{
-        optional("Domain") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type list_apps_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      live_simulation_state() :: %{
-        "Clocks" => list(simulation_clock()),
-        "Domains" => list(domain())
-      }
-
-  """
-  @type live_simulation_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_app_output() :: %{
-        optional("Domain") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Simulation") => String.t() | atom()
-      }
-
-  """
-  @type start_app_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_clock_output() :: %{}
-
-  """
-  @type start_clock_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type start_app_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -620,120 +586,154 @@ defmodule AWS.SimSpaceWeaver do
 
   ## Example:
 
-      delete_app_input() :: %{
-        required("App") => String.t() | atom(),
-        required("Domain") => String.t() | atom(),
-        required("Simulation") => String.t() | atom()
-      }
+      untag_resource_output() :: %{}
 
   """
-  @type delete_app_input() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      simulation_metadata() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TargetStatus" => String.t() | atom()
+      start_simulation_input() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("MaximumDuration") => String.t() | atom(),
+        optional("SchemaS3Location") => s3_location(),
+        optional("SnapshotS3Location") => s3_location(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
       }
 
   """
-  @type simulation_metadata() :: %{(String.t() | atom()) => any()}
+  @type start_simulation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_simulations_output() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("Simulations") => list(simulation_metadata())
+      }
+
+  """
+  @type list_simulations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination() :: %{
+        "BucketName" => String.t() | atom(),
+        "ObjectKeyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
 
   @type create_snapshot_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_app_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_simulation_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_app_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_simulation_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_apps_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_simulations_errors() ::
-          validation_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | access_denied_exception()
 
-  @type list_tags_for_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type list_tags_for_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type start_app_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_clock_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_simulation_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type stop_app_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type stop_clock_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type stop_simulation_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception() | validation_exception() | resource_not_found_exception()
+          too_many_tags_exception() | resource_not_found_exception() | validation_exception()
 
-  @type untag_resource_errors() :: validation_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   def metadata do
     %{

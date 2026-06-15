@@ -30,208 +30,57 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      voting_policy() :: %{
-        "ApprovalThresholdPolicy" => approval_threshold_policy()
+      list_members_input() :: %{
+        optional("IsOwned") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
       }
 
   """
-  @type voting_policy() :: %{(String.t() | atom()) => any()}
+  @type list_members_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reject_invitation_output() :: %{}
+      update_member_output() :: %{}
 
   """
-  @type reject_invitation_output() :: %{}
+  @type update_member_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_proposal_output() :: %{
-        "ProposalId" => String.t() | atom()
+      get_network_output() :: %{
+        "Network" => network()
       }
 
   """
-  @type create_proposal_output() :: %{(String.t() | atom()) => any()}
+  @type get_network_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_node_output() :: %{}
-
-  """
-  @type update_node_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      node_ethereum_attributes() :: %{
-        "HttpEndpoint" => String.t() | atom(),
-        "WebSocketEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type node_ethereum_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accessor() :: %{
+      member() :: %{
         "Arn" => String.t() | atom(),
-        "BillingToken" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FrameworkAttributes" => member_framework_attributes(),
         "Id" => String.t() | atom(),
-        "NetworkType" => list(any()),
+        "KmsKeyArn" => String.t() | atom(),
+        "LogPublishingConfiguration" => member_log_publishing_configuration(),
+        "Name" => String.t() | atom(),
+        "NetworkId" => String.t() | atom(),
         "Status" => list(any()),
-        "Tags" => map(),
-        "Type" => list(any())
+        "Tags" => map()
       }
 
   """
-  @type accessor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_proposal_votes_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_proposal_votes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_fabric_attributes() :: %{
-        "Edition" => list(any()),
-        "OrderingServiceEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type network_fabric_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_proposals_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_proposals_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vote_on_proposal_output() :: %{}
-
-  """
-  @type vote_on_proposal_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_member_input() :: %{
-        required("ClientRequestToken") => String.t() | atom(),
-        required("InvitationId") => String.t() | atom(),
-        required("MemberConfiguration") => member_configuration()
-      }
-
-  """
-  @type create_member_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_output() :: %{
-        "Members" => list(member_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_members_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proposal_actions() :: %{
-        "Invitations" => list(invite_action()),
-        "Removals" => list(remove_action())
-      }
-
-  """
-  @type proposal_actions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_framework_configuration() :: %{
-        "Fabric" => network_fabric_configuration()
-      }
-
-  """
-  @type network_framework_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_proposal_output() :: %{
-        "Proposal" => proposal()
-      }
-
-  """
-  @type get_proposal_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      approval_threshold_policy() :: %{
-        "ProposalDurationInHours" => integer(),
-        "ThresholdComparator" => list(any()),
-        "ThresholdPercentage" => integer()
-      }
-
-  """
-  @type approval_threshold_policy() :: %{(String.t() | atom()) => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -253,34 +102,24 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      get_accessor_output() :: %{
-        "Accessor" => accessor()
+      resource_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type get_accessor_output() :: %{(String.t() | atom()) => any()}
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_accessor_input() :: %{}
-
-  """
-  @type get_accessor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_accessors_input() :: %{
+      list_invitations_input() :: %{
         optional("MaxResults") => integer(),
-        optional("NetworkType") => list(any()),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_accessors_input() :: %{(String.t() | atom()) => any()}
+  @type list_invitations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -298,163 +137,10 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      node_fabric_attributes() :: %{
-        "PeerEndpoint" => String.t() | atom(),
-        "PeerEventEndpoint" => String.t() | atom()
-      }
+      get_proposal_input() :: %{}
 
   """
-  @type node_fabric_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_service_error_exception() :: %{}
-
-  """
-  @type internal_service_error_exception() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_fabric_configuration() :: %{
-        "Edition" => list(any())
-      }
-
-  """
-  @type network_fabric_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_networks_input() :: %{
-        optional("Framework") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_networks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_configuration() :: %{
-        "Description" => String.t() | atom(),
-        "FrameworkConfiguration" => member_framework_configuration(),
-        "KmsKeyArn" => String.t() | atom(),
-        "LogPublishingConfiguration" => member_log_publishing_configuration(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type member_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_fabric_log_publishing_configuration() :: %{
-        "CaLogs" => log_configurations()
-      }
-
-  """
-  @type member_fabric_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_invitation_input() :: %{}
-
-  """
-  @type reject_invitation_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodes_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("MemberId") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_nodes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_framework_attributes() :: %{
-        "Fabric" => member_fabric_attributes()
-      }
-
-  """
-  @type member_framework_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("FrameworkConfiguration") => network_framework_configuration(),
-        optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Framework") => list(any()),
-        required("FrameworkVersion") => String.t() | atom(),
-        required("MemberConfiguration") => member_configuration(),
-        required("Name") => String.t() | atom(),
-        required("VotingPolicy") => voting_policy()
-      }
-
-  """
-  @type create_network_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_member_output() :: %{}
-
-  """
-  @type update_member_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_proposal_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Actions") => proposal_actions(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("MemberId") => String.t() | atom()
-      }
-
-  """
-  @type create_proposal_input() :: %{(String.t() | atom()) => any()}
+  @type get_proposal_input() :: %{}
 
   @typedoc """
 
@@ -469,80 +155,111 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      list_proposal_votes_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProposalVotes" => list(vote_summary())
+      throttling_exception() :: %{}
+
+  """
+  @type throttling_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      network_framework_attributes() :: %{
+        "Ethereum" => network_ethereum_attributes(),
+        "Fabric" => network_fabric_attributes()
       }
 
   """
-  @type list_proposal_votes_output() :: %{(String.t() | atom()) => any()}
+  @type network_framework_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_network_output() :: %{
-        "Network" => network()
+      get_proposal_output() :: %{
+        "Proposal" => proposal()
       }
 
   """
-  @type get_network_output() :: %{(String.t() | atom()) => any()}
+  @type get_proposal_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_node_input() :: %{
-        optional("LogPublishingConfiguration") => node_log_publishing_configuration(),
-        optional("MemberId") => String.t() | atom()
+      node_framework_attributes() :: %{
+        "Ethereum" => node_ethereum_attributes(),
+        "Fabric" => node_fabric_attributes()
       }
 
   """
-  @type update_node_input() :: %{(String.t() | atom()) => any()}
+  @type node_framework_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_member_input() :: %{}
-
-  """
-  @type delete_member_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+      member_log_publishing_configuration() :: %{
+        "Fabric" => member_fabric_log_publishing_configuration()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type member_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_networks_output() :: %{
-        "Networks" => list(network_summary()),
+      node_ethereum_attributes() :: %{
+        "HttpEndpoint" => String.t() | atom(),
+        "WebSocketEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type node_ethereum_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_invitation_input() :: %{}
+
+  """
+  @type reject_invitation_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      log_configurations() :: %{
+        "Cloudwatch" => log_configuration()
+      }
+
+  """
+  @type log_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_members_output() :: %{
+        "Members" => list(member_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_networks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_member_input() :: %{
-        optional("LogPublishingConfiguration") => member_log_publishing_configuration()
-      }
-
-  """
-  @type update_member_input() :: %{(String.t() | atom()) => any()}
+  @type list_members_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,408 +288,6 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_log_publishing_configuration() :: %{
-        "Fabric" => node_fabric_log_publishing_configuration()
-      }
-
-  """
-  @type node_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invite_action() :: %{
-        "Principal" => String.t() | atom()
-      }
-
-  """
-  @type invite_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_accessor_input() :: %{}
-
-  """
-  @type delete_accessor_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_member_output() :: %{
-        "Member" => member()
-      }
-
-  """
-  @type get_member_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member_fabric_configuration() :: %{
-        "AdminPassword" => String.t() | atom(),
-        "AdminUsername" => String.t() | atom()
-      }
-
-  """
-  @type member_fabric_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_members_input() :: %{
-        optional("IsOwned") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-
-  """
-  @type list_members_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vote_on_proposal_input() :: %{
-        required("Vote") => list(any()),
-        required("VoterMemberId") => String.t() | atom()
-      }
-
-  """
-  @type vote_on_proposal_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_proposal_input() :: %{}
-
-  """
-  @type get_proposal_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_accessor_output() :: %{
-        "AccessorId" => String.t() | atom(),
-        "BillingToken" => String.t() | atom(),
-        "NetworkType" => list(any())
-      }
-
-  """
-  @type create_accessor_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accessor_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "NetworkType" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type accessor_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proposal() :: %{
-        "Actions" => proposal_actions(),
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExpirationDate" => non_neg_integer(),
-        "NetworkId" => String.t() | atom(),
-        "NoVoteCount" => integer(),
-        "OutstandingVoteCount" => integer(),
-        "ProposalId" => String.t() | atom(),
-        "ProposedByMemberId" => String.t() | atom(),
-        "ProposedByMemberName" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "YesVoteCount" => integer()
-      }
-
-  """
-  @type proposal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_node_input() :: %{
-        optional("MemberId") => String.t() | atom()
-      }
-
-  """
-  @type get_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_framework_attributes() :: %{
-        "Ethereum" => network_ethereum_attributes(),
-        "Fabric" => network_fabric_attributes()
-      }
-
-  """
-  @type network_framework_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_action() :: %{
-        "MemberId" => String.t() | atom()
-      }
-
-  """
-  @type remove_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Framework" => list(any()),
-        "FrameworkAttributes" => network_framework_attributes(),
-        "FrameworkVersion" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "VotingPolicy" => voting_policy(),
-        "VpcEndpointServiceName" => String.t() | atom()
-      }
-
-  """
-  @type network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      proposal_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "ExpirationDate" => non_neg_integer(),
-        "ProposalId" => String.t() | atom(),
-        "ProposedByMemberId" => String.t() | atom(),
-        "ProposedByMemberName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type proposal_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZone" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "InstanceType" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type node_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{}
-
-  """
-  @type throttling_exception() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_node_input() :: %{
-        optional("MemberId") => String.t() | atom()
-      }
-
-  """
-  @type delete_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_accessor_input() :: %{
-        optional("NetworkType") => list(any()),
-        optional("Tags") => map(),
-        required("AccessorType") => list(any()),
-        required("ClientRequestToken") => String.t() | atom()
-      }
-
-  """
-  @type create_accessor_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_input() :: %{}
-
-  """
-  @type get_network_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_invitations_output() :: %{
-        "Invitations" => list(invitation()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_invitations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_accessor_output() :: %{}
-
-  """
-  @type delete_accessor_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_ethereum_attributes() :: %{
-        "ChainId" => String.t() | atom()
-      }
-
-  """
-  @type network_ethereum_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      member() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FrameworkAttributes" => member_framework_attributes(),
-        "Id" => String.t() | atom(),
-        "KmsKeyArn" => String.t() | atom(),
-        "LogPublishingConfiguration" => member_log_publishing_configuration(),
-        "Name" => String.t() | atom(),
-        "NetworkId" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_output() :: %{
-        "NodeId" => String.t() | atom()
-      }
-
-  """
-  @type create_node_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       network_summary() :: %{
         "Arn" => String.t() | atom(),
         "CreationDate" => non_neg_integer(),
@@ -991,112 +306,13 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      member_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationDate" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "IsOwned" => boolean(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
+      list_accessors_output() :: %{
+        "Accessors" => list(accessor_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type member_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_configuration() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "InstanceType" => String.t() | atom(),
-        "LogPublishingConfiguration" => node_log_publishing_configuration(),
-        "StateDB" => list(any())
-      }
-
-  """
-  @type node_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_member_input() :: %{}
-
-  """
-  @type get_member_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      member_fabric_attributes() :: %{
-        "AdminUsername" => String.t() | atom(),
-        "CaEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type member_fabric_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_configurations() :: %{
-        "Cloudwatch" => log_configuration()
-      }
-
-  """
-  @type log_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_invitations_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_invitations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_input() :: %{
-        optional("MemberId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("NodeConfiguration") => node_configuration()
-      }
-
-  """
-  @type create_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      log_configuration() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type log_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_accessors_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1113,29 +329,6 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      member_log_publishing_configuration() :: %{
-        "Fabric" => member_fabric_log_publishing_configuration()
-      }
-
-  """
-  @type member_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodes_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Nodes" => list(node_summary())
-      }
-
-  """
-  @type list_nodes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       resource_not_ready_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -1147,57 +340,88 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      create_member_output() :: %{
+      delete_member_input() :: %{}
+
+  """
+  @type delete_member_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_proposal_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Actions") => proposal_actions(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("MemberId") => String.t() | atom()
+      }
+
+  """
+  @type create_proposal_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_accessor_output() :: %{}
+
+  """
+  @type delete_accessor_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_action() :: %{
         "MemberId" => String.t() | atom()
       }
 
   """
-  @type create_member_output() :: %{(String.t() | atom()) => any()}
+  @type remove_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_node_output() :: %{}
+      update_node_output() :: %{}
 
   """
-  @type delete_node_output() :: %{}
+  @type update_node_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_accessors_output() :: %{
-        "Accessors" => list(accessor_summary()),
-        "NextToken" => String.t() | atom()
+      network_framework_configuration() :: %{
+        "Fabric" => network_fabric_configuration()
       }
 
   """
-  @type list_accessors_output() :: %{(String.t() | atom()) => any()}
+  @type network_framework_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      node_framework_attributes() :: %{
-        "Ethereum" => node_ethereum_attributes(),
-        "Fabric" => node_fabric_attributes()
+      vote_on_proposal_input() :: %{
+        required("Vote") => list(any()),
+        required("VoterMemberId") => String.t() | atom()
       }
 
   """
-  @type node_framework_attributes() :: %{(String.t() | atom()) => any()}
+  @type vote_on_proposal_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
+      invite_action() :: %{
+        "Principal" => String.t() | atom()
       }
 
   """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+  @type invite_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1227,12 +451,361 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
+      get_member_output() :: %{
+        "Member" => member()
+      }
+
+  """
+  @type get_member_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_input() :: %{
+        optional("MemberId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("NodeConfiguration") => node_configuration()
+      }
+
+  """
+  @type create_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proposal() :: %{
+        "Actions" => proposal_actions(),
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationDate" => non_neg_integer(),
+        "NetworkId" => String.t() | atom(),
+        "NoVoteCount" => integer(),
+        "OutstandingVoteCount" => integer(),
+        "ProposalId" => String.t() | atom(),
+        "ProposedByMemberId" => String.t() | atom(),
+        "ProposedByMemberName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "YesVoteCount" => integer()
+      }
+
+  """
+  @type proposal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      approval_threshold_policy() :: %{
+        "ProposalDurationInHours" => integer(),
+        "ThresholdComparator" => list(any()),
+        "ThresholdPercentage" => integer()
+      }
+
+  """
+  @type approval_threshold_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Framework" => list(any()),
+        "FrameworkAttributes" => network_framework_attributes(),
+        "FrameworkVersion" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "VotingPolicy" => voting_policy(),
+        "VpcEndpointServiceName" => String.t() | atom()
+      }
+
+  """
+  @type network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vote_summary() :: %{
+        "MemberId" => String.t() | atom(),
+        "MemberName" => String.t() | atom(),
+        "Vote" => list(any())
+      }
+
+  """
+  @type vote_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_member_output() :: %{
+        "MemberId" => String.t() | atom()
+      }
+
+  """
+  @type create_member_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_service_error_exception() :: %{}
+
+  """
+  @type internal_service_error_exception() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       get_node_output() :: %{
         "Node" => node()
       }
 
   """
   @type get_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      member_framework_attributes() :: %{
+        "Fabric" => member_fabric_attributes()
+      }
+
+  """
+  @type member_framework_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_invitation_output() :: %{}
+
+  """
+  @type reject_invitation_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      node_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type node_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Nodes" => list(node_summary())
+      }
+
+  """
+  @type list_nodes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "IsOwned" => boolean(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type member_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_member_input() :: %{
+        required("ClientRequestToken") => String.t() | atom(),
+        required("InvitationId") => String.t() | atom(),
+        required("MemberConfiguration") => member_configuration()
+      }
+
+  """
+  @type create_member_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("MemberId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_nodes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_node_input() :: %{
+        optional("MemberId") => String.t() | atom()
+      }
+
+  """
+  @type get_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_fabric_configuration() :: %{
+        "Edition" => list(any())
+      }
+
+  """
+  @type network_fabric_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_proposals_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_proposals_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_accessor_output() :: %{
+        "AccessorId" => String.t() | atom(),
+        "BillingToken" => String.t() | atom(),
+        "NetworkType" => list(any())
+      }
+
+  """
+  @type create_accessor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_proposal_votes_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_proposal_votes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_accessor_input() :: %{}
+
+  """
+  @type get_accessor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_member_input() :: %{}
+
+  """
+  @type get_member_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      node_log_publishing_configuration() :: %{
+        "Fabric" => node_fabric_log_publishing_configuration()
+      }
+
+  """
+  @type node_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1249,215 +822,642 @@ defmodule AWS.ManagedBlockchain do
 
   ## Example:
 
-      vote_summary() :: %{
-        "MemberId" => String.t() | atom(),
-        "MemberName" => String.t() | atom(),
-        "Vote" => list(any())
+      list_invitations_output() :: %{
+        "Invitations" => list(invitation()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type vote_summary() :: %{(String.t() | atom()) => any()}
+  @type list_invitations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_accessor_output() :: %{
+        "Accessor" => accessor()
+      }
+
+  """
+  @type get_accessor_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_configuration() :: %{
+        "Description" => String.t() | atom(),
+        "FrameworkConfiguration" => member_framework_configuration(),
+        "KmsKeyArn" => String.t() | atom(),
+        "LogPublishingConfiguration" => member_log_publishing_configuration(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type member_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      voting_policy() :: %{
+        "ApprovalThresholdPolicy" => approval_threshold_policy()
+      }
+
+  """
+  @type voting_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_accessor_input() :: %{
+        optional("NetworkType") => list(any()),
+        optional("Tags") => map(),
+        required("AccessorType") => list(any()),
+        required("ClientRequestToken") => String.t() | atom()
+      }
+
+  """
+  @type create_accessor_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_fabric_attributes() :: %{
+        "Edition" => list(any()),
+        "OrderingServiceEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type network_fabric_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_accessor_input() :: %{}
+
+  """
+  @type delete_accessor_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      proposal_actions() :: %{
+        "Invitations" => list(invite_action()),
+        "Removals" => list(remove_action())
+      }
+
+  """
+  @type proposal_actions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_fabric_attributes() :: %{
+        "PeerEndpoint" => String.t() | atom(),
+        "PeerEventEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type node_fabric_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_node_output() :: %{}
+
+  """
+  @type delete_node_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      network_ethereum_attributes() :: %{
+        "ChainId" => String.t() | atom()
+      }
+
+  """
+  @type network_ethereum_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_configuration() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "InstanceType" => String.t() | atom(),
+        "LogPublishingConfiguration" => node_log_publishing_configuration(),
+        "StateDB" => list(any())
+      }
+
+  """
+  @type node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vote_on_proposal_output() :: %{}
+
+  """
+  @type vote_on_proposal_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      proposal_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "ExpirationDate" => non_neg_integer(),
+        "ProposalId" => String.t() | atom(),
+        "ProposedByMemberId" => String.t() | atom(),
+        "ProposedByMemberName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type proposal_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_proposal_output() :: %{
+        "ProposalId" => String.t() | atom()
+      }
+
+  """
+  @type create_proposal_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_output() :: %{
+        "NodeId" => String.t() | atom()
+      }
+
+  """
+  @type create_node_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_input() :: %{
+        optional("Framework") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+
+  """
+  @type list_networks_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accessors_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NetworkType") => list(any()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_accessors_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_fabric_log_publishing_configuration() :: %{
+        "CaLogs" => log_configurations()
+      }
+
+  """
+  @type member_fabric_log_publishing_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_member_input() :: %{
+        optional("LogPublishingConfiguration") => member_log_publishing_configuration()
+      }
+
+  """
+  @type update_member_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("FrameworkConfiguration") => network_framework_configuration(),
+        optional("Tags") => map(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Framework") => list(any()),
+        required("FrameworkVersion") => String.t() | atom(),
+        required("MemberConfiguration") => member_configuration(),
+        required("Name") => String.t() | atom(),
+        required("VotingPolicy") => voting_policy()
+      }
+
+  """
+  @type create_network_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      log_configuration() :: %{
+        "Enabled" => boolean()
+      }
+
+  """
+  @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_fabric_attributes() :: %{
+        "AdminUsername" => String.t() | atom(),
+        "CaEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type member_fabric_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accessor() :: %{
+        "Arn" => String.t() | atom(),
+        "BillingToken" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "NetworkType" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "Type" => list(any())
+      }
+
+  """
+  @type accessor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      member_fabric_configuration() :: %{
+        "AdminPassword" => String.t() | atom(),
+        "AdminUsername" => String.t() | atom()
+      }
+
+  """
+  @type member_fabric_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_input() :: %{}
+
+  """
+  @type get_network_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      accessor_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationDate" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "NetworkType" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type accessor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_proposal_votes_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProposalVotes" => list(vote_summary())
+      }
+
+  """
+  @type list_proposal_votes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_node_input() :: %{
+        optional("LogPublishingConfiguration") => node_log_publishing_configuration(),
+        optional("MemberId") => String.t() | atom()
+      }
+
+  """
+  @type update_node_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_output() :: %{
+        "Networks" => list(network_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_networks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_node_input() :: %{
+        optional("MemberId") => String.t() | atom()
+      }
+
+  """
+  @type delete_node_input() :: %{(String.t() | atom()) => any()}
 
   @type create_accessor_errors() ::
-          too_many_tags_exception()
+          invalid_request_exception()
           | resource_already_exists_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
-          | invalid_request_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_member_errors() ::
-          too_many_tags_exception()
-          | resource_not_ready_exception()
+          invalid_request_exception()
           | resource_already_exists_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_network_errors() ::
-          too_many_tags_exception()
+          invalid_request_exception()
           | resource_already_exists_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
-          | invalid_request_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_node_errors() ::
-          too_many_tags_exception()
-          | resource_not_ready_exception()
+          invalid_request_exception()
           | resource_already_exists_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_proposal_errors() ::
-          too_many_tags_exception()
-          | resource_not_ready_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_accessor_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_member_errors() ::
-          resource_not_ready_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_node_errors() ::
-          resource_not_ready_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_accessor_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_member_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_network_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_node_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_proposal_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_accessors_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_invitations_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | resource_limit_exceeded_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | resource_limit_exceeded_exception()
 
   @type list_members_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_networks_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_nodes_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_proposal_votes_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_proposals_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          resource_not_ready_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
 
   @type reject_invitation_errors() ::
-          illegal_action_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | illegal_action_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          too_many_tags_exception()
-          | resource_not_ready_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
+          | too_many_tags_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
 
   @type untag_resource_errors() ::
-          resource_not_ready_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | resource_not_ready_exception()
 
   @type update_member_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_node_errors() ::
-          throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type vote_on_proposal_errors() ::
-          illegal_action_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | invalid_request_exception()
-          | resource_not_found_exception()
+          invalid_request_exception()
           | internal_service_error_exception()
+          | resource_not_found_exception()
+          | illegal_action_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

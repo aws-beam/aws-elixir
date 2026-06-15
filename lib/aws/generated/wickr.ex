@@ -77,14 +77,37 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      create_network_response() :: %{
-        "encryptionKeyArn" => String.t() | atom(),
-        "networkId" => String.t() | atom(),
-        "networkName" => String.t() | atom()
+      get_oidc_info_request() :: %{
+        optional("certificate") => String.t() | atom(),
+        optional("clientId") => String.t() | atom(),
+        optional("clientSecret") => String.t() | atom(),
+        optional("code") => String.t() | atom(),
+        optional("codeVerifier") => String.t() | atom(),
+        optional("grantType") => String.t() | atom(),
+        optional("redirectUri") => String.t() | atom(),
+        optional("url") => String.t() | atom()
       }
 
   """
-  @type create_network_response() :: %{(String.t() | atom()) => any()}
+  @type get_oidc_info_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bots_request() :: %{
+        optional("displayName") => String.t() | atom(),
+        optional("groupId") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sortDirection") => list(any()),
+        optional("sortFields") => String.t() | atom(),
+        optional("status") => list(integer()),
+        optional("username") => String.t() | atom()
+      }
+
+  """
+  @type list_bots_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -104,223 +127,87 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      list_networks_response() :: %{
-        "networks" => list(network()),
-        "nextToken" => String.t() | atom()
+      bad_request_error() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type list_networks_response() :: %{(String.t() | atom()) => any()}
+  @type bad_request_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_lookup_user_uname_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("unames") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_lookup_user_uname_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_security_group_response() :: %{
-        "groupId" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "networkId" => String.t() | atom()
-      }
-
-  """
-  @type delete_security_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_opentdf_config_response() :: %{
+      oidc_config_info() :: %{
+        "applicationId" => [integer()],
+        "applicationName" => String.t() | atom(),
+        "caCertificate" => String.t() | atom(),
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
-        "domain" => String.t() | atom(),
-        "provider" => String.t() | atom()
-      }
-
-  """
-  @type register_opentdf_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_settings_request() :: %{}
-
-  """
-  @type get_network_settings_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_for_user_response() :: %{
-        "devices" => list(basic_device_object()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_devices_for_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      shredder_settings() :: %{
-        "canProcessManually" => [boolean()],
-        "intensity" => [integer()]
-      }
-
-  """
-  @type shredder_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wickr_aws_networks() :: %{
-        "networkId" => String.t() | atom(),
-        "region" => String.t() | atom()
-      }
-
-  """
-  @type wickr_aws_networks() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_error() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_user_response() :: %{
-        "failed" => list(batch_user_error_response_item()),
-        "message" => String.t() | atom(),
-        "successful" => list(batch_user_success_response_item())
-      }
-
-  """
-  @type batch_delete_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bots_count_response() :: %{
-        "active" => [integer()],
-        "pending" => [integer()],
-        "total" => [integer()]
-      }
-
-  """
-  @type get_bots_count_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_request() :: %{}
-
-  """
-  @type get_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_retention_bot_response() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type delete_data_retention_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      setting() :: %{
-        "optionName" => String.t() | atom(),
-        "type" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type setting() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_response() :: %{
-        "codeValidation" => [boolean()],
-        "firstName" => String.t() | atom(),
-        "inviteCode" => String.t() | atom(),
-        "inviteExpiration" => [integer()],
-        "lastName" => String.t() | atom(),
-        "middleName" => String.t() | atom(),
-        "modified" => [integer()],
-        "networkId" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "status" => [integer()],
-        "suspended" => [boolean()],
+        "companyId" => String.t() | atom(),
+        "customUsername" => String.t() | atom(),
+        "extraAuthParams" => String.t() | atom(),
+        "issuer" => String.t() | atom(),
+        "redirectUrl" => String.t() | atom(),
+        "scopes" => String.t() | atom(),
+        "secret" => String.t() | atom(),
+        "ssoTokenBufferMinutes" => [integer()],
         "userId" => String.t() | atom()
       }
 
   """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
+  @type oidc_config_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_oidc_info_response() :: %{
-        "openidConnectInfo" => oidc_config_info(),
-        "tokenInfo" => oidc_token_info()
+      network_settings() :: %{
+        "consentPopup" => consent_popup_config(),
+        "dataRetention" => [boolean()],
+        "enableClientMetrics" => [boolean()],
+        "enableTrustedDataFormat" => [boolean()],
+        "readReceiptConfig" => read_receipt_config()
       }
 
   """
-  @type get_oidc_info_response() :: %{(String.t() | atom()) => any()}
+  @type network_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_network_settings_response() :: %{
-        "settings" => list(setting())
+      create_network_response() :: %{
+        "encryptionKeyArn" => String.t() | atom(),
+        "networkId" => String.t() | atom(),
+        "networkName" => String.t() | atom()
       }
 
   """
-  @type update_network_settings_response() :: %{(String.t() | atom()) => any()}
+  @type create_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_security_group_response() :: %{
-        "securityGroup" => security_group()
+      list_security_group_users_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sortDirection") => list(any()),
+        optional("sortFields") => String.t() | atom()
       }
 
   """
-  @type get_security_group_response() :: %{(String.t() | atom()) => any()}
+  @type list_security_group_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_opentdf_config_request() :: %{}
+
+  """
+  @type get_opentdf_config_request() :: %{}
 
   @typedoc """
 
@@ -339,139 +226,120 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      batch_lookup_user_uname_response() :: %{
-        "failed" => list(batch_uname_error_response_item()),
+      batch_reinvite_user_response() :: %{
+        "failed" => list(batch_user_error_response_item()),
         "message" => String.t() | atom(),
-        "successful" => list(batch_uname_success_response_item())
+        "successful" => list(batch_user_success_response_item())
       }
 
   """
-  @type batch_lookup_user_uname_response() :: %{(String.t() | atom()) => any()}
+  @type batch_reinvite_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_bot_request() :: %{}
-
-  """
-  @type get_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_security_group_response() :: %{
+      update_security_group_response() :: %{
         "securityGroup" => security_group()
       }
 
   """
-  @type create_security_group_response() :: %{(String.t() | atom()) => any()}
+  @type update_security_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_bot_request() :: %{}
-
-  """
-  @type delete_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_bot_response() :: %{
-        "botId" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "groupId" => String.t() | atom(),
-        "hasChallenge" => [boolean()],
-        "lastLogin" => String.t() | atom(),
-        "pubkey" => String.t() | atom(),
-        "status" => list(integer()),
-        "suspended" => [boolean()],
-        "uname" => String.t() | atom(),
-        "username" => String.t() | atom()
+      list_networks_response() :: %{
+        "networks" => list(network()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type get_bot_response() :: %{(String.t() | atom()) => any()}
+  @type list_networks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      unauthorized_error() :: %{
-        "message" => String.t() | atom()
+      batch_delete_user_response() :: %{
+        "failed" => list(batch_user_error_response_item()),
+        "message" => String.t() | atom(),
+        "successful" => list(batch_user_success_response_item())
       }
 
   """
-  @type unauthorized_error() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      security_group_settings_request() :: %{
-        "enableGuestFederation" => [boolean()],
-        "enableRestrictedGlobalFederation" => [boolean()],
-        "federationMode" => [integer()],
-        "globalFederation" => [boolean()],
-        "lockoutThreshold" => [integer()],
-        "permittedNetworks" => list(String.t() | atom()),
-        "permittedWickrAwsNetworks" => list(wickr_aws_networks()),
-        "permittedWickrEnterpriseNetworks" => list(permitted_wickr_enterprise_network())
+      get_oidc_info_response() :: %{
+        "openidConnectInfo" => oidc_config_info(),
+        "tokenInfo" => oidc_token_info()
       }
 
   """
-  @type security_group_settings_request() :: %{(String.t() | atom()) => any()}
+  @type get_oidc_info_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_reset_devices_for_user_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("appIds") => list(String.t() | atom())
+      get_guest_user_history_count_response() :: %{
+        "history" => list(guest_user_history_count())
       }
 
   """
-  @type batch_reset_devices_for_user_request() :: %{(String.t() | atom()) => any()}
+  @type get_guest_user_history_count_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_user_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("userIds") => list(String.t() | atom())
+      get_network_request() :: %{}
+
+  """
+  @type get_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_user_response() :: %{
+        "failed" => list(batch_user_error_response_item()),
+        "message" => String.t() | atom(),
+        "successful" => list(user())
       }
 
   """
-  @type batch_delete_user_request() :: %{(String.t() | atom()) => any()}
+  @type batch_create_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_security_group_request() :: %{}
-
-  """
-  @type get_security_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      consent_popup_config() :: %{
-        "closeButtonLabel" => String.t() | atom(),
-        "content" => String.t() | atom(),
-        "enabled" => [boolean()],
-        "header" => String.t() | atom()
+      get_security_group_response() :: %{
+        "securityGroup" => security_group()
       }
 
   """
-  @type consent_popup_config() :: %{(String.t() | atom()) => any()}
+  @type get_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_opentdf_config_response() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "provider" => String.t() | atom()
+      }
+
+  """
+  @type get_opentdf_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -497,168 +365,24 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      create_security_group_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("securityGroupSettings") => security_group_settings_request()
-      }
-
-  """
-  @type create_security_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_toggle_user_suspend_status_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("suspend") => [boolean()],
-        required("userIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_toggle_user_suspend_status_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_user_success_response_item() :: %{
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type batch_user_success_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_guest_users_response() :: %{
-        "guestlist" => list(guest_user()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_guest_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_guest_user_history_count_request() :: %{}
-
-  """
-  @type get_guest_user_history_count_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_response() :: %{
+      resource_not_found_error() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type delete_network_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_security_group_users_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "users" => list(user())
+      update_user_request() :: %{
+        optional("userDetails") => update_user_details(),
+        required("userId") => String.t() | atom()
       }
 
   """
-  @type list_security_group_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_uname_error_response_item() :: %{
-        "field" => String.t() | atom(),
-        "reason" => String.t() | atom(),
-        "uname" => String.t() | atom()
-      }
-
-  """
-  @type batch_uname_error_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_retention_bot_challenge_request() :: %{}
-
-  """
-  @type create_data_retention_bot_challenge_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_groups_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "securityGroups" => list(security_group())
-      }
-
-  """
-  @type list_security_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_settings() :: %{
-        "consentPopup" => consent_popup_config(),
-        "dataRetention" => [boolean()],
-        "enableClientMetrics" => [boolean()],
-        "enableTrustedDataFormat" => [boolean()],
-        "readReceiptConfig" => read_receipt_config()
-      }
-
-  """
-  @type network_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_error() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_retention_bot_challenge_response() :: %{
-        "challenge" => String.t() | atom()
-      }
-
-  """
-  @type create_data_retention_bot_challenge_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_users_count_response() :: %{
-        "active" => [integer()],
-        "pending" => [integer()],
-        "rejected" => [integer()],
-        "remaining" => [integer()],
-        "total" => [integer()]
-      }
-
-  """
-  @type get_users_count_response() :: %{(String.t() | atom()) => any()}
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -673,49 +397,29 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      list_bots_request() :: %{
-        optional("displayName") => String.t() | atom(),
-        optional("groupId") => String.t() | atom(),
+      list_blocked_guest_users_request() :: %{
+        optional("admin") => String.t() | atom(),
         optional("maxResults") => [integer()],
         optional("nextToken") => String.t() | atom(),
         optional("sortDirection") => list(any()),
         optional("sortFields") => String.t() | atom(),
-        optional("status") => list(integer()),
         optional("username") => String.t() | atom()
       }
 
   """
-  @type list_bots_request() :: %{(String.t() | atom()) => any()}
+  @type list_blocked_guest_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_retention_bot_request() :: %{}
-
-  """
-  @type delete_data_retention_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_request() :: %{
-        optional("endTime") => [non_neg_integer()],
-        optional("startTime") => [non_neg_integer()]
+      batch_reset_devices_for_user_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("appIds") => list(String.t() | atom())
       }
 
   """
-  @type get_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_retention_bot_request() :: %{}
-
-  """
-  @type create_data_retention_bot_request() :: %{}
+  @type batch_reset_devices_for_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -732,140 +436,25 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      delete_network_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      batch_lookup_user_uname_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("unames") => list(String.t() | atom())
       }
 
   """
-  @type delete_network_request() :: %{(String.t() | atom()) => any()}
+  @type batch_lookup_user_uname_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      basic_device_object() :: %{
-        "appId" => String.t() | atom(),
-        "created" => String.t() | atom(),
-        "lastLogin" => String.t() | atom(),
-        "statusText" => String.t() | atom(),
-        "suspend" => [boolean()],
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type basic_device_object() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_opentdf_config_response() :: %{
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "domain" => String.t() | atom(),
-        "provider" => String.t() | atom()
-      }
-
-  """
-  @type get_opentdf_config_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_oidc_config_test_response() :: %{
-        "authorizationEndpoint" => String.t() | atom(),
-        "endSessionEndpoint" => String.t() | atom(),
-        "grantTypesSupported" => list(String.t() | atom()),
-        "issuer" => String.t() | atom(),
-        "logoutEndpoint" => String.t() | atom(),
-        "microsoftMultiRefreshToken" => [boolean()],
-        "responseTypesSupported" => list(String.t() | atom()),
-        "revocationEndpoint" => String.t() | atom(),
-        "scopesSupported" => list(String.t() | atom()),
-        "tokenEndpoint" => String.t() | atom(),
-        "tokenEndpointAuthMethodsSupported" => list(String.t() | atom()),
-        "userinfoEndpoint" => String.t() | atom()
-      }
-
-  """
-  @type register_oidc_config_test_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_device_error_response_item() :: %{
-        "appId" => String.t() | atom(),
-        "field" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type batch_device_error_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_oidc_info_request() :: %{
-        optional("certificate") => String.t() | atom(),
-        optional("clientId") => String.t() | atom(),
-        optional("clientSecret") => String.t() | atom(),
-        optional("code") => String.t() | atom(),
-        optional("codeVerifier") => String.t() | atom(),
-        optional("grantType") => String.t() | atom(),
-        optional("redirectUri") => String.t() | atom(),
-        optional("url") => String.t() | atom()
-      }
-
-  """
-  @type get_oidc_info_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_settings_request() :: %{
-        required("settings") => network_settings()
-      }
-
-  """
-  @type update_network_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_settings_response() :: %{
-        "settings" => list(setting())
-      }
-
-  """
-  @type get_network_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_guest_user_request() :: %{
-        required("block") => [boolean()]
-      }
-
-  """
-  @type update_guest_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_response() :: %{
+      list_security_group_users_response() :: %{
         "nextToken" => String.t() | atom(),
         "users" => list(user())
       }
 
   """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
+  @type list_security_group_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -885,72 +474,6 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      list_networks_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sortDirection") => list(any()),
-        optional("sortFields") => String.t() | atom()
-      }
-
-  """
-  @type list_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_retention_request() :: %{
-        required("actionType") => list(any())
-      }
-
-  """
-  @type update_data_retention_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_guest_users_request() :: %{
-        optional("billingPeriod") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sortDirection") => list(any()),
-        optional("sortFields") => String.t() | atom(),
-        optional("username") => String.t() | atom()
-      }
-
-  """
-  @type list_guest_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_error() :: %{
-        "message" => String.t() | atom(),
-        "reasons" => list(error_detail())
-      }
-
-  """
-  @type validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_user_response() :: %{
-        "failed" => list(batch_user_error_response_item()),
-        "message" => String.t() | atom(),
-        "successful" => list(user())
-      }
-
-  """
-  @type batch_create_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       batch_reset_devices_for_user_response() :: %{
         "failed" => list(batch_device_error_response_item()),
         "message" => String.t() | atom(),
@@ -959,40 +482,6 @@ defmodule AWS.Wickr do
 
   """
   @type batch_reset_devices_for_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_group() :: %{
-        "activeDirectoryGuid" => String.t() | atom(),
-        "activeMembers" => [integer()],
-        "botMembers" => [integer()],
-        "id" => String.t() | atom(),
-        "isDefault" => [boolean()],
-        "modified" => [integer()],
-        "name" => String.t() | atom(),
-        "securityGroupSettings" => security_group_settings()
-      }
-
-  """
-  @type security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_blocked_guest_users_request() :: %{
-        optional("admin") => String.t() | atom(),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sortDirection") => list(any()),
-        optional("sortFields") => String.t() | atom(),
-        optional("username") => String.t() | atom()
-      }
-
-  """
-  @type list_blocked_guest_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1022,21 +511,6 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      password_requirements() :: %{
-        "lowercase" => [integer()],
-        "minLength" => [integer()],
-        "numbers" => [integer()],
-        "symbols" => [integer()],
-        "uppercase" => [integer()]
-      }
-
-  """
-  @type password_requirements() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_data_retention_bot_response() :: %{
         "message" => String.t() | atom()
       }
@@ -1048,136 +522,12 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      update_guest_user_response() :: %{
-        "message" => String.t() | atom()
+      batch_device_success_response_item() :: %{
+        "appId" => String.t() | atom()
       }
 
   """
-  @type update_guest_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_retention_bot_request() :: %{}
-
-  """
-  @type get_data_retention_bot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_security_group_users_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => String.t() | atom(),
-        optional("sortDirection") => list(any()),
-        optional("sortFields") => String.t() | atom()
-      }
-
-  """
-  @type list_security_group_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_oidc_config_test_request() :: %{
-        optional("certificate") => String.t() | atom(),
-        optional("extraAuthParams") => String.t() | atom(),
-        required("issuer") => String.t() | atom(),
-        required("scopes") => String.t() | atom()
-      }
-
-  """
-  @type register_oidc_config_test_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permitted_wickr_enterprise_network() :: %{
-        "domain" => String.t() | atom(),
-        "networkId" => String.t() | atom()
-      }
-
-  """
-  @type permitted_wickr_enterprise_network() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_bots_response() :: %{
-        "bots" => list(bot()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_bots_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guest_user() :: %{
-        "billingPeriod" => String.t() | atom(),
-        "username" => String.t() | atom(),
-        "usernameHash" => String.t() | atom()
-      }
-
-  """
-  @type guest_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_request() :: %{
-        optional("enablePremiumFreeTrial") => [boolean()],
-        optional("encryptionKeyArn") => String.t() | atom(),
-        required("accessLevel") => list(any()),
-        required("networkName") => String.t() | atom()
-      }
-
-  """
-  @type create_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_error() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_reinvite_user_response() :: %{
-        "failed" => list(batch_user_error_response_item()),
-        "message" => String.t() | atom(),
-        "successful" => list(batch_user_success_response_item())
-      }
-
-  """
-  @type batch_reinvite_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      error_detail() :: %{
-        "field" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type error_detail() :: %{(String.t() | atom()) => any()}
+  @type batch_device_success_response_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1194,64 +544,68 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      get_bots_count_request() :: %{}
-
-  """
-  @type get_bots_count_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_opentdf_config_request() :: %{}
-
-  """
-  @type get_opentdf_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_network_response() :: %{
-        "accessLevel" => list(any()),
-        "awsAccountId" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "freeTrialExpiration" => String.t() | atom(),
-        "migrationState" => [integer()],
-        "networkArn" => String.t() | atom(),
+      create_bot_response() :: %{
+        "botId" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "groupId" => String.t() | atom(),
+        "message" => String.t() | atom(),
         "networkId" => String.t() | atom(),
-        "networkName" => String.t() | atom(),
-        "standing" => [integer()]
+        "username" => String.t() | atom()
       }
 
   """
-  @type get_network_response() :: %{(String.t() | atom()) => any()}
+  @type create_bot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_network_response() :: %{
+      rate_limit_error() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type update_network_response() :: %{(String.t() | atom()) => any()}
+  @type rate_limit_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      register_opentdf_config_request() :: %{
-        optional("dryRun") => [boolean()],
-        required("clientId") => String.t() | atom(),
-        required("clientSecret") => String.t() | atom(),
-        required("domain") => String.t() | atom(),
-        required("provider") => String.t() | atom()
+      batch_uname_error_response_item() :: %{
+        "field" => String.t() | atom(),
+        "reason" => String.t() | atom(),
+        "uname" => String.t() | atom()
       }
 
   """
-  @type register_opentdf_config_request() :: %{(String.t() | atom()) => any()}
+  @type batch_uname_error_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group() :: %{
+        "activeDirectoryGuid" => String.t() | atom(),
+        "activeMembers" => [integer()],
+        "botMembers" => [integer()],
+        "id" => String.t() | atom(),
+        "isDefault" => [boolean()],
+        "modified" => [integer()],
+        "name" => String.t() | atom(),
+        "securityGroupSettings" => security_group_settings()
+      }
+
+  """
+  @type security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_request() :: %{}
+
+  """
+  @type get_bot_request() :: %{}
 
   @typedoc """
 
@@ -1269,15 +623,95 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      update_bot_request() :: %{
-        optional("challenge") => String.t() | atom(),
-        optional("displayName") => String.t() | atom(),
-        optional("groupId") => String.t() | atom(),
-        optional("suspend") => [boolean()]
+      update_user_response() :: %{
+        "codeValidation" => [boolean()],
+        "firstName" => String.t() | atom(),
+        "inviteCode" => String.t() | atom(),
+        "inviteExpiration" => [integer()],
+        "lastName" => String.t() | atom(),
+        "middleName" => String.t() | atom(),
+        "modified" => [integer()],
+        "networkId" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "status" => [integer()],
+        "suspended" => [boolean()],
+        "userId" => String.t() | atom()
       }
 
   """
-  @type update_bot_request() :: %{(String.t() | atom()) => any()}
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_error() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_group_response() :: %{
+        "securityGroup" => security_group()
+      }
+
+  """
+  @type create_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      password_requirements() :: %{
+        "lowercase" => [integer()],
+        "minLength" => [integer()],
+        "numbers" => [integer()],
+        "symbols" => [integer()],
+        "uppercase" => [integer()]
+      }
+
+  """
+  @type password_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consent_popup_config() :: %{
+        "closeButtonLabel" => String.t() | atom(),
+        "content" => String.t() | atom(),
+        "enabled" => [boolean()],
+        "header" => String.t() | atom()
+      }
+
+  """
+  @type consent_popup_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_request() :: %{
+        optional("endTime") => [non_neg_integer()],
+        optional("startTime") => [non_neg_integer()]
+      }
+
+  """
+  @type get_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_retention_bot_challenge_request() :: %{}
+
+  """
+  @type create_data_retention_bot_challenge_request() :: %{}
 
   @typedoc """
 
@@ -1301,61 +735,55 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      update_user_request() :: %{
-        optional("userDetails") => update_user_details(),
-        required("userId") => String.t() | atom()
+      read_receipt_config() :: %{
+        "status" => list(any())
       }
 
   """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
+  @type read_receipt_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      network() :: %{
-        "accessLevel" => list(any()),
-        "awsAccountId" => String.t() | atom(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "freeTrialExpiration" => String.t() | atom(),
-        "migrationState" => [integer()],
-        "networkArn" => String.t() | atom(),
-        "networkId" => String.t() | atom(),
-        "networkName" => String.t() | atom(),
-        "standing" => [integer()]
+      security_group_settings_request() :: %{
+        "enableGuestFederation" => [boolean()],
+        "enableRestrictedGlobalFederation" => [boolean()],
+        "federationMode" => [integer()],
+        "globalFederation" => [boolean()],
+        "lockoutThreshold" => [integer()],
+        "permittedNetworks" => list(String.t() | atom()),
+        "permittedWickrAwsNetworks" => list(wickr_aws_networks()),
+        "permittedWickrEnterpriseNetworks" => list(permitted_wickr_enterprise_network())
       }
 
   """
-  @type network() :: %{(String.t() | atom()) => any()}
+  @type security_group_settings_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_create_user_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("users") => list(batch_create_user_request_item())
+      update_network_settings_response() :: %{
+        "settings" => list(setting())
       }
 
   """
-  @type batch_create_user_request() :: %{(String.t() | atom()) => any()}
+  @type update_network_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_user_details() :: %{
-        "codeValidation" => [boolean()],
-        "firstName" => String.t() | atom(),
-        "inviteCode" => String.t() | atom(),
-        "inviteCodeTtl" => [integer()],
-        "lastName" => String.t() | atom(),
-        "securityGroupIds" => list(String.t() | atom()),
-        "username" => String.t() | atom()
+      register_opentdf_config_response() :: %{
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "domain" => String.t() | atom(),
+        "provider" => String.t() | atom()
       }
 
   """
-  @type update_user_details() :: %{(String.t() | atom()) => any()}
+  @type register_opentdf_config_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1390,37 +818,312 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      batch_device_success_response_item() :: %{
-        "appId" => String.t() | atom()
-      }
+      get_security_group_request() :: %{}
 
   """
-  @type batch_device_success_response_item() :: %{(String.t() | atom()) => any()}
+  @type get_security_group_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_bot_request() :: %{
+      guest_user() :: %{
+        "billingPeriod" => String.t() | atom(),
+        "username" => String.t() | atom(),
+        "usernameHash" => String.t() | atom()
+      }
+
+  """
+  @type guest_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_security_group_response() :: %{
+        "groupId" => String.t() | atom(),
+        "message" => String.t() | atom(),
+        "networkId" => String.t() | atom()
+      }
+
+  """
+  @type delete_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_retention_bot_response() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delete_data_retention_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network() :: %{
+        "accessLevel" => list(any()),
+        "awsAccountId" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "freeTrialExpiration" => String.t() | atom(),
+        "migrationState" => [integer()],
+        "networkArn" => String.t() | atom(),
+        "networkId" => String.t() | atom(),
+        "networkName" => String.t() | atom(),
+        "standing" => [integer()]
+      }
+
+  """
+  @type network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_bot_request() :: %{
+        optional("challenge") => String.t() | atom(),
         optional("displayName") => String.t() | atom(),
-        required("challenge") => String.t() | atom(),
-        required("groupId") => String.t() | atom(),
-        required("username") => String.t() | atom()
+        optional("groupId") => String.t() | atom(),
+        optional("suspend") => [boolean()]
       }
 
   """
-  @type create_bot_request() :: %{(String.t() | atom()) => any()}
+  @type update_bot_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      read_receipt_config() :: %{
-        "status" => list(any())
+      delete_network_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type read_receipt_config() :: %{(String.t() | atom()) => any()}
+  @type delete_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_guest_user_response() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type update_guest_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      security_group_settings() :: %{
+        "federationMode" => [integer()],
+        "globalFederation" => [boolean()],
+        "isLinkPreviewEnabled" => [boolean()],
+        "atakPackageValues" => list(String.t() | atom()),
+        "filesEnabled" => [boolean()],
+        "forceOpenAccess" => [boolean()],
+        "enableOpenAccessOption" => [boolean()],
+        "forceDeviceLockout" => [integer()],
+        "lockoutThreshold" => [integer()],
+        "isAtoEnabled" => [boolean()],
+        "enableNotificationPreview" => [boolean()],
+        "maxNonSsoSessionMinutes" => [integer()],
+        "showMasterRecoveryKey" => [boolean()],
+        "maxBor" => [integer()],
+        "messageForwardingEnabled" => [boolean()],
+        "enableCrashReports" => [boolean()],
+        "maxTtl" => [float()],
+        "permittedNetworks" => list(String.t() | atom()),
+        "forceReadReceipts" => [boolean()],
+        "locationAllowMaps" => [boolean()],
+        "calling" => calling_settings(),
+        "ssoMaxIdleMinutes" => [integer()],
+        "permittedWickrEnterpriseNetworks" => list(permitted_wickr_enterprise_network()),
+        "enableGuestFederation" => [boolean()],
+        "enableAtak" => [boolean()],
+        "enableRestrictedGlobalFederation" => [boolean()],
+        "passwordRequirements" => password_requirements(),
+        "alwaysReauthenticate" => [boolean()],
+        "presenceEnabled" => [boolean()],
+        "quickResponses" => list(String.t() | atom()),
+        "locationEnabled" => [boolean()],
+        "checkForUpdates" => [boolean()],
+        "maxAutoDownloadSize" => [float()],
+        "enableFileDownload" => [boolean()],
+        "shredder" => shredder_settings(),
+        "permittedWickrAwsNetworks" => list(wickr_aws_networks())
+      }
+
+  """
+  @type security_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_count_request() :: %{}
+
+  """
+  @type get_bots_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bots_count_response() :: %{
+        "active" => [integer()],
+        "pending" => [integer()],
+        "total" => [integer()]
+      }
+
+  """
+  @type get_bots_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_details() :: %{
+        "codeValidation" => [boolean()],
+        "firstName" => String.t() | atom(),
+        "inviteCode" => String.t() | atom(),
+        "inviteCodeTtl" => [integer()],
+        "lastName" => String.t() | atom(),
+        "securityGroupIds" => list(String.t() | atom()),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type update_user_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_user_error_response_item() :: %{
+        "field" => String.t() | atom(),
+        "reason" => String.t() | atom(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type batch_user_error_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_guest_user_request() :: %{
+        required("block") => [boolean()]
+      }
+
+  """
+  @type update_guest_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_toggle_user_suspend_status_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("suspend") => [boolean()],
+        required("userIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_toggle_user_suspend_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_opentdf_config_request() :: %{
+        optional("dryRun") => [boolean()],
+        required("clientId") => String.t() | atom(),
+        required("clientSecret") => String.t() | atom(),
+        required("domain") => String.t() | atom(),
+        required("provider") => String.t() | atom()
+      }
+
+  """
+  @type register_opentdf_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calling_settings() :: %{
+        "canStart11Call" => [boolean()],
+        "canVideoCall" => [boolean()],
+        "forceTcpCall" => [boolean()]
+      }
+
+  """
+  @type calling_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_error() :: %{
+        "message" => String.t() | atom(),
+        "reasons" => list(error_detail())
+      }
+
+  """
+  @type validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_devices_for_user_response() :: %{
+        "devices" => list(basic_device_object()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_devices_for_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wickr_aws_networks() :: %{
+        "networkId" => String.t() | atom(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type wickr_aws_networks() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_user_success_response_item() :: %{
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type batch_user_success_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_device_error_response_item() :: %{
+        "appId" => String.t() | atom(),
+        "field" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type batch_device_error_response_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1445,54 +1148,69 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      oidc_config_info() :: %{
-        "applicationId" => [integer()],
-        "applicationName" => String.t() | atom(),
-        "caCertificate" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "companyId" => String.t() | atom(),
-        "customUsername" => String.t() | atom(),
-        "extraAuthParams" => String.t() | atom(),
-        "issuer" => String.t() | atom(),
-        "redirectUrl" => String.t() | atom(),
-        "scopes" => String.t() | atom(),
-        "secret" => String.t() | atom(),
-        "ssoTokenBufferMinutes" => [integer()],
-        "userId" => String.t() | atom()
+      error_detail() :: %{
+        "field" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type oidc_config_info() :: %{(String.t() | atom()) => any()}
+  @type error_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      calling_settings() :: %{
-        "canStart11Call" => [boolean()],
-        "canVideoCall" => [boolean()],
-        "forceTcpCall" => [boolean()]
-      }
+      delete_data_retention_bot_request() :: %{}
 
   """
-  @type calling_settings() :: %{(String.t() | atom()) => any()}
+  @type delete_data_retention_bot_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_bot_response() :: %{
-        "botId" => String.t() | atom(),
-        "displayName" => String.t() | atom(),
-        "groupId" => String.t() | atom(),
-        "message" => String.t() | atom(),
-        "networkId" => String.t() | atom(),
-        "username" => String.t() | atom()
+      permitted_wickr_enterprise_network() :: %{
+        "domain" => String.t() | atom(),
+        "networkId" => String.t() | atom()
       }
 
   """
-  @type create_bot_response() :: %{(String.t() | atom()) => any()}
+  @type permitted_wickr_enterprise_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_security_groups_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "securityGroups" => list(security_group())
+      }
+
+  """
+  @type list_security_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_response() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type update_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_guest_users_response() :: %{
+        "guestlist" => list(guest_user()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_guest_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1512,38 +1230,17 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      batch_user_error_response_item() :: %{
-        "field" => String.t() | atom(),
-        "reason" => String.t() | atom(),
-        "userId" => String.t() | atom()
+      list_guest_users_request() :: %{
+        optional("billingPeriod") => String.t() | atom(),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sortDirection") => list(any()),
+        optional("sortFields") => String.t() | atom(),
+        optional("username") => String.t() | atom()
       }
 
   """
-  @type batch_user_error_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_reinvite_user_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("userIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_reinvite_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_uname_success_response_item() :: %{
-        "uname" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type batch_uname_success_response_item() :: %{(String.t() | atom()) => any()}
+  @type list_guest_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1566,6 +1263,54 @@ defmodule AWS.Wickr do
 
   ## Example:
 
+      get_network_response() :: %{
+        "accessLevel" => list(any()),
+        "awsAccountId" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "freeTrialExpiration" => String.t() | atom(),
+        "migrationState" => [integer()],
+        "networkArn" => String.t() | atom(),
+        "networkId" => String.t() | atom(),
+        "networkName" => String.t() | atom(),
+        "standing" => [integer()]
+      }
+
+  """
+  @type get_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_bot_response() :: %{
+        "botId" => String.t() | atom(),
+        "displayName" => String.t() | atom(),
+        "groupId" => String.t() | atom(),
+        "hasChallenge" => [boolean()],
+        "lastLogin" => String.t() | atom(),
+        "pubkey" => String.t() | atom(),
+        "status" => list(integer()),
+        "suspended" => [boolean()],
+        "uname" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type get_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_users_count_request() :: %{}
+
+  """
+  @type get_users_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_network_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("encryptionKeyArn") => String.t() | atom(),
@@ -1574,6 +1319,356 @@ defmodule AWS.Wickr do
 
   """
   @type update_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      setting() :: %{
+        "optionName" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_security_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("securityGroupSettings") => security_group_settings_request()
+      }
+
+  """
+  @type create_security_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "users" => list(user())
+      }
+
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_users_count_response() :: %{
+        "active" => [integer()],
+        "pending" => [integer()],
+        "rejected" => [integer()],
+        "remaining" => [integer()],
+        "total" => [integer()]
+      }
+
+  """
+  @type get_users_count_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_user_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("users") => list(batch_create_user_request_item())
+      }
+
+  """
+  @type batch_create_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_bots_response() :: %{
+        "bots" => list(bot()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_bots_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      oidc_token_info() :: %{
+        "accessToken" => String.t() | atom(),
+        "codeChallenge" => String.t() | atom(),
+        "codeVerifier" => String.t() | atom(),
+        "expiresIn" => [float()],
+        "idToken" => String.t() | atom(),
+        "refreshToken" => String.t() | atom(),
+        "tokenType" => String.t() | atom()
+      }
+
+  """
+  @type oidc_token_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_bot_request() :: %{}
+
+  """
+  @type delete_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_bot_request() :: %{
+        optional("displayName") => String.t() | atom(),
+        required("challenge") => String.t() | atom(),
+        required("groupId") => String.t() | atom(),
+        required("username") => String.t() | atom()
+      }
+
+  """
+  @type create_bot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_retention_bot_challenge_response() :: %{
+        "challenge" => String.t() | atom()
+      }
+
+  """
+  @type create_data_retention_bot_challenge_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_guest_user_history_count_request() :: %{}
+
+  """
+  @type get_guest_user_history_count_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_retention_bot_request() :: %{}
+
+  """
+  @type create_data_retention_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("sortDirection") => list(any()),
+        optional("sortFields") => String.t() | atom()
+      }
+
+  """
+  @type list_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_oidc_config_test_response() :: %{
+        "authorizationEndpoint" => String.t() | atom(),
+        "endSessionEndpoint" => String.t() | atom(),
+        "grantTypesSupported" => list(String.t() | atom()),
+        "issuer" => String.t() | atom(),
+        "logoutEndpoint" => String.t() | atom(),
+        "microsoftMultiRefreshToken" => [boolean()],
+        "responseTypesSupported" => list(String.t() | atom()),
+        "revocationEndpoint" => String.t() | atom(),
+        "scopesSupported" => list(String.t() | atom()),
+        "tokenEndpoint" => String.t() | atom(),
+        "tokenEndpointAuthMethodsSupported" => list(String.t() | atom()),
+        "userinfoEndpoint" => String.t() | atom()
+      }
+
+  """
+  @type register_oidc_config_test_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_reinvite_user_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("userIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_reinvite_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_user_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("userIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_blocked_guest_users_response() :: %{
+        "blocklist" => list(blocked_guest_user()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_blocked_guest_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_settings_request() :: %{
+        required("settings") => network_settings()
+      }
+
+  """
+  @type update_network_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_request() :: %{
+        optional("enablePremiumFreeTrial") => [boolean()],
+        optional("encryptionKeyArn") => String.t() | atom(),
+        required("accessLevel") => list(any()),
+        required("networkName") => String.t() | atom()
+      }
+
+  """
+  @type create_network_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_retention_bot_request() :: %{}
+
+  """
+  @type get_data_retention_bot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_response() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type delete_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_error() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_retention_request() :: %{
+        required("actionType") => list(any())
+      }
+
+  """
+  @type update_data_retention_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_network_settings_request() :: %{}
+
+  """
+  @type get_network_settings_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_retention_bot_response() :: %{
+        "botExists" => [boolean()],
+        "botName" => String.t() | atom(),
+        "isBotActive" => [boolean()],
+        "isDataRetentionBotRegistered" => [boolean()],
+        "isDataRetentionServiceEnabled" => [boolean()],
+        "isPubkeyMsgAcked" => [boolean()]
+      }
+
+  """
+  @type get_data_retention_bot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      shredder_settings() :: %{
+        "canProcessManually" => [boolean()],
+        "intensity" => [integer()]
+      }
+
+  """
+  @type shredder_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_uname_success_response_item() :: %{
+        "uname" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type batch_uname_success_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      basic_device_object() :: %{
+        "appId" => String.t() | atom(),
+        "created" => String.t() | atom(),
+        "lastLogin" => String.t() | atom(),
+        "statusText" => String.t() | atom(),
+        "suspend" => [boolean()],
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type basic_device_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1610,12 +1705,26 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      update_security_group_response() :: %{
-        "securityGroup" => security_group()
+      get_network_settings_response() :: %{
+        "settings" => list(setting())
       }
 
   """
-  @type update_security_group_response() :: %{(String.t() | atom()) => any()}
+  @type get_network_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_oidc_config_test_request() :: %{
+        optional("certificate") => String.t() | atom(),
+        optional("extraAuthParams") => String.t() | atom(),
+        required("issuer") => String.t() | atom(),
+        required("scopes") => String.t() | atom()
+      }
+
+  """
+  @type register_oidc_config_test_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1632,72 +1741,14 @@ defmodule AWS.Wickr do
 
   ## Example:
 
-      get_data_retention_bot_response() :: %{
-        "botExists" => [boolean()],
-        "botName" => String.t() | atom(),
-        "isBotActive" => [boolean()],
-        "isDataRetentionBotRegistered" => [boolean()],
-        "isDataRetentionServiceEnabled" => [boolean()],
-        "isPubkeyMsgAcked" => [boolean()]
+      batch_lookup_user_uname_response() :: %{
+        "failed" => list(batch_uname_error_response_item()),
+        "message" => String.t() | atom(),
+        "successful" => list(batch_uname_success_response_item())
       }
 
   """
-  @type get_data_retention_bot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      security_group_settings() :: %{
-        "maxNonSsoSessionMinutes" => [integer()],
-        "shredder" => shredder_settings(),
-        "enableRestrictedGlobalFederation" => [boolean()],
-        "showMasterRecoveryKey" => [boolean()],
-        "quickResponses" => list(String.t() | atom()),
-        "enableAtak" => [boolean()],
-        "globalFederation" => [boolean()],
-        "permittedWickrEnterpriseNetworks" => list(permitted_wickr_enterprise_network()),
-        "forceOpenAccess" => [boolean()],
-        "permittedNetworks" => list(String.t() | atom()),
-        "locationAllowMaps" => [boolean()],
-        "enableGuestFederation" => [boolean()],
-        "atakPackageValues" => list(String.t() | atom()),
-        "enableFileDownload" => [boolean()],
-        "calling" => calling_settings(),
-        "enableCrashReports" => [boolean()],
-        "maxTtl" => [float()],
-        "alwaysReauthenticate" => [boolean()],
-        "messageForwardingEnabled" => [boolean()],
-        "maxAutoDownloadSize" => [float()],
-        "locationEnabled" => [boolean()],
-        "enableOpenAccessOption" => [boolean()],
-        "maxBor" => [integer()],
-        "enableNotificationPreview" => [boolean()],
-        "federationMode" => [integer()],
-        "presenceEnabled" => [boolean()],
-        "ssoMaxIdleMinutes" => [integer()],
-        "filesEnabled" => [boolean()],
-        "permittedWickrAwsNetworks" => list(wickr_aws_networks()),
-        "isLinkPreviewEnabled" => [boolean()],
-        "passwordRequirements" => password_requirements(),
-        "forceReadReceipts" => [boolean()],
-        "isAtoEnabled" => [boolean()],
-        "lockoutThreshold" => [integer()],
-        "forceDeviceLockout" => [integer()],
-        "checkForUpdates" => [boolean()]
-      }
-
-  """
-  @type security_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_users_count_request() :: %{}
-
-  """
-  @type get_users_count_request() :: %{}
+  @type batch_lookup_user_uname_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1711,451 +1762,400 @@ defmodule AWS.Wickr do
   """
   @type update_security_group_request() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      list_blocked_guest_users_response() :: %{
-        "blocklist" => list(blocked_guest_user()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_blocked_guest_users_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      oidc_token_info() :: %{
-        "accessToken" => String.t() | atom(),
-        "codeChallenge" => String.t() | atom(),
-        "codeVerifier" => String.t() | atom(),
-        "expiresIn" => [float()],
-        "idToken" => String.t() | atom(),
-        "refreshToken" => String.t() | atom(),
-        "tokenType" => String.t() | atom()
-      }
-
-  """
-  @type oidc_token_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rate_limit_error() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type rate_limit_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_guest_user_history_count_response() :: %{
-        "history" => list(guest_user_history_count())
-      }
-
-  """
-  @type get_guest_user_history_count_response() :: %{(String.t() | atom()) => any()}
-
   @type batch_create_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type batch_delete_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type batch_lookup_user_uname_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type batch_reinvite_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type batch_reset_devices_for_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type batch_toggle_user_suspend_status_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type create_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type create_data_retention_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type create_data_retention_bot_challenge_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type create_network_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type create_security_group_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type delete_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type delete_data_retention_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type delete_network_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type delete_security_group_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_bots_count_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_data_retention_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_guest_user_history_count_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_network_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_network_settings_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_oidc_info_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_opentdf_config_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_security_group_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type get_users_count_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_blocked_guest_users_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_bots_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_devices_for_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_guest_users_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_networks_errors() ::
-          rate_limit_error()
-          | internal_server_error()
+          forbidden_error()
           | validation_error()
-          | bad_request_error()
           | unauthorized_error()
-          | forbidden_error()
+          | rate_limit_error()
+          | internal_server_error()
+          | bad_request_error()
 
   @type list_security_group_users_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_security_groups_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type list_users_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type register_oidc_config_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type register_oidc_config_test_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type register_opentdf_config_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_bot_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_data_retention_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_guest_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_network_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_network_settings_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_security_group_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   @type update_user_errors() ::
-          rate_limit_error()
+          forbidden_error()
+          | validation_error()
+          | unauthorized_error()
+          | rate_limit_error()
           | internal_server_error()
           | resource_not_found_error()
-          | validation_error()
           | bad_request_error()
-          | unauthorized_error()
-          | forbidden_error()
 
   def metadata do
     %{

@@ -62,13 +62,245 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      event_bridge_destination_properties() :: %{
+      custom_auth_config() :: %{
+        "authParameters" => list(auth_parameter()),
+        "customAuthenticationType" => String.t() | atom()
+      }
+
+  """
+  @type custom_auth_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_metadata() :: %{}
+
+  """
+  @type event_bridge_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_profile_response() :: %{
+        "connectorProfileArn" => String.t() | atom()
+      }
+
+  """
+  @type create_connector_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_metadata() :: %{}
+
+  """
+  @type service_now_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_catalog_detail() :: %{
+        "catalogType" => list(any()),
+        "partitionRegistrationOutput" => registration_output(),
+        "tableName" => String.t() | atom(),
+        "tableRegistrationOutput" => registration_output()
+      }
+
+  """
+  @type metadata_catalog_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom(),
+        "isSandboxEnvironment" => boolean(),
+        "usePrivateLinkForMetadataAndAuthorization" => boolean()
+      }
+
+  """
+  @type salesforce_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      honeycode_destination_properties() :: %{
         "errorHandlingConfig" => error_handling_config(),
         "object" => String.t() | atom()
       }
 
   """
-  @type event_bridge_destination_properties() :: %{(String.t() | atom()) => any()}
+  @type honeycode_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lookout_metrics_destination_properties() :: %{}
+
+  """
+  @type lookout_metrics_destination_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      infor_nexus_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type infor_nexus_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connectors_request() :: %{
+        optional("connectorTypes") => list(list(any())()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_connectors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_connector_profile_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request()
+      }
+
+  """
+  @type slack_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynatrace_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type dynatrace_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_definition() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "destinationConnectorLabel" => String.t() | atom(),
+        "destinationConnectorType" => list(any()),
+        "flowArn" => String.t() | atom(),
+        "flowName" => String.t() | atom(),
+        "flowStatus" => list(any()),
+        "lastRunExecutionDetails" => execution_details(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "sourceConnectorLabel" => String.t() | atom(),
+        "sourceConnectorType" => list(any()),
+        "tags" => map(),
+        "triggerType" => list(any())
+      }
+
+  """
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_response() :: %{
+        "connectorConfiguration" => connector_configuration()
+      }
+
+  """
+  @type describe_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_connector_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("connectorLabel") => String.t() | atom(),
+        optional("connectorProvisioningConfig") => connector_provisioning_config(),
+        optional("connectorProvisioningType") => list(any()),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type register_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_destination_properties() :: %{
+        "bucketPrefix" => String.t() | atom(),
+        "errorHandlingConfig" => error_handling_config(),
+        "intermediateBucketName" => String.t() | atom(),
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type redshift_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("connectionMode") => list(any()),
+        required("connectorProfileConfig") => connector_profile_config(),
+        required("connectorProfileName") => String.t() | atom()
+      }
+
+  """
+  @type update_connector_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_registration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("connectorProvisioningConfig") => connector_provisioning_config(),
+        optional("description") => String.t() | atom(),
+        required("connectorLabel") => String.t() | atom()
+      }
+
+  """
+  @type update_connector_registration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_source_properties() :: %{
+        "objectPath" => String.t() | atom(),
+        "paginationConfig" => s_a_p_o_data_pagination_config(),
+        "parallelismConfig" => s_a_p_o_data_parallelism_config()
+      }
+
+  """
+  @type s_a_p_o_data_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -92,24 +324,104 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      basic_auth_credentials() :: %{
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
+      describe_flow_execution_records_response() :: %{
+        "flowExecutions" => list(execution_record()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type basic_auth_credentials() :: %{(String.t() | atom()) => any()}
+  @type describe_flow_execution_records_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dynatrace_source_properties() :: %{
-        "object" => String.t() | atom()
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type dynatrace_source_properties() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_connector_profile_credentials() :: %{
+        "basicAuthCredentials" => basic_auth_credentials(),
+        "oAuthCredentials" => o_auth_credentials()
+      }
+
+  """
+  @type s_a_p_o_data_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_flow_response() :: %{
+        "flowArn" => String.t() | atom(),
+        "flowStatus" => list(any())
+      }
+
+  """
+  @type stop_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_destination_properties() :: %{
+        "errorHandlingConfig" => error_handling_config(),
+        "idFieldNames" => list(String.t() | atom()),
+        "objectPath" => String.t() | atom(),
+        "successResponseHandlingConfig" => success_response_handling_config(),
+        "writeOperationType" => list(any())
+      }
+
+  """
+  @type s_a_p_o_data_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_profiles_request() :: %{
+        optional("connectorLabel") => String.t() | atom(),
+        optional("connectorProfileNames") => list(String.t() | atom()),
+        optional("connectorType") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_connector_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request(),
+        "refreshToken" => String.t() | atom()
+      }
+
+  """
+  @type o_auth_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,257 +447,44 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      task() :: %{
-        "connectorOperator" => connector_operator(),
-        "destinationField" => String.t() | atom(),
-        "sourceFields" => list(String.t() | atom()),
-        "taskProperties" => map(),
-        "taskType" => list(any())
-      }
-
-  """
-  @type task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scheduled_trigger_properties() :: %{
-        "dataPullMode" => list(any()),
-        "firstExecutionFrom" => non_neg_integer(),
-        "flowErrorDeactivationThreshold" => integer(),
-        "scheduleEndTime" => non_neg_integer(),
-        "scheduleExpression" => String.t() | atom(),
-        "scheduleOffset" => float(),
-        "scheduleStartTime" => non_neg_integer(),
-        "timezone" => String.t() | atom()
-      }
-
-  """
-  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      honeycode_connector_profile_properties() :: %{}
-
-  """
-  @type honeycode_connector_profile_properties() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      range() :: %{
-        "maximum" => float(),
-        "minimum" => float()
-      }
-
-  """
-  @type range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snowflake_metadata() :: %{
-        "supportedRegions" => list(String.t() | atom())
-      }
-
-  """
-  @type snowflake_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_source_properties() :: %{
-        "objectPath" => String.t() | atom(),
-        "paginationConfig" => s_a_p_o_data_pagination_config(),
-        "parallelismConfig" => s_a_p_o_data_parallelism_config()
-      }
-
-  """
-  @type s_a_p_o_data_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      honeycode_metadata() :: %{
+      google_analytics_metadata() :: %{
         "oAuthScopes" => list(String.t() | atom())
       }
 
   """
-  @type honeycode_metadata() :: %{(String.t() | atom()) => any()}
+  @type google_analytics_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      snowflake_connector_profile_credentials() :: %{
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
+      singular_connector_profile_properties() :: %{}
+
+  """
+  @type singular_connector_profile_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_connector_profile_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientCredentialsArn" => String.t() | atom(),
+        "jwtToken" => String.t() | atom(),
+        "oAuth2GrantType" => list(any()),
+        "oAuthRequest" => connector_o_auth_request(),
+        "refreshToken" => String.t() | atom()
       }
 
   """
-  @type snowflake_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+  @type salesforce_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_connector_profile_credentials() :: %{
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type redshift_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketo_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unsupported_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lookout_metrics_destination_properties() :: %{}
-
-  """
-  @type lookout_metrics_destination_properties() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      trendmicro_connector_profile_properties() :: %{}
-
-  """
-  @type trendmicro_connector_profile_properties() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_response() :: %{
-        "connectors" => list(connector_detail()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pardot_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type pardot_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_connector_properties() :: %{
-        "CustomConnector" => custom_connector_destination_properties(),
-        "CustomerProfiles" => customer_profiles_destination_properties(),
-        "EventBridge" => event_bridge_destination_properties(),
-        "Honeycode" => honeycode_destination_properties(),
-        "LookoutMetrics" => lookout_metrics_destination_properties(),
-        "Marketo" => marketo_destination_properties(),
-        "Redshift" => redshift_destination_properties(),
-        "S3" => s3_destination_properties(),
-        "SAPOData" => s_a_p_o_data_destination_properties(),
-        "Salesforce" => salesforce_destination_properties(),
-        "Snowflake" => snowflake_destination_properties(),
-        "Upsolver" => upsolver_destination_properties(),
-        "Zendesk" => zendesk_destination_properties()
-      }
-
-  """
-  @type destination_connector_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slack_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type slack_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_connector_metadata_cache_response() :: %{}
-
-  """
-  @type reset_connector_metadata_cache_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsArn") => String.t() | atom(),
-        optional("metadataCatalogConfig") => metadata_catalog_config(),
-        optional("tags") => map(),
-        required("destinationFlowConfigList") => list(destination_flow_config()),
-        required("flowName") => String.t() | atom(),
-        required("sourceFlowConfig") => source_flow_config(),
-        required("tasks") => list(task()),
-        required("triggerConfig") => trigger_config()
-      }
-
-  """
-  @type create_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zendesk_destination_properties() :: %{
+      salesforce_destination_properties() :: %{
+        "dataTransferApi" => list(any()),
         "errorHandlingConfig" => error_handling_config(),
         "idFieldNames" => list(String.t() | atom()),
         "object" => String.t() | atom(),
@@ -393,151 +492,7 @@ defmodule AWS.Appflow do
       }
 
   """
-  @type zendesk_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_entities_response() :: %{
-        "connectorEntityMap" => map(),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connector_entities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amplitude_metadata() :: %{}
-
-  """
-  @type amplitude_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_details() :: %{
-        "mostRecentExecutionMessage" => String.t() | atom(),
-        "mostRecentExecutionStatus" => list(any()),
-        "mostRecentExecutionTime" => non_neg_integer()
-      }
-
-  """
-  @type execution_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      amplitude_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type amplitude_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connector_entities_request() :: %{
-        optional("apiVersion") => String.t() | atom(),
-        optional("connectorProfileName") => String.t() | atom(),
-        optional("connectorType") => list(any()),
-        optional("entitiesPath") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connector_entities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_response() :: %{
-        "connectorConfiguration" => connector_configuration()
-      }
-
-  """
-  @type describe_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_defaults() :: %{
-        "authCodeUrls" => list(String.t() | atom()),
-        "oauth2CustomProperties" => list(o_auth2_custom_parameter()),
-        "oauth2GrantTypesSupported" => list(list(any())()),
-        "oauthScopes" => list(String.t() | atom()),
-        "tokenUrls" => list(String.t() | atom())
-      }
-
-  """
-  @type o_auth2_defaults() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snowflake_destination_properties() :: %{
-        "bucketPrefix" => String.t() | atom(),
-        "errorHandlingConfig" => error_handling_config(),
-        "intermediateBucketName" => String.t() | atom(),
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type snowflake_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      google_analytics_connector_profile_properties() :: %{}
-
-  """
-  @type google_analytics_connector_profile_properties() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_source_properties() :: %{
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom(),
-        "s3InputFormatConfig" => s3_input_format_config()
-      }
-
-  """
-  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_config() :: %{
-        "aggregationType" => list(any()),
-        "targetFileSize" => float()
-      }
-
-  """
-  @type aggregation_config() :: %{(String.t() | atom()) => any()}
+  @type salesforce_destination_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,559 +527,6 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      describe_connector_entity_response() :: %{
-        "connectorEntityFields" => list(connector_entity_field())
-      }
-
-  """
-  @type describe_connector_entity_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_profiles_response() :: %{
-        "connectorProfileDetails" => list(connector_profile()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_connector_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_input_format_config() :: %{
-        "s3InputFileType" => list(any())
-      }
-
-  """
-  @type s3_input_format_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_provisioning_config() :: %{
-        "lambda" => lambda_connector_provisioning_config()
-      }
-
-  """
-  @type connector_provisioning_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upsolver_s3_output_format_config() :: %{
-        "aggregationConfig" => aggregation_config(),
-        "fileType" => list(any()),
-        "prefixConfig" => prefix_config()
-      }
-
-  """
-  @type upsolver_s3_output_format_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_flow_config() :: %{
-        "apiVersion" => String.t() | atom(),
-        "connectorProfileName" => String.t() | atom(),
-        "connectorType" => list(any()),
-        "destinationConnectorProperties" => destination_connector_properties()
-      }
-
-  """
-  @type destination_flow_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      google_analytics_metadata() :: %{
-        "oAuthScopes" => list(String.t() | atom())
-      }
-
-  """
-  @type google_analytics_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_request() :: %{
-        optional("forceDelete") => boolean(),
-        required("flowName") => String.t() | atom()
-      }
-
-  """
-  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_metadata() :: %{}
-
-  """
-  @type redshift_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_destination_properties() :: %{
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom(),
-        "s3OutputFormatConfig" => s3_output_format_config()
-      }
-
-  """
-  @type s3_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      infor_nexus_connector_profile_credentials() :: %{
-        "accessKeyId" => String.t() | atom(),
-        "datakey" => String.t() | atom(),
-        "secretAccessKey" => String.t() | atom(),
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type infor_nexus_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_destination_properties() :: %{
-        "bucketPrefix" => String.t() | atom(),
-        "errorHandlingConfig" => error_handling_config(),
-        "intermediateBucketName" => String.t() | atom(),
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type redshift_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_pagination_config() :: %{
-        "maxPageSize" => integer()
-      }
-
-  """
-  @type s_a_p_o_data_pagination_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_field_properties() :: %{
-        "isCreatable" => boolean(),
-        "isDefaultedOnCreate" => boolean(),
-        "isNullable" => boolean(),
-        "isUpdatable" => boolean(),
-        "isUpsertable" => boolean(),
-        "supportedWriteOperations" => list(list(any())())
-      }
-
-  """
-  @type destination_field_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_definition() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "destinationConnectorLabel" => String.t() | atom(),
-        "destinationConnectorType" => list(any()),
-        "flowArn" => String.t() | atom(),
-        "flowName" => String.t() | atom(),
-        "flowStatus" => list(any()),
-        "lastRunExecutionDetails" => execution_details(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "sourceConnectorLabel" => String.t() | atom(),
-        "sourceConnectorType" => list(any()),
-        "tags" => map(),
-        "triggerType" => list(any())
-      }
-
-  """
-  @type flow_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slack_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request()
-      }
-
-  """
-  @type slack_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_metadata() :: %{}
-
-  """
-  @type s3_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connectors_response() :: %{
-        "connectorConfigurations" => map(),
-        "connectors" => list(connector_detail()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_connectors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zendesk_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type zendesk_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | atom()
-      }
-
-  """
-  @type o_auth_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      infor_nexus_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type infor_nexus_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_now_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type service_now_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_entity_request() :: %{
-        optional("apiVersion") => String.t() | atom(),
-        optional("connectorProfileName") => String.t() | atom(),
-        optional("connectorType") => list(any()),
-        required("connectorEntityName") => String.t() | atom()
-      }
-
-  """
-  @type describe_connector_entity_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_destination_properties() :: %{
-        "dataTransferApi" => list(any()),
-        "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | atom()),
-        "object" => String.t() | atom(),
-        "writeOperationType" => list(any())
-      }
-
-  """
-  @type salesforce_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connectors_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_field_properties() :: %{
-        "isQueryable" => boolean(),
-        "isRetrievable" => boolean(),
-        "isTimestampFieldForIncrementalQueries" => boolean()
-      }
-
-  """
-  @type source_field_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_profile_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("connectionMode") => list(any()),
-        required("connectorProfileConfig") => connector_profile_config(),
-        required("connectorProfileName") => String.t() | atom()
-      }
-
-  """
-  @type update_connector_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom(),
-        "isSandboxEnvironment" => boolean(),
-        "usePrivateLinkForMetadataAndAuthorization" => boolean()
-      }
-
-  """
-  @type salesforce_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_catalog_detail() :: %{
-        "catalogType" => list(any()),
-        "partitionRegistrationOutput" => registration_output(),
-        "tableName" => String.t() | atom(),
-        "tableRegistrationOutput" => registration_output()
-      }
-
-  """
-  @type metadata_catalog_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      api_key_credentials() :: %{
-        "apiKey" => String.t() | atom(),
-        "apiSecretKey" => String.t() | atom()
-      }
-
-  """
-  @type api_key_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_flow_response() :: %{
-        "flowArn" => String.t() | atom(),
-        "flowStatus" => list(any())
-      }
-
-  """
-  @type create_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      honeycode_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | atom()
-      }
-
-  """
-  @type honeycode_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_flow_response() :: %{}
-
-  """
-  @type delete_flow_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      error_info() :: %{
-        "executionMessage" => String.t() | atom(),
-        "putFailuresCount" => float()
-      }
-
-  """
-  @type error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_entity_field() :: %{
-        "customProperties" => map(),
-        "defaultValue" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "destinationProperties" => destination_field_properties(),
-        "identifier" => String.t() | atom(),
-        "isDeprecated" => boolean(),
-        "isPrimaryKey" => boolean(),
-        "label" => String.t() | atom(),
-        "parentIdentifier" => String.t() | atom(),
-        "sourceProperties" => source_field_properties(),
-        "supportedFieldTypeDetails" => supported_field_type_details()
-      }
-
-  """
-  @type connector_entity_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_authentication_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type connector_authentication_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_connector_profile_properties() :: %{
-        "applicationHostUrl" => String.t() | atom(),
-        "applicationServicePath" => String.t() | atom(),
-        "clientNumber" => String.t() | atom(),
-        "disableSSO" => boolean(),
-        "logonLanguage" => String.t() | atom(),
-        "oAuthProperties" => o_auth_properties(),
-        "portNumber" => integer(),
-        "privateLinkServiceName" => String.t() | atom()
-      }
-
-  """
-  @type s_a_p_o_data_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      private_connection_provisioning_state() :: %{
-        "failureCause" => list(any()),
-        "failureMessage" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type private_connection_provisioning_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketo_metadata() :: %{}
-
-  """
-  @type marketo_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      zendesk_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trigger_properties() :: %{
-        "Scheduled" => scheduled_trigger_properties()
-      }
-
-  """
-  @type trigger_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_output_format_config() :: %{
-        "aggregationConfig" => aggregation_config(),
-        "fileType" => list(any()),
-        "prefixConfig" => prefix_config(),
-        "preserveSourceDataTyping" => boolean()
-      }
-
-  """
-  @type s3_output_format_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       marketo_connector_profile_credentials() :: %{
         "accessToken" => String.t() | atom(),
         "clientId" => String.t() | atom(),
@@ -1134,461 +536,6 @@ defmodule AWS.Appflow do
 
   """
   @type marketo_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketo_destination_properties() :: %{
-        "errorHandlingConfig" => error_handling_config(),
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type marketo_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trendmicro_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type trendmicro_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amplitude_connector_profile_properties() :: %{}
-
-  """
-  @type amplitude_connector_profile_properties() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      singular_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type singular_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_auth_config() :: %{
-        "authParameters" => list(auth_parameter()),
-        "customAuthenticationType" => String.t() | atom()
-      }
-
-  """
-  @type custom_auth_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_registration_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("connectorProvisioningConfig") => connector_provisioning_config(),
-        optional("description") => String.t() | atom(),
-        required("connectorLabel") => String.t() | atom()
-      }
-
-  """
-  @type update_connector_registration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_flow_executions_response() :: %{
-        "invalidExecutions" => list(String.t() | atom())
-      }
-
-  """
-  @type cancel_flow_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth_properties() :: %{
-        "authCodeUrl" => String.t() | atom(),
-        "oAuthScopes" => list(String.t() | atom()),
-        "tokenUrl" => String.t() | atom()
-      }
-
-  """
-  @type o_auth_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connectors_request() :: %{
-        optional("connectorTypes") => list(list(any())()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_connectors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientCredentialsArn" => String.t() | atom(),
-        "jwtToken" => String.t() | atom(),
-        "oAuth2GrantType" => list(any()),
-        "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | atom()
-      }
-
-  """
-  @type salesforce_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flows_response() :: %{
-        "flows" => list(flow_definition()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_flows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_metadata() :: %{}
-
-  """
-  @type s_a_p_o_data_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      zendesk_metadata() :: %{
-        "oAuthScopes" => list(String.t() | atom())
-      }
-
-  """
-  @type zendesk_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prefix_config() :: %{
-        "pathPrefixHierarchy" => list(list(any())()),
-        "prefixFormat" => list(any()),
-        "prefixType" => list(any())
-      }
-
-  """
-  @type prefix_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_result() :: %{
-        "bytesProcessed" => float(),
-        "bytesWritten" => float(),
-        "errorInfo" => error_info(),
-        "maxPageSize" => float(),
-        "numParallelProcesses" => float(),
-        "recordsProcessed" => float()
-      }
-
-  """
-  @type execution_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unregister_connector_response() :: %{}
-
-  """
-  @type unregister_connector_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pardot_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientCredentialsArn" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | atom()
-      }
-
-  """
-  @type pardot_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_auth_credentials() :: %{
-        "credentialsMap" => map(),
-        "customAuthenticationType" => String.t() | atom()
-      }
-
-  """
-  @type custom_auth_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_flow_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("flowName") => String.t() | atom()
-      }
-
-  """
-  @type start_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slack_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type slack_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      datadog_source_properties() :: %{
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type datadog_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_profiles_request() :: %{
-        optional("connectorLabel") => String.t() | atom(),
-        optional("connectorProfileNames") => list(String.t() | atom()),
-        optional("connectorType") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_connector_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_now_connector_profile_credentials() :: %{
-        "oAuth2Credentials" => o_auth2_credentials(),
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type service_now_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      veeva_connector_profile_credentials() :: %{
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type veeva_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      datadog_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type datadog_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_destination_properties() :: %{
-        "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | atom()),
-        "objectPath" => String.t() | atom(),
-        "successResponseHandlingConfig" => success_response_handling_config(),
-        "writeOperationType" => list(any())
-      }
-
-  """
-  @type s_a_p_o_data_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      honeycode_destination_properties() :: %{
-        "errorHandlingConfig" => error_handling_config(),
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type honeycode_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unregister_connector_request() :: %{
-        optional("forceDelete") => boolean(),
-        required("connectorLabel") => String.t() | atom()
-      }
-
-  """
-  @type unregister_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      registration_output() :: %{
-        "message" => String.t() | atom(),
-        "result" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type registration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      singular_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | atom()
-      }
-
-  """
-  @type singular_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_data_catalog_config() :: %{
-        "databaseName" => String.t() | atom(),
-        "roleArn" => String.t() | atom(),
-        "tablePrefix" => String.t() | atom()
-      }
-
-  """
-  @type glue_data_catalog_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amplitude_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | atom(),
-        "secretKey" => String.t() | atom()
-      }
-
-  """
-  @type amplitude_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trendmicro_connector_profile_credentials() :: %{
-        "apiSecretKey" => String.t() | atom()
-      }
-
-  """
-  @type trendmicro_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      customer_profiles_metadata() :: %{}
-
-  """
-  @type customer_profiles_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_request() :: %{
-        required("flowName") => String.t() | atom()
-      }
-
-  """
-  @type describe_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1607,108 +554,72 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      start_flow_response() :: %{
+      connector_authentication_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type connector_authentication_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_record() :: %{
+        "dataPullEndTime" => non_neg_integer(),
+        "dataPullStartTime" => non_neg_integer(),
         "executionId" => String.t() | atom(),
-        "flowArn" => String.t() | atom(),
-        "flowStatus" => list(any())
+        "executionResult" => execution_result(),
+        "executionStatus" => list(any()),
+        "lastUpdatedAt" => non_neg_integer(),
+        "metadataCatalogDetails" => list(metadata_catalog_detail()),
+        "startedAt" => non_neg_integer()
       }
 
   """
-  @type start_flow_response() :: %{(String.t() | atom()) => any()}
+  @type execution_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_flow_response() :: %{
-        "flowArn" => String.t() | atom(),
-        "flowStatus" => list(any())
+      scheduled_trigger_properties() :: %{
+        "dataPullMode" => list(any()),
+        "firstExecutionFrom" => non_neg_integer(),
+        "flowErrorDeactivationThreshold" => integer(),
+        "scheduleEndTime" => non_neg_integer(),
+        "scheduleExpression" => String.t() | atom(),
+        "scheduleOffset" => float(),
+        "scheduleStartTime" => non_neg_integer(),
+        "timezone" => String.t() | atom()
       }
 
   """
-  @type stop_flow_response() :: %{(String.t() | atom()) => any()}
+  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_transfer_api() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => list(any())
+      custom_connector_profile_credentials() :: %{
+        "apiKey" => api_key_credentials(),
+        "authenticationType" => list(any()),
+        "basic" => basic_auth_credentials(),
+        "custom" => custom_auth_credentials(),
+        "oauth2" => o_auth2_credentials()
       }
 
   """
-  @type data_transfer_api() :: %{(String.t() | atom()) => any()}
+  @type custom_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_catalog_config() :: %{
-        "glueDataCatalog" => glue_data_catalog_config()
-      }
+      dynatrace_metadata() :: %{}
 
   """
-  @type metadata_catalog_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_flow_execution_records_response() :: %{
-        "flowExecutions" => list(execution_record()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type describe_flow_execution_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trendmicro_metadata() :: %{}
-
-  """
-  @type trendmicro_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_connector_properties() :: %{
-        "Amplitude" => amplitude_source_properties(),
-        "CustomConnector" => custom_connector_source_properties(),
-        "Datadog" => datadog_source_properties(),
-        "Dynatrace" => dynatrace_source_properties(),
-        "GoogleAnalytics" => google_analytics_source_properties(),
-        "InforNexus" => infor_nexus_source_properties(),
-        "Marketo" => marketo_source_properties(),
-        "Pardot" => pardot_source_properties(),
-        "S3" => s3_source_properties(),
-        "SAPOData" => s_a_p_o_data_source_properties(),
-        "Salesforce" => salesforce_source_properties(),
-        "ServiceNow" => service_now_source_properties(),
-        "Singular" => singular_source_properties(),
-        "Slack" => slack_source_properties(),
-        "Trendmicro" => trendmicro_source_properties(),
-        "Veeva" => veeva_source_properties(),
-        "Zendesk" => zendesk_source_properties()
-      }
-
-  """
-  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
+  @type dynatrace_metadata() :: %{}
 
   @typedoc """
 
@@ -1746,250 +657,37 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      infor_nexus_metadata() :: %{}
-
-  """
-  @type infor_nexus_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connector_profile_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("connectorLabel") => String.t() | atom(),
-        optional("kmsArn") => String.t() | atom(),
-        required("connectionMode") => list(any()),
-        required("connectorProfileConfig") => connector_profile_config(),
-        required("connectorProfileName") => String.t() | atom(),
-        required("connectorType") => list(any())
+      marketo_source_properties() :: %{
+        "object" => String.t() | atom()
       }
 
   """
-  @type create_connector_profile_request() :: %{(String.t() | atom()) => any()}
+  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      connector_detail() :: %{
-        "applicationType" => String.t() | atom(),
-        "connectorDescription" => String.t() | atom(),
-        "connectorLabel" => String.t() | atom(),
-        "connectorModes" => list(String.t() | atom()),
-        "connectorName" => String.t() | atom(),
-        "connectorOwner" => String.t() | atom(),
-        "connectorProvisioningType" => list(any()),
-        "connectorType" => list(any()),
-        "connectorVersion" => String.t() | atom(),
-        "registeredAt" => non_neg_integer(),
-        "registeredBy" => String.t() | atom(),
-        "supportedDataTransferTypes" => list(list(any())())
+      success_response_handling_config() :: %{
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom()
       }
 
   """
-  @type connector_detail() :: %{(String.t() | atom()) => any()}
+  @type success_response_handling_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_flow_execution_records_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("flowName") => String.t() | atom()
+      o_auth2_properties() :: %{
+        "oAuth2GrantType" => list(any()),
+        "tokenUrl" => String.t() | atom(),
+        "tokenUrlCustomProperties" => map()
       }
 
   """
-  @type describe_flow_execution_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_flows_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_flows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_connector_request() :: %{
-        optional("connectorLabel") => String.t() | atom(),
-        required("connectorType") => list(any())
-      }
-
-  """
-  @type describe_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upsolver_metadata() :: %{}
-
-  """
-  @type upsolver_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_connector_profile_credentials() :: %{
-        "apiKey" => api_key_credentials(),
-        "authenticationType" => list(any()),
-        "basic" => basic_auth_credentials(),
-        "custom" => custom_auth_credentials(),
-        "oauth2" => o_auth2_credentials()
-      }
-
-  """
-  @type custom_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type connector_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_connector_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("connectorLabel") => String.t() | atom(),
-        optional("connectorProvisioningConfig") => connector_provisioning_config(),
-        optional("connectorProvisioningType") => list(any()),
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type register_connector_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_connector_destination_properties() :: %{
-        "customProperties" => map(),
-        "entityName" => String.t() | atom(),
-        "errorHandlingConfig" => error_handling_config(),
-        "idFieldNames" => list(String.t() | atom()),
-        "writeOperationType" => list(any())
-      }
-
-  """
-  @type custom_connector_destination_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      auth_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "isRequired" => boolean(),
-        "isSensitiveField" => boolean(),
-        "key" => String.t() | atom(),
-        "label" => String.t() | atom()
-      }
-
-  """
-  @type auth_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_flow_config() :: %{
-        "apiVersion" => String.t() | atom(),
-        "connectorProfileName" => String.t() | atom(),
-        "connectorType" => list(any()),
-        "incrementalPullConfig" => incremental_pull_config(),
-        "sourceConnectorProperties" => source_connector_properties()
-      }
-
-  """
-  @type source_flow_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_profile_response() :: %{
-        "connectorProfileArn" => String.t() | atom()
-      }
-
-  """
-  @type update_connector_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      slack_metadata() :: %{
-        "oAuthScopes" => list(String.t() | atom())
-      }
-
-  """
-  @type slack_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      singular_metadata() :: %{}
-
-  """
-  @type singular_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      register_connector_response() :: %{
-        "connectorArn" => String.t() | atom()
-      }
-
-  """
-  @type register_connector_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request(),
-        "refreshToken" => String.t() | atom()
-      }
-
-  """
-  @type o_auth2_credentials() :: %{(String.t() | atom()) => any()}
+  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2004,136 +702,6 @@ defmodule AWS.Appflow do
 
   """
   @type salesforce_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      datadog_connector_profile_credentials() :: %{
-        "apiKey" => String.t() | atom(),
-        "applicationKey" => String.t() | atom()
-      }
-
-  """
-  @type datadog_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_connector_metadata_cache_request() :: %{
-        optional("apiVersion") => String.t() | atom(),
-        optional("connectorEntityName") => String.t() | atom(),
-        optional("connectorProfileName") => String.t() | atom(),
-        optional("connectorType") => list(any()),
-        optional("entitiesPath") => String.t() | atom()
-      }
-
-  """
-  @type reset_connector_metadata_cache_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      veeva_source_properties() :: %{
-        "documentType" => String.t() | atom(),
-        "includeAllVersions" => boolean(),
-        "includeRenditions" => boolean(),
-        "includeSourceFiles" => boolean(),
-        "object" => String.t() | atom()
-      }
-
-  """
-  @type veeva_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pardot_metadata() :: %{}
-
-  """
-  @type pardot_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connector_profile_request() :: %{
-        optional("forceDelete") => boolean(),
-        required("connectorProfileName") => String.t() | atom()
-      }
-
-  """
-  @type delete_connector_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_profile_config() :: %{
-        "connectorProfileCredentials" => connector_profile_credentials(),
-        "connectorProfileProperties" => connector_profile_properties()
-      }
-
-  """
-  @type connector_profile_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_o_auth_request() :: %{
-        "authCode" => String.t() | atom(),
-        "redirectUri" => String.t() | atom()
-      }
-
-  """
-  @type connector_o_auth_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      zendesk_connector_profile_credentials() :: %{
-        "accessToken" => String.t() | atom(),
-        "clientId" => String.t() | atom(),
-        "clientSecret" => String.t() | atom(),
-        "oAuthRequest" => connector_o_auth_request()
-      }
-
-  """
-  @type zendesk_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      execution_record() :: %{
-        "dataPullEndTime" => non_neg_integer(),
-        "dataPullStartTime" => non_neg_integer(),
-        "executionId" => String.t() | atom(),
-        "executionResult" => execution_result(),
-        "executionStatus" => list(any()),
-        "lastUpdatedAt" => non_neg_integer(),
-        "metadataCatalogDetails" => list(metadata_catalog_detail()),
-        "startedAt" => non_neg_integer()
-      }
-
-  """
-  @type execution_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2154,82 +722,157 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      o_auth2_custom_parameter() :: %{
-        "connectorSuppliedValues" => list(String.t() | atom()),
-        "description" => String.t() | atom(),
-        "isRequired" => boolean(),
-        "isSensitiveField" => boolean(),
-        "key" => String.t() | atom(),
-        "label" => String.t() | atom(),
-        "type" => list(any())
+      reset_connector_metadata_cache_request() :: %{
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorEntityName") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
+        optional("connectorType") => list(any()),
+        optional("entitiesPath") => String.t() | atom()
       }
 
   """
-  @type o_auth2_custom_parameter() :: %{(String.t() | atom()) => any()}
+  @type reset_connector_metadata_cache_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_connector_profile_response() :: %{
-        "connectorProfileArn" => String.t() | atom()
+      glue_data_catalog_config() :: %{
+        "databaseName" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "tablePrefix" => String.t() | atom()
       }
 
   """
-  @type create_connector_profile_response() :: %{(String.t() | atom()) => any()}
+  @type glue_data_catalog_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_connector_profile_properties() :: %{
-        "oAuth2Properties" => o_auth2_properties(),
-        "profileProperties" => map()
+      list_connectors_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type custom_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+  @type list_connectors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_response() :: %{}
+      redshift_connector_profile_properties() :: %{
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "clusterIdentifier" => String.t() | atom(),
+        "dataApiRoleArn" => String.t() | atom(),
+        "databaseName" => String.t() | atom(),
+        "databaseUrl" => String.t() | atom(),
+        "isRedshiftServerless" => boolean(),
+        "roleArn" => String.t() | atom(),
+        "workgroupName" => String.t() | atom()
+      }
 
   """
-  @type tag_resource_response() :: %{}
+  @type redshift_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      singular_connector_profile_properties() :: %{}
+      source_field_properties() :: %{
+        "isQueryable" => boolean(),
+        "isRetrievable" => boolean(),
+        "isTimestampFieldForIncrementalQueries" => boolean()
+      }
 
   """
-  @type singular_connector_profile_properties() :: %{}
+  @type source_field_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      veeva_connector_profile_properties() :: %{
+      honeycode_connector_profile_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request(),
+        "refreshToken" => String.t() | atom()
+      }
+
+  """
+  @type honeycode_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_profiles_destination_properties() :: %{
+        "domainName" => String.t() | atom(),
+        "objectTypeName" => String.t() | atom()
+      }
+
+  """
+  @type customer_profiles_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_connector_metadata_cache_response() :: %{}
+
+  """
+  @type reset_connector_metadata_cache_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      zendesk_destination_properties() :: %{
+        "errorHandlingConfig" => error_handling_config(),
+        "idFieldNames" => list(String.t() | atom()),
+        "object" => String.t() | atom(),
+        "writeOperationType" => list(any())
+      }
+
+  """
+  @type zendesk_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_metadata() :: %{
+        "dataTransferApis" => list(list(any())()),
+        "oAuthScopes" => list(String.t() | atom()),
+        "oauth2GrantTypesSupported" => list(list(any())())
+      }
+
+  """
+  @type salesforce_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_connector_profile_properties() :: %{
         "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type veeva_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+  @type slack_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      success_response_handling_config() :: %{
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom()
+      delete_flow_request() :: %{
+        optional("forceDelete") => boolean(),
+        required("flowName") => String.t() | atom()
       }
 
   """
-  @type success_response_handling_config() :: %{(String.t() | atom()) => any()}
+  @type delete_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2246,279 +889,80 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dynatrace_connector_profile_credentials() :: %{
-        "apiToken" => String.t() | atom()
+      service_now_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
       }
 
   """
-  @type dynatrace_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+  @type service_now_connector_profile_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      error_handling_config() :: %{
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom(),
-        "failOnFirstDestinationError" => boolean()
-      }
-
-  """
-  @type error_handling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connector_registration_response() :: %{
-        "connectorArn" => String.t() | atom()
-      }
-
-  """
-  @type update_connector_registration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      google_analytics_source_properties() :: %{
+      pardot_source_properties() :: %{
         "object" => String.t() | atom()
       }
 
   """
-  @type google_analytics_source_properties() :: %{(String.t() | atom()) => any()}
+  @type pardot_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      upsolver_destination_properties() :: %{
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom(),
-        "s3OutputFormatConfig" => upsolver_s3_output_format_config()
+      datadog_source_properties() :: %{
+        "object" => String.t() | atom()
       }
 
   """
-  @type upsolver_destination_properties() :: %{(String.t() | atom()) => any()}
+  @type datadog_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s_a_p_o_data_parallelism_config() :: %{
-        "maxParallelism" => integer()
+      zendesk_source_properties() :: %{
+        "object" => String.t() | atom()
       }
 
   """
-  @type s_a_p_o_data_parallelism_config() :: %{(String.t() | atom()) => any()}
+  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      supported_field_type_details() :: %{
-        "v1" => field_type_details()
+      range() :: %{
+        "maximum" => float(),
+        "minimum" => float()
       }
 
   """
-  @type supported_field_type_details() :: %{(String.t() | atom()) => any()}
+  @type range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pardot_connector_profile_properties() :: %{
-        "businessUnitId" => String.t() | atom(),
-        "instanceUrl" => String.t() | atom(),
-        "isSandboxEnvironment" => boolean()
+      destination_connector_properties() :: %{
+        "CustomConnector" => custom_connector_destination_properties(),
+        "CustomerProfiles" => customer_profiles_destination_properties(),
+        "EventBridge" => event_bridge_destination_properties(),
+        "Honeycode" => honeycode_destination_properties(),
+        "LookoutMetrics" => lookout_metrics_destination_properties(),
+        "Marketo" => marketo_destination_properties(),
+        "Redshift" => redshift_destination_properties(),
+        "S3" => s3_destination_properties(),
+        "SAPOData" => s_a_p_o_data_destination_properties(),
+        "Salesforce" => salesforce_destination_properties(),
+        "Snowflake" => snowflake_destination_properties(),
+        "Upsolver" => upsolver_destination_properties(),
+        "Zendesk" => zendesk_destination_properties()
       }
 
   """
-  @type pardot_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynatrace_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type dynatrace_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s_a_p_o_data_connector_profile_credentials() :: %{
-        "basicAuthCredentials" => basic_auth_credentials(),
-        "oAuthCredentials" => o_auth_credentials()
-      }
-
-  """
-  @type s_a_p_o_data_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_connector_source_properties() :: %{
-        "customProperties" => map(),
-        "dataTransferApi" => data_transfer_api(),
-        "entityName" => String.t() | atom()
-      }
-
-  """
-  @type custom_connector_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_properties() :: %{
-        "oAuth2GrantType" => list(any()),
-        "tokenUrl" => String.t() | atom(),
-        "tokenUrlCustomProperties" => map()
-      }
-
-  """
-  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketo_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type marketo_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_type_details() :: %{
-        "fieldLengthRange" => range(),
-        "fieldType" => String.t() | atom(),
-        "fieldValueRange" => range(),
-        "filterOperators" => list(list(any())()),
-        "supportedDateFormat" => String.t() | atom(),
-        "supportedValues" => list(String.t() | atom()),
-        "valueRegexPattern" => String.t() | atom()
-      }
-
-  """
-  @type field_type_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynatrace_metadata() :: %{}
-
-  """
-  @type dynatrace_metadata() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_operator() :: %{
-        "Amplitude" => list(any()),
-        "CustomConnector" => list(any()),
-        "Datadog" => list(any()),
-        "Dynatrace" => list(any()),
-        "GoogleAnalytics" => list(any()),
-        "InforNexus" => list(any()),
-        "Marketo" => list(any()),
-        "Pardot" => list(any()),
-        "S3" => list(any()),
-        "SAPOData" => list(any()),
-        "Salesforce" => list(any()),
-        "ServiceNow" => list(any()),
-        "Singular" => list(any()),
-        "Slack" => list(any()),
-        "Trendmicro" => list(any()),
-        "Veeva" => list(any()),
-        "Zendesk" => list(any())
-      }
-
-  """
-  @type connector_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_flow_response() :: %{
-        "flowStatus" => list(any())
-      }
-
-  """
-  @type update_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      snowflake_connector_profile_properties() :: %{
-        "accountName" => String.t() | atom(),
-        "bucketName" => String.t() | atom(),
-        "bucketPrefix" => String.t() | atom(),
-        "privateLinkServiceName" => String.t() | atom(),
-        "region" => String.t() | atom(),
-        "stage" => String.t() | atom(),
-        "warehouse" => String.t() | atom()
-      }
-
-  """
-  @type snowflake_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      infor_nexus_connector_profile_properties() :: %{
-        "instanceUrl" => String.t() | atom()
-      }
-
-  """
-  @type infor_nexus_connector_profile_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_flow_executions_request() :: %{
-        optional("executionIds") => list(String.t() | atom()),
-        required("flowName") => String.t() | atom()
-      }
-
-  """
-  @type cancel_flow_executions_request() :: %{(String.t() | atom()) => any()}
+  @type destination_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2553,40 +997,364 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      lambda_connector_provisioning_config() :: %{
-        "lambdaArn" => String.t() | atom()
+      delete_connector_profile_response() :: %{}
+
+  """
+  @type delete_connector_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      veeva_source_properties() :: %{
+        "documentType" => String.t() | atom(),
+        "includeAllVersions" => boolean(),
+        "includeRenditions" => boolean(),
+        "includeSourceFiles" => boolean(),
+        "object" => String.t() | atom()
       }
 
   """
-  @type lambda_connector_provisioning_config() :: %{(String.t() | atom()) => any()}
+  @type veeva_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_bridge_metadata() :: %{}
+      connector_provisioning_config() :: %{
+        "lambda" => lambda_connector_provisioning_config()
+      }
 
   """
-  @type event_bridge_metadata() :: %{}
+  @type connector_provisioning_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_connector_profile_properties() :: %{
+      describe_flow_execution_records_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("flowName") => String.t() | atom()
+      }
+
+  """
+  @type describe_flow_execution_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      registration_output() :: %{
+        "message" => String.t() | atom(),
+        "result" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type registration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connector_profile_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("connectorLabel") => String.t() | atom(),
+        optional("kmsArn") => String.t() | atom(),
+        required("connectionMode") => list(any()),
+        required("connectorProfileConfig") => connector_profile_config(),
+        required("connectorProfileName") => String.t() | atom(),
+        required("connectorType") => list(any())
+      }
+
+  """
+  @type create_connector_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      honeycode_connector_profile_properties() :: %{}
+
+  """
+  @type honeycode_connector_profile_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      veeva_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type veeva_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trendmicro_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type trendmicro_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zendesk_connector_profile_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request()
+      }
+
+  """
+  @type zendesk_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amplitude_connector_profile_properties() :: %{}
+
+  """
+  @type amplitude_connector_profile_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_defaults() :: %{
+        "authCodeUrls" => list(String.t() | atom()),
+        "oauth2CustomProperties" => list(o_auth2_custom_parameter()),
+        "oauth2GrantTypesSupported" => list(list(any())()),
+        "oauthScopes" => list(String.t() | atom()),
+        "tokenUrls" => list(String.t() | atom())
+      }
+
+  """
+  @type o_auth2_defaults() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      basic_auth_credentials() :: %{
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type basic_auth_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_metadata() :: %{}
+
+  """
+  @type s3_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_entity_field() :: %{
+        "customProperties" => map(),
+        "defaultValue" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "destinationProperties" => destination_field_properties(),
+        "identifier" => String.t() | atom(),
+        "isDeprecated" => boolean(),
+        "isPrimaryKey" => boolean(),
+        "label" => String.t() | atom(),
+        "parentIdentifier" => String.t() | atom(),
+        "sourceProperties" => source_field_properties(),
+        "supportedFieldTypeDetails" => supported_field_type_details()
+      }
+
+  """
+  @type connector_entity_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zendesk_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type zendesk_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynatrace_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type dynatrace_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amplitude_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type amplitude_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_field_properties() :: %{
+        "isCreatable" => boolean(),
+        "isDefaultedOnCreate" => boolean(),
+        "isNullable" => boolean(),
+        "isUpdatable" => boolean(),
+        "isUpsertable" => boolean(),
+        "supportedWriteOperations" => list(list(any())())
+      }
+
+  """
+  @type destination_field_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_destination_properties() :: %{
         "bucketName" => String.t() | atom(),
         "bucketPrefix" => String.t() | atom(),
-        "clusterIdentifier" => String.t() | atom(),
-        "dataApiRoleArn" => String.t() | atom(),
-        "databaseName" => String.t() | atom(),
-        "databaseUrl" => String.t() | atom(),
-        "isRedshiftServerless" => boolean(),
-        "roleArn" => String.t() | atom(),
-        "workgroupName" => String.t() | atom()
+        "s3OutputFormatConfig" => s3_output_format_config()
       }
 
   """
-  @type redshift_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+  @type s3_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marketo_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type marketo_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pardot_connector_profile_properties() :: %{
+        "businessUnitId" => String.t() | atom(),
+        "instanceUrl" => String.t() | atom(),
+        "isSandboxEnvironment" => boolean()
+      }
+
+  """
+  @type pardot_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unsupported_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unsupported_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      singular_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type singular_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_flows_response() :: %{
+        "flows" => list(flow_definition()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_entities_response() :: %{
+        "connectorEntityMap" => map(),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connector_entities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -2601,44 +1369,101 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      service_now_metadata() :: %{}
+      redshift_metadata() :: %{}
 
   """
-  @type service_now_metadata() :: %{}
+  @type redshift_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_connector_profile_response() :: %{}
-
-  """
-  @type delete_connector_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      customer_profiles_destination_properties() :: %{
-        "domainName" => String.t() | atom(),
-        "objectTypeName" => String.t() | atom()
+      dynatrace_connector_profile_credentials() :: %{
+        "apiToken" => String.t() | atom()
       }
 
   """
-  @type customer_profiles_destination_properties() :: %{(String.t() | atom()) => any()}
+  @type dynatrace_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      salesforce_metadata() :: %{
-        "dataTransferApis" => list(list(any())()),
-        "oAuthScopes" => list(String.t() | atom()),
-        "oauth2GrantTypesSupported" => list(list(any())())
+      auth_parameter() :: %{
+        "connectorSuppliedValues" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "isRequired" => boolean(),
+        "isSensitiveField" => boolean(),
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom()
       }
 
   """
-  @type salesforce_metadata() :: %{(String.t() | atom()) => any()}
+  @type auth_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      customer_profiles_metadata() :: %{}
+
+  """
+  @type customer_profiles_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      trendmicro_connector_profile_properties() :: %{}
+
+  """
+  @type trendmicro_connector_profile_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      error_info() :: %{
+        "executionMessage" => String.t() | atom(),
+        "putFailuresCount" => float()
+      }
+
+  """
+  @type error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_connector_profile_properties() :: %{
+        "oAuth2Properties" => o_auth2_properties(),
+        "profileProperties" => map()
+      }
+
+  """
+  @type custom_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_connector_provisioning_config() :: %{
+        "lambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_connector_provisioning_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      google_analytics_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type google_analytics_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2655,97 +1480,312 @@ defmodule AWS.Appflow do
 
   ## Example:
 
-      connector_profile_properties() :: %{
-        "Amplitude" => amplitude_connector_profile_properties(),
-        "CustomConnector" => custom_connector_profile_properties(),
-        "Datadog" => datadog_connector_profile_properties(),
-        "Dynatrace" => dynatrace_connector_profile_properties(),
-        "GoogleAnalytics" => google_analytics_connector_profile_properties(),
-        "Honeycode" => honeycode_connector_profile_properties(),
-        "InforNexus" => infor_nexus_connector_profile_properties(),
-        "Marketo" => marketo_connector_profile_properties(),
-        "Pardot" => pardot_connector_profile_properties(),
-        "Redshift" => redshift_connector_profile_properties(),
-        "SAPOData" => s_a_p_o_data_connector_profile_properties(),
-        "Salesforce" => salesforce_connector_profile_properties(),
-        "ServiceNow" => service_now_connector_profile_properties(),
-        "Singular" => singular_connector_profile_properties(),
-        "Slack" => slack_connector_profile_properties(),
-        "Snowflake" => snowflake_connector_profile_properties(),
-        "Trendmicro" => trendmicro_connector_profile_properties(),
-        "Veeva" => veeva_connector_profile_properties(),
-        "Zendesk" => zendesk_connector_profile_properties()
+      list_flows_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type connector_profile_properties() :: %{(String.t() | atom()) => any()}
+  @type list_flows_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      incremental_pull_config() :: %{
-        "datetimeTypeFieldName" => String.t() | atom()
+      describe_connectors_response() :: %{
+        "connectorConfigurations" => map(),
+        "connectors" => list(connector_detail()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
+  @type describe_connectors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_flow_request() :: %{
+      connector_o_auth_request() :: %{
+        "authCode" => String.t() | atom(),
+        "redirectUri" => String.t() | atom()
+      }
+
+  """
+  @type connector_o_auth_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      infor_nexus_connector_profile_credentials() :: %{
+        "accessKeyId" => String.t() | atom(),
+        "datakey" => String.t() | atom(),
+        "secretAccessKey" => String.t() | atom(),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type infor_nexus_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      datadog_connector_profile_properties() :: %{
+        "instanceUrl" => String.t() | atom()
+      }
+
+  """
+  @type datadog_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upsolver_destination_properties() :: %{
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "s3OutputFormatConfig" => upsolver_s3_output_format_config()
+      }
+
+  """
+  @type upsolver_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amplitude_connector_profile_credentials() :: %{
+        "apiKey" => String.t() | atom(),
+        "secretKey" => String.t() | atom()
+      }
+
+  """
+  @type amplitude_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_flow_executions_request() :: %{
+        optional("executionIds") => list(String.t() | atom()),
         required("flowName") => String.t() | atom()
       }
 
   """
-  @type stop_flow_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_flow_executions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      connector_runtime_setting() :: %{
-        "connectorSuppliedValueOptions" => list(String.t() | atom()),
-        "dataType" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "isRequired" => boolean(),
-        "key" => String.t() | atom(),
-        "label" => String.t() | atom(),
-        "scope" => String.t() | atom()
+      source_connector_properties() :: %{
+        "Amplitude" => amplitude_source_properties(),
+        "CustomConnector" => custom_connector_source_properties(),
+        "Datadog" => datadog_source_properties(),
+        "Dynatrace" => dynatrace_source_properties(),
+        "GoogleAnalytics" => google_analytics_source_properties(),
+        "InforNexus" => infor_nexus_source_properties(),
+        "Marketo" => marketo_source_properties(),
+        "Pardot" => pardot_source_properties(),
+        "S3" => s3_source_properties(),
+        "SAPOData" => s_a_p_o_data_source_properties(),
+        "Salesforce" => salesforce_source_properties(),
+        "ServiceNow" => service_now_source_properties(),
+        "Singular" => singular_source_properties(),
+        "Slack" => slack_source_properties(),
+        "Trendmicro" => trendmicro_source_properties(),
+        "Veeva" => veeva_source_properties(),
+        "Zendesk" => zendesk_source_properties()
       }
 
   """
-  @type connector_runtime_setting() :: %{(String.t() | atom()) => any()}
+  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      trigger_config() :: %{
-        "triggerProperties" => trigger_properties(),
-        "triggerType" => list(any())
-      }
+      upsolver_metadata() :: %{}
 
   """
-  @type trigger_config() :: %{(String.t() | atom()) => any()}
+  @type upsolver_metadata() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      authentication_config() :: %{
-        "customAuthConfigs" => list(custom_auth_config()),
-        "isApiKeyAuthSupported" => boolean(),
-        "isBasicAuthSupported" => boolean(),
-        "isCustomAuthSupported" => boolean(),
-        "isOAuth2Supported" => boolean(),
-        "oAuth2Defaults" => o_auth2_defaults()
+      execution_result() :: %{
+        "bytesProcessed" => float(),
+        "bytesWritten" => float(),
+        "errorInfo" => error_info(),
+        "maxPageSize" => float(),
+        "numParallelProcesses" => float(),
+        "recordsProcessed" => float()
       }
 
   """
-  @type authentication_config() :: %{(String.t() | atom()) => any()}
+  @type execution_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_now_connector_profile_credentials() :: %{
+        "oAuth2Credentials" => o_auth2_credentials(),
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type service_now_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_flow_response() :: %{
+        "flowStatus" => list(any())
+      }
+
+  """
+  @type update_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_entity_request() :: %{
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
+        optional("connectorType") => list(any()),
+        required("connectorEntityName") => String.t() | atom()
+      }
+
+  """
+  @type describe_connector_entity_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_type_details() :: %{
+        "fieldLengthRange" => range(),
+        "fieldType" => String.t() | atom(),
+        "fieldValueRange" => range(),
+        "filterOperators" => list(list(any())()),
+        "supportedDateFormat" => String.t() | atom(),
+        "supportedValues" => list(String.t() | atom()),
+        "valueRegexPattern" => String.t() | atom()
+      }
+
+  """
+  @type field_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_entity_response() :: %{
+        "connectorEntityFields" => list(connector_entity_field())
+      }
+
+  """
+  @type describe_connector_entity_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_pagination_config() :: %{
+        "maxPageSize" => integer()
+      }
+
+  """
+  @type s_a_p_o_data_pagination_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_request() :: %{
+        optional("connectorLabel") => String.t() | atom(),
+        required("connectorType") => list(any())
+      }
+
+  """
+  @type describe_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_properties() :: %{
+        "Scheduled" => scheduled_trigger_properties()
+      }
+
+  """
+  @type trigger_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unregister_connector_response() :: %{}
+
+  """
+  @type unregister_connector_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      marketo_metadata() :: %{}
+
+  """
+  @type marketo_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_flow_executions_response() :: %{
+        "invalidExecutions" => list(String.t() | atom())
+      }
+
+  """
+  @type cancel_flow_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2755,6 +1795,196 @@ defmodule AWS.Appflow do
 
   """
   @type datadog_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      amplitude_metadata() :: %{}
+
+  """
+  @type amplitude_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      task() :: %{
+        "connectorOperator" => connector_operator(),
+        "destinationField" => String.t() | atom(),
+        "sourceFields" => list(String.t() | atom()),
+        "taskProperties" => map(),
+        "taskType" => list(any())
+      }
+
+  """
+  @type task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_connector_profile_credentials() :: %{
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type redshift_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_connector_profiles_response() :: %{
+        "connectorProfileDetails" => list(connector_profile()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type describe_connector_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      honeycode_metadata() :: %{
+        "oAuthScopes" => list(String.t() | atom())
+      }
+
+  """
+  @type honeycode_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      veeva_connector_profile_credentials() :: %{
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type veeva_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_connector_profile_properties() :: %{
+        "applicationHostUrl" => String.t() | atom(),
+        "applicationServicePath" => String.t() | atom(),
+        "clientNumber" => String.t() | atom(),
+        "disableSSO" => boolean(),
+        "logonLanguage" => String.t() | atom(),
+        "oAuthProperties" => o_auth_properties(),
+        "portNumber" => integer(),
+        "privateLinkServiceName" => String.t() | atom()
+      }
+
+  """
+  @type s_a_p_o_data_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_profile_response() :: %{
+        "connectorProfileArn" => String.t() | atom()
+      }
+
+  """
+  @type update_connector_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      google_analytics_connector_profile_properties() :: %{}
+
+  """
+  @type google_analytics_connector_profile_properties() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      private_connection_provisioning_state() :: %{
+        "failureCause" => list(any()),
+        "failureMessage" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type private_connection_provisioning_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_flow_response() :: %{}
+
+  """
+  @type delete_flow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connector_profile_request() :: %{
+        optional("forceDelete") => boolean(),
+        required("connectorProfileName") => String.t() | atom()
+      }
+
+  """
+  @type delete_connector_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      datadog_connector_profile_credentials() :: %{
+        "apiKey" => String.t() | atom(),
+        "applicationKey" => String.t() | atom()
+      }
+
+  """
+  @type datadog_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type slack_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unregister_connector_request() :: %{
+        optional("forceDelete") => boolean(),
+        required("connectorLabel") => String.t() | atom()
+      }
+
+  """
+  @type unregister_connector_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      api_key_credentials() :: %{
+        "apiKey" => String.t() | atom(),
+        "apiSecretKey" => String.t() | atom()
+      }
+
+  """
+  @type api_key_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2794,135 +2024,905 @@ defmodule AWS.Appflow do
   """
   @type connector_configuration() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aggregation_config() :: %{
+        "aggregationType" => list(any()),
+        "targetFileSize" => float()
+      }
+
+  """
+  @type aggregation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_transfer_api() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type data_transfer_api() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_profile_config() :: %{
+        "connectorProfileCredentials" => connector_profile_credentials(),
+        "connectorProfileProperties" => connector_profile_properties()
+      }
+
+  """
+  @type connector_profile_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_config() :: %{
+        "triggerProperties" => trigger_properties(),
+        "triggerType" => list(any())
+      }
+
+  """
+  @type trigger_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connector_registration_response() :: %{
+        "connectorArn" => String.t() | atom()
+      }
+
+  """
+  @type update_connector_registration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_detail() :: %{
+        "applicationType" => String.t() | atom(),
+        "connectorDescription" => String.t() | atom(),
+        "connectorLabel" => String.t() | atom(),
+        "connectorModes" => list(String.t() | atom()),
+        "connectorName" => String.t() | atom(),
+        "connectorOwner" => String.t() | atom(),
+        "connectorProvisioningType" => list(any()),
+        "connectorType" => list(any()),
+        "connectorVersion" => String.t() | atom(),
+        "registeredAt" => non_neg_integer(),
+        "registeredBy" => String.t() | atom(),
+        "supportedDataTransferTypes" => list(list(any())())
+      }
+
+  """
+  @type connector_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_destination_properties() :: %{
+        "bucketPrefix" => String.t() | atom(),
+        "errorHandlingConfig" => error_handling_config(),
+        "intermediateBucketName" => String.t() | atom(),
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      supported_field_type_details() :: %{
+        "v1" => field_type_details()
+      }
+
+  """
+  @type supported_field_type_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_parallelism_config() :: %{
+        "maxParallelism" => integer()
+      }
+
+  """
+  @type s_a_p_o_data_parallelism_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_operator() :: %{
+        "Amplitude" => list(any()),
+        "CustomConnector" => list(any()),
+        "Datadog" => list(any()),
+        "Dynatrace" => list(any()),
+        "GoogleAnalytics" => list(any()),
+        "InforNexus" => list(any()),
+        "Marketo" => list(any()),
+        "Pardot" => list(any()),
+        "S3" => list(any()),
+        "SAPOData" => list(any()),
+        "Salesforce" => list(any()),
+        "ServiceNow" => list(any()),
+        "Singular" => list(any()),
+        "Slack" => list(any()),
+        "Trendmicro" => list(any()),
+        "Veeva" => list(any()),
+        "Zendesk" => list(any())
+      }
+
+  """
+  @type connector_operator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_flow_response() :: %{
+        "executionId" => String.t() | atom(),
+        "flowArn" => String.t() | atom(),
+        "flowStatus" => list(any())
+      }
+
+  """
+  @type start_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsArn") => String.t() | atom(),
+        optional("metadataCatalogConfig") => metadata_catalog_config(),
+        optional("tags") => map(),
+        required("destinationFlowConfigList") => list(destination_flow_config()),
+        required("flowName") => String.t() | atom(),
+        required("sourceFlowConfig") => source_flow_config(),
+        required("tasks") => list(task()),
+        required("triggerConfig") => trigger_config()
+      }
+
+  """
+  @type create_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      infor_nexus_source_properties() :: %{
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type infor_nexus_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connector_entities_request() :: %{
+        optional("apiVersion") => String.t() | atom(),
+        optional("connectorProfileName") => String.t() | atom(),
+        optional("connectorType") => list(any()),
+        optional("entitiesPath") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_connector_entities_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientId" => String.t() | atom(),
+        "clientSecret" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request(),
+        "refreshToken" => String.t() | atom()
+      }
+
+  """
+  @type o_auth2_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_flow_request() :: %{
+        required("flowName") => String.t() | atom()
+      }
+
+  """
+  @type stop_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source_properties() :: %{
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "s3InputFormatConfig" => s3_input_format_config()
+      }
+
+  """
+  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_flow_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("flowName") => String.t() | atom()
+      }
+
+  """
+  @type start_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pardot_metadata() :: %{}
+
+  """
+  @type pardot_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      pardot_connector_profile_credentials() :: %{
+        "accessToken" => String.t() | atom(),
+        "clientCredentialsArn" => String.t() | atom(),
+        "oAuthRequest" => connector_o_auth_request(),
+        "refreshToken" => String.t() | atom()
+      }
+
+  """
+  @type pardot_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_destination_properties() :: %{
+        "errorHandlingConfig" => error_handling_config(),
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prefix_config() :: %{
+        "pathPrefixHierarchy" => list(list(any())()),
+        "prefixFormat" => list(any()),
+        "prefixType" => list(any())
+      }
+
+  """
+  @type prefix_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_custom_parameter() :: %{
+        "connectorSuppliedValues" => list(String.t() | atom()),
+        "description" => String.t() | atom(),
+        "isRequired" => boolean(),
+        "isSensitiveField" => boolean(),
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type o_auth2_custom_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s_a_p_o_data_metadata() :: %{}
+
+  """
+  @type s_a_p_o_data_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_auth_credentials() :: %{
+        "credentialsMap" => map(),
+        "customAuthenticationType" => String.t() | atom()
+      }
+
+  """
+  @type custom_auth_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      source_flow_config() :: %{
+        "apiVersion" => String.t() | atom(),
+        "connectorProfileName" => String.t() | atom(),
+        "connectorType" => list(any()),
+        "incrementalPullConfig" => incremental_pull_config(),
+        "sourceConnectorProperties" => source_connector_properties()
+      }
+
+  """
+  @type source_flow_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      infor_nexus_metadata() :: %{}
+
+  """
+  @type infor_nexus_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      singular_connector_profile_credentials() :: %{
+        "apiKey" => String.t() | atom()
+      }
+
+  """
+  @type singular_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zendesk_metadata() :: %{
+        "oAuthScopes" => list(String.t() | atom())
+      }
+
+  """
+  @type zendesk_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      singular_metadata() :: %{}
+
+  """
+  @type singular_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_flow_response() :: %{
+        "flowArn" => String.t() | atom(),
+        "flowStatus" => list(any())
+      }
+
+  """
+  @type create_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      error_handling_config() :: %{
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "failOnFirstDestinationError" => boolean()
+      }
+
+  """
+  @type error_handling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trendmicro_connector_profile_credentials() :: %{
+        "apiSecretKey" => String.t() | atom()
+      }
+
+  """
+  @type trendmicro_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_connector_destination_properties() :: %{
+        "customProperties" => map(),
+        "entityName" => String.t() | atom(),
+        "errorHandlingConfig" => error_handling_config(),
+        "idFieldNames" => list(String.t() | atom()),
+        "writeOperationType" => list(any())
+      }
+
+  """
+  @type custom_connector_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trendmicro_metadata() :: %{}
+
+  """
+  @type trendmicro_metadata() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_input_format_config() :: %{
+        "s3InputFileType" => list(any())
+      }
+
+  """
+  @type s3_input_format_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marketo_destination_properties() :: %{
+        "errorHandlingConfig" => error_handling_config(),
+        "object" => String.t() | atom()
+      }
+
+  """
+  @type marketo_destination_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      incremental_pull_config() :: %{
+        "datetimeTypeFieldName" => String.t() | atom()
+      }
+
+  """
+  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_connector_profile_properties() :: %{
+        "accountName" => String.t() | atom(),
+        "bucketName" => String.t() | atom(),
+        "bucketPrefix" => String.t() | atom(),
+        "privateLinkServiceName" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "stage" => String.t() | atom(),
+        "warehouse" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_metadata() :: %{
+        "supportedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type snowflake_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      execution_details() :: %{
+        "mostRecentExecutionMessage" => String.t() | atom(),
+        "mostRecentExecutionStatus" => list(any()),
+        "mostRecentExecutionTime" => non_neg_integer()
+      }
+
+  """
+  @type execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type connector_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth_properties() :: %{
+        "authCodeUrl" => String.t() | atom(),
+        "oAuthScopes" => list(String.t() | atom()),
+        "tokenUrl" => String.t() | atom()
+      }
+
+  """
+  @type o_auth_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_output_format_config() :: %{
+        "aggregationConfig" => aggregation_config(),
+        "fileType" => list(any()),
+        "prefixConfig" => prefix_config(),
+        "preserveSourceDataTyping" => boolean()
+      }
+
+  """
+  @type s3_output_format_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_profile_properties() :: %{
+        "Amplitude" => amplitude_connector_profile_properties(),
+        "CustomConnector" => custom_connector_profile_properties(),
+        "Datadog" => datadog_connector_profile_properties(),
+        "Dynatrace" => dynatrace_connector_profile_properties(),
+        "GoogleAnalytics" => google_analytics_connector_profile_properties(),
+        "Honeycode" => honeycode_connector_profile_properties(),
+        "InforNexus" => infor_nexus_connector_profile_properties(),
+        "Marketo" => marketo_connector_profile_properties(),
+        "Pardot" => pardot_connector_profile_properties(),
+        "Redshift" => redshift_connector_profile_properties(),
+        "SAPOData" => s_a_p_o_data_connector_profile_properties(),
+        "Salesforce" => salesforce_connector_profile_properties(),
+        "ServiceNow" => service_now_connector_profile_properties(),
+        "Singular" => singular_connector_profile_properties(),
+        "Slack" => slack_connector_profile_properties(),
+        "Snowflake" => snowflake_connector_profile_properties(),
+        "Trendmicro" => trendmicro_connector_profile_properties(),
+        "Veeva" => veeva_connector_profile_properties(),
+        "Zendesk" => zendesk_connector_profile_properties()
+      }
+
+  """
+  @type connector_profile_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upsolver_s3_output_format_config() :: %{
+        "aggregationConfig" => aggregation_config(),
+        "fileType" => list(any()),
+        "prefixConfig" => prefix_config()
+      }
+
+  """
+  @type upsolver_s3_output_format_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_flow_request() :: %{
+        required("flowName") => String.t() | atom()
+      }
+
+  """
+  @type describe_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_connector_response() :: %{
+        "connectorArn" => String.t() | atom()
+      }
+
+  """
+  @type register_connector_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_connector_source_properties() :: %{
+        "customProperties" => map(),
+        "dataTransferApi" => data_transfer_api(),
+        "entityName" => String.t() | atom()
+      }
+
+  """
+  @type custom_connector_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authentication_config() :: %{
+        "customAuthConfigs" => list(custom_auth_config()),
+        "isApiKeyAuthSupported" => boolean(),
+        "isBasicAuthSupported" => boolean(),
+        "isCustomAuthSupported" => boolean(),
+        "isOAuth2Supported" => boolean(),
+        "oAuth2Defaults" => o_auth2_defaults()
+      }
+
+  """
+  @type authentication_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_runtime_setting() :: %{
+        "connectorSuppliedValueOptions" => list(String.t() | atom()),
+        "dataType" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "isRequired" => boolean(),
+        "key" => String.t() | atom(),
+        "label" => String.t() | atom(),
+        "scope" => String.t() | atom()
+      }
+
+  """
+  @type connector_runtime_setting() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_catalog_config() :: %{
+        "glueDataCatalog" => glue_data_catalog_config()
+      }
+
+  """
+  @type metadata_catalog_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_connector_profile_credentials() :: %{
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_connector_profile_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destination_flow_config() :: %{
+        "apiVersion" => String.t() | atom(),
+        "connectorProfileName" => String.t() | atom(),
+        "connectorType" => list(any()),
+        "destinationConnectorProperties" => destination_connector_properties()
+      }
+
+  """
+  @type destination_flow_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      slack_metadata() :: %{
+        "oAuthScopes" => list(String.t() | atom())
+      }
+
+  """
+  @type slack_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connectors_response() :: %{
+        "connectors" => list(connector_detail()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connectors_response() :: %{(String.t() | atom()) => any()}
+
   @type cancel_flow_executions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_connector_profile_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
 
   @type create_flow_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | connector_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
+          | access_denied_exception()
 
   @type delete_connector_profile_errors() ::
-          internal_server_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type delete_flow_errors() ::
-          internal_server_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type describe_connector_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type describe_connector_entity_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | connector_server_exception()
+          connector_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
 
   @type describe_connector_profiles_errors() ::
-          validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception()
 
-  @type describe_connectors_errors() :: validation_exception() | internal_server_exception()
+  @type describe_connectors_errors() :: internal_server_exception() | validation_exception()
 
-  @type describe_flow_errors() :: internal_server_exception() | resource_not_found_exception()
+  @type describe_flow_errors() :: resource_not_found_exception() | internal_server_exception()
 
   @type describe_flow_execution_records_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_connector_entities_errors() ::
-          validation_exception()
-          | internal_server_exception()
-          | connector_server_exception()
+          connector_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
 
-  @type list_connectors_errors() :: validation_exception() | internal_server_exception()
+  @type list_connectors_errors() :: internal_server_exception() | validation_exception()
 
-  @type list_flows_errors() :: validation_exception() | internal_server_exception()
+  @type list_flows_errors() :: internal_server_exception() | validation_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type register_connector_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | connector_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type reset_connector_metadata_cache_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
 
   @type start_flow_errors() ::
-          internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type stop_flow_errors() ::
-          internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          conflict_exception()
           | unsupported_operation_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type unregister_connector_errors() ::
-          internal_server_exception() | resource_not_found_exception() | conflict_exception()
+          conflict_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_connector_profile_errors() ::
-          validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
 
   @type update_connector_registration_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | connector_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_flow_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          service_quota_exceeded_exception()
           | connector_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
           | connector_authentication_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

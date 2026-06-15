@@ -382,7 +382,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, describe_services_errors()}
   def describe_services(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeServices", input, options)
   end
@@ -400,7 +401,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_attribute_values_errors()}
   def get_attribute_values(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAttributeValues", input, options)
   end
@@ -422,7 +424,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_price_list_file_url_errors()}
   def get_price_list_file_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPriceListFileUrl", input, options)
   end
@@ -436,7 +439,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, get_products_errors()}
   def get_products(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetProducts", input, options)
   end
@@ -463,7 +467,8 @@ defmodule AWS.Pricing do
           | {:error, term()}
           | {:error, list_price_lists_errors()}
   def list_price_lists(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPriceLists", input, options)
   end

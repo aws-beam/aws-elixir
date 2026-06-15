@@ -35,125 +35,101 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      set_default_permission_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom(),
-        required("permissionVersion") => integer()
-      }
-
-  """
-  @type set_default_permission_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_share_invitation_expired_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_share_invitation_expired_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permissions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "permissions" => list(resource_share_permission_summary())
-      }
-
-  """
-  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_resource_share_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "resourceShare" => resource_share()
-      }
-
-  """
-  @type create_resource_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_permission_response() :: %{
-        "permission" => resource_share_permission_detail()
-      }
-
-  """
-  @type get_permission_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_max_results_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_max_results_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        optional("resourceArn") => String.t() | atom(),
-        optional("resourceShareArn") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permission_versions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
+      get_permission_request() :: %{
+        optional("permissionVersion") => integer(),
         required("permissionArn") => String.t() | atom()
       }
 
   """
-  @type list_permission_versions_request() :: %{(String.t() | atom()) => any()}
+  @type get_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_replace_permission_associations_work_request() :: %{
+      tag_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promote_permission_created_from_policy_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom()
+      }
+
+  """
+  @type promote_permission_created_from_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principals_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("workIds") => list(String.t() | atom())
+        optional("principals") => list(String.t() | atom()),
+        optional("resourceArn") => String.t() | atom(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("resourceType") => String.t() | atom(),
+        required("resourceOwner") => list(any())
       }
 
   """
-  @type list_replace_permission_associations_work_request() :: %{(String.t() | atom()) => any()}
+  @type list_principals_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_resource_share_request() :: %{
-        optional("allowExternalPrincipals") => boolean(),
+      replace_permission_associations_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("resourceShareArn") => String.t() | atom()
+        optional("fromPermissionVersion") => integer(),
+        required("fromPermissionArn") => String.t() | atom(),
+        required("toPermissionArn") => String.t() | atom()
       }
 
   """
-  @type update_resource_share_request() :: %{(String.t() | atom()) => any()}
+  @type replace_permission_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unmatched_policy_permission_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unmatched_policy_permission_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -166,25 +142,6 @@ defmodule AWS.RAM do
 
   """
   @type list_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_share_association() :: %{
-        "associatedEntity" => String.t() | atom(),
-        "associationType" => list(any()),
-        "creationTime" => non_neg_integer(),
-        "external" => boolean(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "resourceShareArn" => String.t() | atom(),
-        "resourceShareName" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom()
-      }
-
-  """
-  @type resource_share_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -207,23 +164,297 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      resource_arn_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      promote_permission_created_from_policy_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "permission" => resource_share_permission_summary()
       }
 
   """
-  @type resource_arn_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type promote_permission_created_from_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      malformed_policy_template_exception() :: %{
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_resource_share_invitation_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "resourceShareInvitation" => resource_share_invitation()
+      }
+
+  """
+  @type reject_resource_share_invitation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom(),
+        required("policyTemplate") => String.t() | atom()
+      }
+
+  """
+  @type create_permission_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_share_invitations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceShareInvitations" => list(resource_share_invitation())
+      }
+
+  """
+  @type get_resource_share_invitations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permission_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom()
+      }
+
+  """
+  @type list_permission_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_share_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "returnValue" => boolean()
+      }
+
+  """
+  @type delete_resource_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_replace_permission_associations_work_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("workIds") => list(String.t() | atom())
+      }
+
+  """
+  @type list_replace_permission_associations_work_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permissions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "permissions" => list(resource_share_permission_summary())
+      }
+
+  """
+  @type list_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_associations_request() :: %{
+        optional("associationStatus") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("sourceId") => String.t() | atom(),
+        optional("sourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_source_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_sharing_with_aws_organization_request() :: %{}
+
+  """
+  @type enable_sharing_with_aws_organization_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_resource_share_invitation_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "resourceShareInvitation" => resource_share_invitation()
+      }
+
+  """
+  @type accept_resource_share_invitation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      idempotent_parameter_mismatch_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type malformed_policy_template_exception() :: %{(String.t() | atom()) => any()}
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "permission" => resource_share_permission_summary()
+      }
+
+  """
+  @type create_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_permission_response() :: %{
+        "permission" => resource_share_permission_detail()
+      }
+
+  """
+  @type get_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promote_resource_share_created_from_policy_response() :: %{
+        "returnValue" => boolean()
+      }
+
+  """
+  @type promote_resource_share_created_from_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permissions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("permissionType") => list(any()),
+        optional("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_permission_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pending_invitation_resources_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resources" => list(resource())
+      }
+
+  """
+  @type list_pending_invitation_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      principal() :: %{
+        "creationTime" => non_neg_integer(),
+        "external" => boolean(),
+        "id" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "resourceShareArn" => String.t() | atom()
+      }
+
+  """
+  @type principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      set_default_permission_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom(),
+        required("permissionVersion") => integer()
+      }
+
+  """
+  @type set_default_permission_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_resource_share_invitation_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resourceShareInvitationArn") => String.t() | atom()
+      }
+
+  """
+  @type reject_resource_share_invitation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_share_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_types_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceTypes" => list(service_name_and_resource_type())
+      }
+
+  """
+  @type list_resource_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -241,20 +472,129 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      create_resource_share_request() :: %{
-        optional("allowExternalPrincipals") => boolean(),
-        optional("clientToken") => String.t() | atom(),
-        optional("permissionArns") => list(String.t() | atom()),
-        optional("principals") => list(String.t() | atom()),
-        optional("resourceArns") => list(String.t() | atom()),
-        optional("resourceShareConfiguration") => resource_share_configuration(),
-        optional("sources") => list(String.t() | atom()),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
+      invalid_client_token_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_resource_share_request() :: %{(String.t() | atom()) => any()}
+  @type invalid_client_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_policy_violation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type tag_policy_violation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_filter() :: %{
+        "tagKey" => String.t() | atom(),
+        "tagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type tag_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type permission_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_share_invitations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("resourceShareInvitationArns") => list(String.t() | atom())
+      }
+
+  """
+  @type get_resource_share_invitations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        optional("resourceArn") => String.t() | atom(),
+        optional("resourceShareArn") => String.t() | atom(),
+        required("tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_pending_invitation_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceRegionScope") => list(any()),
+        required("resourceShareInvitationArn") => String.t() | atom()
+      }
+
+  """
+  @type list_pending_invitation_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_configuration() :: %{
+        "retainSharingOnAccountLeaveOrganization" => boolean()
+      }
+
+  """
+  @type resource_share_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_state_transition_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      enable_sharing_with_aws_organization_response() :: %{
+        "returnValue" => boolean()
+      }
+
+  """
+  @type enable_sharing_with_aws_organization_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -264,6 +604,112 @@ defmodule AWS.RAM do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_associations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "sourceAssociations" => list(associated_source())
+      }
+
+  """
+  @type list_source_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_shares_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceShares" => list(resource_share())
+      }
+
+  """
+  @type get_resource_shares_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_already_exists_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type permission_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policies_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "policies" => list(String.t() | atom())
+      }
+
+  """
+  @type get_resource_policies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom(),
+        required("policyTemplate") => String.t() | atom(),
+        required("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type create_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_version_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "permission" => resource_share_permission_detail()
+      }
+
+  """
+  @type create_permission_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        optional("resourceArn") => String.t() | atom(),
+        optional("resourceShareArn") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_shares_request() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("permissionArn") => String.t() | atom(),
+        optional("permissionVersion") => integer(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("resourceShareStatus") => list(any()),
+        optional("tagFilters") => list(tag_filter()),
+        required("resourceOwner") => list(any())
+      }
+
+  """
+  @type get_resource_shares_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -281,13 +727,214 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      get_permission_request() :: %{
-        optional("permissionVersion") => integer(),
-        required("permissionArn") => String.t() | atom()
+      associated_permission() :: %{
+        "arn" => String.t() | atom(),
+        "defaultVersion" => boolean(),
+        "featureSet" => list(any()),
+        "lastUpdatedTime" => non_neg_integer(),
+        "permissionVersion" => String.t() | atom(),
+        "resourceShareArn" => String.t() | atom(),
+        "resourceType" => String.t() | atom(),
+        "status" => String.t() | atom()
       }
 
   """
-  @type get_permission_request() :: %{(String.t() | atom()) => any()}
+  @type associated_permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      replace_permission_associations_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "replacePermissionAssociationsWork" => replace_permission_associations_work()
+      }
+
+  """
+  @type replace_permission_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_permission_version_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom(),
+        required("permissionVersion") => integer()
+      }
+
+  """
+  @type delete_permission_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      malformed_policy_template_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type malformed_policy_template_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_share_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("principals") => list(String.t() | atom()),
+        optional("resourceArns") => list(String.t() | atom()),
+        optional("sources") => list(String.t() | atom()),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_invitation_arn_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_share_invitation_arn_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_share_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "resourceShareAssociations" => list(resource_share_association())
+      }
+
+  """
+  @type disassociate_resource_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_name_and_resource_type() :: %{
+        "resourceRegionScope" => list(any()),
+        "resourceType" => String.t() | atom(),
+        "serviceName" => String.t() | atom()
+      }
+
+  """
+  @type service_name_and_resource_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_share_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("principals") => list(String.t() | atom()),
+        optional("resourceArns") => list(String.t() | atom()),
+        optional("sources") => list(String.t() | atom()),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permission_associations_request() :: %{
+        optional("associationStatus") => list(any()),
+        optional("defaultVersion") => boolean(),
+        optional("featureSet") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("permissionArn") => String.t() | atom(),
+        optional("permissionVersion") => integer(),
+        optional("resourceType") => String.t() | atom()
+      }
+
+  """
+  @type list_permission_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      permission_versions_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type permission_versions_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_next_token_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_share_request() :: %{
+        optional("allowExternalPrincipals") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type update_resource_share_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_types_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("resourceRegionScope") => list(any())
+      }
+
+  """
+  @type list_resource_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unknown_resource_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type unknown_resource_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_resource_share_permission_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("permissionVersion") => integer(),
+        optional("replace") => boolean(),
+        required("permissionArn") => String.t() | atom(),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_resource_share_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -307,6 +954,180 @@ defmodule AWS.RAM do
 
   """
   @type replace_permission_associations_work() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_share_permission_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "returnValue" => boolean()
+      }
+
+  """
+  @type disassociate_resource_share_permission_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_invitation_expired_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_share_invitation_expired_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_max_results_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_max_results_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_resource_share_permissions_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "permissions" => list(resource_share_permission_summary())
+      }
+
+  """
+  @type list_resource_share_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      operation_not_permitted_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      promote_resource_share_created_from_policy_request() :: %{
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type promote_resource_share_created_from_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_share_associations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "resourceShareAssociations" => list(resource_share_association())
+      }
+
+  """
+  @type get_resource_share_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_share_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      missing_required_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type missing_required_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_resource_share_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "resourceShare" => resource_share()
+      }
+
+  """
+  @type create_resource_share_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_share_permission_detail() :: %{
+        "arn" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "defaultVersion" => boolean(),
+        "featureSet" => list(any()),
+        "isResourceTypeDefault" => boolean(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "permission" => String.t() | atom(),
+        "permissionType" => list(any()),
+        "resourceType" => String.t() | atom(),
+        "status" => list(any()),
+        "tags" => list(tag()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type resource_share_permission_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_principals_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "principals" => list(principal())
+      }
+
+  """
+  @type list_principals_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_replace_permission_associations_work_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "replacePermissionAssociationsWorks" => list(replace_permission_associations_work())
+      }
+
+  """
+  @type list_replace_permission_associations_work_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_resource_share_permission_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("permissionArn") => String.t() | atom(),
+        required("resourceShareArn") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_resource_share_permission_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -346,35 +1167,48 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      resource_share_invitation_arn_not_found_exception() :: %{
-        "message" => String.t() | atom()
+      list_resources_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("principal") => String.t() | atom(),
+        optional("resourceArns") => list(String.t() | atom()),
+        optional("resourceRegionScope") => list(any()),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        optional("resourceType") => String.t() | atom(),
+        required("resourceOwner") => list(any())
       }
 
   """
-  @type resource_share_invitation_arn_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type list_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_share_invitations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceShareInvitations" => list(resource_share_invitation())
+      get_resource_share_associations_request() :: %{
+        optional("associationStatus") => list(any()),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("principal") => String.t() | atom(),
+        optional("resourceArn") => String.t() | atom(),
+        optional("resourceShareArns") => list(String.t() | atom()),
+        required("associationType") => list(any())
       }
 
   """
-  @type get_resource_share_invitations_response() :: %{(String.t() | atom()) => any()}
+  @type get_resource_share_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      missing_required_parameter_exception() :: %{
-        "message" => String.t() | atom()
+      associate_resource_share_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "resourceShareAssociations" => list(resource_share_association())
       }
 
   """
-  @type missing_required_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type associate_resource_share_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -388,154 +1222,6 @@ defmodule AWS.RAM do
 
   """
   @type list_resource_share_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unmatched_policy_permission_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unmatched_policy_permission_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_resource_share_invitation_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resourceShareInvitationArn") => String.t() | atom()
-      }
-
-  """
-  @type reject_resource_share_invitation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_permission_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom(),
-        required("policyTemplate") => String.t() | atom()
-      }
-
-  """
-  @type create_permission_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pending_invitation_resources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceRegionScope") => list(any()),
-        required("resourceShareInvitationArn") => String.t() | atom()
-      }
-
-  """
-  @type list_pending_invitation_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_permission_version_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "permissionStatus" => list(any()),
-        "returnValue" => boolean()
-      }
-
-  """
-  @type delete_permission_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      principal() :: %{
-        "creationTime" => non_neg_integer(),
-        "external" => boolean(),
-        "id" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "resourceShareArn" => String.t() | atom()
-      }
-
-  """
-  @type principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_already_exists_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type permission_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_share_configuration() :: %{
-        "retainSharingOnAccountLeaveOrganization" => boolean()
-      }
-
-  """
-  @type resource_share_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        optional("resourceArn") => String.t() | atom(),
-        optional("resourceShareArn") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_share_permission_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "returnValue" => boolean()
-      }
-
-  """
-  @type disassociate_resource_share_permission_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_associations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "sourceAssociations" => list(associated_source())
-      }
-
-  """
-  @type list_source_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_share_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_share_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -560,79 +1246,34 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      list_permission_associations_request() :: %{
-        optional("associationStatus") => list(any()),
-        optional("defaultVersion") => boolean(),
-        optional("featureSet") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("permissionArn") => String.t() | atom(),
-        optional("permissionVersion") => integer(),
-        optional("resourceType") => String.t() | atom()
-      }
-
-  """
-  @type list_permission_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promote_permission_created_from_policy_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "permission" => resource_share_permission_summary()
-      }
-
-  """
-  @type promote_permission_created_from_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_share_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "resourceShareAssociations" => list(resource_share_association())
-      }
-
-  """
-  @type disassociate_resource_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_permission_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_share_permission_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom(),
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_resource_share_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_policy_exception() :: %{
+      resource_arn_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
+  @type resource_arn_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_parameter_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      server_internal_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type server_internal_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -651,180 +1292,75 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      get_resource_share_associations_request() :: %{
-        optional("associationStatus") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("principal") => String.t() | atom(),
-        optional("resourceArn") => String.t() | atom(),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        required("associationType") => list(any())
+      set_default_permission_version_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "returnValue" => boolean()
       }
 
   """
-  @type get_resource_share_associations_request() :: %{(String.t() | atom()) => any()}
+  @type set_default_permission_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
+      create_resource_share_request() :: %{
+        optional("allowExternalPrincipals") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("permissionArns") => list(String.t() | atom()),
+        optional("principals") => list(String.t() | atom()),
+        optional("resourceArns") => list(String.t() | atom()),
+        optional("resourceShareConfiguration") => resource_share_configuration(),
+        optional("sources") => list(String.t() | atom()),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type create_resource_share_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_share_permission_detail() :: %{
+      invalid_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type invalid_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
         "arn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
-        "defaultVersion" => boolean(),
-        "featureSet" => list(any()),
-        "isResourceTypeDefault" => boolean(),
         "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "permission" => String.t() | atom(),
-        "permissionType" => list(any()),
-        "resourceType" => String.t() | atom(),
-        "status" => list(any()),
-        "tags" => list(tag()),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type resource_share_permission_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_permission_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "permissionStatus" => list(any()),
-        "returnValue" => boolean()
-      }
-
-  """
-  @type delete_permission_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_name_and_resource_type() :: %{
+        "resourceGroupArn" => String.t() | atom(),
         "resourceRegionScope" => list(any()),
-        "resourceType" => String.t() | atom(),
-        "serviceName" => String.t() | atom()
+        "resourceShareArn" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type service_name_and_resource_type() :: %{(String.t() | atom()) => any()}
+  @type resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_replace_permission_associations_work_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "replacePermissionAssociationsWorks" => list(replace_permission_associations_work())
-      }
-
-  """
-  @type list_replace_permission_associations_work_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promote_resource_share_created_from_policy_response() :: %{
-        "returnValue" => boolean()
-      }
-
-  """
-  @type promote_resource_share_created_from_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_versions_limit_exceeded_exception() :: %{
+      resource_share_invitation_already_accepted_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type permission_versions_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_next_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      idempotent_parameter_mismatch_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_share_permission_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("permissionVersion") => integer(),
-        optional("replace") => boolean(),
-        required("permissionArn") => String.t() | atom(),
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_resource_share_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type tag_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_shares_request() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("permissionArn") => String.t() | atom(),
-        optional("permissionVersion") => integer(),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        optional("resourceShareStatus") => list(any()),
-        optional("tagFilters") => list(tag_filter()),
-        required("resourceOwner") => list(any())
-      }
-
-  """
-  @type get_resource_shares_request() :: %{(String.t() | atom()) => any()}
+  @type resource_share_invitation_already_accepted_exception() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -842,12 +1378,15 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      invalid_state_transition_exception() :: %{
-        "message" => String.t() | atom()
+      get_resource_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("principal") => String.t() | atom(),
+        required("resourceArns") => list(String.t() | atom())
       }
 
   """
-  @type invalid_state_transition_exception() :: %{(String.t() | atom()) => any()}
+  @type get_resource_policies_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -874,235 +1413,27 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      reject_resource_share_invitation_response() :: %{
+      delete_permission_version_response() :: %{
         "clientToken" => String.t() | atom(),
-        "resourceShareInvitation" => resource_share_invitation()
+        "permissionStatus" => list(any()),
+        "returnValue" => boolean()
       }
 
   """
-  @type reject_resource_share_invitation_response() :: %{(String.t() | atom()) => any()}
+  @type delete_permission_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
+      delete_permission_response() :: %{
+        "clientToken" => String.t() | atom(),
+        "permissionStatus" => list(any()),
+        "returnValue" => boolean()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_principals_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "principals" => list(principal())
-      }
-
-  """
-  @type list_principals_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      operation_not_permitted_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type operation_not_permitted_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_share_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type delete_resource_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("principal") => String.t() | atom(),
-        required("resourceArns") => list(String.t() | atom())
-      }
-
-  """
-  @type get_resource_policies_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policies_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "policies" => list(String.t() | atom())
-      }
-
-  """
-  @type get_resource_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_resource_share_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("principals") => list(String.t() | atom()),
-        optional("resourceArns") => list(String.t() | atom()),
-        optional("sources") => list(String.t() | atom()),
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_resource_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      promote_permission_created_from_policy_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom()
-      }
-
-  """
-  @type promote_permission_created_from_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_permission_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom(),
-        required("policyTemplate") => String.t() | atom(),
-        required("resourceType") => String.t() | atom()
-      }
-
-  """
-  @type create_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_share_invitations_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        optional("resourceShareInvitationArns") => list(String.t() | atom())
-      }
-
-  """
-  @type get_resource_share_invitations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associated_permission() :: %{
-        "arn" => String.t() | atom(),
-        "defaultVersion" => boolean(),
-        "featureSet" => list(any()),
-        "lastUpdatedTime" => non_neg_integer(),
-        "permissionVersion" => String.t() | atom(),
-        "resourceShareArn" => String.t() | atom(),
-        "resourceType" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type associated_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permissions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("permissionType") => list(any()),
-        optional("resourceType") => String.t() | atom()
-      }
-
-  """
-  @type list_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_pending_invitation_resources_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resources" => list(resource())
-      }
-
-  """
-  @type list_pending_invitation_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_share_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("principals") => list(String.t() | atom()),
-        optional("resourceArns") => list(String.t() | atom()),
-        optional("sources") => list(String.t() | atom()),
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_resource_share_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_share_associations_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceShareAssociations" => list(resource_share_association())
-      }
-
-  """
-  @type get_resource_share_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unknown_resource_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unknown_resource_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_parameter_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_permission_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1119,142 +1450,20 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_types_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceRegionScope") => list(any())
+      resource_share_association() :: %{
+        "associatedEntity" => String.t() | atom(),
+        "associationType" => list(any()),
+        "creationTime" => non_neg_integer(),
+        "external" => boolean(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "resourceShareArn" => String.t() | atom(),
+        "resourceShareName" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => String.t() | atom()
       }
 
   """
-  @type list_resource_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      server_internal_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type server_internal_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      set_default_permission_version_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "returnValue" => boolean()
-      }
-
-  """
-  @type set_default_permission_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_sharing_with_aws_organization_response() :: %{
-        "returnValue" => boolean()
-      }
-
-  """
-  @type enable_sharing_with_aws_organization_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_share_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "returnValue" => boolean()
-      }
-
-  """
-  @type delete_resource_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_resource_share_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "resourceShareAssociations" => list(resource_share_association())
-      }
-
-  """
-  @type associate_resource_share_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_client_token_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_client_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_sharing_with_aws_organization_request() :: %{}
-
-  """
-  @type enable_sharing_with_aws_organization_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_share_permissions_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "permissions" => list(resource_share_permission_summary())
-      }
-
-  """
-  @type list_resource_share_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resources_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("principal") => String.t() | atom(),
-        optional("resourceArns") => list(String.t() | atom()),
-        optional("resourceRegionScope") => list(any()),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        optional("resourceType") => String.t() | atom(),
-        required("resourceOwner") => list(any())
-      }
-
-  """
-  @type list_resources_request() :: %{(String.t() | atom()) => any()}
+  @type resource_share_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1272,150 +1481,6 @@ defmodule AWS.RAM do
 
   ## Example:
 
-      promote_resource_share_created_from_policy_request() :: %{
-        required("resourceShareArn") => String.t() | atom()
-      }
-
-  """
-  @type promote_resource_share_created_from_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_filter() :: %{
-        "tagKey" => String.t() | atom(),
-        "tagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type tag_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_share_invitation_already_accepted_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_share_invitation_already_accepted_exception() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_principals_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("principals") => list(String.t() | atom()),
-        optional("resourceArn") => String.t() | atom(),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        optional("resourceType") => String.t() | atom(),
-        required("resourceOwner") => list(any())
-      }
-
-  """
-  @type list_principals_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_resource_types_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceTypes" => list(service_name_and_resource_type())
-      }
-
-  """
-  @type list_resource_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_permission_version_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("permissionArn") => String.t() | atom(),
-        required("permissionVersion") => integer()
-      }
-
-  """
-  @type delete_permission_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_shares_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "resourceShares" => list(resource_share())
-      }
-
-  """
-  @type get_resource_shares_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_resource_share_invitation_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "resourceShareInvitation" => resource_share_invitation()
-      }
-
-  """
-  @type accept_resource_share_invitation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_permission_version_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "permission" => resource_share_permission_detail()
-      }
-
-  """
-  @type create_permission_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_associations_request() :: %{
-        optional("associationStatus") => list(any()),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("resourceShareArns") => list(String.t() | atom()),
-        optional("sourceId") => String.t() | atom(),
-        optional("sourceType") => String.t() | atom()
-      }
-
-  """
-  @type list_source_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      replace_permission_associations_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("fromPermissionVersion") => integer(),
-        required("fromPermissionArn") => String.t() | atom(),
-        required("toPermissionArn") => String.t() | atom()
-      }
-
-  """
-  @type replace_permission_associations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       invalid_resource_type_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -1423,197 +1488,132 @@ defmodule AWS.RAM do
   """
   @type invalid_resource_type_exception() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-
-      replace_permission_associations_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "replacePermissionAssociationsWork" => replace_permission_associations_work()
-      }
-
-  """
-  @type replace_permission_associations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_permission_response() :: %{
-        "clientToken" => String.t() | atom(),
-        "permission" => resource_share_permission_summary()
-      }
-
-  """
-  @type create_permission_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_policy_violation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type tag_policy_violation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "arn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "resourceGroupArn" => String.t() | atom(),
-        "resourceRegionScope" => list(any()),
-        "resourceShareArn" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type permission_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
   @type accept_resource_share_invitation_errors() ::
-          resource_share_invitation_already_accepted_exception()
-          | invalid_client_token_exception()
-          | server_internal_exception()
-          | malformed_arn_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | idempotent_parameter_mismatch_exception()
+          malformed_arn_exception()
+          | resource_share_invitation_already_accepted_exception()
           | resource_share_invitation_already_rejected_exception()
-          | resource_share_invitation_arn_not_found_exception()
+          | server_internal_exception()
+          | operation_not_permitted_exception()
           | resource_share_invitation_expired_exception()
+          | resource_share_invitation_arn_not_found_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type associate_resource_share_errors() ::
-          invalid_client_token_exception()
-          | throttling_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
-          | idempotent_parameter_mismatch_exception()
           | resource_share_limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_state_transition_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type associate_resource_share_permission_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_client_token_exception()
           | service_unavailable_exception()
 
   @type create_permission_errors() ::
-          permission_limit_exceeded_exception()
-          | invalid_client_token_exception()
+          invalid_policy_exception()
           | server_internal_exception()
           | invalid_parameter_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | idempotent_parameter_mismatch_exception()
-          | invalid_policy_exception()
-          | permission_already_exists_exception()
           | malformed_policy_template_exception()
+          | permission_already_exists_exception()
+          | permission_limit_exceeded_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_permission_version_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
+          | invalid_policy_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
-          | idempotent_parameter_mismatch_exception()
           | permission_versions_limit_exceeded_exception()
-          | invalid_policy_exception()
           | malformed_policy_template_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type create_resource_share_errors() ::
-          tag_policy_violation_exception()
-          | invalid_client_token_exception()
-          | throttling_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
-          | tag_limit_exceeded_exception()
-          | idempotent_parameter_mismatch_exception()
           | resource_share_limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_state_transition_exception()
+          | tag_policy_violation_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | tag_limit_exceeded_exception()
 
   @type delete_permission_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
+          | invalid_client_token_exception()
           | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type delete_permission_version_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
+          | invalid_client_token_exception()
           | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type delete_resource_share_errors() ::
-          invalid_client_token_exception()
-          | throttling_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
           | invalid_state_transition_exception()
+          | invalid_client_token_exception()
           | idempotent_parameter_mismatch_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type disassociate_resource_share_errors() ::
-          invalid_client_token_exception()
-          | throttling_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
-          | idempotent_parameter_mismatch_exception()
           | resource_share_limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_state_transition_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type disassociate_resource_share_permission_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
           | invalid_state_transition_exception()
+          | invalid_client_token_exception()
+          | service_unavailable_exception()
 
   @type enable_sharing_with_aws_organization_errors() ::
           server_internal_exception()
@@ -1621,208 +1621,208 @@ defmodule AWS.RAM do
           | service_unavailable_exception()
 
   @type get_permission_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
+          | unknown_resource_exception()
           | service_unavailable_exception()
 
   @type get_resource_policies_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
-          | invalid_next_token_exception()
           | resource_arn_not_found_exception()
+          | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type get_resource_share_associations_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type get_resource_share_invitations_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
+          | invalid_max_results_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
           | resource_share_invitation_arn_not_found_exception()
-          | invalid_max_results_exception()
+          | service_unavailable_exception()
 
   @type get_resource_shares_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_pending_invitation_resources_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
-          | invalid_parameter_exception()
-          | service_unavailable_exception()
-          | invalid_next_token_exception()
+          malformed_arn_exception()
           | resource_share_invitation_already_rejected_exception()
+          | server_internal_exception()
+          | invalid_parameter_exception()
           | missing_required_parameter_exception()
-          | resource_share_invitation_arn_not_found_exception()
           | resource_share_invitation_expired_exception()
+          | invalid_next_token_exception()
+          | resource_share_invitation_arn_not_found_exception()
+          | service_unavailable_exception()
 
   @type list_permission_associations_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_permission_versions_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_permissions_errors() ::
           server_internal_exception()
           | invalid_parameter_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_principals_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_replace_permission_associations_work_errors() ::
           server_internal_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_resource_share_permissions_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_resource_types_errors() ::
           server_internal_exception()
           | invalid_parameter_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_resources_errors() ::
           invalid_resource_type_exception()
-          | server_internal_exception()
           | malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type list_source_associations_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
           | invalid_next_token_exception()
+          | service_unavailable_exception()
 
   @type promote_permission_created_from_policy_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
-          | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          malformed_arn_exception()
           | invalid_policy_exception()
+          | server_internal_exception()
+          | invalid_parameter_exception()
           | missing_required_parameter_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | service_unavailable_exception()
 
   @type promote_resource_share_created_from_policy_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | invalid_state_transition_exception()
-          | resource_share_limit_exceeded_exception()
-          | unmatched_policy_permission_exception()
           | missing_required_parameter_exception()
+          | resource_share_limit_exceeded_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_state_transition_exception()
+          | unmatched_policy_permission_exception()
+          | service_unavailable_exception()
 
   @type reject_resource_share_invitation_errors() ::
-          resource_share_invitation_already_accepted_exception()
-          | invalid_client_token_exception()
-          | server_internal_exception()
-          | malformed_arn_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | idempotent_parameter_mismatch_exception()
+          malformed_arn_exception()
+          | resource_share_invitation_already_accepted_exception()
           | resource_share_invitation_already_rejected_exception()
-          | resource_share_invitation_arn_not_found_exception()
+          | server_internal_exception()
+          | operation_not_permitted_exception()
           | resource_share_invitation_expired_exception()
+          | resource_share_invitation_arn_not_found_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type replace_permission_associations_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
           | operation_not_permitted_exception()
-          | service_unavailable_exception()
+          | unknown_resource_exception()
+          | invalid_client_token_exception()
           | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type set_default_permission_version_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
-          | service_unavailable_exception()
+          | invalid_client_token_exception()
           | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   @type tag_resource_errors() ::
-          tag_policy_violation_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
+          | resource_arn_not_found_exception()
           | unknown_resource_exception()
+          | tag_policy_violation_exception()
           | service_unavailable_exception()
           | tag_limit_exceeded_exception()
-          | resource_arn_not_found_exception()
 
   @type untag_resource_errors() ::
-          server_internal_exception()
-          | malformed_arn_exception()
+          malformed_arn_exception()
+          | server_internal_exception()
           | invalid_parameter_exception()
           | unknown_resource_exception()
           | service_unavailable_exception()
 
   @type update_resource_share_errors() ::
-          invalid_client_token_exception()
+          malformed_arn_exception()
           | server_internal_exception()
-          | malformed_arn_exception()
           | invalid_parameter_exception()
-          | unknown_resource_exception()
-          | operation_not_permitted_exception()
-          | service_unavailable_exception()
-          | idempotent_parameter_mismatch_exception()
           | missing_required_parameter_exception()
+          | operation_not_permitted_exception()
+          | unknown_resource_exception()
+          | invalid_client_token_exception()
+          | idempotent_parameter_mismatch_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

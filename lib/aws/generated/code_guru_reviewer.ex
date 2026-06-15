@@ -39,124 +39,85 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      repository_association_summary() :: %{
-        "AssociationArn" => String.t() | atom(),
-        "AssociationId" => String.t() | atom(),
-        "ConnectionArn" => String.t() | atom(),
-        "LastUpdatedTimeStamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "State" => list(any())
+      code_artifacts() :: %{
+        "BuildArtifactsObjectKey" => String.t() | atom(),
+        "SourceCodeArtifactsObjectKey" => String.t() | atom()
       }
 
   """
-  @type repository_association_summary() :: %{(String.t() | atom()) => any()}
+  @type code_artifacts() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_recommendation_feedback_request() :: %{
-        optional("UserId") => String.t() | atom(),
-        required("RecommendationId") => String.t() | atom()
+      code_commit_repository() :: %{
+        "Name" => String.t() | atom()
       }
 
   """
-  @type describe_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
+  @type code_commit_repository() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("Tags") => map()
+      describe_code_review_response() :: %{
+        "CodeReview" => code_review()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type describe_code_review_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      repository_association() :: %{
-        "AssociationArn" => String.t() | atom(),
-        "AssociationId" => String.t() | atom(),
-        "ConnectionArn" => String.t() | atom(),
+      recommendation_feedback() :: %{
+        "CodeReviewArn" => String.t() | atom(),
         "CreatedTimeStamp" => non_neg_integer(),
-        "KMSKeyDetails" => kms_key_details(),
         "LastUpdatedTimeStamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "S3RepositoryDetails" => s3_repository_details(),
-        "State" => list(any()),
-        "StateReason" => String.t() | atom()
-      }
-
-  """
-  @type repository_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      request_metadata() :: %{
-        "EventInfo" => event_info(),
-        "RequestId" => String.t() | atom(),
-        "Requester" => String.t() | atom(),
-        "VendorName" => list(any())
-      }
-
-  """
-  @type request_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_analysis() :: %{
-        "RepositoryHead" => repository_head_source_code_type(),
-        "SourceCodeType" => source_code_type()
-      }
-
-  """
-  @type repository_analysis() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_code_reviews_response() :: %{
-        "CodeReviewSummaries" => list(code_review_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_code_reviews_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_feedback_summary() :: %{
         "Reactions" => list(list(any())()),
         "RecommendationId" => String.t() | atom(),
         "UserId" => String.t() | atom()
       }
 
   """
-  @type recommendation_feedback_summary() :: %{(String.t() | atom()) => any()}
+  @type recommendation_feedback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_info() :: %{
+        "Name" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type event_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -188,6 +149,79 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
+      list_recommendation_feedback_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommendationFeedbackSummaries" => list(recommendation_feedback_summary())
+      }
+
+  """
+  @type list_recommendation_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_repository_response() :: %{
+        "RepositoryAssociation" => repository_association(),
+        "Tags" => map()
+      }
+
+  """
+  @type associate_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendation_feedback_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RecommendationIds") => list(String.t() | atom()),
+        optional("UserIds") => list(String.t() | atom())
+      }
+
+  """
+  @type list_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_recommendation_feedback_response() :: %{}
+
+  """
+  @type put_recommendation_feedback_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_code_review_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("RepositoryAssociationArn") => String.t() | atom(),
+        required("Type") => code_review_type()
+      }
+
+  """
+  @type create_code_review_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_repository() :: %{
+        "BucketName" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type s3_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_repository_request() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
         optional("KMSKeyDetails") => kms_key_details(),
@@ -202,37 +236,285 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      describe_code_review_response() :: %{
-        "CodeReview" => code_review()
+      recommendation_summary() :: %{
+        "Description" => String.t() | atom(),
+        "EndLine" => integer(),
+        "FilePath" => String.t() | atom(),
+        "RecommendationCategory" => list(any()),
+        "RecommendationId" => String.t() | atom(),
+        "RuleMetadata" => rule_metadata(),
+        "Severity" => list(any()),
+        "StartLine" => integer()
       }
 
   """
-  @type describe_code_review_response() :: %{(String.t() | atom()) => any()}
+  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_repository_association_response() :: %{
-        "RepositoryAssociation" => repository_association(),
-        "Tags" => map()
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type describe_repository_association_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metrics_summary() :: %{
+      metrics() :: %{
         "FindingsCount" => float(),
         "MeteredLinesOfCodeCount" => float(),
         "SuppressedLinesOfCodeCount" => float()
       }
 
   """
-  @type metrics_summary() :: %{(String.t() | atom()) => any()}
+  @type metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_head_source_code_type() :: %{
+        "BranchName" => String.t() | atom()
+      }
+
+  """
+  @type repository_head_source_code_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository() :: %{
+        "Bitbucket" => third_party_source_repository(),
+        "CodeCommit" => code_commit_repository(),
+        "GitHubEnterpriseServer" => third_party_source_repository(),
+        "S3Bucket" => s3_repository()
+      }
+
+  """
+  @type repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_repository_associations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RepositoryAssociationSummaries" => list(repository_association_summary())
+      }
+
+  """
+  @type list_repository_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_summary() :: %{
+        "CodeReviewArn" => String.t() | atom(),
+        "CreatedTimeStamp" => non_neg_integer(),
+        "LastUpdatedTimeStamp" => non_neg_integer(),
+        "MetricsSummary" => metrics_summary(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "PullRequestId" => String.t() | atom(),
+        "RepositoryName" => String.t() | atom(),
+        "SourceCodeType" => source_code_type(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type code_review_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_code_reviews_response() :: %{
+        "CodeReviewSummaries" => list(code_review_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_code_reviews_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      commit_diff_source_code_type() :: %{
+        "DestinationCommit" => String.t() | atom(),
+        "MergeBaseCommit" => String.t() | atom(),
+        "SourceCommit" => String.t() | atom()
+      }
+
+  """
+  @type commit_diff_source_code_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_review_type() :: %{
+        "AnalysisTypes" => list(list(any())()),
+        "RepositoryAnalysis" => repository_analysis()
+      }
+
+  """
+  @type code_review_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_key_details() :: %{
+        "EncryptionOption" => list(any()),
+        "KMSKeyId" => String.t() | atom()
+      }
+
+  """
+  @type kms_key_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      repository_analysis() :: %{
+        "RepositoryHead" => repository_head_source_code_type(),
+        "SourceCodeType" => source_code_type()
+      }
+
+  """
+  @type repository_analysis() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_bucket_repository() :: %{
+        "Details" => s3_repository_details(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type s3_bucket_repository() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_recommendation_feedback_request() :: %{
+        required("CodeReviewArn") => String.t() | atom(),
+        required("Reactions") => list(list(any())()),
+        required("RecommendationId") => String.t() | atom()
+      }
+
+  """
+  @type put_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommendationSummaries" => list(recommendation_summary())
+      }
+
+  """
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -244,17 +526,6 @@ defmodule AWS.CodeGuruReviewer do
 
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_recommendation_feedback_response() :: %{
-        "RecommendationFeedback" => recommendation_feedback()
-      }
-
-  """
-  @type describe_recommendation_feedback_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -285,31 +556,6 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      s3_repository() :: %{
-        "BucketName" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type s3_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metrics() :: %{
-        "FindingsCount" => float(),
-        "MeteredLinesOfCodeCount" => float(),
-        "SuppressedLinesOfCodeCount" => float()
-      }
-
-  """
-  @type metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       third_party_source_repository() :: %{
         "ConnectionArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
@@ -323,257 +569,14 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      recommendation_feedback() :: %{
-        "CodeReviewArn" => String.t() | atom(),
-        "CreatedTimeStamp" => non_neg_integer(),
-        "LastUpdatedTimeStamp" => non_neg_integer(),
+      recommendation_feedback_summary() :: %{
         "Reactions" => list(list(any())()),
         "RecommendationId" => String.t() | atom(),
         "UserId" => String.t() | atom()
       }
 
   """
-  @type recommendation_feedback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      repository() :: %{
-        "Bitbucket" => third_party_source_repository(),
-        "CodeCommit" => code_commit_repository(),
-        "GitHubEnterpriseServer" => third_party_source_repository(),
-        "S3Bucket" => s3_repository()
-      }
-
-  """
-  @type repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      branch_diff_source_code_type() :: %{
-        "DestinationBranchName" => String.t() | atom(),
-        "SourceBranchName" => String.t() | atom()
-      }
-
-  """
-  @type branch_diff_source_code_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_type() :: %{
-        "AnalysisTypes" => list(list(any())()),
-        "RepositoryAnalysis" => repository_analysis()
-      }
-
-  """
-  @type code_review_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_review_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("RepositoryAssociationArn") => String.t() | atom(),
-        required("Type") => code_review_type()
-      }
-
-  """
-  @type create_code_review_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_bucket_repository() :: %{
-        "Details" => s3_repository_details(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type s3_bucket_repository() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_repository_response() :: %{
-        "RepositoryAssociation" => repository_association(),
-        "Tags" => map()
-      }
-
-  """
-  @type associate_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_code_review_response() :: %{
-        "CodeReview" => code_review()
-      }
-
-  """
-  @type create_code_review_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_recommendation_feedback_response() :: %{}
-
-  """
-  @type put_recommendation_feedback_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_metadata() :: %{
-        "LongDescription" => String.t() | atom(),
-        "RuleId" => String.t() | atom(),
-        "RuleName" => String.t() | atom(),
-        "RuleTags" => list(String.t() | atom()),
-        "ShortDescription" => String.t() | atom()
-      }
-
-  """
-  @type rule_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_code_type() :: %{
-        "BranchDiff" => branch_diff_source_code_type(),
-        "CommitDiff" => commit_diff_source_code_type(),
-        "RepositoryHead" => repository_head_source_code_type(),
-        "RequestMetadata" => request_metadata(),
-        "S3BucketRepository" => s3_bucket_repository()
-      }
-
-  """
-  @type source_code_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_review_summary() :: %{
-        "CodeReviewArn" => String.t() | atom(),
-        "CreatedTimeStamp" => non_neg_integer(),
-        "LastUpdatedTimeStamp" => non_neg_integer(),
-        "MetricsSummary" => metrics_summary(),
-        "Name" => String.t() | atom(),
-        "Owner" => String.t() | atom(),
-        "ProviderType" => list(any()),
-        "PullRequestId" => String.t() | atom(),
-        "RepositoryName" => String.t() | atom(),
-        "SourceCodeType" => source_code_type(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type code_review_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_repository_response() :: %{
-        "RepositoryAssociation" => repository_association(),
-        "Tags" => map()
-      }
-
-  """
-  @type disassociate_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      commit_diff_source_code_type() :: %{
-        "DestinationCommit" => String.t() | atom(),
-        "MergeBaseCommit" => String.t() | atom(),
-        "SourceCommit" => String.t() | atom()
-      }
-
-  """
-  @type commit_diff_source_code_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      code_artifacts() :: %{
-        "BuildArtifactsObjectKey" => String.t() | atom(),
-        "SourceCodeArtifactsObjectKey" => String.t() | atom()
-      }
-
-  """
-  @type code_artifacts() :: %{(String.t() | atom()) => any()}
+  @type recommendation_feedback_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -591,34 +594,10 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      describe_repository_association_request() :: %{}
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_recommendation_feedback_request() :: %{
-        required("CodeReviewArn") => String.t() | atom(),
-        required("Reactions") => list(list(any())()),
-        required("RecommendationId") => String.t() | atom()
-      }
-
-  """
-  @type put_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
+  @type describe_repository_association_request() :: %{}
 
   @typedoc """
 
@@ -640,122 +619,151 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      kms_key_details() :: %{
-        "EncryptionOption" => list(any()),
-        "KMSKeyId" => String.t() | atom()
+      rule_metadata() :: %{
+        "LongDescription" => String.t() | atom(),
+        "RuleId" => String.t() | atom(),
+        "RuleName" => String.t() | atom(),
+        "RuleTags" => list(String.t() | atom()),
+        "ShortDescription" => String.t() | atom()
       }
 
   """
-  @type kms_key_details() :: %{(String.t() | atom()) => any()}
+  @type rule_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendation_feedback_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RecommendationIds") => list(String.t() | atom()),
-        optional("UserIds") => list(String.t() | atom())
+      create_code_review_response() :: %{
+        "CodeReview" => code_review()
       }
 
   """
-  @type list_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
+  @type create_code_review_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
+      disassociate_repository_response() :: %{
+        "RepositoryAssociation" => repository_association(),
+        "Tags" => map()
+      }
 
   """
-  @type list_tags_for_resource_request() :: %{}
+  @type disassociate_repository_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
+      describe_repository_association_response() :: %{
+        "RepositoryAssociation" => repository_association(),
+        "Tags" => map()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_repository_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      repository_head_source_code_type() :: %{
-        "BranchName" => String.t() | atom()
+      describe_recommendation_feedback_response() :: %{
+        "RecommendationFeedback" => recommendation_feedback()
       }
 
   """
-  @type repository_head_source_code_type() :: %{(String.t() | atom()) => any()}
+  @type describe_recommendation_feedback_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_repository_associations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RepositoryAssociationSummaries" => list(repository_association_summary())
+      repository_association() :: %{
+        "AssociationArn" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom(),
+        "CreatedTimeStamp" => non_neg_integer(),
+        "KMSKeyDetails" => kms_key_details(),
+        "LastUpdatedTimeStamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "S3RepositoryDetails" => s3_repository_details(),
+        "State" => list(any()),
+        "StateReason" => String.t() | atom()
       }
 
   """
-  @type list_repository_associations_response() :: %{(String.t() | atom()) => any()}
+  @type repository_association() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      code_commit_repository() :: %{
-        "Name" => String.t() | atom()
+      describe_recommendation_feedback_request() :: %{
+        optional("UserId") => String.t() | atom(),
+        required("RecommendationId") => String.t() | atom()
       }
 
   """
-  @type code_commit_repository() :: %{(String.t() | atom()) => any()}
+  @type describe_recommendation_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_summary() :: %{
-        "Description" => String.t() | atom(),
-        "EndLine" => integer(),
-        "FilePath" => String.t() | atom(),
-        "RecommendationCategory" => list(any()),
-        "RecommendationId" => String.t() | atom(),
-        "RuleMetadata" => rule_metadata(),
-        "Severity" => list(any()),
-        "StartLine" => integer()
+      branch_diff_source_code_type() :: %{
+        "DestinationBranchName" => String.t() | atom(),
+        "SourceBranchName" => String.t() | atom()
       }
 
   """
-  @type recommendation_summary() :: %{(String.t() | atom()) => any()}
+  @type branch_diff_source_code_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_recommendation_feedback_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecommendationFeedbackSummaries" => list(recommendation_feedback_summary())
+      repository_association_summary() :: %{
+        "AssociationArn" => String.t() | atom(),
+        "AssociationId" => String.t() | atom(),
+        "ConnectionArn" => String.t() | atom(),
+        "LastUpdatedTimeStamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Owner" => String.t() | atom(),
+        "ProviderType" => list(any()),
+        "State" => list(any())
       }
 
   """
-  @type list_recommendation_feedback_response() :: %{(String.t() | atom()) => any()}
+  @type repository_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      request_metadata() :: %{
+        "EventInfo" => event_info(),
+        "RequestId" => String.t() | atom(),
+        "Requester" => String.t() | atom(),
+        "VendorName" => list(any())
+      }
+
+  """
+  @type request_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -770,129 +778,121 @@ defmodule AWS.CodeGuruReviewer do
 
   ## Example:
 
-      list_recommendations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecommendationSummaries" => list(recommendation_summary())
+      source_code_type() :: %{
+        "BranchDiff" => branch_diff_source_code_type(),
+        "CommitDiff" => commit_diff_source_code_type(),
+        "RepositoryHead" => repository_head_source_code_type(),
+        "RequestMetadata" => request_metadata(),
+        "S3BucketRepository" => s3_bucket_repository()
       }
 
   """
-  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
+  @type source_code_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_info() :: %{
-        "Name" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type event_info() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      describe_repository_association_request() :: %{}
-
-  """
-  @type describe_repository_association_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      metrics_summary() :: %{
+        "FindingsCount" => float(),
+        "MeteredLinesOfCodeCount" => float(),
+        "SuppressedLinesOfCodeCount" => float()
       }
 
   """
-  @type list_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type metrics_summary() :: %{(String.t() | atom()) => any()}
 
   @type associate_repository_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_code_review_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_code_review_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_recommendation_feedback_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_repository_association_errors() ::
-          throttling_exception()
+          not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | not_found_exception()
+          | throttling_exception()
 
   @type disassociate_repository_errors() ::
-          throttling_exception()
+          not_found_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_code_reviews_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_recommendation_feedback_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_recommendations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_repository_associations_errors() ::
-          throttling_exception() | validation_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type put_recommendation_feedback_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   def metadata do
     %{

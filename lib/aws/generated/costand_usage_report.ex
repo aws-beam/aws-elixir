@@ -335,7 +335,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, delete_report_definition_errors()}
   def delete_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteReportDefinition", input, options)
   end
@@ -349,7 +350,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, describe_report_definitions_errors()}
   def describe_report_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeReportDefinitions", input, options)
   end
@@ -363,7 +365,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -377,7 +380,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, modify_report_definition_errors()}
   def modify_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ModifyReportDefinition", input, options)
   end
@@ -391,7 +395,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, put_report_definition_errors()}
   def put_report_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutReportDefinition", input, options)
   end
@@ -405,7 +410,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -419,7 +425,8 @@ defmodule AWS.CostandUsageReport do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

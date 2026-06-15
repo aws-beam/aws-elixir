@@ -25,38 +25,40 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      generate_auth_request_cryptogram_output() :: %{
-        "AuthRequestCryptogram" => String.t() | atom(),
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom()
+      cryptogram_verification_arpc_method1() :: %{
+        "AuthResponseCode" => String.t() | atom()
       }
 
   """
-  @type generate_auth_request_cryptogram_output() :: %{(String.t() | atom()) => any()}
+  @type cryptogram_verification_arpc_method1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      as2805_pek_derivation_attributes() :: %{
-        "SystemTraceAuditNumber" => String.t() | atom(),
-        "TransactionAmount" => String.t() | atom()
-      }
-
-  """
-  @type as2805_pek_derivation_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_key_amex() :: %{
+      session_key_mastercard() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
         "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom()
+        "PrimaryAccountNumber" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_amex() :: %{(String.t() | atom()) => any()}
+  @type session_key_mastercard() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ibm3624_pin_verification() :: %{
+        "DecimalizationTable" => String.t() | atom(),
+        "PinOffset" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
+      }
+
+  """
+  @type ibm3624_pin_verification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -73,381 +75,30 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      asymmetric_encryption_attributes() :: %{
-        "PaddingType" => list(any())
-      }
-
-  """
-  @type asymmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      discover_dynamic_card_verification_code() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "CardExpiryDate" => String.t() | atom(),
-        "UnpredictableNumber" => String.t() | atom()
-      }
-
-  """
-  @type discover_dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      current_pin_attributes() :: %{
-        "CurrentEncryptedPinBlock" => String.t() | atom(),
-        "CurrentPinPekIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type current_pin_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      translation_pin_data_as2805_format0() :: %{
-        "PrimaryAccountNumber" => String.t() | atom()
-      }
-
-  """
-  @type translation_pin_data_as2805_format0() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      visa_pin_verification_value() :: %{
+      generate_pin_data_output() :: %{
         "EncryptedPinBlock" => String.t() | atom(),
-        "PinVerificationKeyIndex" => integer()
+        "EncryptionKeyArn" => String.t() | atom(),
+        "EncryptionKeyCheckValue" => String.t() | atom(),
+        "GenerationKeyArn" => String.t() | atom(),
+        "GenerationKeyCheckValue" => String.t() | atom(),
+        "PinData" => list()
       }
 
   """
-  @type visa_pin_verification_value() :: %{(String.t() | atom()) => any()}
+  @type generate_pin_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      generate_as2805_kek_validation_input() :: %{
-        required("KekValidationType") => list(),
-        required("KeyIdentifier") => String.t() | atom(),
-        required("RandomKeySendVariantMask") => list(any())
-      }
-
-  """
-  @type generate_as2805_kek_validation_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ibm3624_pin_offset() :: %{
-        "DecimalizationTable" => String.t() | atom(),
-        "EncryptedPinBlock" => String.t() | atom(),
-        "PinValidationData" => String.t() | atom(),
-        "PinValidationDataPadCharacter" => String.t() | atom()
-      }
-
-  """
-  @type ibm3624_pin_offset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      translation_pin_data_iso_format034() :: %{
-        "PrimaryAccountNumber" => String.t() | atom()
-      }
-
-  """
-  @type translation_pin_data_iso_format034() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      translate_pin_data_input() :: %{
-        optional("IncomingAs2805Attributes") => as2805_pek_derivation_attributes(),
-        optional("IncomingDukptAttributes") => dukpt_derivation_attributes(),
-        optional("IncomingWrappedKey") => wrapped_key(),
-        optional("OutgoingDukptAttributes") => dukpt_derivation_attributes(),
-        optional("OutgoingWrappedKey") => wrapped_key(),
-        required("EncryptedPinBlock") => String.t() | atom(),
-        required("IncomingKeyIdentifier") => String.t() | atom(),
-        required("IncomingTranslationAttributes") => list(),
-        required("OutgoingKeyIdentifier") => String.t() | atom(),
-        required("OutgoingTranslationAttributes") => list()
-      }
-
-  """
-  @type translate_pin_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encrypt_data_output() :: %{
-        "CipherText" => String.t() | atom(),
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom()
-      }
-
-  """
-  @type encrypt_data_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_mac_output() :: %{
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom()
-      }
-
-  """
-  @type verify_mac_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      visa_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
-        "CurrentPinAttributes" => current_pin_attributes(),
-        "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom()
-      }
-
-  """
-  @type visa_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cryptogram_verification_arpc_method1() :: %{
-        "AuthResponseCode" => String.t() | atom()
-      }
-
-  """
-  @type cryptogram_verification_arpc_method1() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamic_card_verification_value() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "CardExpiryDate" => String.t() | atom(),
-        "PanSequenceNumber" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-
-  """
-  @type dynamic_card_verification_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wrapped_key() :: %{
-        "KeyCheckValueAlgorithm" => String.t() | atom(),
-        "WrappedKeyMaterial" => list()
-      }
-
-  """
-  @type wrapped_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      card_holder_verification_value() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "PanSequenceNumber" => String.t() | atom(),
-        "UnpredictableNumber" => String.t() | atom()
-      }
-
-  """
-  @type card_holder_verification_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mac_algorithm_dukpt() :: %{
-        "DukptDerivationType" => list(any()),
-        "DukptKeyVariant" => list(any()),
-        "KeySerialNumber" => String.t() | atom()
-      }
-
-  """
-  @type mac_algorithm_dukpt() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_auth_request_cryptogram_input() :: %{
-        required("KeyIdentifier") => String.t() | atom(),
-        required("MajorKeyDerivationMode") => list(any()),
-        required("SessionKeyDerivationAttributes") => list(),
-        required("TransactionData") => String.t() | atom()
-      }
-
-  """
-  @type generate_auth_request_cryptogram_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      outgoing_tr31_key_block() :: %{
-        "WrappingKeyIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type outgoing_tr31_key_block() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ecdh_derivation_attributes() :: %{
-        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
-        "KeyAlgorithm" => list(any()),
-        "KeyDerivationFunction" => list(any()),
-        "KeyDerivationHashAlgorithm" => list(any()),
-        "PublicKeyCertificate" => String.t() | atom(),
-        "SharedInformation" => String.t() | atom()
-      }
-
-  """
-  @type ecdh_derivation_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amex_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
-        "CurrentPinAttributes" => current_pin_attributes(),
-        "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom()
-      }
-
-  """
-  @type amex_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cryptogram_verification_arpc_method2() :: %{
-        "CardStatusUpdate" => String.t() | atom(),
-        "ProprietaryAuthenticationData" => String.t() | atom()
-      }
-
-  """
-  @type cryptogram_verification_arpc_method2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_card_validation_data_input() :: %{
-        required("KeyIdentifier") => String.t() | atom(),
-        required("PrimaryAccountNumber") => String.t() | atom(),
-        required("ValidationData") => String.t() | atom(),
-        required("VerificationAttributes") => list()
-      }
-
-  """
-  @type verify_card_validation_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amex_card_security_code_version2() :: %{
-        "CardExpiryDate" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-
-  """
-  @type amex_card_security_code_version2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "ResourceId" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encrypt_data_input() :: %{
-        optional("WrappedKey") => wrapped_key(),
-        required("EncryptionAttributes") => list(),
-        required("PlainText") => String.t() | atom()
-      }
-
-  """
-  @type encrypt_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_as2805_kek_validation_output() :: %{
+      translate_pin_data_output() :: %{
         "KeyArn" => String.t() | atom(),
         "KeyCheckValue" => String.t() | atom(),
-        "RandomKeyReceive" => String.t() | atom(),
-        "RandomKeySend" => String.t() | atom()
+        "PinBlock" => String.t() | atom()
       }
 
   """
-  @type generate_as2805_kek_validation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dynamic_card_verification_code() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "PanSequenceNumber" => String.t() | atom(),
-        "TrackData" => String.t() | atom(),
-        "UnpredictableNumber" => String.t() | atom()
-      }
-
-  """
-  @type dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dukpt_attributes() :: %{
-        "DukptDerivationType" => list(any()),
-        "KeySerialNumber" => String.t() | atom()
-      }
-
-  """
-  @type dukpt_attributes() :: %{(String.t() | atom()) => any()}
+  @type translate_pin_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -469,152 +120,31 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      verify_mac_input() :: %{
-        optional("MacLength") => integer(),
-        required("KeyIdentifier") => String.t() | atom(),
-        required("Mac") => String.t() | atom(),
-        required("MessageData") => String.t() | atom(),
-        required("VerificationAttributes") => list()
-      }
-
-  """
-  @type verify_mac_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_pin_data_input() :: %{
-        optional("EncryptionWrappedKey") => wrapped_key(),
-        optional("PinDataLength") => integer(),
-        optional("PrimaryAccountNumber") => String.t() | atom(),
-        required("EncryptionKeyIdentifier") => String.t() | atom(),
-        required("GenerationAttributes") => list(),
-        required("GenerationKeyIdentifier") => String.t() | atom(),
-        required("PinBlockFormat") => list(any())
-      }
-
-  """
-  @type generate_pin_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_mac_input() :: %{
-        optional("MacLength") => integer(),
-        required("GenerationAttributes") => list(),
-        required("KeyIdentifier") => String.t() | atom(),
-        required("MessageData") => String.t() | atom()
-      }
-
-  """
-  @type generate_mac_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      card_verification_value2() :: %{
-        "CardExpiryDate" => String.t() | atom()
-      }
-
-  """
-  @type card_verification_value2() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_auth_request_cryptogram_output() :: %{
-        "AuthResponseValue" => String.t() | atom(),
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom()
-      }
-
-  """
-  @type verify_auth_request_cryptogram_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      visa_pin() :: %{
-        "PinVerificationKeyIndex" => integer()
-      }
-
-  """
-  @type visa_pin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mac_algorithm_emv() :: %{
-        "MajorKeyDerivationMode" => list(any()),
+      dynamic_card_verification_code() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
         "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom(),
-        "SessionKeyDerivationMode" => list(any()),
-        "SessionKeyDerivationValue" => list()
+        "TrackData" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
       }
 
   """
-  @type mac_algorithm_emv() :: %{(String.t() | atom()) => any()}
+  @type dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception_field() :: %{
-        "message" => [String.t() | atom()],
-        "path" => [String.t() | atom()]
+      re_encrypt_data_input() :: %{
+        optional("IncomingWrappedKey") => wrapped_key(),
+        optional("OutgoingWrappedKey") => wrapped_key(),
+        required("CipherText") => String.t() | atom(),
+        required("IncomingEncryptionAttributes") => list(),
+        required("OutgoingEncryptionAttributes") => list(),
+        required("OutgoingKeyIdentifier") => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_mac_emv_pin_change_input() :: %{
-        required("DerivationMethodAttributes") => list(),
-        required("MessageData") => String.t() | atom(),
-        required("NewEncryptedPinBlock") => String.t() | atom(),
-        required("NewPinPekIdentifier") => String.t() | atom(),
-        required("PinBlockFormat") => list(any()),
-        required("SecureMessagingConfidentialityKeyIdentifier") => String.t() | atom(),
-        required("SecureMessagingIntegrityKeyIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type generate_mac_emv_pin_change_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ibm3624_pin_verification() :: %{
-        "DecimalizationTable" => String.t() | atom(),
-        "PinOffset" => String.t() | atom(),
-        "PinValidationData" => String.t() | atom(),
-        "PinValidationDataPadCharacter" => String.t() | atom()
-      }
-
-  """
-  @type ibm3624_pin_verification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      visa_pin_verification() :: %{
-        "PinVerificationKeyIndex" => integer(),
-        "VerificationValue" => String.t() | atom()
-      }
-
-  """
-  @type visa_pin_verification() :: %{(String.t() | atom()) => any()}
+  @type re_encrypt_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -628,6 +158,42 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type session_key_emv_common() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visa_amex_derivation_outputs() :: %{
+        "AuthorizationRequestKeyArn" => String.t() | atom(),
+        "AuthorizationRequestKeyCheckValue" => String.t() | atom(),
+        "CurrentPinPekArn" => String.t() | atom(),
+        "CurrentPinPekKeyCheckValue" => String.t() | atom()
+      }
+
+  """
+  @type visa_amex_derivation_outputs() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -652,53 +218,26 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      master_card_attributes() :: %{
-        "ApplicationCryptogram" => String.t() | atom(),
-        "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom()
+      encrypt_data_output() :: %{
+        "CipherText" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type master_card_attributes() :: %{(String.t() | atom()) => any()}
+  @type encrypt_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      emv2000_attributes() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "MajorKeyDerivationMode" => list(any()),
-        "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom()
+      verification_failed_exception() :: %{
+        "Message" => [String.t() | atom()],
+        "Reason" => String.t() | atom()
       }
 
   """
-  @type emv2000_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ibm3624_natural_pin() :: %{
-        "DecimalizationTable" => String.t() | atom(),
-        "PinValidationData" => String.t() | atom(),
-        "PinValidationDataPadCharacter" => String.t() | atom()
-      }
-
-  """
-  @type ibm3624_natural_pin() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type verification_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -717,52 +256,68 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      symmetric_encryption_attributes() :: %{
+      dukpt_encryption_attributes() :: %{
+        "DukptKeyDerivationType" => list(any()),
+        "DukptKeyVariant" => list(any()),
         "InitializationVector" => String.t() | atom(),
-        "Mode" => list(any()),
-        "PaddingType" => list(any())
+        "KeySerialNumber" => String.t() | atom(),
+        "Mode" => list(any())
       }
 
   """
-  @type symmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
+  @type dukpt_encryption_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      verify_card_validation_data_output() :: %{
+      translation_pin_data_as2805_format0() :: %{
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type translation_pin_data_as2805_format0() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_as2805_kek_validation_output() :: %{
         "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom()
-      }
-
-  """
-  @type verify_card_validation_data_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wrapped_working_key() :: %{
         "KeyCheckValue" => String.t() | atom(),
-        "WrappedKeyMaterial" => String.t() | atom(),
-        "WrappedKeyMaterialFormat" => String.t() | atom()
+        "RandomKeyReceive" => String.t() | atom(),
+        "RandomKeySend" => String.t() | atom()
       }
 
   """
-  @type wrapped_working_key() :: %{(String.t() | atom()) => any()}
+  @type generate_as2805_kek_validation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      translate_key_material_input() :: %{
-        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
-        required("IncomingKeyMaterial") => list(),
-        required("OutgoingKeyMaterial") => list()
+      verify_card_validation_data_input() :: %{
+        required("KeyIdentifier") => String.t() | atom(),
+        required("PrimaryAccountNumber") => String.t() | atom(),
+        required("ValidationData") => String.t() | atom(),
+        required("VerificationAttributes") => list()
       }
 
   """
-  @type translate_key_material_input() :: %{(String.t() | atom()) => any()}
+  @type verify_card_validation_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ibm3624_random_pin() :: %{
+        "DecimalizationTable" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
+      }
+
+  """
+  @type ibm3624_random_pin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -785,176 +340,39 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      verification_failed_exception() :: %{
-        "Message" => [String.t() | atom()],
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type verification_failed_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_pin_data_input() :: %{
-        optional("DukptAttributes") => dukpt_attributes(),
-        optional("EncryptionWrappedKey") => wrapped_key(),
-        optional("PinDataLength") => integer(),
-        optional("PrimaryAccountNumber") => String.t() | atom(),
-        required("EncryptedPinBlock") => String.t() | atom(),
-        required("EncryptionKeyIdentifier") => String.t() | atom(),
-        required("PinBlockFormat") => list(any()),
-        required("VerificationAttributes") => list(),
-        required("VerificationKeyIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type verify_pin_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      session_key_mastercard() :: %{
-        "ApplicationTransactionCounter" => String.t() | atom(),
-        "PanSequenceNumber" => String.t() | atom(),
-        "PrimaryAccountNumber" => String.t() | atom(),
-        "UnpredictableNumber" => String.t() | atom()
-      }
-
-  """
-  @type session_key_mastercard() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      decrypt_data_output() :: %{
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom(),
-        "PlainText" => String.t() | atom()
-      }
-
-  """
-  @type decrypt_data_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      re_encrypt_data_input() :: %{
-        optional("IncomingWrappedKey") => wrapped_key(),
-        optional("OutgoingWrappedKey") => wrapped_key(),
-        required("CipherText") => String.t() | atom(),
-        required("IncomingEncryptionAttributes") => list(),
-        required("OutgoingEncryptionAttributes") => list(),
-        required("OutgoingKeyIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type re_encrypt_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      generate_card_validation_data_output() :: %{
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom(),
-        "ValidationData" => String.t() | atom()
-      }
-
-  """
-  @type generate_card_validation_data_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kek_validation_request() :: %{
-        "DeriveKeyAlgorithm" => list(any()),
-        "RandomKeyMaxLength" => list(any())
-      }
-
-  """
-  @type kek_validation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      re_encrypt_data_output() :: %{
-        "CipherText" => String.t() | atom(),
+      verify_card_validation_data_output() :: %{
         "KeyArn" => String.t() | atom(),
         "KeyCheckValue" => String.t() | atom()
       }
 
   """
-  @type re_encrypt_data_output() :: %{(String.t() | atom()) => any()}
+  @type verify_card_validation_data_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      generate_pin_data_output() :: %{
-        "EncryptedPinBlock" => String.t() | atom(),
-        "EncryptionKeyArn" => String.t() | atom(),
-        "EncryptionKeyCheckValue" => String.t() | atom(),
-        "GenerationKeyArn" => String.t() | atom(),
-        "GenerationKeyCheckValue" => String.t() | atom(),
-        "PinData" => list()
+      ibm3624_natural_pin() :: %{
+        "DecimalizationTable" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type generate_pin_data_output() :: %{(String.t() | atom()) => any()}
+  @type ibm3624_natural_pin() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      card_verification_value1() :: %{
-        "CardExpiryDate" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
+      mac_algorithm_dukpt() :: %{
+        "DukptDerivationType" => list(any()),
+        "DukptKeyVariant" => list(any()),
+        "KeySerialNumber" => String.t() | atom()
       }
 
   """
-  @type card_verification_value1() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      decrypt_data_input() :: %{
-        optional("WrappedKey") => wrapped_key(),
-        required("CipherText") => String.t() | atom(),
-        required("DecryptionAttributes") => list()
-      }
-
-  """
-  @type decrypt_data_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      translate_key_material_output() :: %{
-        "WrappedKey" => wrapped_working_key()
-      }
-
-  """
-  @type translate_key_material_output() :: %{(String.t() | atom()) => any()}
+  @type mac_algorithm_dukpt() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -972,39 +390,102 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      verify_auth_request_cryptogram_input() :: %{
-        optional("AuthResponseAttributes") => list(),
-        required("AuthRequestCryptogram") => String.t() | atom(),
-        required("KeyIdentifier") => String.t() | atom(),
-        required("MajorKeyDerivationMode") => list(any()),
-        required("SessionKeyDerivationAttributes") => list(),
-        required("TransactionData") => String.t() | atom()
+      card_verification_value1() :: %{
+        "CardExpiryDate" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type verify_auth_request_cryptogram_input() :: %{(String.t() | atom()) => any()}
+  @type card_verification_value1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
+      visa_pin_verification_value() :: %{
+        "EncryptedPinBlock" => String.t() | atom(),
+        "PinVerificationKeyIndex" => integer()
+      }
+
+  """
+  @type visa_pin_verification_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mac_algorithm_emv() :: %{
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom(),
+        "SessionKeyDerivationMode" => list(any()),
+        "SessionKeyDerivationValue" => list()
+      }
+
+  """
+  @type mac_algorithm_emv() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dynamic_card_verification_value() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "CardExpiryDate" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+
+  """
+  @type dynamic_card_verification_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      outgoing_tr31_key_block() :: %{
+        "WrappingKeyIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type outgoing_tr31_key_block() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
         "Message" => [String.t() | atom()]
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      kek_validation_response() :: %{
-        "RandomKeySend" => String.t() | atom()
+      wrapped_working_key() :: %{
+        "KeyCheckValue" => String.t() | atom(),
+        "WrappedKeyMaterial" => String.t() | atom(),
+        "WrappedKeyMaterialFormat" => String.t() | atom()
       }
 
   """
-  @type kek_validation_response() :: %{(String.t() | atom()) => any()}
+  @type wrapped_working_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_auth_request_cryptogram_output() :: %{
+        "AuthRequestCryptogram" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
+      }
+
+  """
+  @type generate_auth_request_cryptogram_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1024,53 +505,85 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      visa_amex_derivation_outputs() :: %{
-        "AuthorizationRequestKeyArn" => String.t() | atom(),
-        "AuthorizationRequestKeyCheckValue" => String.t() | atom(),
-        "CurrentPinPekArn" => String.t() | atom(),
-        "CurrentPinPekKeyCheckValue" => String.t() | atom()
+      wrapped_key() :: %{
+        "KeyCheckValueAlgorithm" => String.t() | atom(),
+        "WrappedKeyMaterial" => list()
       }
 
   """
-  @type visa_amex_derivation_outputs() :: %{(String.t() | atom()) => any()}
+  @type wrapped_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ibm3624_random_pin() :: %{
+      resource_not_found_exception() :: %{
+        "ResourceId" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ibm3624_pin_offset() :: %{
         "DecimalizationTable" => String.t() | atom(),
+        "EncryptedPinBlock" => String.t() | atom(),
         "PinValidationData" => String.t() | atom(),
         "PinValidationDataPadCharacter" => String.t() | atom()
       }
 
   """
-  @type ibm3624_random_pin() :: %{(String.t() | atom()) => any()}
+  @type ibm3624_pin_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      translate_pin_data_output() :: %{
-        "KeyArn" => String.t() | atom(),
-        "KeyCheckValue" => String.t() | atom(),
-        "PinBlock" => String.t() | atom()
+      decrypt_data_input() :: %{
+        optional("WrappedKey") => wrapped_key(),
+        required("CipherText") => String.t() | atom(),
+        required("DecryptionAttributes") => list()
       }
 
   """
-  @type translate_pin_data_output() :: %{(String.t() | atom()) => any()}
+  @type decrypt_data_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_key_visa() :: %{
-        "PanSequenceNumber" => String.t() | atom(),
+      current_pin_attributes() :: %{
+        "CurrentEncryptedPinBlock" => String.t() | atom(),
+        "CurrentPinPekIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type current_pin_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asymmetric_encryption_attributes() :: %{
+        "PaddingType" => list(any())
+      }
+
+  """
+  @type asymmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translation_pin_data_iso_format034() :: %{
         "PrimaryAccountNumber" => String.t() | atom()
       }
 
   """
-  @type session_key_visa() :: %{(String.t() | atom()) => any()}
+  @type translation_pin_data_iso_format034() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1090,15 +603,127 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      ibm3624_pin_from_offset() :: %{
-        "DecimalizationTable" => String.t() | atom(),
-        "PinOffset" => String.t() | atom(),
-        "PinValidationData" => String.t() | atom(),
-        "PinValidationDataPadCharacter" => String.t() | atom()
+      generate_card_validation_data_output() :: %{
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "ValidationData" => String.t() | atom()
       }
 
   """
-  @type ibm3624_pin_from_offset() :: %{(String.t() | atom()) => any()}
+  @type generate_card_validation_data_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_auth_request_cryptogram_input() :: %{
+        required("KeyIdentifier") => String.t() | atom(),
+        required("MajorKeyDerivationMode") => list(any()),
+        required("SessionKeyDerivationAttributes") => list(),
+        required("TransactionData") => String.t() | atom()
+      }
+
+  """
+  @type generate_auth_request_cryptogram_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translate_key_material_output() :: %{
+        "WrappedKey" => wrapped_working_key()
+      }
+
+  """
+  @type translate_key_material_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_auth_request_cryptogram_output() :: %{
+        "AuthResponseValue" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
+      }
+
+  """
+  @type verify_auth_request_cryptogram_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      card_holder_verification_value() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "PanSequenceNumber" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
+      }
+
+  """
+  @type card_holder_verification_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cryptogram_verification_arpc_method2() :: %{
+        "CardStatusUpdate" => String.t() | atom(),
+        "ProprietaryAuthenticationData" => String.t() | atom()
+      }
+
+  """
+  @type cryptogram_verification_arpc_method2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      symmetric_encryption_attributes() :: %{
+        "InitializationVector" => String.t() | atom(),
+        "Mode" => list(any()),
+        "PaddingType" => list(any())
+      }
+
+  """
+  @type symmetric_encryption_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "message" => [String.t() | atom()],
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      re_encrypt_data_output() :: %{
+        "CipherText" => String.t() | atom(),
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
+      }
+
+  """
+  @type re_encrypt_data_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      as2805_pek_derivation_attributes() :: %{
+        "SystemTraceAuditNumber" => String.t() | atom(),
+        "TransactionAmount" => String.t() | atom()
+      }
+
+  """
+  @type as2805_pek_derivation_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1131,6 +756,46 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
+      session_key_amex() :: %{
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type session_key_amex() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visa_pin_verification() :: %{
+        "PinVerificationKeyIndex" => integer(),
+        "VerificationValue" => String.t() | atom()
+      }
+
+  """
+  @type visa_pin_verification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visa_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
+        "CurrentPinAttributes" => current_pin_attributes(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type visa_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       generate_mac_output() :: %{
         "KeyArn" => String.t() | atom(),
         "KeyCheckValue" => String.t() | atom(),
@@ -1139,6 +804,102 @@ defmodule AWS.PaymentCryptographyData do
 
   """
   @type generate_mac_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translate_pin_data_input() :: %{
+        optional("IncomingAs2805Attributes") => as2805_pek_derivation_attributes(),
+        optional("IncomingDukptAttributes") => dukpt_derivation_attributes(),
+        optional("IncomingWrappedKey") => wrapped_key(),
+        optional("OutgoingDukptAttributes") => dukpt_derivation_attributes(),
+        optional("OutgoingWrappedKey") => wrapped_key(),
+        required("EncryptedPinBlock") => String.t() | atom(),
+        required("IncomingKeyIdentifier") => String.t() | atom(),
+        required("IncomingTranslationAttributes") => list(),
+        required("OutgoingKeyIdentifier") => String.t() | atom(),
+        required("OutgoingTranslationAttributes") => list()
+      }
+
+  """
+  @type translate_pin_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      translate_key_material_input() :: %{
+        optional("KeyCheckValueAlgorithm") => String.t() | atom(),
+        required("IncomingKeyMaterial") => list(),
+        required("OutgoingKeyMaterial") => list()
+      }
+
+  """
+  @type translate_key_material_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dukpt_attributes() :: %{
+        "DukptDerivationType" => list(any()),
+        "KeySerialNumber" => String.t() | atom()
+      }
+
+  """
+  @type dukpt_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_as2805_kek_validation_input() :: %{
+        required("KekValidationType") => list(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("RandomKeySendVariantMask") => list(any())
+      }
+
+  """
+  @type generate_as2805_kek_validation_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      card_verification_value2() :: %{
+        "CardExpiryDate" => String.t() | atom()
+      }
+
+  """
+  @type card_verification_value2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      discover_dynamic_card_verification_code() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "CardExpiryDate" => String.t() | atom(),
+        "UnpredictableNumber" => String.t() | atom()
+      }
+
+  """
+  @type discover_dynamic_card_verification_code() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ibm3624_pin_from_offset() :: %{
+        "DecimalizationTable" => String.t() | atom(),
+        "PinOffset" => String.t() | atom(),
+        "PinValidationData" => String.t() | atom(),
+        "PinValidationDataPadCharacter" => String.t() | atom()
+      }
+
+  """
+  @type ibm3624_pin_from_offset() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1157,125 +918,364 @@ defmodule AWS.PaymentCryptographyData do
 
   ## Example:
 
-      dukpt_encryption_attributes() :: %{
-        "DukptKeyDerivationType" => list(any()),
-        "DukptKeyVariant" => list(any()),
-        "InitializationVector" => String.t() | atom(),
-        "KeySerialNumber" => String.t() | atom(),
-        "Mode" => list(any())
+      kek_validation_response() :: %{
+        "RandomKeySend" => String.t() | atom()
       }
 
   """
-  @type dukpt_encryption_attributes() :: %{(String.t() | atom()) => any()}
+  @type kek_validation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      master_card_attributes() :: %{
+        "ApplicationCryptogram" => String.t() | atom(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type master_card_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_auth_request_cryptogram_input() :: %{
+        optional("AuthResponseAttributes") => list(),
+        required("AuthRequestCryptogram") => String.t() | atom(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("MajorKeyDerivationMode") => list(any()),
+        required("SessionKeyDerivationAttributes") => list(),
+        required("TransactionData") => String.t() | atom()
+      }
+
+  """
+  @type verify_auth_request_cryptogram_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_mac_emv_pin_change_input() :: %{
+        required("DerivationMethodAttributes") => list(),
+        required("MessageData") => String.t() | atom(),
+        required("NewEncryptedPinBlock") => String.t() | atom(),
+        required("NewPinPekIdentifier") => String.t() | atom(),
+        required("PinBlockFormat") => list(any()),
+        required("SecureMessagingConfidentialityKeyIdentifier") => String.t() | atom(),
+        required("SecureMessagingIntegrityKeyIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type generate_mac_emv_pin_change_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kek_validation_request() :: %{
+        "DeriveKeyAlgorithm" => list(any()),
+        "RandomKeyMaxLength" => list(any())
+      }
+
+  """
+  @type kek_validation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      visa_pin() :: %{
+        "PinVerificationKeyIndex" => integer()
+      }
+
+  """
+  @type visa_pin() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_mac_input() :: %{
+        optional("MacLength") => integer(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("Mac") => String.t() | atom(),
+        required("MessageData") => String.t() | atom(),
+        required("VerificationAttributes") => list()
+      }
+
+  """
+  @type verify_mac_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      encrypt_data_input() :: %{
+        optional("WrappedKey") => wrapped_key(),
+        required("EncryptionAttributes") => list(),
+        required("PlainText") => String.t() | atom()
+      }
+
+  """
+  @type encrypt_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_pin_data_input() :: %{
+        optional("DukptAttributes") => dukpt_attributes(),
+        optional("EncryptionWrappedKey") => wrapped_key(),
+        optional("PinDataLength") => integer(),
+        optional("PrimaryAccountNumber") => String.t() | atom(),
+        required("EncryptedPinBlock") => String.t() | atom(),
+        required("EncryptionKeyIdentifier") => String.t() | atom(),
+        required("PinBlockFormat") => list(any()),
+        required("VerificationAttributes") => list(),
+        required("VerificationKeyIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type verify_pin_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_mac_output() :: %{
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom()
+      }
+
+  """
+  @type verify_mac_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amex_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "AuthorizationRequestKeyIdentifier" => String.t() | atom(),
+        "CurrentPinAttributes" => current_pin_attributes(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type amex_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      session_key_visa() :: %{
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type session_key_visa() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_mac_input() :: %{
+        optional("MacLength") => integer(),
+        required("GenerationAttributes") => list(),
+        required("KeyIdentifier") => String.t() | atom(),
+        required("MessageData") => String.t() | atom()
+      }
+
+  """
+  @type generate_mac_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      emv2000_attributes() :: %{
+        "ApplicationTransactionCounter" => String.t() | atom(),
+        "MajorKeyDerivationMode" => list(any()),
+        "PanSequenceNumber" => String.t() | atom(),
+        "PrimaryAccountNumber" => String.t() | atom()
+      }
+
+  """
+  @type emv2000_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      decrypt_data_output() :: %{
+        "KeyArn" => String.t() | atom(),
+        "KeyCheckValue" => String.t() | atom(),
+        "PlainText" => String.t() | atom()
+      }
+
+  """
+  @type decrypt_data_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amex_card_security_code_version2() :: %{
+        "CardExpiryDate" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+
+  """
+  @type amex_card_security_code_version2() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      generate_pin_data_input() :: %{
+        optional("EncryptionWrappedKey") => wrapped_key(),
+        optional("PinDataLength") => integer(),
+        optional("PrimaryAccountNumber") => String.t() | atom(),
+        required("EncryptionKeyIdentifier") => String.t() | atom(),
+        required("GenerationAttributes") => list(),
+        required("GenerationKeyIdentifier") => String.t() | atom(),
+        required("PinBlockFormat") => list(any())
+      }
+
+  """
+  @type generate_pin_data_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ecdh_derivation_attributes() :: %{
+        "CertificateAuthorityPublicKeyIdentifier" => String.t() | atom(),
+        "KeyAlgorithm" => list(any()),
+        "KeyDerivationFunction" => list(any()),
+        "KeyDerivationHashAlgorithm" => list(any()),
+        "PublicKeyCertificate" => String.t() | atom(),
+        "SharedInformation" => String.t() | atom()
+      }
+
+  """
+  @type ecdh_derivation_attributes() :: %{(String.t() | atom()) => any()}
 
   @type decrypt_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type encrypt_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_as2805_kek_validation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_auth_request_cryptogram_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_card_validation_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_mac_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_mac_emv_pin_change_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type generate_pin_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type re_encrypt_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type translate_key_material_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type translate_pin_data_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type verify_auth_request_cryptogram_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | verification_failed_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | verification_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type verify_card_validation_data_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | verification_failed_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | verification_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type verify_mac_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | verification_failed_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | verification_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type verify_pin_data_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | verification_failed_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | verification_failed_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

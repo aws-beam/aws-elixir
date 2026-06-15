@@ -35,96 +35,16 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      anomaly_source_metadata() :: %{
-        "Source" => String.t() | atom(),
-        "SourceResourceName" => String.t() | atom(),
-        "SourceResourceType" => String.t() | atom()
+      search_insights_request() :: %{
+        optional("Filters") => search_insights_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("StartTimeRange") => start_time_range(),
+        required("Type") => list(any())
       }
 
   """
-  @type anomaly_source_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_integration_config() :: %{
-        "KMSServerSideEncryption" => kms_server_side_encryption_integration(),
-        "LogsAnomalyDetection" => logs_anomaly_detection_integration(),
-        "OpsCenter" => ops_center_integration()
-      }
-
-  """
-  @type service_integration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_collection_response() :: %{}
-
-  """
-  @type update_resource_collection_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_insights_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProactiveInsights" => list(proactive_organization_insight_summary()),
-        "ReactiveInsights" => list(reactive_organization_insight_summary())
-      }
-
-  """
-  @type list_organization_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_stat() :: %{
-        "Type" => String.t() | atom(),
-        "Value" => float()
-      }
-
-  """
-  @type performance_insights_stat() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      anomaly_time_range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type anomaly_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_feedback_request() :: %{
-        optional("InsightFeedback") => insight_feedback()
-      }
-
-  """
-  @type put_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_insight_health() :: %{
-        "OpenProactiveInsights" => integer(),
-        "OpenReactiveInsights" => integer()
-      }
-
-  """
-  @type service_insight_health() :: %{(String.t() | atom()) => any()}
+  @type search_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -142,206 +62,12 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      list_insights_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("StatusFilter") => list_insights_status_filter()
+      logs_anomaly_detection_integration() :: %{
+        "OptInStatus" => list(any())
       }
 
   """
-  @type list_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_response() :: %{
-        "ProactiveInsight" => proactive_insight(),
-        "ReactiveInsight" => reactive_insight()
-      }
-
-  """
-  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_metric_dimension_group() :: %{
-        "Dimensions" => list(String.t() | atom()),
-        "Group" => String.t() | atom(),
-        "Limit" => integer()
-      }
-
-  """
-  @type performance_insights_metric_dimension_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_notification_channel_request() :: %{
-        required("Config") => notification_channel_config()
-      }
-
-  """
-  @type add_notification_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_anomalies_for_insight_filters() :: %{
-        "ServiceCollection" => service_collection()
-      }
-
-  """
-  @type list_anomalies_for_insight_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_reference_scalar() :: %{
-        "Value" => float()
-      }
-
-  """
-  @type performance_insights_reference_scalar() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_overview_request() :: %{
-        optional("AccountIds") => list(String.t() | atom()),
-        optional("OrganizationalUnitIds") => list(String.t() | atom()),
-        optional("ToTime") => non_neg_integer(),
-        required("FromTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_organization_overview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_insight_health() :: %{
-        "OpenProactiveInsights" => integer(),
-        "OpenReactiveInsights" => integer()
-      }
-
-  """
-  @type account_insight_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_related_event() :: %{
-        "Name" => String.t() | atom(),
-        "Resources" => list(recommendation_related_event_resource())
-      }
-
-  """
-  @type recommendation_related_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reactive_insight() :: %{
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | atom(),
-        "ResourceCollection" => resource_collection(),
-        "Severity" => list(any()),
-        "SsmOpsItemId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type reactive_insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proactive_organization_insight_summary() :: %{
-        "AccountId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | atom(),
-        "OrganizationalUnitId" => String.t() | atom(),
-        "PredictionTimeRange" => prediction_time_range(),
-        "ResourceCollection" => resource_collection(),
-        "ServiceCollection" => service_collection(),
-        "Severity" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type proactive_organization_insight_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_collection_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ResourceCollection" => resource_collection_filter()
-      }
-
-  """
-  @type get_resource_collection_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_related_cloud_watch_metrics_source_detail() :: %{
-        "MetricName" => String.t() | atom(),
-        "Namespace" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_related_cloud_watch_metrics_source_detail() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_sources_config_response() :: %{}
-
-  """
-  @type update_event_sources_config_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_related_anomaly_source_detail() :: %{
-        "CloudWatchMetrics" => list(recommendation_related_cloud_watch_metrics_source_detail())
-      }
-
-  """
-  @type recommendation_related_anomaly_source_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_overview_request() :: %{
-        optional("ToTime") => non_neg_integer(),
-        required("FromTime") => non_neg_integer()
-      }
-
-  """
-  @type describe_account_overview_request() :: %{(String.t() | atom()) => any()}
+  @type logs_anomaly_detection_integration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -371,171 +97,14 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      remove_notification_channel_request() :: %{}
-
-  """
-  @type remove_notification_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProactiveInsights" => list(proactive_insight_summary()),
-        "ReactiveInsights" => list(reactive_insight_summary())
+      update_service_integration_config() :: %{
+        "KMSServerSideEncryption" => kms_server_side_encryption_integration_config(),
+        "LogsAnomalyDetection" => logs_anomaly_detection_integration_config(),
+        "OpsCenter" => ops_center_integration_config()
       }
 
   """
-  @type list_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_health() :: %{
-        "AnalyzedResourceCount" => float(),
-        "Insight" => service_insight_health(),
-        "ServiceName" => list(any())
-      }
-
-  """
-  @type service_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      kms_server_side_encryption_integration() :: %{
-        "KMSKeyId" => String.t() | atom(),
-        "OptInStatus" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type kms_server_side_encryption_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitored_resources_request() :: %{
-        optional("Filters") => list_monitored_resources_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_monitored_resources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      proactive_insight() :: %{
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | atom(),
-        "PredictionTimeRange" => prediction_time_range(),
-        "ResourceCollection" => resource_collection(),
-        "Severity" => list(any()),
-        "SsmOpsItemId" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type proactive_insight() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cost_estimation_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_cost_estimation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      anomalous_log_group() :: %{
-        "ImpactEndTime" => non_neg_integer(),
-        "ImpactStartTime" => non_neg_integer(),
-        "LogAnomalyShowcases" => list(log_anomaly_showcase()),
-        "LogGroupName" => String.t() | atom(),
-        "NumberOfLogLinesScanned" => integer()
-      }
-
-  """
-  @type anomalous_log_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_feedback_response() :: %{}
-
-  """
-  @type put_feedback_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      proactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | atom(),
-        "PredictionTimeRange" => prediction_time_range(),
-        "ResourceCollection" => resource_collection(),
-        "ServiceCollection" => service_collection(),
-        "Severity" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type proactive_insight_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_anomaly_response() :: %{
-        "ProactiveAnomaly" => proactive_anomaly(),
-        "ReactiveAnomaly" => reactive_anomaly()
-      }
-
-  """
-  @type describe_anomaly_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_collection_filter() :: %{
-        "CloudFormation" => update_cloud_formation_collection_filter(),
-        "Tags" => list(update_tag_collection_filter())
-      }
-
-  """
-  @type update_resource_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cost_estimation_time_range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type cost_estimation_time_range() :: %{(String.t() | atom()) => any()}
+  @type update_service_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -557,163 +126,12 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      kms_server_side_encryption_integration_config() :: %{
-        "KMSKeyId" => String.t() | atom(),
-        "OptInStatus" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type kms_server_side_encryption_integration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_organization_insights_filters() :: %{
-        "ResourceCollection" => resource_collection(),
-        "ServiceCollection" => service_collection(),
-        "Severities" => list(list(any())()),
-        "Statuses" => list(list(any())())
-      }
-
-  """
-  @type search_organization_insights_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_reference_metric() :: %{
-        "MetricQuery" => performance_insights_metric_query()
-      }
-
-  """
-  @type performance_insights_reference_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_insights_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProactiveInsights" => list(proactive_insight_summary()),
-        "ReactiveInsights" => list(reactive_insight_summary())
-      }
-
-  """
-  @type search_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ops_center_integration_config() :: %{
-        "OptInStatus" => list(any())
-      }
-
-  """
-  @type ops_center_integration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_metrics_data_summary() :: %{
-        "StatusCode" => list(any()),
-        "TimestampMetricValuePairList" => list(timestamp_metric_value_pair())
-      }
-
-  """
-  @type cloud_watch_metrics_data_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_tag_collection_filter() :: %{
-        "AppBoundaryKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type update_tag_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_events_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Filters") => list_events_filters()
-      }
-
-  """
-  @type list_events_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_channel() :: %{
-        "Config" => notification_channel_config(),
+      add_notification_channel_response() :: %{
         "Id" => String.t() | atom()
       }
 
   """
-  @type notification_channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_integration_request() :: %{
-        required("ServiceIntegration") => update_service_integration_config()
-      }
-
-  """
-  @type update_service_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_collection() :: %{
-        "AppBoundaryKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type tag_collection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cost_estimation_response() :: %{
-        "Costs" => list(service_resource_cost()),
-        "NextToken" => String.t() | atom(),
-        "ResourceCollection" => cost_estimation_resource_collection_filter(),
-        "Status" => list(any()),
-        "TimeRange" => cost_estimation_time_range(),
-        "TotalCost" => float()
-      }
-
-  """
-  @type get_cost_estimation_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_ongoing_status_filter() :: %{
-        "Type" => list(any())
-      }
-
-  """
-  @type list_insights_ongoing_status_filter() :: %{(String.t() | atom()) => any()}
+  @type add_notification_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -731,14 +149,40 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      cloud_formation_health() :: %{
-        "AnalyzedResourceCount" => float(),
-        "Insight" => insight_health(),
-        "StackName" => String.t() | atom()
+      anomaly_source_metadata() :: %{
+        "Source" => String.t() | atom(),
+        "SourceResourceName" => String.t() | atom(),
+        "SourceResourceType" => String.t() | atom()
       }
 
   """
-  @type cloud_formation_health() :: %{(String.t() | atom()) => any()}
+  @type anomaly_source_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomalies_for_insight_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("Filters") => list_anomalies_for_insight_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTimeRange") => start_time_range()
+      }
+
+  """
+  @type list_anomalies_for_insight_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_formation_collection_filter() :: %{
+        "StackNames" => list(String.t() | atom())
+      }
+
+  """
+  @type cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -763,197 +207,110 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      amazon_code_guru_profiler_integration() :: %{
-        "Status" => list(any())
+      service_resource_cost() :: %{
+        "Cost" => float(),
+        "Count" => integer(),
+        "State" => list(any()),
+        "Type" => String.t() | atom(),
+        "UnitCost" => float()
       }
 
   """
-  @type amazon_code_guru_profiler_integration() :: %{(String.t() | atom()) => any()}
+  @type service_resource_cost() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+      list_insights_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("StatusFilter") => list_insights_status_filter()
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type list_insights_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
+      describe_resource_collection_health_request() :: %{
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type describe_resource_collection_health_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_notification_channel_response() :: %{}
-
-  """
-  @type remove_notification_channel_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_channels_response() :: %{
-        "Channels" => list(notification_channel()),
-        "NextToken" => String.t() | atom()
+      account_health() :: %{
+        "AccountId" => String.t() | atom(),
+        "Insight" => account_insight_health()
       }
 
   """
-  @type list_notification_channels_response() :: %{(String.t() | atom()) => any()}
+  @type account_health() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reactive_insight_summary() :: %{
-        "AssociatedResourceArns" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "InsightTimeRange" => insight_time_range(),
-        "Name" => String.t() | atom(),
-        "ResourceCollection" => resource_collection(),
-        "ServiceCollection" => service_collection(),
-        "Severity" => list(any()),
-        "Status" => list(any())
+      service_integration_config() :: %{
+        "KMSServerSideEncryption" => kms_server_side_encryption_integration(),
+        "LogsAnomalyDetection" => logs_anomaly_detection_integration(),
+        "OpsCenter" => ops_center_integration()
       }
 
   """
-  @type reactive_insight_summary() :: %{(String.t() | atom()) => any()}
+  @type service_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_sources_config() :: %{
-        "AmazonCodeGuruProfiler" => amazon_code_guru_profiler_integration()
+      describe_insight_response() :: %{
+        "ProactiveInsight" => proactive_insight(),
+        "ReactiveInsight" => reactive_insight()
       }
 
   """
-  @type event_sources_config() :: %{(String.t() | atom()) => any()}
+  @type describe_insight_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cloud_formation_cost_estimation_resource_collection_filter() :: %{
-        "StackNames" => list(String.t() | atom())
+      event_time_range() :: %{
+        "FromTime" => non_neg_integer(),
+        "ToTime" => non_neg_integer()
       }
 
   """
-  @type cloud_formation_cost_estimation_resource_collection_filter() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type event_time_range() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      prediction_time_range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
+      delete_insight_request() :: %{}
+
+  """
+  @type delete_insight_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_response() :: %{
+        "ProactiveAnomaly" => proactive_anomaly(),
+        "ReactiveAnomaly" => reactive_anomaly()
       }
 
   """
-  @type prediction_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_service_integration_request() :: %{}
-
-  """
-  @type describe_service_integration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      log_anomaly_showcase() :: %{
-        "LogAnomalyClasses" => list(log_anomaly_class())
-      }
-
-  """
-  @type log_anomaly_showcase() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_collection() :: %{
-        "ServiceNames" => list(list(any())())
-      }
-
-  """
-  @type service_collection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_notification_channel_response() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type add_notification_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_resource_collection_health_response() :: %{
-        "CloudFormation" => list(cloud_formation_health()),
-        "NextToken" => String.t() | atom(),
-        "Service" => list(service_health()),
-        "Tags" => list(tag_health())
-      }
-
-  """
-  @type describe_resource_collection_health_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "Category" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Link" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Reason" => String.t() | atom(),
-        "RelatedAnomalies" => list(recommendation_related_anomaly()),
-        "RelatedEvents" => list(recommendation_related_event())
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
+  @type describe_anomaly_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -982,189 +339,93 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      search_organization_insights_request() :: %{
-        optional("Filters") => search_organization_insights_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AccountIds") => list(String.t() | atom()),
-        required("StartTimeRange") => start_time_range(),
-        required("Type") => list(any())
-      }
-
-  """
-  @type search_organization_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cloud_formation_collection_filter() :: %{
-        "StackNames" => list(String.t() | atom())
-      }
-
-  """
-  @type update_cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_reference_comparison_values() :: %{
-        "ReferenceMetric" => performance_insights_reference_metric(),
-        "ReferenceScalar" => performance_insights_reference_scalar()
-      }
-
-  """
-  @type performance_insights_reference_comparison_values() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_health_response() :: %{
-        "AnalyzedResourceCount" => float(),
-        "MetricsAnalyzed" => integer(),
-        "OpenProactiveInsights" => integer(),
-        "OpenReactiveInsights" => integer(),
-        "ResourceHours" => float()
-      }
-
-  """
-  @type describe_account_health_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      anomaly_source_details() :: %{
-        "CloudWatchMetrics" => list(cloud_watch_metrics_detail()),
-        "PerformanceInsightsMetrics" => list(performance_insights_metrics_detail())
-      }
-
-  """
-  @type anomaly_source_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timestamp_metric_value_pair() :: %{
-        "MetricValue" => float(),
-        "Timestamp" => non_neg_integer()
-      }
-
-  """
-  @type timestamp_metric_value_pair() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_insight_request() :: %{
-        optional("AccountId") => String.t() | atom()
-      }
-
-  """
-  @type describe_insight_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitored_resources_response() :: %{
-        "MonitoredResourceIdentifiers" => list(monitored_resource_identifier()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_monitored_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_insights_request() :: %{
-        optional("Filters") => search_insights_filters(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("StartTimeRange") => start_time_range(),
-        required("Type") => list(any())
-      }
-
-  """
-  @type search_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_collection_filter() :: %{
-        "AppBoundaryKey" => String.t() | atom(),
-        "TagValues" => list(String.t() | atom())
-      }
-
-  """
-  @type tag_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
+      throttling_exception() :: %{
         "Message" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "QuotaCode" => String.t() | atom(),
+        "RetryAfterSeconds" => integer(),
+        "ServiceCode" => String.t() | atom()
       }
 
   """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      performance_insights_reference_data() :: %{
-        "ComparisonValues" => performance_insights_reference_comparison_values(),
-        "Name" => String.t() | atom()
+      ops_center_integration_config() :: %{
+        "OptInStatus" => list(any())
       }
 
   """
-  @type performance_insights_reference_data() :: %{(String.t() | atom()) => any()}
+  @type ops_center_integration_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_account_overview_response() :: %{
-        "MeanTimeToRecoverInMilliseconds" => float(),
-        "ProactiveInsights" => integer(),
-        "ReactiveInsights" => integer()
-      }
-
-  """
-  @type describe_account_overview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reactive_anomaly_summary() :: %{
-        "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
-        "AnomalyResources" => list(anomaly_resource()),
-        "AnomalyTimeRange" => anomaly_time_range(),
-        "AssociatedInsightId" => String.t() | atom(),
-        "CausalAnomalyId" => String.t() | atom(),
+      proactive_insight() :: %{
         "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
+        "InsightTimeRange" => insight_time_range(),
         "Name" => String.t() | atom(),
+        "PredictionTimeRange" => prediction_time_range(),
         "ResourceCollection" => resource_collection(),
         "Severity" => list(any()),
-        "SourceDetails" => anomaly_source_details(),
-        "Status" => list(any()),
-        "Type" => list(any())
+        "SsmOpsItemId" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type reactive_anomaly_summary() :: %{(String.t() | atom()) => any()}
+  @type proactive_insight() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_insight_health() :: %{
+        "OpenProactiveInsights" => integer(),
+        "OpenReactiveInsights" => integer()
+      }
+
+  """
+  @type account_insight_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cost_estimation_resource_collection_filter() :: %{
+        "CloudFormation" => cloud_formation_cost_estimation_resource_collection_filter(),
+        "Tags" => list(tag_cost_estimation_resource_collection_filter())
+      }
+
+  """
+  @type cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_related_event() :: %{
+        "Name" => String.t() | atom(),
+        "Resources" => list(recommendation_related_event_resource())
+      }
+
+  """
+  @type recommendation_related_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_cost_estimation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("ResourceCollection") => cost_estimation_resource_collection_filter()
+      }
+
+  """
+  @type start_cost_estimation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,139 +445,120 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      describe_event_sources_config_response() :: %{
-        "EventSources" => event_sources_config()
+      performance_insights_metric_query() :: %{
+        "Filter" => map(),
+        "GroupBy" => performance_insights_metric_dimension_group(),
+        "Metric" => String.t() | atom()
       }
 
   """
-  @type describe_event_sources_config_response() :: %{(String.t() | atom()) => any()}
+  @type performance_insights_metric_query() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cloud_watch_metrics_detail() :: %{
-        "Dimensions" => list(cloud_watch_metrics_dimension()),
-        "MetricDataSummary" => cloud_watch_metrics_data_summary(),
-        "MetricName" => String.t() | atom(),
-        "Namespace" => String.t() | atom(),
-        "Period" => integer(),
-        "Stat" => list(any()),
+      update_service_integration_request() :: %{
+        required("ServiceIntegration") => update_service_integration_config()
+      }
+
+  """
+  @type update_service_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_overview_response() :: %{
+        "MeanTimeToRecoverInMilliseconds" => float(),
+        "ProactiveInsights" => integer(),
+        "ReactiveInsights" => integer()
+      }
+
+  """
+  @type describe_account_overview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_metrics_detail() :: %{
+        "MetricDisplayName" => String.t() | atom(),
+        "MetricQuery" => performance_insights_metric_query(),
+        "ReferenceData" => list(performance_insights_reference_data()),
+        "StatsAtAnomaly" => list(performance_insights_stat()),
+        "StatsAtBaseline" => list(performance_insights_stat()),
         "Unit" => String.t() | atom()
       }
 
   """
-  @type cloud_watch_metrics_detail() :: %{(String.t() | atom()) => any()}
+  @type performance_insights_metrics_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_organization_insights_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProactiveInsights" => list(proactive_insight_summary()),
-        "ReactiveInsights" => list(reactive_insight_summary())
-      }
-
-  """
-  @type search_organization_insights_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_formation_collection_filter() :: %{
+      cloud_formation_collection() :: %{
         "StackNames" => list(String.t() | atom())
       }
 
   """
-  @type cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
+  @type cloud_formation_collection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      recommendation_related_anomaly() :: %{
-        "AnomalyId" => String.t() | atom(),
-        "Resources" => list(recommendation_related_anomaly_resource()),
-        "SourceDetails" => list(recommendation_related_anomaly_source_detail())
+      reactive_insight() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "InsightTimeRange" => insight_time_range(),
+        "Name" => String.t() | atom(),
+        "ResourceCollection" => resource_collection(),
+        "Severity" => list(any()),
+        "SsmOpsItemId" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type recommendation_related_anomaly() :: %{(String.t() | atom()) => any()}
+  @type reactive_insight() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_cost_estimation_resource_collection_filter() :: %{
+      tag_collection_filter() :: %{
         "AppBoundaryKey" => String.t() | atom(),
         "TagValues" => list(String.t() | atom())
       }
 
   """
-  @type tag_cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
+  @type tag_collection_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_anomalous_log_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("InsightId") => String.t() | atom()
+      recommendation_related_cloud_watch_metrics_source_detail() :: %{
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom()
       }
 
   """
-  @type list_anomalous_log_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_events_response() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_closed_status_filter() :: %{
-        "EndTimeRange" => end_time_range(),
-        "Type" => list(any())
-      }
-
-  """
-  @type list_insights_closed_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      anomaly_resource() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type anomaly_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_related_anomaly_resource() :: %{
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type recommendation_related_anomaly_resource() :: %{(String.t() | atom()) => any()}
+  @type recommendation_related_cloud_watch_metrics_source_detail() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1339,658 +581,53 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
+      performance_insights_metric_dimension_group() :: %{
+        "Dimensions" => list(String.t() | atom()),
+        "Group" => String.t() | atom(),
+        "Limit" => integer()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type performance_insights_metric_dimension_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      insight_time_range() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
+      anomaly_source_details() :: %{
+        "CloudWatchMetrics" => list(cloud_watch_metrics_detail()),
+        "PerformanceInsightsMetrics" => list(performance_insights_metrics_detail())
       }
 
   """
-  @type insight_time_range() :: %{(String.t() | atom()) => any()}
+  @type anomaly_source_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      end_time_range() :: %{
-        "FromTime" => non_neg_integer(),
-        "ToTime" => non_neg_integer()
-      }
-
-  """
-  @type end_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_resource_collection_health_response() :: %{
-        "Account" => list(account_health()),
-        "CloudFormation" => list(cloud_formation_health()),
-        "NextToken" => String.t() | atom(),
-        "Service" => list(service_health()),
-        "Tags" => list(tag_health())
-      }
-
-  """
-  @type describe_organization_resource_collection_health_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      describe_event_sources_config_request() :: %{}
-
-  """
-  @type describe_event_sources_config_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_resource() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type event_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logs_anomaly_detection_integration() :: %{
-        "OptInStatus" => list(any())
-      }
-
-  """
-  @type logs_anomaly_detection_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_overview_response() :: %{
-        "ProactiveInsights" => integer(),
-        "ReactiveInsights" => integer()
-      }
-
-  """
-  @type describe_organization_overview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event() :: %{
-        "DataSource" => list(any()),
-        "EventClass" => list(any()),
-        "EventSource" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
+      monitored_resource_identifier() :: %{
+        "LastUpdated" => non_neg_integer(),
+        "MonitoredResourceName" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
-        "Resources" => list(event_resource()),
-        "Time" => non_neg_integer()
+        "ResourcePermission" => list(any()),
+        "Type" => String.t() | atom()
       }
 
   """
-  @type event() :: %{(String.t() | atom()) => any()}
+  @type monitored_resource_identifier() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      performance_insights_metric_query() :: %{
-        "Filter" => map(),
-        "GroupBy" => performance_insights_metric_dimension_group(),
-        "Metric" => String.t() | atom()
-      }
-
-  """
-  @type performance_insights_metric_query() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_collection_filter() :: %{
-        "CloudFormation" => cloud_formation_collection_filter(),
-        "Tags" => list(tag_collection_filter())
-      }
-
-  """
-  @type resource_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_resource_collection_health_request() :: %{
-        optional("AccountIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationalUnitIds") => list(String.t() | atom()),
-        required("OrganizationResourceCollectionType") => list(any())
-      }
-
-  """
-  @type describe_organization_resource_collection_health_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_anomalies_for_insight_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProactiveAnomalies" => list(proactive_anomaly_summary()),
-        "ReactiveAnomalies" => list(reactive_anomaly_summary())
-      }
-
-  """
-  @type list_anomalies_for_insight_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_health() :: %{
-        "AnalyzedResourceCount" => float(),
-        "AppBoundaryKey" => String.t() | atom(),
-        "Insight" => insight_health(),
-        "TagValue" => String.t() | atom()
-      }
-
-  """
-  @type tag_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cost_estimation_resource_collection_filter() :: %{
-        "CloudFormation" => cloud_formation_cost_estimation_resource_collection_filter(),
-        "Tags" => list(tag_cost_estimation_resource_collection_filter())
-      }
-
-  """
-  @type cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_health_request() :: %{}
-
-  """
-  @type describe_account_health_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_insight_response() :: %{}
-
-  """
-  @type delete_insight_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_collection_request() :: %{
-        required("Action") => list(any()),
-        required("ResourceCollection") => update_resource_collection_filter()
-      }
-
-  """
-  @type update_resource_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cost_estimation_response() :: %{}
-
-  """
-  @type start_cost_estimation_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notification_channels_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_notification_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_sources_config_request() :: %{
-        optional("EventSources") => event_sources_config()
-      }
-
-  """
-  @type update_event_sources_config_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_related_event_resource() :: %{
+      recommendation_related_anomaly_resource() :: %{
         "Name" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type recommendation_related_event_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_formation_collection() :: %{
-        "StackNames" => list(String.t() | atom())
-      }
-
-  """
-  @type cloud_formation_collection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => list(any())
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_insight_request() :: %{}
-
-  """
-  @type delete_insight_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_anomalous_log_groups_response() :: %{
-        "AnomalousLogGroups" => list(anomalous_log_group()),
-        "InsightId" => String.t() | atom(),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_anomalous_log_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sns_channel_config() :: %{
-        "TopicArn" => String.t() | atom()
-      }
-
-  """
-  @type sns_channel_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logs_anomaly_detection_integration_config() :: %{
-        "OptInStatus" => list(any())
-      }
-
-  """
-  @type logs_anomaly_detection_integration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_metrics_dimension() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_metrics_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_service_integration_response() :: %{
-        "ServiceIntegration" => service_integration_config()
-      }
-
-  """
-  @type describe_service_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_insights_metrics_detail() :: %{
-        "MetricDisplayName" => String.t() | atom(),
-        "MetricQuery" => performance_insights_metric_query(),
-        "ReferenceData" => list(performance_insights_reference_data()),
-        "StatsAtAnomaly" => list(performance_insights_stat()),
-        "StatsAtBaseline" => list(performance_insights_stat()),
-        "Unit" => String.t() | atom()
-      }
-
-  """
-  @type performance_insights_metrics_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "RetryAfterSeconds" => integer(),
-        "ServiceCode" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_feedback_response() :: %{
-        "InsightFeedback" => insight_feedback()
-      }
-
-  """
-  @type describe_feedback_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_cost_estimation_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("ResourceCollection") => cost_estimation_resource_collection_filter()
-      }
-
-  """
-  @type start_cost_estimation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_integration_response() :: %{}
-
-  """
-  @type update_service_integration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_collection_request() :: %{
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_resource_collection_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_health() :: %{
-        "MeanTimeToRecoverInMilliseconds" => float(),
-        "OpenProactiveInsights" => integer(),
-        "OpenReactiveInsights" => integer()
-      }
-
-  """
-  @type insight_health() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_anomaly_request() :: %{
-        optional("AccountId") => String.t() | atom()
-      }
-
-  """
-  @type describe_anomaly_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_service_integration_config() :: %{
-        "KMSServerSideEncryption" => kms_server_side_encryption_integration_config(),
-        "LogsAnomalyDetection" => logs_anomaly_detection_integration_config(),
-        "OpsCenter" => ops_center_integration_config()
-      }
-
-  """
-  @type update_service_integration_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_feedback_request() :: %{
-        optional("InsightId") => String.t() | atom()
-      }
-
-  """
-  @type describe_feedback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_time_range() :: %{
-        "FromTime" => non_neg_integer(),
-        "ToTime" => non_neg_integer()
-      }
-
-  """
-  @type start_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_channel_config() :: %{
-        "Filters" => notification_filter_config(),
-        "Sns" => sns_channel_config()
-      }
-
-  """
-  @type notification_channel_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_time_range() :: %{
-        "FromTime" => non_neg_integer(),
-        "ToTime" => non_neg_integer()
-      }
-
-  """
-  @type event_time_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_monitored_resources_filters() :: %{
-        "ResourcePermission" => list(any()),
-        "ResourceTypeFilters" => list(list(any())())
-      }
-
-  """
-  @type list_monitored_resources_filters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_organization_insights_request() :: %{
-        optional("AccountIds") => list(String.t() | atom()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OrganizationalUnitIds") => list(String.t() | atom()),
-        required("StatusFilter") => list_insights_status_filter()
-      }
-
-  """
-  @type list_organization_insights_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_filter_config() :: %{
-        "MessageTypes" => list(list(any())()),
-        "Severities" => list(list(any())())
-      }
-
-  """
-  @type notification_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_organization_health_response() :: %{
-        "MetricsAnalyzed" => integer(),
-        "OpenProactiveInsights" => integer(),
-        "OpenReactiveInsights" => integer(),
-        "ResourceHours" => float()
-      }
-
-  """
-  @type describe_organization_health_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommendations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recommendations" => list(recommendation())
-      }
-
-  """
-  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_insights_status_filter() :: %{
-        "Any" => list_insights_any_status_filter(),
-        "Closed" => list_insights_closed_status_filter(),
-        "Ongoing" => list_insights_ongoing_status_filter()
-      }
-
-  """
-  @type list_insights_status_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      insight_feedback() :: %{
-        "Feedback" => list(any()),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type insight_feedback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ops_center_integration() :: %{
-        "OptInStatus" => list(any())
-      }
-
-  """
-  @type ops_center_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_resource_cost() :: %{
-        "Cost" => float(),
-        "Count" => integer(),
-        "State" => list(any()),
-        "Type" => String.t() | atom(),
-        "UnitCost" => float()
-      }
-
-  """
-  @type service_resource_cost() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_collection() :: %{
-        "CloudFormation" => cloud_formation_collection(),
-        "Tags" => list(tag_collection())
-      }
-
-  """
-  @type resource_collection() :: %{(String.t() | atom()) => any()}
+  @type recommendation_related_anomaly_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,40 +657,504 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      list_anomalies_for_insight_request() :: %{
-        optional("AccountId") => String.t() | atom(),
-        optional("Filters") => list_anomalies_for_insight_filters(),
+      log_anomaly_showcase() :: %{
+        "LogAnomalyClasses" => list(log_anomaly_class())
+      }
+
+  """
+  @type log_anomaly_showcase() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_feedback_response() :: %{
+        "InsightFeedback" => insight_feedback()
+      }
+
+  """
+  @type describe_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_event_sources_config_response() :: %{
+        "EventSources" => event_sources_config()
+      }
+
+  """
+  @type describe_event_sources_config_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Fields" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "Reason" => list(any())
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_channel() :: %{
+        "Config" => notification_channel_config(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type notification_channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitored_resources_request() :: %{
+        optional("Filters") => list_monitored_resources_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_monitored_resources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proactive_insight_summary() :: %{
+        "AssociatedResourceArns" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "InsightTimeRange" => insight_time_range(),
+        "Name" => String.t() | atom(),
+        "PredictionTimeRange" => prediction_time_range(),
+        "ResourceCollection" => resource_collection(),
+        "ServiceCollection" => service_collection(),
+        "Severity" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type proactive_insight_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
+      }
+
+  """
+  @type list_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomalous_log_group() :: %{
+        "ImpactEndTime" => non_neg_integer(),
+        "ImpactStartTime" => non_neg_integer(),
+        "LogAnomalyShowcases" => list(log_anomaly_showcase()),
+        "LogGroupName" => String.t() | atom(),
+        "NumberOfLogLinesScanned" => integer()
+      }
+
+  """
+  @type anomalous_log_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_service_integration_response() :: %{}
+
+  """
+  @type update_service_integration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_channels_response() :: %{
+        "Channels" => list(notification_channel()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_notification_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_event_sources_config_request() :: %{}
+
+  """
+  @type describe_event_sources_config_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_insights_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
+      }
+
+  """
+  @type search_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cost_estimation_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_cost_estimation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_health_request() :: %{}
+
+  """
+  @type describe_account_health_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_collection_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_collection_filter() :: %{
+        "CloudFormation" => cloud_formation_collection_filter(),
+        "Tags" => list(tag_collection_filter())
+      }
+
+  """
+  @type resource_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_channel_config() :: %{
+        "Filters" => notification_filter_config(),
+        "Sns" => sns_channel_config()
+      }
+
+  """
+  @type notification_channel_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_ongoing_status_filter() :: %{
+        "Type" => list(any())
+      }
+
+  """
+  @type list_insights_ongoing_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_organization_insights_filters() :: %{
+        "ResourceCollection" => resource_collection(),
+        "ServiceCollection" => service_collection(),
+        "Severities" => list(list(any())()),
+        "Statuses" => list(list(any())())
+      }
+
+  """
+  @type search_organization_insights_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sns_channel_config() :: %{
+        "TopicArn" => String.t() | atom()
+      }
+
+  """
+  @type sns_channel_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type insight_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_organization_insights_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProactiveInsights" => list(proactive_insight_summary()),
+        "ReactiveInsights" => list(reactive_insight_summary())
+      }
+
+  """
+  @type search_organization_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_sources_config() :: %{
+        "AmazonCodeGuruProfiler" => amazon_code_guru_profiler_integration()
+      }
+
+  """
+  @type event_sources_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomalous_log_groups_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("StartTimeRange") => start_time_range()
+        required("InsightId") => String.t() | atom()
       }
 
   """
-  @type list_anomalies_for_insight_request() :: %{(String.t() | atom()) => any()}
+  @type list_anomalous_log_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      account_health() :: %{
-        "AccountId" => String.t() | atom(),
-        "Insight" => account_insight_health()
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
       }
 
   """
-  @type account_health() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_organization_health_request() :: %{
+      amazon_code_guru_profiler_integration() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type amazon_code_guru_profiler_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_formation_cost_estimation_resource_collection_filter() :: %{
+        "StackNames" => list(String.t() | atom())
+      }
+
+  """
+  @type cloud_formation_cost_estimation_resource_collection_filter() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      service_collection() :: %{
+        "ServiceNames" => list(list(any())())
+      }
+
+  """
+  @type service_collection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_resource_collection_health_request() :: %{
         optional("AccountIds") => list(String.t() | atom()),
-        optional("OrganizationalUnitIds") => list(String.t() | atom())
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
+        required("OrganizationResourceCollectionType") => list(any())
       }
 
   """
-  @type describe_organization_health_request() :: %{(String.t() | atom()) => any()}
+  @type describe_organization_resource_collection_health_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      start_cost_estimation_response() :: %{}
+
+  """
+  @type start_cost_estimation_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type anomaly_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reactive_anomaly_summary() :: %{
+        "AnomalyReportedTimeRange" => anomaly_reported_time_range(),
+        "AnomalyResources" => list(anomaly_resource()),
+        "AnomalyTimeRange" => anomaly_time_range(),
+        "AssociatedInsightId" => String.t() | atom(),
+        "CausalAnomalyId" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResourceCollection" => resource_collection(),
+        "Severity" => list(any()),
+        "SourceDetails" => anomaly_source_details(),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type reactive_anomaly_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_stat() :: %{
+        "Type" => String.t() | atom(),
+        "Value" => float()
+      }
+
+  """
+  @type performance_insights_stat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logs_anomaly_detection_integration_config() :: %{
+        "OptInStatus" => list(any())
+      }
+
+  """
+  @type logs_anomaly_detection_integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_sources_config_response() :: %{}
+
+  """
+  @type update_event_sources_config_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_feedback() :: %{
+        "Feedback" => list(any()),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type insight_feedback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_related_event_resource() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type recommendation_related_event_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_events_request() :: %{
+        optional("AccountId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Filters") => list_events_filters()
+      }
+
+  """
+  @type list_events_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feedback_request() :: %{
+        optional("InsightFeedback") => insight_feedback()
+      }
+
+  """
+  @type put_feedback_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2073,236 +1174,1135 @@ defmodule AWS.DevOpsGuru do
 
   ## Example:
 
-      describe_resource_collection_health_request() :: %{
-        optional("NextToken") => String.t() | atom()
+      list_insights_status_filter() :: %{
+        "Any" => list_insights_any_status_filter(),
+        "Closed" => list_insights_closed_status_filter(),
+        "Ongoing" => list_insights_ongoing_status_filter()
       }
 
   """
-  @type describe_resource_collection_health_request() :: %{(String.t() | atom()) => any()}
+  @type list_insights_status_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      monitored_resource_identifier() :: %{
-        "LastUpdated" => non_neg_integer(),
-        "MonitoredResourceName" => String.t() | atom(),
+      get_cost_estimation_response() :: %{
+        "Costs" => list(service_resource_cost()),
+        "NextToken" => String.t() | atom(),
+        "ResourceCollection" => cost_estimation_resource_collection_filter(),
+        "Status" => list(any()),
+        "TimeRange" => cost_estimation_time_range(),
+        "TotalCost" => float()
+      }
+
+  """
+  @type get_cost_estimation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_collection() :: %{
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type tag_collection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_insights_closed_status_filter() :: %{
+        "EndTimeRange" => end_time_range(),
+        "Type" => list(any())
+      }
+
+  """
+  @type list_insights_closed_status_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_overview_request() :: %{
+        optional("ToTime") => non_neg_integer(),
+        required("FromTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_account_overview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_metrics_dimension() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_metrics_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_reference_comparison_values() :: %{
+        "ReferenceMetric" => performance_insights_reference_metric(),
+        "ReferenceScalar" => performance_insights_reference_scalar()
+      }
+
+  """
+  @type performance_insights_reference_comparison_values() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_health_response() :: %{
+        "MetricsAnalyzed" => integer(),
+        "OpenProactiveInsights" => integer(),
+        "OpenReactiveInsights" => integer(),
+        "ResourceHours" => float()
+      }
+
+  """
+  @type describe_organization_health_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      insight_health() :: %{
+        "MeanTimeToRecoverInMilliseconds" => float(),
+        "OpenProactiveInsights" => integer(),
+        "OpenReactiveInsights" => integer()
+      }
+
+  """
+  @type insight_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_server_side_encryption_integration() :: %{
+        "KMSKeyId" => String.t() | atom(),
+        "OptInStatus" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type kms_server_side_encryption_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_tag_collection_filter() :: %{
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type update_tag_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommendations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommendations" => list(recommendation())
+      }
+
+  """
+  @type list_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reactive_insight_summary() :: %{
+        "AssociatedResourceArns" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "InsightTimeRange" => insight_time_range(),
+        "Name" => String.t() | atom(),
         "ResourceCollection" => resource_collection(),
-        "ResourcePermission" => list(any()),
+        "ServiceCollection" => service_collection(),
+        "Severity" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type reactive_insight_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_health() :: %{
+        "AnalyzedResourceCount" => float(),
+        "Insight" => service_insight_health(),
+        "ServiceName" => list(any())
+      }
+
+  """
+  @type service_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_reference_scalar() :: %{
+        "Value" => float()
+      }
+
+  """
+  @type performance_insights_reference_scalar() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_events_response() :: %{
+        "Events" => list(event()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_reference_metric() :: %{
+        "MetricQuery" => performance_insights_metric_query()
+      }
+
+  """
+  @type performance_insights_reference_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_feedback_request() :: %{
+        optional("InsightId") => String.t() | atom()
+      }
+
+  """
+  @type describe_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_health() :: %{
+        "AnalyzedResourceCount" => float(),
+        "AppBoundaryKey" => String.t() | atom(),
+        "Insight" => insight_health(),
+        "TagValue" => String.t() | atom()
+      }
+
+  """
+  @type tag_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_health_request() :: %{
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("OrganizationalUnitIds") => list(String.t() | atom())
+      }
+
+  """
+  @type describe_organization_health_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_insight_health() :: %{
+        "OpenProactiveInsights" => integer(),
+        "OpenReactiveInsights" => integer()
+      }
+
+  """
+  @type service_insight_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_collection_filter() :: %{
+        "CloudFormation" => update_cloud_formation_collection_filter(),
+        "Tags" => list(update_tag_collection_filter())
+      }
+
+  """
+  @type update_resource_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_integration_request() :: %{}
+
+  """
+  @type describe_service_integration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_collection_request() :: %{
+        required("Action") => list(any()),
+        required("ResourceCollection") => update_resource_collection_filter()
+      }
+
+  """
+  @type update_resource_collection_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_metrics_detail() :: %{
+        "Dimensions" => list(cloud_watch_metrics_dimension()),
+        "MetricDataSummary" => cloud_watch_metrics_data_summary(),
+        "MetricName" => String.t() | atom(),
+        "Namespace" => String.t() | atom(),
+        "Period" => integer(),
+        "Stat" => list(any()),
+        "Unit" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_metrics_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kms_server_side_encryption_integration_config() :: %{
+        "KMSKeyId" => String.t() | atom(),
+        "OptInStatus" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type kms_server_side_encryption_integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cost_estimation_time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type cost_estimation_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      proactive_organization_insight_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "InsightTimeRange" => insight_time_range(),
+        "Name" => String.t() | atom(),
+        "OrganizationalUnitId" => String.t() | atom(),
+        "PredictionTimeRange" => prediction_time_range(),
+        "ResourceCollection" => resource_collection(),
+        "ServiceCollection" => service_collection(),
+        "Severity" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type proactive_organization_insight_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_insights_request() :: %{
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
+        required("StatusFilter") => list_insights_status_filter()
+      }
+
+  """
+  @type list_organization_insights_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notification_channels_request() :: %{
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_notification_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_cost_estimation_resource_collection_filter() :: %{
+        "AppBoundaryKey" => String.t() | atom(),
+        "TagValues" => list(String.t() | atom())
+      }
+
+  """
+  @type tag_cost_estimation_resource_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_formation_collection_filter() :: %{
+        "StackNames" => list(String.t() | atom())
+      }
+
+  """
+  @type update_cloud_formation_collection_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_notification_channel_response() :: %{}
+
+  """
+  @type remove_notification_channel_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_organization_insights_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProactiveInsights" => list(proactive_organization_insight_summary()),
+        "ReactiveInsights" => list(reactive_organization_insight_summary())
+      }
+
+  """
+  @type list_organization_insights_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_notification_channel_request() :: %{
+        required("Config") => notification_channel_config()
+      }
+
+  """
+  @type add_notification_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitored_resources_response() :: %{
+        "MonitoredResourceIdentifiers" => list(monitored_resource_identifier()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_monitored_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_feedback_response() :: %{}
+
+  """
+  @type put_feedback_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_health_response() :: %{
+        "AnalyzedResourceCount" => float(),
+        "MetricsAnalyzed" => integer(),
+        "OpenProactiveInsights" => integer(),
+        "OpenReactiveInsights" => integer(),
+        "ResourceHours" => float()
+      }
+
+  """
+  @type describe_account_health_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_filter_config() :: %{
+        "MessageTypes" => list(list(any())()),
+        "Severities" => list(list(any())())
+      }
+
+  """
+  @type notification_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_overview_response() :: %{
+        "ProactiveInsights" => integer(),
+        "ReactiveInsights" => integer()
+      }
+
+  """
+  @type describe_organization_overview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_related_anomaly_source_detail() :: %{
+        "CloudWatchMetrics" => list(recommendation_related_cloud_watch_metrics_source_detail())
+      }
+
+  """
+  @type recommendation_related_anomaly_source_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "Category" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Link" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Reason" => String.t() | atom(),
+        "RelatedAnomalies" => list(recommendation_related_anomaly()),
+        "RelatedEvents" => list(recommendation_related_event())
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_resource() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
         "Type" => String.t() | atom()
       }
 
   """
-  @type monitored_resource_identifier() :: %{(String.t() | atom()) => any()}
+  @type event_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_metrics_data_summary() :: %{
+        "StatusCode" => list(any()),
+        "TimestampMetricValuePairList" => list(timestamp_metric_value_pair())
+      }
+
+  """
+  @type cloud_watch_metrics_data_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_insight_request() :: %{
+        optional("AccountId") => String.t() | atom()
+      }
+
+  """
+  @type describe_insight_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_collection_health_response() :: %{
+        "CloudFormation" => list(cloud_formation_health()),
+        "NextToken" => String.t() | atom(),
+        "Service" => list(service_health()),
+        "Tags" => list(tag_health())
+      }
+
+  """
+  @type describe_resource_collection_health_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_insight_response() :: %{}
+
+  """
+  @type delete_insight_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_overview_request() :: %{
+        optional("AccountIds") => list(String.t() | atom()),
+        optional("OrganizationalUnitIds") => list(String.t() | atom()),
+        optional("ToTime") => non_neg_integer(),
+        required("FromTime") => non_neg_integer()
+      }
+
+  """
+  @type describe_organization_overview_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomalies_for_insight_filters() :: %{
+        "ServiceCollection" => service_collection()
+      }
+
+  """
+  @type list_anomalies_for_insight_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anomaly_request() :: %{
+        optional("AccountId") => String.t() | atom()
+      }
+
+  """
+  @type describe_anomaly_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_organization_resource_collection_health_response() :: %{
+        "Account" => list(account_health()),
+        "CloudFormation" => list(cloud_formation_health()),
+        "NextToken" => String.t() | atom(),
+        "Service" => list(service_health()),
+        "Tags" => list(tag_health())
+      }
+
+  """
+  @type describe_organization_resource_collection_health_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      timestamp_metric_value_pair() :: %{
+        "MetricValue" => float(),
+        "Timestamp" => non_neg_integer()
+      }
+
+  """
+  @type timestamp_metric_value_pair() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_notification_channel_request() :: %{}
+
+  """
+  @type remove_notification_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomalies_for_insight_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProactiveAnomalies" => list(proactive_anomaly_summary()),
+        "ReactiveAnomalies" => list(reactive_anomaly_summary())
+      }
+
+  """
+  @type list_anomalies_for_insight_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event() :: %{
+        "DataSource" => list(any()),
+        "EventClass" => list(any()),
+        "EventSource" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ResourceCollection" => resource_collection(),
+        "Resources" => list(event_resource()),
+        "Time" => non_neg_integer()
+      }
+
+  """
+  @type event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prediction_time_range() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type prediction_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anomaly_resource() :: %{
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type anomaly_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ops_center_integration() :: %{
+        "OptInStatus" => list(any())
+      }
+
+  """
+  @type ops_center_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      performance_insights_reference_data() :: %{
+        "ComparisonValues" => performance_insights_reference_comparison_values(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type performance_insights_reference_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_related_anomaly() :: %{
+        "AnomalyId" => String.t() | atom(),
+        "Resources" => list(recommendation_related_anomaly_resource()),
+        "SourceDetails" => list(recommendation_related_anomaly_source_detail())
+      }
+
+  """
+  @type recommendation_related_anomaly() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_collection() :: %{
+        "CloudFormation" => cloud_formation_collection(),
+        "Tags" => list(tag_collection())
+      }
+
+  """
+  @type resource_collection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_service_integration_response() :: %{
+        "ServiceIntegration" => service_integration_config()
+      }
+
+  """
+  @type describe_service_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_formation_health() :: %{
+        "AnalyzedResourceCount" => float(),
+        "Insight" => insight_health(),
+        "StackName" => String.t() | atom()
+      }
+
+  """
+  @type cloud_formation_health() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_collection_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ResourceCollection" => resource_collection_filter()
+      }
+
+  """
+  @type get_resource_collection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_time_range() :: %{
+        "FromTime" => non_neg_integer(),
+        "ToTime" => non_neg_integer()
+      }
+
+  """
+  @type start_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_collection_response() :: %{}
+
+  """
+  @type update_resource_collection_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_sources_config_request() :: %{
+        optional("EventSources") => event_sources_config()
+      }
+
+  """
+  @type update_event_sources_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_monitored_resources_filters() :: %{
+        "ResourcePermission" => list(any()),
+        "ResourceTypeFilters" => list(list(any())())
+      }
+
+  """
+  @type list_monitored_resources_filters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_anomalous_log_groups_response() :: %{
+        "AnomalousLogGroups" => list(anomalous_log_group()),
+        "InsightId" => String.t() | atom(),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_anomalous_log_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      end_time_range() :: %{
+        "FromTime" => non_neg_integer(),
+        "ToTime" => non_neg_integer()
+      }
+
+  """
+  @type end_time_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_organization_insights_request() :: %{
+        optional("Filters") => search_organization_insights_filters(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AccountIds") => list(String.t() | atom()),
+        required("StartTimeRange") => start_time_range(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type search_organization_insights_request() :: %{(String.t() | atom()) => any()}
 
   @type add_notification_channel_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_insight_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_account_health_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_account_overview_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_anomaly_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_event_sources_config_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_feedback_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_insight_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_organization_health_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_organization_overview_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_organization_resource_collection_health_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_resource_collection_health_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type describe_service_integration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_cost_estimation_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_collection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_anomalies_for_insight_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_anomalous_log_groups_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_events_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_insights_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_monitored_resources_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_notification_channels_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_organization_insights_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_recommendations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_feedback_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type remove_notification_channel_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_insights_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type search_organization_insights_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type start_cost_estimation_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_event_sources_config_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_resource_collection_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_service_integration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

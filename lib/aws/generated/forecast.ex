@@ -13,26 +13,814 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      list_forecast_export_jobs_request() :: %{
+      data_destination() :: %{
+        "S3Config" => s3_config()
+      }
+      
+  """
+  @type data_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_explainabilities_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_forecast_export_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type list_explainabilities_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      weighted_quantile_loss() :: %{
-        "LossValue" => float(),
-        "Quantile" => float()
+      explainability_info() :: %{
+        "ExplainabilityArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
       }
       
   """
-  @type weighted_quantile_loss() :: %{(String.t() | atom()) => any()}
+  @type explainability_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_forecasts_response() :: %{
+        "Forecasts" => list(forecast_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_forecasts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_what_if_forecast_exports_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WhatIfForecastExports" => list(what_if_forecast_export_summary())
+      }
+      
+  """
+  @type list_what_if_forecast_exports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metric_result() :: %{
+        "MetricName" => String.t() | atom(),
+        "MetricValue" => float()
+      }
+      
+  """
+  @type metric_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_forecast_request() :: %{
+        optional("ForecastTypes") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("TimeSeriesSelector") => time_series_selector(),
+        required("ForecastName") => String.t() | atom(),
+        required("PredictorArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_explainability_request() :: %{
+        required("ExplainabilityArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_explainability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_event() :: %{
+        "Datetime" => non_neg_integer(),
+        "Detail" => String.t() | atom()
+      }
+      
+  """
+  @type predictor_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dataset_group_request() :: %{
+        required("DatasetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_dataset_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_forecast_request() :: %{
+        required("ForecastArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_group_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DatasetArns" => list(String.t() | atom()),
+        "DatasetGroupArn" => String.t() | atom(),
+        "DatasetGroupName" => String.t() | atom(),
+        "Domain" => list(any()),
+        "LastModificationTime" => non_neg_integer(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type describe_dataset_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_predictor_request() :: %{
+        required("PredictorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_predictor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_import_job_request() :: %{
+        required("DatasetImportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_config() :: %{
+        "KMSKeyArn" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+      
+  """
+  @type s3_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_execution_details() :: %{
+        "PredictorExecutions" => list(predictor_execution())
+      }
+      
+  """
+  @type predictor_execution_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_monitor_evaluations_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MonitorArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_monitor_evaluations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_forecast_export_job_request() :: %{
+        required("ForecastExportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_monitor_evaluation() :: %{
+        "EvaluationState" => String.t() | atom(),
+        "EvaluationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "MetricResults" => list(metric_result()),
+        "MonitorArn" => String.t() | atom(),
+        "MonitorDataSource" => monitor_data_source(),
+        "NumItemsEvaluated" => float(),
+        "PredictorEvent" => predictor_event(),
+        "ResourceArn" => String.t() | atom(),
+        "WindowEndDatetime" => non_neg_integer(),
+        "WindowStartDatetime" => non_neg_integer()
+      }
+      
+  """
+  @type predictor_monitor_evaluation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_series_identifiers() :: %{
+        "DataSource" => data_source(),
+        "Format" => String.t() | atom(),
+        "Schema" => schema()
+      }
+      
+  """
+  @type time_series_identifiers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_predictor_backtest_export_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "Format" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "PredictorArn" => String.t() | atom(),
+        "PredictorBacktestExportJobArn" => String.t() | atom(),
+        "PredictorBacktestExportJobName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type describe_predictor_backtest_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dataset_import_job_request() :: %{
+        required("DatasetImportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_forecast_export_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "ForecastArn" => String.t() | atom(),
+        "ForecastExportJobArn" => String.t() | atom(),
+        "ForecastExportJobName" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type describe_forecast_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_what_if_analyses_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_what_if_analyses_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      baseline_metric() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => float()
+      }
+      
+  """
+  @type baseline_metric() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_request() :: %{
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_monitor_request() :: %{
+        optional("Tags") => list(tag()),
+        required("MonitorName") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_monitor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_explainabilities_response() :: %{
+        "Explainabilities" => list(explainability_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_explainabilities_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_series_transformation() :: %{
+        "Action" => action(),
+        "TimeSeriesConditions" => list(time_series_condition())
+      }
+      
+  """
+  @type time_series_transformation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_backtest_export_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "PredictorBacktestExportJobArn" => String.t() | atom(),
+        "PredictorBacktestExportJobName" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type predictor_backtest_export_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_monitor_response() :: %{
+        "MonitorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_monitor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_group_response() :: %{
+        "DatasetGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_what_if_analysis_request() :: %{
+        required("WhatIfAnalysisArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_monitor_request() :: %{
+        required("MonitorArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_monitor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_forecast_export_jobs_response() :: %{
+        "ForecastExportJobs" => list(forecast_export_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_forecast_export_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_datasets_response() :: %{
+        "Datasets" => list(dataset_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_forecast_export_job_request() :: %{
+        optional("Format") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Destination") => data_destination(),
+        required("ForecastArn") => String.t() | atom(),
+        required("ForecastExportJobName") => String.t() | atom()
+      }
+      
+  """
+  @type create_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featurization_method() :: %{
+        "FeaturizationMethodName" => list(any()),
+        "FeaturizationMethodParameters" => map()
+      }
+      
+  """
+  @type featurization_method() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_predictor_backtest_export_jobs_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_predictor_backtest_export_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitor_data_source() :: %{
+        "DatasetImportJobArn" => String.t() | atom(),
+        "ForecastArn" => String.t() | atom(),
+        "PredictorArn" => String.t() | atom()
+      }
+      
+  """
+  @type monitor_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      input_data_config() :: %{
+        "DatasetGroupArn" => String.t() | atom(),
+        "SupplementaryFeatures" => list(supplementary_feature())
+      }
+      
+  """
+  @type input_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_forecast_export_job_response() :: %{
+        "ForecastExportJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_forecast_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_series_replacements_data_source() :: %{
+        "Format" => String.t() | atom(),
+        "S3Config" => s3_config(),
+        "Schema" => schema(),
+        "TimestampFormat" => String.t() | atom()
+      }
+      
+  """
+  @type time_series_replacements_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_import_jobs_response() :: %{
+        "DatasetImportJobs" => list(dataset_import_job_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_parameters() :: %{
+        "BackTestWindowOffset" => integer(),
+        "NumberOfBacktestWindows" => integer()
+      }
+      
+  """
+  @type evaluation_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      explainability_config() :: %{
+        "TimePointGranularity" => list(any()),
+        "TimeSeriesGranularity" => list(any())
+      }
+      
+  """
+  @type explainability_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dataset_group_response() :: %{}
+      
+  """
+  @type update_dataset_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_forecast_export_job_request() :: %{
+        required("ForecastExportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_predictors_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_predictors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_monitor_request() :: %{
+        required("MonitorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_monitor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      metrics() :: %{
+        "AverageWeightedQuantileLoss" => float(),
+        "ErrorMetrics" => list(error_metric()),
+        "RMSE" => float(),
+        "WeightedQuantileLosses" => list(weighted_quantile_loss())
+      }
+      
+  """
+  @type metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DatasetGroupArn" => String.t() | atom(),
+        "IsAutoPredictor" => boolean(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "PredictorArn" => String.t() | atom(),
+        "PredictorName" => String.t() | atom(),
+        "ReferencePredictorSummary" => reference_predictor_summary(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type predictor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_what_if_forecast_request() :: %{
+        optional("Tags") => list(tag()),
+        optional("TimeSeriesReplacementsDataSource") => time_series_replacements_data_source(),
+        optional("TimeSeriesTransformations") => list(time_series_transformation()),
+        required("WhatIfAnalysisArn") => String.t() | atom(),
+        required("WhatIfForecastName") => String.t() | atom()
+      }
+      
+  """
+  @type create_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_forecasts_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_forecasts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_alignment_boundary() :: %{
+        "DayOfMonth" => integer(),
+        "DayOfWeek" => list(any()),
+        "Hour" => integer(),
+        "Month" => list(any())
+      }
+      
+  """
+  @type time_alignment_boundary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_explainability_export_response() :: %{
+        "ExplainabilityExportArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_explainability_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      continuous_parameter_range() :: %{
+        "MaxValue" => float(),
+        "MinValue" => float(),
+        "Name" => String.t() | atom(),
+        "ScalingType" => list(any())
+      }
+      
+  """
+  @type continuous_parameter_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      reference_predictor_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "State" => list(any())
+      }
+      
+  """
+  @type reference_predictor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      statistics() :: %{
+        "Avg" => float(),
+        "Count" => integer(),
+        "CountDistinct" => integer(),
+        "CountDistinctLong" => float(),
+        "CountLong" => float(),
+        "CountNan" => integer(),
+        "CountNanLong" => float(),
+        "CountNull" => integer(),
+        "CountNullLong" => float(),
+        "Max" => String.t() | atom(),
+        "Min" => String.t() | atom(),
+        "Stddev" => float()
+      }
+      
+  """
+  @type statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_monitors_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_monitors_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50,24 +838,129 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      describe_explainability_export_request() :: %{
-        required("ExplainabilityExportArn") => String.t() | atom()
+      list_monitors_response() :: %{
+        "Monitors" => list(monitor_summary()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_explainability_export_request() :: %{(String.t() | atom()) => any()}
+  @type list_monitors_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
+      weighted_quantile_loss() :: %{
+        "LossValue" => float(),
+        "Quantile" => float()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type weighted_quantile_loss() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_predictors_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Predictors" => list(predictor_summary())
+      }
+      
+  """
+  @type list_predictors_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      categorical_parameter_range() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type categorical_parameter_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_import_job_response() :: %{
+        "DatasetImportJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_source() :: %{
+        "S3Config" => s3_config()
+      }
+      
+  """
+  @type data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitor_config() :: %{
+        "MonitorName" => String.t() | atom()
+      }
+      
+  """
+  @type monitor_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featurization_config() :: %{
+        "Featurizations" => list(featurization()),
+        "ForecastDimensions" => list(String.t() | atom()),
+        "ForecastFrequency" => String.t() | atom()
+      }
+      
+  """
+  @type featurization_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_what_if_analyses_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WhatIfAnalyses" => list(what_if_analysis_summary())
+      }
+      
+  """
+  @type list_what_if_analyses_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_explainability_export_request() :: %{
+        required("ExplainabilityExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_explainability_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_what_if_analysis_request() :: %{
+        required("WhatIfAnalysisArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -98,254 +991,6 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      integer_parameter_range() :: %{
-        "MaxValue" => integer(),
-        "MinValue" => integer(),
-        "Name" => String.t() | atom(),
-        "ScalingType" => list(any())
-      }
-      
-  """
-  @type integer_parameter_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_explainability_export_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "ExplainabilityArn" => String.t() | atom(),
-        "ExplainabilityExportArn" => String.t() | atom(),
-        "ExplainabilityExportName" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type describe_explainability_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      encryption_config() :: %{
-        "KMSKeyArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-      
-  """
-  @type encryption_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      reference_predictor_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "State" => list(any())
-      }
-      
-  """
-  @type reference_predictor_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_monitor_request() :: %{
-        required("MonitorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_monitor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_monitors_response() :: %{
-        "Monitors" => list(monitor_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_monitors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_monitor_evaluations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PredictorMonitorEvaluations" => list(predictor_monitor_evaluation())
-      }
-      
-  """
-  @type list_monitor_evaluations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_forecast_request() :: %{
-        required("ForecastArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_forecast_request() :: %{
-        required("ForecastArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_accuracy_metrics_response() :: %{
-        "AutoMLOverrideStrategy" => list(any()),
-        "IsAutoPredictor" => boolean(),
-        "OptimizationMetric" => list(any()),
-        "PredictorEvaluationResults" => list(evaluation_result())
-      }
-      
-  """
-  @type get_accuracy_metrics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_monitor_evaluation() :: %{
-        "EvaluationState" => String.t() | atom(),
-        "EvaluationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "MetricResults" => list(metric_result()),
-        "MonitorArn" => String.t() | atom(),
-        "MonitorDataSource" => monitor_data_source(),
-        "NumItemsEvaluated" => float(),
-        "PredictorEvent" => predictor_event(),
-        "ResourceArn" => String.t() | atom(),
-        "WindowEndDatetime" => non_neg_integer(),
-        "WindowStartDatetime" => non_neg_integer()
-      }
-      
-  """
-  @type predictor_monitor_evaluation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      input_data_config() :: %{
-        "DatasetGroupArn" => String.t() | atom(),
-        "SupplementaryFeatures" => list(supplementary_feature())
-      }
-      
-  """
-  @type input_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_in_use_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_auto_predictor_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DataConfig" => data_config(),
-        "DatasetImportJobArns" => list(String.t() | atom()),
-        "EncryptionConfig" => encryption_config(),
-        "EstimatedTimeRemainingInMinutes" => float(),
-        "ExplainabilityInfo" => explainability_info(),
-        "ForecastDimensions" => list(String.t() | atom()),
-        "ForecastFrequency" => String.t() | atom(),
-        "ForecastHorizon" => integer(),
-        "ForecastTypes" => list(String.t() | atom()),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "MonitorInfo" => monitor_info(),
-        "OptimizationMetric" => list(any()),
-        "PredictorArn" => String.t() | atom(),
-        "PredictorName" => String.t() | atom(),
-        "ReferencePredictorSummary" => reference_predictor_summary(),
-        "Status" => String.t() | atom(),
-        "TimeAlignmentBoundary" => time_alignment_boundary()
-      }
-      
-  """
-  @type describe_auto_predictor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitor_config() :: %{
-        "MonitorName" => String.t() | atom()
-      }
-      
-  """
-  @type monitor_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_import_job_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DataSize" => float(),
-        "DataSource" => data_source(),
-        "DatasetArn" => String.t() | atom(),
-        "DatasetImportJobArn" => String.t() | atom(),
-        "DatasetImportJobName" => String.t() | atom(),
-        "EstimatedTimeRemainingInMinutes" => float(),
-        "FieldStatistics" => map(),
-        "Format" => String.t() | atom(),
-        "GeolocationFormat" => String.t() | atom(),
-        "ImportMode" => list(any()),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TimeZone" => String.t() | atom(),
-        "TimestampFormat" => String.t() | atom(),
-        "UseGeolocationForTimeZone" => boolean()
-      }
-      
-  """
-  @type describe_dataset_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       attribute_config() :: %{
         "AttributeName" => String.t() | atom(),
         "Transformations" => map()
@@ -358,282 +1003,38 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      list_what_if_analyses_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WhatIfAnalyses" => list(what_if_analysis_summary())
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_what_if_analyses_response() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      featurization_method() :: %{
-        "FeaturizationMethodName" => list(any()),
-        "FeaturizationMethodParameters" => map()
-      }
-      
-  """
-  @type featurization_method() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parameter_ranges() :: %{
-        "CategoricalParameterRanges" => list(categorical_parameter_range()),
-        "ContinuousParameterRanges" => list(continuous_parameter_range()),
-        "IntegerParameterRanges" => list(integer_parameter_range())
-      }
-      
-  """
-  @type parameter_ranges() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_predictor_response() :: %{
-        "PredictorArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_predictor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_forecast_export_jobs_response() :: %{
-        "ForecastExportJobs" => list(forecast_export_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_forecast_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_explainability_export_request() :: %{
-        optional("Format") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Destination") => data_destination(),
-        required("ExplainabilityArn") => String.t() | atom(),
-        required("ExplainabilityExportName") => String.t() | atom()
-      }
-      
-  """
-  @type create_explainability_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dataset_group_response() :: %{}
-      
-  """
-  @type update_dataset_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_datasets_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_what_if_forecast_exports_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WhatIfForecastExports" => list(what_if_forecast_export_summary())
-      }
-      
-  """
-  @type list_what_if_forecast_exports_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_parameters() :: %{
-        "BackTestWindowOffset" => integer(),
-        "NumberOfBacktestWindows" => integer()
-      }
-      
-  """
-  @type evaluation_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featurization_config() :: %{
-        "Featurizations" => list(featurization()),
-        "ForecastDimensions" => list(String.t() | atom()),
-        "ForecastFrequency" => String.t() | atom()
-      }
-      
-  """
-  @type featurization_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_monitors_request() :: %{
+      list_dataset_import_jobs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_monitors_request() :: %{(String.t() | atom()) => any()}
+  @type list_dataset_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_predictors_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Predictors" => list(predictor_summary())
-      }
-      
-  """
-  @type list_predictors_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_predictor_backtest_export_job_response() :: %{
-        "PredictorBacktestExportJobArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_predictor_backtest_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitor_info() :: %{
-        "MonitorArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type monitor_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_monitor_response() :: %{
-        "MonitorArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_monitor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_what_if_forecasts_request() :: %{
+      list_forecast_export_jobs_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_what_if_forecasts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      explainability_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "ExplainabilityArn" => String.t() | atom(),
-        "ExplainabilityConfig" => explainability_config(),
-        "ExplainabilityName" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type explainability_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_group_request() :: %{
-        optional("DatasetArns") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        required("DatasetGroupName") => String.t() | atom(),
-        required("Domain") => list(any())
-      }
-      
-  """
-  @type create_dataset_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_forecast_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t() | atom(),
-        "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastArn" => String.t() | atom(),
-        "ForecastName" => String.t() | atom(),
-        "ForecastTypes" => list(String.t() | atom()),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "PredictorArn" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TimeSeriesSelector" => time_series_selector()
-      }
-      
-  """
-  @type describe_forecast_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_what_if_forecast_export_request() :: %{
-        required("WhatIfForecastExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
+  @type list_forecast_export_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,42 +1051,87 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      time_series_selector() :: %{
-        "TimeSeriesIdentifiers" => time_series_identifiers()
-      }
-      
-  """
-  @type time_series_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_execution_details() :: %{
-        "PredictorExecutions" => list(predictor_execution())
-      }
-      
-  """
-  @type predictor_execution_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      forecast_summary() :: %{
-        "CreatedUsingAutoPredictor" => boolean(),
+      dataset_group_summary() :: %{
         "CreationTime" => non_neg_integer(),
         "DatasetGroupArn" => String.t() | atom(),
-        "ForecastArn" => String.t() | atom(),
-        "ForecastName" => String.t() | atom(),
+        "DatasetGroupName" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer()
+      }
+      
+  """
+  @type dataset_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type stop_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      what_if_forecast_summary() :: %{
+        "CreationTime" => non_neg_integer(),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t() | atom(),
-        "PredictorArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WhatIfAnalysisArn" => String.t() | atom(),
+        "WhatIfForecastArn" => String.t() | atom(),
+        "WhatIfForecastName" => String.t() | atom()
+      }
+      
+  """
+  @type what_if_forecast_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataFrequency" => String.t() | atom(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "DatasetType" => list(any()),
+        "Domain" => list(any()),
+        "EncryptionConfig" => encryption_config(),
+        "LastModificationTime" => non_neg_integer(),
+        "Schema" => schema(),
         "Status" => String.t() | atom()
       }
       
   """
-  @type forecast_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_predictor_backtest_export_jobs_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PredictorBacktestExportJobs" => list(predictor_backtest_export_job_summary())
+      }
+      
+  """
+  @type list_predictor_backtest_export_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -725,109 +1171,64 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      what_if_forecast_export_summary() :: %{
+      describe_what_if_analysis_response() :: %{
         "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
+        "EstimatedTimeRemainingInMinutes" => float(),
+        "ForecastArn" => String.t() | atom(),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t() | atom(),
         "Status" => String.t() | atom(),
-        "WhatIfForecastArns" => list(String.t() | atom()),
-        "WhatIfForecastExportArn" => String.t() | atom(),
-        "WhatIfForecastExportName" => String.t() | atom()
+        "TimeSeriesSelector" => time_series_selector(),
+        "WhatIfAnalysisArn" => String.t() | atom(),
+        "WhatIfAnalysisName" => String.t() | atom()
       }
       
   """
-  @type what_if_forecast_export_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_what_if_analysis_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      test_window_summary() :: %{
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TestWindowEnd" => non_neg_integer(),
-        "TestWindowStart" => non_neg_integer()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type test_window_summary() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      stop_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
+      delete_what_if_forecast_export_request() :: %{
+        required("WhatIfForecastExportArn") => String.t() | atom()
       }
       
   """
-  @type stop_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_explainability_exports_response() :: %{
-        "ExplainabilityExports" => list(explainability_export_summary()),
-        "NextToken" => String.t() | atom()
+      predictor_baseline() :: %{
+        "BaselineMetrics" => list(baseline_metric())
       }
       
   """
-  @type list_explainability_exports_response() :: %{(String.t() | atom()) => any()}
+  @type predictor_baseline() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_auto_predictor_response() :: %{
-        "PredictorArn" => String.t() | atom()
+      list_explainability_exports_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type create_auto_predictor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_response() :: %{
-        "DatasetArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metrics() :: %{
-        "AverageWeightedQuantileLoss" => float(),
-        "ErrorMetrics" => list(error_metric()),
-        "RMSE" => float(),
-        "WeightedQuantileLosses" => list(weighted_quantile_loss())
-      }
-      
-  """
-  @type metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      explainability_export_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "ExplainabilityExportArn" => String.t() | atom(),
-        "ExplainabilityExportName" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type explainability_export_summary() :: %{(String.t() | atom()) => any()}
+  @type list_explainability_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -854,48 +1255,237 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      supplementary_feature() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      get_accuracy_metrics_request() :: %{
+        required("PredictorArn") => String.t() | atom()
       }
       
   """
-  @type supplementary_feature() :: %{(String.t() | atom()) => any()}
+  @type get_accuracy_metrics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
+      create_dataset_request() :: %{
+        optional("DataFrequency") => String.t() | atom(),
+        optional("EncryptionConfig") => encryption_config(),
+        optional("Tags") => list(tag()),
+        required("DatasetName") => String.t() | atom(),
+        required("DatasetType") => list(any()),
+        required("Domain") => list(any()),
+        required("Schema") => schema()
       }
       
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_dataset_import_jobs_request() :: %{
+      dataset_import_job_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataSource" => data_source(),
+        "DatasetImportJobArn" => String.t() | atom(),
+        "DatasetImportJobName" => String.t() | atom(),
+        "ImportMode" => list(any()),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type dataset_import_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_what_if_analysis_response() :: %{
+        "WhatIfAnalysisArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_what_if_analysis_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_what_if_forecasts_request() :: %{
         optional("Filters") => list(filter()),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type list_dataset_import_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type list_what_if_forecasts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_what_if_forecast_response() :: %{
-        "WhatIfForecastArn" => String.t() | atom()
+      resource_in_use_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type create_what_if_forecast_response() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_what_if_forecast_export_request() :: %{
+        optional("Format") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Destination") => data_destination(),
+        required("WhatIfForecastArns") => list(String.t() | atom()),
+        required("WhatIfForecastExportName") => String.t() | atom()
+      }
+      
+  """
+  @type create_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      explainability_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ExplainabilityArn" => String.t() | atom(),
+        "ExplainabilityConfig" => explainability_config(),
+        "ExplainabilityName" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type explainability_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitor_info() :: %{
+        "MonitorArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type monitor_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_forecast_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DatasetGroupArn" => String.t() | atom(),
+        "EstimatedTimeRemainingInMinutes" => float(),
+        "ForecastArn" => String.t() | atom(),
+        "ForecastName" => String.t() | atom(),
+        "ForecastTypes" => list(String.t() | atom()),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "PredictorArn" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TimeSeriesSelector" => time_series_selector()
+      }
+      
+  """
+  @type describe_forecast_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      test_window_summary() :: %{
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TestWindowEnd" => non_neg_integer(),
+        "TestWindowStart" => non_neg_integer()
+      }
+      
+  """
+  @type test_window_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_import_job_request() :: %{
+        optional("Format") => String.t() | atom(),
+        optional("GeolocationFormat") => String.t() | atom(),
+        optional("ImportMode") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("TimeZone") => String.t() | atom(),
+        optional("TimestampFormat") => String.t() | atom(),
+        optional("UseGeolocationForTimeZone") => boolean(),
+        required("DataSource") => data_source(),
+        required("DatasetArn") => String.t() | atom(),
+        required("DatasetImportJobName") => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_auto_predictor_request() :: %{
+        required("PredictorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_auto_predictor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      featurization() :: %{
+        "AttributeName" => String.t() | atom(),
+        "FeaturizationPipeline" => list(featurization_method())
+      }
+      
+  """
+  @type featurization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_predictor_backtest_export_job_request() :: %{
+        required("PredictorBacktestExportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -913,6 +1503,550 @@ defmodule AWS.Forecast do
       
   """
   @type forecast_export_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_explainability_response() :: %{
+        "ExplainabilityArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_explainability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_dataset_import_job_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataSize" => float(),
+        "DataSource" => data_source(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetImportJobArn" => String.t() | atom(),
+        "DatasetImportJobName" => String.t() | atom(),
+        "EstimatedTimeRemainingInMinutes" => float(),
+        "FieldStatistics" => map(),
+        "Format" => String.t() | atom(),
+        "GeolocationFormat" => String.t() | atom(),
+        "ImportMode" => list(any()),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "TimeZone" => String.t() | atom(),
+        "TimestampFormat" => String.t() | atom(),
+        "UseGeolocationForTimeZone" => boolean()
+      }
+      
+  """
+  @type describe_dataset_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_what_if_forecast_export_response() :: %{
+        "WhatIfForecastExportArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_what_if_forecast_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      evaluation_result() :: %{
+        "AlgorithmArn" => String.t() | atom(),
+        "TestWindows" => list(window_summary())
+      }
+      
+  """
+  @type evaluation_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_dataset_group_request() :: %{
+        required("DatasetArns") => list(String.t() | atom()),
+        required("DatasetGroupArn") => String.t() | atom()
+      }
+      
+  """
+  @type update_dataset_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_explainability_exports_response() :: %{
+        "ExplainabilityExports" => list(explainability_export_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_explainability_exports_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_what_if_forecast_export_request() :: %{
+        required("WhatIfForecastExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_auto_predictor_response() :: %{
+        "PredictorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_auto_predictor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_explainability_export_request() :: %{
+        optional("Format") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Destination") => data_destination(),
+        required("ExplainabilityArn") => String.t() | atom(),
+        required("ExplainabilityExportName") => String.t() | atom()
+      }
+      
+  """
+  @type create_explainability_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_resource_tree_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_resource_tree_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_monitor_response() :: %{
+        "Baseline" => baseline(),
+        "CreationTime" => non_neg_integer(),
+        "EstimatedEvaluationTimeRemainingInMinutes" => float(),
+        "LastEvaluationState" => String.t() | atom(),
+        "LastEvaluationTime" => non_neg_integer(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "MonitorArn" => String.t() | atom(),
+        "MonitorName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type describe_monitor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type resume_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_next_token_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      hyper_parameter_tuning_job_config() :: %{
+        "ParameterRanges" => parameter_ranges()
+      }
+      
+  """
+  @type hyper_parameter_tuning_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_series_condition() :: %{
+        "AttributeName" => String.t() | atom(),
+        "AttributeValue" => String.t() | atom(),
+        "Condition" => list(any())
+      }
+      
+  """
+  @type time_series_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_auto_predictor_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DataConfig" => data_config(),
+        "DatasetImportJobArns" => list(String.t() | atom()),
+        "EncryptionConfig" => encryption_config(),
+        "EstimatedTimeRemainingInMinutes" => float(),
+        "ExplainabilityInfo" => explainability_info(),
+        "ForecastDimensions" => list(String.t() | atom()),
+        "ForecastFrequency" => String.t() | atom(),
+        "ForecastHorizon" => integer(),
+        "ForecastTypes" => list(String.t() | atom()),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "MonitorInfo" => monitor_info(),
+        "OptimizationMetric" => list(any()),
+        "PredictorArn" => String.t() | atom(),
+        "PredictorName" => String.t() | atom(),
+        "ReferencePredictorSummary" => reference_predictor_summary(),
+        "Status" => String.t() | atom(),
+        "TimeAlignmentBoundary" => time_alignment_boundary()
+      }
+      
+  """
+  @type describe_auto_predictor_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_datasets_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_forecast_request() :: %{
+        required("ForecastArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_predictor_backtest_export_job_request() :: %{
+        required("PredictorBacktestExportJobArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_dataset_groups_response() :: %{
+        "DatasetGroups" => list(dataset_group_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_dataset_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_predictor_backtest_export_job_request() :: %{
+        optional("Format") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Destination") => data_destination(),
+        required("PredictorArn") => String.t() | atom(),
+        required("PredictorBacktestExportJobName") => String.t() | atom()
+      }
+      
+  """
+  @type create_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      what_if_analysis_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ForecastArn" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WhatIfAnalysisArn" => String.t() | atom(),
+        "WhatIfAnalysisName" => String.t() | atom()
+      }
+      
+  """
+  @type what_if_analysis_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      additional_dataset() :: %{
+        "Configuration" => map(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type additional_dataset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      integer_parameter_range() :: %{
+        "MaxValue" => integer(),
+        "MinValue" => integer(),
+        "Name" => String.t() | atom(),
+        "ScalingType" => list(any())
+      }
+      
+  """
+  @type integer_parameter_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_input_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_predictor_backtest_export_job_response() :: %{
+        "PredictorBacktestExportJobArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_predictor_backtest_export_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_dataset_response() :: %{
+        "DatasetArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resource_already_exists_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_accuracy_metrics_response() :: %{
+        "AutoMLOverrideStrategy" => list(any()),
+        "IsAutoPredictor" => boolean(),
+        "OptimizationMetric" => list(any()),
+        "PredictorEvaluationResults" => list(evaluation_result())
+      }
+      
+  """
+  @type get_accuracy_metrics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_explainability_export_request() :: %{
+        required("ExplainabilityExportArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_explainability_export_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_explainability_request() :: %{
+        required("ExplainabilityArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_explainability_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monitor_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "LastModificationTime" => non_neg_integer(),
+        "MonitorArn" => String.t() | atom(),
+        "MonitorName" => String.t() | atom(),
+        "ResourceArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type monitor_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_monitor_evaluations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PredictorMonitorEvaluations" => list(predictor_monitor_evaluation())
+      }
+      
+  """
+  @type list_monitor_evaluations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_what_if_forecast_export_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "EstimatedTimeRemainingInMinutes" => float(),
+        "Format" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WhatIfForecastArns" => list(String.t() | atom()),
+        "WhatIfForecastExportArn" => String.t() | atom(),
+        "WhatIfForecastExportName" => String.t() | atom()
+      }
+      
+  """
+  @type describe_what_if_forecast_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_predictor_request() :: %{
+        required("PredictorArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_predictor_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      window_summary() :: %{
+        "EvaluationType" => list(any()),
+        "ItemCount" => integer(),
+        "Metrics" => metrics(),
+        "TestWindowEnd" => non_neg_integer(),
+        "TestWindowStart" => non_neg_integer()
+      }
+      
+  """
+  @type window_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      supplementary_feature() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type supplementary_feature() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predictor_execution() :: %{
+        "AlgorithmArn" => String.t() | atom(),
+        "TestWindows" => list(test_window_summary())
+      }
+      
+  """
+  @type predictor_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_forecast_response() :: %{
+        "ForecastArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_forecast_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_what_if_forecast_request() :: %{
+        required("WhatIfForecastArn") => String.t() | atom()
+      }
+      
+  """
+  @type describe_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -942,171 +2076,61 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      explainability_info() :: %{
-        "ExplainabilityArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
+      create_what_if_forecast_response() :: %{
+        "WhatIfForecastArn" => String.t() | atom()
       }
       
   """
-  @type explainability_info() :: %{(String.t() | atom()) => any()}
+  @type create_what_if_forecast_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_accuracy_metrics_request() :: %{
-        required("PredictorArn") => String.t() | atom()
+      list_what_if_forecast_exports_request() :: %{
+        optional("Filters") => list(filter()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type get_accuracy_metrics_request() :: %{(String.t() | atom()) => any()}
+  @type list_what_if_forecast_exports_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      dataset_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "DatasetType" => list(any()),
-        "Domain" => list(any()),
-        "LastModificationTime" => non_neg_integer()
-      }
-      
-  """
-  @type dataset_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_auto_predictor_request() :: %{
-        required("PredictorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_auto_predictor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resume_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type resume_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_config() :: %{
+      encryption_config() :: %{
         "KMSKeyArn" => String.t() | atom(),
-        "Path" => String.t() | atom(),
         "RoleArn" => String.t() | atom()
       }
       
   """
-  @type s3_config() :: %{(String.t() | atom()) => any()}
+  @type encryption_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_dataset_import_job_request() :: %{
-        required("DatasetImportJobArn") => String.t() | atom()
+      action() :: %{
+        "AttributeName" => String.t() | atom(),
+        "Operation" => list(any()),
+        "Value" => float()
       }
       
   """
-  @type delete_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
+  @type action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_forecast_export_job_request() :: %{
-        required("ForecastExportJobArn") => String.t() | atom()
+      schema() :: %{
+        "Attributes" => list(schema_attribute())
       }
       
   """
-  @type delete_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_series_transformation() :: %{
-        "Action" => action(),
-        "TimeSeriesConditions" => list(time_series_condition())
-      }
-      
-  """
-  @type time_series_transformation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_config() :: %{
-        "AdditionalDatasets" => list(additional_dataset()),
-        "AttributeConfigs" => list(attribute_config()),
-        "DatasetGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_next_token_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_next_token_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_forecast_export_job_response() :: %{
-        "ForecastExportJobArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_forecast_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_what_if_forecast_request() :: %{
-        optional("Tags") => list(tag()),
-        optional("TimeSeriesReplacementsDataSource") => time_series_replacements_data_source(),
-        optional("TimeSeriesTransformations") => list(time_series_transformation()),
-        required("WhatIfAnalysisArn") => String.t() | atom(),
-        required("WhatIfForecastName") => String.t() | atom()
-      }
-      
-  """
-  @type create_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
+  @type schema() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1135,217 +2159,179 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      list_dataset_groups_response() :: %{
-        "DatasetGroups" => list(dataset_group_summary()),
-        "NextToken" => String.t() | atom()
+      parameter_ranges() :: %{
+        "CategoricalParameterRanges" => list(categorical_parameter_range()),
+        "ContinuousParameterRanges" => list(continuous_parameter_range()),
+        "IntegerParameterRanges" => list(integer_parameter_range())
       }
       
   """
-  @type list_dataset_groups_response() :: %{(String.t() | atom()) => any()}
+  @type parameter_ranges() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_what_if_analysis_response() :: %{
-        "WhatIfAnalysisArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_what_if_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_what_if_analyses_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_what_if_analyses_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_predictors_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_predictors_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_what_if_analysis_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "EstimatedTimeRemainingInMinutes" => float(),
-        "ForecastArn" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "TimeSeriesSelector" => time_series_selector(),
-        "WhatIfAnalysisArn" => String.t() | atom(),
-        "WhatIfAnalysisName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_what_if_analysis_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema() :: %{
-        "Attributes" => list(schema_attribute())
-      }
-      
-  """
-  @type schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_dataset_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_forecasts_response() :: %{
-        "Forecasts" => list(forecast_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_forecasts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_input_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_input_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_explainability_request() :: %{
-        required("ExplainabilityArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_explainability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_predictor_backtest_export_jobs_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "PredictorBacktestExportJobs" => list(predictor_backtest_export_job_summary())
-      }
-      
-  """
-  @type list_predictor_backtest_export_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_what_if_analysis_request() :: %{
+      create_dataset_group_request() :: %{
+        optional("DatasetArns") => list(String.t() | atom()),
         optional("Tags") => list(tag()),
-        optional("TimeSeriesSelector") => time_series_selector(),
-        required("ForecastArn") => String.t() | atom(),
-        required("WhatIfAnalysisName") => String.t() | atom()
+        required("DatasetGroupName") => String.t() | atom(),
+        required("Domain") => list(any())
       }
       
   """
-  @type create_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type create_dataset_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_what_if_analysis_request() :: %{
-        required("WhatIfAnalysisArn") => String.t() | atom()
+      error_metric() :: %{
+        "ForecastType" => String.t() | atom(),
+        "MAPE" => float(),
+        "MASE" => float(),
+        "RMSE" => float(),
+        "WAPE" => float()
       }
       
   """
-  @type describe_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
+  @type error_metric() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      baseline_metric() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => float()
-      }
-      
-  """
-  @type baseline_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      categorical_parameter_range() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-      
-  """
-  @type categorical_parameter_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_predictor_backtest_export_job_response() :: %{
+      dataset_summary() :: %{
         "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "Format" => String.t() | atom(),
+        "DatasetArn" => String.t() | atom(),
+        "DatasetName" => String.t() | atom(),
+        "DatasetType" => list(any()),
+        "Domain" => list(any()),
+        "LastModificationTime" => non_neg_integer()
+      }
+      
+  """
+  @type dataset_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_config() :: %{
+        "AdditionalDatasets" => list(additional_dataset()),
+        "AttributeConfigs" => list(attribute_config()),
+        "DatasetGroupArn" => String.t() | atom()
+      }
+      
+  """
+  @type data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schema_attribute() :: %{
+        "AttributeName" => String.t() | atom(),
+        "AttributeType" => list(any())
+      }
+      
+  """
+  @type schema_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      forecast_summary() :: %{
+        "CreatedUsingAutoPredictor" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "DatasetGroupArn" => String.t() | atom(),
+        "ForecastArn" => String.t() | atom(),
+        "ForecastName" => String.t() | atom(),
         "LastModificationTime" => non_neg_integer(),
         "Message" => String.t() | atom(),
         "PredictorArn" => String.t() | atom(),
-        "PredictorBacktestExportJobArn" => String.t() | atom(),
-        "PredictorBacktestExportJobName" => String.t() | atom(),
         "Status" => String.t() | atom()
       }
       
   """
-  @type describe_predictor_backtest_export_job_response() :: %{(String.t() | atom()) => any()}
+  @type forecast_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_dataset_request() :: %{
+        required("DatasetArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_explainability_export_response() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "ExplainabilityArn" => String.t() | atom(),
+        "ExplainabilityExportArn" => String.t() | atom(),
+        "ExplainabilityExportName" => String.t() | atom(),
+        "Format" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type describe_explainability_export_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      explainability_export_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "ExplainabilityExportArn" => String.t() | atom(),
+        "ExplainabilityExportName" => String.t() | atom(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+      
+  """
+  @type explainability_export_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_what_if_forecast_request() :: %{
+        required("WhatIfForecastArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      what_if_forecast_export_summary() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Destination" => data_destination(),
+        "LastModificationTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "WhatIfForecastArns" => list(String.t() | atom()),
+        "WhatIfForecastExportArn" => String.t() | atom(),
+        "WhatIfForecastExportName" => String.t() | atom()
+      }
+      
+  """
+  @type what_if_forecast_export_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1359,32 +2345,6 @@ defmodule AWS.Forecast do
       
   """
   @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_explainabilities_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_explainabilities_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_series_condition() :: %{
-        "AttributeName" => String.t() | atom(),
-        "AttributeValue" => String.t() | atom(),
-        "Condition" => list(any())
-      }
-      
-  """
-  @type time_series_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1409,386 +2369,6 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      delete_predictor_request() :: %{
-        required("PredictorArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_predictor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_result() :: %{
-        "MetricName" => String.t() | atom(),
-        "MetricValue" => float()
-      }
-      
-  """
-  @type metric_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_destination() :: %{
-        "S3Config" => s3_config()
-      }
-      
-  """
-  @type data_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      explainability_config() :: %{
-        "TimePointGranularity" => list(any()),
-        "TimeSeriesGranularity" => list(any())
-      }
-      
-  """
-  @type explainability_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_execution() :: %{
-        "AlgorithmArn" => String.t() | atom(),
-        "TestWindows" => list(test_window_summary())
-      }
-      
-  """
-  @type predictor_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitor_data_source() :: %{
-        "DatasetImportJobArn" => String.t() | atom(),
-        "ForecastArn" => String.t() | atom(),
-        "PredictorArn" => String.t() | atom()
-      }
-      
-  """
-  @type monitor_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_what_if_forecast_export_response() :: %{
-        "WhatIfForecastExportArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_what_if_forecast_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      action() :: %{
-        "AttributeName" => String.t() | atom(),
-        "Operation" => list(any()),
-        "Value" => float()
-      }
-      
-  """
-  @type action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      schema_attribute() :: %{
-        "AttributeName" => String.t() | atom(),
-        "AttributeType" => list(any())
-      }
-      
-  """
-  @type schema_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_explainability_export_response() :: %{
-        "ExplainabilityExportArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_explainability_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_import_job_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DataSource" => data_source(),
-        "DatasetImportJobArn" => String.t() | atom(),
-        "DatasetImportJobName" => String.t() | atom(),
-        "ImportMode" => list(any()),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type dataset_import_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_predictor_backtest_export_job_request() :: %{
-        required("PredictorBacktestExportJobArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_dataset_import_jobs_response() :: %{
-        "DatasetImportJobs" => list(dataset_import_job_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_dataset_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      error_metric() :: %{
-        "ForecastType" => String.t() | atom(),
-        "MAPE" => float(),
-        "MASE" => float(),
-        "RMSE" => float(),
-        "WAPE" => float()
-      }
-      
-  """
-  @type error_metric() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dataset_group_request() :: %{
-        required("DatasetGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_dataset_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t() | atom(),
-        "IsAutoPredictor" => boolean(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "PredictorArn" => String.t() | atom(),
-        "PredictorName" => String.t() | atom(),
-        "ReferencePredictorSummary" => reference_predictor_summary(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type predictor_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_dataset_group_request() :: %{
-        required("DatasetArns") => list(String.t() | atom()),
-        required("DatasetGroupArn") => String.t() | atom()
-      }
-      
-  """
-  @type update_dataset_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_predictor_request() :: %{
-        required("PredictorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_predictor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_what_if_forecast_exports_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_what_if_forecast_exports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_forecast_export_job_request() :: %{
-        optional("Format") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Destination") => data_destination(),
-        required("ForecastArn") => String.t() | atom(),
-        required("ForecastExportJobName") => String.t() | atom()
-      }
-      
-  """
-  @type create_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_predictor_backtest_export_job_request() :: %{
-        optional("Format") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Destination") => data_destination(),
-        required("PredictorArn") => String.t() | atom(),
-        required("PredictorBacktestExportJobName") => String.t() | atom()
-      }
-      
-  """
-  @type create_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_group_response() :: %{
-        "DatasetGroupArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      statistics() :: %{
-        "Avg" => float(),
-        "Count" => integer(),
-        "CountDistinct" => integer(),
-        "CountDistinctLong" => float(),
-        "CountLong" => float(),
-        "CountNan" => integer(),
-        "CountNanLong" => float(),
-        "CountNull" => integer(),
-        "CountNullLong" => float(),
-        "Max" => String.t() | atom(),
-        "Min" => String.t() | atom(),
-        "Stddev" => float()
-      }
-      
-  """
-  @type statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_what_if_forecast_request() :: %{
-        required("WhatIfForecastArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_backtest_export_job_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "PredictorBacktestExportJobArn" => String.t() | atom(),
-        "PredictorBacktestExportJobName" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type predictor_backtest_export_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DataFrequency" => String.t() | atom(),
-        "DatasetArn" => String.t() | atom(),
-        "DatasetName" => String.t() | atom(),
-        "DatasetType" => list(any()),
-        "Domain" => list(any()),
-        "EncryptionConfig" => encryption_config(),
-        "LastModificationTime" => non_neg_integer(),
-        "Schema" => schema(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_what_if_forecast_export_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "EstimatedTimeRemainingInMinutes" => float(),
-        "Format" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "WhatIfForecastArns" => list(String.t() | atom()),
-        "WhatIfForecastExportArn" => String.t() | atom(),
-        "WhatIfForecastExportName" => String.t() | atom()
-      }
-      
-  """
-  @type describe_what_if_forecast_export_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_tags_for_resource_request() :: %{
         required("ResourceArn") => String.t() | atom()
       }
@@ -1800,40 +2380,37 @@ defmodule AWS.Forecast do
 
   ## Example:
       
-      describe_what_if_forecast_request() :: %{
-        required("WhatIfForecastArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_what_if_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_what_if_analysis_request() :: %{
-        required("WhatIfAnalysisArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_request() :: %{
-        optional("DataFrequency") => String.t() | atom(),
-        optional("EncryptionConfig") => encryption_config(),
+      create_what_if_analysis_request() :: %{
         optional("Tags") => list(tag()),
-        required("DatasetName") => String.t() | atom(),
-        required("DatasetType") => list(any()),
-        required("Domain") => list(any()),
-        required("Schema") => schema()
+        optional("TimeSeriesSelector") => time_series_selector(),
+        required("ForecastArn") => String.t() | atom(),
+        required("WhatIfAnalysisName") => String.t() | atom()
       }
       
   """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+  @type create_what_if_analysis_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      time_series_selector() :: %{
+        "TimeSeriesIdentifiers" => time_series_identifiers()
+      }
+      
+  """
+  @type time_series_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_predictor_response() :: %{
+        "PredictorArn" => String.t() | atom()
+      }
+      
+  """
+  @type create_predictor_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1846,720 +2423,143 @@ defmodule AWS.Forecast do
   """
   @type describe_dataset_group_request() :: %{(String.t() | atom()) => any()}
 
-  @typedoc """
-
-  ## Example:
-      
-      delete_predictor_backtest_export_job_request() :: %{
-        required("PredictorBacktestExportJobArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_predictor_backtest_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      continuous_parameter_range() :: %{
-        "MaxValue" => float(),
-        "MinValue" => float(),
-        "Name" => String.t() | atom(),
-        "ScalingType" => list(any())
-      }
-      
-  """
-  @type continuous_parameter_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_import_job_request() :: %{
-        optional("Format") => String.t() | atom(),
-        optional("GeolocationFormat") => String.t() | atom(),
-        optional("ImportMode") => list(any()),
-        optional("Tags") => list(tag()),
-        optional("TimeZone") => String.t() | atom(),
-        optional("TimestampFormat") => String.t() | atom(),
-        optional("UseGeolocationForTimeZone") => boolean(),
-        required("DataSource") => data_source(),
-        required("DatasetArn") => String.t() | atom(),
-        required("DatasetImportJobName") => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_monitor_request() :: %{
-        required("MonitorArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_monitor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_event() :: %{
-        "Datetime" => non_neg_integer(),
-        "Detail" => String.t() | atom()
-      }
-      
-  """
-  @type predictor_event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_explainability_request() :: %{
-        required("ExplainabilityArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_explainability_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_forecast_export_job_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Destination" => data_destination(),
-        "ForecastArn" => String.t() | atom(),
-        "ForecastExportJobArn" => String.t() | atom(),
-        "ForecastExportJobName" => String.t() | atom(),
-        "Format" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type describe_forecast_export_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_explainability_response() :: %{
-        "ExplainabilityArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_explainability_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_monitor_response() :: %{
-        "Baseline" => baseline(),
-        "CreationTime" => non_neg_integer(),
-        "EstimatedEvaluationTimeRemainingInMinutes" => float(),
-        "LastEvaluationState" => String.t() | atom(),
-        "LastEvaluationTime" => non_neg_integer(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "MonitorArn" => String.t() | atom(),
-        "MonitorName" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type describe_monitor_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_import_job_request() :: %{
-        required("DatasetImportJobArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_forecast_export_job_request() :: %{
-        required("ForecastExportJobArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_forecast_export_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_what_if_forecast_export_request() :: %{
-        optional("Format") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Destination") => data_destination(),
-        required("WhatIfForecastArns") => list(String.t() | atom()),
-        required("WhatIfForecastExportName") => String.t() | atom()
-      }
-      
-  """
-  @type create_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      what_if_analysis_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "ForecastArn" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "WhatIfAnalysisArn" => String.t() | atom(),
-        "WhatIfAnalysisName" => String.t() | atom()
-      }
-      
-  """
-  @type what_if_analysis_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_monitor_evaluations_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MonitorArn") => String.t() | atom()
-      }
-      
-  """
-  @type list_monitor_evaluations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_group_response() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DatasetArns" => list(String.t() | atom()),
-        "DatasetGroupArn" => String.t() | atom(),
-        "DatasetGroupName" => String.t() | atom(),
-        "Domain" => list(any()),
-        "LastModificationTime" => non_neg_integer(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      evaluation_result() :: %{
-        "AlgorithmArn" => String.t() | atom(),
-        "TestWindows" => list(window_summary())
-      }
-      
-  """
-  @type evaluation_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_forecasts_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_forecasts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_dataset_request() :: %{
-        required("DatasetArn") => String.t() | atom()
-      }
-      
-  """
-  @type describe_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_dataset_request() :: %{
-        required("DatasetArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_datasets_response() :: %{
-        "Datasets" => list(dataset_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      what_if_forecast_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LastModificationTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "WhatIfAnalysisArn" => String.t() | atom(),
-        "WhatIfForecastArn" => String.t() | atom(),
-        "WhatIfForecastName" => String.t() | atom()
-      }
-      
-  """
-  @type what_if_forecast_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_forecast_request() :: %{
-        optional("ForecastTypes") => list(String.t() | atom()),
-        optional("Tags") => list(tag()),
-        optional("TimeSeriesSelector") => time_series_selector(),
-        required("ForecastName") => String.t() | atom(),
-        required("PredictorArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_forecast_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      additional_dataset() :: %{
-        "Configuration" => map(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type additional_dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_explainability_export_request() :: %{
-        required("ExplainabilityExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_explainability_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type resource_already_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_monitor_request() :: %{
-        optional("Tags") => list(tag()),
-        required("MonitorName") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_monitor_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_explainability_exports_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_explainability_exports_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      data_source() :: %{
-        "S3Config" => s3_config()
-      }
-      
-  """
-  @type data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_resource_tree_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_resource_tree_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      window_summary() :: %{
-        "EvaluationType" => list(any()),
-        "ItemCount" => integer(),
-        "Metrics" => metrics(),
-        "TestWindowEnd" => non_neg_integer(),
-        "TestWindowStart" => non_neg_integer()
-      }
-      
-  """
-  @type window_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_explainabilities_response() :: %{
-        "Explainabilities" => list(explainability_summary()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_explainabilities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      predictor_baseline() :: %{
-        "BaselineMetrics" => list(baseline_metric())
-      }
-      
-  """
-  @type predictor_baseline() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      hyper_parameter_tuning_job_config() :: %{
-        "ParameterRanges" => parameter_ranges()
-      }
-      
-  """
-  @type hyper_parameter_tuning_job_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_forecast_response() :: %{
-        "ForecastArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_forecast_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_series_replacements_data_source() :: %{
-        "Format" => String.t() | atom(),
-        "S3Config" => s3_config(),
-        "Schema" => schema(),
-        "TimestampFormat" => String.t() | atom()
-      }
-      
-  """
-  @type time_series_replacements_data_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_what_if_forecast_export_request() :: %{
-        required("WhatIfForecastExportArn") => String.t() | atom()
-      }
-      
-  """
-  @type delete_what_if_forecast_export_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      monitor_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "LastModificationTime" => non_neg_integer(),
-        "MonitorArn" => String.t() | atom(),
-        "MonitorName" => String.t() | atom(),
-        "ResourceArn" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-      
-  """
-  @type monitor_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_alignment_boundary() :: %{
-        "DayOfMonth" => integer(),
-        "DayOfWeek" => list(any()),
-        "Hour" => integer(),
-        "Month" => list(any())
-      }
-      
-  """
-  @type time_alignment_boundary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      featurization() :: %{
-        "AttributeName" => String.t() | atom(),
-        "FeaturizationPipeline" => list(featurization_method())
-      }
-      
-  """
-  @type featurization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_predictor_backtest_export_jobs_request() :: %{
-        optional("Filters") => list(filter()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_predictor_backtest_export_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_series_identifiers() :: %{
-        "DataSource" => data_source(),
-        "Format" => String.t() | atom(),
-        "Schema" => schema()
-      }
-      
-  """
-  @type time_series_identifiers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_dataset_import_job_response() :: %{
-        "DatasetImportJobArn" => String.t() | atom()
-      }
-      
-  """
-  @type create_dataset_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      dataset_group_summary() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DatasetGroupArn" => String.t() | atom(),
-        "DatasetGroupName" => String.t() | atom(),
-        "LastModificationTime" => non_neg_integer()
-      }
-      
-  """
-  @type dataset_group_summary() :: %{(String.t() | atom()) => any()}
-
   @type create_auto_predictor_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_dataset_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
+          | limit_exceeded_exception()
 
   @type create_dataset_group_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_dataset_import_job_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_explainability_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_explainability_export_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_forecast_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_forecast_export_job_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_monitor_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_predictor_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_predictor_backtest_export_job_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_what_if_analysis_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_what_if_forecast_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_what_if_forecast_export_errors() ::
           resource_already_exists_exception()
-          | limit_exceeded_exception()
           | invalid_input_exception()
-          | resource_not_found_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type delete_dataset_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_dataset_group_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_dataset_import_job_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_explainability_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_explainability_export_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_forecast_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_forecast_export_job_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_monitor_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_predictor_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_predictor_backtest_export_job_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_resource_tree_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_what_if_analysis_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_what_if_forecast_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type delete_what_if_forecast_export_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type describe_auto_predictor_errors() ::
           invalid_input_exception() | resource_not_found_exception()
@@ -2600,7 +2600,7 @@ defmodule AWS.Forecast do
           invalid_input_exception() | resource_not_found_exception()
 
   @type get_accuracy_metrics_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   @type list_dataset_groups_errors() :: invalid_next_token_exception()
 
@@ -2645,21 +2645,21 @@ defmodule AWS.Forecast do
           invalid_input_exception() | invalid_next_token_exception()
 
   @type resume_resource_errors() ::
-          limit_exceeded_exception()
-          | invalid_input_exception()
-          | resource_not_found_exception()
+          invalid_input_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | limit_exceeded_exception()
 
   @type stop_resource_errors() ::
-          limit_exceeded_exception() | invalid_input_exception() | resource_not_found_exception()
+          invalid_input_exception() | resource_not_found_exception() | limit_exceeded_exception()
 
   @type tag_resource_errors() ::
-          limit_exceeded_exception() | invalid_input_exception() | resource_not_found_exception()
+          invalid_input_exception() | resource_not_found_exception() | limit_exceeded_exception()
 
   @type untag_resource_errors() :: invalid_input_exception() | resource_not_found_exception()
 
   @type update_dataset_group_errors() ::
-          invalid_input_exception() | resource_not_found_exception() | resource_in_use_exception()
+          invalid_input_exception() | resource_in_use_exception() | resource_not_found_exception()
 
   def metadata do
     %{
@@ -2735,7 +2735,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_auto_predictor_errors()}
   def create_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAutoPredictor", input, options)
   end
@@ -2801,7 +2802,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_errors()}
   def create_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDataset", input, options)
   end
@@ -2833,7 +2835,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_group_errors()}
   def create_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetGroup", input, options)
   end
@@ -2882,7 +2885,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_dataset_import_job_errors()}
   def create_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateDatasetImportJob", input, options)
   end
@@ -3015,7 +3019,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_errors()}
   def create_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExplainability", input, options)
   end
@@ -3042,7 +3047,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_explainability_export_errors()}
   def create_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateExplainabilityExport", input, options)
   end
@@ -3086,7 +3092,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_errors()}
   def create_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateForecast", input, options)
   end
@@ -3123,7 +3130,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_forecast_export_job_errors()}
   def create_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateForecastExportJob", input, options)
   end
@@ -3141,7 +3149,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_monitor_errors()}
   def create_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMonitor", input, options)
   end
@@ -3229,7 +3238,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_errors()}
   def create_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePredictor", input, options)
   end
@@ -3268,7 +3278,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_predictor_backtest_export_job_errors()}
   def create_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePredictorBacktestExportJob", input, options)
   end
@@ -3313,7 +3324,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_analysis_errors()}
   def create_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfAnalysis", input, options)
   end
@@ -3332,7 +3344,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_errors()}
   def create_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecast", input, options)
   end
@@ -3370,7 +3383,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, create_what_if_forecast_export_errors()}
   def create_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWhatIfForecastExport", input, options)
   end
@@ -3398,7 +3412,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_errors()}
   def delete_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDataset", input, options)
   end
@@ -3420,7 +3435,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_group_errors()}
   def delete_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetGroup", input, options)
   end
@@ -3440,7 +3456,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_dataset_import_job_errors()}
   def delete_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteDatasetImportJob", input, options)
   end
@@ -3457,7 +3474,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_errors()}
   def delete_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExplainability", input, options)
   end
@@ -3471,7 +3489,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_explainability_export_errors()}
   def delete_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteExplainabilityExport", input, options)
   end
@@ -3493,7 +3512,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_errors()}
   def delete_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteForecast", input, options)
   end
@@ -3512,7 +3532,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_forecast_export_job_errors()}
   def delete_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteForecastExportJob", input, options)
   end
@@ -3529,7 +3550,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_monitor_errors()}
   def delete_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMonitor", input, options)
   end
@@ -3548,7 +3570,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_errors()}
   def delete_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePredictor", input, options)
   end
@@ -3566,7 +3589,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_predictor_backtest_export_job_errors()}
   def delete_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePredictorBacktestExportJob", input, options)
   end
@@ -3613,7 +3637,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_resource_tree_errors()}
   def delete_resource_tree(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteResourceTree", input, options)
   end
@@ -3634,7 +3659,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_analysis_errors()}
   def delete_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfAnalysis", input, options)
   end
@@ -3655,7 +3681,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_errors()}
   def delete_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecast", input, options)
   end
@@ -3674,7 +3701,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, delete_what_if_forecast_export_errors()}
   def delete_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWhatIfForecastExport", input, options)
   end
@@ -3688,7 +3716,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_auto_predictor_errors()}
   def describe_auto_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAutoPredictor", input, options)
   end
@@ -3719,7 +3748,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_errors()}
   def describe_dataset(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDataset", input, options)
   end
@@ -3754,7 +3784,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_group_errors()}
   def describe_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetGroup", input, options)
   end
@@ -3797,7 +3828,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_dataset_import_job_errors()}
   def describe_dataset_import_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeDatasetImportJob", input, options)
   end
@@ -3812,7 +3844,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_errors()}
   def describe_explainability(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExplainability", input, options)
   end
@@ -3827,7 +3860,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_explainability_export_errors()}
   def describe_explainability_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeExplainabilityExport", input, options)
   end
@@ -3865,7 +3899,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_errors()}
   def describe_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeForecast", input, options)
   end
@@ -3900,7 +3935,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_forecast_export_job_errors()}
   def describe_forecast_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeForecastExportJob", input, options)
   end
@@ -3945,7 +3981,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_monitor_errors()}
   def describe_monitor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMonitor", input, options)
   end
@@ -3995,7 +4032,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_errors()}
   def describe_predictor(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePredictor", input, options)
   end
@@ -4034,7 +4072,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_predictor_backtest_export_job_errors()}
   def describe_predictor_backtest_export_job(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePredictorBacktestExportJob", input, options)
   end
@@ -4068,7 +4107,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_analysis_errors()}
   def describe_what_if_analysis(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfAnalysis", input, options)
   end
@@ -4102,7 +4142,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_errors()}
   def describe_what_if_forecast(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecast", input, options)
   end
@@ -4141,7 +4182,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, describe_what_if_forecast_export_errors()}
   def describe_what_if_forecast_export(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeWhatIfForecastExport", input, options)
   end
@@ -4178,7 +4220,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, get_accuracy_metrics_errors()}
   def get_accuracy_metrics(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetAccuracyMetrics", input, options)
   end
@@ -4201,7 +4244,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_groups_errors()}
   def list_dataset_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetGroups", input, options)
   end
@@ -4226,7 +4270,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_dataset_import_jobs_errors()}
   def list_dataset_import_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasetImportJobs", input, options)
   end
@@ -4248,7 +4293,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_datasets_errors()}
   def list_datasets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListDatasets", input, options)
   end
@@ -4271,7 +4317,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainabilities_errors()}
   def list_explainabilities(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExplainabilities", input, options)
   end
@@ -4294,7 +4341,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_explainability_exports_errors()}
   def list_explainability_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListExplainabilityExports", input, options)
   end
@@ -4315,7 +4363,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecast_export_jobs_errors()}
   def list_forecast_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListForecastExportJobs", input, options)
   end
@@ -4336,7 +4385,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_forecasts_errors()}
   def list_forecasts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListForecasts", input, options)
   end
@@ -4355,7 +4405,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitor_evaluations_errors()}
   def list_monitor_evaluations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitorEvaluations", input, options)
   end
@@ -4375,7 +4426,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_monitors_errors()}
   def list_monitors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListMonitors", input, options)
   end
@@ -4402,7 +4454,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictor_backtest_export_jobs_errors()}
   def list_predictor_backtest_export_jobs(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPredictorBacktestExportJobs", input, options)
   end
@@ -4424,7 +4477,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_predictors_errors()}
   def list_predictors(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPredictors", input, options)
   end
@@ -4438,7 +4492,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -4458,7 +4513,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_analyses_errors()}
   def list_what_if_analyses(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfAnalyses", input, options)
   end
@@ -4478,7 +4534,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecast_exports_errors()}
   def list_what_if_forecast_exports(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecastExports", input, options)
   end
@@ -4498,7 +4555,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, list_what_if_forecasts_errors()}
   def list_what_if_forecasts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWhatIfForecasts", input, options)
   end
@@ -4512,7 +4570,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, resume_resource_errors()}
   def resume_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeResource", input, options)
   end
@@ -4555,7 +4614,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, stop_resource_errors()}
   def stop_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopResource", input, options)
   end
@@ -4575,7 +4635,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -4589,7 +4650,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -4608,7 +4670,8 @@ defmodule AWS.Forecast do
           | {:error, term()}
           | {:error, update_dataset_group_errors()}
   def update_dataset_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateDatasetGroup", input, options)
   end

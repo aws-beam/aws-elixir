@@ -16,94 +16,6 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      put_cors_policy_output() :: %{}
-      
-  """
-  @type put_cors_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_input() :: %{
-        required("ContainerName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_container_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container() :: %{
-        "ARN" => String.t() | atom(),
-        "AccessLoggingEnabled" => boolean(),
-        "CreationTime" => non_neg_integer(),
-        "Endpoint" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type container() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_lifecycle_policy_output() :: %{}
-      
-  """
-  @type delete_lifecycle_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_access_logging_output() :: %{}
-      
-  """
-  @type stop_access_logging_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_container_policy_input() :: %{
-        required("ContainerName") => String.t() | atom(),
-        required("Policy") => String.t() | atom()
-      }
-      
-  """
-  @type put_container_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_container_output() :: %{
-        "Container" => container()
-      }
-      
-  """
-  @type describe_container_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_access_logging_input() :: %{
-        required("ContainerName") => String.t() | atom()
-      }
-      
-  """
-  @type start_access_logging_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_metric_policy_output() :: %{
         "MetricPolicy" => metric_policy()
       }
@@ -115,10 +27,36 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      put_container_policy_output() :: %{}
+      get_lifecycle_policy_input() :: %{
+        required("ContainerName") => String.t() | atom()
+      }
       
   """
-  @type put_container_policy_output() :: %{}
+  @type get_lifecycle_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_output() :: %{}
+      
+  """
+  @type delete_container_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cors_rule() :: %{
+        "AllowedHeaders" => list(String.t() | atom()),
+        "AllowedMethods" => list(list(any())()),
+        "AllowedOrigins" => list(String.t() | atom()),
+        "ExposeHeaders" => list(String.t() | atom()),
+        "MaxAgeSeconds" => integer()
+      }
+      
+  """
+  @type cors_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,88 +73,56 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      get_container_policy_output() :: %{
-        "Policy" => String.t() | atom()
+      create_container_input() :: %{
+        optional("Tags") => list(tag()),
+        required("ContainerName") => String.t() | atom()
       }
       
   """
-  @type get_container_policy_output() :: %{(String.t() | atom()) => any()}
+  @type create_container_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_container_output() :: %{}
+      describe_container_output() :: %{
+        "Container" => container()
+      }
       
   """
-  @type delete_container_output() :: %{}
+  @type describe_container_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_cors_policy_input() :: %{
+      tag_resource_output() :: %{}
+      
+  """
+  @type tag_resource_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_output() :: %{
+        "Container" => container()
+      }
+      
+  """
+  @type create_container_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_policy_input() :: %{
         required("ContainerName") => String.t() | atom(),
-        required("CorsPolicy") => list(cors_rule())
+        required("MetricPolicy") => metric_policy()
       }
       
   """
-  @type put_cors_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cors_policy_input() :: %{
-        required("ContainerName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_cors_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_cors_policy_output() :: %{
-        "CorsPolicy" => list(cors_rule())
-      }
-      
-  """
-  @type get_cors_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_policy_input() :: %{
-        required("ContainerName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_container_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cors_policy_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type cors_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type put_metric_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -245,35 +151,59 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      describe_container_input() :: %{
-        optional("ContainerName") => String.t() | atom()
-      }
+      delete_container_policy_output() :: %{}
       
   """
-  @type describe_container_input() :: %{(String.t() | atom()) => any()}
+  @type delete_container_policy_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      stop_access_logging_input() :: %{
-        required("ContainerName") => String.t() | atom()
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type stop_access_logging_input() :: %{(String.t() | atom()) => any()}
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_containers_input() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      cors_policy_not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type list_containers_input() :: %{(String.t() | atom()) => any()}
+  @type cors_policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container() :: %{
+        "ARN" => String.t() | atom(),
+        "AccessLoggingEnabled" => boolean(),
+        "CreationTime" => non_neg_integer(),
+        "Endpoint" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_error() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_server_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -291,12 +221,50 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      get_lifecycle_policy_input() :: %{
+      start_access_logging_input() :: %{
         required("ContainerName") => String.t() | atom()
       }
       
   """
-  @type get_lifecycle_policy_input() :: %{(String.t() | atom()) => any()}
+  @type start_access_logging_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_container_policy_output() :: %{}
+      
+  """
+  @type put_container_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_cors_policy_output() :: %{}
+      
+  """
+  @type put_cors_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_access_logging_output() :: %{}
+      
+  """
+  @type start_access_logging_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_metric_policy_input() :: %{
+        required("ContainerName") => String.t() | atom()
+      }
+      
+  """
+  @type get_metric_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,64 +282,24 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      put_lifecycle_policy_output() :: %{}
-      
-  """
-  @type put_lifecycle_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      metric_policy_rule() :: %{
-        "ObjectGroup" => String.t() | atom(),
-        "ObjectGroupName" => String.t() | atom()
+      put_container_policy_input() :: %{
+        required("ContainerName") => String.t() | atom(),
+        required("Policy") => String.t() | atom()
       }
       
   """
-  @type metric_policy_rule() :: %{(String.t() | atom()) => any()}
+  @type put_container_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_metric_policy_output() :: %{}
-      
-  """
-  @type delete_metric_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_output() :: %{}
-      
-  """
-  @type tag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      cors_rule() :: %{
-        "AllowedHeaders" => list(String.t() | atom()),
-        "AllowedMethods" => list(list(any())()),
-        "AllowedOrigins" => list(String.t() | atom()),
-        "ExposeHeaders" => list(String.t() | atom()),
-        "MaxAgeSeconds" => integer()
+      get_container_policy_input() :: %{
+        required("ContainerName") => String.t() | atom()
       }
       
   """
-  @type cors_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_policy_output() :: %{}
-      
-  """
-  @type delete_container_policy_output() :: %{}
+  @type get_container_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -383,60 +311,6 @@ defmodule AWS.MediaStore do
       
   """
   @type delete_lifecycle_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_policy_input() :: %{
-        required("ContainerName") => String.t() | atom(),
-        required("MetricPolicy") => metric_policy()
-      }
-      
-  """
-  @type put_metric_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type container_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_container_output() :: %{
-        "Container" => container()
-      }
-      
-  """
-  @type create_container_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_error() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_server_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_metric_policy_output() :: %{}
-      
-  """
-  @type put_metric_policy_output() :: %{}
 
   @typedoc """
 
@@ -454,12 +328,64 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
+      metric_policy_rule() :: %{
+        "ObjectGroup" => String.t() | atom(),
+        "ObjectGroupName" => String.t() | atom()
+      }
+      
+  """
+  @type metric_policy_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_lifecycle_policy_output() :: %{}
+      
+  """
+  @type put_lifecycle_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_metric_policy_input() :: %{
         required("ContainerName") => String.t() | atom()
       }
       
   """
   @type delete_metric_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      policy_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type policy_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_metric_policy_output() :: %{}
+      
+  """
+  @type delete_metric_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_access_logging_input() :: %{
+        required("ContainerName") => String.t() | atom()
+      }
+      
+  """
+  @type stop_access_logging_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -472,6 +398,61 @@ defmodule AWS.MediaStore do
       
   """
   @type metric_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_lifecycle_policy_input() :: %{
+        required("ContainerName") => String.t() | atom(),
+        required("LifecyclePolicy") => String.t() | atom()
+      }
+      
+  """
+  @type put_lifecycle_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_cors_policy_output() :: %{}
+      
+  """
+  @type delete_cors_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_input() :: %{
+        required("ContainerName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_container_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_cors_policy_output() :: %{
+        "CorsPolicy" => list(cors_rule())
+      }
+      
+  """
+  @type get_cors_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_containers_input() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_containers_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -499,73 +480,93 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      untag_resource_output() :: %{}
-      
-  """
-  @type untag_resource_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_access_logging_output() :: %{}
-      
-  """
-  @type start_access_logging_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_cors_policy_output() :: %{}
-      
-  """
-  @type delete_cors_policy_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_container_policy_input() :: %{
-        required("ContainerName") => String.t() | atom()
+      describe_container_input() :: %{
+        optional("ContainerName") => String.t() | atom()
       }
       
   """
-  @type get_container_policy_input() :: %{(String.t() | atom()) => any()}
+  @type describe_container_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_lifecycle_policy_input() :: %{
+      delete_lifecycle_policy_output() :: %{}
+      
+  """
+  @type delete_lifecycle_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_cors_policy_input() :: %{
         required("ContainerName") => String.t() | atom(),
-        required("LifecyclePolicy") => String.t() | atom()
+        required("CorsPolicy") => list(cors_rule())
       }
       
   """
-  @type put_lifecycle_policy_input() :: %{(String.t() | atom()) => any()}
+  @type put_cors_policy_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      limit_exceeded_exception() :: %{
+      container_not_found_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type container_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_metric_policy_input() :: %{
+      delete_container_policy_input() :: %{
         required("ContainerName") => String.t() | atom()
       }
       
   """
-  @type get_metric_policy_input() :: %{(String.t() | atom()) => any()}
+  @type delete_container_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_container_policy_output() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_container_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_access_logging_output() :: %{}
+      
+  """
+  @type stop_access_logging_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_metric_policy_output() :: %{}
+      
+  """
+  @type put_metric_policy_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_output() :: %{}
+      
+  """
+  @type untag_resource_output() :: %{}
 
   @typedoc """
 
@@ -582,98 +583,97 @@ defmodule AWS.MediaStore do
 
   ## Example:
       
-      create_container_input() :: %{
-        optional("Tags") => list(tag()),
+      delete_cors_policy_input() :: %{
         required("ContainerName") => String.t() | atom()
       }
       
   """
-  @type create_container_input() :: %{(String.t() | atom()) => any()}
+  @type delete_cors_policy_input() :: %{(String.t() | atom()) => any()}
 
   @type create_container_errors() ::
-          limit_exceeded_exception() | container_in_use_exception() | internal_server_error()
+          container_in_use_exception() | internal_server_error() | limit_exceeded_exception()
 
   @type delete_container_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type delete_container_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
   @type delete_cors_policy_errors() ::
-          container_in_use_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | internal_server_error()
-          | container_not_found_exception()
           | cors_policy_not_found_exception()
 
   @type delete_lifecycle_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
   @type delete_metric_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
-  @type describe_container_errors() :: internal_server_error() | container_not_found_exception()
+  @type describe_container_errors() :: container_not_found_exception() | internal_server_error()
 
   @type get_container_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
   @type get_cors_policy_errors() ::
-          container_in_use_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | internal_server_error()
-          | container_not_found_exception()
           | cors_policy_not_found_exception()
 
   @type get_lifecycle_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
   @type get_metric_policy_errors() ::
-          container_in_use_exception()
-          | internal_server_error()
-          | container_not_found_exception()
+          container_not_found_exception()
+          | container_in_use_exception()
           | policy_not_found_exception()
+          | internal_server_error()
 
   @type list_containers_errors() :: internal_server_error()
 
   @type list_tags_for_resource_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type put_container_policy_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type put_cors_policy_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type put_lifecycle_policy_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type put_metric_policy_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type start_access_logging_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type stop_access_logging_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type tag_resource_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   @type untag_resource_errors() ::
-          container_in_use_exception() | internal_server_error() | container_not_found_exception()
+          container_not_found_exception() | container_in_use_exception() | internal_server_error()
 
   def metadata do
     %{
@@ -703,7 +703,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, create_container_errors()}
   def create_container(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainer", input, options)
   end
@@ -722,7 +723,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_container_errors()}
   def delete_container(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainer", input, options)
   end
@@ -736,7 +738,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_container_policy_errors()}
   def delete_container_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerPolicy", input, options)
   end
@@ -756,7 +759,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_cors_policy_errors()}
   def delete_cors_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteCorsPolicy", input, options)
   end
@@ -772,7 +776,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_lifecycle_policy_errors()}
   def delete_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLifecyclePolicy", input, options)
   end
@@ -789,7 +794,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, delete_metric_policy_errors()}
   def delete_metric_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMetricPolicy", input, options)
   end
@@ -813,7 +819,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, describe_container_errors()}
   def describe_container(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainer", input, options)
   end
@@ -831,7 +838,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_container_policy_errors()}
   def get_container_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetContainerPolicy", input, options)
   end
@@ -851,7 +859,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_cors_policy_errors()}
   def get_cors_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetCorsPolicy", input, options)
   end
@@ -865,7 +874,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_lifecycle_policy_errors()}
   def get_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLifecyclePolicy", input, options)
   end
@@ -879,7 +889,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, get_metric_policy_errors()}
   def get_metric_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetMetricPolicy", input, options)
   end
@@ -906,7 +917,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, list_containers_errors()}
   def list_containers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainers", input, options)
   end
@@ -920,7 +932,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -943,7 +956,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_container_policy_errors()}
   def put_container_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutContainerPolicy", input, options)
   end
@@ -978,7 +992,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_cors_policy_errors()}
   def put_cors_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutCorsPolicy", input, options)
   end
@@ -999,7 +1014,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_lifecycle_policy_errors()}
   def put_lifecycle_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLifecyclePolicy", input, options)
   end
@@ -1016,7 +1032,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, put_metric_policy_errors()}
   def put_metric_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutMetricPolicy", input, options)
   end
@@ -1033,7 +1050,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, start_access_logging_errors()}
   def start_access_logging(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartAccessLogging", input, options)
   end
@@ -1051,7 +1069,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, stop_access_logging_errors()}
   def stop_access_logging(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopAccessLogging", input, options)
   end
@@ -1072,7 +1091,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1088,7 +1108,8 @@ defmodule AWS.MediaStore do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end

@@ -35,234 +35,13 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_sampled_requests_request() :: %{
-        required("MaxItems") => float(),
-        required("RuleId") => String.t() | atom(),
-        required("TimeWindow") => time_window(),
-        required("WebAclId") => String.t() | atom()
+      field_to_match() :: %{
+        "Data" => String.t() | atom(),
+        "Type" => list(any())
       }
       
   """
-  @type get_sampled_requests_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_match_set_update() :: %{
-        "Action" => list(any()),
-        "RegexMatchTuple" => regex_match_tuple()
-      }
-      
-  """
-  @type regex_match_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_geo_match_set_request() :: %{
-        required("GeoMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type get_geo_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xss_match_set() :: %{
-        "Name" => String.t() | atom(),
-        "XssMatchSetId" => String.t() | atom(),
-        "XssMatchTuples" => list(xss_match_tuple())
-      }
-      
-  """
-  @type xss_match_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rule_request() :: %{
-        optional("Tags") => list(tag()),
-        required("ChangeToken") => String.t() | atom(),
-        required("MetricName") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_injection_match_set_summary() :: %{
-        "Name" => String.t() | atom(),
-        "SqlInjectionMatchSetId" => String.t() | atom()
-      }
-      
-  """
-  @type sql_injection_match_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_pattern_set_update() :: %{
-        "Action" => list(any()),
-        "RegexPatternString" => String.t() | atom()
-      }
-      
-  """
-  @type regex_pattern_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_group_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_nonexistent_item_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_nonexistent_item_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_injection_match_set() :: %{
-        "Name" => String.t() | atom(),
-        "SqlInjectionMatchSetId" => String.t() | atom(),
-        "SqlInjectionMatchTuples" => list(sql_injection_match_tuple())
-      }
-      
-  """
-  @type sql_injection_match_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rate_based_rule() :: %{
-        "MatchPredicates" => list(predicate()),
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RateKey" => list(any()),
-        "RateLimit" => float(),
-        "RuleId" => String.t() | atom()
-      }
-      
-  """
-  @type rate_based_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_size_constraint_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("SizeConstraintSetId") => String.t() | atom(),
-        required("Updates") => list(size_constraint_set_update())
-      }
-      
-  """
-  @type update_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      geo_match_set_update() :: %{
-        "Action" => list(any()),
-        "GeoMatchConstraint" => geo_match_constraint()
-      }
-      
-  """
-  @type geo_match_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xss_match_set_update() :: %{
-        "Action" => list(any()),
-        "XssMatchTuple" => xss_match_tuple()
-      }
-      
-  """
-  @type xss_match_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_invalid_regex_pattern_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_invalid_regex_pattern_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rule_group_request() :: %{
-        required("RuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type get_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_byte_match_set_response() :: %{
-        "ByteMatchSet" => byte_match_set(),
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type create_byte_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_byte_match_set_response() :: %{
-        "ByteMatchSet" => byte_match_set()
-      }
-      
-  """
-  @type get_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type field_to_match() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,6 +59,136 @@ defmodule AWS.WAF do
 
   ## Example:
       
+      list_subscribed_rule_groups_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "RuleGroups" => list(subscribed_rule_group_summary())
+      }
+      
+  """
+  @type list_subscribed_rule_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_injection_match_set_update() :: %{
+        "Action" => list(any()),
+        "SqlInjectionMatchTuple" => sql_injection_match_tuple()
+      }
+      
+  """
+  @type sql_injection_match_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byte_match_set() :: %{
+        "ByteMatchSetId" => String.t() | atom(),
+        "ByteMatchTuples" => list(byte_match_tuple()),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type byte_match_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_override_action() :: %{
+        "Type" => list(any())
+      }
+      
+  """
+  @type waf_override_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regex_pattern_set_request() :: %{
+        required("RegexPatternSetId") => String.t() | atom()
+      }
+      
+  """
+  @type get_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_byte_match_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
+      }
+      
+  """
+  @type list_byte_match_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rate_based_rule_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_logging_configurations_response() :: %{
+        "LoggingConfigurations" => list(logging_configuration()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_logging_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_byte_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_byte_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RuleId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_group_summary() :: %{
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom()
+      }
+      
+  """
+  @type rule_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_ip_sets_request() :: %{
         optional("Limit") => integer(),
         optional("NextMarker") => String.t() | atom()
@@ -292,92 +201,62 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      delete_byte_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
+      regex_match_set_update() :: %{
+        "Action" => list(any()),
+        "RegexMatchTuple" => regex_match_tuple()
       }
       
   """
-  @type delete_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type regex_match_set_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      waf_action() :: %{
-        "Type" => list(any())
-      }
-      
-  """
-  @type waf_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_regex_match_sets_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "RegexMatchSets" => list(regex_match_set_summary())
-      }
-      
-  """
-  @type list_regex_match_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_xss_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_xss_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_regex_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RegexMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_regex_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_xss_match_set_response() :: %{
-        "XssMatchSet" => xss_match_set()
-      }
-      
-  """
-  @type get_xss_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_stale_data_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_stale_data_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_xss_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
+      get_xss_match_set_request() :: %{
         required("XssMatchSetId") => String.t() | atom()
       }
       
   """
-  @type delete_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type get_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_rules_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Rules" => list(rule_summary())
+      }
+      
+  """
+  @type list_rules_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Predicates" => list(predicate()),
+        "RuleId" => String.t() | atom()
+      }
+      
+  """
+  @type rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geo_match_set_summary() :: %{
+        "GeoMatchSetId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type geo_match_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -395,57 +274,117 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_xss_match_sets_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "XssMatchSets" => list(xss_match_set_summary())
+      delete_ip_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type list_xss_match_sets_response() :: %{(String.t() | atom()) => any()}
+  @type delete_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_rate_based_rules_request() :: %{
+      list_logging_configurations_request() :: %{
         optional("Limit") => integer(),
         optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type list_rate_based_rules_request() :: %{(String.t() | atom()) => any()}
+  @type list_logging_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_byte_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
+      get_change_token_status_response() :: %{
+        "ChangeTokenStatus" => list(any())
       }
       
   """
-  @type update_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type get_change_token_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_sql_injection_match_set_response() :: %{
+      list_geo_match_sets_response() :: %{
+        "GeoMatchSets" => list(geo_match_set_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_geo_match_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_update() :: %{
+        "Action" => list(any()),
+        "Predicate" => predicate()
+      }
+      
+  """
+  @type rule_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_permission_policy_response() :: %{}
+      
+  """
+  @type put_permission_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_activated_rules_in_rule_group_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("RuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type list_activated_rules_in_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_xss_match_set_response() :: %{
         "ChangeToken" => String.t() | atom(),
-        "SqlInjectionMatchSet" => sql_injection_match_set()
+        "XssMatchSet" => xss_match_set()
       }
       
   """
-  @type create_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type create_xss_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_nonexistent_item_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_nonexistent_item_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_match_set() :: %{
+        "Name" => String.t() | atom(),
+        "RegexMatchSetId" => String.t() | atom(),
+        "RegexMatchTuples" => list(regex_match_tuple())
+      }
+      
+  """
+  @type regex_match_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -457,40 +396,6 @@ defmodule AWS.WAF do
       
   """
   @type get_rate_based_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      field_to_match() :: %{
-        "Data" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type field_to_match() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_service_linked_role_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_service_linked_role_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_nonexistent_container_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_nonexistent_container_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,13 +414,60 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      create_geo_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "GeoMatchSet" => geo_match_set()
+      update_sql_injection_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type create_geo_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type update_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rate_based_rule_managed_keys_request() :: %{
+        optional("NextMarker") => String.t() | atom(),
+        required("RuleId") => String.t() | atom()
+      }
+      
+  """
+  @type get_rate_based_rule_managed_keys_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_ip_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("IPSetId") => String.t() | atom(),
+        required("Updates") => list(ip_set_update())
+      }
+      
+  """
+  @type update_ip_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_web_acl_response() :: %{
+        "WebACL" => web_acl()
+      }
+      
+  """
+  @type get_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -527,6 +479,31 @@ defmodule AWS.WAF do
       
   """
   @type update_ip_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_entity_migration_exception() :: %{
+        "MigrationErrorReason" => String.t() | atom(),
+        "MigrationErrorType" => list(any()),
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_entity_migration_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_size_constraint_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
+      }
+      
+  """
+  @type list_size_constraint_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -545,15 +522,176 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      size_constraint() :: %{
-        "ComparisonOperator" => list(any()),
-        "FieldToMatch" => field_to_match(),
-        "Size" => float(),
-        "TextTransformation" => list(any())
+      ip_set() :: %{
+        "IPSetDescriptors" => list(ip_set_descriptor()),
+        "IPSetId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type size_constraint() :: %{(String.t() | atom()) => any()}
+  @type ip_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_sql_injection_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("SqlInjectionMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_tag_operation_internal_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_tag_operation_internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      predicate() :: %{
+        "DataId" => String.t() | atom(),
+        "Negated" => boolean(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type predicate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_acl_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "WebACL" => web_acl()
+      }
+      
+  """
+  @type create_web_acl_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_byte_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_permission_policy_request() :: %{
+        required("Policy") => String.t() | atom(),
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type put_permission_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sql_injection_match_set_request() :: %{
+        required("SqlInjectionMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type get_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_size_constraint_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("SizeConstraintSetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_subscription_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_subscription_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_web_acl_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("WebACLId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_acls_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "WebACLs" => list(web_acl_summary())
+      }
+      
+  """
+  @type list_web_acls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_geo_match_set_response() :: %{
+        "GeoMatchSet" => geo_match_set()
+      }
+      
+  """
+  @type get_geo_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_regex_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_regex_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_invalid_regex_pattern_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_invalid_regex_pattern_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -572,12 +710,12 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_sql_injection_match_set_request() :: %{
-        required("SqlInjectionMatchSetId") => String.t() | atom()
+      delete_xss_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type get_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type delete_xss_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -595,35 +733,24 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_size_constraint_set_response() :: %{
-        "SizeConstraintSet" => size_constraint_set()
+      get_permission_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
       }
       
   """
-  @type get_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
+  @type get_permission_policy_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_rule_request() :: %{
-        required("RuleId") => String.t() | atom()
+      list_rules_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type get_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      byte_match_set_update() :: %{
-        "Action" => list(any()),
-        "ByteMatchTuple" => byte_match_tuple()
-      }
-      
-  """
-  @type byte_match_set_update() :: %{(String.t() | atom()) => any()}
+  @type list_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -640,47 +767,125 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_regex_pattern_set_request() :: %{
-        required("RegexPatternSetId") => String.t() | atom()
+      get_sampled_requests_request() :: %{
+        required("MaxItems") => float(),
+        required("RuleId") => String.t() | atom(),
+        required("TimeWindow") => time_window(),
+        required("WebAclId") => String.t() | atom()
       }
       
   """
-  @type get_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
+  @type get_sampled_requests_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_web_acl_response() :: %{
-        "WebACL" => web_acl()
+      get_byte_match_set_response() :: %{
+        "ByteMatchSet" => byte_match_set()
       }
       
   """
-  @type get_web_acl_response() :: %{(String.t() | atom()) => any()}
+  @type get_byte_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
+      list_rule_groups_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_rule_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag_info_for_resource() :: %{
-        "ResourceARN" => String.t() | atom(),
-        "TagList" => list(tag())
+      w_a_f_invalid_operation_exception() :: %{
+        "message" => String.t() | atom()
       }
       
   """
-  @type tag_info_for_resource() :: %{(String.t() | atom()) => any()}
+  @type w_a_f_invalid_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_acl_request() :: %{
+        optional("Tags") => list(tag()),
+        required("ChangeToken") => String.t() | atom(),
+        required("DefaultAction") => waf_action(),
+        required("MetricName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_byte_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_acl_migration_stack_request() :: %{
+        required("IgnoreUnsupportedType") => boolean(),
+        required("S3BucketName") => String.t() | atom(),
+        required("WebACLId") => String.t() | atom()
+      }
+      
+  """
+  @type create_web_acl_migration_stack_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      logging_configuration() :: %{
+        "LogDestinationConfigs" => list(String.t() | atom()),
+        "RedactedFields" => list(field_to_match()),
+        "ResourceArn" => String.t() | atom()
+      }
+      
+  """
+  @type logging_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_xss_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "RuleGroup" => rule_group()
+      }
+      
+  """
+  @type create_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -702,107 +907,73 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      w_a_f_invalid_permission_policy_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_invalid_permission_policy_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rate_based_rule_response() :: %{
+      create_regex_match_set_response() :: %{
         "ChangeToken" => String.t() | atom(),
-        "Rule" => rate_based_rule()
+        "RegexMatchSet" => regex_match_set()
       }
       
   """
-  @type create_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
+  @type create_regex_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_ip_set_request() :: %{
+      subscribed_rule_group_summary() :: %{
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuleGroupId" => String.t() | atom()
+      }
+      
+  """
+  @type subscribed_rule_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_size_constraint_set_request() :: %{
         required("ChangeToken") => String.t() | atom(),
-        required("IPSetId") => String.t() | atom(),
-        required("Updates") => list(ip_set_update())
+        required("SizeConstraintSetId") => String.t() | atom(),
+        required("Updates") => list(size_constraint_set_update())
       }
       
   """
-  @type update_ip_set_request() :: %{(String.t() | atom()) => any()}
+  @type update_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_rules_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_rules_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_size_constraint_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rate_based_rule_response() :: %{
+      delete_web_acl_response() :: %{
         "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type update_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
+  @type delete_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_sql_injection_match_set_response() :: %{
-        "SqlInjectionMatchSet" => sql_injection_match_set()
+      get_xss_match_set_response() :: %{
+        "XssMatchSet" => xss_match_set()
       }
       
   """
-  @type get_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type get_xss_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      logging_configuration() :: %{
-        "LogDestinationConfigs" => list(String.t() | atom()),
-        "RedactedFields" => list(field_to_match()),
-        "ResourceArn" => String.t() | atom()
+      ip_set_summary() :: %{
+        "IPSetId" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
       
   """
-  @type logging_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_regex_match_set_request() :: %{
-        required("RegexMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type get_regex_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type ip_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -822,31 +993,43 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      list_sql_injection_match_sets_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "SqlInjectionMatchSets" => list(sql_injection_match_set_summary())
+      rule_group_update() :: %{
+        "Action" => list(any()),
+        "ActivatedRule" => activated_rule()
       }
       
   """
-  @type list_sql_injection_match_sets_response() :: %{(String.t() | atom()) => any()}
+  @type rule_group_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rule_group_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "RuleGroup" => rule_group()
+      sql_injection_match_set_summary() :: %{
+        "Name" => String.t() | atom(),
+        "SqlInjectionMatchSetId" => String.t() | atom()
       }
       
   """
-  @type create_rule_group_response() :: %{(String.t() | atom()) => any()}
+  @type sql_injection_match_set_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_rule_group_request() :: %{
+      create_sql_injection_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_request() :: %{
         optional("Tags") => list(tag()),
         required("ChangeToken") => String.t() | atom(),
         required("MetricName") => String.t() | atom(),
@@ -854,63 +1037,168 @@ defmodule AWS.WAF do
       }
       
   """
-  @type create_rule_group_request() :: %{(String.t() | atom()) => any()}
+  @type create_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      put_logging_configuration_response() :: %{
-        "LoggingConfiguration" => logging_configuration()
+      list_regex_match_sets_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "RegexMatchSets" => list(regex_match_set_summary())
       }
       
   """
-  @type put_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type list_regex_match_sets_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_rule_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RuleId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_bad_request_exception() :: %{
+      w_a_f_stale_data_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
-  @type w_a_f_bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type w_a_f_stale_data_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_geo_match_set_response() :: %{
+      update_rule_response() :: %{
         "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type delete_geo_match_set_response() :: %{(String.t() | atom()) => any()}
+  @type update_rule_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_rule_response() :: %{
+      list_byte_match_sets_response() :: %{
+        "ByteMatchSets" => list(byte_match_set_summary()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type list_byte_match_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      size_constraint_set_summary() :: %{
+        "Name" => String.t() | atom(),
+        "SizeConstraintSetId" => String.t() | atom()
+      }
+      
+  """
+  @type size_constraint_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sql_injection_match_tuple() :: %{
+        "FieldToMatch" => field_to_match(),
+        "TextTransformation" => list(any())
+      }
+      
+  """
+  @type sql_injection_match_tuple() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permission_policy_response() :: %{}
+      
+  """
+  @type delete_permission_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      size_constraint_set_update() :: %{
+        "Action" => list(any()),
+        "SizeConstraint" => size_constraint()
+      }
+      
+  """
+  @type size_constraint_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_service_linked_role_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_service_linked_role_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_regex_match_set_response() :: %{
         "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type delete_rule_response() :: %{(String.t() | atom()) => any()}
+  @type update_regex_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rule_response() :: %{
+        "Rule" => rule()
+      }
+      
+  """
+  @type get_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byte_match_set_summary() :: %{
+        "ByteMatchSetId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type byte_match_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_regex_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RegexMatchSetId") => String.t() | atom(),
+        required("Updates") => list(regex_match_set_update())
+      }
+      
+  """
+  @type update_regex_match_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -928,191 +1216,67 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      list_geo_match_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
       }
       
   """
-  @type list_geo_match_sets_request() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      web_acl() :: %{
-        "DefaultAction" => waf_action(),
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Rules" => list(activated_rule()),
-        "WebACLArn" => String.t() | atom(),
-        "WebACLId" => String.t() | atom()
+      get_change_token_request() :: %{}
+      
+  """
+  @type get_change_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regex_match_set_request() :: %{
+        required("RegexMatchSetId") => String.t() | atom()
       }
       
   """
-  @type web_acl() :: %{(String.t() | atom()) => any()}
+  @type get_regex_match_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      w_a_f_internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_match_set() :: %{
-        "Name" => String.t() | atom(),
-        "RegexMatchSetId" => String.t() | atom(),
-        "RegexMatchTuples" => list(regex_match_tuple())
-      }
-      
-  """
-  @type regex_match_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_activated_rules_in_rule_group_response() :: %{
-        "ActivatedRules" => list(activated_rule()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type list_activated_rules_in_rule_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_sql_injection_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      subscribed_rule_group_summary() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom()
-      }
-      
-  """
-  @type subscribed_rule_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_geo_match_set_response() :: %{
-        "GeoMatchSet" => geo_match_set()
-      }
-      
-  """
-  @type get_geo_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_permission_policy_response() :: %{}
-      
-  """
-  @type delete_permission_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_size_constraint_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("SizeConstraintSetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rate_based_rule_managed_keys_request() :: %{
-        optional("NextMarker") => String.t() | atom(),
+      get_rule_request() :: %{
         required("RuleId") => String.t() | atom()
       }
       
   """
-  @type get_rate_based_rule_managed_keys_request() :: %{(String.t() | atom()) => any()}
+  @type get_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_rule_response() :: %{
+      delete_geo_match_set_response() :: %{
         "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type update_rule_response() :: %{(String.t() | atom()) => any()}
+  @type delete_geo_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      w_a_f_referenced_item_exception() :: %{
-        "message" => String.t() | atom()
+      ip_set_descriptor() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type w_a_f_referenced_item_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_regex_pattern_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RegexPatternSetId") => String.t() | atom(),
-        required("Updates") => list(regex_pattern_set_update())
-      }
-      
-  """
-  @type update_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rate_based_rule_response() :: %{
-        "Rule" => rate_based_rule()
-      }
-      
-  """
-  @type get_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      time_window() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-      
-  """
-  @type time_window() :: %{(String.t() | atom()) => any()}
+  @type ip_set_descriptor() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1130,6 +1294,78 @@ defmodule AWS.WAF do
 
   ## Example:
       
+      create_rate_based_rule_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "Rule" => rate_based_rule()
+      }
+      
+  """
+  @type create_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geo_match_set_update() :: %{
+        "Action" => list(any()),
+        "GeoMatchConstraint" => geo_match_constraint()
+      }
+      
+  """
+  @type geo_match_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regex_pattern_set_response() :: %{
+        "RegexPatternSet" => regex_pattern_set()
+      }
+      
+  """
+  @type get_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ip_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_ip_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_group_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RuleGroupId") => String.t() | atom(),
+        required("Updates") => list(rule_group_update())
+      }
+      
+  """
+  @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_size_constraint_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_size_constraint_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_subscribed_rule_groups_request() :: %{
         optional("Limit") => integer(),
         optional("NextMarker") => String.t() | atom()
@@ -1142,60 +1378,126 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_xss_match_set_request() :: %{
-        required("XssMatchSetId") => String.t() | atom()
+      list_sql_injection_match_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type get_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type list_sql_injection_match_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
+      list_regex_match_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type tag() :: %{(String.t() | atom()) => any()}
+  @type list_regex_match_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_web_acl_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "WebACL" => web_acl()
-      }
+      tag_resource_response() :: %{}
       
   """
-  @type create_web_acl_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      update_sql_injection_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("SqlInjectionMatchSetId") => String.t() | atom(),
-        required("Updates") => list(sql_injection_match_set_update())
+      excluded_rule() :: %{
+        "RuleId" => String.t() | atom()
       }
       
   """
-  @type update_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type excluded_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_web_acl_response() :: %{
-        "ChangeToken" => String.t() | atom()
+      get_geo_match_set_request() :: %{
+        required("GeoMatchSetId") => String.t() | atom()
       }
       
   """
-  @type update_web_acl_response() :: %{(String.t() | atom()) => any()}
+  @type get_geo_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type put_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_pattern_set_summary() :: %{
+        "Name" => String.t() | atom(),
+        "RegexPatternSetId" => String.t() | atom()
+      }
+      
+  """
+  @type regex_pattern_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_non_empty_entity_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_non_empty_entity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_ip_set_request() :: %{
+        required("IPSetId") => String.t() | atom()
+      }
+      
+  """
+  @type get_ip_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_match_tuple() :: %{
+        "FieldToMatch" => field_to_match(),
+        "RegexPatternSetId" => String.t() | atom(),
+        "TextTransformation" => list(any())
+      }
+      
+  """
+  @type regex_match_tuple() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regex_pattern_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
+      }
+      
+  """
+  @type list_regex_pattern_sets_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1214,24 +1516,292 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_logging_configuration_response() :: %{
-        "LoggingConfiguration" => logging_configuration()
+      create_geo_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "GeoMatchSet" => geo_match_set()
       }
       
   """
-  @type get_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type create_geo_match_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_regex_match_sets_request() :: %{
+      update_geo_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_geo_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_sql_injection_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "SqlInjectionMatchSet" => sql_injection_match_set()
+      }
+      
+  """
+  @type create_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_geo_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("GeoMatchSetId") => String.t() | atom(),
+        required("Updates") => list(geo_match_set_update())
+      }
+      
+  """
+  @type update_geo_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      size_constraint() :: %{
+        "ComparisonOperator" => list(any()),
+        "FieldToMatch" => field_to_match(),
+        "Size" => float(),
+        "TextTransformation" => list(any())
+      }
+      
+  """
+  @type size_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_pattern_set_update() :: %{
+        "Action" => list(any()),
+        "RegexPatternString" => String.t() | atom()
+      }
+      
+  """
+  @type regex_pattern_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_regex_pattern_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_logging_configuration_request() :: %{
+        required("LoggingConfiguration") => logging_configuration()
+      }
+      
+  """
+  @type put_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_permission_policy_response() :: %{
+        "Policy" => String.t() | atom()
+      }
+      
+  """
+  @type get_permission_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_disallowed_name_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_disallowed_name_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_invalid_permission_policy_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_invalid_permission_policy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_info_for_resource() :: %{
+        "ResourceARN" => String.t() | atom(),
+        "TagList" => list(tag())
+      }
+      
+  """
+  @type tag_info_for_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_regex_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RegexMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_regex_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_limits_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_limits_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_xss_match_sets_request() :: %{
         optional("Limit") => integer(),
         optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type list_regex_match_sets_request() :: %{(String.t() | atom()) => any()}
+  @type list_xss_match_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_size_constraint_set_response() :: %{
+        "SizeConstraintSet" => size_constraint_set()
+      }
+      
+  """
+  @type get_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_web_acl_request() :: %{
+        required("WebACLId") => String.t() | atom()
+      }
+      
+  """
+  @type get_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_regex_pattern_sets_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "RegexPatternSets" => list(regex_pattern_set_summary())
+      }
+      
+  """
+  @type list_regex_pattern_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geo_match_set() :: %{
+        "GeoMatchConstraints" => list(geo_match_constraint()),
+        "GeoMatchSetId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type geo_match_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_tag_operation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_tag_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_xss_match_sets_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "XssMatchSets" => list(xss_match_set_summary())
+      }
+      
+  """
+  @type list_xss_match_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_ip_set_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "IPSet" => ip_set()
+      }
+      
+  """
+  @type create_ip_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rate_based_rule_managed_keys_response() :: %{
+        "ManagedKeys" => list(String.t() | atom()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type get_rate_based_rule_managed_keys_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1251,552 +1821,6 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      create_regex_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_regex_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      geo_match_set_summary() :: %{
-        "GeoMatchSetId" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type geo_match_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_geo_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_geo_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set() :: %{
-        "IPSetDescriptors" => list(ip_set_descriptor()),
-        "IPSetId" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type ip_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_invalid_account_exception() :: %{}
-      
-  """
-  @type w_a_f_invalid_account_exception() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_change_token_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type get_change_token_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_tag_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_tag_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "TagInfoForResource" => tag_info_for_resource()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_xss_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "XssMatchSet" => xss_match_set()
-      }
-      
-  """
-  @type create_xss_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_group_update() :: %{
-        "Action" => list(any()),
-        "ActivatedRule" => activated_rule()
-      }
-      
-  """
-  @type rule_group_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sampled_h_t_t_p_request() :: %{
-        "Action" => String.t() | atom(),
-        "Request" => h_t_t_p_request(),
-        "RuleWithinRuleGroup" => String.t() | atom(),
-        "Timestamp" => non_neg_integer(),
-        "Weight" => float()
-      }
-      
-  """
-  @type sampled_h_t_t_p_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_web_acl_request() :: %{
-        optional("DefaultAction") => waf_action(),
-        optional("Updates") => list(web_acl_update()),
-        required("ChangeToken") => String.t() | atom(),
-        required("WebACLId") => String.t() | atom()
-      }
-      
-  """
-  @type update_web_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_byte_match_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_byte_match_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rate_based_rule_managed_keys_response() :: %{
-        "ManagedKeys" => list(String.t() | atom()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type get_rate_based_rule_managed_keys_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_invalid_parameter_exception() :: %{
-        "field" => list(any()),
-        "parameter" => String.t() | atom(),
-        "reason" => list(any())
-      }
-      
-  """
-  @type w_a_f_invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_geo_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_geo_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_entity_migration_exception() :: %{
-        "MigrationErrorReason" => String.t() | atom(),
-        "MigrationErrorType" => list(any()),
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_entity_migration_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_change_token_request() :: %{}
-      
-  """
-  @type get_change_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_rule_response() :: %{
-        "Rule" => rule()
-      }
-      
-  """
-  @type get_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_sql_injection_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_rule_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "Rule" => rule()
-      }
-      
-  """
-  @type create_rule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_regex_pattern_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_regex_pattern_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_xss_match_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_xss_match_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      byte_match_set_summary() :: %{
-        "ByteMatchSetId" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type byte_match_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      waf_override_action() :: %{
-        "Type" => list(any())
-      }
-      
-  """
-  @type waf_override_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_subscribed_rule_groups_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "RuleGroups" => list(subscribed_rule_group_summary())
-      }
-      
-  """
-  @type list_subscribed_rule_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule() :: %{
-        "MetricName" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Predicates" => list(predicate()),
-        "RuleId" => String.t() | atom()
-      }
-      
-  """
-  @type rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_regex_pattern_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      size_constraint_set() :: %{
-        "Name" => String.t() | atom(),
-        "SizeConstraintSetId" => String.t() | atom(),
-        "SizeConstraints" => list(size_constraint())
-      }
-      
-  """
-  @type size_constraint_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_logging_configuration_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_regex_pattern_set_response() :: %{
-        "RegexPatternSet" => regex_pattern_set()
-      }
-      
-  """
-  @type get_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      geo_match_constraint() :: %{
-        "Type" => list(any()),
-        "Value" => list(any())
-      }
-      
-  """
-  @type geo_match_constraint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_pattern_set_summary() :: %{
-        "Name" => String.t() | atom(),
-        "RegexPatternSetId" => String.t() | atom()
-      }
-      
-  """
-  @type regex_pattern_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_permission_policy_request() :: %{
-        required("Policy") => String.t() | atom(),
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type put_permission_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_regex_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_regex_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_byte_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_byte_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_sql_injection_match_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_sql_injection_match_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_invalid_operation_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_invalid_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      rule_summary() :: %{
-        "Name" => String.t() | atom(),
-        "RuleId" => String.t() | atom()
-      }
-      
-  """
-  @type rule_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_match_set_summary() :: %{
-        "Name" => String.t() | atom(),
-        "RegexMatchSetId" => String.t() | atom()
-      }
-      
-  """
-  @type regex_match_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_change_token_status_response() :: %{
-        "ChangeTokenStatus" => list(any())
-      }
-      
-  """
-  @type get_change_token_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_activated_rules_in_rule_group_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom(),
-        optional("RuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type list_activated_rules_in_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_disallowed_name_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_disallowed_name_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_byte_match_sets_response() :: %{
-        "ByteMatchSets" => list(byte_match_set_summary()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type list_byte_match_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_logging_configurations_response() :: %{
-        "LoggingConfigurations" => list(logging_configuration()),
-        "NextMarker" => String.t() | atom()
-      }
-      
-  """
-  @type list_logging_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      h_t_t_p_header() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type h_t_t_p_header() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       get_size_constraint_set_request() :: %{
         required("SizeConstraintSetId") => String.t() | atom()
       }
@@ -1808,132 +1832,38 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_permission_policy_response() :: %{
-        "Policy" => String.t() | atom()
+      web_acl_summary() :: %{
+        "Name" => String.t() | atom(),
+        "WebACLId" => String.t() | atom()
       }
       
   """
-  @type get_permission_policy_response() :: %{(String.t() | atom()) => any()}
+  @type web_acl_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_geo_match_sets_response() :: %{
-        "GeoMatchSets" => list(geo_match_set_summary()),
-        "NextMarker" => String.t() | atom()
+      sql_injection_match_set() :: %{
+        "Name" => String.t() | atom(),
+        "SqlInjectionMatchSetId" => String.t() | atom(),
+        "SqlInjectionMatchTuples" => list(sql_injection_match_tuple())
       }
       
   """
-  @type list_geo_match_sets_response() :: %{(String.t() | atom()) => any()}
+  @type sql_injection_match_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_xss_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_xss_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      excluded_rule() :: %{
-        "RuleId" => String.t() | atom()
-      }
-      
-  """
-  @type excluded_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_web_acl_request() :: %{
-        optional("Tags") => list(tag()),
+      delete_rate_based_rule_request() :: %{
         required("ChangeToken") => String.t() | atom(),
-        required("DefaultAction") => waf_action(),
-        required("MetricName") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+        required("RuleId") => String.t() | atom()
       }
       
   """
-  @type create_web_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_ip_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_ip_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      size_constraint_set_update() :: %{
-        "Action" => list(any()),
-        "SizeConstraint" => size_constraint()
-      }
-      
-  """
-  @type size_constraint_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_rule_group_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RuleGroupId") => String.t() | atom(),
-        required("Updates") => list(rule_group_update())
-      }
-      
-  """
-  @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_rules_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "Rules" => list(rule_summary())
-      }
-      
-  """
-  @type list_rules_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ip_set_response() :: %{
-        "IPSet" => ip_set()
-      }
-      
-  """
-  @type get_ip_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_group_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_rule_group_response() :: %{(String.t() | atom()) => any()}
+  @type delete_rate_based_rule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1955,50 +1885,6 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_pattern_set() :: %{
-        "Name" => String.t() | atom(),
-        "RegexPatternSetId" => String.t() | atom(),
-        "RegexPatternStrings" => list(String.t() | atom())
-      }
-      
-  """
-  @type regex_pattern_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_size_constraint_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_byte_match_set_request() :: %{
-        required("ByteMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type get_byte_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_rate_based_rules_response() :: %{
         "NextMarker" => String.t() | atom(),
         "Rules" => list(rule_summary())
@@ -2011,131 +1897,58 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      rule_group_summary() :: %{
-        "Name" => String.t() | atom(),
-        "RuleGroupId" => String.t() | atom()
-      }
+      w_a_f_invalid_account_exception() :: %{}
       
   """
-  @type rule_group_summary() :: %{(String.t() | atom()) => any()}
+  @type w_a_f_invalid_account_exception() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      ip_set_summary() :: %{
-        "IPSetId" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      time_window() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
       }
       
   """
-  @type ip_set_summary() :: %{(String.t() | atom()) => any()}
+  @type time_window() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_regex_pattern_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
+      list_rate_based_rules_request() :: %{
         optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom(),
-        required("ResourceARN") => String.t() | atom()
+        optional("NextMarker") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type list_rate_based_rules_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      w_a_f_non_empty_entity_exception() :: %{
-        "message" => String.t() | atom()
+      list_activated_rules_in_rule_group_response() :: %{
+        "ActivatedRules" => list(activated_rule()),
+        "NextMarker" => String.t() | atom()
       }
       
   """
-  @type w_a_f_non_empty_entity_exception() :: %{(String.t() | atom()) => any()}
+  @type list_activated_rules_in_rule_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_permission_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
+      list_tags_for_resource_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "TagInfoForResource" => tag_info_for_resource()
       }
       
   """
-  @type delete_permission_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      xss_match_set_summary() :: %{
-        "Name" => String.t() | atom(),
-        "XssMatchSetId" => String.t() | atom()
-      }
-      
-  """
-  @type xss_match_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_regex_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_regex_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_regex_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RegexMatchSetId") => String.t() | atom(),
-        required("Updates") => list(regex_match_set_update())
-      }
-      
-  """
-  @type update_regex_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_permission_policy_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_permission_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_acl_update() :: %{
-        "Action" => list(any()),
-        "ActivatedRule" => activated_rule()
-      }
-      
-  """
-  @type web_acl_update() :: %{(String.t() | atom()) => any()}
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2153,152 +1966,58 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      predicate() :: %{
-        "DataId" => String.t() | atom(),
-        "Negated" => boolean(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type predicate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_logging_configurations_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_logging_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_logging_configuration_response() :: %{}
-      
-  """
-  @type delete_logging_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_ip_set_request() :: %{
-        required("IPSetId") => String.t() | atom()
-      }
-      
-  """
-  @type get_ip_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_size_constraint_set_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "SizeConstraintSet" => size_constraint_set()
-      }
-      
-  """
-  @type create_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_logging_configuration_request() :: %{
-        required("LoggingConfiguration") => logging_configuration()
-      }
-      
-  """
-  @type put_logging_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_permission_policy_response() :: %{}
-      
-  """
-  @type put_permission_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      regex_match_tuple() :: %{
-        "FieldToMatch" => field_to_match(),
-        "RegexPatternSetId" => String.t() | atom(),
-        "TextTransformation" => list(any())
-      }
-      
-  """
-  @type regex_match_tuple() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_geo_match_set_request() :: %{
+      create_regex_pattern_set_request() :: %{
         required("ChangeToken") => String.t() | atom(),
-        required("GeoMatchSetId") => String.t() | atom(),
-        required("Updates") => list(geo_match_set_update())
+        required("Name") => String.t() | atom()
       }
       
   """
-  @type update_geo_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type create_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_change_token_status_request() :: %{
-        required("ChangeToken") => String.t() | atom()
+      update_size_constraint_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type get_change_token_status_request() :: %{(String.t() | atom()) => any()}
+  @type update_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      rule_update() :: %{
-        "Action" => list(any()),
-        "Predicate" => predicate()
+      h_t_t_p_header() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
       
   """
-  @type rule_update() :: %{(String.t() | atom()) => any()}
+  @type h_t_t_p_header() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_size_constraint_sets_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "SizeConstraintSets" => list(size_constraint_set_summary())
+      get_ip_set_response() :: %{
+        "IPSet" => ip_set()
       }
       
   """
-  @type list_size_constraint_sets_response() :: %{(String.t() | atom()) => any()}
+  @type get_ip_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      geo_match_set() :: %{
-        "GeoMatchConstraints" => list(geo_match_constraint()),
-        "GeoMatchSetId" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      delete_regex_pattern_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type geo_match_set() :: %{(String.t() | atom()) => any()}
+  @type delete_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2326,317 +2045,49 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      get_sampled_requests_response() :: %{
-        "PopulationSize" => float(),
-        "SampledRequests" => list(sampled_h_t_t_p_request()),
-        "TimeWindow" => time_window()
+      update_sql_injection_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("SqlInjectionMatchSetId") => String.t() | atom(),
+        required("Updates") => list(sql_injection_match_set_update())
       }
       
   """
-  @type get_sampled_requests_response() :: %{(String.t() | atom()) => any()}
+  @type update_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_regex_pattern_sets_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "RegexPatternSets" => list(regex_pattern_set_summary())
-      }
-      
-  """
-  @type list_regex_pattern_sets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_injection_match_set_update() :: %{
+      xss_match_set_update() :: %{
         "Action" => list(any()),
-        "SqlInjectionMatchTuple" => sql_injection_match_tuple()
+        "XssMatchTuple" => xss_match_tuple()
       }
       
   """
-  @type sql_injection_match_set_update() :: %{(String.t() | atom()) => any()}
+  @type xss_match_set_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_web_acls_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
+      update_web_acl_response() :: %{
+        "ChangeToken" => String.t() | atom()
       }
       
   """
-  @type list_web_acls_request() :: %{(String.t() | atom()) => any()}
+  @type update_web_acl_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_web_acl_migration_stack_request() :: %{
-        required("IgnoreUnsupportedType") => boolean(),
-        required("S3BucketName") => String.t() | atom(),
-        required("WebACLId") => String.t() | atom()
-      }
-      
-  """
-  @type create_web_acl_migration_stack_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set_descriptor() :: %{
-        "Type" => list(any()),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type ip_set_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_web_acls_response() :: %{
-        "NextMarker" => String.t() | atom(),
-        "WebACLs" => list(web_acl_summary())
-      }
-      
-  """
-  @type list_web_acls_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_web_acl_migration_stack_response() :: %{
-        "S3ObjectUrl" => String.t() | atom()
-      }
-      
-  """
-  @type create_web_acl_migration_stack_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_ip_set_response() :: %{
+      create_size_constraint_set_response() :: %{
         "ChangeToken" => String.t() | atom(),
-        "IPSet" => ip_set()
+        "SizeConstraintSet" => size_constraint_set()
       }
       
   """
-  @type create_ip_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_sql_injection_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("SqlInjectionMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_sql_injection_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_regex_pattern_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type update_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_set_update() :: %{
-        "Action" => list(any()),
-        "IPSetDescriptor" => ip_set_descriptor()
-      }
-      
-  """
-  @type ip_set_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_size_constraint_sets_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
-      
-  """
-  @type list_size_constraint_sets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_web_acl_request() :: %{
-        required("WebACLId") => String.t() | atom()
-      }
-      
-  """
-  @type get_web_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      sql_injection_match_tuple() :: %{
-        "FieldToMatch" => field_to_match(),
-        "TextTransformation" => list(any())
-      }
-      
-  """
-  @type sql_injection_match_tuple() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_regex_match_set_response() :: %{
-        "RegexMatchSet" => regex_match_set()
-      }
-      
-  """
-  @type get_regex_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_acl_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_web_acl_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_subscription_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_subscription_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rule_group_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RuleGroupId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rule_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_limits_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_limits_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_rate_based_rule_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("RuleId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_rate_based_rule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_web_acl_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("WebACLId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_web_acl_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_geo_match_set_request() :: %{
-        required("ChangeToken") => String.t() | atom(),
-        required("GeoMatchSetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_geo_match_set_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      w_a_f_tag_operation_internal_error_exception() :: %{
-        "message" => String.t() | atom()
-      }
-      
-  """
-  @type w_a_f_tag_operation_internal_error_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_sql_injection_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      web_acl_summary() :: %{
-        "Name" => String.t() | atom(),
-        "WebACLId" => String.t() | atom()
-      }
-      
-  """
-  @type web_acl_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_size_constraint_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
+  @type create_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2658,73 +2109,307 @@ defmodule AWS.WAF do
 
   ## Example:
       
-      list_rule_groups_request() :: %{
-        optional("Limit") => integer(),
-        optional("NextMarker") => String.t() | atom()
-      }
+      delete_logging_configuration_response() :: %{}
       
   """
-  @type list_rule_groups_request() :: %{(String.t() | atom()) => any()}
+  @type delete_logging_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      byte_match_set() :: %{
-        "ByteMatchSetId" => String.t() | atom(),
-        "ByteMatchTuples" => list(byte_match_tuple()),
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type byte_match_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_ip_set_response() :: %{
-        "ChangeToken" => String.t() | atom()
-      }
-      
-  """
-  @type delete_ip_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      size_constraint_set_summary() :: %{
-        "Name" => String.t() | atom(),
-        "SizeConstraintSetId" => String.t() | atom()
-      }
-      
-  """
-  @type size_constraint_set_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_regex_match_set_response() :: %{
-        "ChangeToken" => String.t() | atom(),
-        "RegexMatchSet" => regex_match_set()
-      }
-      
-  """
-  @type create_regex_match_set_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_xss_match_set_request() :: %{
+      create_geo_match_set_request() :: %{
         required("ChangeToken") => String.t() | atom(),
         required("Name") => String.t() | atom()
       }
       
   """
-  @type create_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+  @type create_geo_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_change_token_status_request() :: %{
+        required("ChangeToken") => String.t() | atom()
+      }
+      
+  """
+  @type get_change_token_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      geo_match_constraint() :: %{
+        "Type" => list(any()),
+        "Value" => list(any())
+      }
+      
+  """
+  @type geo_match_constraint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_group_request() :: %{
+        optional("Tags") => list(tag()),
+        required("ChangeToken") => String.t() | atom(),
+        required("MetricName") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_group_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_change_token_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_change_token_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xss_match_set() :: %{
+        "Name" => String.t() | atom(),
+        "XssMatchSetId" => String.t() | atom(),
+        "XssMatchTuples" => list(xss_match_tuple())
+      }
+      
+  """
+  @type xss_match_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sampled_requests_response() :: %{
+        "PopulationSize" => float(),
+        "SampledRequests" => list(sampled_h_t_t_p_request()),
+        "TimeWindow" => time_window()
+      }
+      
+  """
+  @type get_sampled_requests_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rule_summary() :: %{
+        "Name" => String.t() | atom(),
+        "RuleId" => String.t() | atom()
+      }
+      
+  """
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_referenced_item_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_referenced_item_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rate_based_rule_response() :: %{
+        "Rule" => rate_based_rule()
+      }
+      
+  """
+  @type get_rate_based_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_match_set_summary() :: %{
+        "Name" => String.t() | atom(),
+        "RegexMatchSetId" => String.t() | atom()
+      }
+      
+  """
+  @type regex_match_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      regex_pattern_set() :: %{
+        "Name" => String.t() | atom(),
+        "RegexPatternSetId" => String.t() | atom(),
+        "RegexPatternStrings" => list(String.t() | atom())
+      }
+      
+  """
+  @type regex_pattern_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_logging_configuration_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_geo_match_sets_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
+      }
+      
+  """
+  @type list_geo_match_sets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_bad_request_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_regex_match_set_response() :: %{
+        "RegexMatchSet" => regex_match_set()
+      }
+      
+  """
+  @type get_regex_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      xss_match_set_summary() :: %{
+        "Name" => String.t() | atom(),
+        "XssMatchSetId" => String.t() | atom()
+      }
+      
+  """
+  @type xss_match_set_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      byte_match_set_update() :: %{
+        "Action" => list(any()),
+        "ByteMatchTuple" => byte_match_tuple()
+      }
+      
+  """
+  @type byte_match_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rule_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      waf_action() :: %{
+        "Type" => list(any())
+      }
+      
+  """
+  @type waf_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      sampled_h_t_t_p_request() :: %{
+        "Action" => String.t() | atom(),
+        "Request" => h_t_t_p_request(),
+        "RuleWithinRuleGroup" => String.t() | atom(),
+        "Timestamp" => non_neg_integer(),
+        "Weight" => float()
+      }
+      
+  """
+  @type sampled_h_t_t_p_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ip_set_update() :: %{
+        "Action" => list(any()),
+        "IPSetDescriptor" => ip_set_descriptor()
+      }
+      
+  """
+  @type ip_set_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_size_constraint_sets_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "SizeConstraintSets" => list(size_constraint_set_summary())
+      }
+      
+  """
+  @type list_size_constraint_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_rule_group_request() :: %{
+        required("RuleGroupId") => String.t() | atom()
+      }
+      
+  """
+  @type get_rule_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2738,134 +2423,449 @@ defmodule AWS.WAF do
   """
   @type create_regex_pattern_set_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+      
+      web_acl() :: %{
+        "DefaultAction" => waf_action(),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Rules" => list(activated_rule()),
+        "WebACLArn" => String.t() | atom(),
+        "WebACLId" => String.t() | atom()
+      }
+      
+  """
+  @type web_acl() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_regex_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_regex_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_web_acl_request() :: %{
+        optional("DefaultAction") => waf_action(),
+        optional("Updates") => list(web_acl_update()),
+        required("ChangeToken") => String.t() | atom(),
+        required("WebACLId") => String.t() | atom()
+      }
+      
+  """
+  @type update_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_byte_match_set_response() :: %{
+        "ByteMatchSet" => byte_match_set(),
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_byte_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      web_acl_update() :: %{
+        "Action" => list(any()),
+        "ActivatedRule" => activated_rule()
+      }
+      
+  """
+  @type web_acl_update() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_permission_policy_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+      
+  """
+  @type delete_permission_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_nonexistent_container_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_nonexistent_container_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_web_acl_migration_stack_response() :: %{
+        "S3ObjectUrl" => String.t() | atom()
+      }
+      
+  """
+  @type create_web_acl_migration_stack_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_sql_injection_match_sets_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "SqlInjectionMatchSets" => list(sql_injection_match_set_summary())
+      }
+      
+  """
+  @type list_sql_injection_match_sets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_rule_response() :: %{
+        "ChangeToken" => String.t() | atom(),
+        "Rule" => rule()
+      }
+      
+  """
+  @type create_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_internal_error_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type w_a_f_internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_web_acls_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom()
+      }
+      
+  """
+  @type list_web_acls_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_regex_pattern_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("RegexPatternSetId") => String.t() | atom(),
+        required("Updates") => list(regex_pattern_set_update())
+      }
+      
+  """
+  @type update_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_size_constraint_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_size_constraint_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      w_a_f_invalid_parameter_exception() :: %{
+        "field" => list(any()),
+        "parameter" => String.t() | atom(),
+        "reason" => list(any())
+      }
+      
+  """
+  @type w_a_f_invalid_parameter_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_sql_injection_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type delete_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_geo_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("GeoMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_geo_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      size_constraint_set() :: %{
+        "Name" => String.t() | atom(),
+        "SizeConstraintSetId" => String.t() | atom(),
+        "SizeConstraints" => list(size_constraint())
+      }
+      
+  """
+  @type size_constraint_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_xss_match_set_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_xss_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_rule_group_response() :: %{
+        "ChangeToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rate_based_rule() :: %{
+        "MatchPredicates" => list(predicate()),
+        "MetricName" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RateKey" => list(any()),
+        "RateLimit" => float(),
+        "RuleId" => String.t() | atom()
+      }
+      
+  """
+  @type rate_based_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_xss_match_set_request() :: %{
+        required("ChangeToken") => String.t() | atom(),
+        required("XssMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_xss_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_byte_match_set_request() :: %{
+        required("ByteMatchSetId") => String.t() | atom()
+      }
+      
+  """
+  @type get_byte_match_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_sql_injection_match_set_response() :: %{
+        "SqlInjectionMatchSet" => sql_injection_match_set()
+      }
+      
+  """
+  @type get_sql_injection_match_set_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_logging_configuration_response() :: %{
+        "LoggingConfiguration" => logging_configuration()
+      }
+      
+  """
+  @type get_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
   @type create_byte_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type create_geo_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type create_ip_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type create_rate_based_rule_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
 
   @type create_regex_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_disallowed_name_exception()
-          | w_a_f_internal_error_exception()
           | w_a_f_stale_data_exception()
 
   @type create_regex_pattern_set_errors() ::
-          w_a_f_limits_exceeded_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_disallowed_name_exception()
-          | w_a_f_internal_error_exception()
           | w_a_f_stale_data_exception()
 
   @type create_rule_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
 
   @type create_rule_group_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
           | w_a_f_limits_exceeded_exception()
           | w_a_f_disallowed_name_exception()
-          | w_a_f_tag_operation_exception()
-          | w_a_f_internal_error_exception()
-          | w_a_f_bad_request_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
 
   @type create_size_constraint_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type create_sql_injection_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type create_web_acl_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
 
   @type create_web_acl_migration_stack_errors() ::
-          w_a_f_invalid_operation_exception()
-          | w_a_f_entity_migration_exception()
-          | w_a_f_invalid_parameter_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_entity_migration_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type create_xss_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
 
   @type delete_byte_match_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_geo_match_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_ip_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
@@ -2880,88 +2880,88 @@ defmodule AWS.WAF do
           | w_a_f_nonexistent_item_exception()
 
   @type delete_rate_based_rule_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_non_empty_entity_exception()
-          | w_a_f_tag_operation_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_regex_match_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_regex_pattern_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_rule_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_non_empty_entity_exception()
-          | w_a_f_tag_operation_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_rule_group_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_size_constraint_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_sql_injection_match_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_web_acl_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_non_empty_entity_exception()
-          | w_a_f_tag_operation_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type delete_xss_match_set_errors() ::
-          w_a_f_non_empty_entity_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_referenced_item_exception()
-          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_non_empty_entity_exception()
           | w_a_f_stale_data_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_byte_match_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_change_token_errors() :: w_a_f_internal_error_exception()
@@ -2970,13 +2970,13 @@ defmodule AWS.WAF do
           w_a_f_internal_error_exception() | w_a_f_nonexistent_item_exception()
 
   @type get_geo_match_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_ip_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_logging_configuration_errors() ::
@@ -2986,29 +2986,29 @@ defmodule AWS.WAF do
           w_a_f_internal_error_exception() | w_a_f_nonexistent_item_exception()
 
   @type get_rate_based_rule_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_rate_based_rule_managed_keys_errors() ::
           w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
           | w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_regex_match_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_regex_pattern_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_rule_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_rule_group_errors() ::
@@ -3018,23 +3018,23 @@ defmodule AWS.WAF do
           w_a_f_internal_error_exception() | w_a_f_nonexistent_item_exception()
 
   @type get_size_constraint_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_sql_injection_match_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_web_acl_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type get_xss_match_set_errors() ::
-          w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
+          | w_a_f_invalid_account_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type list_activated_rules_in_rule_group_errors() ::
@@ -3043,13 +3043,13 @@ defmodule AWS.WAF do
           | w_a_f_nonexistent_item_exception()
 
   @type list_byte_match_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_geo_match_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_ip_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_logging_configurations_errors() ::
           w_a_f_invalid_parameter_exception()
@@ -3057,41 +3057,41 @@ defmodule AWS.WAF do
           | w_a_f_nonexistent_item_exception()
 
   @type list_rate_based_rules_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_regex_match_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_regex_pattern_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_rule_groups_errors() :: w_a_f_internal_error_exception()
 
   @type list_rules_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_size_constraint_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_sql_injection_match_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_subscribed_rule_groups_errors() ::
           w_a_f_internal_error_exception() | w_a_f_nonexistent_item_exception()
 
   @type list_tags_for_resource_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type list_web_acls_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type list_xss_match_sets_errors() ::
-          w_a_f_invalid_account_exception() | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception() | w_a_f_invalid_account_exception()
 
   @type put_logging_configuration_errors() ::
           w_a_f_internal_error_exception()
@@ -3106,146 +3106,146 @@ defmodule AWS.WAF do
           | w_a_f_nonexistent_item_exception()
 
   @type tag_resource_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type untag_resource_errors() ::
-          w_a_f_tag_operation_internal_error_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_tag_operation_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_bad_request_exception()
+          | w_a_f_tag_operation_exception()
+          | w_a_f_tag_operation_internal_error_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_byte_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_geo_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_ip_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_rate_based_rule_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_regex_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_disallowed_name_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
+          | w_a_f_disallowed_name_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_regex_pattern_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_internal_error_exception()
+          w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_invalid_regex_pattern_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_rule_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_rule_group_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_size_constraint_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_sql_injection_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_web_acl_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_subscription_not_found_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
-          | w_a_f_referenced_item_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_referenced_item_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_subscription_not_found_exception()
           | w_a_f_nonexistent_item_exception()
 
   @type update_xss_match_set_errors() ::
-          w_a_f_limits_exceeded_exception()
-          | w_a_f_invalid_operation_exception()
-          | w_a_f_invalid_parameter_exception()
-          | w_a_f_invalid_account_exception()
+          w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_nonexistent_container_exception()
+          | w_a_f_invalid_account_exception()
+          | w_a_f_limits_exceeded_exception()
           | w_a_f_stale_data_exception()
+          | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
   def metadata do
@@ -3318,7 +3318,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_byte_match_set_errors()}
   def create_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateByteMatchSet", input, options)
   end
@@ -3373,7 +3374,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_geo_match_set_errors()}
   def create_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGeoMatchSet", input, options)
   end
@@ -3431,7 +3433,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_ip_set_errors()}
   def create_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateIPSet", input, options)
   end
@@ -3543,7 +3546,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rate_based_rule_errors()}
   def create_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRateBasedRule", input, options)
   end
@@ -3602,7 +3606,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_regex_match_set_errors()}
   def create_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexMatchSet", input, options)
   end
@@ -3653,7 +3658,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_regex_pattern_set_errors()}
   def create_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRegexPatternSet", input, options)
   end
@@ -3730,7 +3736,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rule_errors()}
   def create_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRule", input, options)
   end
@@ -3774,7 +3781,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_rule_group_errors()}
   def create_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateRuleGroup", input, options)
   end
@@ -3832,7 +3840,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_size_constraint_set_errors()}
   def create_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSizeConstraintSet", input, options)
   end
@@ -3886,7 +3895,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_sql_injection_match_set_errors()}
   def create_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateSqlInjectionMatchSet", input, options)
   end
@@ -3956,7 +3966,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_web_acl_errors()}
   def create_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACL", input, options)
   end
@@ -3984,7 +3995,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_web_acl_migration_stack_errors()}
   def create_web_acl_migration_stack(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateWebACLMigrationStack", input, options)
   end
@@ -4038,7 +4050,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, create_xss_match_set_errors()}
   def create_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateXssMatchSet", input, options)
   end
@@ -4083,7 +4096,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_byte_match_set_errors()}
   def delete_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteByteMatchSet", input, options)
   end
@@ -4128,7 +4142,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_geo_match_set_errors()}
   def delete_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGeoMatchSet", input, options)
   end
@@ -4173,7 +4188,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_ip_set_errors()}
   def delete_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteIPSet", input, options)
   end
@@ -4201,7 +4217,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_logging_configuration_errors()}
   def delete_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLoggingConfiguration", input, options)
   end
@@ -4230,7 +4247,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_permission_policy_errors()}
   def delete_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePermissionPolicy", input, options)
   end
@@ -4276,7 +4294,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rate_based_rule_errors()}
   def delete_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRateBasedRule", input, options)
   end
@@ -4321,7 +4340,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_regex_match_set_errors()}
   def delete_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexMatchSet", input, options)
   end
@@ -4350,7 +4370,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_regex_pattern_set_errors()}
   def delete_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRegexPatternSet", input, options)
   end
@@ -4395,7 +4416,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rule_errors()}
   def delete_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRule", input, options)
   end
@@ -4440,7 +4462,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_rule_group_errors()}
   def delete_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteRuleGroup", input, options)
   end
@@ -4486,7 +4509,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_size_constraint_set_errors()}
   def delete_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSizeConstraintSet", input, options)
   end
@@ -4535,7 +4559,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_sql_injection_match_set_errors()}
   def delete_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteSqlInjectionMatchSet", input, options)
   end
@@ -4577,7 +4602,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_web_acl_errors()}
   def delete_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteWebACL", input, options)
   end
@@ -4622,7 +4648,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, delete_xss_match_set_errors()}
   def delete_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteXssMatchSet", input, options)
   end
@@ -4649,7 +4676,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_byte_match_set_errors()}
   def get_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetByteMatchSet", input, options)
   end
@@ -4692,7 +4720,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_change_token_errors()}
   def get_change_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetChangeToken", input, options)
   end
@@ -4736,7 +4765,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_change_token_status_errors()}
   def get_change_token_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetChangeTokenStatus", input, options)
   end
@@ -4763,7 +4793,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_geo_match_set_errors()}
   def get_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGeoMatchSet", input, options)
   end
@@ -4790,7 +4821,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_ip_set_errors()}
   def get_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetIPSet", input, options)
   end
@@ -4817,7 +4849,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_logging_configuration_errors()}
   def get_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetLoggingConfiguration", input, options)
   end
@@ -4844,7 +4877,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_permission_policy_errors()}
   def get_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPermissionPolicy", input, options)
   end
@@ -4873,7 +4907,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rate_based_rule_errors()}
   def get_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedRule", input, options)
   end
@@ -4908,7 +4943,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rate_based_rule_managed_keys_errors()}
   def get_rate_based_rule_managed_keys(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRateBasedRuleManagedKeys", input, options)
   end
@@ -4935,7 +4971,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_regex_match_set_errors()}
   def get_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexMatchSet", input, options)
   end
@@ -4962,7 +4999,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_regex_pattern_set_errors()}
   def get_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRegexPatternSet", input, options)
   end
@@ -4990,7 +5028,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rule_errors()}
   def get_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRule", input, options)
   end
@@ -5020,7 +5059,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_rule_group_errors()}
   def get_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetRuleGroup", input, options)
   end
@@ -5058,7 +5098,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_sampled_requests_errors()}
   def get_sampled_requests(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSampledRequests", input, options)
   end
@@ -5085,7 +5126,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_size_constraint_set_errors()}
   def get_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSizeConstraintSet", input, options)
   end
@@ -5113,7 +5155,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_sql_injection_match_set_errors()}
   def get_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetSqlInjectionMatchSet", input, options)
   end
@@ -5140,7 +5183,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_web_acl_errors()}
   def get_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetWebACL", input, options)
   end
@@ -5167,7 +5211,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, get_xss_match_set_errors()}
   def get_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetXssMatchSet", input, options)
   end
@@ -5198,7 +5243,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_activated_rules_in_rule_group_errors()}
   def list_activated_rules_in_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListActivatedRulesInRuleGroup", input, options)
   end
@@ -5225,7 +5271,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_byte_match_sets_errors()}
   def list_byte_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListByteMatchSets", input, options)
   end
@@ -5252,7 +5299,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_geo_match_sets_errors()}
   def list_geo_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGeoMatchSets", input, options)
   end
@@ -5279,7 +5327,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_ip_sets_errors()}
   def list_ip_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListIPSets", input, options)
   end
@@ -5306,7 +5355,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_logging_configurations_errors()}
   def list_logging_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLoggingConfigurations", input, options)
   end
@@ -5333,7 +5383,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rate_based_rules_errors()}
   def list_rate_based_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRateBasedRules", input, options)
   end
@@ -5360,7 +5411,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_regex_match_sets_errors()}
   def list_regex_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexMatchSets", input, options)
   end
@@ -5387,7 +5439,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_regex_pattern_sets_errors()}
   def list_regex_pattern_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRegexPatternSets", input, options)
   end
@@ -5414,7 +5467,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rule_groups_errors()}
   def list_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
   end
@@ -5441,7 +5495,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_rules_errors()}
   def list_rules(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRules", input, options)
   end
@@ -5468,7 +5523,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_size_constraint_sets_errors()}
   def list_size_constraint_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSizeConstraintSets", input, options)
   end
@@ -5495,7 +5551,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_sql_injection_match_sets_errors()}
   def list_sql_injection_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSqlInjectionMatchSets", input, options)
   end
@@ -5522,7 +5579,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_subscribed_rule_groups_errors()}
   def list_subscribed_rule_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListSubscribedRuleGroups", input, options)
   end
@@ -5557,7 +5615,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -5584,7 +5643,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_web_acls_errors()}
   def list_web_acls(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListWebACLs", input, options)
   end
@@ -5611,7 +5671,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, list_xss_match_sets_errors()}
   def list_xss_match_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListXssMatchSets", input, options)
   end
@@ -5662,7 +5723,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, put_logging_configuration_errors()}
   def put_logging_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutLoggingConfiguration", input, options)
   end
@@ -5724,7 +5786,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, put_permission_policy_errors()}
   def put_permission_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutPermissionPolicy", input, options)
   end
@@ -5760,7 +5823,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -5785,7 +5849,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -5860,7 +5925,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_byte_match_set_errors()}
   def update_byte_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateByteMatchSet", input, options)
   end
@@ -5924,7 +5990,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_geo_match_set_errors()}
   def update_geo_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGeoMatchSet", input, options)
   end
@@ -6020,7 +6087,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_ip_set_errors()}
   def update_ip_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateIPSet", input, options)
   end
@@ -6094,7 +6162,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rate_based_rule_errors()}
   def update_rate_based_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRateBasedRule", input, options)
   end
@@ -6165,7 +6234,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_regex_match_set_errors()}
   def update_regex_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexMatchSet", input, options)
   end
@@ -6234,7 +6304,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_regex_pattern_set_errors()}
   def update_regex_pattern_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRegexPatternSet", input, options)
   end
@@ -6307,7 +6378,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rule_errors()}
   def update_rule(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRule", input, options)
   end
@@ -6362,7 +6434,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_rule_group_errors()}
   def update_rule_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuleGroup", input, options)
   end
@@ -6445,7 +6518,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_size_constraint_set_errors()}
   def update_size_constraint_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSizeConstraintSet", input, options)
   end
@@ -6521,7 +6595,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_sql_injection_match_set_errors()}
   def update_sql_injection_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateSqlInjectionMatchSet", input, options)
   end
@@ -6628,7 +6703,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_web_acl_errors()}
   def update_web_acl(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateWebACL", input, options)
   end
@@ -6704,7 +6780,8 @@ defmodule AWS.WAF do
           | {:error, term()}
           | {:error, update_xss_match_set_errors()}
   def update_xss_match_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateXssMatchSet", input, options)
   end

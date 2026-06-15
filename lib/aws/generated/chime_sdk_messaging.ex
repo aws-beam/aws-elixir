@@ -20,455 +20,12 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      get_messaging_streaming_configurations_response() :: %{
-        "StreamingConfigurations" => list(streaming_configuration())
-      }
-
-  """
-  @type get_messaging_streaming_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_flows_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("AppInstanceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_flows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      streaming_configuration() :: %{
-        "DataType" => list(any()),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_memberships_for_app_instance_user_request() :: %{
-        optional("AppInstanceUserArn") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_memberships_for_app_instance_user_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sub_channel_summary() :: %{
-        "MembershipCount" => integer(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type sub_channel_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_bans_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_bans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_moderated_by_app_instance_user_request() :: %{
-        required("AppInstanceUserArn") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type describe_channel_moderated_by_app_instance_user_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_moderator_response() :: %{
-        "ChannelModerator" => channel_moderator()
-      }
-
-  """
-  @type describe_channel_moderator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_channel_message_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type redact_channel_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_moderator_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelModerator" => identity()
-      }
-
-  """
-  @type create_channel_moderator_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_moderator_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type delete_channel_moderator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_response() :: %{
-        "ChannelArn" => String.t() | atom()
-      }
-
-  """
-  @type create_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_membership_for_app_instance_user_summary() :: %{
-        "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
-        "ChannelSummary" => channel_summary()
-      }
-
-  """
-  @type channel_membership_for_app_instance_user_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_flows_response() :: %{
-        "ChannelFlows" => list(channel_flow_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_flows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_flow_response() :: %{
-        "ChannelFlow" => channel_flow()
-      }
-
-  """
-  @type describe_channel_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_messages_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelMessages" => list(channel_message_summary()),
-        "NextToken" => String.t() | atom(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_channel_membership_response() :: %{
-        "BatchChannelMemberships" => batch_channel_memberships(),
-        "Errors" => list(batch_create_channel_membership_error())
-      }
-
-  """
-  @type batch_create_channel_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_channel_expiration_settings_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ExpirationSettings" => expiration_settings()
-      }
-
-  """
-  @type put_channel_expiration_settings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_failure_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      identity() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_flow_response() :: %{
+      create_channel_flow_response() :: %{
         "ChannelFlowArn" => String.t() | atom()
       }
 
   """
-  @type update_channel_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_moderated_by_app_instance_user_response() :: %{
-        "Channel" => channel_moderated_by_app_instance_user_summary()
-      }
-
-  """
-  @type describe_channel_moderated_by_app_instance_user_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      channel_membership() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "InvitedBy" => identity(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Member" => identity(),
-        "SubChannelId" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type channel_membership() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_attribute_value() :: %{
-        "StringValues" => list(String.t() | atom())
-      }
-
-  """
-  @type message_attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redact_channel_message_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type redact_channel_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_channels_request() :: %{
-        optional("ChimeBearer") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Fields") => list(search_field())
-      }
-
-  """
-  @type search_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_message_request() :: %{
-        optional("ContentType") => String.t() | atom(),
-        optional("Metadata") => String.t() | atom(),
-        optional("SubChannelId") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom(),
-        required("Content") => String.t() | atom()
-      }
-
-  """
-  @type update_channel_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_moderator_request() :: %{
-        required("ChannelModeratorArn") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_moderator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttled_client_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_associated_with_channel_flow_response() :: %{
-        "Channels" => list(channel_associated_with_flow_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channels_associated_with_channel_flow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_membership_response() :: %{
-        "ChannelMembership" => channel_membership()
-      }
-
-  """
-  @type describe_channel_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t() | atom(),
-        required("MemberArn") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_ban_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_flow_request() :: %{}
-
-  """
-  @type describe_channel_flow_request() :: %{}
+  @type create_channel_flow_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -487,748 +44,16 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      send_channel_message_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type send_channel_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      processor() :: %{
-        "Configuration" => processor_configuration(),
-        "ExecutionOrder" => integer(),
-        "FallbackAction" => list(any()),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type processor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      expiration_settings() :: %{
-        "ExpirationCriterion" => list(any()),
-        "ExpirationDays" => integer()
-      }
-
-  """
-  @type expiration_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_message_callback() :: %{
-        "Content" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "MessageAttributes" => map(),
-        "MessageId" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "PushNotification" => push_notification_configuration(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type channel_message_callback() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sub_channels_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "SubChannels" => list(sub_channel_summary())
-      }
-
-  """
-  @type list_sub_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_membership_preferences_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type get_channel_membership_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_moderated_by_app_instance_user_response() :: %{
-        "Channels" => list(channel_moderated_by_app_instance_user_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channels_moderated_by_app_instance_user_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      put_channel_membership_preferences_request() :: %{
-        required("ChimeBearer") => String.t() | atom(),
-        required("Preferences") => channel_membership_preferences()
-      }
-
-  """
-  @type put_channel_membership_preferences_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_moderated_by_app_instance_user_request() :: %{
-        optional("AppInstanceUserArn") => String.t() | atom(),
+      list_channels_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type list_channels_moderated_by_app_instance_user_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      target() :: %{
-        "MemberArn" => String.t() | atom()
-      }
-
-  """
-  @type target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_moderator_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type describe_channel_moderator_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_flow() :: %{
-        "ChannelFlowArn" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Processors" => list(processor())
-      }
-
-  """
-  @type channel_flow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_summary() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "LastMessageTimestamp" => non_neg_integer(),
-        "Metadata" => String.t() | atom(),
-        "Mode" => list(any()),
-        "Name" => String.t() | atom(),
-        "Privacy" => list(any())
-      }
-
-  """
-  @type channel_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_flow_callback_request() :: %{
-        optional("DeleteResource") => boolean(),
-        required("CallbackId") => String.t() | atom(),
-        required("ChannelMessage") => channel_message_callback()
-      }
-
-  """
-  @type channel_flow_callback_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_message_response() :: %{
-        "ChannelMessage" => channel_message()
-      }
-
-  """
-  @type get_channel_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type describe_channel_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_messaging_streaming_configurations_response() :: %{
-        "StreamingConfigurations" => list(streaming_configuration())
-      }
-
-  """
-  @type put_messaging_streaming_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_flow_request() :: %{
-        required("Name") => String.t() | atom(),
-        required("Processors") => list(processor())
-      }
-
-  """
-  @type update_channel_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_channel_flow_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_channel_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_membership_preferences() :: %{
-        "PushNotifications" => push_notification_preferences()
-      }
-
-  """
-  @type channel_membership_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_ban_summary() :: %{
-        "Member" => identity()
-      }
-
-  """
-  @type channel_ban_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_response() :: %{
-        "Channel" => channel()
-      }
-
-  """
-  @type describe_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type delete_channel_ban_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_limit_exceeded_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_bans_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelBans" => list(channel_ban_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_bans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type describe_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_memberships_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SubChannelId") => String.t() | atom(),
-        optional("Type") => list(any()),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_memberships_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_membership_summary() :: %{
-        "Member" => identity()
-      }
-
-  """
-  @type channel_membership_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_request() :: %{
-        optional("ChannelId") => String.t() | atom(),
-        optional("ElasticChannelConfiguration") => elastic_channel_configuration(),
-        optional("ExpirationSettings") => expiration_settings(),
-        optional("MemberArns") => list(String.t() | atom()),
-        optional("Metadata") => String.t() | atom(),
-        optional("Mode") => list(any()),
-        optional("ModeratorArns") => list(String.t() | atom()),
         optional("Privacy") => list(any()),
-        optional("Tags") => list(tag()),
         required("AppInstanceArn") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_messaging_session_endpoint_request() :: %{
-        optional("NetworkType") => list(any())
-      }
-
-  """
-  @type get_messaging_session_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_messaging_streaming_configurations_request() :: %{
-        required("StreamingConfigurations") => list(streaming_configuration())
-      }
-
-  """
-  @type put_messaging_streaming_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_memberships_for_app_instance_user_response() :: %{
-        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_memberships_for_app_instance_user_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_response() :: %{
-        "Channels" => list(channel_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom(),
-        required("MemberArn") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-
-  """
-  @type create_channel_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_notification_preferences() :: %{
-        "AllowNotifications" => list(any()),
-        "FilterRule" => String.t() | atom()
-      }
-
-  """
-  @type push_notification_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_messaging_session_endpoint_response() :: %{
-        "Endpoint" => messaging_session_endpoint()
-      }
-
-  """
-  @type get_messaging_session_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_request() :: %{
-        optional("Metadata") => String.t() | atom(),
-        optional("Mode") => list(any()),
-        optional("Name") => String.t() | atom(),
         required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_channel_membership_preferences_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Member" => identity(),
-        "Preferences" => channel_membership_preferences()
-      }
-
-  """
-  @type put_channel_membership_preferences_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_flow_request() :: %{
-        optional("Tags") => list(tag()),
-        required("AppInstanceArn") => String.t() | atom(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Processors") => list(processor())
-      }
-
-  """
-  @type create_channel_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_read_marker_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type update_channel_read_marker_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_moderated_by_app_instance_user_summary() :: %{
-        "ChannelSummary" => channel_summary()
-      }
-
-  """
-  @type channel_moderated_by_app_instance_user_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_message() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Content" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "LastEditedTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "MessageAttributes" => map(),
-        "MessageId" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "Persistence" => list(any()),
-        "Redacted" => boolean(),
-        "Sender" => identity(),
-        "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t() | atom(),
-        "Target" => list(target()),
-        "Type" => list(any())
-      }
-
-  """
-  @type channel_message() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      messaging_session_endpoint() :: %{
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type messaging_session_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_message_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "MessageId" => String.t() | atom(),
-        "Status" => channel_message_status_structure(),
-        "SubChannelId" => String.t() | atom()
-      }
-
-  """
-  @type update_channel_message_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_associated_with_flow_summary() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Metadata" => String.t() | atom(),
-        "Mode" => list(any()),
-        "Name" => String.t() | atom(),
-        "Privacy" => list(any())
-      }
-
-  """
-  @type channel_associated_with_flow_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_message_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type delete_channel_message_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_field() :: %{
-        "Key" => list(any()),
-        "Operator" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type search_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_flow_request() :: %{}
-
-  """
-  @type delete_channel_flow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_moderators_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_moderators_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_configuration() :: %{
-        "InvocationType" => list(any()),
-        "ResourceArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_associated_with_channel_flow_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ChannelFlowArn") => String.t() | atom()
-      }
-
-  """
-  @type list_channels_associated_with_channel_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_create_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
-        optional("Type") => list(any()),
-        required("ChimeBearer") => String.t() | atom(),
-        required("MemberArns") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_create_channel_membership_request() :: %{(String.t() | atom()) => any()}
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1248,13 +73,162 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      delete_channel_membership_request() :: %{
-        optional("SubChannelId") => String.t() | atom(),
+      create_channel_response() :: %{
+        "ChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      messaging_session_endpoint() :: %{
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type messaging_session_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      push_notification_preferences() :: %{
+        "AllowNotifications" => list(any()),
+        "FilterRule" => String.t() | atom()
+      }
+
+  """
+  @type push_notification_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_bans_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelBans" => list(channel_ban_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_bans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_request() :: %{
+        optional("Metadata") => String.t() | atom(),
+        optional("Mode") => list(any()),
+        optional("Name") => String.t() | atom(),
         required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type delete_channel_membership_request() :: %{(String.t() | atom()) => any()}
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_associated_with_channel_flow_response() :: %{
+        "Channels" => list(channel_associated_with_flow_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channels_associated_with_channel_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderator_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type describe_channel_moderator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sub_channel_summary() :: %{
+        "MembershipCount" => integer(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type sub_channel_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_limit_exceeded_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_expiration_settings_request() :: %{
+        optional("ChimeBearer") => String.t() | atom(),
+        optional("ExpirationSettings") => expiration_settings()
+      }
+
+  """
+  @type put_channel_expiration_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_channel_memberships() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "InvitedBy" => identity(),
+        "Members" => list(identity()),
+        "SubChannelId" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type batch_channel_memberships() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_for_app_instance_user_response() :: %{
+        "ChannelMemberships" => list(channel_membership_for_app_instance_user_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_memberships_for_app_instance_user_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1277,198 +251,97 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      send_channel_message_request() :: %{
-        optional("ContentType") => String.t() | atom(),
-        optional("MessageAttributes") => map(),
-        optional("Metadata") => String.t() | atom(),
-        optional("PushNotification") => push_notification_configuration(),
-        optional("SubChannelId") => String.t() | atom(),
-        optional("Target") => list(target()),
-        required("ChimeBearer") => String.t() | atom(),
-        required("ClientRequestToken") => String.t() | atom(),
-        required("Content") => String.t() | atom(),
-        required("Persistence") => list(any()),
-        required("Type") => list(any())
+      get_messaging_streaming_configurations_response() :: %{
+        "StreamingConfigurations" => list(streaming_configuration())
       }
 
   """
-  @type send_channel_message_request() :: %{(String.t() | atom()) => any()}
+  @type get_messaging_streaming_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
+      put_messaging_streaming_configurations_request() :: %{
+        required("StreamingConfigurations") => list(streaming_configuration())
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type put_messaging_streaming_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_messaging_streaming_configurations_request() :: %{}
-
-  """
-  @type delete_messaging_streaming_configurations_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_channel_message_status_response() :: %{
-        "Status" => channel_message_status_structure()
-      }
-
-  """
-  @type get_channel_message_status_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      processor_configuration() :: %{
-        "Lambda" => lambda_configuration()
-      }
-
-  """
-  @type processor_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_moderators_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelModerators" => list(channel_moderator_summary()),
+      search_channels_response() :: %{
+        "Channels" => list(channel_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_channel_moderators_response() :: %{(String.t() | atom()) => any()}
+  @type search_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_channel_message_request() :: %{
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_request() :: %{
         optional("SubChannelId") => String.t() | atom(),
         required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type get_channel_message_request() :: %{(String.t() | atom()) => any()}
+  @type describe_channel_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_channel_ban_response() :: %{
-        "ChannelBan" => channel_ban()
+      batch_create_channel_membership_response() :: %{
+        "BatchChannelMemberships" => batch_channel_memberships(),
+        "Errors" => list(batch_create_channel_membership_error())
       }
 
   """
-  @type describe_channel_ban_response() :: %{(String.t() | atom()) => any()}
+  @type batch_create_channel_membership_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_channel_flow_response() :: %{
-        "ChannelFlowArn" => String.t() | atom()
+      delete_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type create_channel_flow_response() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_ban_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_sub_channels_request() :: %{
+      list_channel_memberships_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("SubChannelId") => String.t() | atom(),
+        optional("Type") => list(any()),
         required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type list_sub_channels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_ban() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "CreatedBy" => identity(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "Member" => identity()
-      }
-
-  """
-  @type channel_ban() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      push_notification_configuration() :: %{
-        "Body" => String.t() | atom(),
-        "Title" => String.t() | atom(),
-        "Type" => list(any())
-      }
-
-  """
-  @type push_notification_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_channel_flow_request() :: %{
-        required("ChannelFlowArn") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type associate_channel_flow_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelFlowArn" => String.t() | atom(),
-        "CreatedBy" => identity(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "ElasticChannelConfiguration" => elastic_channel_configuration(),
-        "ExpirationSettings" => expiration_settings(),
-        "LastMessageTimestamp" => non_neg_integer(),
-        "LastUpdatedTimestamp" => non_neg_integer(),
-        "Metadata" => String.t() | atom(),
-        "Mode" => list(any()),
-        "Name" => String.t() | atom(),
-        "Privacy" => list(any())
-      }
-
-  """
-  @type channel() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_memberships_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "ChannelMemberships" => list(channel_membership_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_channel_memberships_response() :: %{(String.t() | atom()) => any()}
+  @type list_channel_memberships_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1488,37 +361,118 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      channel_message_status_structure() :: %{
-        "Detail" => String.t() | atom(),
-        "Value" => list(any())
+      message_attribute_value() :: %{
+        "StringValues" => list(String.t() | atom())
       }
 
   """
-  @type channel_message_status_structure() :: %{(String.t() | atom()) => any()}
+  @type message_attribute_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_channel_expiration_settings_request() :: %{
-        optional("ChimeBearer") => String.t() | atom(),
-        optional("ExpirationSettings") => expiration_settings()
+      list_sub_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type put_channel_expiration_settings_request() :: %{(String.t() | atom()) => any()}
+  @type list_sub_channels_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_channel_ban_response() :: %{
-        "ChannelArn" => String.t() | atom(),
-        "Member" => identity()
+      streaming_configuration() :: %{
+        "DataType" => list(any()),
+        "ResourceArn" => String.t() | atom()
       }
 
   """
-  @type create_channel_ban_response() :: %{(String.t() | atom()) => any()}
+  @type streaming_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_channel_flow_request() :: %{
+        required("ChannelFlowArn") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type associate_channel_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_streaming_configurations_request() :: %{}
+
+  """
+  @type get_messaging_streaming_configurations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_message_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type delete_channel_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_flow_request() :: %{}
+
+  """
+  @type delete_channel_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_flow_request() :: %{
+        optional("Tags") => list(tag()),
+        required("AppInstanceArn") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Processors") => list(processor())
+      }
+
+  """
+  @type create_channel_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_ban_response() :: %{
+        "ChannelBan" => channel_ban()
+      }
+
+  """
+  @type describe_channel_ban_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderated_by_app_instance_user_response() :: %{
+        "Channel" => channel_moderated_by_app_instance_user_summary()
+      }
+
+  """
+  @type describe_channel_moderated_by_app_instance_user_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1537,37 +491,74 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      channel_flow_summary() :: %{
-        "ChannelFlowArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Processors" => list(processor())
+      create_channel_moderator_request() :: %{
+        required("ChannelModeratorArn") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
       }
 
   """
-  @type channel_flow_summary() :: %{(String.t() | atom()) => any()}
+  @type create_channel_moderator_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
-        "Code" => list(any()),
-        "Message" => String.t() | atom()
+      put_channel_expiration_settings_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ExpirationSettings" => expiration_settings()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type put_channel_expiration_settings_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_channel_read_marker_response() :: %{
-        "ChannelArn" => String.t() | atom()
+      channel_moderated_by_app_instance_user_summary() :: %{
+        "ChannelSummary" => channel_summary()
       }
 
   """
-  @type update_channel_read_marker_response() :: %{(String.t() | atom()) => any()}
+  @type channel_moderated_by_app_instance_user_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_create_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        optional("Type") => list(any()),
+        required("ChimeBearer") => String.t() | atom(),
+        required("MemberArns") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_create_channel_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_flow_response() :: %{
+        "ChannelFlowArn" => String.t() | atom()
+      }
+
+  """
+  @type update_channel_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_membership_preferences_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Member" => identity(),
+        "Preferences" => channel_membership_preferences()
+      }
+
+  """
+  @type put_channel_membership_preferences_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1586,102 +577,82 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      channel_moderator_summary() :: %{
-        "Moderator" => identity()
-      }
-
-  """
-  @type channel_moderator_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_channel_memberships() :: %{
+      channel_membership() :: %{
         "ChannelArn" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
         "InvitedBy" => identity(),
-        "Members" => list(identity()),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Member" => identity(),
         "SubChannelId" => String.t() | atom(),
         "Type" => list(any())
       }
 
   """
-  @type batch_channel_memberships() :: %{(String.t() | atom()) => any()}
+  @type channel_membership() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_channel_response() :: %{
-        "ChannelArn" => String.t() | atom()
-      }
-
-  """
-  @type update_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_ban_request() :: %{
-        required("ChimeBearer") => String.t() | atom()
-      }
-
-  """
-  @type describe_channel_ban_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_membership_for_app_instance_user_response() :: %{
-        "ChannelMembership" => channel_membership_for_app_instance_user_summary()
-      }
-
-  """
-  @type describe_channel_membership_for_app_instance_user_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      channel_flow_callback_response() :: %{
-        "CallbackId" => String.t() | atom(),
-        "ChannelArn" => String.t() | atom()
-      }
-
-  """
-  @type channel_flow_callback_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_request() :: %{
+      list_channels_associated_with_channel_flow_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
-        optional("Privacy") => list(any()),
-        required("AppInstanceArn") => String.t() | atom(),
-        required("ChimeBearer") => String.t() | atom()
+        required("ChannelFlowArn") => String.t() | atom()
       }
 
   """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+  @type list_channels_associated_with_channel_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      elastic_channel_configuration() :: %{
-        "MaximumSubChannels" => integer(),
-        "MinimumMembershipPercentage" => integer(),
-        "TargetMembershipsPerSubChannel" => integer()
+      push_notification_configuration() :: %{
+        "Body" => String.t() | atom(),
+        "Title" => String.t() | atom(),
+        "Type" => list(any())
       }
 
   """
-  @type elastic_channel_configuration() :: %{(String.t() | atom()) => any()}
+  @type push_notification_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_moderators_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelModerators" => list(channel_moderator_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_moderators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_channel_message_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type redact_channel_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type delete_channel_membership_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1722,22 +693,912 @@ defmodule AWS.ChimeSDKMessaging do
 
   ## Example:
 
-      get_messaging_streaming_configurations_request() :: %{}
+      list_channel_bans_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
 
   """
-  @type get_messaging_streaming_configurations_request() :: %{}
+  @type list_channel_bans_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_channels_response() :: %{
+      list_sub_channels_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "SubChannels" => list(sub_channel_summary())
+      }
+
+  """
+  @type list_sub_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_moderator_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type delete_channel_moderator_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_for_app_instance_user_response() :: %{
+        "ChannelMembership" => channel_membership_for_app_instance_user_summary()
+      }
+
+  """
+  @type describe_channel_membership_for_app_instance_user_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelMemberships" => list(channel_membership_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_memberships_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttled_client_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttled_client_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_flows_response() :: %{
+        "ChannelFlows" => list(channel_flow_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_flows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow() :: %{
+        "ChannelFlowArn" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Processors" => list(processor())
+      }
+
+  """
+  @type channel_flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_preferences() :: %{
+        "PushNotifications" => push_notification_preferences()
+      }
+
+  """
+  @type channel_membership_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_summary() :: %{
+        "Member" => identity()
+      }
+
+  """
+  @type channel_membership_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type get_channel_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type delete_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_request() :: %{
+        optional("ChannelId") => String.t() | atom(),
+        optional("ElasticChannelConfiguration") => elastic_channel_configuration(),
+        optional("ExpirationSettings") => expiration_settings(),
+        optional("MemberArns") => list(String.t() | atom()),
+        optional("Metadata") => String.t() | atom(),
+        optional("Mode") => list(any()),
+        optional("ModeratorArns") => list(String.t() | atom()),
+        optional("Privacy") => list(any()),
+        optional("Tags") => list(tag()),
+        required("AppInstanceArn") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      target() :: %{
+        "MemberArn" => String.t() | atom()
+      }
+
+  """
+  @type target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_summary() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "Metadata" => String.t() | atom(),
+        "Mode" => list(any()),
+        "Name" => String.t() | atom(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderated_by_app_instance_user_request() :: %{
+        required("AppInstanceUserArn") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type describe_channel_moderated_by_app_instance_user_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t() | atom(),
+        required("MemberArn") => String.t() | atom()
+      }
+
+  """
+  @type create_channel_ban_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelFlowArn" => String.t() | atom(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ElasticChannelConfiguration" => elastic_channel_configuration(),
+        "ExpirationSettings" => expiration_settings(),
+        "LastMessageTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "Metadata" => String.t() | atom(),
+        "Mode" => list(any()),
+        "Name" => String.t() | atom(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_found_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_moderated_by_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type list_channels_moderated_by_app_instance_user_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_callback_response() :: %{
+        "CallbackId" => String.t() | atom(),
+        "ChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type channel_flow_callback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_flow_request() :: %{
+        required("Name") => String.t() | atom(),
+        required("Processors") => list(processor())
+      }
+
+  """
+  @type update_channel_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_messaging_streaming_configurations_request() :: %{}
+
+  """
+  @type delete_messaging_streaming_configurations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      send_channel_message_request() :: %{
+        optional("ContentType") => String.t() | atom(),
+        optional("MessageAttributes") => map(),
+        optional("Metadata") => String.t() | atom(),
+        optional("PushNotification") => push_notification_configuration(),
+        optional("SubChannelId") => String.t() | atom(),
+        optional("Target") => list(target()),
+        required("ChimeBearer") => String.t() | atom(),
+        required("ClientRequestToken") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("Persistence") => list(any()),
+        required("Type") => list(any())
+      }
+
+  """
+  @type send_channel_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_flow_response() :: %{
+        "ChannelFlow" => channel_flow()
+      }
+
+  """
+  @type describe_channel_flow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_read_marker_response() :: %{
+        "ChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type update_channel_read_marker_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_configuration() :: %{
+        "InvocationType" => list(any()),
+        "ResourceArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_summary() :: %{
+        "ChannelFlowArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Processors" => list(processor())
+      }
+
+  """
+  @type channel_flow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redact_channel_message_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type redact_channel_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_field() :: %{
+        "Key" => list(any()),
+        "Operator" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type search_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_channel_membership_preferences_request() :: %{
+        required("ChimeBearer") => String.t() | atom(),
+        required("Preferences") => channel_membership_preferences()
+      }
+
+  """
+  @type put_channel_membership_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message_status_structure() :: %{
+        "Detail" => String.t() | atom(),
+        "Value" => list(any())
+      }
+
+  """
+  @type channel_message_status_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type describe_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_membership_for_app_instance_user_summary() :: %{
+        "AppInstanceUserMembershipSummary" => app_instance_user_membership_summary(),
+        "ChannelSummary" => channel_summary()
+      }
+
+  """
+  @type channel_membership_for_app_instance_user_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_messaging_streaming_configurations_response() :: %{
+        "StreamingConfigurations" => list(streaming_configuration())
+      }
+
+  """
+  @type put_messaging_streaming_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_messages_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelMessages" => list(channel_message_summary()),
+        "NextToken" => String.t() | atom(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type list_channel_messages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      processor() :: %{
+        "Configuration" => processor_configuration(),
+        "ExecutionOrder" => integer(),
+        "FallbackAction" => list(any()),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type processor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_message_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type update_channel_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      expiration_settings() :: %{
+        "ExpirationCriterion" => list(any()),
+        "ExpirationDays" => integer()
+      }
+
+  """
+  @type expiration_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_response() :: %{
+        "ChannelMessage" => channel_message()
+      }
+
+  """
+  @type get_channel_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_channels_request() :: %{
+        optional("ChimeBearer") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Fields") => list(search_field())
+      }
+
+  """
+  @type search_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_message_request() :: %{
+        optional("ContentType") => String.t() | atom(),
+        optional("Metadata") => String.t() | atom(),
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom(),
+        required("Content") => String.t() | atom()
+      }
+
+  """
+  @type update_channel_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_ban_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type describe_channel_ban_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_moderator_response() :: %{
+        "ChannelModerator" => channel_moderator()
+      }
+
+  """
+  @type describe_channel_moderator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_response() :: %{
+        "ChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type update_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_session_endpoint_response() :: %{
+        "Endpoint" => messaging_session_endpoint()
+      }
+
+  """
+  @type get_messaging_session_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_membership_response() :: %{
+        "ChannelMembership" => channel_membership()
+      }
+
+  """
+  @type describe_channel_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_moderators_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type list_channel_moderators_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_membership_request() :: %{
+        optional("SubChannelId") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom(),
+        required("MemberArn") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type create_channel_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_failure_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type service_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_read_marker_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type update_channel_read_marker_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_message_status_response() :: %{
+        "Status" => channel_message_status_structure()
+      }
+
+  """
+  @type get_channel_message_status_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      forbidden_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_channel_flow_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_channel_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_ban_summary() :: %{
+        "Member" => identity()
+      }
+
+  """
+  @type channel_ban_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_flows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("AppInstanceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_channel_flows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_response() :: %{
         "Channels" => list(channel_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type search_channels_response() :: %{(String.t() | atom()) => any()}
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Content" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "LastEditedTimestamp" => non_neg_integer(),
+        "LastUpdatedTimestamp" => non_neg_integer(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Persistence" => list(any()),
+        "Redacted" => boolean(),
+        "Sender" => identity(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t() | atom(),
+        "Target" => list(target()),
+        "Type" => list(any())
+      }
+
+  """
+  @type channel_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_moderated_by_app_instance_user_response() :: %{
+        "Channels" => list(channel_moderated_by_app_instance_user_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_channels_moderated_by_app_instance_user_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_channel_membership_preferences_request() :: %{
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type get_channel_membership_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_message_callback() :: %{
+        "Content" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "MessageAttributes" => map(),
+        "MessageId" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "PushNotification" => push_notification_configuration(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type channel_message_callback() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_ban_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Member" => identity()
+      }
+
+  """
+  @type create_channel_ban_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_response() :: %{
+        "Channel" => channel()
+      }
+
+  """
+  @type describe_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_messaging_session_endpoint_request() :: %{
+        optional("NetworkType") => list(any())
+      }
+
+  """
+  @type get_messaging_session_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1752,449 +1613,588 @@ defmodule AWS.ChimeSDKMessaging do
   """
   @type create_channel_membership_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      list_channel_memberships_for_app_instance_user_request() :: %{
+        optional("AppInstanceUserArn") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ChimeBearer") => String.t() | atom()
+      }
+
+  """
+  @type list_channel_memberships_for_app_instance_user_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      channel_flow_callback_request() :: %{
+        optional("DeleteResource") => boolean(),
+        required("CallbackId") => String.t() | atom(),
+        required("ChannelMessage") => channel_message_callback()
+      }
+
+  """
+  @type channel_flow_callback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_flow_request() :: %{}
+
+  """
+  @type describe_channel_flow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_moderator_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "ChannelModerator" => identity()
+      }
+
+  """
+  @type create_channel_moderator_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_ban() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "CreatedBy" => identity(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "Member" => identity()
+      }
+
+  """
+  @type channel_ban() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_associated_with_flow_summary() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "Metadata" => String.t() | atom(),
+        "Mode" => list(any()),
+        "Name" => String.t() | atom(),
+        "Privacy" => list(any())
+      }
+
+  """
+  @type channel_associated_with_flow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      elastic_channel_configuration() :: %{
+        "MaximumSubChannels" => integer(),
+        "MinimumMembershipPercentage" => integer(),
+        "TargetMembershipsPerSubChannel" => integer()
+      }
+
+  """
+  @type elastic_channel_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_channel_message_response() :: %{
+        "ChannelArn" => String.t() | atom(),
+        "MessageId" => String.t() | atom(),
+        "Status" => channel_message_status_structure(),
+        "SubChannelId" => String.t() | atom()
+      }
+
+  """
+  @type send_channel_message_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_moderator_summary() :: %{
+        "Moderator" => identity()
+      }
+
+  """
+  @type channel_moderator_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      processor_configuration() :: %{
+        "Lambda" => lambda_configuration()
+      }
+
+  """
+  @type processor_configuration() :: %{(String.t() | atom()) => any()}
+
   @type associate_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type batch_create_channel_membership_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | not_found_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | not_found_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type channel_flow_callback_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type create_channel_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_channel_ban_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_channel_membership_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
-          | resource_limit_exceeded_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type create_channel_moderator_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type delete_channel_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type delete_channel_ban_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type delete_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type delete_channel_membership_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type delete_channel_message_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type delete_channel_moderator_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type delete_messaging_streaming_configurations_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_ban_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_membership_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_membership_for_app_instance_user_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_moderated_by_app_instance_user_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type describe_channel_moderator_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type disassociate_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type get_channel_membership_preferences_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type get_channel_message_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type get_channel_message_status_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type get_messaging_session_endpoint_errors() ::
-          service_unavailable_exception()
+          forbidden_exception()
+          | service_failure_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type get_messaging_streaming_configurations_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type list_channel_bans_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channel_flows_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channel_memberships_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channel_memberships_for_app_instance_user_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channel_messages_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channel_moderators_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channels_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channels_associated_with_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_channels_moderated_by_app_instance_user_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_sub_channels_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type put_channel_expiration_settings_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type put_channel_membership_preferences_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type put_messaging_streaming_configurations_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | not_found_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type redact_channel_message_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type search_channels_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type send_channel_message_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type tag_resource_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | resource_limit_exceeded_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
+          | resource_limit_exceeded_exception()
 
   @type untag_resource_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
-          | throttled_client_exception()
-          | unauthorized_client_exception()
           | forbidden_exception()
           | service_failure_exception()
+          | throttled_client_exception()
+          | unauthorized_client_exception()
+          | service_unavailable_exception()
 
   @type update_channel_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type update_channel_flow_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type update_channel_message_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   @type update_channel_read_marker_errors() ::
           bad_request_exception()
-          | service_unavailable_exception()
+          | forbidden_exception()
+          | service_failure_exception()
           | conflict_exception()
           | throttled_client_exception()
           | unauthorized_client_exception()
-          | forbidden_exception()
-          | service_failure_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

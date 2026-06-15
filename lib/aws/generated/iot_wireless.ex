@@ -48,59 +48,150 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      get_resource_log_level_request() :: %{
-        required("ResourceType") => String.t() | atom()
+      create_multicast_group_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("LoRaWAN") => lo_ra_w_a_n_multicast()
       }
 
   """
-  @type get_resource_log_level_request() :: %{(String.t() | atom()) => any()}
+  @type create_multicast_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_destinations_response() :: %{
-        "DestinationList" => list(destinations()),
-        "NextToken" => String.t() | atom()
+      sidewalk_update_account() :: %{
+        "AppServerPrivateKey" => String.t() | atom()
       }
 
   """
-  @type list_destinations_response() :: %{(String.t() | atom()) => any()}
+  @type sidewalk_update_account() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      summary_metric_configuration() :: %{
-        "Status" => list(any())
+      create_wireless_device_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type summary_metric_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_wireless_device_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      connection_status_resource_type_event_configuration() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_connection_status_resource_type_event_configuration()
+      lo_ra_w_a_n_gateway() :: %{
+        "Beaconing" => beaconing(),
+        "GatewayEui" => String.t() | atom(),
+        "JoinEuiFilters" => list(list(String.t() | atom())()),
+        "MaxEirp" => float(),
+        "NetIdFilters" => list(String.t() | atom()),
+        "RfRegion" => String.t() | atom(),
+        "SubBands" => list(integer())
       }
 
   """
-  @type connection_status_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+  @type lo_ra_w_a_n_gateway() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      associate_wireless_device_with_multicast_group_request() :: %{
-        required("WirelessDeviceId") => String.t() | atom()
+      fuota_task() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type associate_wireless_device_with_multicast_group_request() :: %{
+  @type fuota_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_log_levels_by_resource_types_request() :: %{
+        optional("DefaultLogLevel") => list(any()),
+        optional("FuotaTaskLogOptions") => list(fuota_task_log_option()),
+        optional("WirelessDeviceLogOptions") => list(wireless_device_log_option()),
+        optional("WirelessGatewayLogOptions") => list(wireless_gateway_log_option())
+      }
+
+  """
+  @type update_log_levels_by_resource_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      global_identity() :: %{
+        "GeranCid" => integer(),
+        "Lac" => integer()
+      }
+
+  """
+  @type global_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_task_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AutoCreateTasks" => boolean(),
+        "Name" => String.t() | atom(),
+        "Update" => update_wireless_gateway_task_create()
+      }
+
+  """
+  @type get_wireless_gateway_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cdma_obj() :: %{
+        "BaseLat" => float(),
+        "BaseLng" => float(),
+        "BaseStationId" => integer(),
+        "CdmaLocalId" => cdma_local_id(),
+        "CdmaNmr" => list(cdma_nmr_obj()),
+        "NetworkId" => integer(),
+        "PilotPower" => integer(),
+        "RegistrationZone" => integer(),
+        "SystemId" => integer()
+      }
+
+  """
+  @type cdma_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_aws_account_from_partner_account_request() :: %{
+        required("PartnerType") => list(any())
+      }
+
+  """
+  @type disassociate_aws_account_from_partner_account_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_device_with_fuota_task_response() :: %{}
+
+  """
+  @type associate_wireless_device_with_fuota_task_response() :: %{}
 
   @typedoc """
 
@@ -117,137 +208,611 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      start_single_wireless_device_import_task_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("DeviceName") => String.t() | atom(),
-        optional("Positioning") => list(any()),
-        optional("Tags") => list(tag()),
-        required("DestinationName") => String.t() | atom(),
-        required("Sidewalk") => sidewalk_single_start_import_info()
-      }
+      disassociate_wireless_device_from_multicast_group_response() :: %{}
 
   """
-  @type start_single_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_wireless_device_from_multicast_group_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("Tags") => list(tag())
-      }
+      cancel_multicast_group_session_request() :: %{}
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type cancel_multicast_group_session_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_position_configurations_response() :: %{
+      get_wireless_gateway_firmware_information_request() :: %{}
+
+  """
+  @type get_wireless_gateway_firmware_information_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_gateway_log_option() :: %{
+        "Events" => list(wireless_gateway_event_log_option()),
+        "LogLevel" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type wireless_gateway_log_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_public_gateway_metadata() :: %{
+        "DlAllowed" => boolean(),
+        "Id" => String.t() | atom(),
+        "ProviderNetId" => String.t() | atom(),
+        "RfRegion" => String.t() | atom(),
+        "Rssi" => float(),
+        "Snr" => float()
+      }
+
+  """
+  @type lo_ra_w_a_n_public_gateway_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_statistics_response() :: %{
+        "ConnectionStatus" => list(any()),
+        "LastUplinkReceivedAt" => String.t() | atom(),
+        "WirelessGatewayId" => String.t() | atom()
+      }
+
+  """
+  @type get_wireless_gateway_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_profiles_response() :: %{
         "NextToken" => String.t() | atom(),
-        "PositionConfigurationList" => list(position_configuration_item())
+        "ServiceProfileList" => list(service_profile())
       }
 
   """
-  @type list_position_configurations_response() :: %{(String.t() | atom()) => any()}
+  @type list_service_profiles_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      send_data_to_multicast_group_request() :: %{
-        required("PayloadData") => String.t() | atom(),
-        required("WirelessMetadata") => multicast_wireless_metadata()
+      sidewalk_device_metadata() :: %{
+        "BatteryLevel" => list(any()),
+        "DeviceState" => list(any()),
+        "Event" => list(any()),
+        "Rssi" => integer()
       }
 
   """
-  @type send_data_to_multicast_group_request() :: %{(String.t() | atom()) => any()}
+  @type sidewalk_device_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_destination_response() :: %{
+      disassociate_multicast_group_from_fuota_task_response() :: %{}
+
+  """
+  @type disassociate_multicast_group_from_fuota_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gsm_nmr_obj() :: %{
+        "Bcch" => integer(),
+        "Bsic" => integer(),
+        "GlobalIdentity" => global_identity(),
+        "RxLevel" => integer()
+      }
+
+  """
+  @type gsm_nmr_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multicast_group_request() :: %{}
+
+  """
+  @type delete_multicast_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      join_resource_type_event_configuration() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_join_resource_type_event_configuration()
+      }
+
+  """
+  @type join_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_gateway_from_thing_request() :: %{}
+
+  """
+  @type disassociate_wireless_gateway_from_thing_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_f_ports() :: %{
+        "Applications" => list(application_config()),
+        "Positioning" => positioning()
+      }
+
+  """
+  @type update_f_ports() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_list_device() :: %{
+        "DevEui" => String.t() | atom()
+      }
+
+  """
+  @type lo_ra_w_a_n_list_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_start_fuota_task() :: %{
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type lo_ra_w_a_n_start_fuota_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_log_level_response() :: %{}
+
+  """
+  @type put_resource_log_level_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_device_with_thing_request() :: %{
+        required("ThingArn") => String.t() | atom()
+      }
+
+  """
+  @type associate_wireless_device_with_thing_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_device_profile_request() :: %{}
+
+  """
+  @type delete_device_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_device_response() :: %{}
+
+  """
+  @type delete_wireless_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_device_metadata() :: %{
+        "DataRate" => integer(),
+        "DevEui" => String.t() | atom(),
+        "FPort" => integer(),
+        "Frequency" => integer(),
+        "Gateways" => list(lo_ra_w_a_n_gateway_metadata()),
+        "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()),
+        "Timestamp" => String.t() | atom()
+      }
+
+  """
+  @type lo_ra_w_a_n_device_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metric_query_value() :: %{
+        "Avg" => float(),
+        "Max" => float(),
+        "Min" => float(),
+        "P90" => float(),
+        "Std" => float(),
+        "Sum" => float()
+      }
+
+  """
+  @type metric_query_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lte_local_id() :: %{
+        "Earfcn" => integer(),
+        "Pci" => integer()
+      }
+
+  """
+  @type lte_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_gateway_task_create() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_create(),
+        "UpdateDataRole" => String.t() | atom(),
+        "UpdateDataSource" => String.t() | atom()
+      }
+
+  """
+  @type update_wireless_gateway_task_create() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      position_configuration_item() :: %{
+        "Destination" => String.t() | atom(),
+        "ResourceIdentifier" => String.t() | atom(),
+        "ResourceType" => list(any()),
+        "Solvers" => position_solver_details()
+      }
+
+  """
+  @type position_configuration_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip() :: %{
+        "IpAddress" => String.t() | atom()
+      }
+
+  """
+  @type ip() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_log_levels_by_resource_types_response() :: %{}
+
+  """
+  @type update_log_levels_by_resource_types_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queued_messages_request() :: %{
+        optional("WirelessDeviceType") => list(any()),
+        required("MessageId") => String.t() | atom()
+      }
+
+  """
+  @type delete_queued_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_response() :: %{
         "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
+        "Id" => String.t() | atom()
       }
 
   """
-  @type create_destination_response() :: %{(String.t() | atom()) => any()}
+  @type create_wireless_gateway_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_resource_position_request() :: %{
-        optional("GeoJsonPayload") => binary(),
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_update_import_info() :: %{
+        "DeviceCreationFile" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_update_import_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DestinationName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_device(),
+        "Name" => String.t() | atom(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_device(),
+        "ThingArn" => String.t() | atom(),
+        "ThingName" => String.t() | atom(),
+        "Type" => list(any())
+      }
+
+  """
+  @type get_wireless_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_endpoint_request() :: %{
+        optional("ServiceType") => list(any())
+      }
+
+  """
+  @type get_service_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_device_event_log_option() :: %{
+        "Event" => list(any()),
+        "LogLevel" => list(any())
+      }
+
+  """
+  @type wireless_device_event_log_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_device_import_task_request() :: %{
+        required("Sidewalk") => sidewalk_update_import_info()
+      }
+
+  """
+  @type update_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_position_request() :: %{
         required("ResourceType") => list(any())
       }
 
   """
-  @type update_resource_position_request() :: %{(String.t() | atom()) => any()}
+  @type get_position_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_network_analyzer_configuration_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type create_network_analyzer_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_wireless_device_request() :: %{
-        required("IdentifierType") => list(any())
-      }
+      update_resource_event_configuration_response() :: %{}
 
   """
-  @type get_wireless_device_request() :: %{(String.t() | atom()) => any()}
+  @type update_resource_event_configuration_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      start_fuota_task_request() :: %{
-        optional("LoRaWAN") => lo_ra_w_a_n_start_fuota_task()
-      }
+      get_wireless_gateway_task_request() :: %{}
 
   """
-  @type start_fuota_task_request() :: %{(String.t() | atom()) => any()}
+  @type get_wireless_gateway_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      abp_v1_1() :: %{
-        "DevAddr" => String.t() | atom(),
-        "FCntStart" => integer(),
-        "SessionKeys" => session_keys_abp_v1_1()
-      }
+      update_fuota_task_response() :: %{}
 
   """
-  @type abp_v1_1() :: %{(String.t() | atom()) => any()}
+  @type update_fuota_task_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
-        "GatewayEuiEventTopic" => list(any())
+      delete_network_analyzer_configuration_response() :: %{}
+
+  """
+  @type delete_network_analyzer_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_devices_for_wireless_device_import_task_response() :: %{
+        "DestinationName" => String.t() | atom(),
+        "ImportedWirelessDeviceList" => list(imported_wireless_device()),
+        "NextToken" => String.t() | atom(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_list_devices_for_import_info()
       }
 
   """
-  @type lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
+  @type list_devices_for_wireless_device_import_task_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_device_import_task() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "DestinationName" => String.t() | atom(),
+        "FailedImportedDeviceCount" => float(),
+        "Id" => String.t() | atom(),
+        "InitializedImportedDeviceCount" => float(),
+        "OnboardedImportedDeviceCount" => float(),
+        "PendingImportedDeviceCount" => float(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_get_start_import_info(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type wireless_device_import_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dak_certificate_metadata() :: %{
+        "ApId" => String.t() | atom(),
+        "CertificateId" => String.t() | atom(),
+        "DeviceTypeId" => String.t() | atom(),
+        "FactorySupport" => boolean(),
+        "MaxAllowedSignature" => integer()
+      }
+
+  """
+  @type dak_certificate_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_gateway_current_version() :: %{
+        "CurrentVersion" => lo_ra_w_a_n_gateway_version()
+      }
+
+  """
+  @type lo_ra_w_a_n_gateway_current_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_destination_response() :: %{}
+
+  """
+  @type delete_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_device_from_thing_response() :: %{}
+
+  """
+  @type disassociate_wireless_device_from_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_network_analyzer_configuration_request() :: %{}
+
+  """
+  @type delete_network_analyzer_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_gateway_response() :: %{}
+
+  """
+  @type update_wireless_gateway_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_gateway_task_definition_request() :: %{}
+
+  """
+  @type delete_wireless_gateway_task_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_service_profile_response() :: %{}
+
+  """
+  @type delete_service_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_device_from_multicast_group_request() :: %{}
+
+  """
+  @type disassociate_wireless_device_from_multicast_group_request() :: %{}
 
   @typedoc """
 
@@ -269,33 +834,33 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      lo_ra_w_a_n_multicast_session() :: %{
-        "DlDr" => integer(),
-        "DlFreq" => integer(),
-        "PingSlotPeriod" => integer(),
-        "SessionStartTime" => non_neg_integer(),
-        "SessionTimeout" => integer()
-      }
+      get_service_profile_request() :: %{}
 
   """
-  @type lo_ra_w_a_n_multicast_session() :: %{(String.t() | atom()) => any()}
+  @type get_service_profile_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_multicast_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_multicast_get(),
-        "Name" => String.t() | atom(),
-        "Status" => String.t() | atom()
+      list_wireless_gateway_task_definitions_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "TaskDefinitions" => list(update_wireless_gateway_task_entry())
       }
 
   """
-  @type get_multicast_group_response() :: %{(String.t() | atom()) => any()}
+  @type list_wireless_gateway_task_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_request() :: %{
+        required("IdentifierType") => list(any())
+      }
+
+  """
+  @type get_wireless_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -310,45 +875,118 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      network_analyzer_configurations() :: %{
+      service_profile() :: %{
         "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
         "Name" => String.t() | atom()
       }
 
   """
-  @type network_analyzer_configurations() :: %{(String.t() | atom()) => any()}
+  @type service_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_wireless_gateway_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
+      associate_wireless_device_with_multicast_group_response() :: %{}
+
+  """
+  @type associate_wireless_device_with_multicast_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_destination_response() :: %{}
+
+  """
+  @type update_destination_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_fuota_task_request() :: %{
         optional("Description") => String.t() | atom(),
+        optional("Descriptor") => String.t() | atom(),
+        optional("FirmwareUpdateImage") => String.t() | atom(),
+        optional("FirmwareUpdateRole") => String.t() | atom(),
+        optional("FragmentIntervalMS") => integer(),
+        optional("FragmentSizeBytes") => integer(),
+        optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
         optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("LoRaWAN") => lo_ra_w_a_n_gateway()
+        optional("RedundancyPercent") => integer()
       }
 
   """
-  @type create_wireless_gateway_request() :: %{(String.t() | atom()) => any()}
+  @type update_fuota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_destination_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Expression") => String.t() | atom(),
-        required("ExpressionType") => list(any()),
-        required("Name") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom()
+      get_position_configuration_request() :: %{
+        required("ResourceType") => list(any())
       }
 
   """
-  @type create_destination_request() :: %{(String.t() | atom()) => any()}
+  @type get_position_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      destinations() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Expression" => String.t() | atom(),
+        "ExpressionType" => list(any()),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
+      }
+
+  """
+  @type destinations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_notification_item_configurations() :: %{
+        "ConnectionStatus" => connection_status_event_configuration(),
+        "DeviceRegistrationState" => device_registration_state_event_configuration(),
+        "Join" => join_event_configuration(),
+        "MessageDeliveryStatus" => message_delivery_status_event_configuration(),
+        "Proximity" => proximity_event_configuration()
+      }
+
+  """
+  @type event_notification_item_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_get_start_import_info() :: %{
+        "DeviceCreationFileList" => list(String.t() | atom()),
+        "Positioning" => sidewalk_positioning(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_get_start_import_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_data_to_multicast_group_request() :: %{
+        required("PayloadData") => String.t() | atom(),
+        required("WirelessMetadata") => multicast_wireless_metadata()
+      }
+
+  """
+  @type send_data_to_multicast_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -363,10 +1001,203 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      start_bulk_disassociate_wireless_device_from_multicast_group_response() :: %{}
+      get_resource_position_response() :: %{
+        "GeoJsonPayload" => binary()
+      }
 
   """
-  @type start_bulk_disassociate_wireless_device_from_multicast_group_response() :: %{}
+  @type get_resource_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_position_configuration_request() :: %{
+        optional("Destination") => String.t() | atom(),
+        optional("Solvers") => position_solver_configurations(),
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type put_position_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_import_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "DestinationName" => String.t() | atom(),
+        "FailedImportedDeviceCount" => float(),
+        "Id" => String.t() | atom(),
+        "InitializedImportedDeviceCount" => float(),
+        "OnboardedImportedDeviceCount" => float(),
+        "PendingImportedDeviceCount" => float(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_get_start_import_info(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom()
+      }
+
+  """
+  @type get_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_configuration_item() :: %{
+        "Events" => event_notification_item_configurations(),
+        "Identifier" => String.t() | atom(),
+        "IdentifierType" => list(any()),
+        "PartnerType" => list(any())
+      }
+
+  """
+  @type event_configuration_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_update_gateway_task_entry() :: %{
+        "CurrentVersion" => lo_ra_w_a_n_gateway_version(),
+        "UpdateVersion" => lo_ra_w_a_n_gateway_version()
+      }
+
+  """
+  @type lo_ra_w_a_n_update_gateway_task_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cell_towers() :: %{
+        "Cdma" => list(cdma_obj()),
+        "Gsm" => list(gsm_obj()),
+        "Lte" => list(lte_obj()),
+        "Tdscdma" => list(tdscdma_obj()),
+        "Wcdma" => list(wcdma_obj())
+      }
+
+  """
+  @type cell_towers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multicast_group_session_response() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_multicast_session()
+      }
+
+  """
+  @type get_multicast_group_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cdma_local_id() :: %{
+        "CdmaChannel" => integer(),
+        "PnOffset" => integer()
+      }
+
+  """
+  @type cdma_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_log_level_request() :: %{
+        required("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type get_resource_log_level_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_abp_v1_0_x() :: %{
+        "FCntStart" => integer()
+      }
+
+  """
+  @type update_abp_v1_0_x() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_position_estimate_request() :: %{
+        optional("AdvancedConfiguration") => advanced_configuration(),
+        optional("CellTowers") => cell_towers(),
+        optional("Gnss") => gnss(),
+        optional("Ip") => ip(),
+        optional("Timestamp") => non_neg_integer(),
+        optional("WiFiAccessPoints") => list(wi_fi_access_point())
+      }
+
+  """
+  @type get_position_estimate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_device_with_fuota_task_request() :: %{
+        required("WirelessDeviceId") => String.t() | atom()
+      }
+
+  """
+  @type associate_wireless_device_with_fuota_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_send_data_to_device() :: %{
+        "FPort" => integer(),
+        "ParticipatingGateways" => participating_gateways()
+      }
+
+  """
+  @type lo_ra_w_a_n_send_data_to_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_join_resource_type_event_configuration() :: %{
+        "WirelessDeviceEventTopic" => list(any())
+      }
+
+  """
+  @type lo_ra_w_a_n_join_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_multicast_group_session_request() :: %{
+        required("LoRaWAN") => lo_ra_w_a_n_multicast_session()
+      }
+
+  """
+  @type start_multicast_group_session_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_configuration_by_resource_types_request() :: %{}
+
+  """
+  @type get_event_configuration_by_resource_types_request() :: %{}
 
   @typedoc """
 
@@ -386,125 +1217,314 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      get_service_profile_request() :: %{}
-
-  """
-  @type get_service_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_position_request() :: %{
-        required("ResourceType") => list(any())
+      lo_ra_w_a_n_device() :: %{
+        "AbpV1_0_x" => abp_v1_0_x(),
+        "AbpV1_1" => abp_v1_1(),
+        "DevEui" => String.t() | atom(),
+        "DeviceProfileId" => String.t() | atom(),
+        "FPorts" => f_ports(),
+        "OtaaV1_0_x" => otaa_v1_0_x(),
+        "OtaaV1_1" => otaa_v1_1(),
+        "ServiceProfileId" => String.t() | atom()
       }
 
   """
-  @type get_position_request() :: %{(String.t() | atom()) => any()}
+  @type lo_ra_w_a_n_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_device_profile_response() :: %{
+      message_delivery_status_event_configuration() :: %{
+        "Sidewalk" => sidewalk_event_notification_configurations(),
+        "WirelessDeviceIdEventTopic" => list(any())
+      }
+
+  """
+  @type message_delivery_status_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_event_notification_configurations() :: %{
+        "AmazonIdEventTopic" => list(any())
+      }
+
+  """
+  @type sidewalk_event_notification_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_event_configuration_request() :: %{
+        optional("ConnectionStatus") => connection_status_event_configuration(),
+        optional("DeviceRegistrationState") => device_registration_state_event_configuration(),
+        optional("Join") => join_event_configuration(),
+        optional("MessageDeliveryStatus") => message_delivery_status_event_configuration(),
+        optional("PartnerType") => list(any()),
+        optional("Proximity") => proximity_event_configuration(),
+        required("IdentifierType") => list(any())
+      }
+
+  """
+  @type update_resource_event_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      otaa_v1_1() :: %{
+        "AppKey" => String.t() | atom(),
+        "JoinEui" => String.t() | atom(),
+        "NwkKey" => String.t() | atom()
+      }
+
+  """
+  @type otaa_v1_1() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_partner_accounts_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Sidewalk" => list(sidewalk_account_info_with_fingerprint())
+      }
+
+  """
+  @type list_partner_accounts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cdma_nmr_obj() :: %{
+        "BaseStationId" => integer(),
+        "CdmaChannel" => integer(),
+        "PilotPower" => integer(),
+        "PnOffset" => integer()
+      }
+
+  """
+  @type cdma_nmr_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_send_data_to_device() :: %{
+        "AckModeRetryDurationSecs" => integer(),
+        "MessageType" => list(any()),
+        "Seq" => integer()
+      }
+
+  """
+  @type sidewalk_send_data_to_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_event_configuration_request() :: %{
+        optional("PartnerType") => list(any()),
+        required("IdentifierType") => list(any())
+      }
+
+  """
+  @type get_resource_event_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multicast_group_response() :: %{}
+
+  """
+  @type delete_multicast_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_statistics_request() :: %{}
+
+  """
+  @type get_wireless_device_statistics_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_profile_response() :: %{
         "Arn" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_device_profile(),
-        "Name" => String.t() | atom(),
-        "Sidewalk" => sidewalk_get_device_profile()
+        "LoRaWAN" => lo_ra_w_a_n_get_service_profile_info(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type get_device_profile_response() :: %{(String.t() | atom()) => any()}
+  @type get_service_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_network_analyzer_configuration_request() :: %{}
-
-  """
-  @type get_network_analyzer_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_device_import_task_request() :: %{
-        required("Sidewalk") => sidewalk_update_import_info()
+      session_keys_abp_v1_0_x() :: %{
+        "AppSKey" => String.t() | atom(),
+        "NwkSKey" => String.t() | atom()
       }
 
   """
-  @type update_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
+  @type session_keys_abp_v1_0_x() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      send_data_to_wireless_device_request() :: %{
-        optional("WirelessMetadata") => wireless_metadata(),
-        required("PayloadData") => String.t() | atom(),
-        required("TransmitMode") => integer()
+      update_abp_v1_1() :: %{
+        "FCntStart" => integer()
       }
 
   """
-  @type send_data_to_wireless_device_request() :: %{(String.t() | atom()) => any()}
+  @type update_abp_v1_1() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      abp_v1_0_x() :: %{
-        "DevAddr" => String.t() | atom(),
-        "FCntStart" => integer(),
-        "SessionKeys" => session_keys_abp_v1_0_x()
+      lo_ra_w_a_n_multicast_metadata() :: %{
+        "FPort" => integer()
       }
 
   """
-  @type abp_v1_0_x() :: %{(String.t() | atom()) => any()}
+  @type lo_ra_w_a_n_multicast_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sidewalk_update_import_info() :: %{
-        "DeviceCreationFile" => String.t() | atom()
+      list_network_analyzer_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type sidewalk_update_import_info() :: %{(String.t() | atom()) => any()}
+  @type list_network_analyzer_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      proximity_resource_type_event_configuration() :: %{
-        "Sidewalk" => sidewalk_resource_type_event_configuration()
+      start_wireless_device_import_task_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Positioning") => list(any()),
+        optional("Tags") => list(tag()),
+        required("DestinationName") => String.t() | atom(),
+        required("Sidewalk") => sidewalk_start_import_info()
       }
 
   """
-  @type proximity_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+  @type start_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      wireless_metadata() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_send_data_to_device(),
-        "Sidewalk" => sidewalk_send_data_to_device()
+      delete_wireless_device_request() :: %{}
+
+  """
+  @type delete_wireless_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multicast_groups_by_fuota_task_response() :: %{
+        "MulticastGroupList" => list(multicast_group_by_fuota_task()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type wireless_metadata() :: %{(String.t() | atom()) => any()}
+  @type list_multicast_groups_by_fuota_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_analyzer_configuration_response() :: %{}
+
+  """
+  @type update_network_analyzer_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
+        optional("QueryString") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_service_endpoint_response() :: %{
+        "ServerTrust" => String.t() | atom(),
+        "ServiceEndpoint" => String.t() | atom(),
+        "ServiceType" => list(any())
+      }
+
+  """
+  @type get_service_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_destinations_response() :: %{
+        "DestinationList" => list(destinations()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_destinations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_multicast_group_from_fuota_task_request() :: %{}
+
+  """
+  @type disassociate_multicast_group_from_fuota_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_all_resource_log_levels_response() :: %{}
+
+  """
+  @type reset_all_resource_log_levels_response() :: %{}
 
   @typedoc """
 
@@ -527,640 +1547,44 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      get_event_configuration_by_resource_types_response() :: %{
-        "ConnectionStatus" => connection_status_resource_type_event_configuration(),
-        "DeviceRegistrationState" => device_registration_state_resource_type_event_configuration(),
-        "Join" => join_resource_type_event_configuration(),
-        "MessageDeliveryStatus" => message_delivery_status_resource_type_event_configuration(),
-        "Proximity" => proximity_resource_type_event_configuration()
+      tdscdma_obj() :: %{
+        "Lac" => integer(),
+        "Mcc" => integer(),
+        "Mnc" => integer(),
+        "PathLoss" => integer(),
+        "Rscp" => integer(),
+        "TdscdmaLocalId" => tdscdma_local_id(),
+        "TdscdmaNmr" => list(tdscdma_nmr_obj()),
+        "TdscdmaTimingAdvance" => integer(),
+        "UtranCid" => integer()
       }
 
   """
-  @type get_event_configuration_by_resource_types_response() :: %{(String.t() | atom()) => any()}
+  @type tdscdma_obj() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_position_response() :: %{
-        "GeoJsonPayload" => binary()
+      delete_service_profile_request() :: %{}
+
+  """
+  @type delete_service_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("LoRaWAN") => lo_ra_w_a_n_gateway()
       }
 
   """
-  @type get_resource_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      test_wireless_device_response() :: %{
-        "Result" => String.t() | atom()
-      }
-
-  """
-  @type test_wireless_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_registration_state_event_configuration() :: %{
-        "Sidewalk" => sidewalk_event_notification_configurations(),
-        "WirelessDeviceIdEventTopic" => list(any())
-      }
-
-  """
-  @type device_registration_state_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wireless_gateway_request() :: %{}
-
-  """
-  @type delete_wireless_gateway_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_destination_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Expression" => String.t() | atom(),
-        "ExpressionType" => list(any()),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type get_destination_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_fuota_task_get_info() :: %{
-        "RfRegion" => String.t() | atom(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type lo_ra_w_a_n_fuota_task_get_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      message_delivery_status_event_configuration() :: %{
-        "Sidewalk" => sidewalk_event_notification_configurations(),
-        "WirelessDeviceIdEventTopic" => list(any())
-      }
-
-  """
-  @type message_delivery_status_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      global_identity() :: %{
-        "GeranCid" => integer(),
-        "Lac" => integer()
-      }
-
-  """
-  @type global_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_certificate_response() :: %{
-        "IotCertificateId" => String.t() | atom(),
-        "LoRaWANNetworkServerCertificateId" => String.t() | atom()
-      }
-
-  """
-  @type get_wireless_gateway_certificate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_position_estimate_response() :: %{
-        "GeoJsonPayload" => binary()
-      }
-
-  """
-  @type get_position_estimate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_metric_configuration_request() :: %{
-        optional("SummaryMetric") => summary_metric_configuration()
-      }
-
-  """
-  @type update_metric_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_gateway_with_certificate_request() :: %{
-        required("IotCertificateId") => String.t() | atom()
-      }
-
-  """
-  @type associate_wireless_gateway_with_certificate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_log_level_response() :: %{
-        "LogLevel" => list(any())
-      }
-
-  """
-  @type get_resource_log_level_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cell_towers() :: %{
-        "Cdma" => list(cdma_obj()),
-        "Gsm" => list(gsm_obj()),
-        "Lte" => list(lte_obj()),
-        "Tdscdma" => list(tdscdma_obj()),
-        "Wcdma" => list(wcdma_obj())
-      }
-
-  """
-  @type cell_towers() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multicast_groups_by_fuota_task_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_multicast_groups_by_fuota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_service_profile_response() :: %{}
-
-  """
-  @type delete_service_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_profile_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_get_service_profile_info(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type get_service_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_event_notification_configurations() :: %{
-        "AmazonIdEventTopic" => list(any())
-      }
-
-  """
-  @type sidewalk_event_notification_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_log_levels_by_resource_types_response() :: %{}
-
-  """
-  @type update_log_levels_by_resource_types_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      destinations() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Expression" => String.t() | atom(),
-        "ExpressionType" => list(any()),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-
-  """
-  @type destinations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      imported_sidewalk_device() :: %{
-        "LastUpdateTime" => non_neg_integer(),
-        "OnboardingStatus" => list(any()),
-        "OnboardingStatusReason" => String.t() | atom(),
-        "SidewalkManufacturingSn" => String.t() | atom()
-      }
-
-  """
-  @type imported_sidewalk_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_list_item() :: %{
-        "DownlinkFrequency" => integer(),
-        "GatewayId" => String.t() | atom()
-      }
-
-  """
-  @type gateway_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type device_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_update_account() :: %{
-        "AppServerPrivateKey" => String.t() | atom()
-      }
-
-  """
-  @type sidewalk_update_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_analyzer_configuration_response() :: %{}
-
-  """
-  @type delete_network_analyzer_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multicast_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_multicast_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      join_event_configuration() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_join_event_notification_configurations(),
-        "WirelessDeviceIdEventTopic" => list(any())
-      }
-
-  """
-  @type join_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_position_configuration_request() :: %{
-        required("ResourceType") => list(any())
-      }
-
-  """
-  @type get_position_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metric_configuration_response() :: %{
-        "SummaryMetric" => summary_metric_configuration()
-      }
-
-  """
-  @type get_metric_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_update_gateway_task_create() :: %{
-        "CurrentVersion" => lo_ra_w_a_n_gateway_version(),
-        "SigKeyCrc" => float(),
-        "UpdateSignature" => String.t() | atom(),
-        "UpdateVersion" => lo_ra_w_a_n_gateway_version()
-      }
-
-  """
-  @type lo_ra_w_a_n_update_gateway_task_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_gateway_task_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("TaskDefinitionType") => list(any())
-      }
-
-  """
-  @type list_wireless_gateway_task_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_gateway_task_entry() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_entry()
-      }
-
-  """
-  @type update_wireless_gateway_task_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participating_gateways_multicast() :: %{
-        "GatewayList" => list(String.t() | atom()),
-        "TransmissionInterval" => integer()
-      }
-
-  """
-  @type participating_gateways_multicast() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trace_content() :: %{
-        "LogLevel" => list(any()),
-        "MulticastFrameInfo" => list(any()),
-        "WirelessDeviceFrameInfo" => list(any())
-      }
-
-  """
-  @type trace_content() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_device_from_multicast_group_response() :: %{}
-
-  """
-  @type disassociate_wireless_device_from_multicast_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_multicast_group_with_fuota_task_response() :: %{}
-
-  """
-  @type associate_multicast_group_with_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_queued_messages_response() :: %{}
-
-  """
-  @type delete_queued_messages_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_multicast_group_request() :: %{}
-
-  """
-  @type get_multicast_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_task_definition_request() :: %{}
-
-  """
-  @type get_wireless_gateway_task_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_fuota_task_response() :: %{}
-
-  """
-  @type delete_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      accuracy() :: %{
-        "HorizontalAccuracy" => float(),
-        "VerticalAccuracy" => float()
-      }
-
-  """
-  @type accuracy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_fuota_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Descriptor" => String.t() | atom(),
-        "FirmwareUpdateImage" => String.t() | atom(),
-        "FirmwareUpdateRole" => String.t() | atom(),
-        "FragmentIntervalMS" => integer(),
-        "FragmentSizeBytes" => integer(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_fuota_task_get_info(),
-        "Name" => String.t() | atom(),
-        "RedundancyPercent" => integer(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_fuota_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_gateway_statistics() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LastUplinkReceivedAt" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_gateway(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type wireless_gateway_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_device_metadata() :: %{
-        "BatteryLevel" => list(any()),
-        "DeviceState" => list(any()),
-        "Event" => list(any()),
-        "Rssi" => integer()
-      }
-
-  """
-  @type sidewalk_device_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_fuota_task_response() :: %{}
-
-  """
-  @type update_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_list_devices_for_import_info() :: %{
-        "Positioning" => sidewalk_positioning()
-      }
-
-  """
-  @type sidewalk_list_devices_for_import_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_position_configuration_response() :: %{}
-
-  """
-  @type put_position_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_update_gateway_task_entry() :: %{
-        "CurrentVersion" => lo_ra_w_a_n_gateway_version(),
-        "UpdateVersion" => lo_ra_w_a_n_gateway_version()
-      }
-
-  """
-  @type lo_ra_w_a_n_update_gateway_task_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_queued_messages_request() :: %{
-        optional("WirelessDeviceType") => list(any()),
-        required("MessageId") => String.t() | atom()
-      }
-
-  """
-  @type delete_queued_messages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_configuration_by_resource_types_request() :: %{}
-
-  """
-  @type get_event_configuration_by_resource_types_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_partner_accounts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_partner_accounts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_event_configuration_request() :: %{
-        optional("PartnerType") => list(any()),
-        required("IdentifierType") => list(any())
-      }
-
-  """
-  @type get_resource_event_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type create_wireless_gateway_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1184,144 +1608,94 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      list_queued_messages_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("WirelessDeviceType") => list(any())
+      get_position_estimate_response() :: %{
+        "GeoJsonPayload" => binary()
       }
 
   """
-  @type list_queued_messages_request() :: %{(String.t() | atom()) => any()}
+  @type get_position_estimate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_fuota_tasks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      test_wireless_device_request() :: %{}
+
+  """
+  @type test_wireless_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_device_import_task_response() :: %{}
+
+  """
+  @type update_wireless_device_import_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_gateways_multicast() :: %{
+        "GatewayList" => list(String.t() | atom()),
+        "TransmissionInterval" => integer()
       }
 
   """
-  @type list_fuota_tasks_request() :: %{(String.t() | atom()) => any()}
+  @type participating_gateways_multicast() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_wireless_device_from_fuota_task_response() :: %{}
+      update_partner_account_response() :: %{}
 
   """
-  @type disassociate_wireless_device_from_fuota_task_response() :: %{}
+  @type update_partner_account_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      otaa_v1_1() :: %{
-        "AppKey" => String.t() | atom(),
-        "JoinEui" => String.t() | atom(),
-        "NwkKey" => String.t() | atom()
+      list_event_configurations_response() :: %{
+        "EventConfigurationsList" => list(event_configuration_item()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type otaa_v1_1() :: %{(String.t() | atom()) => any()}
+  @type list_event_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_network_analyzer_configuration_response() :: %{}
-
-  """
-  @type update_network_analyzer_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_gateway_from_certificate_request() :: %{}
-
-  """
-  @type disassociate_wireless_gateway_from_certificate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_position_response() :: %{}
-
-  """
-  @type update_position_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_gateway_with_thing_response() :: %{}
-
-  """
-  @type associate_wireless_gateway_with_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_update_device() :: %{
-        "AbpV1_0_x" => update_abp_v1_0_x(),
-        "AbpV1_1" => update_abp_v1_1(),
-        "DeviceProfileId" => String.t() | atom(),
-        "FPorts" => update_f_ports(),
-        "ServiceProfileId" => String.t() | atom()
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type lo_ra_w_a_n_update_device() :: %{(String.t() | atom()) => any()}
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_wireless_gateway_response() :: %{}
+      disassociate_wireless_device_from_fuota_task_request() :: %{}
 
   """
-  @type delete_wireless_gateway_response() :: %{}
+  @type disassociate_wireless_device_from_fuota_task_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_resource_position_request() :: %{
-        required("ResourceType") => list(any())
+      lo_ra_w_a_n_join_event_notification_configurations() :: %{
+        "DevEuiEventTopic" => list(any())
       }
 
   """
-  @type get_resource_position_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_position_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ResourceType") => list(any())
-      }
-
-  """
-  @type list_position_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gsm_local_id() :: %{
-        "Bcch" => integer(),
-        "Bsic" => integer()
-      }
-
-  """
-  @type gsm_local_id() :: %{(String.t() | atom()) => any()}
+  @type lo_ra_w_a_n_join_event_notification_configurations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1343,243 +1717,395 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      delete_service_profile_request() :: %{}
-
-  """
-  @type delete_service_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wireless_device_import_task_request() :: %{}
-
-  """
-  @type delete_wireless_device_import_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_position_response() :: %{}
-
-  """
-  @type update_resource_position_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_device_from_multicast_group_request() :: %{}
-
-  """
-  @type disassociate_wireless_device_from_multicast_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_wireless_device_import_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type start_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_device_import_tasks_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WirelessDeviceImportTaskList" => list(wireless_device_import_task())
-      }
-
-  """
-  @type list_wireless_device_import_tasks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_profile() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type service_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_wireless_device_response() :: %{}
-
-  """
-  @type deregister_wireless_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_multicast_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("LoRaWAN") => lo_ra_w_a_n_multicast(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_multicast_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multicast_group_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("LoRaWAN") => lo_ra_w_a_n_multicast()
-      }
-
-  """
-  @type create_multicast_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_fuota_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_fuota_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_profile_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_service_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_gateways_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WirelessGatewayList" => list(wireless_gateway_statistics())
-      }
-
-  """
-  @type list_wireless_gateways_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_devices_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "WirelessDeviceList" => list(wireless_device_statistics())
-      }
-
-  """
-  @type list_wireless_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_gateway() :: %{
-        "Beaconing" => beaconing(),
-        "GatewayEui" => String.t() | atom(),
-        "JoinEuiFilters" => list(list(String.t() | atom())()),
-        "MaxEirp" => float(),
-        "NetIdFilters" => list(String.t() | atom()),
-        "RfRegion" => String.t() | atom(),
-        "SubBands" => list(integer())
-      }
-
-  """
-  @type lo_ra_w_a_n_gateway() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_aws_account_with_partner_account_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Sidewalk") => sidewalk_account_info()
-      }
-
-  """
-  @type associate_aws_account_with_partner_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_position_response() :: %{
-        "Accuracy" => accuracy(),
-        "Position" => list(float()),
-        "SolverProvider" => list(any()),
-        "SolverType" => list(any()),
-        "SolverVersion" => String.t() | atom(),
-        "Timestamp" => String.t() | atom()
-      }
-
-  """
-  @type get_position_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wcdma_local_id() :: %{
-        "Psc" => integer(),
-        "Uarfcndl" => integer()
-      }
-
-  """
-  @type wcdma_local_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multicast_groups_request() :: %{
+      list_destinations_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_multicast_groups_request() :: %{(String.t() | atom()) => any()}
+  @type list_destinations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_keys_abp_v1_1() :: %{
-        "AppSKey" => String.t() | atom(),
-        "FNwkSIntKey" => String.t() | atom(),
-        "NwkSEncKey" => String.t() | atom(),
-        "SNwkSIntKey" => String.t() | atom()
+      application_config() :: %{
+        "DestinationName" => String.t() | atom(),
+        "FPort" => integer(),
+        "Type" => list(any())
       }
 
   """
-  @type session_keys_abp_v1_1() :: %{(String.t() | atom()) => any()}
+  @type application_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_aws_account_with_partner_account_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Sidewalk" => sidewalk_account_info()
+      }
+
+  """
+  @type associate_aws_account_with_partner_account_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_gateway(),
+        "Name" => String.t() | atom(),
+        "ThingArn" => String.t() | atom(),
+        "ThingName" => String.t() | atom()
+      }
+
+  """
+  @type get_wireless_gateway_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_data_to_wireless_device_response() :: %{
+        "MessageId" => String.t() | atom()
+      }
+
+  """
+  @type send_data_to_wireless_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_gateway_task_definition_response() :: %{}
+
+  """
+  @type delete_wireless_gateway_task_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_position_response() :: %{}
+
+  """
+  @type update_position_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_device_response() :: %{}
+
+  """
+  @type update_wireless_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      f_ports() :: %{
+        "Applications" => list(application_config()),
+        "ClockSync" => integer(),
+        "Fuota" => integer(),
+        "Multicast" => integer(),
+        "Positioning" => positioning()
+      }
+
+  """
+  @type f_ports() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gnss() :: %{
+        "AssistAltitude" => float(),
+        "AssistPosition" => list(float()),
+        "CaptureTime" => float(),
+        "CaptureTimeAccuracy" => float(),
+        "Payload" => String.t() | atom(),
+        "Use2DSolver" => boolean()
+      }
+
+  """
+  @type gnss() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      message_delivery_status_resource_type_event_configuration() :: %{
+        "Sidewalk" => sidewalk_resource_type_event_configuration()
+      }
+
+  """
+  @type message_delivery_status_resource_type_event_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_task_definition_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        optional("Update") => update_wireless_gateway_task_create(),
+        required("AutoCreateTasks") => boolean()
+      }
+
+  """
+  @type create_wireless_gateway_task_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      join_event_configuration() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_join_event_notification_configurations(),
+        "WirelessDeviceIdEventTopic" => list(any())
+      }
+
+  """
+  @type join_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semtech_gnss_detail() :: %{
+        "Fec" => list(any()),
+        "Provider" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type semtech_gnss_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_device_profile_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_device_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      positioning() :: %{
+        "ClockSync" => integer(),
+        "Gnss" => integer(),
+        "Stream" => integer()
+      }
+
+  """
+  @type positioning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_device_statistics() :: %{
+        "Arn" => String.t() | atom(),
+        "DestinationName" => String.t() | atom(),
+        "FuotaDeviceStatus" => list(any()),
+        "Id" => String.t() | atom(),
+        "LastUplinkReceivedAt" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_list_device(),
+        "McGroupId" => integer(),
+        "MulticastDeviceStatus" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Positioning" => list(any()),
+        "Sidewalk" => sidewalk_list_device(),
+        "Type" => list(any())
+      }
+
+  """
+  @type wireless_device_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_position_configurations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "PositionConfigurationList" => list(position_configuration_item())
+      }
+
+  """
+  @type list_position_configurations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wi_fi_access_point() :: %{
+        "MacAddress" => String.t() | atom(),
+        "Rss" => integer()
+      }
+
+  """
+  @type wi_fi_access_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_gateway_metadata() :: %{
+        "GatewayEui" => String.t() | atom(),
+        "Rssi" => float(),
+        "Snr" => float()
+      }
+
+  """
+  @type lo_ra_w_a_n_gateway_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_wireless_gateway_task_entry() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_entry()
+      }
+
+  """
+  @type update_wireless_gateway_task_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_wireless_gateway_task_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("TaskDefinitionType") => list(any())
+      }
+
+  """
+  @type list_wireless_gateway_task_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_statistics_response() :: %{
+        "LastUplinkReceivedAt" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_device_metadata(),
+        "Sidewalk" => sidewalk_device_metadata(),
+        "WirelessDeviceId" => String.t() | atom()
+      }
+
+  """
+  @type get_wireless_device_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_task_definition_request() :: %{}
+
+  """
+  @type get_wireless_gateway_task_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_group_by_fuota_task() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type multicast_group_by_fuota_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metric_configuration_response() :: %{
+        "SummaryMetric" => summary_metric_configuration()
+      }
+
+  """
+  @type get_metric_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_start_import_info() :: %{
+        "DeviceCreationFile" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_start_import_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metric_configuration_request() :: %{
+        optional("SummaryMetric") => summary_metric_configuration()
+      }
+
+  """
+  @type update_metric_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_account_info_with_fingerprint() :: %{
+        "AmazonId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "Fingerprint" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_account_info_with_fingerprint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1614,398 +2140,43 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      update_abp_v1_0_x() :: %{
-        "FCntStart" => integer()
+      get_network_analyzer_configuration_request() :: %{}
+
+  """
+  @type get_network_analyzer_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_wireless_metadata() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_multicast_metadata()
       }
 
   """
-  @type update_abp_v1_0_x() :: %{(String.t() | atom()) => any()}
+  @type multicast_wireless_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_multicast_group_response() :: %{}
-
-  """
-  @type update_multicast_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_multicast_group_from_fuota_task_response() :: %{}
-
-  """
-  @type disassociate_multicast_group_from_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      positioning() :: %{
-        "ClockSync" => integer(),
-        "Gnss" => integer(),
-        "Stream" => integer()
+      sidewalk_list_devices_for_import_info() :: %{
+        "Positioning" => sidewalk_positioning()
       }
 
   """
-  @type positioning() :: %{(String.t() | atom()) => any()}
+  @type sidewalk_list_devices_for_import_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cdma_local_id() :: %{
-        "CdmaChannel" => integer(),
-        "PnOffset" => integer()
+      wi_fi_cellular() :: %{
+        "ConfidencePercent" => integer()
       }
 
   """
-  @type cdma_local_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wcdma_nmr_obj() :: %{
-        "PathLoss" => integer(),
-        "Psc" => integer(),
-        "Rscp" => integer(),
-        "Uarfcndl" => integer(),
-        "UtranCid" => integer()
-      }
-
-  """
-  @type wcdma_nmr_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gsm_nmr_obj() :: %{
-        "Bcch" => integer(),
-        "Bsic" => integer(),
-        "GlobalIdentity" => global_identity(),
-        "RxLevel" => integer()
-      }
-
-  """
-  @type gsm_nmr_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_local_id() :: %{
-        "Earfcn" => integer(),
-        "Pci" => integer()
-      }
-
-  """
-  @type lte_local_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_device_with_multicast_group_response() :: %{}
-
-  """
-  @type associate_wireless_device_with_multicast_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metric_configuration_request() :: %{}
-
-  """
-  @type get_metric_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_task_response() :: %{
-        "LastUplinkReceivedAt" => String.t() | atom(),
-        "Status" => list(any()),
-        "TaskCreatedAt" => String.t() | atom(),
-        "WirelessGatewayId" => String.t() | atom(),
-        "WirelessGatewayTaskDefinitionId" => String.t() | atom()
-      }
-
-  """
-  @type get_wireless_gateway_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_aws_account_from_partner_account_request() :: %{
-        required("PartnerType") => list(any())
-      }
-
-  """
-  @type disassociate_aws_account_from_partner_account_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_metrics_request() :: %{
-        optional("SummaryMetricQueries") => list(summary_metric_query())
-      }
-
-  """
-  @type get_metrics_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wireless_device_request() :: %{}
-
-  """
-  @type delete_wireless_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_fuota_task_request() :: %{}
-
-  """
-  @type delete_fuota_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_gateway(),
-        "Name" => String.t() | atom(),
-        "ThingArn" => String.t() | atom(),
-        "ThingName" => String.t() | atom()
-      }
-
-  """
-  @type get_wireless_gateway_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_firmware_information_response() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_gateway_current_version()
-      }
-
-  """
-  @type get_wireless_gateway_firmware_information_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_fuota_task_request() :: %{}
-
-  """
-  @type get_fuota_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_device_import_task_response() :: %{}
-
-  """
-  @type update_wireless_device_import_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_partner_account_response() :: %{
-        "AccountLinked" => boolean(),
-        "Sidewalk" => sidewalk_account_info_with_fingerprint()
-      }
-
-  """
-  @type get_partner_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_device() :: %{
-        "AbpV1_0_x" => abp_v1_0_x(),
-        "AbpV1_1" => abp_v1_1(),
-        "DevEui" => String.t() | atom(),
-        "DeviceProfileId" => String.t() | atom(),
-        "FPorts" => f_ports(),
-        "OtaaV1_0_x" => otaa_v1_0_x(),
-        "OtaaV1_1" => otaa_v1_1(),
-        "ServiceProfileId" => String.t() | atom()
-      }
-
-  """
-  @type lo_ra_w_a_n_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_destination_response() :: %{}
-
-  """
-  @type delete_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      wi_fi_access_point() :: %{
-        "MacAddress" => String.t() | atom(),
-        "Rss" => integer()
-      }
-
-  """
-  @type wi_fi_access_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_gateway_with_thing_request() :: %{
-        required("ThingArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_wireless_gateway_with_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gnss() :: %{
-        "AssistAltitude" => float(),
-        "AssistPosition" => list(float()),
-        "CaptureTime" => float(),
-        "CaptureTimeAccuracy" => float(),
-        "Payload" => String.t() | atom(),
-        "Use2DSolver" => boolean()
-      }
-
-  """
-  @type gnss() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_event_configuration_request() :: %{
-        optional("ConnectionStatus") => connection_status_event_configuration(),
-        optional("DeviceRegistrationState") => device_registration_state_event_configuration(),
-        optional("Join") => join_event_configuration(),
-        optional("MessageDeliveryStatus") => message_delivery_status_event_configuration(),
-        optional("PartnerType") => list(any()),
-        optional("Proximity") => proximity_event_configuration(),
-        required("IdentifierType") => list(any())
-      }
-
-  """
-  @type update_resource_event_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_profile_response() :: %{}
-
-  """
-  @type delete_device_profile_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_log_levels_by_resource_types_request() :: %{}
-
-  """
-  @type get_log_levels_by_resource_types_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_send_data_to_device() :: %{
-        "FPort" => integer(),
-        "ParticipatingGateways" => participating_gateways()
-      }
-
-  """
-  @type lo_ra_w_a_n_send_data_to_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_aws_account_from_partner_account_response() :: %{}
-
-  """
-  @type disassociate_aws_account_from_partner_account_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_create_device_profile() :: %{}
-
-  """
-  @type sidewalk_create_device_profile() :: %{}
+  @type wi_fi_cellular() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2020,712 +2191,10 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      create_fuota_task_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("Descriptor") => String.t() | atom(),
-        optional("FragmentIntervalMS") => integer(),
-        optional("FragmentSizeBytes") => integer(),
-        optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
-        optional("Name") => String.t() | atom(),
-        optional("RedundancyPercent") => integer(),
-        optional("Tags") => list(tag()),
-        required("FirmwareUpdateImage") => String.t() | atom(),
-        required("FirmwareUpdateRole") => String.t() | atom()
-      }
+      tag_resource_response() :: %{}
 
   """
-  @type create_fuota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tdscdma_nmr_obj() :: %{
-        "CellParams" => integer(),
-        "PathLoss" => integer(),
-        "Rscp" => integer(),
-        "Uarfcn" => integer(),
-        "UtranCid" => integer()
-      }
-
-  """
-  @type tdscdma_nmr_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_request() :: %{
-        required("IdentifierType") => list(any())
-      }
-
-  """
-  @type get_wireless_gateway_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_account_info_with_fingerprint() :: %{
-        "AmazonId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "Fingerprint" => String.t() | atom()
-      }
-
-  """
-  @type sidewalk_account_info_with_fingerprint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_gateway_response() :: %{}
-
-  """
-  @type update_wireless_gateway_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tdscdma_obj() :: %{
-        "Lac" => integer(),
-        "Mcc" => integer(),
-        "Mnc" => integer(),
-        "PathLoss" => integer(),
-        "Rscp" => integer(),
-        "TdscdmaLocalId" => tdscdma_local_id(),
-        "TdscdmaNmr" => list(tdscdma_nmr_obj()),
-        "TdscdmaTimingAdvance" => integer(),
-        "UtranCid" => integer()
-      }
-
-  """
-  @type tdscdma_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_device_metadata() :: %{
-        "DataRate" => integer(),
-        "DevEui" => String.t() | atom(),
-        "FPort" => integer(),
-        "Frequency" => integer(),
-        "Gateways" => list(lo_ra_w_a_n_gateway_metadata()),
-        "PublicGateways" => list(lo_ra_w_a_n_public_gateway_metadata()),
-        "Timestamp" => String.t() | atom()
-      }
-
-  """
-  @type lo_ra_w_a_n_device_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_data_to_multicast_group_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-
-  """
-  @type send_data_to_multicast_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_multicast_group_from_fuota_task_request() :: %{}
-
-  """
-  @type disassociate_multicast_group_from_fuota_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_for_wireless_device_import_task_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any()),
-        required("Id") => String.t() | atom()
-      }
-
-  """
-  @type list_devices_for_wireless_device_import_task_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_device_response() :: %{}
-
-  """
-  @type update_wireless_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_destinations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_destinations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_device_from_thing_response() :: %{}
-
-  """
-  @type disassociate_wireless_device_from_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_create_wireless_device() :: %{
-        "DeviceProfileId" => String.t() | atom(),
-        "Positioning" => sidewalk_positioning(),
-        "SidewalkManufacturingSn" => String.t() | atom()
-      }
-
-  """
-  @type sidewalk_create_wireless_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wireless_gateway_task_definition_response() :: %{}
-
-  """
-  @type delete_wireless_gateway_task_definition_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_wireless_gateway_task_definition_request() :: %{}
-
-  """
-  @type delete_wireless_gateway_task_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_configuration_by_resource_types_request() :: %{
-        optional("ConnectionStatus") => connection_status_resource_type_event_configuration(),
-        optional("DeviceRegistrationState") => device_registration_state_resource_type_event_configuration(),
-        optional("Join") => join_resource_type_event_configuration(),
-        optional("MessageDeliveryStatus") => message_delivery_status_resource_type_event_configuration(),
-        optional("Proximity") => proximity_resource_type_event_configuration()
-      }
-
-  """
-  @type update_event_configuration_by_resource_types_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_event_configuration_response() :: %{
-        "ConnectionStatus" => connection_status_event_configuration(),
-        "DeviceRegistrationState" => device_registration_state_event_configuration(),
-        "Join" => join_event_configuration(),
-        "MessageDeliveryStatus" => message_delivery_status_event_configuration(),
-        "Proximity" => proximity_event_configuration()
-      }
-
-  """
-  @type get_resource_event_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      send_data_to_wireless_device_response() :: %{
-        "MessageId" => String.t() | atom()
-      }
-
-  """
-  @type send_data_to_wireless_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_status_event_configuration() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_connection_status_event_notification_configurations(),
-        "WirelessGatewayIdEventTopic" => list(any())
-      }
-
-  """
-  @type connection_status_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_aws_account_with_partner_account_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Sidewalk" => sidewalk_account_info()
-      }
-
-  """
-  @type associate_aws_account_with_partner_account_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_destination_request() :: %{}
-
-  """
-  @type delete_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_configuration_item() :: %{
-        "Events" => event_notification_item_configurations(),
-        "Identifier" => String.t() | atom(),
-        "IdentifierType" => list(any()),
-        "PartnerType" => list(any())
-      }
-
-  """
-  @type event_configuration_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_abp_v1_1() :: %{
-        "FCntStart" => integer()
-      }
-
-  """
-  @type update_abp_v1_1() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_profiles_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_service_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_gateway_from_thing_request() :: %{}
-
-  """
-  @type disassociate_wireless_gateway_from_thing_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      imported_wireless_device() :: %{
-        "Sidewalk" => imported_sidewalk_device()
-      }
-
-  """
-  @type imported_wireless_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_task_request() :: %{}
-
-  """
-  @type get_wireless_gateway_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_gateway_event_log_option() :: %{
-        "Event" => list(any()),
-        "LogLevel" => list(any())
-      }
-
-  """
-  @type wireless_gateway_event_log_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_wireless_gateway_task_request() :: %{
-        required("WirelessGatewayTaskDefinitionId") => String.t() | atom()
-      }
-
-  """
-  @type create_wireless_gateway_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      semtech_gnss_configuration() :: %{
-        "Fec" => list(any()),
-        "Status" => list(any())
-      }
-
-  """
-  @type semtech_gnss_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_device_from_thing_request() :: %{}
-
-  """
-  @type disassociate_wireless_device_from_thing_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multicast_groups_by_fuota_task_response() :: %{
-        "MulticastGroupList" => list(multicast_group_by_fuota_task()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_multicast_groups_by_fuota_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_log_level_response() :: %{}
-
-  """
-  @type put_resource_log_level_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_endpoint_request() :: %{
-        optional("ServiceType") => list(any())
-      }
-
-  """
-  @type get_service_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_service_profiles_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ServiceProfileList" => list(service_profile())
-      }
-
-  """
-  @type list_service_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_wireless_device_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LoRaWAN") => lo_ra_w_a_n_device(),
-        optional("Name") => String.t() | atom(),
-        optional("Positioning") => list(any()),
-        optional("Sidewalk") => sidewalk_create_wireless_device(),
-        optional("Tags") => list(tag()),
-        required("DestinationName") => String.t() | atom(),
-        required("Type") => list(any())
-      }
-
-  """
-  @type create_wireless_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_join_event_notification_configurations() :: %{
-        "DevEuiEventTopic" => list(any())
-      }
-
-  """
-  @type lo_ra_w_a_n_join_event_notification_configurations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_device_statistics() :: %{
-        "Arn" => String.t() | atom(),
-        "DestinationName" => String.t() | atom(),
-        "FuotaDeviceStatus" => list(any()),
-        "Id" => String.t() | atom(),
-        "LastUplinkReceivedAt" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_list_device(),
-        "McGroupId" => integer(),
-        "MulticastDeviceStatus" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Positioning" => list(any()),
-        "Sidewalk" => sidewalk_list_device(),
-        "Type" => list(any())
-      }
-
-  """
-  @type wireless_device_statistics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_for_wireless_device_import_task_response() :: %{
-        "DestinationName" => String.t() | atom(),
-        "ImportedWirelessDeviceList" => list(imported_wireless_device()),
-        "NextToken" => String.t() | atom(),
-        "Positioning" => list(any()),
-        "Sidewalk" => sidewalk_list_devices_for_import_info()
-      }
-
-  """
-  @type list_devices_for_wireless_device_import_task_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_connection_status_resource_type_event_configuration() :: %{
-        "WirelessGatewayEventTopic" => list(any())
-      }
-
-  """
-  @type lo_ra_w_a_n_connection_status_resource_type_event_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_log_level_request() :: %{
-        required("LogLevel") => list(any()),
-        required("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type put_resource_log_level_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tdscdma_local_id() :: %{
-        "CellParams" => integer(),
-        "Uarfcn" => integer()
-      }
-
-  """
-  @type tdscdma_local_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dak_certificate_metadata() :: %{
-        "ApId" => String.t() | atom(),
-        "CertificateId" => String.t() | atom(),
-        "DeviceTypeId" => String.t() | atom(),
-        "FactorySupport" => boolean(),
-        "MaxAllowedSignature" => integer()
-      }
-
-  """
-  @type dak_certificate_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_configurations_response() :: %{
-        "EventConfigurationsList" => list(event_configuration_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_configurations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_metric_configuration_response() :: %{}
-
-  """
-  @type update_metric_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_service_profile_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("LoRaWAN") => lo_ra_w_a_n_service_profile(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-
-  """
-  @type create_service_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fuota_task_log_option() :: %{
-        "Events" => list(fuota_task_event_log_option()),
-        "LogLevel" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type fuota_task_log_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_gateway_log_option() :: %{
-        "Events" => list(wireless_gateway_event_log_option()),
-        "LogLevel" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type wireless_gateway_log_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_destination_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Expression") => String.t() | atom(),
-        optional("ExpressionType") => list(any()),
-        optional("RoleArn") => String.t() | atom()
-      }
-
-  """
-  @type update_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      position_configuration_item() :: %{
-        "Destination" => String.t() | atom(),
-        "ResourceIdentifier" => String.t() | atom(),
-        "ResourceType" => list(any()),
-        "Solvers" => position_solver_details()
-      }
-
-  """
-  @type position_configuration_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_device_profile_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type create_device_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_partner_account_request() :: %{
-        required("PartnerType") => list(any()),
-        required("Sidewalk") => sidewalk_update_account()
-      }
-
-  """
-  @type update_partner_account_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_multicast_group_session_request() :: %{
-        required("LoRaWAN") => lo_ra_w_a_n_multicast_session()
-      }
-
-  """
-  @type start_multicast_group_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_gateway_task_definitions_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "TaskDefinitions" => list(update_wireless_gateway_task_entry())
-      }
-
-  """
-  @type list_wireless_gateway_task_definitions_response() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_response() :: %{}
 
   @typedoc """
 
@@ -2742,223 +2211,155 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      event_notification_item_configurations() :: %{
-        "ConnectionStatus" => connection_status_event_configuration(),
-        "DeviceRegistrationState" => device_registration_state_event_configuration(),
-        "Join" => join_event_configuration(),
-        "MessageDeliveryStatus" => message_delivery_status_event_configuration(),
-        "Proximity" => proximity_event_configuration()
-      }
+      update_resource_position_response() :: %{}
 
   """
-  @type event_notification_item_configurations() :: %{(String.t() | atom()) => any()}
+  @type update_resource_position_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_wireless_device_from_fuota_task_request() :: %{}
-
-  """
-  @type disassociate_wireless_device_from_fuota_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_multicast_group_session_request() :: %{}
-
-  """
-  @type get_multicast_group_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_gateway_metadata() :: %{
-        "GatewayEui" => String.t() | atom(),
-        "Rssi" => float(),
-        "Snr" => float()
-      }
-
-  """
-  @type lo_ra_w_a_n_gateway_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_device_import_tasks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_wireless_device_import_tasks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_multicast_group_session_request() :: %{}
-
-  """
-  @type cancel_multicast_group_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      test_wireless_device_request() :: %{}
-
-  """
-  @type test_wireless_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_statistics_request() :: %{}
-
-  """
-  @type get_wireless_gateway_statistics_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      fuota_task() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type fuota_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_device_statistics_request() :: %{}
-
-  """
-  @type get_wireless_device_statistics_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      message_delivery_status_resource_type_event_configuration() :: %{
+      proximity_resource_type_event_configuration() :: %{
         "Sidewalk" => sidewalk_resource_type_event_configuration()
       }
 
   """
-  @type message_delivery_status_resource_type_event_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type proximity_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lo_ra_w_a_n_start_fuota_task() :: %{
-        "StartTime" => non_neg_integer()
+      disassociate_wireless_device_from_thing_request() :: %{}
+
+  """
+  @type disassociate_wireless_device_from_thing_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      beaconing() :: %{
+        "DataRate" => integer(),
+        "Frequencies" => list(integer())
       }
 
   """
-  @type lo_ra_w_a_n_start_fuota_task() :: %{(String.t() | atom()) => any()}
+  @type beaconing() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_wireless_gateway_task_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      get_fuota_task_request() :: %{}
+
+  """
+  @type get_fuota_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      abp_v1_0_x() :: %{
+        "DevAddr" => String.t() | atom(),
+        "FCntStart" => integer(),
+        "SessionKeys" => session_keys_abp_v1_0_x()
       }
 
   """
-  @type create_wireless_gateway_task_definition_response() :: %{(String.t() | atom()) => any()}
+  @type abp_v1_0_x() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_log_levels_by_resource_types_request() :: %{
-        optional("DefaultLogLevel") => list(any()),
-        optional("FuotaTaskLogOptions") => list(fuota_task_log_option()),
-        optional("WirelessDeviceLogOptions") => list(wireless_device_log_option()),
-        optional("WirelessGatewayLogOptions") => list(wireless_gateway_log_option())
+      associate_wireless_gateway_with_thing_request() :: %{
+        required("ThingArn") => String.t() | atom()
       }
 
   """
-  @type update_log_levels_by_resource_types_request() :: %{(String.t() | atom()) => any()}
+  @type associate_wireless_gateway_with_thing_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sidewalk_positioning() :: %{
-        "DestinationName" => String.t() | atom()
+      associate_multicast_group_with_fuota_task_request() :: %{
+        required("MulticastGroupId") => String.t() | atom()
       }
 
   """
-  @type sidewalk_positioning() :: %{(String.t() | atom()) => any()}
+  @type associate_multicast_group_with_fuota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reset_all_resource_log_levels_request() :: %{}
-
-  """
-  @type reset_all_resource_log_levels_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_position_request() :: %{
-        required("Position") => list(float()),
-        required("ResourceType") => list(any())
+      imported_wireless_device() :: %{
+        "Sidewalk" => imported_sidewalk_device()
       }
 
   """
-  @type update_position_request() :: %{(String.t() | atom()) => any()}
+  @type imported_wireless_device() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_multicast_group_session_response() :: %{}
+      delete_device_profile_response() :: %{}
 
   """
-  @type cancel_multicast_group_session_response() :: %{}
+  @type delete_device_profile_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_wireless_gateway_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      accuracy() :: %{
+        "HorizontalAccuracy" => float(),
+        "VerticalAccuracy" => float()
       }
 
   """
-  @type create_wireless_gateway_response() :: %{(String.t() | atom()) => any()}
+  @type accuracy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_position_configuration_response() :: %{
-        "Destination" => String.t() | atom(),
-        "Solvers" => position_solver_details()
+      otaa_v1_0_x() :: %{
+        "AppEui" => String.t() | atom(),
+        "AppKey" => String.t() | atom(),
+        "GenAppKey" => String.t() | atom(),
+        "JoinEui" => String.t() | atom()
       }
 
   """
-  @type get_position_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type otaa_v1_0_x() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_device_import_task_request() :: %{}
+
+  """
+  @type delete_wireless_device_import_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_update_gateway_task_create() :: %{
+        "CurrentVersion" => lo_ra_w_a_n_gateway_version(),
+        "SigKeyCrc" => float(),
+        "UpdateSignature" => String.t() | atom(),
+        "UpdateVersion" => lo_ra_w_a_n_gateway_version()
+      }
+
+  """
+  @type lo_ra_w_a_n_update_gateway_task_create() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2997,548 +2398,163 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      list_network_analyzer_configurations_response() :: %{
-        "NetworkAnalyzerConfigurationList" => list(network_analyzer_configurations()),
-        "NextToken" => String.t() | atom()
+      create_fuota_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
       }
 
   """
-  @type list_network_analyzer_configurations_response() :: %{(String.t() | atom()) => any()}
+  @type create_fuota_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_network_analyzer_configurations_request() :: %{
+      send_data_to_wireless_device_request() :: %{
+        optional("WirelessMetadata") => wireless_metadata(),
+        required("PayloadData") => String.t() | atom(),
+        required("TransmitMode") => integer()
+      }
+
+  """
+  @type send_data_to_wireless_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_request() :: %{
+        required("IdentifierType") => list(any())
+      }
+
+  """
+  @type get_wireless_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_destination_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_resource_position_request() :: %{
+        optional("GeoJsonPayload") => binary(),
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type update_resource_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_list_device() :: %{
+        "AmazonId" => String.t() | atom(),
+        "DeviceCertificates" => list(certificate_list()),
+        "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
+        "SidewalkId" => String.t() | atom(),
+        "SidewalkManufacturingSn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type sidewalk_list_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_wireless_gateways_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_network_analyzer_configurations_request() :: %{(String.t() | atom()) => any()}
+  @type list_wireless_gateways_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
+      deregister_wireless_device_request() :: %{
+        optional("WirelessDeviceType") => list(any())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type deregister_wireless_device_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_network_analyzer_configuration_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("MulticastGroupsToAdd") => list(String.t() | atom()),
-        optional("MulticastGroupsToRemove") => list(String.t() | atom()),
-        optional("TraceContent") => trace_content(),
-        optional("WirelessDevicesToAdd") => list(String.t() | atom()),
-        optional("WirelessDevicesToRemove") => list(String.t() | atom()),
-        optional("WirelessGatewaysToAdd") => list(String.t() | atom()),
-        optional("WirelessGatewaysToRemove") => list(String.t() | atom())
+      fuota_task_log_option() :: %{
+        "Events" => list(fuota_task_event_log_option()),
+        "LogLevel" => list(any()),
+        "Type" => list(any())
       }
 
   """
-  @type update_network_analyzer_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type fuota_task_log_option() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_single_wireless_device_import_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type start_single_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_device_with_thing_request() :: %{
-        required("ThingArn") => String.t() | atom()
-      }
-
-  """
-  @type associate_wireless_device_with_thing_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      gsm_obj() :: %{
-        "GeranCid" => integer(),
-        "GsmLocalId" => gsm_local_id(),
-        "GsmNmr" => list(gsm_nmr_obj()),
-        "GsmTimingAdvance" => integer(),
-        "Lac" => integer(),
-        "Mcc" => integer(),
-        "Mnc" => integer(),
-        "RxLevel" => integer()
-      }
-
-  """
-  @type gsm_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      beaconing() :: %{
-        "DataRate" => integer(),
-        "Frequencies" => list(integer())
-      }
-
-  """
-  @type beaconing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_device_with_fuota_task_response() :: %{}
-
-  """
-  @type associate_wireless_device_with_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ip() :: %{
-        "IpAddress" => String.t() | atom()
-      }
-
-  """
-  @type ip() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_configurations_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("ResourceType") => list(any())
-      }
-
-  """
-  @type list_event_configurations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_position_estimate_request() :: %{
-        optional("AdvancedConfiguration") => advanced_configuration(),
-        optional("CellTowers") => cell_towers(),
-        optional("Gnss") => gnss(),
-        optional("Ip") => ip(),
-        optional("Timestamp") => non_neg_integer(),
-        optional("WiFiAccessPoints") => list(wi_fi_access_point())
-      }
-
-  """
-  @type get_position_estimate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participating_gateways() :: %{
-        "DownlinkMode" => list(any()),
-        "GatewayList" => list(gateway_list_item()),
-        "TransmissionInterval" => integer()
-      }
-
-  """
-  @type participating_gateways() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_destination_request() :: %{}
-
-  """
-  @type get_destination_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_fuota_task() :: %{
-        "RfRegion" => list(any())
-      }
-
-  """
-  @type lo_ra_w_a_n_fuota_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_device_import_task_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "DestinationName" => String.t() | atom(),
-        "FailedImportedDeviceCount" => float(),
-        "Id" => String.t() | atom(),
-        "InitializedImportedDeviceCount" => float(),
-        "OnboardedImportedDeviceCount" => float(),
-        "PendingImportedDeviceCount" => float(),
-        "Positioning" => list(any()),
-        "Sidewalk" => sidewalk_get_start_import_info(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-
-  """
-  @type get_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_wireless_gateway_task_response() :: %{
-        "Status" => list(any()),
-        "WirelessGatewayTaskDefinitionId" => String.t() | atom()
-      }
-
-  """
-  @type create_wireless_gateway_task_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_public_gateway_metadata() :: %{
-        "DlAllowed" => boolean(),
-        "Id" => String.t() | atom(),
-        "ProviderNetId" => String.t() | atom(),
-        "RfRegion" => String.t() | atom(),
-        "Rssi" => float(),
-        "Snr" => float()
-      }
-
-  """
-  @type lo_ra_w_a_n_public_gateway_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_wireless_gateway_from_thing_response() :: %{}
-
-  """
-  @type disassociate_wireless_gateway_from_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_configuration() :: %{
-        "WiFiCellular" => wi_fi_cellular()
-      }
-
-  """
-  @type advanced_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_device_event_log_option() :: %{
-        "Event" => list(any()),
-        "LogLevel" => list(any())
-      }
-
-  """
-  @type wireless_device_event_log_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_task_definition_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AutoCreateTasks" => boolean(),
-        "Name" => String.t() | atom(),
-        "Update" => update_wireless_gateway_task_create()
-      }
-
-  """
-  @type get_wireless_gateway_task_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wireless_device_import_task() :: %{
-        "Arn" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "DestinationName" => String.t() | atom(),
-        "FailedImportedDeviceCount" => float(),
-        "Id" => String.t() | atom(),
-        "InitializedImportedDeviceCount" => float(),
-        "OnboardedImportedDeviceCount" => float(),
-        "PendingImportedDeviceCount" => float(),
-        "Positioning" => list(any()),
-        "Sidewalk" => sidewalk_get_start_import_info(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom()
-      }
-
-  """
-  @type wireless_device_import_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      otaa_v1_0_x() :: %{
-        "AppEui" => String.t() | atom(),
-        "AppKey" => String.t() | atom(),
-        "GenAppKey" => String.t() | atom(),
-        "JoinEui" => String.t() | atom()
-      }
-
-  """
-  @type otaa_v1_0_x() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_statistics_response() :: %{
-        "ConnectionStatus" => list(any()),
-        "LastUplinkReceivedAt" => String.t() | atom(),
-        "WirelessGatewayId" => String.t() | atom()
-      }
-
-  """
-  @type get_wireless_gateway_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_group_by_fuota_task() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type multicast_group_by_fuota_task() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_partner_accounts_response() :: %{
+      list_wireless_device_import_tasks_response() :: %{
         "NextToken" => String.t() | atom(),
-        "Sidewalk" => list(sidewalk_account_info_with_fingerprint())
+        "WirelessDeviceImportTaskList" => list(wireless_device_import_task())
       }
 
   """
-  @type list_partner_accounts_response() :: %{(String.t() | atom()) => any()}
+  @type list_wireless_device_import_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("ResourceArn") => String.t() | atom()
-      }
-
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_service_endpoint_response() :: %{
-        "ServerTrust" => String.t() | atom(),
-        "ServiceEndpoint" => String.t() | atom(),
-        "ServiceType" => list(any())
-      }
-
-  """
-  @type get_service_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_destination_response() :: %{}
-
-  """
-  @type update_destination_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_resource_log_level_request() :: %{
-        required("ResourceType") => String.t() | atom()
-      }
-
-  """
-  @type reset_resource_log_level_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_queued_messages_response() :: %{
-        "DownlinkQueueMessagesList" => list(downlink_queue_message()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_queued_messages_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_gateway_current_version() :: %{
-        "CurrentVersion" => lo_ra_w_a_n_gateway_version()
-      }
-
-  """
-  @type lo_ra_w_a_n_gateway_current_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_f_ports() :: %{
-        "Applications" => list(application_config()),
-        "Positioning" => positioning()
-      }
-
-  """
-  @type update_f_ports() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fuota_task_event_log_option() :: %{
-        "Event" => list(any()),
-        "LogLevel" => list(any())
-      }
-
-  """
-  @type fuota_task_event_log_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_multicast_group_response() :: %{}
-
-  """
-  @type delete_multicast_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_multicast_metadata() :: %{
-        "FPort" => integer()
-      }
-
-  """
-  @type lo_ra_w_a_n_multicast_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_device_with_fuota_task_request() :: %{
-        required("WirelessDeviceId") => String.t() | atom()
-      }
-
-  """
-  @type associate_wireless_device_with_fuota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wcdma_obj() :: %{
-        "Lac" => integer(),
-        "Mcc" => integer(),
-        "Mnc" => integer(),
+      tdscdma_nmr_obj() :: %{
+        "CellParams" => integer(),
         "PathLoss" => integer(),
         "Rscp" => integer(),
-        "UtranCid" => integer(),
-        "WcdmaLocalId" => wcdma_local_id(),
-        "WcdmaNmr" => list(wcdma_nmr_obj())
+        "Uarfcn" => integer(),
+        "UtranCid" => integer()
       }
 
   """
-  @type wcdma_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      wi_fi_cellular() :: %{
-        "ConfidencePercent" => integer()
-      }
-
-  """
-  @type wi_fi_cellular() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_firmware_information_request() :: %{}
-
-  """
-  @type get_wireless_gateway_firmware_information_request() :: %{}
+  @type tdscdma_nmr_obj() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3557,10 +2573,135 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      update_partner_account_response() :: %{}
+      session_keys_abp_v1_1() :: %{
+        "AppSKey" => String.t() | atom(),
+        "FNwkSIntKey" => String.t() | atom(),
+        "NwkSEncKey" => String.t() | atom(),
+        "SNwkSIntKey" => String.t() | atom()
+      }
 
   """
-  @type update_partner_account_response() :: %{}
+  @type session_keys_abp_v1_1() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metrics_request() :: %{
+        optional("SummaryMetricQueries") => list(summary_metric_query())
+      }
+
+  """
+  @type get_metrics_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_wireless_devices_request() :: %{
+        optional("DestinationName") => String.t() | atom(),
+        optional("DeviceProfileId") => String.t() | atom(),
+        optional("FuotaTaskId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("MulticastGroupId") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ServiceProfileId") => String.t() | atom(),
+        optional("WirelessDeviceType") => list(any())
+      }
+
+  """
+  @type list_wireless_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_gateway_response() :: %{}
+
+  """
+  @type delete_wireless_gateway_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      abp_v1_1() :: %{
+        "DevAddr" => String.t() | atom(),
+        "FCntStart" => integer(),
+        "SessionKeys" => session_keys_abp_v1_1()
+      }
+
+  """
+  @type abp_v1_1() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_position_request() :: %{
+        required("Position") => list(float()),
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type update_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multicast_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("LoRaWAN") => lo_ra_w_a_n_multicast(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type update_multicast_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_device_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("LoRaWAN") => lo_ra_w_a_n_device(),
+        optional("Name") => String.t() | atom(),
+        optional("Positioning") => list(any()),
+        optional("Sidewalk") => sidewalk_create_wireless_device(),
+        optional("Tags") => list(tag()),
+        required("DestinationName") => String.t() | atom(),
+        required("Type") => list(any())
+      }
+
+  """
+  @type create_wireless_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      imported_sidewalk_device() :: %{
+        "LastUpdateTime" => non_neg_integer(),
+        "OnboardingStatus" => list(any()),
+        "OnboardingStatusReason" => String.t() | atom(),
+        "SidewalkManufacturingSn" => String.t() | atom()
+      }
+
+  """
+  @type imported_sidewalk_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_data_to_multicast_group_response() :: %{
+        "MessageId" => String.t() | atom()
+      }
+
+  """
+  @type send_data_to_multicast_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3579,220 +2720,41 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
-        optional("QueryString") => String.t() | atom(),
-        optional("Tags") => list(tag())
+      start_single_wireless_device_import_task_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("DeviceName") => String.t() | atom(),
+        optional("Positioning") => list(any()),
+        optional("Tags") => list(tag()),
+        required("DestinationName") => String.t() | atom(),
+        required("Sidewalk") => sidewalk_single_start_import_info()
       }
 
   """
-  @type start_bulk_associate_wireless_device_with_multicast_group_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type start_single_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      session_keys_abp_v1_0_x() :: %{
-        "AppSKey" => String.t() | atom(),
-        "NwkSKey" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
 
   """
-  @type session_keys_abp_v1_0_x() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      sidewalk_start_import_info() :: %{
-        "DeviceCreationFile" => String.t() | atom(),
-        "Positioning" => sidewalk_positioning(),
-        "Role" => String.t() | atom()
+      get_wireless_gateway_certificate_response() :: %{
+        "IotCertificateId" => String.t() | atom(),
+        "LoRaWANNetworkServerCertificateId" => String.t() | atom()
       }
 
   """
-  @type sidewalk_start_import_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_multicast_get() :: %{
-        "DlClass" => list(any()),
-        "NumberOfDevicesInGroup" => integer(),
-        "NumberOfDevicesRequested" => integer(),
-        "ParticipatingGateways" => participating_gateways_multicast(),
-        "RfRegion" => list(any())
-      }
-
-  """
-  @type lo_ra_w_a_n_multicast_get() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_device() :: %{
-        "AmazonId" => String.t() | atom(),
-        "CertificateId" => String.t() | atom(),
-        "DeviceCertificates" => list(certificate_list()),
-        "DeviceProfileId" => String.t() | atom(),
-        "Positioning" => sidewalk_positioning(),
-        "PrivateKeys" => list(certificate_list()),
-        "SidewalkId" => String.t() | atom(),
-        "SidewalkManufacturingSn" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type sidewalk_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      certificate_list() :: %{
-        "SigningAlg" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type certificate_list() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_log_levels_by_resource_types_response() :: %{
-        "DefaultLogLevel" => list(any()),
-        "FuotaTaskLogOptions" => list(fuota_task_log_option()),
-        "WirelessDeviceLogOptions" => list(wireless_device_log_option()),
-        "WirelessGatewayLogOptions" => list(wireless_gateway_log_option())
-      }
-
-  """
-  @type get_log_levels_by_resource_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dimension() :: %{
-        "name" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multicast_groups_response() :: %{
-        "MulticastGroupList" => list(multicast_group()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_multicast_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cdma_nmr_obj() :: %{
-        "BaseStationId" => integer(),
-        "CdmaChannel" => integer(),
-        "PilotPower" => integer(),
-        "PnOffset" => integer()
-      }
-
-  """
-  @type cdma_nmr_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      semtech_gnss_detail() :: %{
-        "Fec" => list(any()),
-        "Provider" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type semtech_gnss_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      f_ports() :: %{
-        "Applications" => list(application_config()),
-        "ClockSync" => integer(),
-        "Fuota" => integer(),
-        "Multicast" => integer(),
-        "Positioning" => positioning()
-      }
-
-  """
-  @type f_ports() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_nmr_obj() :: %{
-        "Earfcn" => integer(),
-        "EutranCid" => integer(),
-        "Pci" => integer(),
-        "Rsrp" => integer(),
-        "Rsrq" => float()
-      }
-
-  """
-  @type lte_nmr_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_position_configuration_request() :: %{
-        optional("Destination") => String.t() | atom(),
-        optional("Solvers") => position_solver_configurations(),
-        required("ResourceType") => list(any())
-      }
-
-  """
-  @type put_position_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
-        optional("QueryString") => String.t() | atom(),
-        optional("Tags") => list(tag())
-      }
-
-  """
-  @type start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      get_partner_account_request() :: %{
-        required("PartnerType") => list(any())
-      }
-
-  """
-  @type get_partner_account_request() :: %{(String.t() | atom()) => any()}
+  @type get_wireless_gateway_certificate_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3813,40 +2775,322 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      create_wireless_gateway_task_definition_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        optional("Update") => update_wireless_gateway_task_create(),
-        required("AutoCreateTasks") => boolean()
+      get_fuota_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Descriptor" => String.t() | atom(),
+        "FirmwareUpdateImage" => String.t() | atom(),
+        "FirmwareUpdateRole" => String.t() | atom(),
+        "FragmentIntervalMS" => integer(),
+        "FragmentSizeBytes" => integer(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_fuota_task_get_info(),
+        "Name" => String.t() | atom(),
+        "RedundancyPercent" => integer(),
+        "Status" => list(any())
       }
 
   """
-  @type create_wireless_gateway_task_definition_request() :: %{(String.t() | atom()) => any()}
+  @type get_fuota_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      application_config() :: %{
-        "DestinationName" => String.t() | atom(),
-        "FPort" => integer(),
-        "Type" => list(any())
+      summary_metric_configuration() :: %{
+        "Status" => list(any())
       }
 
   """
-  @type application_config() :: %{(String.t() | atom()) => any()}
+  @type summary_metric_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multicast_wireless_metadata() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_multicast_metadata()
+      reset_resource_log_level_request() :: %{
+        required("ResourceType") => String.t() | atom()
       }
 
   """
-  @type multicast_wireless_metadata() :: %{(String.t() | atom()) => any()}
+  @type reset_resource_log_level_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wcdma_local_id() :: %{
+        "Psc" => integer(),
+        "Uarfcndl" => integer()
+      }
+
+  """
+  @type wcdma_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      participating_gateways() :: %{
+        "DownlinkMode" => list(any()),
+        "GatewayList" => list(gateway_list_item()),
+        "TransmissionInterval" => integer()
+      }
+
+  """
+  @type participating_gateways() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fuota_task_event_log_option() :: %{
+        "Event" => list(any()),
+        "LogLevel" => list(any())
+      }
+
+  """
+  @type fuota_task_event_log_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metric_configuration_request() :: %{}
+
+  """
+  @type get_metric_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_resource_type_event_configuration() :: %{
+        "WirelessDeviceEventTopic" => list(any())
+      }
+
+  """
+  @type sidewalk_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_event_configuration_response() :: %{
+        "ConnectionStatus" => connection_status_event_configuration(),
+        "DeviceRegistrationState" => device_registration_state_event_configuration(),
+        "Join" => join_event_configuration(),
+        "MessageDeliveryStatus" => message_delivery_status_event_configuration(),
+        "Proximity" => proximity_event_configuration()
+      }
+
+  """
+  @type get_resource_event_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_fuota_task() :: %{
+        "RfRegion" => list(any())
+      }
+
+  """
+  @type lo_ra_w_a_n_fuota_task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_profile() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type device_profile() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_metric_configuration_response() :: %{}
+
+  """
+  @type update_metric_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_gateway_statistics() :: %{
+        "Arn" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LastUplinkReceivedAt" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_gateway(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type wireless_gateway_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_network_analyzer_configuration_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type create_network_analyzer_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_bulk_disassociate_wireless_device_from_multicast_group_response() :: %{}
+
+  """
+  @type start_bulk_disassociate_wireless_device_from_multicast_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_queued_messages_response() :: %{}
+
+  """
+  @type delete_queued_messages_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lte_obj() :: %{
+        "EutranCid" => integer(),
+        "LteLocalId" => lte_local_id(),
+        "LteNmr" => list(lte_nmr_obj()),
+        "LteTimingAdvance" => integer(),
+        "Mcc" => integer(),
+        "Mnc" => integer(),
+        "NrCapable" => boolean(),
+        "Rsrp" => integer(),
+        "Rsrq" => float(),
+        "Tac" => integer()
+      }
+
+  """
+  @type lte_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_destination_request() :: %{}
+
+  """
+  @type delete_destination_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_connection_status_resource_type_event_configuration() :: %{
+        "WirelessGatewayEventTopic" => list(any())
+      }
+
+  """
+  @type lo_ra_w_a_n_connection_status_resource_type_event_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_positioning() :: %{
+        "DestinationName" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_positioning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_update_wireless_device() :: %{
+        "Positioning" => sidewalk_positioning()
+      }
+
+  """
+  @type sidewalk_update_wireless_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multicast_group_session_request() :: %{}
+
+  """
+  @type get_multicast_group_session_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_position_request() :: %{
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type get_resource_position_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_create_device_profile() :: %{}
+
+  """
+  @type sidewalk_create_device_profile() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_position_configuration_response() :: %{
+        "Destination" => String.t() | atom(),
+        "Solvers" => position_solver_details()
+      }
+
+  """
+  @type get_position_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_aws_account_from_partner_account_response() :: %{}
+
+  """
+  @type disassociate_aws_account_from_partner_account_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_fuota_task_request() :: %{
+        optional("LoRaWAN") => lo_ra_w_a_n_start_fuota_task()
+      }
+
+  """
+  @type start_fuota_task_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3856,6 +3100,191 @@ defmodule AWS.IoTWireless do
 
   """
   @type delete_wireless_gateway_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_fuota_task_request() :: %{}
+
+  """
+  @type delete_fuota_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_wireless_device_import_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type start_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_fuota_task_response() :: %{}
+
+  """
+  @type delete_fuota_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_fuota_task_response() :: %{}
+
+  """
+  @type start_fuota_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_configuration_by_resource_types_response() :: %{}
+
+  """
+  @type update_event_configuration_by_resource_types_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_position_response() :: %{
+        "Accuracy" => accuracy(),
+        "Position" => list(float()),
+        "SolverProvider" => list(any()),
+        "SolverType" => list(any()),
+        "SolverVersion" => String.t() | atom(),
+        "Timestamp" => String.t() | atom()
+      }
+
+  """
+  @type get_position_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_gateway_event_log_option() :: %{
+        "Event" => list(any()),
+        "LogLevel" => list(any())
+      }
+
+  """
+  @type wireless_gateway_event_log_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_profile_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("LoRaWAN") => lo_ra_w_a_n_service_profile(),
+        optional("Name") => String.t() | atom(),
+        optional("Tags") => list(tag())
+      }
+
+  """
+  @type create_service_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_status_resource_type_event_configuration() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_connection_status_resource_type_event_configuration()
+      }
+
+  """
+  @type connection_status_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_gateway_version() :: %{
+        "Model" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "Station" => String.t() | atom()
+      }
+
+  """
+  @type lo_ra_w_a_n_gateway_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multicast_groups_response() :: %{
+        "MulticastGroupList" => list(multicast_group()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_multicast_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_partner_account_request() :: %{
+        required("PartnerType") => list(any()),
+        required("Sidewalk") => sidewalk_update_account()
+      }
+
+  """
+  @type update_partner_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multicast_groups_by_fuota_task_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_multicast_groups_by_fuota_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_service_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_service_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_task_response() :: %{
+        "Status" => list(any()),
+        "WirelessGatewayTaskDefinitionId" => String.t() | atom()
+      }
+
+  """
+  @type create_wireless_gateway_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3876,22 +3305,67 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      get_wireless_device_response() :: %{
+      get_destination_response() :: %{
         "Arn" => String.t() | atom(),
         "Description" => String.t() | atom(),
-        "DestinationName" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_device(),
+        "Expression" => String.t() | atom(),
+        "ExpressionType" => list(any()),
         "Name" => String.t() | atom(),
-        "Positioning" => list(any()),
-        "Sidewalk" => sidewalk_device(),
-        "ThingArn" => String.t() | atom(),
-        "ThingName" => String.t() | atom(),
-        "Type" => list(any())
+        "RoleArn" => String.t() | atom()
       }
 
   """
-  @type get_wireless_device_response() :: %{(String.t() | atom()) => any()}
+  @type get_destination_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_create_wireless_device() :: %{
+        "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
+        "SidewalkManufacturingSn" => String.t() | atom()
+      }
+
+  """
+  @type sidewalk_create_wireless_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_list_item() :: %{
+        "DownlinkFrequency" => integer(),
+        "GatewayId" => String.t() | atom()
+      }
+
+  """
+  @type gateway_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_registration_state_resource_type_event_configuration() :: %{
+        "Sidewalk" => sidewalk_resource_type_event_configuration()
+      }
+
+  """
+  @type device_registration_state_resource_type_event_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3905,6 +3379,400 @@ defmodule AWS.IoTWireless do
 
   """
   @type wireless_device_log_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dimension() :: %{
+        "name" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_device_with_thing_response() :: %{}
+
+  """
+  @type associate_wireless_device_with_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_log_levels_by_resource_types_response() :: %{
+        "DefaultLogLevel" => list(any()),
+        "FuotaTaskLogOptions" => list(fuota_task_log_option()),
+        "WirelessDeviceLogOptions" => list(wireless_device_log_option()),
+        "WirelessGatewayLogOptions" => list(wireless_gateway_log_option())
+      }
+
+  """
+  @type get_log_levels_by_resource_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_gateway_request() :: %{}
+
+  """
+  @type delete_wireless_gateway_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("ResourceType") => list(any())
+      }
+
+  """
+  @type list_event_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      test_wireless_device_response() :: %{
+        "Result" => String.t() | atom()
+      }
+
+  """
+  @type test_wireless_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_profiles_request() :: %{
+        optional("DeviceProfileType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_device_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_multicast_group_session_response() :: %{}
+
+  """
+  @type cancel_multicast_group_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_certificate_request() :: %{}
+
+  """
+  @type get_wireless_gateway_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_multicast_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_multicast_get(),
+        "Name" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type get_multicast_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_multicast_group_session_response() :: %{}
+
+  """
+  @type start_multicast_group_session_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_wireless_devices_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WirelessDeviceList" => list(wireless_device_statistics())
+      }
+
+  """
+  @type list_wireless_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_queued_messages_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("WirelessDeviceType") => list(any())
+      }
+
+  """
+  @type list_queued_messages_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_fuota_task_get_info() :: %{
+        "RfRegion" => String.t() | atom(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type lo_ra_w_a_n_fuota_task_get_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_aws_account_with_partner_account_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Sidewalk") => sidewalk_account_info()
+      }
+
+  """
+  @type associate_aws_account_with_partner_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_fuota_task_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Descriptor") => String.t() | atom(),
+        optional("FragmentIntervalMS") => integer(),
+        optional("FragmentSizeBytes") => integer(),
+        optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
+        optional("Name") => String.t() | atom(),
+        optional("RedundancyPercent") => integer(),
+        optional("Tags") => list(tag()),
+        required("FirmwareUpdateImage") => String.t() | atom(),
+        required("FirmwareUpdateRole") => String.t() | atom()
+      }
+
+  """
+  @type create_fuota_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_registration_state_event_configuration() :: %{
+        "Sidewalk" => sidewalk_event_notification_configurations(),
+        "WirelessDeviceIdEventTopic" => list(any())
+      }
+
+  """
+  @type device_registration_state_event_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_device_profiles_response() :: %{
+        "DeviceProfileList" => list(device_profile()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_device_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_statistics_request() :: %{}
+
+  """
+  @type get_wireless_gateway_statistics_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_single_wireless_device_import_task_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type start_single_wireless_device_import_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_device_from_fuota_task_response() :: %{}
+
+  """
+  @type disassociate_wireless_device_from_fuota_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_wireless_device_response() :: %{}
+
+  """
+  @type deregister_wireless_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_group() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type multicast_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_gateway_from_certificate_request() :: %{}
+
+  """
+  @type disassociate_wireless_gateway_from_certificate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_resource_log_level_response() :: %{}
+
+  """
+  @type reset_resource_log_level_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
+        "GatewayEuiEventTopic" => list(any())
+      }
+
+  """
+  @type lo_ra_w_a_n_connection_status_event_notification_configurations() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_wireless_device_import_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_wireless_device_import_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_log_level_request() :: %{
+        required("LogLevel") => list(any()),
+        required("ResourceType") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_log_level_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_multicast_group_with_fuota_task_response() :: %{}
+
+  """
+  @type associate_multicast_group_with_fuota_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      position_solver_details() :: %{
+        "SemtechGnss" => semtech_gnss_detail()
+      }
+
+  """
+  @type position_solver_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multicast_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_multicast_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_partner_account_request() :: %{
+        required("PartnerType") => list(any())
+      }
+
+  """
+  @type get_partner_account_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      wireless_metadata() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_send_data_to_device(),
+        "Sidewalk" => sidewalk_send_data_to_device()
+      }
+
+  """
+  @type wireless_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_partner_account_response() :: %{
+        "AccountLinked" => boolean(),
+        "Sidewalk" => sidewalk_account_info_with_fingerprint()
+      }
+
+  """
+  @type get_partner_account_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3931,16 +3799,245 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      start_wireless_device_import_task_request() :: %{
-        optional("ClientRequestToken") => String.t() | atom(),
-        optional("Positioning") => list(any()),
-        optional("Tags") => list(tag()),
-        required("DestinationName") => String.t() | atom(),
-        required("Sidewalk") => sidewalk_start_import_info()
+      wcdma_nmr_obj() :: %{
+        "PathLoss" => integer(),
+        "Psc" => integer(),
+        "Rscp" => integer(),
+        "Uarfcndl" => integer(),
+        "UtranCid" => integer()
       }
 
   """
-  @type start_wireless_device_import_task_request() :: %{(String.t() | atom()) => any()}
+  @type wcdma_nmr_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_multicast_session() :: %{
+        "DlDr" => integer(),
+        "DlFreq" => integer(),
+        "PingSlotPeriod" => integer(),
+        "SessionStartTime" => non_neg_integer(),
+        "SessionTimeout" => integer()
+      }
+
+  """
+  @type lo_ra_w_a_n_multicast_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_configuration_by_resource_types_response() :: %{
+        "ConnectionStatus" => connection_status_resource_type_event_configuration(),
+        "DeviceRegistrationState" => device_registration_state_resource_type_event_configuration(),
+        "Join" => join_resource_type_event_configuration(),
+        "MessageDeliveryStatus" => message_delivery_status_resource_type_event_configuration(),
+        "Proximity" => proximity_resource_type_event_configuration()
+      }
+
+  """
+  @type get_event_configuration_by_resource_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_device_with_multicast_group_request() :: %{
+        required("WirelessDeviceId") => String.t() | atom()
+      }
+
+  """
+  @type associate_wireless_device_with_multicast_group_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_multicast_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_multicast_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_wireless_gateway_from_thing_response() :: %{}
+
+  """
+  @type disassociate_wireless_gateway_from_thing_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      gsm_local_id() :: %{
+        "Bcch" => integer(),
+        "Bsic" => integer()
+      }
+
+  """
+  @type gsm_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_gateway_task_response() :: %{}
+
+  """
+  @type delete_wireless_gateway_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_position_configuration_response() :: %{}
+
+  """
+  @type put_position_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      certificate_list() :: %{
+        "SigningAlg" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type certificate_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_task_response() :: %{
+        "LastUplinkReceivedAt" => String.t() | atom(),
+        "Status" => list(any()),
+        "TaskCreatedAt" => String.t() | atom(),
+        "WirelessGatewayId" => String.t() | atom(),
+        "WirelessGatewayTaskDefinitionId" => String.t() | atom()
+      }
+
+  """
+  @type get_wireless_gateway_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_configuration() :: %{
+        "WiFiCellular" => wi_fi_cellular()
+      }
+
+  """
+  @type advanced_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_destination_request() :: %{
+        optional("ClientRequestToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Expression") => String.t() | atom(),
+        required("ExpressionType") => list(any()),
+        required("Name") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_device_profile_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LoRaWAN" => lo_ra_w_a_n_device_profile(),
+        "Name" => String.t() | atom(),
+        "Sidewalk" => sidewalk_get_device_profile()
+      }
+
+  """
+  @type get_device_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_configuration_by_resource_types_request() :: %{
+        optional("ConnectionStatus") => connection_status_resource_type_event_configuration(),
+        optional("DeviceRegistrationState") => device_registration_state_resource_type_event_configuration(),
+        optional("Join") => join_resource_type_event_configuration(),
+        optional("MessageDeliveryStatus") => message_delivery_status_resource_type_event_configuration(),
+        optional("Proximity") => proximity_resource_type_event_configuration()
+      }
+
+  """
+  @type update_event_configuration_by_resource_types_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_multicast_group_request() :: %{}
+
+  """
+  @type get_multicast_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_all_resource_log_levels_request() :: %{}
+
+  """
+  @type reset_all_resource_log_levels_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_log_levels_by_resource_types_request() :: %{}
+
+  """
+  @type get_log_levels_by_resource_types_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tdscdma_local_id() :: %{
+        "CellParams" => integer(),
+        "Uarfcn" => integer()
+      }
+
+  """
+  @type tdscdma_local_id() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_destination_request() :: %{}
+
+  """
+  @type get_destination_request() :: %{}
 
   @typedoc """
 
@@ -3958,182 +4055,120 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      delete_wireless_device_import_task_response() :: %{}
+      associate_wireless_gateway_with_thing_response() :: %{}
 
   """
-  @type delete_wireless_device_import_task_response() :: %{}
+  @type associate_wireless_gateway_with_thing_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_fuota_tasks_response() :: %{
-        "FuotaTaskList" => list(fuota_task()),
+      gsm_obj() :: %{
+        "GeranCid" => integer(),
+        "GsmLocalId" => gsm_local_id(),
+        "GsmNmr" => list(gsm_nmr_obj()),
+        "GsmTimingAdvance" => integer(),
+        "Lac" => integer(),
+        "Mcc" => integer(),
+        "Mnc" => integer(),
+        "RxLevel" => integer()
+      }
+
+  """
+  @type gsm_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_network_analyzer_configurations_response() :: %{
+        "NetworkAnalyzerConfigurationList" => list(network_analyzer_configurations()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_fuota_tasks_response() :: %{(String.t() | atom()) => any()}
+  @type list_network_analyzer_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_multicast_group_request() :: %{}
-
-  """
-  @type delete_multicast_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_group() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type multicast_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_devices_request() :: %{
-        optional("DestinationName") => String.t() | atom(),
-        optional("DeviceProfileId") => String.t() | atom(),
-        optional("FuotaTaskId") => String.t() | atom(),
+      list_devices_for_wireless_device_import_task_request() :: %{
         optional("MaxResults") => integer(),
-        optional("MulticastGroupId") => String.t() | atom(),
         optional("NextToken") => String.t() | atom(),
-        optional("ServiceProfileId") => String.t() | atom(),
-        optional("WirelessDeviceType") => list(any())
+        optional("Status") => list(any()),
+        required("Id") => String.t() | atom()
       }
 
   """
-  @type list_wireless_devices_request() :: %{(String.t() | atom()) => any()}
+  @type list_devices_for_wireless_device_import_task_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      lo_ra_w_a_n_gateway_version() :: %{
-        "Model" => String.t() | atom(),
-        "PackageVersion" => String.t() | atom(),
-        "Station" => String.t() | atom()
-      }
-
-  """
-  @type lo_ra_w_a_n_gateway_version() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_wireless_gateway_task_create() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_update_gateway_task_create(),
-        "UpdateDataRole" => String.t() | atom(),
-        "UpdateDataSource" => String.t() | atom()
-      }
-
-  """
-  @type update_wireless_gateway_task_create() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_multicast_group_with_fuota_task_request() :: %{
-        required("MulticastGroupId") => String.t() | atom()
-      }
-
-  """
-  @type associate_multicast_group_with_fuota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metric_query_value() :: %{
-        "Avg" => float(),
-        "Max" => float(),
-        "Min" => float(),
-        "P90" => float(),
-        "Std" => float(),
-        "Sum" => float()
-      }
-
-  """
-  @type metric_query_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_update_wireless_device() :: %{
-        "Positioning" => sidewalk_positioning()
-      }
-
-  """
-  @type sidewalk_update_wireless_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_analyzer_configuration_request() :: %{}
-
-  """
-  @type delete_network_analyzer_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_join_resource_type_event_configuration() :: %{
-        "WirelessDeviceEventTopic" => list(any())
-      }
-
-  """
-  @type lo_ra_w_a_n_join_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_wireless_device_request() :: %{
-        optional("WirelessDeviceType") => list(any())
-      }
-
-  """
-  @type deregister_wireless_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_profiles_request() :: %{
-        optional("DeviceProfileType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_device_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_device_profiles_response() :: %{
-        "DeviceProfileList" => list(device_profile()),
+      list_queued_messages_response() :: %{
+        "DownlinkQueueMessagesList" => list(downlink_queue_message()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_device_profiles_response() :: %{(String.t() | atom()) => any()}
+  @type list_queued_messages_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_destination_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Expression") => String.t() | atom(),
+        optional("ExpressionType") => list(any()),
+        optional("RoleArn") => String.t() | atom()
+      }
+
+  """
+  @type update_destination_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_task_definition_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_wireless_gateway_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lte_nmr_obj() :: %{
+        "Earfcn" => integer(),
+        "EutranCid" => integer(),
+        "Pci" => integer(),
+        "Rsrp" => integer(),
+        "Rsrq" => float()
+      }
+
+  """
+  @type lte_nmr_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_gateway_firmware_information_response() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_gateway_current_version()
+      }
+
+  """
+  @type get_wireless_gateway_firmware_information_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4151,97 +4186,13 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      delete_wireless_device_response() :: %{}
-
-  """
-  @type delete_wireless_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_wireless_device_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom()
+      list_partner_accounts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type create_wireless_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      position_solver_details() :: %{
-        "SemtechGnss" => semtech_gnss_detail()
-      }
-
-  """
-  @type position_solver_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_wireless_device_with_thing_response() :: %{}
-
-  """
-  @type associate_wireless_device_with_thing_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_get_device_profile() :: %{
-        "ApplicationServerPublicKey" => String.t() | atom(),
-        "DakCertificateMetadata" => list(dak_certificate_metadata()),
-        "QualificationStatus" => boolean()
-      }
-
-  """
-  @type sidewalk_get_device_profile() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_resource_event_configuration_response() :: %{}
-
-  """
-  @type update_resource_event_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_send_data_to_device() :: %{
-        "AckModeRetryDurationSecs" => integer(),
-        "MessageType" => list(any()),
-        "Seq" => integer()
-      }
-
-  """
-  @type sidewalk_send_data_to_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_resource_log_level_response() :: %{}
-
-  """
-  @type reset_resource_log_level_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lo_ra_w_a_n_list_device() :: %{
-        "DevEui" => String.t() | atom()
-      }
-
-  """
-  @type lo_ra_w_a_n_list_device() :: %{(String.t() | atom()) => any()}
+  @type list_partner_accounts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4259,15 +4210,252 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      get_wireless_device_statistics_response() :: %{
-        "LastUplinkReceivedAt" => String.t() | atom(),
-        "LoRaWAN" => lo_ra_w_a_n_device_metadata(),
-        "Sidewalk" => sidewalk_device_metadata(),
-        "WirelessDeviceId" => String.t() | atom()
+      list_wireless_gateways_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "WirelessGatewayList" => list(wireless_gateway_statistics())
       }
 
   """
-  @type get_wireless_device_statistics_response() :: %{(String.t() | atom()) => any()}
+  @type list_wireless_gateways_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_wireless_device_import_task_request() :: %{}
+
+  """
+  @type get_wireless_device_import_task_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      trace_content() :: %{
+        "LogLevel" => list(any()),
+        "MulticastFrameInfo" => list(any()),
+        "WirelessDeviceFrameInfo" => list(any())
+      }
+
+  """
+  @type trace_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fuota_tasks_response() :: %{
+        "FuotaTaskList" => list(fuota_task()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_fuota_tasks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_service_profile_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type create_service_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_wireless_gateway_task_request() :: %{
+        required("WirelessGatewayTaskDefinitionId") => String.t() | atom()
+      }
+
+  """
+  @type create_wireless_gateway_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multicast_group_response() :: %{}
+
+  """
+  @type update_multicast_group_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_log_level_response() :: %{
+        "LogLevel" => list(any())
+      }
+
+  """
+  @type get_resource_log_level_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_fuota_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_fuota_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_wireless_device_import_task_response() :: %{}
+
+  """
+  @type delete_wireless_device_import_task_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wcdma_obj() :: %{
+        "Lac" => integer(),
+        "Mcc" => integer(),
+        "Mnc" => integer(),
+        "PathLoss" => integer(),
+        "Rscp" => integer(),
+        "UtranCid" => integer(),
+        "WcdmaLocalId" => wcdma_local_id(),
+        "WcdmaNmr" => list(wcdma_nmr_obj())
+      }
+
+  """
+  @type wcdma_obj() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("ResourceArn") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lo_ra_w_a_n_multicast_get() :: %{
+        "DlClass" => list(any()),
+        "NumberOfDevicesInGroup" => integer(),
+        "NumberOfDevicesRequested" => integer(),
+        "ParticipatingGateways" => participating_gateways_multicast(),
+        "RfRegion" => list(any())
+      }
+
+  """
+  @type lo_ra_w_a_n_multicast_get() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_analyzer_configurations() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type network_analyzer_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_analyzer_configuration_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("MulticastGroupsToAdd") => list(String.t() | atom()),
+        optional("MulticastGroupsToRemove") => list(String.t() | atom()),
+        optional("TraceContent") => trace_content(),
+        optional("WirelessDevicesToAdd") => list(String.t() | atom()),
+        optional("WirelessDevicesToRemove") => list(String.t() | atom()),
+        optional("WirelessGatewaysToAdd") => list(String.t() | atom()),
+        optional("WirelessGatewaysToRemove") => list(String.t() | atom())
+      }
+
+  """
+  @type update_network_analyzer_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_position_configurations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ResourceType") => list(any())
+      }
+
+  """
+  @type list_position_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      semtech_gnss_configuration() :: %{
+        "Fec" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type semtech_gnss_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sidewalk_device() :: %{
+        "AmazonId" => String.t() | atom(),
+        "CertificateId" => String.t() | atom(),
+        "DeviceCertificates" => list(certificate_list()),
+        "DeviceProfileId" => String.t() | atom(),
+        "Positioning" => sidewalk_positioning(),
+        "PrivateKeys" => list(certificate_list()),
+        "SidewalkId" => String.t() | atom(),
+        "SidewalkManufacturingSn" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type sidewalk_device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_wireless_gateway_with_certificate_request() :: %{
+        required("IotCertificateId") => String.t() | atom()
+      }
+
+  """
+  @type associate_wireless_gateway_with_certificate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_status_event_configuration() :: %{
+        "LoRaWAN" => lo_ra_w_a_n_connection_status_event_notification_configurations(),
+        "WirelessGatewayIdEventTopic" => list(any())
+      }
+
+  """
+  @type connection_status_event_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4292,58 +4480,26 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      sidewalk_resource_type_event_configuration() :: %{
-        "WirelessDeviceEventTopic" => list(any())
+      sidewalk_get_device_profile() :: %{
+        "ApplicationServerPublicKey" => String.t() | atom(),
+        "DakCertificateMetadata" => list(dak_certificate_metadata()),
+        "QualificationStatus" => boolean()
       }
 
   """
-  @type sidewalk_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
+  @type sidewalk_get_device_profile() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_wireless_gateway_task_response() :: %{}
-
-  """
-  @type delete_wireless_gateway_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_list_device() :: %{
-        "AmazonId" => String.t() | atom(),
-        "DeviceCertificates" => list(certificate_list()),
-        "DeviceProfileId" => String.t() | atom(),
-        "Positioning" => sidewalk_positioning(),
-        "SidewalkId" => String.t() | atom(),
-        "SidewalkManufacturingSn" => String.t() | atom(),
-        "Status" => list(any())
+      start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
+        optional("QueryString") => String.t() | atom(),
+        optional("Tags") => list(tag())
       }
 
   """
-  @type sidewalk_list_device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reset_all_resource_log_levels_response() :: %{}
-
-  """
-  @type reset_all_resource_log_levels_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      device_registration_state_resource_type_event_configuration() :: %{
-        "Sidewalk" => sidewalk_resource_type_event_configuration()
-      }
-
-  """
-  @type device_registration_state_resource_type_event_configuration() :: %{
+  @type start_bulk_disassociate_wireless_device_from_multicast_group_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4351,973 +4507,817 @@ defmodule AWS.IoTWireless do
 
   ## Example:
 
-      update_fuota_task_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Descriptor") => String.t() | atom(),
-        optional("FirmwareUpdateImage") => String.t() | atom(),
-        optional("FirmwareUpdateRole") => String.t() | atom(),
-        optional("FragmentIntervalMS") => integer(),
-        optional("FragmentSizeBytes") => integer(),
-        optional("LoRaWAN") => lo_ra_w_a_n_fuota_task(),
-        optional("Name") => String.t() | atom(),
-        optional("RedundancyPercent") => integer()
+      lo_ra_w_a_n_update_device() :: %{
+        "AbpV1_0_x" => update_abp_v1_0_x(),
+        "AbpV1_1" => update_abp_v1_1(),
+        "DeviceProfileId" => String.t() | atom(),
+        "FPorts" => update_f_ports(),
+        "ServiceProfileId" => String.t() | atom()
       }
 
   """
-  @type update_fuota_task_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_profile_request() :: %{}
-
-  """
-  @type delete_device_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lte_obj() :: %{
-        "EutranCid" => integer(),
-        "LteLocalId" => lte_local_id(),
-        "LteNmr" => list(lte_nmr_obj()),
-        "LteTimingAdvance" => integer(),
-        "Mcc" => integer(),
-        "Mnc" => integer(),
-        "NrCapable" => boolean(),
-        "Rsrp" => integer(),
-        "Rsrq" => float(),
-        "Tac" => integer()
-      }
-
-  """
-  @type lte_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_configuration_by_resource_types_response() :: %{}
-
-  """
-  @type update_event_configuration_by_resource_types_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_wireless_gateways_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_wireless_gateways_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_fuota_task_response() :: %{}
-
-  """
-  @type start_fuota_task_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_multicast_group_session_response() :: %{}
-
-  """
-  @type start_multicast_group_session_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      join_resource_type_event_configuration() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_join_resource_type_event_configuration()
-      }
-
-  """
-  @type join_resource_type_event_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_device_import_task_request() :: %{}
-
-  """
-  @type get_wireless_device_import_task_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_multicast_group_session_response() :: %{
-        "LoRaWAN" => lo_ra_w_a_n_multicast_session()
-      }
-
-  """
-  @type get_multicast_group_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sidewalk_get_start_import_info() :: %{
-        "DeviceCreationFileList" => list(String.t() | atom()),
-        "Positioning" => sidewalk_positioning(),
-        "Role" => String.t() | atom()
-      }
-
-  """
-  @type sidewalk_get_start_import_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cdma_obj() :: %{
-        "BaseLat" => float(),
-        "BaseLng" => float(),
-        "BaseStationId" => integer(),
-        "CdmaLocalId" => cdma_local_id(),
-        "CdmaNmr" => list(cdma_nmr_obj()),
-        "NetworkId" => integer(),
-        "PilotPower" => integer(),
-        "RegistrationZone" => integer(),
-        "SystemId" => integer()
-      }
-
-  """
-  @type cdma_obj() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_wireless_gateway_certificate_request() :: %{}
-
-  """
-  @type get_wireless_gateway_certificate_request() :: %{}
+  @type lo_ra_w_a_n_update_device() :: %{(String.t() | atom()) => any()}
 
   @type associate_aws_account_with_partner_account_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_multicast_group_with_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_wireless_device_with_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_wireless_device_with_multicast_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_wireless_device_with_thing_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_wireless_gateway_with_certificate_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_wireless_gateway_with_thing_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_multicast_group_session_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_destination_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_device_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_multicast_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_network_analyzer_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_service_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_wireless_device_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_wireless_gateway_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_wireless_gateway_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_wireless_gateway_task_definition_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_destination_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_device_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_fuota_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_multicast_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_network_analyzer_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_queued_messages_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_service_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_wireless_device_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_wireless_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_wireless_gateway_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_wireless_gateway_task_definition_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type deregister_wireless_device_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type disassociate_aws_account_from_partner_account_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type disassociate_multicast_group_from_fuota_task_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type disassociate_wireless_device_from_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_wireless_device_from_multicast_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_wireless_device_from_thing_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_wireless_gateway_from_certificate_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_wireless_gateway_from_thing_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_destination_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_device_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_event_configuration_by_resource_types_errors() ::
-          throttling_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception() | throttling_exception()
 
   @type get_fuota_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_log_levels_by_resource_types_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_metric_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_metrics_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_multicast_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_multicast_group_session_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_network_analyzer_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_partner_account_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_position_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_position_estimate_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_event_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_log_level_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_service_endpoint_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_service_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_device_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_wireless_device_statistics_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_certificate_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_firmware_information_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_statistics_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_wireless_gateway_task_definition_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_destinations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_device_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_devices_for_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_event_configurations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_fuota_tasks_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_multicast_groups_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_multicast_groups_by_fuota_task_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_network_analyzer_configurations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_partner_accounts_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_position_configurations_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_queued_messages_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_service_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_wireless_device_import_tasks_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_wireless_devices_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_wireless_gateway_task_definitions_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_wireless_gateways_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type put_position_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_resource_log_level_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type reset_all_resource_log_levels_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type reset_resource_log_level_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type send_data_to_multicast_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type send_data_to_wireless_device_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type start_bulk_associate_wireless_device_with_multicast_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_bulk_disassociate_wireless_device_from_multicast_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type start_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_multicast_group_session_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_single_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
-          | throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type test_wireless_device_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_destination_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_event_configuration_by_resource_types_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_fuota_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_log_levels_by_resource_types_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_metric_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_multicast_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_network_analyzer_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_partner_account_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type update_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_resource_event_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_resource_position_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_wireless_device_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_wireless_device_import_task_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_wireless_gateway_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

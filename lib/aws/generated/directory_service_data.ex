@@ -86,249 +86,14 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      list_groups_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "Groups" => list(group_summary()),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom()
-      }
-
-  """
-  @type list_groups_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_summary() :: %{
-        "Enabled" => [boolean()],
-        "GivenName" => String.t() | atom(),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom(),
-        "Surname" => String.t() | atom()
-      }
-
-  """
-  @type user_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_users_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom(),
-        "Users" => list(user())
-      }
-
-  """
-  @type search_users_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_user_result() :: %{}
-
-  """
-  @type disable_user_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_result() :: %{
-        "DirectoryId" => String.t() | atom(),
+      member() :: %{
+        "MemberType" => list(any()),
         "SAMAccountName" => String.t() | atom(),
         "SID" => String.t() | atom()
       }
 
   """
-  @type create_group_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_members_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MemberRealm") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SAMAccountName") => String.t() | atom()
-      }
-
-  """
-  @type list_group_members_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_group_member_result() :: %{}
-
-  """
-  @type add_group_member_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom()
-      }
-
-  """
-  @type create_user_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("GroupScope") => list(any()),
-        optional("GroupType") => list(any()),
-        optional("OtherAttributes") => map(),
-        optional("UpdateType") => list(any()),
-        required("DirectoryId") => String.t() | atom(),
-        required("SAMAccountName") => String.t() | atom()
-      }
-
-  """
-  @type update_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_user_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "DistinguishedName" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "Enabled" => [boolean()],
-        "GivenName" => String.t() | atom(),
-        "OtherAttributes" => map(),
-        "Realm" => String.t() | atom(),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom(),
-        "Surname" => String.t() | atom(),
-        "UserPrincipalName" => String.t() | atom()
-      }
-
-  """
-  @type describe_user_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_groups_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "Groups" => list(group()),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom()
-      }
-
-  """
-  @type search_groups_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_result() :: %{}
-
-  """
-  @type delete_group_result() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SearchAttributes") => list(String.t() | atom()),
-        required("SearchString") => String.t() | atom()
-      }
-
-  """
-  @type search_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_group_member_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("MemberRealm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("GroupName") => String.t() | atom(),
-        required("MemberName") => String.t() | atom()
-      }
-
-  """
-  @type remove_group_member_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_group_members_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "MemberRealm" => String.t() | atom(),
-        "Members" => list(member()),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom()
-      }
-
-  """
-  @type list_group_members_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_users_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SearchAttributes") => list(String.t() | atom()),
-        required("SearchString") => String.t() | atom()
-      }
-
-  """
-  @type search_users_request() :: %{(String.t() | atom()) => any()}
+  @type member() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -350,39 +115,44 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      list_users_result() :: %{
+      delete_group_result() :: %{}
+
+  """
+  @type delete_group_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_user_result() :: %{}
+
+  """
+  @type delete_user_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_result() :: %{
         "DirectoryId" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom(),
-        "Users" => list(user_summary())
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom()
       }
 
   """
-  @type list_users_result() :: %{(String.t() | atom()) => any()}
+  @type create_group_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_user_request() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SAMAccountName") => String.t() | atom()
+      throttling_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => [integer()]
       }
 
   """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -400,24 +170,16 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      describe_user_request() :: %{
-        optional("OtherAttributes") => list(String.t() | atom()),
-        optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SAMAccountName") => String.t() | atom()
+      list_groups_for_member_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "Groups" => list(group_summary()),
+        "MemberRealm" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom()
       }
 
   """
-  @type describe_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_result() :: %{}
-
-  """
-  @type update_user_result() :: %{}
+  @type list_groups_for_member_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -441,10 +203,32 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      delete_user_result() :: %{}
+      group() :: %{
+        "DistinguishedName" => String.t() | atom(),
+        "GroupScope" => list(any()),
+        "GroupType" => list(any()),
+        "OtherAttributes" => map(),
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom()
+      }
 
   """
-  @type delete_user_result() :: %{}
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_group_members_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "MemberRealm" => String.t() | atom(),
+        "Members" => list(member()),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom()
+      }
+
+  """
+  @type list_group_members_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -474,6 +258,79 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
+      list_groups_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "Groups" => list(group_summary()),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom()
+      }
+
+  """
+  @type list_groups_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_groups_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "Groups" => list(group()),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom()
+      }
+
+  """
+  @type search_groups_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_group_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "DistinguishedName" => String.t() | atom(),
+        "GroupScope" => list(any()),
+        "GroupType" => list(any()),
+        "OtherAttributes" => map(),
+        "Realm" => String.t() | atom(),
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom()
+      }
+
+  """
+  @type describe_group_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom()
+      }
+
+  """
+  @type create_user_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_summary() :: %{
+        "GroupScope" => list(any()),
+        "GroupType" => list(any()),
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom()
+      }
+
+  """
+  @type group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_group_result() :: %{}
 
   """
@@ -483,35 +340,7 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      throttling_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => [integer()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group() :: %{
-        "DistinguishedName" => String.t() | atom(),
-        "GroupScope" => list(any()),
-        "GroupType" => list(any()),
-        "OtherAttributes" => map(),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom()
-      }
-
-  """
-  @type group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_group_member_request() :: %{
+      remove_group_member_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         optional("MemberRealm") => String.t() | atom(),
         required("DirectoryId") => String.t() | atom(),
@@ -520,7 +349,44 @@ defmodule AWS.DirectoryServiceData do
       }
 
   """
-  @type add_group_member_request() :: %{(String.t() | atom()) => any()}
+  @type remove_group_member_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_summary() :: %{
+        "Enabled" => [boolean()],
+        "GivenName" => String.t() | atom(),
+        "SAMAccountName" => String.t() | atom(),
+        "SID" => String.t() | atom(),
+        "Surname" => String.t() | atom()
+      }
+
+  """
+  @type user_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -559,43 +425,48 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      list_groups_for_member_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("MemberRealm") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom(),
-        required("SAMAccountName") => String.t() | atom()
-      }
-
-  """
-  @type list_groups_for_member_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_group_request() :: %{
+      disable_user_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("DirectoryId") => String.t() | atom(),
         required("SAMAccountName") => String.t() | atom()
       }
 
   """
-  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+  @type disable_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      member() :: %{
-        "MemberType" => list(any()),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom()
+      list_users_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom(),
+        "Users" => list(user_summary())
       }
 
   """
-  @type member() :: %{(String.t() | atom()) => any()}
+  @type list_users_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_result() :: %{}
+
+  """
+  @type update_user_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -615,6 +486,19 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
+      delete_user_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("SAMAccountName") => String.t() | atom()
+      }
+
+  """
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remove_group_member_result() :: %{}
 
   """
@@ -624,75 +508,160 @@ defmodule AWS.DirectoryServiceData do
 
   ## Example:
 
-      list_groups_for_member_result() :: %{
-        "DirectoryId" => String.t() | atom(),
-        "Groups" => list(group_summary()),
-        "MemberRealm" => String.t() | atom(),
-        "NextToken" => String.t() | atom(),
-        "Realm" => String.t() | atom()
-      }
-
-  """
-  @type list_groups_for_member_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_group_result() :: %{
+      describe_user_result() :: %{
         "DirectoryId" => String.t() | atom(),
         "DistinguishedName" => String.t() | atom(),
-        "GroupScope" => list(any()),
-        "GroupType" => list(any()),
+        "EmailAddress" => String.t() | atom(),
+        "Enabled" => [boolean()],
+        "GivenName" => String.t() | atom(),
         "OtherAttributes" => map(),
         "Realm" => String.t() | atom(),
         "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom()
+        "SID" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "UserPrincipalName" => String.t() | atom()
       }
 
   """
-  @type describe_group_result() :: %{(String.t() | atom()) => any()}
+  @type describe_user_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_summary() :: %{
-        "GroupScope" => list(any()),
-        "GroupType" => list(any()),
-        "SAMAccountName" => String.t() | atom(),
-        "SID" => String.t() | atom()
+      list_groups_for_member_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MemberRealm") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Realm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("SAMAccountName") => String.t() | atom()
       }
 
   """
-  @type group_summary() :: %{(String.t() | atom()) => any()}
+  @type list_groups_for_member_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_groups_request() :: %{
+      list_group_members_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("MemberRealm") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Realm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("SAMAccountName") => String.t() | atom()
+      }
+
+  """
+  @type list_group_members_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_user_request() :: %{
+        optional("OtherAttributes") => list(String.t() | atom()),
+        optional("Realm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("SAMAccountName") => String.t() | atom()
+      }
+
+  """
+  @type describe_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_group_member_result() :: %{}
+
+  """
+  @type add_group_member_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      add_group_member_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("MemberRealm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("GroupName") => String.t() | atom(),
+        required("MemberName") => String.t() | atom()
+      }
+
+  """
+  @type add_group_member_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disable_user_result() :: %{}
+
+  """
+  @type disable_user_result() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_users_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("Realm") => String.t() | atom(),
-        required("DirectoryId") => String.t() | atom()
+        required("DirectoryId") => String.t() | atom(),
+        required("SearchAttributes") => list(String.t() | atom()),
+        required("SearchString") => String.t() | atom()
       }
 
   """
-  @type list_groups_request() :: %{(String.t() | atom()) => any()}
+  @type search_users_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disable_user_request() :: %{
+      delete_group_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("DirectoryId") => String.t() | atom(),
         required("SAMAccountName") => String.t() | atom()
       }
 
   """
-  @type disable_user_request() :: %{(String.t() | atom()) => any()}
+  @type delete_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_users_result() :: %{
+        "DirectoryId" => String.t() | atom(),
+        "NextToken" => String.t() | atom(),
+        "Realm" => String.t() | atom(),
+        "Users" => list(user())
+      }
+
+  """
+  @type search_users_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Realm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom(),
+        required("SearchAttributes") => list(String.t() | atom()),
+        required("SearchString") => String.t() | atom()
+      }
+
+  """
+  @type search_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -711,144 +680,175 @@ defmodule AWS.DirectoryServiceData do
   """
   @type create_user_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      update_group_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("GroupScope") => list(any()),
+        optional("GroupType") => list(any()),
+        optional("OtherAttributes") => map(),
+        optional("UpdateType") => list(any()),
+        required("DirectoryId") => String.t() | atom(),
+        required("SAMAccountName") => String.t() | atom()
+      }
+
+  """
+  @type update_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Realm") => String.t() | atom(),
+        required("DirectoryId") => String.t() | atom()
+      }
+
+  """
+  @type list_groups_request() :: %{(String.t() | atom()) => any()}
+
   @type add_group_member_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type describe_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type describe_user_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disable_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_group_members_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_groups_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_groups_for_member_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_users_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type remove_group_member_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_groups_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type search_users_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type update_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | directory_unavailable_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

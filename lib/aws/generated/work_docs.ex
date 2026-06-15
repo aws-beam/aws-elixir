@@ -73,23 +73,28 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      get_document_path_response() :: %{
-        "Path" => resource_path()
+      get_folder_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("IncludeCustomMetadata") => boolean()
       }
 
   """
-  @type get_document_path_response() :: %{(String.t() | atom()) => any()}
+  @type get_folder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      entity_already_exists_exception() :: %{
-        "Message" => String.t() | atom()
+      user_metadata() :: %{
+        "EmailAddress" => String.t() | atom(),
+        "GivenName" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Surname" => String.t() | atom(),
+        "Username" => String.t() | atom()
       }
 
   """
-  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
+  @type user_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -114,128 +119,101 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      describe_resource_permissions_response() :: %{
-        "Marker" => String.t() | atom(),
-        "Principals" => list(principal())
-      }
-
-  """
-  @type describe_resource_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_subscription_request() :: %{
-        required("Endpoint") => String.t() | atom(),
-        required("Protocol") => list(any()),
-        required("SubscriptionType") => list(any())
-      }
-
-  """
-  @type create_notification_subscription_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_resource_permissions_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("NotificationOptions") => notification_options(),
-        required("Principals") => list(share_principal())
-      }
-
-  """
-  @type add_resource_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflicting_operation_exception() :: %{
+      invalid_operation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type conflicting_operation_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_folder_response() :: %{
-        "Metadata" => folder_metadata()
+      storage_rule_type() :: %{
+        "StorageAllocatedInBytes" => float(),
+        "StorageType" => list(any())
       }
 
   """
-  @type create_folder_response() :: %{(String.t() | atom()) => any()}
+  @type storage_rule_type() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_comment_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
+      describe_comments_response() :: %{
+        "Comments" => list(comment()),
+        "Marker" => String.t() | atom()
       }
 
   """
-  @type delete_comment_request() :: %{(String.t() | atom()) => any()}
+  @type describe_comments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_metadata() :: %{
+      user_storage_metadata() :: %{
+        "StorageRule" => storage_rule_type(),
+        "StorageUtilizedInBytes" => float()
+      }
+
+  """
+  @type user_storage_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_options() :: %{
+        "EmailMessage" => String.t() | atom(),
+        "SendEmail" => boolean()
+      }
+
+  """
+  @type notification_options() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_metadata_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type custom_metadata_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "CreatorId" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "OriginalName" => String.t() | atom(),
-        "Owner" => user_metadata(),
-        "ParentId" => String.t() | atom(),
-        "Type" => list(any()),
-        "VersionId" => String.t() | atom()
+        "Labels" => list(String.t() | atom()),
+        "LatestVersionMetadata" => document_version_metadata(),
+        "ModifiedTimestamp" => non_neg_integer(),
+        "ParentFolderId" => String.t() | atom(),
+        "ResourceState" => list(any())
       }
 
   """
-  @type resource_metadata() :: %{(String.t() | atom()) => any()}
+  @type document_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      restore_document_versions_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
+      describe_groups_response() :: %{
+        "Groups" => list(group_metadata()),
+        "Marker" => String.t() | atom()
       }
 
   """
-  @type restore_document_versions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_resource_permissions_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("PrincipalId") => String.t() | atom()
-      }
-
-  """
-  @type describe_resource_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_folder_path_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Fields") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom()
-      }
-
-  """
-  @type get_folder_path_request() :: %{(String.t() | atom()) => any()}
+  @type describe_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -255,48 +233,6 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      update_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_comment_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("NotifyCollaborators") => boolean(),
-        optional("ParentId") => String.t() | atom(),
-        optional("ThreadId") => String.t() | atom(),
-        optional("Visibility") => list(any()),
-        required("Text") => String.t() | atom()
-      }
-
-  """
-  @type create_comment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_metadata() :: %{
-        "EmailAddress" => String.t() | atom(),
-        "GivenName" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Surname" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type user_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       permission_info() :: %{
         "Role" => list(any()),
         "Type" => list(any())
@@ -309,178 +245,35 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      failed_dependency_exception() :: %{
+      service_unavailable_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type failed_dependency_exception() :: %{(String.t() | atom()) => any()}
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_users_response() :: %{
-        "Marker" => String.t() | atom(),
-        "TotalNumberOfUsers" => float(),
-        "Users" => list(user())
+      create_comment_response() :: %{
+        "Comment" => comment()
       }
 
   """
-  @type describe_users_response() :: %{(String.t() | atom()) => any()}
+  @type create_comment_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_folder_contents_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Include") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("Order") => list(any()),
-        optional("Sort") => list(any()),
-        optional("Type") => list(any())
+      participants() :: %{
+        "Groups" => list(group_metadata()),
+        "Users" => list(user_metadata())
       }
 
   """
-  @type describe_folder_contents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prohibited_state_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type prohibited_state_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_operation_exception() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_labels_response() :: %{}
-
-  """
-  @type delete_labels_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      add_resource_permissions_response() :: %{
-        "ShareResults" => list(share_result())
-      }
-
-  """
-  @type add_resource_permissions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_document_version_response() :: %{
-        "CustomMetadata" => map(),
-        "Metadata" => document_version_metadata()
-      }
-
-  """
-  @type get_document_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_folder_contents_response() :: %{
-        "Documents" => list(document_metadata()),
-        "Folders" => list(folder_metadata()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type describe_folder_contents_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_root_folders_request() :: %{
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        required("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_root_folders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_folder_response() :: %{
-        "CustomMetadata" => map(),
-        "Metadata" => folder_metadata()
-      }
-
-  """
-  @type get_folder_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_operation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_users_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Fields") => String.t() | atom(),
-        optional("Include") => list(any()),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("Order") => list(any()),
-        optional("OrganizationId") => String.t() | atom(),
-        optional("Query") => String.t() | atom(),
-        optional("Sort") => list(any()),
-        optional("UserIds") => String.t() | atom()
-      }
-
-  """
-  @type describe_users_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_metadata() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type group_metadata() :: %{(String.t() | atom()) => any()}
+  @type participants() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -499,315 +292,49 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      update_document_version_request() :: %{
+      get_document_version_request() :: %{
         optional("AuthenticationToken") => String.t() | atom(),
-        optional("VersionStatus") => list(any())
-      }
-
-  """
-  @type update_document_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_document_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("ParentFolderId") => String.t() | atom(),
-        optional("ResourceState") => list(any())
-      }
-
-  """
-  @type update_document_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_metadata_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("DeleteAll") => boolean(),
-        optional("Keys") => list(String.t() | atom()),
-        optional("VersionId") => String.t() | atom()
-      }
-
-  """
-  @type delete_custom_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type activate_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_not_exists_exception() :: %{
-        "EntityIds" => list(String.t() | atom()),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type entity_not_exists_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_labels_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("DeleteAll") => boolean(),
-        optional("Labels") => list(String.t() | atom())
-      }
-
-  """
-  @type delete_labels_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      principal() :: %{
-        "Id" => String.t() | atom(),
-        "Roles" => list(permission_info()),
-        "Type" => list(any())
-      }
-
-  """
-  @type principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_metadata_response() :: %{}
-
-  """
-  @type delete_custom_metadata_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_document_version_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        required("DeletePriorVersions") => boolean()
-      }
-
-  """
-  @type delete_document_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_document_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_document_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_document_versions_response() :: %{
-        "DocumentVersions" => list(document_version_metadata()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type describe_document_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_labels_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_labels_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_activities_response() :: %{
-        "Marker" => String.t() | atom(),
-        "UserActivities" => list(activity())
-      }
-
-  """
-  @type describe_activities_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_principal_type() :: %{
-        "Id" => String.t() | atom(),
-        "Roles" => list(list(any())())
-      }
-
-  """
-  @type search_principal_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_resource_access_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_resource_access_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_metadata_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type custom_metadata_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      comment_metadata() :: %{
-        "CommentId" => String.t() | atom(),
-        "CommentStatus" => list(any()),
-        "Contributor" => user(),
-        "ContributorId" => String.t() | atom(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "RecipientId" => String.t() | atom()
-      }
-
-  """
-  @type comment_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_resources_response() :: %{
-        "Items" => list(response_item()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type search_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      date_range_type() :: %{
-        "EndValue" => non_neg_integer(),
-        "StartValue" => non_neg_integer()
-      }
-
-  """
-  @type date_range_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type storage_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_document_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Fields") => String.t() | atom(),
         optional("IncludeCustomMetadata") => boolean()
       }
 
   """
-  @type get_document_request() :: %{(String.t() | atom()) => any()}
+  @type get_document_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_notification_subscription_request() :: %{}
-
-  """
-  @type delete_notification_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("CollectionType") => list(any()),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("UserId") => String.t() | atom()
+      resource_path() :: %{
+        "Components" => list(resource_path_component())
       }
 
   """
-  @type get_resources_request() :: %{(String.t() | atom()) => any()}
+  @type resource_path() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_groups_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom(),
-        optional("OrganizationId") => String.t() | atom(),
-        required("SearchQuery") => String.t() | atom()
-      }
-
-  """
-  @type describe_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      requested_entity_too_large_exception() :: %{
+      concurrent_modification_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type requested_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
+  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_folder_path_response() :: %{
-        "Path" => resource_path()
+      create_custom_metadata_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("VersionId") => String.t() | atom(),
+        required("CustomMetadata") => map()
       }
 
   """
-  @type get_folder_path_response() :: %{(String.t() | atom()) => any()}
+  @type create_custom_metadata_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -832,6 +359,34 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
+      response_item() :: %{
+        "CommentMetadata" => comment_metadata(),
+        "DocumentMetadata" => document_metadata(),
+        "DocumentVersionMetadata" => document_version_metadata(),
+        "FolderMetadata" => folder_metadata(),
+        "ResourceType" => list(any()),
+        "WebUrl" => String.t() | atom()
+      }
+
+  """
+  @type response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_document_version_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("VersionStatus") => list(any())
+      }
+
+  """
+  @type update_document_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       share_principal() :: %{
         "Id" => String.t() | atom(),
         "Role" => list(any()),
@@ -845,249 +400,48 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      comment() :: %{
-        "CommentId" => String.t() | atom(),
-        "Contributor" => user(),
-        "CreatedTimestamp" => non_neg_integer(),
-        "ParentId" => String.t() | atom(),
-        "RecipientId" => String.t() | atom(),
-        "Status" => list(any()),
-        "Text" => String.t() | atom(),
-        "ThreadId" => String.t() | atom(),
-        "Visibility" => list(any())
-      }
-
-  """
-  @type comment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resources_response() :: %{
-        "Documents" => list(document_metadata()),
-        "Folders" => list(folder_metadata()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type get_resources_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_all_resource_permissions_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type remove_all_resource_permissions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_folder_contents_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_folder_contents_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      folder_metadata() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "CreatorId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Labels" => list(String.t() | atom()),
-        "LatestVersionSize" => float(),
-        "ModifiedTimestamp" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ParentFolderId" => String.t() | atom(),
-        "ResourceState" => list(any()),
-        "Signature" => String.t() | atom(),
-        "Size" => float()
-      }
-
-  """
-  @type folder_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_subscriptions_exception() :: %{
+      draft_upload_out_of_sync_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type too_many_subscriptions_exception() :: %{(String.t() | atom()) => any()}
+  @type draft_upload_out_of_sync_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_labels_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        required("Labels") => list(String.t() | atom())
+      describe_activities_response() :: %{
+        "Marker" => String.t() | atom(),
+        "UserActivities" => list(activity())
       }
 
   """
-  @type create_labels_request() :: %{(String.t() | atom()) => any()}
+  @type describe_activities_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_current_user_request() :: %{
-        required("AuthenticationToken") => String.t() | atom()
+      subscription() :: %{
+        "EndPoint" => String.t() | atom(),
+        "Protocol" => list(any()),
+        "SubscriptionId" => String.t() | atom()
       }
 
   """
-  @type get_current_user_request() :: %{(String.t() | atom()) => any()}
+  @type subscription() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_comment_response() :: %{
-        "Comment" => comment()
-      }
-
-  """
-  @type create_comment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_folder_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_folder_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      long_range_type() :: %{
-        "EndValue" => float(),
-        "StartValue" => float()
-      }
-
-  """
-  @type long_range_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_notification_subscriptions_request() :: %{
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom()
-      }
-
-  """
-  @type describe_notification_subscriptions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_current_user_response() :: %{
-        "User" => user()
-      }
-
-  """
-  @type get_current_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
+      entity_already_exists_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_path() :: %{
-        "Components" => list(resource_path_component())
-      }
-
-  """
-  @type resource_path() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_comment_operation_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_comment_operation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notification_subscription_response() :: %{
-        "Subscription" => subscription()
-      }
-
-  """
-  @type create_notification_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_storage_metadata() :: %{
-        "StorageRule" => storage_rule_type(),
-        "StorageUtilizedInBytes" => float()
-      }
-
-  """
-  @type user_storage_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_user_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_document_versions_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Fields") => String.t() | atom(),
-        optional("Include") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Marker") => String.t() | atom()
-      }
-
-  """
-  @type describe_document_versions_request() :: %{(String.t() | atom()) => any()}
+  @type entity_already_exists_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1104,88 +458,44 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      describe_comments_response() :: %{
-        "Comments" => list(comment()),
-        "Marker" => String.t() | atom()
+      filters() :: %{
+        "AncestorIds" => list(String.t() | atom()),
+        "ContentCategories" => list(list(any())()),
+        "CreatedRange" => date_range_type(),
+        "Labels" => list(String.t() | atom()),
+        "ModifiedRange" => date_range_type(),
+        "Principals" => list(search_principal_type()),
+        "ResourceTypes" => list(list(any())()),
+        "SearchCollectionTypes" => list(list(any())()),
+        "SizeRange" => long_range_type(),
+        "TextLocales" => list(list(any())())
       }
 
   """
-  @type describe_comments_response() :: %{(String.t() | atom()) => any()}
+  @type filters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_folder_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("ParentFolderId") => String.t() | atom(),
-        optional("ResourceState") => list(any())
+      describe_notification_subscriptions_response() :: %{
+        "Marker" => String.t() | atom(),
+        "Subscriptions" => list(subscription())
       }
 
   """
-  @type update_folder_request() :: %{(String.t() | atom()) => any()}
+  @type describe_notification_subscriptions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      deactivating_last_system_user_exception() :: %{
-        "Code" => String.t() | atom(),
+      document_locked_for_comments_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type deactivating_last_system_user_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_metadata_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("VersionId") => String.t() | atom(),
-        required("CustomMetadata") => map()
-      }
-
-  """
-  @type create_custom_metadata_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      invalid_argument_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_document_version_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Fields") => String.t() | atom(),
-        optional("IncludeCustomMetadata") => boolean()
-      }
-
-  """
-  @type get_document_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_groups_response() :: %{
-        "Groups" => list(group_metadata()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type describe_groups_response() :: %{(String.t() | atom()) => any()}
+  @type document_locked_for_comments_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1202,24 +512,13 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      concurrent_modification_exception() :: %{
-        "Message" => String.t() | atom()
+      group_metadata() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type concurrent_modification_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_root_folders_response() :: %{
-        "Folders" => list(folder_metadata()),
-        "Marker" => String.t() | atom()
-      }
-
-  """
-  @type describe_root_folders_response() :: %{(String.t() | atom()) => any()}
+  @type group_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1243,44 +542,251 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      get_folder_request() :: %{
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_labels_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("DeleteAll") => boolean(),
+        optional("Labels") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failed_dependency_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type failed_dependency_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_resource_permissions_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("NotificationOptions") => notification_options(),
+        required("Principals") => list(share_principal())
+      }
+
+  """
+  @type add_resource_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_folder_contents_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Include") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("Order") => list(any()),
+        optional("Sort") => list(any()),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type describe_folder_contents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_already_checked_out_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_already_checked_out_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_metadata_response() :: %{}
+
+  """
+  @type delete_custom_metadata_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      principal() :: %{
+        "Id" => String.t() | atom(),
+        "Roles" => list(permission_info()),
+        "Type" => list(any())
+      }
+
+  """
+  @type principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restore_document_versions_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type restore_document_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_current_user_request() :: %{
+        required("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type get_current_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_folder_path_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Fields") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom()
+      }
+
+  """
+  @type get_folder_path_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_document_versions_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Fields") => String.t() | atom(),
+        optional("Include") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom()
+      }
+
+  """
+  @type describe_document_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_current_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type get_current_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      activate_user_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type activate_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_metadata() :: %{
+        "SignedHeaders" => map(),
+        "UploadUrl" => String.t() | atom()
+      }
+
+  """
+  @type upload_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_principal_type() :: %{
+        "Id" => String.t() | atom(),
+        "Roles" => list(list(any())())
+      }
+
+  """
+  @type search_principal_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_document_request() :: %{
         optional("AuthenticationToken") => String.t() | atom(),
         optional("IncludeCustomMetadata") => boolean()
       }
 
   """
-  @type get_folder_request() :: %{(String.t() | atom()) => any()}
+  @type get_document_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      document_metadata() :: %{
-        "CreatedTimestamp" => non_neg_integer(),
-        "CreatorId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Labels" => list(String.t() | atom()),
-        "LatestVersionMetadata" => document_version_metadata(),
-        "ModifiedTimestamp" => non_neg_integer(),
-        "ParentFolderId" => String.t() | atom(),
-        "ResourceState" => list(any())
+      activate_user_response() :: %{
+        "User" => user()
       }
 
   """
-  @type document_metadata() :: %{(String.t() | atom()) => any()}
+  @type activate_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subscription() :: %{
-        "EndPoint" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "SubscriptionId" => String.t() | atom()
+      get_document_version_response() :: %{
+        "CustomMetadata" => map(),
+        "Metadata" => document_version_metadata()
       }
 
   """
-  @type subscription() :: %{(String.t() | atom()) => any()}
+  @type get_document_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_labels_response() :: %{}
+
+  """
+  @type delete_labels_response() :: %{}
 
   @typedoc """
 
@@ -1311,106 +817,265 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      storage_limit_will_exceed_exception() :: %{
+      describe_root_folders_response() :: %{
+        "Folders" => list(folder_metadata()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type describe_root_folders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_comment_operation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type storage_limit_will_exceed_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_comment_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      draft_upload_out_of_sync_exception() :: %{
+      create_folder_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("ParentFolderId") => String.t() | atom()
+      }
+
+  """
+  @type create_folder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_resource_permission_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("PrincipalType") => list(any())
+      }
+
+  """
+  @type remove_resource_permission_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_notification_subscription_request() :: %{
+        required("Endpoint") => String.t() | atom(),
+        required("Protocol") => list(any()),
+        required("SubscriptionType") => list(any())
+      }
+
+  """
+  @type create_notification_subscription_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_metadata_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("DeleteAll") => boolean(),
+        optional("Keys") => list(String.t() | atom()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_custom_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_document_versions_response() :: %{
+        "DocumentVersions" => list(document_version_metadata()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type describe_document_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_range_type() :: %{
+        "EndValue" => non_neg_integer(),
+        "StartValue" => non_neg_integer()
+      }
+
+  """
+  @type date_range_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_resource_permissions_response() :: %{
+        "ShareResults" => list(share_result())
+      }
+
+  """
+  @type add_resource_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_argument_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type draft_upload_out_of_sync_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      notification_options() :: %{
-        "EmailMessage" => String.t() | atom(),
-        "SendEmail" => boolean()
+      unauthorized_operation_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
       }
 
   """
-  @type notification_options() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_operation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_notification_subscriptions_response() :: %{
+      describe_users_response() :: %{
         "Marker" => String.t() | atom(),
-        "Subscriptions" => list(subscription())
+        "TotalNumberOfUsers" => float(),
+        "Users" => list(user())
       }
 
   """
-  @type describe_notification_subscriptions_response() :: %{(String.t() | atom()) => any()}
+  @type describe_users_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filters() :: %{
-        "AncestorIds" => list(String.t() | atom()),
-        "ContentCategories" => list(list(any())()),
-        "CreatedRange" => date_range_type(),
-        "Labels" => list(String.t() | atom()),
-        "ModifiedRange" => date_range_type(),
-        "Principals" => list(search_principal_type()),
-        "ResourceTypes" => list(list(any())()),
-        "SearchCollectionTypes" => list(list(any())()),
-        "SizeRange" => long_range_type(),
-        "TextLocales" => list(list(any())())
+      get_resources_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("CollectionType") => list(any()),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("UserId") => String.t() | atom()
       }
 
   """
-  @type filters() :: %{(String.t() | atom()) => any()}
+  @type get_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
+      describe_resource_permissions_response() :: %{
+        "Marker" => String.t() | atom(),
+        "Principals" => list(principal())
+      }
+
+  """
+  @type describe_resource_permissions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_users_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Fields") => String.t() | atom(),
+        optional("Include") => list(any()),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("Order") => list(any()),
+        optional("OrganizationId") => String.t() | atom(),
+        optional("Query") => String.t() | atom(),
+        optional("Sort") => list(any()),
+        optional("UserIds") => String.t() | atom()
+      }
+
+  """
+  @type describe_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_document_response() :: %{
+        "CustomMetadata" => map(),
+        "Metadata" => document_metadata()
+      }
+
+  """
+  @type get_document_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_response() :: %{
+        "User" => user()
+      }
+
+  """
+  @type create_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_labels_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        required("Labels") => list(String.t() | atom())
+      }
+
+  """
+  @type create_labels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_folder_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ParentFolderId") => String.t() | atom(),
+        optional("ResourceState") => list(any())
+      }
+
+  """
+  @type update_folder_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_folder_contents_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_folder_contents_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_labels_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_sort_result() :: %{
-        "Field" => list(any()),
-        "Order" => list(any())
-      }
-
-  """
-  @type search_sort_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      share_result() :: %{
-        "InviteePrincipalId" => String.t() | atom(),
-        "PrincipalId" => String.t() | atom(),
-        "Role" => list(any()),
-        "ShareId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type share_result() :: %{(String.t() | atom()) => any()}
+  @type too_many_labels_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1429,6 +1094,18 @@ defmodule AWS.WorkDocs do
 
   """
   @type initiate_document_version_upload_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_sort_result() :: %{
+        "Field" => list(any()),
+        "Order" => list(any())
+      }
+
+  """
+  @type search_sort_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1454,25 +1131,288 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      storage_rule_type() :: %{
-        "StorageAllocatedInBytes" => float(),
-        "StorageType" => list(any())
+      invalid_password_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type storage_rule_type() :: %{(String.t() | atom()) => any()}
+  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      initiate_document_version_upload_response() :: %{
-        "Metadata" => document_metadata(),
-        "UploadMetadata" => upload_metadata()
+      delete_user_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
       }
 
   """
-  @type initiate_document_version_upload_response() :: %{(String.t() | atom()) => any()}
+  @type delete_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      comment_metadata() :: %{
+        "CommentId" => String.t() | atom(),
+        "CommentStatus" => list(any()),
+        "Contributor" => user(),
+        "ContributorId" => String.t() | atom(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "RecipientId" => String.t() | atom()
+      }
+
+  """
+  @type comment_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resources_response() :: %{
+        "Documents" => list(document_metadata()),
+        "Folders" => list(folder_metadata()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type get_resources_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_path_component() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type resource_path_component() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      folder_metadata() :: %{
+        "CreatedTimestamp" => non_neg_integer(),
+        "CreatorId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Labels" => list(String.t() | atom()),
+        "LatestVersionSize" => float(),
+        "ModifiedTimestamp" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ParentFolderId" => String.t() | atom(),
+        "ResourceState" => list(any()),
+        "Signature" => String.t() | atom(),
+        "Size" => float()
+      }
+
+  """
+  @type folder_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_all_resource_permissions_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type remove_all_resource_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      comment() :: %{
+        "CommentId" => String.t() | atom(),
+        "Contributor" => user(),
+        "CreatedTimestamp" => non_neg_integer(),
+        "ParentId" => String.t() | atom(),
+        "RecipientId" => String.t() | atom(),
+        "Status" => list(any()),
+        "Text" => String.t() | atom(),
+        "ThreadId" => String.t() | atom(),
+        "Visibility" => list(any())
+      }
+
+  """
+  @type comment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_document_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ParentFolderId") => String.t() | atom(),
+        optional("ResourceState") => list(any())
+      }
+
+  """
+  @type update_document_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deactivating_last_system_user_exception() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type deactivating_last_system_user_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      long_range_type() :: %{
+        "EndValue" => float(),
+        "StartValue" => float()
+      }
+
+  """
+  @type long_range_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type storage_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_document_version_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        required("DeletePriorVersions") => boolean()
+      }
+
+  """
+  @type delete_document_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_subscriptions_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_subscriptions_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity_not_exists_exception() :: %{
+        "EntityIds" => list(String.t() | atom()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type entity_not_exists_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      share_result() :: %{
+        "InviteePrincipalId" => String.t() | atom(),
+        "PrincipalId" => String.t() | atom(),
+        "Role" => list(any()),
+        "ShareId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
+      }
+
+  """
+  @type share_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_metadata() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "OriginalName" => String.t() | atom(),
+        "Owner" => user_metadata(),
+        "ParentId" => String.t() | atom(),
+        "Type" => list(any()),
+        "VersionId" => String.t() | atom()
+      }
+
+  """
+  @type resource_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_labels_response() :: %{}
+
+  """
+  @type create_labels_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notification_subscription_request() :: %{}
+
+  """
+  @type delete_notification_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_document_path_response() :: %{
+        "Path" => resource_path()
+      }
+
+  """
+  @type get_document_path_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_resource_permissions_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("PrincipalId") => String.t() | atom()
+      }
+
+  """
+  @type describe_resource_permissions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_folder_contents_response() :: %{
+        "Documents" => list(document_metadata()),
+        "Folders" => list(folder_metadata()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type describe_folder_contents_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1501,109 +1441,34 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      remove_resource_permission_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("PrincipalType") => list(any())
-      }
-
-  """
-  @type remove_resource_permission_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      participants() :: %{
-        "Groups" => list(group_metadata()),
-        "Users" => list(user_metadata())
-      }
-
-  """
-  @type participants() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      activate_user_request() :: %{
+      delete_folder_request() :: %{
         optional("AuthenticationToken") => String.t() | atom()
       }
 
   """
-  @type activate_user_request() :: %{(String.t() | atom()) => any()}
+  @type delete_folder_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_folder_request() :: %{
-        optional("AuthenticationToken") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        required("ParentFolderId") => String.t() | atom()
+      get_folder_path_response() :: %{
+        "Path" => resource_path()
       }
 
   """
-  @type create_folder_request() :: %{(String.t() | atom()) => any()}
+  @type get_folder_path_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      response_item() :: %{
-        "CommentMetadata" => comment_metadata(),
-        "DocumentMetadata" => document_metadata(),
-        "DocumentVersionMetadata" => document_version_metadata(),
-        "FolderMetadata" => folder_metadata(),
-        "ResourceType" => list(any()),
-        "WebUrl" => String.t() | atom()
-      }
-
-  """
-  @type response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_labels_response() :: %{}
-
-  """
-  @type create_labels_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_metadata() :: %{
-        "SignedHeaders" => map(),
-        "UploadUrl" => String.t() | atom()
-      }
-
-  """
-  @type upload_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_path_component() :: %{
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type resource_path_component() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      document_locked_for_comments_exception() :: %{
+      requested_entity_too_large_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type document_locked_for_comments_exception() :: %{(String.t() | atom()) => any()}
+  @type requested_entity_too_large_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1618,23 +1483,107 @@ defmodule AWS.WorkDocs do
 
   ## Example:
 
-      create_user_response() :: %{
-        "User" => user()
+      describe_groups_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        optional("OrganizationId") => String.t() | atom(),
+        required("SearchQuery") => String.t() | atom()
       }
 
   """
-  @type create_user_response() :: %{(String.t() | atom()) => any()}
+  @type describe_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      invalid_password_exception() :: %{
+      get_folder_response() :: %{
+        "CustomMetadata" => map(),
+        "Metadata" => folder_metadata()
+      }
+
+  """
+  @type get_folder_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      initiate_document_version_upload_response() :: %{
+        "Metadata" => document_metadata(),
+        "UploadMetadata" => upload_metadata()
+      }
+
+  """
+  @type initiate_document_version_upload_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflicting_operation_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type invalid_password_exception() :: %{(String.t() | atom()) => any()}
+  @type conflicting_operation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_limit_will_exceed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type storage_limit_will_exceed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prohibited_state_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type prohibited_state_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unauthorized_resource_access_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type unauthorized_resource_access_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_folder_response() :: %{
+        "Metadata" => folder_metadata()
+      }
+
+  """
+  @type create_folder_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_notification_subscriptions_request() :: %{
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom()
+      }
+
+  """
+  @type describe_notification_subscriptions_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1646,29 +1595,6 @@ defmodule AWS.WorkDocs do
 
   """
   @type deactivate_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_document_response() :: %{
-        "CustomMetadata" => map(),
-        "Metadata" => document_metadata()
-      }
-
-  """
-  @type get_document_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_already_checked_out_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type resource_already_checked_out_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1689,377 +1615,451 @@ defmodule AWS.WorkDocs do
   """
   @type create_user_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      create_notification_subscription_response() :: %{
+        "Subscription" => subscription()
+      }
+
+  """
+  @type create_notification_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_root_folders_request() :: %{
+        optional("Limit") => integer(),
+        optional("Marker") => String.t() | atom(),
+        required("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_root_folders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_comment_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom(),
+        optional("NotifyCollaborators") => boolean(),
+        optional("ParentId") => String.t() | atom(),
+        optional("ThreadId") => String.t() | atom(),
+        optional("Visibility") => list(any()),
+        required("Text") => String.t() | atom()
+      }
+
+  """
+  @type create_comment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_comment_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_comment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_document_request() :: %{
+        optional("AuthenticationToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_document_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_resources_response() :: %{
+        "Items" => list(response_item()),
+        "Marker" => String.t() | atom()
+      }
+
+  """
+  @type search_resources_response() :: %{(String.t() | atom()) => any()}
+
   @type abort_document_version_upload_errors() ::
-          concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type activate_user_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type add_resource_permissions_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type create_comment_errors() ::
-          document_locked_for_comments_exception()
-          | invalid_comment_operation_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
+          | invalid_comment_operation_exception()
           | failed_dependency_exception()
+          | document_locked_for_comments_exception()
+          | service_unavailable_exception()
 
   @type create_custom_metadata_errors() ::
-          service_unavailable_exception()
-          | custom_metadata_limit_exceeded_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
+          | custom_metadata_limit_exceeded_exception()
 
   @type create_folder_errors() ::
-          limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | limit_exceeded_exception()
           | entity_already_exists_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type create_labels_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | too_many_labels_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
+          | too_many_labels_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type create_notification_subscription_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
+          unauthorized_resource_access_exception()
           | too_many_subscriptions_exception()
-          | unauthorized_resource_access_exception()
+          | invalid_argument_exception()
+          | service_unavailable_exception()
 
   @type create_user_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
           | entity_already_exists_exception()
+          | service_unavailable_exception()
 
   @type deactivate_user_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type delete_comment_errors() ::
-          document_locked_for_comments_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | document_locked_for_comments_exception()
+          | service_unavailable_exception()
 
   @type delete_custom_metadata_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type delete_document_errors() ::
-          limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type delete_document_version_errors() ::
-          concurrent_modification_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | invalid_operation_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
-          | failed_dependency_exception()
           | conflicting_operation_exception()
+          | entity_not_exists_exception()
+          | unauthorized_operation_exception()
+          | failed_dependency_exception()
+          | concurrent_modification_exception()
+          | invalid_operation_exception()
 
   @type delete_folder_errors() ::
-          limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | limit_exceeded_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type delete_folder_contents_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | service_unavailable_exception()
 
   @type delete_labels_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type delete_notification_subscription_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | service_unavailable_exception()
 
   @type delete_user_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_activities_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_comments_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_document_versions_errors() ::
-          invalid_password_exception()
-          | invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | invalid_password_exception()
+          | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_folder_contents_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_groups_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_notification_subscriptions_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
+          | service_unavailable_exception()
 
   @type describe_resource_permissions_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_root_folders_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type describe_users_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
+          unauthorized_resource_access_exception()
           | requested_entity_too_large_exception()
-          | unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_current_user_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_document_errors() ::
-          invalid_password_exception()
-          | invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
+          | invalid_password_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_document_path_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_document_version_errors() ::
-          invalid_password_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | invalid_password_exception()
+          | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_folder_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_folder_path_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type get_resources_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type initiate_document_version_upload_errors() ::
-          resource_already_checked_out_exception()
-          | invalid_password_exception()
-          | limit_exceeded_exception()
-          | draft_upload_out_of_sync_exception()
-          | storage_limit_will_exceed_exception()
-          | invalid_argument_exception()
-          | service_unavailable_exception()
-          | storage_limit_exceeded_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | storage_limit_will_exceed_exception()
+          | entity_not_exists_exception()
+          | storage_limit_exceeded_exception()
+          | invalid_password_exception()
+          | unauthorized_operation_exception()
+          | invalid_argument_exception()
+          | resource_already_checked_out_exception()
           | failed_dependency_exception()
+          | limit_exceeded_exception()
           | entity_already_exists_exception()
+          | draft_upload_out_of_sync_exception()
+          | service_unavailable_exception()
 
   @type remove_all_resource_permissions_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type remove_resource_permission_errors() ::
-          service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
           | failed_dependency_exception()
+          | service_unavailable_exception()
 
   @type restore_document_versions_errors() ::
-          concurrent_modification_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | invalid_operation_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
-          | failed_dependency_exception()
           | conflicting_operation_exception()
+          | entity_not_exists_exception()
+          | unauthorized_operation_exception()
+          | failed_dependency_exception()
+          | concurrent_modification_exception()
+          | invalid_operation_exception()
 
   @type search_resources_errors() ::
-          invalid_argument_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
           | unauthorized_operation_exception()
+          | invalid_argument_exception()
+          | service_unavailable_exception()
 
   @type update_document_errors() ::
-          limit_exceeded_exception()
-          | concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | limit_exceeded_exception()
           | entity_already_exists_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type update_document_version_errors() ::
-          concurrent_modification_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | invalid_operation_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | unauthorized_operation_exception()
           | failed_dependency_exception()
-
-  @type update_folder_errors() ::
-          limit_exceeded_exception()
           | concurrent_modification_exception()
           | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
+          | invalid_operation_exception()
+
+  @type update_folder_errors() ::
+          unauthorized_resource_access_exception()
+          | prohibited_state_exception()
+          | conflicting_operation_exception()
           | entity_not_exists_exception()
           | unauthorized_operation_exception()
-          | prohibited_state_exception()
           | failed_dependency_exception()
-          | conflicting_operation_exception()
+          | limit_exceeded_exception()
           | entity_already_exists_exception()
+          | concurrent_modification_exception()
+          | service_unavailable_exception()
 
   @type update_user_errors() ::
-          illegal_user_state_exception()
-          | invalid_argument_exception()
-          | deactivating_last_system_user_exception()
-          | service_unavailable_exception()
-          | unauthorized_resource_access_exception()
-          | entity_not_exists_exception()
-          | unauthorized_operation_exception()
+          unauthorized_resource_access_exception()
           | prohibited_state_exception()
+          | entity_not_exists_exception()
+          | deactivating_last_system_user_exception()
+          | unauthorized_operation_exception()
+          | invalid_argument_exception()
           | failed_dependency_exception()
+          | illegal_user_state_exception()
+          | service_unavailable_exception()
 
   def metadata do
     %{

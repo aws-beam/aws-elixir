@@ -201,34 +201,35 @@ defmodule AWS.CodeCatalyst do
 
   ## Example:
 
-      list_source_repository_branches_request() :: %{
+      persistent_storage() :: %{
+        "sizeInGiB" => [integer()]
+      }
+
+  """
+  @type persistent_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spaces_request() :: %{
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_spaces_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_access_tokens_request() :: %{
         optional("maxResults") => [integer()],
         optional("nextToken") => [String.t() | atom()]
       }
 
   """
-  @type list_source_repository_branches_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_space_request() :: %{}
-
-  """
-  @type delete_space_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      project_information() :: %{
-        "name" => [String.t() | atom()],
-        "projectId" => [String.t() | atom()]
-      }
-
-  """
-  @type project_information() :: %{(String.t() | atom()) => any()}
+  @type list_access_tokens_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -248,767 +249,6 @@ defmodule AWS.CodeCatalyst do
 
   ## Example:
 
-      ide_configuration() :: %{
-        "name" => [String.t() | atom()],
-        "runtime" => [String.t() | atom()]
-      }
-
-  """
-  @type ide_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_space_response() :: %{
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type delete_space_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_details_request() :: %{
-        optional("id") => [String.t() | atom()],
-        optional("userName") => [String.t() | atom()]
-      }
-
-  """
-  @type get_user_details_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_summary() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type project_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_run_sort_criteria() :: %{}
-
-  """
-  @type workflow_run_sort_criteria() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ide() :: %{
-        "name" => [String.t() | atom()],
-        "runtime" => [String.t() | atom()]
-      }
-
-  """
-  @type ide() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_request() :: %{}
-
-  """
-  @type get_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      access_token_summary() :: %{
-        "expiresTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type access_token_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_source_repository_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type create_source_repository_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dev_environment_response() :: %{
-        "alias" => [String.t() | atom()],
-        "creatorId" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "ides" => list(ide()),
-        "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "persistentStorage" => persistent_storage(),
-        "projectName" => String.t() | atom(),
-        "repositories" => list(dev_environment_repository_summary()),
-        "spaceName" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => String.t() | atom(),
-        "vpcConnectionName" => String.t() | atom()
-      }
-
-  """
-  @type get_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_dev_environment_request() :: %{}
-
-  """
-  @type stop_dev_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      user_identity() :: %{
-        "awsAccountId" => [String.t() | atom()],
-        "principalId" => [String.t() | atom()],
-        "userName" => [String.t() | atom()],
-        "userType" => String.t() | atom()
-      }
-
-  """
-  @type user_identity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dev_environment_access_details() :: %{
-        "streamUrl" => String.t() | atom(),
-        "tokenValue" => String.t() | atom()
-      }
-
-  """
-  @type dev_environment_access_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_dev_environment_session_request() :: %{
-        required("sessionConfiguration") => dev_environment_session_configuration()
-      }
-
-  """
-  @type start_dev_environment_session_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_space_request() :: %{}
-
-  """
-  @type get_space_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_response() :: %{
-        "awsAccountName" => String.t() | atom(),
-        "pendingSubscriptionStartTime" => non_neg_integer(),
-        "pendingSubscriptionType" => [String.t() | atom()],
-        "subscriptionType" => [String.t() | atom()]
-      }
-
-  """
-  @type get_subscription_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_response() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type update_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_source_repository_branch_request() :: %{
-        optional("headCommitId") => [String.t() | atom()]
-      }
-
-  """
-  @type create_source_repository_branch_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      email_address() :: %{
-        "email" => [String.t() | atom()],
-        "verified" => [boolean()]
-      }
-
-  """
-  @type email_address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_log_entry() :: %{
-        "errorCode" => [String.t() | atom()],
-        "eventCategory" => [String.t() | atom()],
-        "eventName" => [String.t() | atom()],
-        "eventSource" => [String.t() | atom()],
-        "eventTime" => non_neg_integer(),
-        "eventType" => [String.t() | atom()],
-        "id" => [String.t() | atom()],
-        "operationType" => String.t() | atom(),
-        "projectInformation" => project_information(),
-        "requestId" => [String.t() | atom()],
-        "requestPayload" => event_payload(),
-        "responsePayload" => event_payload(),
-        "sourceIpAddress" => [String.t() | atom()],
-        "userAgent" => [String.t() | atom()],
-        "userIdentity" => user_identity()
-      }
-
-  """
-  @type event_log_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_source_repository_response() :: %{
-        "name" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type delete_source_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_request() :: %{}
-
-  """
-  @type get_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      repository_input() :: %{
-        "branchName" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type repository_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_details_response() :: %{
-        "displayName" => [String.t() | atom()],
-        "primaryEmail" => email_address(),
-        "userId" => [String.t() | atom()],
-        "userName" => [String.t() | atom()],
-        "version" => [String.t() | atom()]
-      }
-
-  """
-  @type get_user_details_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dev_environment_response() :: %{
-        "alias" => [String.t() | atom()],
-        "clientToken" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "ides" => list(ide_configuration()),
-        "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type update_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dev_environment_sessions_response() :: %{
-        "items" => list(dev_environment_session_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_dev_environment_sessions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_dev_environment_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type start_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_source_repository_request() :: %{}
-
-  """
-  @type get_source_repository_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_access_tokens_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_access_tokens_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_response() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type create_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dev_environment_request() :: %{}
-
-  """
-  @type delete_dev_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_repositories_item() :: %{
-        "createdTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type list_source_repositories_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_workflow_run_request() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        required("workflowId") => String.t() | atom()
-      }
-
-  """
-  @type start_workflow_run_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dev_environment_summary() :: %{
-        "alias" => [String.t() | atom()],
-        "creatorId" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "ides" => list(ide()),
-        "inactivityTimeoutMinutes" => integer(),
-        "instanceType" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "persistentStorage" => persistent_storage(),
-        "projectName" => String.t() | atom(),
-        "repositories" => list(dev_environment_repository_summary()),
-        "spaceName" => String.t() | atom(),
-        "status" => String.t() | atom(),
-        "statusReason" => String.t() | atom(),
-        "vpcConnectionName" => String.t() | atom()
-      }
-
-  """
-  @type dev_environment_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("sortBy") => list(workflow_sort_criteria())
-      }
-
-  """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_response() :: %{
-        "items" => list(project_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_projects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_dev_environment_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type stop_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_response() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type get_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dev_environment_request() :: %{
-        optional("alias") => [String.t() | atom()],
-        optional("clientToken") => String.t() | atom(),
-        optional("ides") => list(ide_configuration()),
-        optional("inactivityTimeoutMinutes") => integer(),
-        optional("instanceType") => String.t() | atom()
-      }
-
-  """
-  @type update_dev_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_logs_request() :: %{
-        optional("eventName") => [String.t() | atom()],
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        required("endTime") => non_neg_integer(),
-        required("startTime") => non_neg_integer()
-      }
-
-  """
-  @type list_event_logs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dev_environment_request() :: %{
-        optional("alias") => [String.t() | atom()],
-        optional("clientToken") => String.t() | atom(),
-        optional("ides") => list(ide_configuration()),
-        optional("inactivityTimeoutMinutes") => integer(),
-        optional("repositories") => list(repository_input()),
-        optional("vpcConnectionName") => String.t() | atom(),
-        required("instanceType") => String.t() | atom(),
-        required("persistentStorage") => persistent_storage_configuration()
-      }
-
-  """
-  @type create_dev_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_workflow_run_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "workflowId" => String.t() | atom()
-      }
-
-  """
-  @type start_workflow_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_space_response() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type update_space_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dev_environment_sessions_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_dev_environment_sessions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_run_status_reason() :: %{}
-
-  """
-  @type workflow_run_status_reason() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dev_environment_request() :: %{}
-
-  """
-  @type get_dev_environment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_repository_branches_response() :: %{
-        "items" => list(list_source_repository_branches_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_source_repository_branches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter() :: %{
-        "comparisonOperator" => [String.t() | atom()],
-        "key" => [String.t() | atom()],
-        "values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_runs_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("sortBy") => list(workflow_run_sort_criteria()),
-        optional("workflowId") => String.t() | atom()
-      }
-
-  """
-  @type list_workflow_runs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_source_repository_clone_urls_request() :: %{}
-
-  """
-  @type get_source_repository_clone_urls_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_summary() :: %{
-        "createdTime" => non_neg_integer(),
-        "definition" => workflow_definition_summary(),
-        "id" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "name" => [String.t() | atom()],
-        "runMode" => String.t() | atom(),
-        "sourceBranchName" => String.t() | atom(),
-        "sourceRepositoryName" => String.t() | atom(),
-        "status" => String.t() | atom()
-      }
-
-  """
-  @type workflow_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_dev_environment_request() :: %{
-        optional("ides") => list(ide_configuration()),
-        optional("inactivityTimeoutMinutes") => integer(),
-        optional("instanceType") => String.t() | atom()
-      }
-
-  """
-  @type start_dev_environment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_source_repository_request() :: %{}
-
-  """
-  @type delete_source_repository_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_request() :: %{}
-
-  """
-  @type get_subscription_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_dev_environment_session_response() :: %{
-        "accessDetails" => dev_environment_access_details(),
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "sessionId" => [String.t() | atom()],
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type start_dev_environment_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_definition_summary() :: %{
-        "path" => [String.t() | atom()]
-      }
-
-  """
-  @type workflow_definition_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       delete_project_response() :: %{
         "displayName" => [String.t() | atom()],
         "name" => String.t() | atom(),
@@ -1017,464 +257,6 @@ defmodule AWS.CodeCatalyst do
 
   """
   @type delete_project_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      persistent_storage_configuration() :: %{
-        "sizeInGiB" => [integer()]
-      }
-
-  """
-  @type persistent_storage_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dev_environment_session_summary() :: %{
-        "devEnvironmentId" => String.t() | atom(),
-        "id" => [String.t() | atom()],
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "startedTime" => non_neg_integer()
-      }
-
-  """
-  @type dev_environment_session_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_source_repository_response() :: %{
-        "createdTime" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type get_source_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dev_environments_request() :: %{
-        optional("filters") => list(filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()],
-        optional("projectName") => String.t() | atom()
-      }
-
-  """
-  @type list_dev_environments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_list_filter() :: %{
-        "comparisonOperator" => String.t() | atom(),
-        "key" => String.t() | atom(),
-        "values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type project_list_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_dev_environment_session_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "sessionId" => [String.t() | atom()],
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type stop_dev_environment_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_space_request() :: %{
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type update_space_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflow_runs_response() :: %{
-        "items" => list(workflow_run_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_workflow_runs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dev_environment_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "vpcConnectionName" => String.t() | atom()
-      }
-
-  """
-  @type create_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_token_request() :: %{}
-
-  """
-  @type delete_access_token_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_logs_response() :: %{
-        "items" => list(event_log_entry()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_event_logs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      verify_session_response() :: %{
-        "identity" => [String.t() | atom()]
-      }
-
-  """
-  @type verify_session_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      persistent_storage() :: %{
-        "sizeInGiB" => [integer()]
-      }
-
-  """
-  @type persistent_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_access_token_request() :: %{
-        optional("expiresTime") => non_neg_integer(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_access_token_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_spaces_response() :: %{
-        "items" => list(space_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_spaces_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dev_environment_repository_summary() :: %{
-        "branchName" => String.t() | atom(),
-        "repositoryName" => String.t() | atom()
-      }
-
-  """
-  @type dev_environment_repository_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_request() :: %{
-        optional("description") => String.t() | atom(),
-        required("displayName") => String.t() | atom()
-      }
-
-  """
-  @type create_project_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_dev_environments_response() :: %{
-        "items" => list(dev_environment_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_dev_environments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_space_response() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "regionName" => String.t() | atom()
-      }
-
-  """
-  @type get_space_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_request() :: %{
-        optional("filters") => list(project_list_filter()),
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_projects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_repository_branches_item() :: %{
-        "headCommitId" => [String.t() | atom()],
-        "lastUpdatedTime" => non_neg_integer(),
-        "name" => String.t() | atom(),
-        "ref" => String.t() | atom()
-      }
-
-  """
-  @type list_source_repository_branches_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_dev_environment_session_request() :: %{}
-
-  """
-  @type stop_dev_environment_session_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_run_request() :: %{}
-
-  """
-  @type get_workflow_run_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_access_token_response() :: %{}
-
-  """
-  @type delete_access_token_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      execute_command_session_configuration() :: %{
-        "arguments" => list([String.t() | atom()]()),
-        "command" => [String.t() | atom()]
-      }
-
-  """
-  @type execute_command_session_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dev_environment_response() :: %{
-        "id" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type delete_dev_environment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_definition() :: %{
-        "path" => [String.t() | atom()]
-      }
-
-  """
-  @type workflow_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_request() :: %{}
-
-  """
-  @type delete_project_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_repositories_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_source_repositories_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_source_repository_response() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom()
-      }
-
-  """
-  @type create_source_repository_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_response() :: %{
-        "items" => list(workflow_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_run_response() :: %{
-        "endTime" => non_neg_integer(),
-        "id" => String.t() | atom(),
-        "lastUpdatedTime" => non_neg_integer(),
-        "projectName" => String.t() | atom(),
-        "spaceName" => String.t() | atom(),
-        "startTime" => non_neg_integer(),
-        "status" => String.t() | atom(),
-        "statusReasons" => list(workflow_run_status_reason()),
-        "workflowId" => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_run_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_sort_criteria() :: %{}
-
-  """
-  @type workflow_sort_criteria() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_source_repositories_response() :: %{
-        "items" => list(list_source_repositories_item()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_source_repositories_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1498,13 +280,38 @@ defmodule AWS.CodeCatalyst do
 
   ## Example:
 
-      dev_environment_session_configuration() :: %{
-        "executeCommandSessionConfiguration" => execute_command_session_configuration(),
-        "sessionType" => String.t() | atom()
+      repository_input() :: %{
+        "branchName" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
       }
 
   """
-  @type dev_environment_session_configuration() :: %{(String.t() | atom()) => any()}
+  @type repository_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_repository_response() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type create_source_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dev_environment_session_request() :: %{
+        required("sessionConfiguration") => dev_environment_session_configuration()
+      }
+
+  """
+  @type start_dev_environment_session_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1522,49 +329,102 @@ defmodule AWS.CodeCatalyst do
 
   ## Example:
 
-      space_summary() :: %{
-        "description" => [String.t() | atom()],
-        "displayName" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "regionName" => String.t() | atom()
-      }
+      delete_space_request() :: %{}
 
   """
-  @type space_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_space_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      get_source_repository_clone_urls_response() :: %{
-        "https" => [String.t() | atom()]
-      }
+      workflow_run_status_reason() :: %{}
 
   """
-  @type get_source_repository_clone_urls_response() :: %{(String.t() | atom()) => any()}
+  @type workflow_run_status_reason() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_spaces_request() :: %{
-        optional("nextToken") => [String.t() | atom()]
+      project_list_filter() :: %{
+        "comparisonOperator" => String.t() | atom(),
+        "key" => String.t() | atom(),
+        "values" => list([String.t() | atom()]())
       }
 
   """
-  @type list_spaces_request() :: %{(String.t() | atom()) => any()}
+  @type project_list_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_payload() :: %{
-        "contentType" => [String.t() | atom()],
-        "data" => [String.t() | atom()]
+      throttling_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type event_payload() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_request() :: %{}
+
+  """
+  @type delete_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      email_address() :: %{
+        "email" => [String.t() | atom()],
+        "verified" => [boolean()]
+      }
+
+  """
+  @type email_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dev_environment_request() :: %{
+        optional("alias") => [String.t() | atom()],
+        optional("clientToken") => String.t() | atom(),
+        optional("ides") => list(ide_configuration()),
+        optional("inactivityTimeoutMinutes") => integer(),
+        optional("repositories") => list(repository_input()),
+        optional("vpcConnectionName") => String.t() | atom(),
+        required("instanceType") => String.t() | atom(),
+        required("persistentStorage") => persistent_storage_configuration()
+      }
+
+  """
+  @type create_dev_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_dev_environment_session_request() :: %{}
+
+  """
+  @type stop_dev_environment_session_request() :: %{}
 
   @typedoc """
 
@@ -1600,6 +460,1146 @@ defmodule AWS.CodeCatalyst do
 
   """
   @type create_source_repository_branch_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_payload() :: %{
+        "contentType" => [String.t() | atom()],
+        "data" => [String.t() | atom()]
+      }
+
+  """
+  @type event_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_response() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type update_space_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_space_response() :: %{
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type delete_space_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ide() :: %{
+        "name" => [String.t() | atom()],
+        "runtime" => [String.t() | atom()]
+      }
+
+  """
+  @type ide() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      persistent_storage_configuration() :: %{
+        "sizeInGiB" => [integer()]
+      }
+
+  """
+  @type persistent_storage_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_space_request() :: %{}
+
+  """
+  @type get_space_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_repository_clone_urls_request() :: %{}
+
+  """
+  @type get_source_repository_clone_urls_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_response() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type create_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_request() :: %{
+        optional("description") => String.t() | atom(),
+        required("displayName") => String.t() | atom()
+      }
+
+  """
+  @type create_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_summary() :: %{
+        "createdTime" => non_neg_integer(),
+        "definition" => workflow_definition_summary(),
+        "id" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => [String.t() | atom()],
+        "runMode" => String.t() | atom(),
+        "sourceBranchName" => String.t() | atom(),
+        "sourceRepositoryName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type workflow_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      space_summary() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "regionName" => String.t() | atom()
+      }
+
+  """
+  @type space_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dev_environment_request() :: %{
+        optional("alias") => [String.t() | atom()],
+        optional("clientToken") => String.t() | atom(),
+        optional("ides") => list(ide_configuration()),
+        optional("inactivityTimeoutMinutes") => integer(),
+        optional("instanceType") => String.t() | atom()
+      }
+
+  """
+  @type update_dev_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_dev_environment_request() :: %{}
+
+  """
+  @type stop_dev_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_run_response() :: %{
+        "endTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "startTime" => non_neg_integer(),
+        "status" => String.t() | atom(),
+        "statusReasons" => list(workflow_run_status_reason()),
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_access_token_request() :: %{
+        optional("expiresTime") => non_neg_integer(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_access_token_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dev_environment_response() :: %{
+        "alias" => [String.t() | atom()],
+        "creatorId" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "ides" => list(ide()),
+        "inactivityTimeoutMinutes" => integer(),
+        "instanceType" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "persistentStorage" => persistent_storage(),
+        "projectName" => String.t() | atom(),
+        "repositories" => list(dev_environment_repository_summary()),
+        "spaceName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
+        "vpcConnectionName" => String.t() | atom()
+      }
+
+  """
+  @type get_dev_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dev_environment_sessions_response() :: %{
+        "items" => list(dev_environment_session_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dev_environment_sessions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_environment_session_summary() :: %{
+        "devEnvironmentId" => String.t() | atom(),
+        "id" => [String.t() | atom()],
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "startedTime" => non_neg_integer()
+      }
+
+  """
+  @type dev_environment_session_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dev_environment_session_response() :: %{
+        "accessDetails" => dev_environment_access_details(),
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "sessionId" => [String.t() | atom()],
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type start_dev_environment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_project_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_response() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type get_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_identity() :: %{
+        "awsAccountId" => [String.t() | atom()],
+        "principalId" => [String.t() | atom()],
+        "userName" => [String.t() | atom()],
+        "userType" => String.t() | atom()
+      }
+
+  """
+  @type user_identity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_request() :: %{}
+
+  """
+  @type get_subscription_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_environment_access_details() :: %{
+        "streamUrl" => String.t() | atom(),
+        "tokenValue" => String.t() | atom()
+      }
+
+  """
+  @type dev_environment_access_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_information() :: %{
+        "name" => [String.t() | atom()],
+        "projectId" => [String.t() | atom()]
+      }
+
+  """
+  @type project_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repository_branches_item() :: %{
+        "headCommitId" => [String.t() | atom()],
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "ref" => String.t() | atom()
+      }
+
+  """
+  @type list_source_repository_branches_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dev_environment_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type delete_dev_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dev_environment_sessions_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_dev_environment_sessions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_token_request() :: %{}
+
+  """
+  @type delete_access_token_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_access_token_response() :: %{}
+
+  """
+  @type delete_access_token_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_dev_environment_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type stop_dev_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_runs_response() :: %{
+        "items" => list(workflow_run_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_workflow_runs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_request() :: %{}
+
+  """
+  @type get_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      event_log_entry() :: %{
+        "errorCode" => [String.t() | atom()],
+        "eventCategory" => [String.t() | atom()],
+        "eventName" => [String.t() | atom()],
+        "eventSource" => [String.t() | atom()],
+        "eventTime" => non_neg_integer(),
+        "eventType" => [String.t() | atom()],
+        "id" => [String.t() | atom()],
+        "operationType" => String.t() | atom(),
+        "projectInformation" => project_information(),
+        "requestId" => [String.t() | atom()],
+        "requestPayload" => event_payload(),
+        "responsePayload" => event_payload(),
+        "sourceIpAddress" => [String.t() | atom()],
+        "userAgent" => [String.t() | atom()],
+        "userIdentity" => user_identity()
+      }
+
+  """
+  @type event_log_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repositories_item() :: %{
+        "createdTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type list_source_repositories_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_space_response() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "regionName" => String.t() | atom()
+      }
+
+  """
+  @type get_space_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dev_environment_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "vpcConnectionName" => String.t() | atom()
+      }
+
+  """
+  @type create_dev_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_response() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type update_project_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_dev_environment_session_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "sessionId" => [String.t() | atom()],
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type stop_dev_environment_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_repository_clone_urls_response() :: %{
+        "https" => [String.t() | atom()]
+      }
+
+  """
+  @type get_source_repository_clone_urls_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_token_summary() :: %{
+        "expiresTime" => non_neg_integer(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type access_token_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_logs_response() :: %{
+        "items" => list(event_log_entry()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_event_logs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_request() :: %{}
+
+  """
+  @type get_project_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dev_environments_request() :: %{
+        optional("filters") => list(filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("projectName") => String.t() | atom()
+      }
+
+  """
+  @type list_dev_environments_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_response() :: %{
+        "items" => list(workflow_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_spaces_response() :: %{
+        "items" => list(space_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_spaces_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dev_environment_request() :: %{
+        optional("ides") => list(ide_configuration()),
+        optional("inactivityTimeoutMinutes") => integer(),
+        optional("instanceType") => String.t() | atom()
+      }
+
+  """
+  @type start_dev_environment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_space_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type update_space_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dev_environment_request() :: %{}
+
+  """
+  @type delete_dev_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_details_request() :: %{
+        optional("id") => [String.t() | atom()],
+        optional("userName") => [String.t() | atom()]
+      }
+
+  """
+  @type get_user_details_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_definition_summary() :: %{
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type workflow_definition_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_repository_request() :: %{}
+
+  """
+  @type get_source_repository_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_dev_environment_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_dev_environment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_logs_request() :: %{
+        optional("eventName") => [String.t() | atom()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        required("endTime") => non_neg_integer(),
+        required("startTime") => non_neg_integer()
+      }
+
+  """
+  @type list_event_logs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_dev_environments_response() :: %{
+        "items" => list(dev_environment_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_dev_environments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_repository_request() :: %{}
+
+  """
+  @type delete_source_repository_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_response() :: %{
+        "items" => list(project_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_projects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repositories_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_source_repositories_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("sortBy") => list(workflow_sort_criteria())
+      }
+
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_request() :: %{
+        optional("filters") => list(project_list_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_projects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_environment_summary() :: %{
+        "alias" => [String.t() | atom()],
+        "creatorId" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "ides" => list(ide()),
+        "inactivityTimeoutMinutes" => integer(),
+        "instanceType" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "persistentStorage" => persistent_storage(),
+        "projectName" => String.t() | atom(),
+        "repositories" => list(dev_environment_repository_summary()),
+        "spaceName" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "statusReason" => String.t() | atom(),
+        "vpcConnectionName" => String.t() | atom()
+      }
+
+  """
+  @type dev_environment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repositories_response() :: %{
+        "items" => list(list_source_repositories_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_source_repositories_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_run_request() :: %{}
+
+  """
+  @type get_workflow_run_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_sort_criteria() :: %{}
+
+  """
+  @type workflow_sort_criteria() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_environment_session_configuration() :: %{
+        "executeCommandSessionConfiguration" => execute_command_session_configuration(),
+        "sessionType" => String.t() | atom()
+      }
+
+  """
+  @type dev_environment_session_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_workflow_run_response() :: %{
+        "id" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom(),
+        "workflowId" => String.t() | atom()
+      }
+
+  """
+  @type start_workflow_run_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ide_configuration() :: %{
+        "name" => [String.t() | atom()],
+        "runtime" => [String.t() | atom()]
+      }
+
+  """
+  @type ide_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_source_repository_response() :: %{
+        "name" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type delete_source_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_source_repository_response() :: %{
+        "createdTime" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "lastUpdatedTime" => non_neg_integer(),
+        "name" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type get_source_repository_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflow_runs_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()],
+        optional("sortBy") => list(workflow_run_sort_criteria()),
+        optional("workflowId") => String.t() | atom()
+      }
+
+  """
+  @type list_workflow_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_response() :: %{
+        "awsAccountName" => String.t() | atom(),
+        "pendingSubscriptionStartTime" => non_neg_integer(),
+        "pendingSubscriptionType" => [String.t() | atom()],
+        "subscriptionType" => [String.t() | atom()]
+      }
+
+  """
+  @type get_subscription_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      verify_session_response() :: %{
+        "identity" => [String.t() | atom()]
+      }
+
+  """
+  @type verify_session_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_definition() :: %{
+        "path" => [String.t() | atom()]
+      }
+
+  """
+  @type workflow_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dev_environment_request() :: %{}
+
+  """
+  @type get_dev_environment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      execute_command_session_configuration() :: %{
+        "arguments" => list([String.t() | atom()]()),
+        "command" => [String.t() | atom()]
+      }
+
+  """
+  @type execute_command_session_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_details_response() :: %{
+        "displayName" => [String.t() | atom()],
+        "primaryEmail" => email_address(),
+        "userId" => [String.t() | atom()],
+        "userName" => [String.t() | atom()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type get_user_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_run_sort_criteria() :: %{}
+
+  """
+  @type workflow_run_sort_criteria() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_workflow_run_request() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        required("workflowId") => String.t() | atom()
+      }
+
+  """
+  @type start_workflow_run_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repository_branches_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_source_repository_branches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_repository_request() :: %{
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type create_source_repository_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_source_repository_branch_request() :: %{
+        optional("headCommitId") => [String.t() | atom()]
+      }
+
+  """
+  @type create_source_repository_branch_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dev_environment_repository_summary() :: %{
+        "branchName" => String.t() | atom(),
+        "repositoryName" => String.t() | atom()
+      }
+
+  """
+  @type dev_environment_repository_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "description" => [String.t() | atom()],
+        "displayName" => [String.t() | atom()],
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type project_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "comparisonOperator" => [String.t() | atom()],
+        "key" => [String.t() | atom()],
+        "values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_source_repository_branches_response() :: %{
+        "items" => list(list_source_repository_branches_item()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_source_repository_branches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dev_environment_response() :: %{
+        "alias" => [String.t() | atom()],
+        "clientToken" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "ides" => list(ide_configuration()),
+        "inactivityTimeoutMinutes" => integer(),
+        "instanceType" => String.t() | atom(),
+        "projectName" => String.t() | atom(),
+        "spaceName" => String.t() | atom()
+      }
+
+  """
+  @type update_dev_environment_response() :: %{(String.t() | atom()) => any()}
 
   def metadata do
     %{

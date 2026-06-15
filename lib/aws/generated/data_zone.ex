@@ -19,1666 +19,77 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      lineage_node_item() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "downstreamLineageNodeIds" => list(String.t() | atom()),
-        "eventTimestamp" => [non_neg_integer()],
-        "formsOutput" => list(form_output()),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "sourceIdentifier" => [String.t() | atom()],
-        "typeName" => [String.t() | atom()],
-        "typeRevision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
-        "upstreamLineageNodeIds" => list(String.t() | atom())
-      }
-
-  """
-  @type lineage_node_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      policy_grant_member() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "detail" => list(),
-        "grantId" => String.t() | atom(),
-        "principal" => list()
-      }
-
-  """
-  @type policy_grant_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_revision() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type asset_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_project_profiles_output() :: %{
-        "items" => list(project_profile_summary()),
+      search_group_profiles_output() :: %{
+        "items" => list(group_profile_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_project_profiles_output() :: %{(String.t() | atom()) => any()}
+  @type search_group_profiles_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_form_enforcement_detail() :: %{
-        "requiredMetadataForms" => list(metadata_form_reference())
-      }
-
-  """
-  @type metadata_form_enforcement_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_profile_input() :: %{
-        required("status") => list(any())
-      }
-
-  """
-  @type update_group_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_output() :: %{
-        "description" => [String.t() | atom()],
-        "domainExecutionRole" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => [String.t() | atom()],
-        "rootDomainUnitId" => String.t() | atom(),
-        "serviceRole" => String.t() | atom(),
-        "singleSignOn" => single_sign_on()
-      }
-
-  """
-  @type update_domain_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metadata_generation_runs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("targetIdentifier") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_metadata_generation_runs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("externalIdentifier") => String.t() | atom(),
-        optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("predictionConfiguration") => prediction_configuration(),
-        optional("typeRevision") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom(),
-        required("typeIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_user_profiles_output() :: %{
-        "items" => list(user_profile_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type search_user_profiles_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_item() :: %{
-        "additionalAttributes" => asset_item_additional_attributes(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "externalIdentifier" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "governedGlossaryTerms" => list(String.t() | atom()),
-        "identifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type asset_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_pool_summary() :: %{
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "resolutionStrategy" => list(any()),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type account_pool_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      business_name_generation_configuration() :: %{
-        "enabled" => [boolean()]
-      }
-
-  """
-  @type business_name_generation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_form_type_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type create_form_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_listing() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataProductId" => String.t() | atom(),
-        "dataProductRevision" => String.t() | atom(),
-        "forms" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "items" => list(listing_summary()),
-        "owningProjectId" => String.t() | atom()
-      }
-
-  """
-  @type data_product_listing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_action_input() :: %{
-        optional("description") => [String.t() | atom()],
-        required("name") => [String.t() | atom()],
-        required("parameters") => list()
-      }
-
-  """
-  @type create_environment_action_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_actions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environment_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_summary_item() :: %{
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "listingId" => String.t() | atom(),
-        "listingRevision" => String.t() | atom()
-      }
-
-  """
-  @type listing_summary_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_filter_summary() :: %{
-        "assetId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "effectiveColumnNames" => list([String.t() | atom()]()),
-        "effectiveRowFilter" => [String.t() | atom()],
+      glue_properties_output() :: %{
         "errorMessage" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type asset_filter_summary() :: %{(String.t() | atom()) => any()}
+  @type glue_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_credential_configuration() :: %{
-        "secretManagerArn" => [String.t() | atom()]
+      redshift_lineage_sync_configuration_input() :: %{
+        "enabled" => [boolean()],
+        "schedule" => lineage_sync_schedule()
       }
 
   """
-  @type redshift_credential_configuration() :: %{(String.t() | atom()) => any()}
+  @type redshift_lineage_sync_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      encryption_configuration() :: %{
-        "kmsKeyArn" => [String.t() | atom()],
-        "sseAlgorithm" => [String.t() | atom()]
-      }
-
-  """
-  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_glossary_term_output() :: %{
-        "domainId" => String.t() | atom(),
-        "glossaryId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "longDescription" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "shortDescription" => String.t() | atom(),
-        "status" => list(any()),
-        "termRelations" => term_relations(),
-        "usageRestrictions" => list(list(any())())
-      }
-
-  """
-  @type update_glossary_term_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_time_series_data_points_output() :: %{}
-
-  """
-  @type delete_time_series_data_points_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_blueprint_configurations_output() :: %{
-        "items" => list(environment_blueprint_configuration_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_environment_blueprint_configurations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_source_runs_output() :: %{
-        "items" => list(data_source_run_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_source_runs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_run_configuration_input() :: %{
-        "dataAccessRole" => [String.t() | atom()],
-        "redshiftCredentialConfiguration" => redshift_credential_configuration(),
-        "redshiftStorage" => list(),
-        "relationalFilterConfigurations" => list(relational_filter_configuration())
-      }
-
-  """
-  @type redshift_run_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_filters_output() :: %{
-        "items" => list(asset_filter_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_asset_filters_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_properties_input() :: %{
-        "credentials" => list(),
-        "databaseName" => [String.t() | atom()],
-        "host" => [String.t() | atom()],
-        "lineageSync" => redshift_lineage_sync_configuration_input(),
-        "port" => [integer()],
-        "storage" => list()
-      }
-
-  """
-  @type redshift_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_source_runs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_data_source_runs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_generation_run_type_stat() :: %{
-        "errorMessage" => [String.t() | atom()],
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type metadata_generation_run_type_stat() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_type_input() :: %{
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type get_asset_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_sort() :: %{
-        "attribute" => String.t() | atom(),
-        "order" => list(any())
-      }
-
-  """
-  @type search_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription_summary() :: %{
+      start_notebook_export_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "fileFormat" => list(any()),
         "id" => String.t() | atom(),
-        "retainPermissions" => [boolean()],
-        "status" => list(any()),
-        "subscribedListing" => subscribed_listing(),
-        "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type subscription_summary() :: %{(String.t() | atom()) => any()}
+  @type start_notebook_export_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      subscription_target_form() :: %{
-        "content" => [String.t() | atom()],
-        "formName" => String.t() | atom()
-      }
-
-  """
-  @type subscription_target_form() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_project_memberships_output() :: %{
-        "members" => list(project_member()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_project_memberships_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_profile_input() :: %{
-        optional("awsAccountId") => String.t() | atom(),
-        optional("awsAccountRegion") => String.t() | atom(),
-        optional("description") => [String.t() | atom()],
-        optional("name") => String.t() | atom(),
-        optional("userParameters") => list(environment_parameter())
-      }
-
-  """
-  @type update_environment_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_profile_input() :: %{}
-
-  """
-  @type get_project_profile_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_properties_patch() :: %{
+      s3_properties_input() :: %{
         "registerS3AccessGrantLocation" => [boolean()],
         "s3AccessGrantLocationId" => String.t() | atom(),
         "s3Uri" => String.t() | atom()
       }
 
   """
-  @type s3_properties_patch() :: %{(String.t() | atom()) => any()}
+  @type s3_properties_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t() | atom()),
-        "authorizedPrincipals" => list(String.t() | atom()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "manageAccessRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "subscriptionGrantCreationMode" => list(any()),
-        "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
+      delete_glossary_term_input() :: %{}
 
   """
-  @type update_subscription_target_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_subscription_request_input() :: %{
-        optional("decisionComment") => String.t() | atom()
-      }
-
-  """
-  @type reject_subscription_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connection_input() :: %{}
-
-  """
-  @type delete_connection_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_group_profile_output() :: %{
-        "domainId" => String.t() | atom(),
-        "groupName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rolePrincipalArn" => [String.t() | atom()],
-        "rolePrincipalId" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type update_group_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notebook_export_output() :: %{
-        "completedAt" => non_neg_integer(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "error" => notebook_export_error(),
-        "fileFormat" => list(any()),
-        "id" => String.t() | atom(),
-        "notebookId" => String.t() | atom(),
-        "outputLocation" => list(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_notebook_export_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_output() :: %{
-        "items" => list(job_run_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_job_runs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_input() :: %{}
-
-  """
-  @type get_domain_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_action_input() :: %{}
-
-  """
-  @type get_environment_action_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_grants_output() :: %{
-        "grantList" => list(policy_grant_member()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_policy_grants_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      managed_endpoint_credentials() :: %{
-        "id" => [String.t() | atom()],
-        "token" => [String.t() | atom()]
-      }
-
-  """
-  @type managed_endpoint_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unauthorized_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_form_reference() :: %{
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type metadata_form_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_filter_output() :: %{
-        "assetId" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "effectiveColumnNames" => list([String.t() | atom()]()),
-        "effectiveRowFilter" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_asset_filter_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_form_type_output() :: %{}
-
-  """
-  @type delete_form_type_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_entity_owner_output() :: %{}
-
-  """
-  @type remove_entity_owner_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_properties_output() :: %{
-        "credentials" => list(),
-        "databaseName" => [String.t() | atom()],
-        "isProvisionedSecret" => [boolean()],
-        "jdbcIamUrl" => [String.t() | atom()],
-        "jdbcUrl" => [String.t() | atom()],
-        "lineageSync" => redshift_lineage_sync_configuration_output(),
-        "redshiftTempDir" => [String.t() | atom()],
-        "status" => list(any()),
-        "storage" => list()
-      }
-
-  """
-  @type redshift_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_listing_details() :: %{
-        "listingId" => String.t() | atom(),
-        "listingStatus" => list(any())
-      }
-
-  """
-  @type asset_listing_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      all_users_grant_filter() :: %{}
-
-  """
-  @type all_users_grant_filter() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_configuration_parameters_details() :: %{
-        "parameterOverrides" => list(environment_configuration_parameter()),
-        "resolvedParameters" => list(environment_configuration_parameter()),
-        "ssmPath" => String.t() | atom()
-      }
-
-  """
-  @type environment_configuration_parameters_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_sync_schedule() :: %{
-        "schedule" => [String.t() | atom()]
-      }
-
-  """
-  @type lineage_sync_schedule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_root_domain_unit_owner_output() :: %{}
-
-  """
-  @type update_root_domain_unit_owner_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      network_config() :: %{
-        "networkAccessType" => list(any()),
-        "securityGroupIds" => list([String.t() | atom()]()),
-        "subnetIds" => list([String.t() | atom()]()),
-        "vpcId" => [String.t() | atom()]
-      }
-
-  """
-  @type network_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_notebook_output() :: %{
-        "cellOrder" => list(cell_information()),
-        "computeId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentConfiguration" => environment_config(),
-        "error" => notebook_error(),
-        "id" => String.t() | atom(),
-        "lockExpiresAt" => [non_neg_integer()],
-        "lockedAt" => [non_neg_integer()],
-        "lockedBy" => [String.t() | atom()],
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "parameters" => map(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type update_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_account_pool_output() :: %{
-        "accountSource" => list(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "resolutionStrategy" => list(any()),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type create_account_pool_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment() :: %{
-        "deploymentId" => [String.t() | atom()],
-        "deploymentStatus" => list(any()),
-        "deploymentType" => list(any()),
-        "failureReason" => environment_error(),
-        "isDeploymentComplete" => [boolean()],
-        "messages" => list(String.t() | atom())
-      }
-
-  """
-  @type deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_output() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "deploymentProperties" => deployment_properties(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentActions" => list(configurable_environment_action()),
-        "environmentBlueprintId" => String.t() | atom(),
-        "environmentConfigurationId" => String.t() | atom(),
-        "environmentConfigurationName" => String.t() | atom(),
-        "environmentProfileId" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "lastDeployment" => deployment(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisionedResources" => list(resource()),
-        "provisioningProperties" => list(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type get_environment_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("domainUnitId") => String.t() | atom(),
-        optional("environmentDeploymentDetails") => environment_deployment_details(),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("name") => String.t() | atom(),
-        optional("projectProfileVersion") => [String.t() | atom()],
-        optional("resourceTags") => map(),
-        optional("userParameters") => list(environment_configuration_user_parameter())
-      }
-
-  """
-  @type update_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_input() :: %{}
-
-  """
-  @type get_data_source_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lineage_node_input() :: %{
-        optional("eventTimestamp") => [non_neg_integer()]
-      }
-
-  """
-  @type get_lineage_node_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_member() :: %{
-        "designation" => list(any()),
-        "memberDetails" => list()
-      }
-
-  """
-  @type project_member() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "failureReasons" => list(project_deletion_error()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectCategory" => [String.t() | atom()],
-        "projectStatus" => list(any()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type project_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notebook_output() :: %{
-        "cellOrder" => list(cell_information()),
-        "computeId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentConfiguration" => environment_config(),
-        "error" => notebook_error(),
-        "id" => String.t() | atom(),
-        "lockExpiresAt" => [non_neg_integer()],
-        "lockedAt" => [non_neg_integer()],
-        "lockedBy" => [String.t() | atom()],
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "parameters" => map(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_resolved_account() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "regionName" => String.t() | atom(),
-        "sourceAccountPoolId" => String.t() | atom()
-      }
-
-  """
-  @type environment_resolved_account() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workflows_mwaa_properties_input() :: %{
-        "mwaaEnvironmentName" => [String.t() | atom()]
-      }
-
-  """
-  @type workflows_mwaa_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notebook_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type notebook_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_connection() :: %{
-        "athenaProperties" => map(),
-        "authenticationConfiguration" => authentication_configuration(),
-        "compatibleComputeEnvironments" => list(list(any())()),
-        "connectionProperties" => map(),
-        "connectionSchemaVersion" => [integer()],
-        "connectionType" => list(any()),
-        "creationTime" => [non_neg_integer()],
-        "description" => [String.t() | atom()],
-        "lastConnectionValidationTime" => [non_neg_integer()],
-        "lastUpdatedBy" => [String.t() | atom()],
-        "lastUpdatedTime" => [non_neg_integer()],
-        "matchCriteria" => list([String.t() | atom()]()),
-        "name" => [String.t() | atom()],
-        "physicalConnectionRequirements" => physical_connection_requirements(),
-        "pythonProperties" => map(),
-        "sparkProperties" => map(),
-        "status" => list(any()),
-        "statusReason" => [String.t() | atom()]
-      }
-
-  """
-  @type glue_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_type_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type create_asset_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_accounts_in_account_pool_output() :: %{
-        "items" => list(account_info()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_accounts_in_account_pool_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_deletion_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type project_deletion_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_action_output() :: %{
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "parameters" => list()
-      }
-
-  """
-  @type create_environment_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authentication_configuration_input() :: %{
-        "authenticationType" => list(any()),
-        "basicAuthenticationCredentials" => basic_authentication_credentials(),
-        "customAuthenticationCredentials" => map(),
-        "kmsKeyArn" => [String.t() | atom()],
-        "oAuth2Properties" => o_auth2_properties(),
-        "secretArn" => [String.t() | atom()]
-      }
-
-  """
-  @type authentication_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_project_profile_output() :: %{
-        "allowCustomProjectResourceTags" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "projectResourceTags" => list(resource_tag_parameter()),
-        "projectResourceTagsDescription" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_project_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_listing_change_set_output() :: %{
-        "listingId" => String.t() | atom(),
-        "listingRevision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_listing_change_set_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_profile_output() :: %{
-        "domainId" => String.t() | atom(),
-        "groupName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rolePrincipalArn" => [String.t() | atom()],
-        "rolePrincipalId" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type get_group_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_blueprint_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "deploymentProperties" => deployment_properties(),
-        "description" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisioningProperties" => list(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type create_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_input() :: %{
-        optional("deploymentOrder") => [integer()],
-        optional("description") => [String.t() | atom()],
-        optional("environmentAccountIdentifier") => [String.t() | atom()],
-        optional("environmentAccountRegion") => [String.t() | atom()],
-        optional("environmentBlueprintIdentifier") => [String.t() | atom()],
-        optional("environmentConfigurationId") => [String.t() | atom()],
-        optional("environmentConfigurationName") => String.t() | atom(),
-        optional("environmentProfileIdentifier") => String.t() | atom(),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("userParameters") => list(environment_parameter()),
-        required("name") => [String.t() | atom()],
-        required("projectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_environment_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authorization_code_properties() :: %{
-        "authorizationCode" => [String.t() | atom()],
-        "redirectUri" => [String.t() | atom()]
-      }
-
-  """
-  @type authorization_code_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_profile_output() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentBlueprintId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type update_environment_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      term_relations() :: %{
-        "classifies" => list(String.t() | atom()),
-        "isA" => list(String.t() | atom())
-      }
-
-  """
-  @type term_relations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_target_input() :: %{}
-
-  """
-  @type get_subscription_target_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lineage_events_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("processingStatus") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("timestampAfter") => [non_neg_integer()],
-        optional("timestampBefore") => [non_neg_integer()]
-      }
-
-  """
-  @type list_lineage_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_time_series_data_points_output() :: %{
-        "items" => list(time_series_data_point_summary_form_output()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_time_series_data_points_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_product_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("items") => list(data_product_item()),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_data_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notebook_run_input() :: %{}
-
-  """
-  @type get_notebook_run_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_governed_terms_output() :: %{}
-
-  """
-  @type associate_governed_terms_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_summary() :: %{
-        "arn" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainVersion" => list(any()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "managedAccountId" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "portalUrl" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type domain_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notebook_run_summary() :: %{
-        "completedAt" => [non_neg_integer()],
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "notebookId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "scheduleId" => String.t() | atom(),
-        "startedAt" => [non_neg_integer()],
-        "status" => list(any()),
-        "triggerSource" => trigger_source(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type notebook_run_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type create_project_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_revision() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type data_product_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t() | atom()),
-        "authorizedPrincipals" => list(String.t() | atom()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "manageAccessRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "subscriptionGrantCreationMode" => list(any()),
-        "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type create_subscription_target_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_run_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "endTime" => [non_neg_integer()],
-        "error" => job_run_error(),
-        "jobId" => [String.t() | atom()],
-        "jobType" => list(any()),
-        "runId" => [String.t() | atom()],
-        "runMode" => list(any()),
-        "startTime" => [non_neg_integer()],
-        "status" => list(any())
-      }
-
-  """
-  @type job_run_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_request_input() :: %{
-        optional("assetPermissions") => list(asset_permission()),
-        optional("assetScopes") => list(accepted_asset_scope()),
-        optional("clientToken") => [String.t() | atom()],
-        optional("metadataForms") => list(form_input()),
-        required("requestReason") => String.t() | atom(),
-        required("subscribedListings") => list(subscribed_listing_input()),
-        required("subscribedPrincipals") => list(list())
-      }
-
-  """
-  @type create_subscription_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_group_properties_output() :: %{
-        "groupId" => [String.t() | atom()]
-      }
-
-  """
-  @type owner_group_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_q_properties_input() :: %{
-        "authMode" => [String.t() | atom()],
-        "isEnabled" => [boolean()],
-        "profileArn" => [String.t() | atom()]
-      }
-
-  """
-  @type amazon_q_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_pools_input() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_account_pools_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_product_revision_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "items" => list(data_product_item()),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_data_product_revision_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_input() :: %{
-        optional("assetFormsInput") => list(form_input()),
-        optional("clientToken") => [String.t() | atom()],
-        optional("configuration") => list(),
-        optional("connectionIdentifier") => [String.t() | atom()],
-        optional("description") => String.t() | atom(),
-        optional("enableSetting") => list(any()),
-        optional("environmentIdentifier") => [String.t() | atom()],
-        optional("publishOnImport") => [boolean()],
-        optional("recommendation") => recommendation_configuration(),
-        optional("schedule") => schedule_configuration(),
-        required("name") => String.t() | atom(),
-        required("projectIdentifier") => [String.t() | atom()],
-        required("type") => String.t() | atom()
-      }
-
-  """
-  @type create_data_source_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_form_type_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("model") => list(),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_form_type_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_profile_output() :: %{
-        "allowCustomProjectResourceTags" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "projectResourceTags" => list(resource_tag_parameter()),
-        "projectResourceTagsDescription" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_project_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_policy_grant_output() :: %{
-        "grantId" => String.t() | atom()
-      }
-
-  """
-  @type add_policy_grant_output() :: %{(String.t() | atom()) => any()}
+  @type delete_glossary_term_input() :: %{}
 
   @typedoc """
 
@@ -1709,445 +120,47 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      list_accounts_in_account_pool_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      create_data_source_input() :: %{
+        optional("assetFormsInput") => list(form_input()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("configuration") => list(),
+        optional("connectionIdentifier") => [String.t() | atom()],
+        optional("description") => String.t() | atom(),
+        optional("enableSetting") => list(any()),
+        optional("environmentIdentifier") => [String.t() | atom()],
+        optional("publishOnImport") => [boolean()],
+        optional("recommendation") => recommendation_configuration(),
+        optional("schedule") => schedule_configuration(),
+        required("name") => String.t() | atom(),
+        required("projectIdentifier") => [String.t() | atom()],
+        required("type") => String.t() | atom()
       }
 
   """
-  @type list_accounts_in_account_pool_input() :: %{(String.t() | atom()) => any()}
+  @type create_data_source_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      notification_resource() :: %{
-        "id" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "type" => list(any())
+      batch_put_attribute_output() :: %{
+        "attributeIdentifier" => String.t() | atom()
       }
 
   """
-  @type notification_resource() :: %{(String.t() | atom()) => any()}
+  @type batch_put_attribute_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_source_run_activity() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataAssetId" => [String.t() | atom()],
-        "dataAssetStatus" => list(any()),
-        "dataSourceRunId" => String.t() | atom(),
-        "database" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "lineageSummary" => lineage_info(),
-        "projectId" => String.t() | atom(),
-        "technicalDescription" => String.t() | atom(),
-        "technicalName" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type data_source_run_activity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_input() :: %{}
-
-  """
-  @type delete_environment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_input() :: %{
-        optional("additionalAttributes") => list(list(any())()),
-        optional("filters") => list(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owningProjectIdentifier") => String.t() | atom(),
-        optional("searchIn") => list(search_in_item()),
-        optional("searchText") => String.t() | atom(),
-        optional("sort") => search_sort(),
-        required("searchScope") => list(any())
-      }
-
-  """
-  @type search_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_pool_output() :: %{
-        "accountSource" => list(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "resolutionStrategy" => list(any()),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_account_pool_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      single_sign_on() :: %{
-        "idcInstanceArn" => [String.t() | atom()],
-        "type" => list(any()),
-        "userAssignment" => list(any())
-      }
-
-  """
-  @type single_sign_on() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notebook_input() :: %{}
-
-  """
-  @type get_notebook_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "externalIdentifier" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "governedGlossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
-        "listing" => asset_listing_details(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "predictionConfiguration" => prediction_configuration(),
-        "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t() | atom(),
+      metadata_form_reference() :: %{
         "typeIdentifier" => String.t() | atom(),
         "typeRevision" => String.t() | atom()
       }
 
   """
-  @type create_asset_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_grants_output() :: %{
-        "items" => list(subscription_grant_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_subscription_grants_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_configuration_user_parameter() :: %{
-        "environmentConfigurationName" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "environmentParameters" => list(environment_parameter()),
-        "environmentResolvedAccount" => environment_resolved_account()
-      }
-
-  """
-  @type environment_configuration_user_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      less_than_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type less_than_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_subscription_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "retainPermissions" => [boolean()],
-        "status" => list(any()),
-        "subscribedListing" => subscribed_listing(),
-        "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type revoke_subscription_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_rule_output() :: %{
-        "action" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "detail" => list(),
-        "identifier" => String.t() | atom(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "ruleType" => list(any()),
-        "scope" => rule_scope(),
-        "target" => list(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_rule_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_profile_output() :: %{
-        "details" => list(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type get_user_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_entity_owner_output() :: %{}
-
-  """
-  @type add_entity_owner_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connections_output() :: %{
-        "items" => list(connection_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_connections_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      user_details() :: %{
-        "userId" => [String.t() | atom()]
-      }
-
-  """
-  @type user_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_unit_input() :: %{}
-
-  """
-  @type delete_domain_unit_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_product_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "items" => list(data_product_item()),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_data_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_connection_input() :: %{
-        optional("awsLocation") => aws_location(),
-        optional("configurations") => list(configuration()),
-        optional("description") => String.t() | atom(),
-        optional("props") => list()
-      }
-
-  """
-  @type update_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_job_runs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_job_runs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notebook_error() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type notebook_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_profile_policy_grant_detail() :: %{
-        "domainUnitId" => String.t() | atom()
-      }
-
-  """
-  @type create_environment_profile_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notebook_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("metadata") => map(),
-        optional("parameters") => map(),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_notebook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_time_series_data_points_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("formName") => String.t() | atom()
-      }
-
-  """
-  @type delete_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group_profile_summary() :: %{
-        "domainId" => String.t() | atom(),
-        "groupName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "rolePrincipalArn" => [String.t() | atom()],
-        "rolePrincipalId" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type group_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_revision_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("predictionConfiguration") => prediction_configuration(),
-        optional("typeRevision") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_revision_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_info() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountName" => String.t() | atom(),
-        "supportedRegions" => list(String.t() | atom())
-      }
-
-  """
-  @type account_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      is_not_null_expression() :: %{
-        "columnName" => [String.t() | atom()]
-      }
-
-  """
-  @type is_not_null_expression() :: %{(String.t() | atom()) => any()}
+  @type metadata_form_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2161,406 +174,6 @@ defmodule AWS.DataZone do
 
   """
   @type resource_tag_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_request_input() :: %{
-        required("requestReason") => String.t() | atom()
-      }
-
-  """
-  @type update_subscription_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      unit() :: %{}
-
-  """
-  @type unit() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_unit_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owners" => list(list()),
-        "parentDomainUnitId" => String.t() | atom()
-      }
-
-  """
-  @type update_domain_unit_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_listing_input() :: %{
-        optional("listingRevision") => String.t() | atom()
-      }
-
-  """
-  @type get_listing_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lakehouse_properties_input() :: %{
-        "glueLineageSyncEnabled" => [boolean()]
-      }
-
-  """
-  @type lakehouse_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_self_grant_status_output() :: %{
-        "selfGrantStatusDetails" => list(self_grant_status_detail())
-      }
-
-  """
-  @type redshift_self_grant_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentDeploymentDetails" => environment_deployment_details(),
-        "failureReasons" => list(project_deletion_error()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "projectCategory" => [String.t() | atom()],
-        "projectProfileId" => String.t() | atom(),
-        "projectStatus" => list(any()),
-        "resourceTags" => list(resource_tag()),
-        "userParameters" => list(environment_configuration_user_parameter())
-      }
-
-  """
-  @type create_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_blueprint_configuration_input() :: %{}
-
-  """
-  @type get_environment_blueprint_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      match_offset() :: %{
-        "endOffset" => [integer()],
-        "startOffset" => [integer()]
-      }
-
-  """
-  @type match_offset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription_target_summary() :: %{
-        "applicableAssetTypes" => list(String.t() | atom()),
-        "authorizedPrincipals" => list(String.t() | atom()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "manageAccessRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "subscriptionGrantCreationMode" => list(any()),
-        "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type subscription_target_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lineage_node_history_input() :: %{
-        optional("direction") => list(any()),
-        optional("eventTimestampGTE") => [non_neg_integer()],
-        optional("eventTimestampLTE") => [non_neg_integer()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_lineage_node_history_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      revoke_subscription_input() :: %{
-        optional("retainPermissions") => [boolean()]
-      }
-
-  """
-  @type revoke_subscription_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_types_input() :: %{
-        optional("filters") => list(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("searchIn") => list(search_in_item()),
-        optional("searchText") => String.t() | atom(),
-        optional("sort") => search_sort(),
-        required("managed") => [boolean()],
-        required("searchScope") => list(any())
-      }
-
-  """
-  @type search_types_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_connection_output() :: %{
-        "configurations" => list(configuration()),
-        "connectionId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t() | atom(),
-        "props" => list(),
-        "scope" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type create_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      override_project_owners_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type override_project_owners_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_environment_role_input() :: %{}
-
-  """
-  @type disassociate_environment_role_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      greater_than_or_equal_to_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type greater_than_or_equal_to_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_pool_output() :: %{}
-
-  """
-  @type delete_account_pool_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_policy_grants_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("policyType") => list(any())
-      }
-
-  """
-  @type list_policy_grants_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configuration() :: %{
-        "classification" => [String.t() | atom()],
-        "properties" => map()
-      }
-
-  """
-  @type configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lineage_event_input() :: %{}
-
-  """
-  @type get_lineage_event_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_filter_for_project() :: %{
-        "domainUnit" => String.t() | atom(),
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type domain_unit_filter_for_project() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_filter_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("description") => String.t() | atom(),
-        required("configuration") => list(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_asset_filter_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mlflow_properties_patch() :: %{
-        "trackingServerArn" => [String.t() | atom()]
-      }
-
-  """
-  @type mlflow_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_time_series_data_points_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("forms") => list(time_series_data_point_form_input())
-      }
-
-  """
-  @type post_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_properties_output() :: %{
-        "errorMessage" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type glue_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_unit_input() :: %{}
-
-  """
-  @type get_domain_unit_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_run_input() :: %{}
-
-  """
-  @type get_data_source_run_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      subscription_grant_summary() :: %{
-        "assets" => list(subscribed_asset()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "grantedEntity" => list(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom(),
-        "subscriptionTargetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type subscription_grant_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      athena_properties_output() :: %{
-        "workgroupName" => [String.t() | atom()]
-      }
-
-  """
-  @type athena_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2584,637 +197,189 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      get_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()),
-        "configuration" => list(),
-        "connectionId" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "enableSetting" => list(any()),
-        "environmentId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "lastRunAssetCount" => [integer()],
-        "lastRunAt" => non_neg_integer(),
-        "lastRunErrorMessage" => data_source_error_message(),
-        "lastRunStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "publishOnImport" => [boolean()],
-        "recommendation" => recommendation_configuration(),
-        "schedule" => schedule_configuration(),
-        "selfGrantStatus" => list(),
-        "status" => list(any()),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_data_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_product_revision_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("formsInput") => list(form_input()),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("items") => list(data_product_item()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_data_product_revision_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notifications_input() :: %{
-        optional("afterTimestamp") => [non_neg_integer()],
-        optional("beforeTimestamp") => [non_neg_integer()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("subjects") => list([String.t() | atom()]()),
-        optional("taskStatus") => list(any()),
-        required("type") => list(any())
-      }
-
-  """
-  @type list_notifications_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_iam_principal() :: %{
-        "principalArn" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_iam_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_serverless_storage() :: %{
-        "workgroupName" => [String.t() | atom()]
-      }
-
-  """
-  @type redshift_serverless_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscriptions_input() :: %{
-        optional("approverProjectId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owningGroupId") => String.t() | atom(),
-        optional("owningIamPrincipalArn") => String.t() | atom(),
-        optional("owningProjectId") => String.t() | atom(),
-        optional("owningUserId") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("status") => list(any()),
-        optional("subscribedListingId") => String.t() | atom(),
-        optional("subscriptionRequestIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_subscriptions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_filter_input() :: %{}
-
-  """
-  @type delete_asset_filter_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_profile_input() :: %{
-        optional("sessionName") => [String.t() | atom()],
-        optional("type") => list(any()),
-        required("status") => list(any())
-      }
-
-  """
-  @type update_user_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_type_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "formsOutput" => map(),
-        "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_asset_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_blueprint_configurations_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environment_blueprint_configurations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_input() :: %{
-        optional("awsAccountId") => String.t() | atom(),
-        optional("awsAccountRegion") => String.t() | atom(),
-        optional("environmentBlueprintIdentifier") => String.t() | atom(),
-        optional("environmentProfileIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("name") => [String.t() | atom()],
-        optional("nextToken") => String.t() | atom(),
-        optional("provider") => [String.t() | atom()],
-        optional("status") => list(any()),
-        required("projectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_environments_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_environment_role_input() :: %{}
-
-  """
-  @type associate_environment_role_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_metadata_generation_run_output() :: %{}
-
-  """
-  @type cancel_metadata_generation_run_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_actions_output() :: %{
-        "items" => list(environment_action_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_environment_actions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_metadata_generation_run_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("type") => list(any()),
-        optional("types") => list(list(any())()),
-        required("owningProjectIdentifier") => String.t() | atom(),
-        required("target") => metadata_generation_run_target()
-      }
-
-  """
-  @type start_metadata_generation_run_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_item_additional_attributes() :: %{
-        "formsOutput" => list(form_output()),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
-        "matchRationale" => list(list()),
-        "readOnlyFormsOutput" => list(form_output())
-      }
-
-  """
-  @type asset_item_additional_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authentication_configuration_patch() :: %{
-        "basicAuthenticationCredentials" => basic_authentication_credentials(),
+      authentication_configuration() :: %{
+        "authenticationType" => list(any()),
+        "oAuth2Properties" => o_auth2_properties(),
         "secretArn" => [String.t() | atom()]
       }
 
   """
-  @type authentication_configuration_patch() :: %{(String.t() | atom()) => any()}
+  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      environment_blueprint_configuration_item() :: %{
-        "allowUserProvidedConfigurations" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "domainId" => String.t() | atom(),
-        "enabledRegions" => list(String.t() | atom()),
-        "environmentBlueprintId" => String.t() | atom(),
-        "environmentRolePermissionBoundary" => String.t() | atom(),
-        "manageAccessRoleArn" => String.t() | atom(),
-        "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t() | atom(),
-        "regionalParameters" => map(),
-        "resourceConfigurations" => list(resource_configuration()),
-        "updatedAt" => [non_neg_integer()]
+      create_account_pool_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("accountSource") => list(),
+        required("name") => String.t() | atom(),
+        required("resolutionStrategy") => list(any())
       }
 
   """
-  @type environment_blueprint_configuration_item() :: %{(String.t() | atom()) => any()}
+  @type create_account_pool_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_environment_action_input() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("name") => [String.t() | atom()],
-        optional("parameters") => list()
+      cloud_formation_properties() :: %{
+        "templateUrl" => [String.t() | atom()]
       }
 
   """
-  @type update_environment_action_input() :: %{(String.t() | atom()) => any()}
+  @type cloud_formation_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      aggregation_output() :: %{
+        "attribute" => String.t() | atom(),
+        "displayValue" => String.t() | atom(),
+        "items" => list(aggregation_output_item())
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type aggregation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remove_entity_owner_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("owner") => list()
+      create_environment_profile_input() :: %{
+        optional("awsAccountId") => String.t() | atom(),
+        optional("awsAccountRegion") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("userParameters") => list(environment_parameter()),
+        required("environmentBlueprintIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("projectIdentifier") => String.t() | atom()
       }
 
   """
-  @type remove_entity_owner_input() :: %{(String.t() | atom()) => any()}
+  @type create_environment_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_rule_output() :: %{
-        "action" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "detail" => list(),
-        "identifier" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "ruleType" => list(any()),
-        "scope" => rule_scope(),
-        "target" => list(),
-        "targetType" => list(any())
+      accept_rule() :: %{
+        "rule" => list(any()),
+        "threshold" => [float()]
       }
 
   """
-  @type create_rule_output() :: %{(String.t() | atom()) => any()}
+  @type accept_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_job_run_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "details" => list(),
-        "domainId" => String.t() | atom(),
-        "endTime" => [non_neg_integer()],
-        "error" => job_run_error(),
-        "id" => [String.t() | atom()],
-        "jobId" => [String.t() | atom()],
-        "jobType" => list(any()),
-        "runMode" => list(any()),
-        "startTime" => [non_neg_integer()],
-        "status" => list(any())
+      get_data_source_input() :: %{}
+
+  """
+  @type get_data_source_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_membership_output() :: %{}
+
+  """
+  @type delete_project_membership_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      open_lineage_run_event_summary() :: %{
+        "eventType" => list(any()),
+        "inputs" => list(name_identifier()),
+        "job" => name_identifier(),
+        "outputs" => list(name_identifier()),
+        "runId" => [String.t() | atom()]
       }
 
   """
-  @type get_job_run_output() :: %{(String.t() | atom()) => any()}
+  @type open_lineage_run_event_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_product_input() :: %{}
-
-  """
-  @type delete_data_product_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_data_source_run_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataSourceConfigurationSnapshot" => [String.t() | atom()],
-        "dataSourceId" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "runStatisticsForAssets" => run_statistics_for_assets(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "stoppedAt" => non_neg_integer(),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
+      override_domain_unit_owners_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
       }
 
   """
-  @type start_data_source_run_output() :: %{(String.t() | atom()) => any()}
+  @type override_domain_unit_owners_policy_grant_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reject_choice() :: %{
-        "predictionChoices" => list([integer()]()),
-        "predictionTarget" => [String.t() | atom()]
+      get_domain_input() :: %{}
+
+  """
+  @type get_domain_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_graph_input() :: %{
+        optional("additionalAttributes") => additional_attributes(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("match") => list(list())
       }
 
   """
-  @type reject_choice() :: %{(String.t() | atom()) => any()}
+  @type query_graph_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_data_source_run_activities_output() :: %{
-        "items" => list(data_source_run_activity()),
+      list_project_memberships_output() :: %{
+        "members" => list(project_member()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_source_run_activities_output() :: %{(String.t() | atom()) => any()}
+  @type list_project_memberships_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_domain_unit_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owners" => list(list()),
-        "parentDomainUnitId" => String.t() | atom()
+      get_form_type_input() :: %{
+        optional("revision") => String.t() | atom()
       }
 
   """
-  @type get_domain_unit_output() :: %{(String.t() | atom()) => any()}
+  @type get_form_type_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      metadata_form_summary() :: %{
-        "formName" => String.t() | atom(),
-        "typeName" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
+      update_root_domain_unit_owner_output() :: %{}
 
   """
-  @type metadata_form_summary() :: %{(String.t() | atom()) => any()}
+  @type update_root_domain_unit_owner_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      reject_predictions_output() :: %{
-        "assetId" => String.t() | atom(),
-        "assetRevision" => String.t() | atom(),
-        "domainId" => String.t() | atom()
-      }
+      delete_environment_action_input() :: %{}
 
   """
-  @type reject_predictions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_user() :: %{
-        "details" => list(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_user() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("description") => [String.t() | atom()],
-        optional("domainExecutionRole") => String.t() | atom(),
-        optional("domainVersion") => list(any()),
-        optional("kmsKeyIdentifier") => String.t() | atom(),
-        optional("serviceRole") => String.t() | atom(),
-        optional("singleSignOn") => single_sign_on(),
-        optional("tags") => map(),
-        required("name") => [String.t() | atom()]
-      }
-
-  """
-  @type create_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_properties_output() :: %{
-        "environmentId" => [String.t() | atom()],
-        "glueLineageSyncEnabled" => [boolean()]
-      }
-
-  """
-  @type iam_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_data_export_configuration_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("encryptionConfiguration") => encryption_configuration(),
-        required("enableExport") => [boolean()]
-      }
-
-  """
-  @type put_data_export_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscription_target_input() :: %{}
-
-  """
-  @type delete_subscription_target_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      hyper_pod_properties_output() :: %{
-        "clusterArn" => [String.t() | atom()],
-        "clusterName" => [String.t() | atom()],
-        "orchestrator" => list(any())
-      }
-
-  """
-  @type hyper_pod_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_time_series_data_points_input() :: %{
-        optional("endedAt") => [non_neg_integer()],
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("startedAt") => [non_neg_integer()],
-        required("formName") => String.t() | atom()
-      }
-
-  """
-  @type list_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_notebook_output() :: %{}
-
-  """
-  @type delete_notebook_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notebook_runs_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("notebookIdentifier") => String.t() | atom(),
-        optional("scheduleIdentifier") => String.t() | atom(),
-        optional("sortOrder") => list(any()),
-        optional("status") => list(any()),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_notebook_runs_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_request_details_input() :: %{}
-
-  """
-  @type get_subscription_request_details_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_node_type_item() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "formsOutput" => map(),
-        "name" => [String.t() | atom()],
-        "revision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type lineage_node_type_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_export_configuration_input() :: %{}
-
-  """
-  @type delete_data_export_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_metadata_generation_run_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "target" => metadata_generation_run_target(),
-        "type" => list(any()),
-        "typeStats" => list(metadata_generation_run_type_stat()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type get_metadata_generation_run_output() :: %{(String.t() | atom()) => any()}
+  @type delete_environment_action_input() :: %{}
 
   @typedoc """
 
@@ -3244,90 +409,67 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      job_run_error() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type job_run_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_event_summary() :: %{
+      create_asset_revision_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "eventSummary" => list(),
-        "eventTime" => [non_neg_integer()],
+        "externalIdentifier" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
-        "processingStatus" => list(any())
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "listing" => asset_listing_details(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "predictionConfiguration" => prediction_configuration(),
+        "readOnlyFormsOutput" => list(form_output()),
+        "revision" => String.t() | atom(),
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
       }
 
   """
-  @type lineage_event_summary() :: %{(String.t() | atom()) => any()}
+  @type create_asset_revision_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      glue_connection_input() :: %{
-        "athenaProperties" => map(),
-        "authenticationConfiguration" => authentication_configuration_input(),
-        "connectionProperties" => map(),
-        "connectionType" => list(any()),
-        "description" => [String.t() | atom()],
-        "matchCriteria" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "physicalConnectionRequirements" => physical_connection_requirements(),
-        "pythonProperties" => map(),
-        "sparkProperties" => map(),
-        "validateCredentials" => [boolean()],
-        "validateForComputeEnvironments" => list(list(any())())
+      create_data_product_revision_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("items") => list(data_product_item()),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type glue_connection_input() :: %{(String.t() | atom()) => any()}
+  @type create_data_product_revision_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_source_error_message() :: %{
-        "errorDetail" => [String.t() | atom()],
-        "errorType" => list(any())
+      glue_run_configuration_input() :: %{
+        "autoImportDataQualityResult" => [boolean()],
+        "catalogName" => [String.t() | atom()],
+        "dataAccessRole" => [String.t() | atom()],
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
       }
 
   """
-  @type data_source_error_message() :: %{(String.t() | atom()) => any()}
+  @type glue_run_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_cluster_storage() :: %{
-        "clusterName" => [String.t() | atom()]
-      }
-
-  """
-  @type redshift_cluster_storage() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_type_output() :: %{}
-
-  """
-  @type delete_asset_type_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_pool_output() :: %{
-        "accountSource" => list(),
+      project_profile_summary() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -3336,149 +478,150 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
-        "resolutionStrategy" => list(any()),
-        "updatedBy" => String.t() | atom()
+        "status" => list(any())
       }
 
   """
-  @type update_account_pool_output() :: %{(String.t() | atom()) => any()}
+  @type project_profile_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      reject_rule() :: %{
-        "rule" => list(any()),
-        "threshold" => [float()]
+      get_asset_filter_output() :: %{
+        "assetId" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "effectiveColumnNames" => list([String.t() | atom()]()),
+        "effectiveRowFilter" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type reject_rule() :: %{(String.t() | atom()) => any()}
+  @type get_asset_filter_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_user_profile_input() :: %{
-        optional("sessionName") => [String.t() | atom()],
-        optional("type") => list(any())
-      }
+      all_domain_units_grant_filter() :: %{}
 
   """
-  @type get_user_profile_input() :: %{(String.t() | atom()) => any()}
+  @type all_domain_units_grant_filter() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      glossary_term_item() :: %{
-        "additionalAttributes" => glossary_term_item_additional_attributes(),
+      get_form_type_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "glossaryId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "longDescription" => String.t() | atom(),
+        "imports" => list(import()),
+        "model" => list(),
         "name" => String.t() | atom(),
-        "shortDescription" => String.t() | atom(),
-        "status" => list(any()),
-        "termRelations" => term_relations(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
-        "usageRestrictions" => list(list(any())())
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type glossary_term_item() :: %{(String.t() | atom()) => any()}
+  @type get_form_type_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      override_domain_unit_owners_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
+      get_lineage_node_input() :: %{
+        optional("eventTimestamp") => [non_neg_integer()]
       }
 
   """
-  @type override_domain_unit_owners_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+  @type get_lineage_node_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      asset_target_name_map() :: %{
-        "assetId" => String.t() | atom(),
-        "targetName" => [String.t() | atom()]
+      lakehouse_properties_patch() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
       }
 
   """
-  @type asset_target_name_map() :: %{(String.t() | atom()) => any()}
+  @type lakehouse_properties_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_environment_blueprint_configuration_output() :: %{
-        "allowUserProvidedConfigurations" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "domainId" => String.t() | atom(),
-        "enabledRegions" => list(String.t() | atom()),
-        "environmentBlueprintId" => String.t() | atom(),
-        "environmentRolePermissionBoundary" => String.t() | atom(),
-        "manageAccessRoleArn" => String.t() | atom(),
-        "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t() | atom(),
-        "regionalParameters" => map(),
-        "resourceConfigurations" => list(resource_configuration()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type put_environment_blueprint_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_grant_input() :: %{
-        optional("assetTargetNames") => list(asset_target_name_map()),
-        optional("clientToken") => [String.t() | atom()],
-        optional("subscriptionTargetIdentifier") => String.t() | atom(),
-        required("environmentIdentifier") => String.t() | atom(),
-        required("grantedEntity") => list()
-      }
-
-  """
-  @type create_subscription_grant_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_profile_input() :: %{
-        optional("awsAccountId") => String.t() | atom(),
-        optional("awsAccountRegion") => String.t() | atom(),
+      create_asset_input() :: %{
+        optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
-        optional("userParameters") => list(environment_parameter()),
-        required("environmentBlueprintIdentifier") => String.t() | atom(),
+        optional("externalIdentifier") => String.t() | atom(),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("predictionConfiguration") => prediction_configuration(),
+        optional("typeRevision") => String.t() | atom(),
         required("name") => String.t() | atom(),
-        required("projectIdentifier") => String.t() | atom()
+        required("owningProjectIdentifier") => String.t() | atom(),
+        required("typeIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_environment_profile_input() :: %{(String.t() | atom()) => any()}
+  @type create_asset_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_attributes_metadata_input() :: %{
-        optional("entityRevision") => String.t() | atom(),
-        required("attributeIdentifiers") => list(String.t() | atom())
+      list_subscriptions_output() :: %{
+        "items" => list(subscription_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type batch_get_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
+  @type list_subscriptions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_filter_input() :: %{}
+
+  """
+  @type get_asset_filter_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_attributes() :: %{
+        "formNames" => list(String.t() | atom())
+      }
+
+  """
+  @type additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_connection_patch() :: %{
+        "authenticationConfiguration" => authentication_configuration_patch(),
+        "connectionProperties" => map(),
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type glue_connection_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3517,2017 +660,101 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      post_lineage_event_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("event") => binary()
+      aws_console_link_parameters() :: %{
+        "uri" => [String.t() | atom()]
       }
 
   """
-  @type post_lineage_event_input() :: %{(String.t() | atom()) => any()}
+  @type aws_console_link_parameters() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      iam_user_profile_details() :: %{
-        "arn" => [String.t() | atom()],
-        "groupProfileId" => [String.t() | atom()],
-        "principalId" => [String.t() | atom()],
-        "sessionName" => [String.t() | atom()]
-      }
-
-  """
-  @type iam_user_profile_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_predictions_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("rejectChoices") => list(reject_choice()),
-        optional("rejectRule") => reject_rule(),
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type reject_predictions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_series_data_point_form_input() :: %{
-        "content" => [String.t() | atom()],
-        "formName" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type time_series_data_point_form_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_output() :: %{
-        "items" => list(list()),
-        "nextToken" => String.t() | atom(),
-        "totalMatchCount" => [integer()]
-      }
-
-  """
-  @type search_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_grant_input() :: %{}
-
-  """
-  @type get_subscription_grant_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      notebook_export_error() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type notebook_export_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_rule_output() :: %{}
-
-  """
-  @type delete_rule_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_client_application() :: %{
-        "aWSManagedClientApplicationReference" => [String.t() | atom()],
-        "userManagedClientApplicationClientId" => [String.t() | atom()]
-      }
-
-  """
-  @type o_auth2_client_application() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_profile_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("sessionName") => [String.t() | atom()],
-        optional("userType") => list(any()),
-        required("userIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_user_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_config() :: %{
-        "packageManager" => list(any()),
-        "packageSpecification" => [String.t() | atom()]
-      }
-
-  """
-  @type package_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_blueprint_configuration_input() :: %{}
-
-  """
-  @type delete_environment_blueprint_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_info() :: %{
-        "errorMessage" => String.t() | atom(),
-        "eventId" => [String.t() | atom()],
-        "eventStatus" => list(any())
-      }
-
-  """
-  @type lineage_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_listing() :: %{
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "item" => list(),
-        "name" => String.t() | atom(),
-        "ownerProjectId" => String.t() | atom(),
-        "ownerProjectName" => [String.t() | atom()],
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_listing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_blueprint_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "deploymentProperties" => deployment_properties(),
-        "description" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisioningProperties" => list(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type update_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_form_type_output() :: %{
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type create_form_type_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_pool_input() :: %{}
-
-  """
-  @type get_account_pool_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workflows_serverless_properties_input() :: %{}
-
-  """
-  @type workflows_serverless_properties_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_entity_owners_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_entity_owners_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_output_item() :: %{
-        "count" => [integer()],
-        "displayValue" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type aggregation_output_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_metadata_generation_run_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type start_metadata_generation_run_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_target_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("provider") => [String.t() | atom()],
-        optional("subscriptionGrantCreationMode") => list(any()),
-        required("applicableAssetTypes") => list(String.t() | atom()),
-        required("authorizedPrincipals") => list(String.t() | atom()),
-        required("manageAccessRole") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("subscriptionTargetConfig") => list(subscription_target_form()),
-        required("type") => [String.t() | atom()]
-      }
-
-  """
-  @type create_subscription_target_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_data_source_input() :: %{
-        optional("assetFormsInput") => list(form_input()),
-        optional("configuration") => list(),
-        optional("description") => String.t() | atom(),
-        optional("enableSetting") => list(any()),
-        optional("name") => String.t() | atom(),
-        optional("publishOnImport") => [boolean()],
-        optional("recommendation") => recommendation_configuration(),
-        optional("retainPermissionsOnRevokeFailure") => [boolean()],
-        optional("schedule") => schedule_configuration()
-      }
-
-  """
-  @type update_data_source_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_group_input() :: %{
-        "identifier" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_in_data_product_listing_item() :: %{
-        "entityId" => [String.t() | atom()],
-        "entityRevision" => [String.t() | atom()],
-        "entityType" => [String.t() | atom()]
-      }
-
-  """
-  @type asset_in_data_product_listing_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      form_entry_input() :: %{
-        "required" => [boolean()],
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type form_entry_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_listing() :: %{
+      asset_filter_summary() :: %{
         "assetId" => String.t() | atom(),
-        "assetRevision" => String.t() | atom(),
-        "assetType" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "forms" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "governedGlossaryTerms" => list(detailed_glossary_term()),
-        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
-        "owningProjectId" => String.t() | atom()
-      }
-
-  """
-  @type asset_listing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_blueprint_input() :: %{}
-
-  """
-  @type delete_environment_blueprint_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_export_configuration_output() :: %{}
-
-  """
-  @type delete_data_export_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_user_properties() :: %{
-        "userId" => [String.t() | atom()]
-      }
-
-  """
-  @type domain_unit_user_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("skipDeletionCheck") => [boolean()]
-      }
-
-  """
-  @type delete_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_config() :: %{
-        "imageVersion" => [String.t() | atom()],
-        "packageConfig" => package_config()
-      }
-
-  """
-  @type environment_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_rule_input() :: %{
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type get_rule_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_units_for_parent_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("parentDomainUnitIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_units_for_parent_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_parameter() :: %{
-        "defaultValue" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "fieldType" => [String.t() | atom()],
-        "isEditable" => [boolean()],
-        "isOptional" => [boolean()],
-        "isUpdateSupported" => [boolean()],
-        "keyName" => [String.t() | atom()]
-      }
-
-  """
-  @type custom_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_input() :: %{
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type get_asset_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      projects_for_rule() :: %{
-        "selectionMode" => list(any()),
-        "specificProjects" => list(String.t() | atom())
-      }
-
-  """
-  @type projects_for_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_profile_output() :: %{
-        "details" => list(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type update_user_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_membership_output() :: %{}
-
-  """
-  @type create_project_membership_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      is_null_expression() :: %{
-        "columnName" => [String.t() | atom()]
-      }
-
-  """
-  @type is_null_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      text_match_item() :: %{
-        "attribute" => String.t() | atom(),
-        "matchOffsets" => list(match_offset()),
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type text_match_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_policy_grant_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("detail") => list(),
-        required("policyType") => list(any()),
-        required("principal") => list()
-      }
-
-  """
-  @type add_policy_grant_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_glossary_output() :: %{}
-
-  """
-  @type delete_glossary_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_glossary_term_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "glossaryId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "longDescription" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "shortDescription" => String.t() | atom(),
-        "status" => list(any()),
-        "termRelations" => term_relations(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
-        "usageRestrictions" => list(list(any())())
-      }
-
-  """
-  @type get_glossary_term_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_output() :: %{
-        "items" => list(domain_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domains_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_output() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "deploymentProperties" => deployment_properties(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentActions" => list(configurable_environment_action()),
-        "environmentBlueprintId" => String.t() | atom(),
-        "environmentConfigurationId" => String.t() | atom(),
-        "environmentConfigurationName" => String.t() | atom(),
-        "environmentProfileId" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "lastDeployment" => deployment(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisionedResources" => list(resource()),
-        "provisioningProperties" => list(),
-        "status" => list(any()),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type update_environment_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      like_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type like_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()),
-        "configuration" => list(),
-        "connectionId" => [String.t() | atom()],
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "enableSetting" => list(any()),
-        "environmentId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "lastRunAt" => non_neg_integer(),
-        "lastRunErrorMessage" => data_source_error_message(),
-        "lastRunStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "publishOnImport" => [boolean()],
-        "recommendation" => recommendation_configuration(),
-        "schedule" => schedule_configuration(),
-        "status" => list(any()),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type create_data_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      trigger_source() :: %{
-        "name" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type trigger_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_glue_args() :: %{
-        "connection" => [String.t() | atom()]
-      }
-
-  """
-  @type spark_glue_args() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      equal_to_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type equal_to_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_iam_portal_login_url_output() :: %{
-        "authCodeUrl" => [String.t() | atom()],
-        "userProfileId" => [String.t() | atom()]
-      }
-
-  """
-  @type get_iam_portal_login_url_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflows_serverless_properties_output() :: %{}
-
-  """
-  @type workflows_serverless_properties_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_product_listing() :: %{
-        "assetListings" => list(asset_in_data_product_listing_item()),
-        "description" => [String.t() | atom()],
-        "entityId" => String.t() | atom(),
-        "entityRevision" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type subscribed_product_listing() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_attribute_output() :: %{
-        "attributeIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_attribute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_rule() :: %{
-        "rule" => list(any()),
-        "threshold" => [float()]
-      }
-
-  """
-  @type accept_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_generation_run_target() :: %{
-        "identifier" => [String.t() | atom()],
-        "revision" => String.t() | atom(),
-        "type" => list(any())
-      }
-
-  """
-  @type metadata_generation_run_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_group() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_data_source_output() :: %{
-        "assetFormsOutput" => list(form_output()),
-        "configuration" => list(),
-        "connectionId" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "enableSetting" => list(any()),
-        "environmentId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "lastRunAt" => non_neg_integer(),
-        "lastRunErrorMessage" => data_source_error_message(),
-        "lastRunStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "publishOnImport" => [boolean()],
-        "retainPermissionsOnRevokeFailure" => [boolean()],
-        "schedule" => schedule_configuration(),
-        "selfGrantStatus" => list(),
-        "status" => list(any()),
-        "type" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type delete_data_source_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connection_input() :: %{
-        optional("withSecret") => [boolean()]
-      }
-
-  """
-  @type get_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_connection_output() :: %{
-        "configurations" => list(configuration()),
-        "connectionCredentials" => connection_credentials(),
-        "connectionId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "environmentUserRole" => [String.t() | atom()],
-        "name" => String.t() | atom(),
-        "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t() | atom(),
-        "props" => list(),
-        "scope" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type get_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_glossary_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
-        "usageRestrictions" => list(list(any())())
-      }
-
-  """
-  @type get_glossary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_root_domain_unit_owner_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("currentOwner") => String.t() | atom(),
-        required("newOwner") => [String.t() | atom()]
-      }
-
-  """
-  @type update_root_domain_unit_owner_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_listing_item_additional_attributes() :: %{
-        "forms" => String.t() | atom(),
-        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
-        "matchRationale" => list(list())
-      }
-
-  """
-  @type asset_listing_item_additional_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_blueprints_input() :: %{
-        optional("managed") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_environment_blueprints_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_input() :: %{
-        optional("connectionIdentifier") => [String.t() | atom()],
-        optional("environmentIdentifier") => [String.t() | atom()],
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("type") => String.t() | atom(),
-        required("projectIdentifier") => [String.t() | atom()]
-      }
-
-  """
-  @type list_data_sources_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lineage_events_output() :: %{
-        "items" => list(lineage_event_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_lineage_events_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      iam_properties_input() :: %{
-        "glueLineageSyncEnabled" => [boolean()]
-      }
-
-  """
-  @type iam_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_output() :: %{
-        "items" => list(project_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_projects_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_user_profile_output() :: %{
-        "details" => list(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type create_user_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_user_profiles_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("searchText") => String.t() | atom(),
-        required("userType") => list(any())
-      }
-
-  """
-  @type search_user_profiles_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_action_output() :: %{
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "parameters" => list()
-      }
-
-  """
-  @type get_environment_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_notebook_export_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "fileFormat" => list(any()),
-        "id" => String.t() | atom(),
-        "notebookId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type start_notebook_export_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_run_lineage_summary() :: %{
-        "importStatus" => list(any())
-      }
-
-  """
-  @type data_source_run_lineage_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notebook_run_error() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type notebook_run_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_subscription_request_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "decisionComment" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "existingSubscriptionId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadataForms" => list(form_output()),
-        "requestReason" => String.t() | atom(),
-        "reviewerId" => [String.t() | atom()],
-        "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()),
-        "subscribedPrincipals" => list(list()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type reject_subscription_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hyper_pod_properties_input() :: %{
-        "clusterName" => [String.t() | atom()]
-      }
-
-  """
-  @type hyper_pod_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      topic() :: %{
-        "resource" => notification_resource(),
-        "role" => list(any()),
-        "subject" => [String.t() | atom()]
-      }
-
-  """
-  @type topic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_notebook_output() :: %{
-        "cellOrder" => list(cell_information()),
-        "computeId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentConfiguration" => environment_config(),
-        "error" => notebook_error(),
-        "id" => String.t() | atom(),
-        "lockExpiresAt" => [non_neg_integer()],
-        "lockedAt" => [non_neg_integer()],
-        "lockedBy" => [String.t() | atom()],
-        "metadata" => map(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "parameters" => map(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type create_notebook_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configurable_environment_action() :: %{
-        "auth" => list(any()),
-        "parameters" => list(configurable_action_parameter()),
-        "type" => [String.t() | atom()]
-      }
-
-  """
-  @type configurable_environment_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_notebook_run_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("computeConfiguration") => compute_config(),
-        optional("metadata") => map(),
-        optional("networkConfiguration") => network_config(),
-        optional("parameters") => map(),
-        optional("scheduleIdentifier") => String.t() | atom(),
-        optional("timeoutConfiguration") => timeout_config(),
-        optional("triggerSource") => trigger_source(),
-        required("notebookIdentifier") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type start_notebook_run_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_output() :: %{
-        "arn" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "description" => [String.t() | atom()],
-        "domainExecutionRole" => String.t() | atom(),
-        "domainVersion" => list(any()),
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "name" => [String.t() | atom()],
-        "portalUrl" => [String.t() | atom()],
-        "rootDomainUnitId" => String.t() | atom(),
-        "serviceRole" => String.t() | atom(),
-        "singleSignOn" => single_sign_on(),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type get_domain_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_listings_output() :: %{
-        "aggregates" => list(aggregation_output()),
-        "items" => list(list()),
-        "nextToken" => String.t() | atom(),
-        "totalMatchCount" => [integer()]
-      }
-
-  """
-  @type search_listings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_output() :: %{
-        "attribute" => String.t() | atom(),
-        "displayValue" => String.t() | atom(),
-        "items" => list(aggregation_output_item())
-      }
-
-  """
-  @type aggregation_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prediction_configuration() :: %{
-        "businessNameGeneration" => business_name_generation_configuration()
-      }
-
-  """
-  @type prediction_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_error() :: %{
-        "attributeIdentifier" => String.t() | atom(),
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type attribute_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_action_summary() :: %{
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "parameters" => list()
-      }
-
-  """
-  @type environment_action_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_blueprint_summary() :: %{
-        "createdAt" => [non_neg_integer()],
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisioningProperties" => list(),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type environment_blueprint_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_input() :: %{}
-
-  """
-  @type get_environment_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_glossary_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("usageRestrictions") => list(list(any())()),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_glossary_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_revision_input() :: %{
-        "identifier" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type listing_revision_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_account_pool_handler() :: %{
-        "lambdaExecutionRoleArn" => String.t() | atom(),
-        "lambdaFunctionArn" => String.t() | atom()
-      }
-
-  """
-  @type custom_account_pool_handler() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notebooks_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("status") => list(any()),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_notebooks_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environments_output() :: %{
-        "items" => list(environment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_environments_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      run_statistics_for_assets() :: %{
-        "added" => [integer()],
-        "failed" => [integer()],
-        "skipped" => [integer()],
-        "unchanged" => [integer()],
-        "updated" => [integer()]
-      }
-
-  """
-  @type run_statistics_for_assets() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_properties_patch() :: %{
-        "glueConnectionInput" => glue_connection_patch()
-      }
-
-  """
-  @type glue_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_grant_status_output() :: %{
-        "assets" => list(subscribed_asset()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "grantedEntity" => list(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom(),
-        "subscriptionTargetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type update_subscription_grant_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_input() :: %{
-        optional("blueprintVersion") => [String.t() | atom()],
-        optional("description") => [String.t() | atom()],
-        optional("environmentConfigurationName") => String.t() | atom(),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("name") => [String.t() | atom()],
-        optional("userParameters") => list(environment_parameter())
-      }
-
-  """
-  @type update_environment_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_targets_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_subscription_targets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_run_configuration_input() :: %{
-        "trackingAssets" => map()
-      }
-
-  """
-  @type sage_maker_run_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_notebook_run_input() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type stop_notebook_run_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_asset_filter_input() :: %{}
-
-  """
-  @type get_asset_filter_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      post_lineage_event_output() :: %{
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type post_lineage_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      use_asset_type_policy_grant_detail() :: %{
-        "domainUnitId" => String.t() | atom()
-      }
-
-  """
-  @type use_asset_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_equal_to_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type not_equal_to_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_series_data_point_form_output() :: %{
-        "content" => [String.t() | atom()],
-        "formName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type time_series_data_point_form_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_like_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type not_like_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscription_request_input() :: %{}
-
-  """
-  @type delete_subscription_request_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_group_properties() :: %{
-        "groupIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type owner_group_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_type_item() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "formsOutput" => map(),
-        "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type asset_type_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_o_auth2_credentials() :: %{
-        "accessToken" => [String.t() | atom()],
-        "jwtToken" => [String.t() | atom()],
-        "refreshToken" => [String.t() | atom()],
-        "userManagedClientApplicationClientSecret" => [String.t() | atom()]
-      }
-
-  """
-  @type glue_o_auth2_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_run_configuration_input() :: %{
-        "autoImportDataQualityResult" => [boolean()],
-        "catalogName" => [String.t() | atom()],
-        "dataAccessRole" => [String.t() | atom()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration())
-      }
-
-  """
-  @type glue_run_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_notebook_input() :: %{
-        optional("cellOrder") => list(cell_information()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("environmentConfiguration") => environment_config(),
-        optional("metadata") => map(),
-        optional("name") => String.t() | atom(),
-        optional("parameters") => map(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type update_notebook_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      athena_properties_input() :: %{
-        "workgroupName" => [String.t() | atom()]
-      }
-
-  """
-  @type athena_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_product_revisions_output() :: %{
-        "items" => list(data_product_revision()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_product_revisions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_source_run_activities_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_data_source_run_activities_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mlflow_properties_input() :: %{
-        "trackingServerArn" => [String.t() | atom()]
-      }
-
-  """
-  @type mlflow_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_properties_output() :: %{
+        "effectiveColumnNames" => list([String.t() | atom()]()),
+        "effectiveRowFilter" => [String.t() | atom()],
         "errorMessage" => [String.t() | atom()],
-        "registerS3AccessGrantLocation" => [boolean()],
-        "s3AccessGrantLocationId" => String.t() | atom(),
-        "s3Uri" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type s3_properties_output() :: %{(String.t() | atom()) => any()}
+  @type asset_filter_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_glossary_input() :: %{}
-
-  """
-  @type delete_glossary_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_user_properties() :: %{
-        "userIdentifier" => String.t() | atom()
+      batch_get_attributes_metadata_output() :: %{
+        "attributes" => list(batch_get_attribute_output()),
+        "errors" => list(attribute_error())
       }
 
   """
-  @type owner_user_properties() :: %{(String.t() | atom()) => any()}
+  @type batch_get_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lineage_node_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "eventTimestamp" => [non_neg_integer()],
+      create_environment_blueprint_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "sourceIdentifier" => [String.t() | atom()],
-        "typeName" => [String.t() | atom()],
-        "typeRevision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
       }
 
   """
-  @type lineage_node_summary() :: %{(String.t() | atom()) => any()}
+  @type create_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      spark_glue_properties_input() :: %{
-        "additionalArgs" => spark_glue_args(),
-        "glueConnectionName" => [String.t() | atom()],
-        "glueConnectionNames" => list(String.t() | atom()),
-        "glueVersion" => [String.t() | atom()],
-        "idleTimeout" => [integer()],
-        "javaVirtualEnv" => [String.t() | atom()],
-        "numberOfWorkers" => [integer()],
-        "pythonVirtualEnv" => [String.t() | atom()],
-        "workerType" => [String.t() | atom()]
-      }
-
-  """
-  @type spark_glue_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()),
+      subscription_target_summary() :: %{
+        "applicableAssetTypes" => list(String.t() | atom()),
+        "authorizedPrincipals" => list(String.t() | atom()),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
         "environmentId" => String.t() | atom(),
-        "grantedEntity" => list(),
         "id" => String.t() | atom(),
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom(),
-        "subscriptionTargetId" => String.t() | atom(),
+        "manageAccessRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
+        "type" => [String.t() | atom()],
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
 
   """
-  @type create_subscription_grant_output() :: %{(String.t() | atom()) => any()}
+  @type subscription_target_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_glossary_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
+      redshift_credential_configuration() :: %{
+        "secretManagerArn" => [String.t() | atom()]
       }
 
   """
-  @type create_glossary_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_glossary_term_output() :: %{}
-
-  """
-  @type delete_glossary_term_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      athena_properties_patch() :: %{
-        "workgroupName" => [String.t() | atom()]
-      }
-
-  """
-  @type athena_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_requests_input() :: %{
-        optional("approverProjectId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owningGroupId") => String.t() | atom(),
-        optional("owningIamPrincipalArn") => String.t() | atom(),
-        optional("owningProjectId") => String.t() | atom(),
-        optional("owningUserId") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("status") => list(any()),
-        optional("subscribedListingId") => String.t() | atom()
-      }
-
-  """
-  @type list_subscription_requests_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      form_type_data() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "imports" => list(import()),
-        "model" => list(),
-        "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type form_type_data() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_permission() :: %{
-        "assetId" => String.t() | atom(),
-        "permissions" => list()
-      }
-
-  """
-  @type asset_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_project() :: %{
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_project() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_profile_output() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentBlueprintId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type get_environment_profile_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rule_scope() :: %{
-        "assetType" => asset_types_for_rule(),
-        "dataProduct" => [boolean()],
-        "project" => projects_for_rule()
-      }
-
-  """
-  @type rule_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_glossary_term_output() :: %{
-        "domainId" => String.t() | atom(),
-        "glossaryId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "longDescription" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "shortDescription" => String.t() | atom(),
-        "status" => list(any()),
-        "termRelations" => term_relations(),
-        "usageRestrictions" => list(list(any())())
-      }
-
-  """
-  @type create_glossary_term_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_profile_input() :: %{}
-
-  """
-  @type get_environment_profile_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      entity_pattern() :: %{
-        "entityType" => list(any()),
-        "filters" => list(),
-        "identifier" => [String.t() | atom()]
-      }
-
-  """
-  @type entity_pattern() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_product_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "items" => list(data_product_item()),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_data_product_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_profile_output() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentBlueprintId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type create_environment_profile_output() :: %{(String.t() | atom()) => any()}
+  @type redshift_credential_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5551,165 +778,365 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      filter_expression() :: %{
-        "expression" => [String.t() | atom()],
+      athena_properties_input() :: %{
+        "workgroupName" => [String.t() | atom()]
+      }
+
+  """
+  @type athena_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "externalIdentifier" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "listing" => asset_listing_details(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "readOnlyFormsOutput" => list(form_output()),
+        "revision" => String.t() | atom(),
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type get_asset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_type_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_asset_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_pool_input() :: %{}
+
+  """
+  @type delete_account_pool_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_filter_input() :: %{}
+
+  """
+  @type delete_asset_filter_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_membership_output() :: %{}
+
+  """
+  @type create_project_membership_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_predictions_input() :: %{
+        optional("acceptChoices") => list(accept_choice()),
+        optional("acceptRule") => accept_rule(),
+        optional("clientToken") => String.t() | atom(),
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type accept_predictions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_profile_output() :: %{
+        "details" => list(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type filter_expression() :: %{(String.t() | atom()) => any()}
+  @type update_user_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      glue_properties_input() :: %{
-        "glueConnectionInput" => glue_connection_input()
+      amazon_q_properties_patch() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
       }
 
   """
-  @type glue_properties_input() :: %{(String.t() | atom()) => any()}
+  @type amazon_q_properties_patch() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_asset_filters_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
+      create_user_profile_output() :: %{
+        "details" => list(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
       }
 
   """
-  @type list_asset_filters_input() :: %{(String.t() | atom()) => any()}
+  @type create_user_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_job_run_input() :: %{}
+      create_subscription_request_input() :: %{
+        optional("assetPermissions") => list(asset_permission()),
+        optional("assetScopes") => list(accepted_asset_scope()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("metadataForms") => list(form_input()),
+        required("requestReason") => String.t() | atom(),
+        required("subscribedListings") => list(subscribed_listing_input()),
+        required("subscribedPrincipals") => list(list())
+      }
 
   """
-  @type get_job_run_input() :: %{}
+  @type create_subscription_request_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      glossary_item() :: %{
-        "additionalAttributes" => glossary_item_additional_attributes(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
+      remove_entity_owner_output() :: %{}
+
+  """
+  @type remove_entity_owner_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_output() :: %{
+        "items" => list(domain_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domains_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_glossary_output() :: %{
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
         "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
         "usageRestrictions" => list(list(any())())
       }
 
   """
-  @type glossary_item() :: %{(String.t() | atom()) => any()}
+  @type update_glossary_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_subscription_grants_input() :: %{
-        optional("environmentId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("owningGroupId") => String.t() | atom(),
-        optional("owningIamPrincipalArn") => String.t() | atom(),
-        optional("owningProjectId") => String.t() | atom(),
-        optional("owningUserId") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("subscribedListingId") => String.t() | atom(),
-        optional("subscriptionId") => String.t() | atom(),
-        optional("subscriptionTargetId") => String.t() | atom()
+      create_environment_action_input() :: %{
+        optional("description") => [String.t() | atom()],
+        required("name") => [String.t() | atom()],
+        required("parameters") => list()
       }
 
   """
-  @type list_subscription_grants_input() :: %{(String.t() | atom()) => any()}
+  @type create_environment_action_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter() :: %{
+      asset_listing_item_additional_attributes() :: %{
+        "forms" => String.t() | atom(),
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type asset_listing_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_o_auth2_credentials() :: %{
+        "accessToken" => [String.t() | atom()],
+        "jwtToken" => [String.t() | atom()],
+        "refreshToken" => [String.t() | atom()],
+        "userManagedClientApplicationClientSecret" => [String.t() | atom()]
+      }
+
+  """
+  @type glue_o_auth2_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_governed_terms_output() :: %{}
+
+  """
+  @type disassociate_governed_terms_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      text_match_item() :: %{
         "attribute" => String.t() | atom(),
-        "intValue" => [float()],
-        "operator" => list(any()),
-        "value" => [String.t() | atom()]
+        "matchOffsets" => list(match_offset()),
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type filter() :: %{(String.t() | atom()) => any()}
+  @type text_match_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_asset_type_output() :: %{
+      get_notebook_output() :: %{
+        "cellOrder" => list(cell_information()),
+        "computeId" => String.t() | atom(),
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "formsOutput" => map(),
+        "environmentConfiguration" => environment_config(),
+        "error" => notebook_error(),
+        "id" => String.t() | atom(),
+        "lockExpiresAt" => [non_neg_integer()],
+        "lockedAt" => [non_neg_integer()],
+        "lockedBy" => [String.t() | atom()],
+        "metadata" => map(),
         "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
         "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
+        "parameters" => map(),
+        "status" => list(any()),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
 
   """
-  @type create_asset_type_output() :: %{(String.t() | atom()) => any()}
+  @type get_notebook_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_destination() :: %{
-        "uri" => String.t() | atom()
+      is_not_null_expression() :: %{
+        "columnName" => [String.t() | atom()]
       }
 
   """
-  @type s3_destination() :: %{(String.t() | atom()) => any()}
+  @type is_not_null_expression() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_data_source_run_input() :: %{
-        optional("clientToken") => [String.t() | atom()]
+      iam_user_profile_details() :: %{
+        "arn" => [String.t() | atom()],
+        "groupProfileId" => [String.t() | atom()],
+        "principalId" => [String.t() | atom()],
+        "sessionName" => [String.t() | atom()]
       }
 
   """
-  @type start_data_source_run_input() :: %{(String.t() | atom()) => any()}
+  @type iam_user_profile_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_rule_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("action") => list(any()),
-        required("detail") => list(),
-        required("name") => String.t() | atom(),
-        required("scope") => rule_scope(),
-        required("target") => list()
+      revoke_subscription_input() :: %{
+        optional("retainPermissions") => [boolean()]
       }
 
   """
-  @type create_rule_input() :: %{(String.t() | atom()) => any()}
+  @type revoke_subscription_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_request_details_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "decisionComment" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "existingSubscriptionId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadataForms" => list(form_output()),
+        "requestReason" => String.t() | atom(),
+        "reviewerId" => [String.t() | atom()],
+        "status" => list(any()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_request_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment_properties() :: %{
+        "endTimeoutMinutes" => [integer()],
+        "startTimeoutMinutes" => [integer()]
+      }
+
+  """
+  @type deployment_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5726,203 +1153,57 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      get_subscription_target_output() :: %{
-        "applicableAssetTypes" => list(String.t() | atom()),
-        "authorizedPrincipals" => list(String.t() | atom()),
+      asset_target_name_map() :: %{
+        "assetId" => String.t() | atom(),
+        "targetName" => [String.t() | atom()]
+      }
+
+  """
+  @type asset_target_name_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_unit_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("parentDomainUnitIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_domain_unit_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notebook_export_input() :: %{}
+
+  """
+  @type get_notebook_export_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_summary() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "manageAccessRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "subscriptionGrantCreationMode" => list(any()),
-        "subscriptionTargetConfig" => list(subscription_target_form()),
-        "type" => [String.t() | atom()],
+        "retainPermissions" => [boolean()],
+        "status" => list(any()),
+        "subscribedListing" => subscribed_listing(),
+        "subscribedPrincipal" => list(),
+        "subscriptionRequestId" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "updatedBy" => String.t() | atom()
       }
 
   """
-  @type get_subscription_target_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_asset_revision_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "externalIdentifier" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "governedGlossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
-        "listing" => asset_listing_details(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "predictionConfiguration" => prediction_configuration(),
-        "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t() | atom(),
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type create_asset_revision_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_membership_input() :: %{
-        required("member") => list()
-      }
-
-  """
-  @type delete_project_membership_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_to_project_member_pool_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type add_to_project_member_pool_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      owner_user_properties_output() :: %{
-        "userId" => [String.t() | atom()]
-      }
-
-  """
-  @type owner_user_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connection_credentials() :: %{
-        "accessKeyId" => [String.t() | atom()],
-        "expiration" => [non_neg_integer()],
-        "secretAccessKey" => [String.t() | atom()],
-        "sessionToken" => [String.t() | atom()]
-      }
-
-  """
-  @type connection_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_unit_output() :: %{
-        "ancestorDomainUnitIds" => list(String.t() | atom()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owners" => list(list()),
-        "parentDomainUnitId" => String.t() | atom()
-      }
-
-  """
-  @type create_domain_unit_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_result_item() :: %{
-        "additionalAttributes" => data_product_item_additional_attributes(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom()
-      }
-
-  """
-  @type data_product_result_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_time_series_data_point_output() :: %{
-        "domainId" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "entityType" => list(any()),
-        "form" => time_series_data_point_form_output(),
-        "formName" => String.t() | atom()
-      }
-
-  """
-  @type get_time_series_data_point_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_environment_blueprint_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("userParameters") => list(custom_parameter()),
-        required("name") => String.t() | atom(),
-        required("provisioningProperties") => list()
-      }
-
-  """
-  @type create_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_connection_patch() :: %{
-        "authenticationConfiguration" => authentication_configuration_patch(),
-        "connectionProperties" => map(),
-        "description" => [String.t() | atom()]
-      }
-
-  """
-  @type glue_connection_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_profiles_input() :: %{
-        optional("awsAccountId") => String.t() | atom(),
-        optional("awsAccountRegion") => String.t() | atom(),
-        optional("environmentBlueprintIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("projectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_environment_profiles_input() :: %{(String.t() | atom()) => any()}
+  @type subscription_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5961,330 +1242,97 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      create_project_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("domainUnitId") => String.t() | atom(),
-        optional("glossaryTerms") => list(String.t() | atom()),
-        optional("membershipAssignments") => list(project_membership_assignment()),
-        optional("projectCategory") => [String.t() | atom()],
-        optional("projectExecutionRole") => String.t() | atom(),
-        optional("projectProfileId") => String.t() | atom(),
-        optional("resourceTags") => map(),
-        optional("userParameters") => list(environment_configuration_user_parameter()),
-        required("name") => String.t() | atom()
-      }
+      delete_glossary_term_output() :: %{}
 
   """
-  @type create_project_input() :: %{(String.t() | atom()) => any()}
+  @type delete_glossary_term_output() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_rules_input() :: %{
-        optional("action") => list(any()),
-        optional("assetTypes") => list(String.t() | atom()),
-        optional("dataProduct") => [boolean()],
-        optional("includeCascaded") => [boolean()],
-        optional("maxResults") => [integer()],
+      list_environment_profiles_input() :: %{
+        optional("awsAccountId") => String.t() | atom(),
+        optional("awsAccountRegion") => String.t() | atom(),
+        optional("environmentBlueprintIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
-        optional("projectIds") => list(String.t() | atom()),
-        optional("ruleType") => list(any())
+        optional("projectIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_rules_input() :: %{(String.t() | atom()) => any()}
+  @type list_environment_profiles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_subscription_grant_input() :: %{}
-
-  """
-  @type delete_subscription_grant_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_blueprint_output() :: %{
+      update_account_pool_output() :: %{
+        "accountSource" => list(),
         "createdAt" => [non_neg_integer()],
-        "deploymentProperties" => deployment_properties(),
-        "description" => String.t() | atom(),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "provider" => [String.t() | atom()],
-        "provisioningProperties" => list(),
-        "updatedAt" => [non_neg_integer()],
-        "userParameters" => list(custom_parameter())
-      }
-
-  """
-  @type get_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_console_link_parameters() :: %{
-        "uri" => [String.t() | atom()]
-      }
-
-  """
-  @type aws_console_link_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_form_type_output() :: %{
-        "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "imports" => list(import()),
-        "model" => list(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
-        "originDomainId" => String.t() | atom(),
-        "originProjectId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "status" => list(any())
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
       }
 
   """
-  @type get_form_type_output() :: %{(String.t() | atom()) => any()}
+  @type update_account_pool_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_asset_filter_output() :: %{
-        "assetId" => String.t() | atom(),
-        "configuration" => list(),
-        "createdAt" => non_neg_integer(),
+      get_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "effectiveColumnNames" => list([String.t() | atom()]()),
-        "effectiveRowFilter" => [String.t() | atom()],
-        "errorMessage" => [String.t() | atom()],
+        "domainUnitId" => String.t() | atom(),
+        "environmentConfigurations" => list(environment_configuration()),
         "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type create_asset_filter_output() :: %{(String.t() | atom()) => any()}
+  @type get_project_profile_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vpc_properties_output() :: %{
-        "glueConnectionNames" => list(String.t() | atom()),
-        "securityGroupId" => String.t() | atom(),
-        "status" => list(any()),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
+      remove_policy_grant_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("grantIdentifier") => String.t() | atom(),
+        required("policyType") => list(any()),
+        required("principal") => list()
       }
 
   """
-  @type vpc_properties_output() :: %{(String.t() | atom()) => any()}
+  @type remove_policy_grant_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      glossary_term_item_additional_attributes() :: %{
-        "matchRationale" => list(list())
+      list_notebook_runs_output() :: %{
+        "items" => list(notebook_run_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type glossary_term_item_additional_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      notification_output() :: %{
-        "actionLink" => String.t() | atom(),
-        "creationTimestamp" => [non_neg_integer()],
-        "domainIdentifier" => String.t() | atom(),
-        "identifier" => String.t() | atom(),
-        "lastUpdatedTimestamp" => [non_neg_integer()],
-        "message" => String.t() | atom(),
-        "metadata" => map(),
-        "status" => list(any()),
-        "title" => String.t() | atom(),
-        "topic" => topic(),
-        "type" => list(any())
-      }
-
-  """
-  @type notification_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_governed_terms_input() :: %{
-        required("governedGlossaryTerms") => list(String.t() | atom())
-      }
-
-  """
-  @type disassociate_governed_terms_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      project_membership_assignment() :: %{
-        "designation" => list(any()),
-        "member" => list()
-      }
-
-  """
-  @type project_membership_assignment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      row_filter_configuration() :: %{
-        "rowFilter" => list(),
-        "sensitive" => [boolean()]
-      }
-
-  """
-  @type row_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_properties_input() :: %{
-        "securityGroupId" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_properties_patch() :: %{
-        "securityGroupId" => String.t() | atom(),
-        "subnetIds" => list(String.t() | atom()),
-        "vpcId" => String.t() | atom()
-      }
-
-  """
-  @type vpc_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_glossary_term_input() :: %{
-        optional("glossaryIdentifier") => String.t() | atom(),
-        optional("longDescription") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("shortDescription") => String.t() | atom(),
-        optional("status") => list(any()),
-        optional("termRelations") => term_relations()
-      }
-
-  """
-  @type update_glossary_term_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_action_output() :: %{
-        "description" => [String.t() | atom()],
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "parameters" => list()
-      }
-
-  """
-  @type update_environment_action_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_listing_item_additional_attributes() :: %{
-        "forms" => String.t() | atom(),
-        "matchRationale" => list(list())
-      }
-
-  """
-  @type data_product_listing_item_additional_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      column_filter_configuration() :: %{
-        "includedColumnNames" => list([String.t() | atom()]())
-      }
-
-  """
-  @type column_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_blueprint_configuration_output() :: %{
-        "allowUserProvidedConfigurations" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "domainId" => String.t() | atom(),
-        "enabledRegions" => list(String.t() | atom()),
-        "environmentBlueprintId" => String.t() | atom(),
-        "environmentRolePermissionBoundary" => String.t() | atom(),
-        "manageAccessRoleArn" => String.t() | atom(),
-        "provisioningConfigurations" => list(list()),
-        "provisioningRoleArn" => String.t() | atom(),
-        "regionalParameters" => map(),
-        "resourceConfigurations" => list(resource_configuration()),
-        "updatedAt" => [non_neg_integer()]
-      }
-
-  """
-  @type get_environment_blueprint_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_output() :: %{
-        "arn" => [String.t() | atom()],
-        "description" => [String.t() | atom()],
-        "domainExecutionRole" => String.t() | atom(),
-        "domainVersion" => list(any()),
-        "id" => String.t() | atom(),
-        "kmsKeyIdentifier" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "portalUrl" => [String.t() | atom()],
-        "rootDomainUnitId" => String.t() | atom(),
-        "serviceRole" => String.t() | atom(),
-        "singleSignOn" => single_sign_on(),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type create_domain_output() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_runs_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6303,413 +1351,31 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      create_asset_type_input() :: %{
-        optional("description") => String.t() | atom(),
-        required("formsInput") => map(),
-        required("name") => String.t() | atom(),
+      list_notebook_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("notebookIdentifier") => String.t() | atom(),
+        optional("scheduleIdentifier") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any()),
         required("owningProjectIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_asset_type_input() :: %{(String.t() | atom()) => any()}
+  @type list_notebook_runs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_summary() :: %{
-        "action" => list(any()),
-        "identifier" => String.t() | atom(),
-        "lastUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "revision" => String.t() | atom(),
-        "ruleType" => list(any()),
-        "scope" => rule_scope(),
-        "target" => list(),
-        "targetType" => list(any()),
-        "updatedAt" => non_neg_integer()
+      update_subscription_grant_status_input() :: %{
+        optional("failureCause") => failure_cause(),
+        optional("targetName") => [String.t() | atom()],
+        required("status") => list(any())
       }
 
   """
-  @type rule_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_subscription_input() :: %{}
-
-  """
-  @type cancel_subscription_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_properties_patch() :: %{
-        "credentials" => list(),
-        "databaseName" => [String.t() | atom()],
-        "host" => [String.t() | atom()],
-        "lineageSync" => redshift_lineage_sync_configuration_input(),
-        "port" => [integer()],
-        "storage" => list()
-      }
-
-  """
-  @type redshift_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accepted_asset_scope() :: %{
-        "assetId" => String.t() | atom(),
-        "filterIds" => list(String.t() | atom())
-      }
-
-  """
-  @type accepted_asset_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_lineage_sync_configuration_output() :: %{
-        "enabled" => [boolean()],
-        "lineageJobId" => [String.t() | atom()],
-        "schedule" => lineage_sync_schedule()
-      }
-
-  """
-  @type redshift_lineage_sync_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_subscription_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "retainPermissions" => [boolean()],
-        "status" => list(any()),
-        "subscribedListing" => subscribed_listing(),
-        "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type cancel_subscription_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sso_user_profile_details() :: %{
-        "firstName" => String.t() | atom(),
-        "lastName" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type sso_user_profile_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_data_export_configuration_output() :: %{}
-
-  """
-  @type put_data_export_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_metadata_generation_run_input() :: %{}
-
-  """
-  @type cancel_metadata_generation_run_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_tag() :: %{
-        "key" => String.t() | atom(),
-        "source" => list(any()),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type resource_tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_targets_output() :: %{
-        "items" => list(subscription_target_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_subscription_targets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_input() :: %{}
-
-  """
-  @type delete_asset_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_export_configuration_input() :: %{}
-
-  """
-  @type get_data_export_configuration_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_config() :: %{
-        "kmsKeyArn" => String.t() | atom(),
-        "projectS3Path" => String.t() | atom()
-      }
-
-  """
-  @type storage_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      physical_connection_requirements() :: %{
-        "availabilityZone" => [String.t() | atom()],
-        "securityGroupIdList" => list([String.t() | atom()]()),
-        "subnetId" => String.t() | atom(),
-        "subnetIdList" => list(String.t() | atom())
-      }
-
-  """
-  @type physical_connection_requirements() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_policy_grant_output() :: %{}
-
-  """
-  @type remove_policy_grant_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_membership_output() :: %{}
-
-  """
-  @type delete_project_membership_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_summary() :: %{
-        "connectionId" => [String.t() | atom()],
-        "createdAt" => non_neg_integer(),
-        "dataSourceId" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "enableSetting" => list(any()),
-        "environmentId" => [String.t() | atom()],
-        "lastRunAssetCount" => [integer()],
-        "lastRunAt" => non_neg_integer(),
-        "lastRunErrorMessage" => data_source_error_message(),
-        "lastRunStatus" => list(any()),
-        "name" => String.t() | atom(),
-        "schedule" => schedule_configuration(),
-        "status" => list(any()),
-        "type" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type data_source_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_listing_item() :: %{
-        "additionalAttributes" => asset_listing_item_additional_attributes(),
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "entityRevision" => String.t() | atom(),
-        "entityType" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "governedGlossaryTerms" => list(detailed_glossary_term()),
-        "listingCreatedBy" => String.t() | atom(),
-        "listingId" => String.t() | atom(),
-        "listingRevision" => String.t() | atom(),
-        "listingUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom()
-      }
-
-  """
-  @type asset_listing_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_credentials_input() :: %{}
-
-  """
-  @type get_environment_credentials_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      aggregation_list_item() :: %{
-        "attribute" => String.t() | atom(),
-        "displayValue" => String.t() | atom()
-      }
-
-  """
-  @type aggregation_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_environment_blueprint_configuration_output() :: %{}
-
-  """
-  @type delete_environment_blueprint_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_account_pool_input() :: %{}
-
-  """
-  @type delete_account_pool_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_group_profiles_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("searchText") => String.t() | atom(),
-        required("groupType") => list(any())
-      }
-
-  """
-  @type search_group_profiles_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_blueprints_output() :: %{
-        "items" => list(environment_blueprint_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_environment_blueprints_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_emr_properties_output() :: %{
-        "certificateData" => [String.t() | atom()],
-        "computeArn" => [String.t() | atom()],
-        "credentials" => username_password(),
-        "credentialsExpiration" => [non_neg_integer()],
-        "governanceType" => list(any()),
-        "instanceProfileArn" => [String.t() | atom()],
-        "javaVirtualEnv" => [String.t() | atom()],
-        "livyEndpoint" => [String.t() | atom()],
-        "logUri" => [String.t() | atom()],
-        "managedEndpointArn" => [String.t() | atom()],
-        "managedEndpointCredentials" => managed_endpoint_credentials(),
-        "pythonVirtualEnv" => [String.t() | atom()],
-        "runtimeRole" => [String.t() | atom()],
-        "trustedCertificatesS3Uri" => [String.t() | atom()]
-      }
-
-  """
-  @type spark_emr_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_output() :: %{}
-
-  """
-  @type delete_asset_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_iam_portal_login_url_input() :: %{}
-
-  """
-  @type get_iam_portal_login_url_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_profile_input() :: %{}
-
-  """
-  @type delete_project_profile_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notifications_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "notifications" => list(notification_output())
-      }
-
-  """
-  @type list_notifications_output() :: %{(String.t() | atom()) => any()}
+  @type update_subscription_grant_status_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6736,7 +1402,36 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      update_project_output() :: %{
+      create_project_profile_input() :: %{
+        optional("allowCustomProjectResourceTags") => [boolean()],
+        optional("description") => String.t() | atom(),
+        optional("domainUnitIdentifier") => String.t() | atom(),
+        optional("environmentConfigurations") => list(environment_configuration()),
+        optional("projectResourceTags") => list(resource_tag_parameter()),
+        optional("projectResourceTagsDescription") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_project_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_output() :: %{
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -6756,7 +1451,413 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type update_project_output() :: %{(String.t() | atom()) => any()}
+  @type create_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group_profile_summary() :: %{
+        "domainId" => String.t() | atom(),
+        "groupName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type group_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_blueprint_configuration_item() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "domainId" => String.t() | atom(),
+        "enabledRegions" => list(String.t() | atom()),
+        "environmentBlueprintId" => String.t() | atom(),
+        "environmentRolePermissionBoundary" => String.t() | atom(),
+        "manageAccessRoleArn" => String.t() | atom(),
+        "provisioningConfigurations" => list(list()),
+        "provisioningRoleArn" => String.t() | atom(),
+        "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type environment_blueprint_configuration_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_lineage_event_output() :: %{
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type post_lineage_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_data_source_input() :: %{
+        optional("assetFormsInput") => list(form_input()),
+        optional("configuration") => list(),
+        optional("description") => String.t() | atom(),
+        optional("enableSetting") => list(any()),
+        optional("name") => String.t() | atom(),
+        optional("publishOnImport") => [boolean()],
+        optional("recommendation") => recommendation_configuration(),
+        optional("retainPermissionsOnRevokeFailure") => [boolean()],
+        optional("schedule") => schedule_configuration()
+      }
+
+  """
+  @type update_data_source_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_output() :: %{
+        "status" => list(any())
+      }
+
+  """
+  @type delete_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_iam_portal_login_url_input() :: %{}
+
+  """
+  @type get_iam_portal_login_url_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      group_details() :: %{
+        "groupId" => [String.t() | atom()]
+      }
+
+  """
+  @type group_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notifications_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "notifications" => list(notification_output())
+      }
+
+  """
+  @type list_notifications_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_glossary_output() :: %{}
+
+  """
+  @type delete_glossary_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_lineage_sync_configuration_output() :: %{
+        "enabled" => [boolean()],
+        "lineageJobId" => [String.t() | atom()],
+        "schedule" => lineage_sync_schedule()
+      }
+
+  """
+  @type redshift_lineage_sync_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notebooks_output() :: %{
+        "items" => list(notebook_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_notebooks_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unit() :: %{}
+
+  """
+  @type unit() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_environment_role_output() :: %{}
+
+  """
+  @type disassociate_environment_role_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      revoke_subscription_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "retainPermissions" => [boolean()],
+        "status" => list(any()),
+        "subscribedListing" => subscribed_listing(),
+        "subscribedPrincipal" => list(),
+        "subscriptionRequestId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type revoke_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("retainPermissionsOnRevokeFailure") => [boolean()]
+      }
+
+  """
+  @type delete_data_source_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_profile_policy_grant_detail() :: %{
+        "domainUnitId" => String.t() | atom()
+      }
+
+  """
+  @type create_environment_profile_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_blueprint_configuration_output() :: %{}
+
+  """
+  @type delete_environment_blueprint_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_blueprints_output() :: %{
+        "items" => list(environment_blueprint_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environment_blueprints_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_metadata_generation_run_output() :: %{}
+
+  """
+  @type cancel_metadata_generation_run_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deployment() :: %{
+        "deploymentId" => [String.t() | atom()],
+        "deploymentStatus" => list(any()),
+        "deploymentType" => list(any()),
+        "failureReason" => environment_error(),
+        "isDeploymentComplete" => [boolean()],
+        "messages" => list(String.t() | atom())
+      }
+
+  """
+  @type deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_attributes_metadata_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("attributes") => list(attribute_input())
+      }
+
+  """
+  @type batch_put_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_unit_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owners" => list(list()),
+        "parentDomainUnitId" => String.t() | atom()
+      }
+
+  """
+  @type update_domain_unit_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_metadata_generation_runs_output() :: %{
+        "items" => list(metadata_generation_run_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_metadata_generation_runs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_q_properties_input() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_q_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_scope() :: %{
+        "assetId" => String.t() | atom(),
+        "errorMessage" => [String.t() | atom()],
+        "filterIds" => list(String.t() | atom()),
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type asset_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("skipDeletionCheck") => [boolean()]
+      }
+
+  """
+  @type delete_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_type_input() :: %{
+        optional("description") => String.t() | atom(),
+        required("formsInput") => map(),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_asset_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_environment_role_input() :: %{}
+
+  """
+  @type associate_environment_role_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_endpoint_credentials() :: %{
+        "id" => [String.t() | atom()],
+        "token" => [String.t() | atom()]
+      }
+
+  """
+  @type managed_endpoint_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_credentials_input() :: %{}
+
+  """
+  @type get_environment_credentials_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lineage_node_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "downstreamNodes" => list(lineage_node_reference()),
+        "eventTimestamp" => [non_neg_integer()],
+        "formsOutput" => list(form_output()),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sourceIdentifier" => [String.t() | atom()],
+        "typeName" => [String.t() | atom()],
+        "typeRevision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "upstreamNodes" => list(lineage_node_reference())
+      }
+
+  """
+  @type get_lineage_node_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6776,130 +1877,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      lineage_node_reference() :: %{
-        "eventTimestamp" => [non_neg_integer()],
-        "id" => String.t() | atom()
+      physical_endpoint() :: %{
+        "awsLocation" => aws_location(),
+        "enableTrustedIdentityPropagation" => [boolean()],
+        "glueConnection" => glue_connection(),
+        "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
+        "host" => [String.t() | atom()],
+        "port" => [integer()],
+        "protocol" => list(any()),
+        "stage" => [String.t() | atom()]
       }
 
   """
-  @type lineage_node_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_glossary_term_input() :: %{}
-
-  """
-  @type delete_glossary_term_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      timeout_config() :: %{
-        "runTimeoutInMinutes" => [integer()]
-      }
-
-  """
-  @type timeout_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_configuration() :: %{
-        "description" => [String.t() | atom()],
-        "identifier" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "parameters" => map(),
-        "region" => String.t() | atom()
-      }
-
-  """
-  @type resource_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      in_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type in_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_profile_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("groupIdentifier") => String.t() | atom(),
-        optional("rolePrincipalArn") => [String.t() | atom()]
-      }
-
-  """
-  @type create_group_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_lineage_node_history_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "nodes" => list(lineage_node_summary())
-      }
-
-  """
-  @type list_lineage_node_history_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_product_revisions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_data_product_revisions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glossary_term_enforcement_detail() :: %{
-        "requiredGlossaryTermIds" => list(String.t() | atom())
-      }
-
-  """
-  @type glossary_term_enforcement_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_governed_terms_input() :: %{
-        required("governedGlossaryTerms") => list(String.t() | atom())
-      }
-
-  """
-  @type associate_governed_terms_input() :: %{(String.t() | atom()) => any()}
+  @type physical_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6920,189 +1911,29 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      delete_data_product_output() :: %{}
-
-  """
-  @type delete_data_product_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      data_source_run_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataSourceId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "lineageSummary" => data_source_run_lineage_summary(),
-        "projectId" => String.t() | atom(),
-        "runStatisticsForAssets" => run_statistics_for_assets(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "stoppedAt" => non_neg_integer(),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type data_source_run_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      compute_config() :: %{
-        "environmentVersion" => [String.t() | atom()],
-        "instanceType" => String.t() | atom()
-      }
-
-  """
-  @type compute_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_pools_output() :: %{
-        "items" => list(account_pool_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_account_pools_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      username_password() :: %{
-        "password" => String.t() | atom(),
-        "username" => String.t() | atom()
-      }
-
-  """
-  @type username_password() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_unit_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("parentDomainUnitIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type create_domain_unit_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_target() :: %{
-        "domainUnitId" => String.t() | atom(),
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type domain_unit_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_product_input() :: %{
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type get_data_product_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_input() :: %{
-        "attributeIdentifier" => String.t() | atom(),
-        "forms" => list(form_input())
-      }
-
-  """
-  @type attribute_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_predictions_input() :: %{
-        optional("acceptChoices") => list(accept_choice()),
-        optional("acceptRule") => accept_rule(),
-        optional("clientToken") => String.t() | atom(),
-        optional("revision") => String.t() | atom()
-      }
-
-  """
-  @type accept_predictions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_entity_owners_output() :: %{
-        "nextToken" => String.t() | atom(),
-        "owners" => list(list())
-      }
-
-  """
-  @type list_entity_owners_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_projects_input() :: %{
-        optional("groupIdentifier") => [String.t() | atom()],
+      search_user_profiles_input() :: %{
         optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
         optional("nextToken") => String.t() | atom(),
-        optional("projectCategory") => [String.t() | atom()],
-        optional("userIdentifier") => [String.t() | atom()]
+        optional("searchText") => String.t() | atom(),
+        required("userType") => list(any())
       }
 
   """
-  @type list_projects_input() :: %{(String.t() | atom()) => any()}
+  @type search_user_profiles_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      environment_profile_summary() :: %{
-        "awsAccountId" => String.t() | atom(),
-        "awsAccountRegion" => String.t() | atom(),
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => [String.t() | atom()],
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentBlueprintId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "projectId" => String.t() | atom(),
-        "updatedAt" => [non_neg_integer()]
+      network_config() :: %{
+        "networkAccessType" => list(any()),
+        "securityGroupIds" => list([String.t() | atom()]()),
+        "subnetIds" => list([String.t() | atom()]()),
+        "vpcId" => [String.t() | atom()]
       }
 
   """
-  @type environment_profile_summary() :: %{(String.t() | atom()) => any()}
+  @type network_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7132,14 +1963,623 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      accept_predictions_output() :: %{
-        "assetId" => String.t() | atom(),
+      relational_filter_configuration() :: %{
+        "databaseName" => [String.t() | atom()],
+        "filterExpressions" => list(filter_expression()),
+        "schemaName" => [String.t() | atom()]
+      }
+
+  """
+  @type relational_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      less_than_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type less_than_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_self_grant_status_output() :: %{
+        "selfGrantStatusDetails" => list(self_grant_status_detail())
+      }
+
+  """
+  @type redshift_self_grant_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_error_message() :: %{
+        "errorDetail" => [String.t() | atom()],
+        "errorType" => list(any())
+      }
+
+  """
+  @type data_source_error_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_account_pool_output() :: %{
+        "accountSource" => list(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_properties() :: %{
+        "authorizationCodeProperties" => authorization_code_properties(),
+        "oAuth2ClientApplication" => o_auth2_client_application(),
+        "oAuth2Credentials" => glue_o_auth2_credentials(),
+        "oAuth2GrantType" => list(any()),
+        "tokenUrl" => [String.t() | atom()],
+        "tokenUrlParametersMap" => map()
+      }
+
+  """
+  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "endTime" => [non_neg_integer()],
+        "error" => job_run_error(),
+        "jobId" => [String.t() | atom()],
+        "jobType" => list(any()),
+        "runId" => [String.t() | atom()],
+        "runMode" => list(any()),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
+      }
+
+  """
+  @type job_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lake_formation_configuration() :: %{
+        "locationRegistrationExcludeS3Locations" => list(String.t() | atom()),
+        "locationRegistrationRole" => String.t() | atom()
+      }
+
+  """
+  @type lake_formation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_entry_input() :: %{
+        "required" => [boolean()],
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type form_entry_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_unit_input() :: %{}
+
+  """
+  @type delete_domain_unit_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      is_null_expression() :: %{
+        "columnName" => [String.t() | atom()]
+      }
+
+  """
+  @type is_null_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aws_location() :: %{
+        "accessRole" => [String.t() | atom()],
+        "awsAccountId" => String.t() | atom(),
+        "awsRegion" => String.t() | atom(),
+        "iamConnectionId" => String.t() | atom()
+      }
+
+  """
+  @type aws_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glossary_item() :: %{
+        "additionalAttributes" => glossary_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type glossary_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_credentials() :: %{
+        "accessKeyId" => [String.t() | atom()],
+        "expiration" => [non_neg_integer()],
+        "secretAccessKey" => [String.t() | atom()],
+        "sessionToken" => [String.t() | atom()]
+      }
+
+  """
+  @type connection_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentConfigurations" => list(environment_configuration()),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type update_project_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_type_data() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "imports" => list(import()),
+        "model" => list(),
+        "name" => String.t() | atom(),
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type form_type_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_blueprint_configurations_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_environment_blueprint_configurations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_time_series_data_points_output() :: %{
+        "domainId" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityType" => list(any()),
+        "forms" => list(time_series_data_point_form_output())
+      }
+
+  """
+  @type post_time_series_data_points_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_actions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_environment_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_connection_input() :: %{}
+
+  """
+  @type delete_connection_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_data_source_run_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataSourceConfigurationSnapshot" => [String.t() | atom()],
+        "dataSourceId" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "id" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "runStatisticsForAssets" => run_statistics_for_assets(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "stoppedAt" => non_neg_integer(),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type start_data_source_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_config() :: %{
+        "imageVersion" => [String.t() | atom()],
+        "packageConfig" => package_config()
+      }
+
+  """
+  @type environment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_configuration() :: %{
+        "description" => [String.t() | atom()],
+        "identifier" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameters" => map(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type resource_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_mwaa_properties_output() :: %{
+        "mwaaEnvironmentName" => [String.t() | atom()]
+      }
+
+  """
+  @type workflows_mwaa_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_listing_change_set_output() :: %{
+        "listingId" => String.t() | atom(),
+        "listingRevision" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_listing_change_set_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_node_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "downstreamLineageNodeIds" => list(String.t() | atom()),
+        "eventTimestamp" => [non_neg_integer()],
+        "formsOutput" => list(form_output()),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sourceIdentifier" => [String.t() | atom()],
+        "typeName" => [String.t() | atom()],
+        "typeRevision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "upstreamLineageNodeIds" => list(String.t() | atom())
+      }
+
+  """
+  @type lineage_node_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_grant_output() :: %{
+        "assets" => list(subscribed_asset()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "grantedEntity" => list(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "subscriptionId" => String.t() | atom(),
+        "subscriptionTargetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type delete_subscription_grant_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      physical_connection_requirements() :: %{
+        "availabilityZone" => [String.t() | atom()],
+        "securityGroupIdList" => list([String.t() | atom()]()),
+        "subnetId" => String.t() | atom(),
+        "subnetIdList" => list(String.t() | atom())
+      }
+
+  """
+  @type physical_connection_requirements() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_listing_output() :: %{}
+
+  """
+  @type delete_listing_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_notebook_run_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("computeConfiguration") => compute_config(),
+        optional("metadata") => map(),
+        optional("networkConfiguration") => network_config(),
+        optional("parameters") => map(),
+        optional("scheduleIdentifier") => String.t() | atom(),
+        optional("timeoutConfiguration") => timeout_config(),
+        optional("triggerSource") => trigger_source(),
+        required("notebookIdentifier") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type start_notebook_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_blueprint_input() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("provisioningProperties") => list(),
+        optional("userParameters") => list(custom_parameter())
+      }
+
+  """
+  @type update_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_properties_output() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "registerS3AccessGrantLocation" => [boolean()],
+        "s3AccessGrantLocationId" => String.t() | atom(),
+        "s3Uri" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type s3_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      run_statistics_for_assets() :: %{
+        "added" => [integer()],
+        "failed" => [integer()],
+        "skipped" => [integer()],
+        "unchanged" => [integer()],
+        "updated" => [integer()]
+      }
+
+  """
+  @type run_statistics_for_assets() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_form_type_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_form_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_run_configuration_input() :: %{
+        "trackingAssets" => map()
+      }
+
+  """
+  @type sage_maker_run_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_blueprint_configuration_input() :: %{}
+
+  """
+  @type get_environment_blueprint_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_form_type_input() :: %{}
+
+  """
+  @type delete_form_type_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_revision() :: %{
+        "id" => String.t() | atom(),
         "revision" => String.t() | atom()
       }
 
   """
-  @type accept_predictions_output() :: %{(String.t() | atom()) => any()}
+  @type listing_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_profile_output() :: %{}
+
+  """
+  @type delete_project_profile_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_properties_input() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t() | atom()],
+        "host" => [String.t() | atom()],
+        "lineageSync" => redshift_lineage_sync_configuration_input(),
+        "port" => [integer()],
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_properties_patch() :: %{
+        "glueConnectionInput" => glue_connection_patch()
+      }
+
+  """
+  @type glue_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_source_run_activities_output() :: %{
+        "items" => list(data_source_run_activity()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_source_run_activities_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_output() :: %{
+        "configurations" => list(configuration()),
+        "connectionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "physicalEndpoints" => list(physical_endpoint()),
+        "projectId" => String.t() | atom(),
+        "props" => list(),
+        "scope" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type create_connection_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7177,26 +2617,47 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      put_resource_configuration() :: %{
-        "description" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "parameters" => map(),
-        "region" => String.t() | atom()
+      spark_emr_properties_output() :: %{
+        "certificateData" => [String.t() | atom()],
+        "computeArn" => [String.t() | atom()],
+        "credentials" => username_password(),
+        "credentialsExpiration" => [non_neg_integer()],
+        "governanceType" => list(any()),
+        "instanceProfileArn" => [String.t() | atom()],
+        "javaVirtualEnv" => [String.t() | atom()],
+        "livyEndpoint" => [String.t() | atom()],
+        "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
+        "managedEndpointCredentials" => managed_endpoint_credentials(),
+        "pythonVirtualEnv" => [String.t() | atom()],
+        "runtimeRole" => [String.t() | atom()],
+        "trustedCertificatesS3Uri" => [String.t() | atom()]
       }
 
   """
-  @type put_resource_configuration() :: %{(String.t() | atom()) => any()}
+  @type spark_emr_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      lakehouse_properties_output() :: %{
+      iam_properties_patch() :: %{
         "glueLineageSyncEnabled" => [boolean()]
       }
 
   """
-  @type lakehouse_properties_output() :: %{(String.t() | atom()) => any()}
+  @type iam_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_rule_input() :: %{
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type get_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7219,1146 +2680,84 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      connection_summary() :: %{
-        "configurations" => list(configuration()),
-        "connectionId" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "physicalEndpoints" => list(physical_endpoint()),
-        "projectId" => String.t() | atom(),
-        "props" => list(),
-        "scope" => list(any()),
-        "type" => list(any())
+      list_data_source_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
       }
 
   """
-  @type connection_summary() :: %{(String.t() | atom()) => any()}
+  @type list_data_source_runs_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      self_grant_status_detail() :: %{
-        "databaseName" => [String.t() | atom()],
-        "failureCause" => [String.t() | atom()],
-        "schemaName" => [String.t() | atom()],
-        "status" => list(any())
-      }
-
-  """
-  @type self_grant_status_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_policy_grant_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("grantIdentifier") => String.t() | atom(),
-        required("policyType") => list(any()),
-        required("principal") => list()
-      }
-
-  """
-  @type remove_policy_grant_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_connection_output() :: %{
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_connection_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_pool_input() :: %{
-        optional("accountSource") => list(),
-        optional("description") => String.t() | atom(),
+      update_subscription_target_input() :: %{
+        optional("applicableAssetTypes") => list(String.t() | atom()),
+        optional("authorizedPrincipals") => list(String.t() | atom()),
+        optional("manageAccessRole") => String.t() | atom(),
         optional("name") => String.t() | atom(),
-        optional("resolutionStrategy") => list(any())
+        optional("provider") => [String.t() | atom()],
+        optional("subscriptionGrantCreationMode") => list(any()),
+        optional("subscriptionTargetConfig") => list(subscription_target_form())
       }
 
   """
-  @type update_account_pool_input() :: %{(String.t() | atom()) => any()}
+  @type update_subscription_target_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_listing_change_set_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("entityRevision") => String.t() | atom(),
-        required("action") => list(any()),
-        required("entityIdentifier") => String.t() | atom(),
-        required("entityType") => list(any())
-      }
-
-  """
-  @type create_listing_change_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_policy_grant_principal() :: %{
-        "domainUnitDesignation" => list(any()),
-        "domainUnitGrantFilter" => list(),
-        "domainUnitIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type domain_unit_policy_grant_principal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      relational_filter_configuration() :: %{
-        "databaseName" => [String.t() | atom()],
-        "filterExpressions" => list(filter_expression()),
-        "schemaName" => [String.t() | atom()]
-      }
-
-  """
-  @type relational_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_iam_principal_input() :: %{
-        "identifier" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_iam_principal_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_form_type_input() :: %{}
-
-  """
-  @type delete_form_type_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      less_than_or_equal_to_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type less_than_or_equal_to_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_unit_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()]
-      }
-
-  """
-  @type create_domain_unit_policy_grant_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_subscription_request_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "decisionComment" => String.t() | atom(),
+      update_glossary_term_output() :: %{
         "domainId" => String.t() | atom(),
-        "existingSubscriptionId" => String.t() | atom(),
+        "glossaryId" => String.t() | atom(),
         "id" => String.t() | atom(),
-        "metadataForms" => list(form_output()),
-        "requestReason" => String.t() | atom(),
-        "reviewerId" => [String.t() | atom()],
+        "longDescription" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "shortDescription" => String.t() | atom(),
         "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()),
-        "subscribedPrincipals" => list(list()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
+        "termRelations" => term_relations(),
+        "usageRestrictions" => list(list(any())())
       }
 
   """
-  @type accept_subscription_request_output() :: %{(String.t() | atom()) => any()}
+  @type update_glossary_term_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_governed_terms_output() :: %{}
-
-  """
-  @type disassociate_governed_terms_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_request_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "decisionComment" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "existingSubscriptionId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "metadataForms" => list(form_output()),
-        "requestReason" => String.t() | atom(),
-        "reviewerId" => [String.t() | atom()],
-        "status" => list(any()),
-        "subscribedListings" => list(subscribed_listing()),
-        "subscribedPrincipals" => list(list()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type update_subscription_request_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rules_output() :: %{
-        "items" => list(rule_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_rules_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      unauthorized_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_glue_properties_output() :: %{
-        "additionalArgs" => spark_glue_args(),
-        "glueConnectionName" => [String.t() | atom()],
-        "glueConnectionNames" => list(String.t() | atom()),
-        "glueVersion" => [String.t() | atom()],
-        "idleTimeout" => [integer()],
-        "javaVirtualEnv" => [String.t() | atom()],
-        "numberOfWorkers" => [integer()],
-        "pythonVirtualEnv" => [String.t() | atom()],
-        "workerType" => [String.t() | atom()]
+      add_policy_grant_output() :: %{
+        "grantId" => String.t() | atom()
       }
 
   """
-  @type spark_glue_properties_output() :: %{(String.t() | atom()) => any()}
+  @type add_policy_grant_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_notebook_runs_output() :: %{
-        "items" => list(notebook_run_summary()),
+      list_subscription_requests_output() :: %{
+        "items" => list(subscription_request_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_notebook_runs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_units_for_parent_output() :: %{
-        "items" => list(domain_unit_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_units_for_parent_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      workflows_mwaa_properties_output() :: %{
-        "mwaaEnvironmentName" => [String.t() | atom()]
-      }
-
-  """
-  @type workflows_mwaa_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_formation_properties() :: %{
-        "templateUrl" => [String.t() | atom()]
-      }
-
-  """
-  @type cloud_formation_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_asset_type_input() :: %{}
-
-  """
-  @type delete_asset_type_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_account_pool_input() :: %{
-        optional("description") => String.t() | atom(),
-        required("accountSource") => list(),
-        required("name") => String.t() | atom(),
-        required("resolutionStrategy") => list(any())
-      }
-
-  """
-  @type create_account_pool_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule_configuration() :: %{
-        "schedule" => String.t() | atom(),
-        "timezone" => list(any())
-      }
-
-  """
-  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_environment_role_output() :: %{}
-
-  """
-  @type associate_environment_role_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_deployment_details() :: %{
-        "environmentFailureReasons" => map(),
-        "overallDeploymentStatus" => list(any())
-      }
-
-  """
-  @type environment_deployment_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_glossary_input() :: %{}
-
-  """
-  @type get_glossary_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_user_input() :: %{
-        "identifier" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_user_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation_configuration() :: %{
-        "enableBusinessNameGeneration" => [boolean()]
-      }
-
-  """
-  @type recommendation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_output() :: %{
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentDeploymentDetails" => environment_deployment_details(),
-        "failureReasons" => list(project_deletion_error()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "projectCategory" => [String.t() | atom()],
-        "projectProfileId" => String.t() | atom(),
-        "projectStatus" => list(any()),
-        "resourceTags" => list(resource_tag()),
-        "userParameters" => list(environment_configuration_user_parameter())
-      }
-
-  """
-  @type get_project_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_project_profiles_input() :: %{
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_project_profiles_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_listing_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "item" => list(),
-        "listingRevision" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_listing_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_in_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type not_in_expression() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_group_profile_input() :: %{}
-
-  """
-  @type get_group_profile_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_environment_profiles_output() :: %{
-        "items" => list(environment_profile_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_environment_profiles_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_asset_filter_input() :: %{
-        optional("configuration") => list(),
-        optional("description") => String.t() | atom(),
-        optional("name") => [String.t() | atom()]
-      }
-
-  """
-  @type update_asset_filter_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_summary() :: %{
-        "id" => String.t() | atom(),
-        "name" => [String.t() | atom()]
-      }
-
-  """
-  @type domain_unit_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_source_run_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "dataSourceConfigurationSnapshot" => [String.t() | atom()],
-        "dataSourceId" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "errorMessage" => data_source_error_message(),
-        "id" => String.t() | atom(),
-        "lineageSummary" => data_source_run_lineage_summary(),
-        "projectId" => String.t() | atom(),
-        "runStatisticsForAssets" => run_statistics_for_assets(),
-        "startedAt" => non_neg_integer(),
-        "status" => list(any()),
-        "stoppedAt" => non_neg_integer(),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_data_source_run_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_notebook_import_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("name") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom(),
-        required("sourceLocation") => list()
-      }
-
-  """
-  @type start_notebook_import_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_lineage_event_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "event" => binary(),
-        "eventTime" => [non_neg_integer()],
-        "id" => String.t() | atom(),
-        "processingStatus" => list(any())
-      }
-
-  """
-  @type get_lineage_event_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_emr_properties_patch() :: %{
-        "computeArn" => [String.t() | atom()],
-        "instanceProfileArn" => [String.t() | atom()],
-        "javaVirtualEnv" => [String.t() | atom()],
-        "logUri" => [String.t() | atom()],
-        "managedEndpointArn" => [String.t() | atom()],
-        "pythonVirtualEnv" => [String.t() | atom()],
-        "runtimeRole" => [String.t() | atom()],
-        "trustedCertificatesS3Uri" => [String.t() | atom()]
-      }
-
-  """
-  @type spark_emr_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      open_lineage_run_event_summary() :: %{
-        "eventType" => list(any()),
-        "inputs" => list(name_identifier()),
-        "job" => name_identifier(),
-        "outputs" => list(name_identifier()),
-        "runId" => [String.t() | atom()]
-      }
-
-  """
-  @type open_lineage_run_event_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_notebook_input() :: %{}
-
-  """
-  @type delete_notebook_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_glossary_term_input() :: %{}
-
-  """
-  @type get_glossary_term_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_unit_input() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_domain_unit_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_project_input() :: %{}
-
-  """
-  @type get_project_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_output() :: %{}
-
-  """
-  @type delete_project_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_metadata_generation_runs_output() :: %{
-        "items" => list(metadata_generation_run_item()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_metadata_generation_runs_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_run_details() :: %{
-        "sqlQueryRunDetails" => lineage_sql_query_run_details()
-      }
-
-  """
-  @type lineage_run_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_project_input() :: %{
-        optional("skipDeletionCheck") => [boolean()]
-      }
-
-  """
-  @type delete_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_choice() :: %{
-        "editedValue" => String.t() | atom(),
-        "predictionChoice" => [integer()],
-        "predictionTarget" => [String.t() | atom()]
-      }
-
-  """
-  @type accept_choice() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      listing_revision() :: %{
-        "id" => String.t() | atom(),
-        "revision" => String.t() | atom()
-      }
-
-  """
-  @type listing_revision() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_generation_run_item() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "target" => metadata_generation_run_target(),
-        "type" => list(any()),
-        "types" => list(list(any())())
-      }
-
-  """
-  @type metadata_generation_run_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_asset() :: %{
-        "assetId" => String.t() | atom(),
-        "assetRevision" => String.t() | atom(),
-        "assetScope" => asset_scope(),
-        "failureCause" => failure_cause(),
-        "failureTimestamp" => [non_neg_integer()],
-        "grantedTimestamp" => [non_neg_integer()],
-        "permissions" => list(),
-        "status" => list(any()),
-        "targetName" => [String.t() | atom()]
-      }
-
-  """
-  @type subscribed_asset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_profile_input() :: %{
-        optional("allowCustomProjectResourceTags") => [boolean()],
-        optional("description") => String.t() | atom(),
-        optional("domainUnitIdentifier") => String.t() | atom(),
-        optional("environmentConfigurations") => list(environment_configuration()),
-        optional("projectResourceTags") => list(resource_tag_parameter()),
-        optional("projectResourceTagsDescription") => String.t() | atom(),
-        optional("status") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_project_profile_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_project_memberships_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_project_memberships_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_configuration() :: %{
-        "accountPools" => list(String.t() | atom()),
-        "awsAccount" => list(),
-        "awsRegion" => list(),
-        "configurationParameters" => environment_configuration_parameters_details(),
-        "deploymentMode" => list(any()),
-        "deploymentOrder" => integer(),
-        "description" => String.t() | atom(),
-        "environmentBlueprintId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type environment_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_q_properties_patch() :: %{
-        "authMode" => [String.t() | atom()],
-        "isEnabled" => [boolean()],
-        "profileArn" => [String.t() | atom()]
-      }
-
-  """
-  @type amazon_q_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      time_series_data_point_summary_form_output() :: %{
-        "contentSummary" => [String.t() | atom()],
-        "formName" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "timestamp" => [non_neg_integer()],
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type time_series_data_point_summary_form_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      post_time_series_data_points_output() :: %{
-        "domainId" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "entityType" => list(any()),
-        "forms" => list(time_series_data_point_form_output())
-      }
-
-  """
-  @type post_time_series_data_points_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "grantedEntity" => list(),
-        "id" => String.t() | atom(),
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom(),
-        "subscriptionTargetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_subscription_grant_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      name_identifier() :: %{
-        "name" => [String.t() | atom()],
-        "namespace" => [String.t() | atom()]
-      }
-
-  """
-  @type name_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      o_auth2_properties() :: %{
-        "authorizationCodeProperties" => authorization_code_properties(),
-        "oAuth2ClientApplication" => o_auth2_client_application(),
-        "oAuth2Credentials" => glue_o_auth2_credentials(),
-        "oAuth2GrantType" => list(any()),
-        "tokenUrl" => [String.t() | atom()],
-        "tokenUrlParametersMap" => map()
-      }
-
-  """
-  @type o_auth2_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      glue_run_configuration_output() :: %{
-        "accountId" => [String.t() | atom()],
-        "autoImportDataQualityResult" => [boolean()],
-        "catalogName" => [String.t() | atom()],
-        "dataAccessRole" => [String.t() | atom()],
-        "region" => [String.t() | atom()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration())
-      }
-
-  """
-  @type glue_run_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_project_input() :: %{
-        "identifier" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_project_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      physical_endpoint() :: %{
-        "awsLocation" => aws_location(),
-        "enableTrustedIdentityPropagation" => [boolean()],
-        "glueConnection" => glue_connection(),
-        "glueConnectionName" => [String.t() | atom()],
-        "glueConnectionNames" => list(String.t() | atom()),
-        "host" => [String.t() | atom()],
-        "port" => [integer()],
-        "protocol" => list(any()),
-        "stage" => [String.t() | atom()]
-      }
-
-  """
-  @type physical_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      relation_pattern() :: %{
-        "maxPathLength" => [integer()],
-        "relationDirection" => list(any()),
-        "relationType" => list(any())
-      }
-
-  """
-  @type relation_pattern() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_grant_status_input() :: %{
-        optional("failureCause") => failure_cause(),
-        optional("targetName") => [String.t() | atom()],
-        required("status") => list(any())
-      }
-
-  """
-  @type update_subscription_grant_status_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      form_output() :: %{
-        "content" => [String.t() | atom()],
-        "formName" => String.t() | atom(),
-        "typeName" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type form_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deployment_properties() :: %{
-        "endTimeoutMinutes" => [integer()],
-        "startTimeoutMinutes" => [integer()]
-      }
-
-  """
-  @type deployment_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_environment_role_output() :: %{}
-
-  """
-  @type disassociate_environment_role_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "retainPermissions" => [boolean()],
-        "status" => list(any()),
-        "subscribedListing" => subscribed_listing(),
-        "subscribedPrincipal" => list(),
-        "subscriptionRequestId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type get_subscription_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_rule_input() :: %{}
-
-  """
-  @type delete_rule_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      subscribed_listing_input() :: %{
-        "identifier" => String.t() | atom()
-      }
-
-  """
-  @type subscribed_listing_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failure_cause() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type failure_cause() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      spark_emr_properties_input() :: %{
-        "computeArn" => [String.t() | atom()],
-        "instanceProfileArn" => [String.t() | atom()],
-        "javaVirtualEnv" => [String.t() | atom()],
-        "logUri" => [String.t() | atom()],
-        "managedEndpointArn" => [String.t() | atom()],
-        "pythonVirtualEnv" => [String.t() | atom()],
-        "runtimeRole" => [String.t() | atom()],
-        "trustedCertificatesS3Uri" => [String.t() | atom()]
-      }
-
-  """
-  @type spark_emr_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lineage_sql_query_run_details() :: %{
-        "errorMessages" => list([String.t() | atom()]()),
-        "numQueriesFailed" => [integer()],
-        "queryEndTime" => [non_neg_integer()],
-        "queryStartTime" => [non_neg_integer()],
-        "totalQueriesProcessed" => [integer()]
-      }
-
-  """
-  @type lineage_sql_query_run_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      additional_attributes() :: %{
-        "formNames" => list(String.t() | atom())
-      }
-
-  """
-  @type additional_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      asset_scope() :: %{
-        "assetId" => String.t() | atom(),
-        "errorMessage" => [String.t() | atom()],
-        "filterIds" => list(String.t() | atom()),
-        "status" => [String.t() | atom()]
-      }
-
-  """
-  @type asset_scope() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_connections_input() :: %{
-        optional("environmentIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("name") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("projectIdentifier") => String.t() | atom(),
-        optional("scope") => list(any()),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_connections_input() :: %{(String.t() | atom()) => any()}
+  @type list_subscription_requests_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8396,202 +2795,130 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      asset_types_for_rule() :: %{
-        "selectionMode" => list(any()),
-        "specificAssetTypes" => list(String.t() | atom())
+      domain_unit_filter_for_project() :: %{
+        "domainUnit" => String.t() | atom(),
+        "includeChildDomainUnits" => [boolean()]
       }
 
   """
-  @type asset_types_for_rule() :: %{(String.t() | atom()) => any()}
+  @type domain_unit_filter_for_project() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_asset_revisions_output() :: %{
-        "items" => list(asset_revision()),
-        "nextToken" => String.t() | atom()
+      aggregation_output_item() :: %{
+        "count" => [integer()],
+        "displayValue" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type list_asset_revisions_output() :: %{(String.t() | atom()) => any()}
+  @type aggregation_output_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      group_details() :: %{
-        "groupId" => [String.t() | atom()]
+      validation_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type group_details() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_environment_action_input() :: %{}
-
-  """
-  @type delete_environment_action_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      all_domain_units_grant_filter() :: %{}
-
-  """
-  @type all_domain_units_grant_filter() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_error() :: %{
-        "code" => [String.t() | atom()],
-        "message" => [String.t() | atom()]
+      subscribed_project_input() :: %{
+        "identifier" => String.t() | atom()
       }
 
   """
-  @type environment_error() :: %{(String.t() | atom()) => any()}
+  @type subscribed_project_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      detailed_glossary_term() :: %{
-        "name" => String.t() | atom(),
-        "shortDescription" => String.t() | atom()
+      delete_time_series_data_points_output() :: %{}
+
+  """
+  @type delete_time_series_data_points_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_grant_summary() :: %{
+        "assets" => list(subscribed_asset()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "grantedEntity" => list(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "subscriptionId" => String.t() | atom(),
+        "subscriptionTargetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
       }
 
   """
-  @type detailed_glossary_term() :: %{(String.t() | atom()) => any()}
+  @type subscription_grant_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      query_graph_input() :: %{
-        optional("additionalAttributes") => additional_attributes(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("match") => list(list())
+      search_types_output() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom(),
+        "totalMatchCount" => [integer()]
       }
 
   """
-  @type query_graph_input() :: %{(String.t() | atom()) => any()}
+  @type search_types_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_project_membership_input() :: %{
-        required("designation") => list(any()),
-        required("member") => list()
+      get_domain_output() :: %{
+        "arn" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "description" => [String.t() | atom()],
+        "domainExecutionRole" => String.t() | atom(),
+        "domainVersion" => list(any()),
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => [String.t() | atom()],
+        "portalUrl" => [String.t() | atom()],
+        "rootDomainUnitId" => String.t() | atom(),
+        "serviceRole" => String.t() | atom(),
+        "singleSignOn" => single_sign_on(),
+        "status" => list(any()),
+        "tags" => map()
       }
 
   """
-  @type create_project_membership_input() :: %{(String.t() | atom()) => any()}
+  @type get_domain_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_output() :: %{
-        "status" => list(any())
+      accept_choice() :: %{
+        "editedValue" => String.t() | atom(),
+        "predictionChoice" => [integer()],
+        "predictionTarget" => [String.t() | atom()]
       }
 
   """
-  @type delete_domain_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_attributes_metadata_output() :: %{
-        "attributes" => list(batch_put_attribute_output()),
-        "errors" => list(attribute_error())
-      }
-
-  """
-  @type batch_put_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_location() :: %{
-        "accessRole" => [String.t() | atom()],
-        "awsAccountId" => String.t() | atom(),
-        "awsRegion" => String.t() | atom(),
-        "iamConnectionId" => String.t() | atom()
-      }
-
-  """
-  @type aws_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      authentication_configuration() :: %{
-        "authenticationType" => list(any()),
-        "oAuth2Properties" => o_auth2_properties(),
-        "secretArn" => [String.t() | atom()]
-      }
-
-  """
-  @type authentication_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_unit_output() :: %{}
-
-  """
-  @type delete_domain_unit_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_notebook_export_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("fileFormat") => list(any()),
-        required("notebookIdentifier") => String.t() | atom(),
-        required("owningProjectIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type start_notebook_export_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_project_from_project_profile_policy_grant_detail() :: %{
-        "includeChildDomainUnits" => [boolean()],
-        "projectProfiles" => list([String.t() | atom()]())
-      }
-
-  """
-  @type create_project_from_project_profile_policy_grant_detail() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      glossary_item_additional_attributes() :: %{
-        "matchRationale" => list(list())
-      }
-
-  """
-  @type glossary_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+  @type accept_choice() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8606,124 +2933,146 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      sage_maker_run_configuration_output() :: %{
-        "accountId" => [String.t() | atom()],
-        "region" => [String.t() | atom()],
-        "trackingAssets" => map()
+      lakehouse_properties_output() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
       }
 
   """
-  @type sage_maker_run_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type lakehouse_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_connection_input() :: %{
-        optional("awsLocation") => aws_location(),
-        optional("clientToken") => [String.t() | atom()],
-        optional("configurations") => list(configuration()),
-        optional("description") => String.t() | atom(),
-        optional("enableTrustedIdentityPropagation") => [boolean()],
-        optional("environmentIdentifier") => String.t() | atom(),
-        optional("props") => list(),
-        optional("scope") => list(any()),
-        required("name") => String.t() | atom()
+      vpc_properties_output() :: %{
+        "glueConnectionNames" => list(String.t() | atom()),
+        "securityGroupId" => String.t() | atom(),
+        "status" => list(any()),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
       }
 
   """
-  @type create_connection_input() :: %{(String.t() | atom()) => any()}
+  @type vpc_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_lineage_node_output() :: %{
+      redshift_cluster_storage() :: %{
+        "clusterName" => [String.t() | atom()]
+      }
+
+  """
+  @type redshift_cluster_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_blueprint_input() :: %{}
+
+  """
+  @type delete_environment_blueprint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_input() :: %{
+        optional("groupIdentifier") => [String.t() | atom()],
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectCategory") => [String.t() | atom()],
+        optional("userIdentifier") => [String.t() | atom()]
+      }
+
+  """
+  @type list_projects_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_product_revisions_output() :: %{
+        "items" => list(data_product_revision()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_product_revisions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_run_output() :: %{
         "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => [String.t() | atom()],
+        "dataSourceConfigurationSnapshot" => [String.t() | atom()],
+        "dataSourceId" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "downstreamNodes" => list(lineage_node_reference()),
-        "eventTimestamp" => [non_neg_integer()],
-        "formsOutput" => list(form_output()),
+        "errorMessage" => data_source_error_message(),
         "id" => String.t() | atom(),
-        "name" => [String.t() | atom()],
-        "sourceIdentifier" => [String.t() | atom()],
-        "typeName" => [String.t() | atom()],
-        "typeRevision" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom(),
-        "upstreamNodes" => list(lineage_node_reference())
+        "lineageSummary" => data_source_run_lineage_summary(),
+        "projectId" => String.t() | atom(),
+        "runStatisticsForAssets" => run_statistics_for_assets(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "stoppedAt" => non_neg_integer(),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_lineage_node_output() :: %{(String.t() | atom()) => any()}
+  @type get_data_source_run_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_form_type_input() :: %{
-        optional("revision") => String.t() | atom()
+      create_notebook_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("metadata") => map(),
+        optional("parameters") => map(),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
       }
 
   """
-  @type get_form_type_input() :: %{(String.t() | atom()) => any()}
+  @type create_notebook_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      greater_than_expression() :: %{
-        "columnName" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
+      attribute_error() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type greater_than_expression() :: %{(String.t() | atom()) => any()}
+  @type attribute_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_project_profile_output() :: %{
-        "allowCustomProjectResourceTags" => [boolean()],
-        "createdAt" => [non_neg_integer()],
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "domainUnitId" => String.t() | atom(),
-        "environmentConfigurations" => list(environment_configuration()),
-        "id" => String.t() | atom(),
-        "lastUpdatedAt" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "projectResourceTags" => list(resource_tag_parameter()),
-        "projectResourceTagsDescription" => String.t() | atom(),
-        "status" => list(any())
+      term_relations() :: %{
+        "classifies" => list(String.t() | atom()),
+        "isA" => list(String.t() | atom())
       }
 
   """
-  @type create_project_profile_output() :: %{(String.t() | atom()) => any()}
+  @type term_relations() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_notebook_run_output() :: %{
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type stop_notebook_run_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_request_details_output() :: %{
+      reject_subscription_request_output() :: %{
         "createdAt" => non_neg_integer(),
         "createdBy" => String.t() | atom(),
         "decisionComment" => String.t() | atom(),
@@ -8741,50 +3090,24 @@ defmodule AWS.DataZone do
       }
 
   """
-  @type get_subscription_request_details_output() :: %{(String.t() | atom()) => any()}
+  @type reject_subscription_request_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      form_entry_output() :: %{
-        "required" => [boolean()],
-        "typeName" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type form_entry_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_glossary_output() :: %{
-        "description" => String.t() | atom(),
+      account_pool_summary() :: %{
+        "createdBy" => String.t() | atom(),
         "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
         "id" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "usageRestrictions" => list(list(any())())
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
       }
 
   """
-  @type update_glossary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("status") => list(any())
-      }
-
-  """
-  @type list_domains_input() :: %{(String.t() | atom()) => any()}
+  @type account_pool_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8803,69 +3126,25 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      add_entity_owner_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("owner") => list()
+      sage_maker_run_configuration_output() :: %{
+        "accountId" => [String.t() | atom()],
+        "region" => [String.t() | atom()],
+        "trackingAssets" => map()
       }
 
   """
-  @type add_entity_owner_input() :: %{(String.t() | atom()) => any()}
+  @type sage_maker_run_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      glue_self_grant_status_output() :: %{
-        "selfGrantStatusDetails" => list(self_grant_status_detail())
+      notebook_error() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type glue_self_grant_status_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_attribute_output() :: %{
-        "attributeIdentifier" => String.t() | atom(),
-        "forms" => list(form_output())
-      }
-
-  """
-  @type batch_get_attribute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      redshift_lineage_sync_configuration_input() :: %{
-        "enabled" => [boolean()],
-        "schedule" => lineage_sync_schedule()
-      }
-
-  """
-  @type redshift_lineage_sync_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_environment_blueprint_input() :: %{}
-
-  """
-  @type get_environment_blueprint_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_data_sources_output() :: %{
-        "items" => list(data_source_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_data_sources_output() :: %{(String.t() | atom()) => any()}
+  @type notebook_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8886,90 +3165,913 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      get_asset_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "description" => String.t() | atom(),
+      get_job_run_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "details" => list(),
         "domainId" => String.t() | atom(),
-        "externalIdentifier" => String.t() | atom(),
-        "firstRevisionCreatedAt" => non_neg_integer(),
-        "firstRevisionCreatedBy" => String.t() | atom(),
-        "formsOutput" => list(form_output()),
-        "glossaryTerms" => list(String.t() | atom()),
-        "governedGlossaryTerms" => list(String.t() | atom()),
-        "id" => String.t() | atom(),
-        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
-        "listing" => asset_listing_details(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "readOnlyFormsOutput" => list(form_output()),
-        "revision" => String.t() | atom(),
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
+        "endTime" => [non_neg_integer()],
+        "error" => job_run_error(),
+        "id" => [String.t() | atom()],
+        "jobId" => [String.t() | atom()],
+        "jobType" => list(any()),
+        "runMode" => list(any()),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any())
       }
 
   """
-  @type get_asset_output() :: %{(String.t() | atom()) => any()}
+  @type get_job_run_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      environment_parameter() :: %{
-        "name" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
+      get_notebook_run_input() :: %{}
 
   """
-  @type environment_parameter() :: %{(String.t() | atom()) => any()}
+  @type get_notebook_run_input() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      import() :: %{
-        "name" => String.t() | atom(),
-        "revision" => String.t() | atom()
+      notification_output() :: %{
+        "actionLink" => String.t() | atom(),
+        "creationTimestamp" => [non_neg_integer()],
+        "domainIdentifier" => String.t() | atom(),
+        "identifier" => String.t() | atom(),
+        "lastUpdatedTimestamp" => [non_neg_integer()],
+        "message" => String.t() | atom(),
+        "metadata" => map(),
+        "status" => list(any()),
+        "title" => String.t() | atom(),
+        "topic" => topic(),
+        "type" => list(any())
       }
 
   """
-  @type import() :: %{(String.t() | atom()) => any()}
+  @type notification_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      search_types_output() :: %{
+      search_listings_output() :: %{
+        "aggregates" => list(aggregation_output()),
         "items" => list(list()),
         "nextToken" => String.t() | atom(),
         "totalMatchCount" => [integer()]
       }
 
   """
-  @type search_types_output() :: %{(String.t() | atom()) => any()}
+  @type search_listings_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_data_source_input() :: %{
+      get_user_profile_input() :: %{
+        optional("sessionName") => [String.t() | atom()],
+        optional("type") => list(any())
+      }
+
+  """
+  @type get_user_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_profile_input() :: %{
+        optional("awsAccountId") => String.t() | atom(),
+        optional("awsAccountRegion") => String.t() | atom(),
+        optional("description") => [String.t() | atom()],
+        optional("name") => String.t() | atom(),
+        optional("userParameters") => list(environment_parameter())
+      }
+
+  """
+  @type update_environment_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_unit_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_domain_unit_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_output() :: %{
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type create_glossary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_revision() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type data_product_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_action_output() :: %{
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "parameters" => list()
+      }
+
+  """
+  @type create_environment_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_input() :: %{
+        optional("action") => list(any()),
+        optional("assetTypes") => list(String.t() | atom()),
+        optional("dataProduct") => [boolean()],
+        optional("includeCascaded") => [boolean()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        optional("projectIds") => list(String.t() | atom()),
+        optional("ruleType") => list(any())
+      }
+
+  """
+  @type list_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_form_enforcement_detail() :: %{
+        "requiredMetadataForms" => list(metadata_form_reference())
+      }
+
+  """
+  @type metadata_form_enforcement_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_item_additional_attributes() :: %{
+        "formsOutput" => list(form_output()),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "matchRationale" => list(list()),
+        "readOnlyFormsOutput" => list(form_output())
+      }
+
+  """
+  @type asset_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notebook_run_summary() :: %{
+        "completedAt" => [non_neg_integer()],
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "scheduleId" => String.t() | atom(),
+        "startedAt" => [non_neg_integer()],
+        "status" => list(any()),
+        "triggerSource" => trigger_source(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type notebook_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_actions_output() :: %{
+        "items" => list(environment_action_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environment_actions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_input() :: %{}
+
+  """
+  @type get_subscription_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configuration() :: %{
+        "classification" => [String.t() | atom()],
+        "properties" => map()
+      }
+
+  """
+  @type configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_profile_output() :: %{
+        "details" => list(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type get_user_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_environment_blueprint_configuration_input() :: %{
+        optional("allowUserProvidedConfigurations") => [boolean()],
+        optional("environmentRolePermissionBoundary") => String.t() | atom(),
+        optional("globalParameters") => map(),
+        optional("manageAccessRoleArn") => String.t() | atom(),
+        optional("provisioningConfigurations") => list(list()),
+        optional("provisioningRoleArn") => String.t() | atom(),
+        optional("regionalParameters") => map(),
+        optional("resourceConfigurations") => list(put_resource_configuration()),
+        required("enabledRegions") => list(String.t() | atom())
+      }
+
+  """
+  @type put_environment_blueprint_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_output() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom(),
+        "totalMatchCount" => [integer()]
+      }
+
+  """
+  @type search_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_targets_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_subscription_targets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_member() :: %{
+        "designation" => list(any()),
+        "memberDetails" => list()
+      }
+
+  """
+  @type project_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_result_item() :: %{
+        "additionalAttributes" => data_product_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom()
+      }
+
+  """
+  @type data_product_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_generation_run_type_stat() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "status" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_generation_run_type_stat() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      athena_properties_output() :: %{
+        "workgroupName" => [String.t() | atom()]
+      }
+
+  """
+  @type athena_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_source_output() :: %{
+        "assetFormsOutput" => list(form_output()),
+        "configuration" => list(),
+        "connectionId" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "enableSetting" => list(any()),
+        "environmentId" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "id" => String.t() | atom(),
+        "lastRunAt" => non_neg_integer(),
+        "lastRunErrorMessage" => data_source_error_message(),
+        "lastRunStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "publishOnImport" => [boolean()],
+        "recommendation" => recommendation_configuration(),
+        "schedule" => schedule_configuration(),
+        "status" => list(any()),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type create_data_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_grants_output() :: %{
+        "items" => list(subscription_grant_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_subscription_grants_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prediction_configuration() :: %{
+        "businessNameGeneration" => business_name_generation_configuration()
+      }
+
+  """
+  @type prediction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_connection_input() :: %{
+        optional("awsLocation") => aws_location(),
+        optional("configurations") => list(configuration()),
+        optional("description") => String.t() | atom(),
+        optional("props") => list()
+      }
+
+  """
+  @type update_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_product_listing() :: %{
+        "assetListings" => list(asset_in_data_product_listing_item()),
+        "description" => [String.t() | atom()],
+        "entityId" => String.t() | atom(),
+        "entityRevision" => String.t() | atom(),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type subscribed_product_listing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_listing_item_additional_attributes() :: %{
+        "forms" => String.t() | atom(),
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type data_product_listing_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_metadata_generation_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("targetIdentifier") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_metadata_generation_runs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_export_configuration_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "encryptionConfiguration" => encryption_configuration(),
+        "isExportEnabled" => [boolean()],
+        "s3TableBucketArn" => [String.t() | atom()],
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_data_export_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_time_series_data_points_input() :: %{
+        optional("endedAt") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("startedAt") => [non_neg_integer()],
+        required("formName") => String.t() | atom()
+      }
+
+  """
+  @type list_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      less_than_or_equal_to_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type less_than_or_equal_to_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_summary_item() :: %{
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "listingId" => String.t() | atom(),
+        "listingRevision" => String.t() | atom()
+      }
+
+  """
+  @type listing_summary_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authorization_code_properties() :: %{
+        "authorizationCode" => [String.t() | atom()],
+        "redirectUri" => [String.t() | atom()]
+      }
+
+  """
+  @type authorization_code_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_revision_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("predictionConfiguration") => prediction_configuration(),
+        optional("typeRevision") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_asset_revision_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_series_data_point_form_input() :: %{
+        "content" => [String.t() | atom()],
+        "formName" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type time_series_data_point_form_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_types_for_rule() :: %{
+        "selectionMode" => list(any()),
+        "specificAssetTypes" => list(String.t() | atom())
+      }
+
+  """
+  @type asset_types_for_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_notebook_output() :: %{
+        "cellOrder" => list(cell_information()),
+        "computeId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentConfiguration" => environment_config(),
+        "error" => notebook_error(),
+        "id" => String.t() | atom(),
+        "lockExpiresAt" => [non_neg_integer()],
+        "lockedAt" => [non_neg_integer()],
+        "lockedBy" => [String.t() | atom()],
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "parameters" => map(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_notebook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_profile_input() :: %{
         optional("clientToken") => [String.t() | atom()],
-        optional("retainPermissionsOnRevokeFailure") => [boolean()]
+        optional("groupIdentifier") => String.t() | atom(),
+        optional("rolePrincipalArn") => [String.t() | atom()]
       }
 
   """
-  @type delete_data_source_input() :: %{(String.t() | atom()) => any()}
+  @type create_group_profile_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      iam_properties_patch() :: %{
-        "glueLineageSyncEnabled" => [boolean()]
+      aggregation_list_item() :: %{
+        "attribute" => String.t() | atom(),
+        "displayValue" => String.t() | atom()
       }
 
   """
-  @type iam_properties_patch() :: %{(String.t() | atom()) => any()}
+  @type aggregation_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_node_history_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "nodes" => list(lineage_node_summary())
+      }
+
+  """
+  @type list_lineage_node_history_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_subscription_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "retainPermissions" => [boolean()],
+        "status" => list(any()),
+        "subscribedListing" => subscribed_listing(),
+        "subscribedPrincipal" => list(),
+        "subscriptionRequestId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type cancel_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      authentication_configuration_patch() :: %{
+        "basicAuthenticationCredentials" => basic_authentication_credentials(),
+        "secretArn" => [String.t() | atom()]
+      }
+
+  """
+  @type authentication_configuration_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_target_output() :: %{
+        "applicableAssetTypes" => list(String.t() | atom()),
+        "authorizedPrincipals" => list(String.t() | atom()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "manageAccessRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
+        "type" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_target_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lineage_event_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "event" => binary(),
+        "eventTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "processingStatus" => list(any())
+      }
+
+  """
+  @type get_lineage_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_glossary_input() :: %{}
+
+  """
+  @type delete_glossary_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_subscription_request_input() :: %{
+        optional("assetPermissions") => list(asset_permission()),
+        optional("assetScopes") => list(accepted_asset_scope()),
+        optional("decisionComment") => String.t() | atom()
+      }
+
+  """
+  @type accept_subscription_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_config() :: %{
+        "kmsKeyArn" => String.t() | atom(),
+        "projectS3Path" => String.t() | atom()
+      }
+
+  """
+  @type storage_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_unit_output() :: %{}
+
+  """
+  @type delete_domain_unit_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("domainUnitId") => String.t() | atom(),
+        optional("environmentDeploymentDetails") => environment_deployment_details(),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("name") => String.t() | atom(),
+        optional("projectProfileVersion") => [String.t() | atom()],
+        optional("resourceTags") => map(),
+        optional("userParameters") => list(environment_configuration_user_parameter())
+      }
+
+  """
+  @type update_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      basic_authentication_credentials() :: %{
+        "password" => [String.t() | atom()],
+        "userName" => [String.t() | atom()]
+      }
+
+  """
+  @type basic_authentication_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_profile_input() :: %{
+        required("status") => list(any())
+      }
+
+  """
+  @type update_group_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glossary_term_item() :: %{
+        "additionalAttributes" => glossary_term_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "glossaryId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "longDescription" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "shortDescription" => String.t() | atom(),
+        "status" => list(any()),
+        "termRelations" => term_relations(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type glossary_term_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_sort() :: %{
+        "attribute" => String.t() | atom(),
+        "order" => list(any())
+      }
+
+  """
+  @type search_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_user_properties_output() :: %{
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type owner_user_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_serverless_properties_input() :: %{}
+
+  """
+  @type workflows_serverless_properties_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_action_output() :: %{
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "parameters" => list()
+      }
+
+  """
+  @type get_environment_action_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9000,7 +4102,1535 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      project_profile_summary() :: %{
+      delete_connection_output() :: %{
+        "status" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_run_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataSourceId" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "id" => String.t() | atom(),
+        "lineageSummary" => data_source_run_lineage_summary(),
+        "projectId" => String.t() | atom(),
+        "runStatisticsForAssets" => run_statistics_for_assets(),
+        "startedAt" => non_neg_integer(),
+        "status" => list(any()),
+        "stoppedAt" => non_neg_integer(),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type data_source_run_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_profile_input() :: %{}
+
+  """
+  @type delete_environment_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_properties_patch() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t() | atom()],
+        "host" => [String.t() | atom()],
+        "lineageSync" => redshift_lineage_sync_configuration_input(),
+        "port" => [integer()],
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_to_project_member_pool_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type add_to_project_member_pool_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_profile_input() :: %{}
+
+  """
+  @type get_project_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_profile_summary() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentBlueprintId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type environment_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_units_for_parent_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("parentDomainUnitIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_units_for_parent_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_domains_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hyper_pod_properties_input() :: %{
+        "clusterName" => [String.t() | atom()]
+      }
+
+  """
+  @type hyper_pod_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_entry_output() :: %{
+        "required" => [boolean()],
+        "typeName" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type form_entry_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notebook_input() :: %{}
+
+  """
+  @type get_notebook_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_time_series_data_points_output() :: %{
+        "items" => list(time_series_data_point_summary_form_output()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_time_series_data_points_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_export_configuration_input() :: %{}
+
+  """
+  @type delete_data_export_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_rule_input() :: %{}
+
+  """
+  @type delete_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_permission() :: %{
+        "assetId" => String.t() | atom(),
+        "permissions" => list()
+      }
+
+  """
+  @type asset_permission() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_output() :: %{
+        "content" => [String.t() | atom()],
+        "formName" => String.t() | atom(),
+        "typeName" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type form_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_unit_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owners" => list(list()),
+        "parentDomainUnitId" => String.t() | atom()
+      }
+
+  """
+  @type get_domain_unit_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_run_configuration_output() :: %{
+        "accountId" => [String.t() | atom()],
+        "dataAccessRole" => [String.t() | atom()],
+        "redshiftCredentialConfiguration" => redshift_credential_configuration(),
+        "redshiftStorage" => list(),
+        "region" => [String.t() | atom()],
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
+      }
+
+  """
+  @type redshift_run_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_properties_patch() :: %{
+        "registerS3AccessGrantLocation" => [boolean()],
+        "s3AccessGrantLocationId" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notebook_input() :: %{}
+
+  """
+  @type delete_notebook_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      name_identifier() :: %{
+        "name" => [String.t() | atom()],
+        "namespace" => [String.t() | atom()]
+      }
+
+  """
+  @type name_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "externalIdentifier" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "latestTimeSeriesDataPointFormsOutput" => list(time_series_data_point_summary_form_output()),
+        "listing" => asset_listing_details(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "predictionConfiguration" => prediction_configuration(),
+        "readOnlyFormsOutput" => list(form_output()),
+        "revision" => String.t() | atom(),
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type create_asset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_predictions_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("rejectChoices") => list(reject_choice()),
+        optional("rejectRule") => reject_rule(),
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type reject_predictions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_input() :: %{
+        optional("additionalAttributes") => list(list(any())()),
+        optional("filters") => list(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owningProjectIdentifier") => String.t() | atom(),
+        optional("searchIn") => list(search_in_item()),
+        optional("searchText") => String.t() | atom(),
+        optional("sort") => search_sort(),
+        required("searchScope") => list(any())
+      }
+
+  """
+  @type search_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_grants_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("policyType") => list(any())
+      }
+
+  """
+  @type list_policy_grants_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_grant_input() :: %{}
+
+  """
+  @type get_subscription_grant_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_type_output() :: %{}
+
+  """
+  @type delete_asset_type_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_term_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("longDescription") => String.t() | atom(),
+        optional("shortDescription") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("termRelations") => term_relations(),
+        required("glossaryIdentifier") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_glossary_term_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscription_request_input() :: %{
+        required("requestReason") => String.t() | atom()
+      }
+
+  """
+  @type update_subscription_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_grant_input() :: %{}
+
+  """
+  @type delete_subscription_grant_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_glue_properties_output() :: %{
+        "additionalArgs" => spark_glue_args(),
+        "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
+        "glueVersion" => [String.t() | atom()],
+        "idleTimeout" => [integer()],
+        "javaVirtualEnv" => [String.t() | atom()],
+        "numberOfWorkers" => [integer()],
+        "pythonVirtualEnv" => [String.t() | atom()],
+        "workerType" => [String.t() | atom()]
+      }
+
+  """
+  @type spark_glue_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_listing_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_listing_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_output() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentActions" => list(configurable_environment_action()),
+        "environmentBlueprintId" => String.t() | atom(),
+        "environmentConfigurationId" => String.t() | atom(),
+        "environmentConfigurationName" => String.t() | atom(),
+        "environmentProfileId" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "lastDeployment" => deployment(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisionedResources" => list(resource()),
+        "provisioningProperties" => list(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type get_environment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metadata_generation_run_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "target" => metadata_generation_run_target(),
+        "type" => list(any()),
+        "typeStats" => list(metadata_generation_run_type_stat()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type get_metadata_generation_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_filter_output() :: %{
+        "assetId" => String.t() | atom(),
+        "configuration" => list(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "effectiveColumnNames" => list([String.t() | atom()]()),
+        "effectiveRowFilter" => [String.t() | atom()],
+        "errorMessage" => [String.t() | atom()],
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_asset_filter_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_group_profile_output() :: %{
+        "domainId" => String.t() | atom(),
+        "groupName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type create_group_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_group_profile_output() :: %{
+        "domainId" => String.t() | atom(),
+        "groupName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type update_group_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_entity_owner_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("owner") => list()
+      }
+
+  """
+  @type remove_entity_owner_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_tag() :: %{
+        "key" => String.t() | atom(),
+        "source" => list(any()),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type resource_tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_type_input() :: %{
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type get_asset_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_grant_output() :: %{
+        "assets" => list(subscribed_asset()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "grantedEntity" => list(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "subscriptionId" => String.t() | atom(),
+        "subscriptionTargetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_grant_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_blueprint_configuration_input() :: %{}
+
+  """
+  @type delete_environment_blueprint_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_governed_terms_input() :: %{
+        required("governedGlossaryTerms") => list(String.t() | atom())
+      }
+
+  """
+  @type disassociate_governed_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_iam_portal_login_url_output() :: %{
+        "authCodeUrl" => [String.t() | atom()],
+        "userProfileId" => [String.t() | atom()]
+      }
+
+  """
+  @type get_iam_portal_login_url_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      override_project_owners_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type override_project_owners_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_subscription_request_input() :: %{
+        optional("decisionComment") => String.t() | atom()
+      }
+
+  """
+  @type reject_subscription_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greater_than_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type greater_than_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_generation_run_target() :: %{
+        "identifier" => [String.t() | atom()],
+        "revision" => String.t() | atom(),
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_generation_run_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_product_revision_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "items" => list(data_product_item()),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_data_product_revision_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_lineage_event_input() :: %{}
+
+  """
+  @type get_lineage_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_group_properties_output() :: %{
+        "groupId" => [String.t() | atom()]
+      }
+
+  """
+  @type owner_group_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      package_config() :: %{
+        "packageManager" => list(any()),
+        "packageSpecification" => [String.t() | atom()]
+      }
+
+  """
+  @type package_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_notebook_import_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom(),
+        required("sourceLocation") => list()
+      }
+
+  """
+  @type start_notebook_import_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_profile_input() :: %{}
+
+  """
+  @type get_environment_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation_configuration() :: %{
+        "enableBusinessNameGeneration" => [boolean()]
+      }
+
+  """
+  @type recommendation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_node_type_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "formsOutput" => map(),
+        "name" => [String.t() | atom()],
+        "revision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type lineage_node_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_form_type_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("status") => list(any()),
+        required("model") => list(),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_form_type_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_grants_input() :: %{
+        optional("environmentId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
+        optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("subscribedListingId") => String.t() | atom(),
+        optional("subscriptionId") => String.t() | atom(),
+        optional("subscriptionTargetId") => String.t() | atom()
+      }
+
+  """
+  @type list_subscription_grants_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_profile_output() :: %{
+        "domainId" => String.t() | atom(),
+        "groupName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "rolePrincipalArn" => [String.t() | atom()],
+        "rolePrincipalId" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type get_group_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_project() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_project() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_profiles_input() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_project_profiles_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attributes_metadata_input() :: %{
+        optional("entityRevision") => String.t() | atom(),
+        required("attributeIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      import() :: %{
+        "name" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type import() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscription_request_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "decisionComment" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "existingSubscriptionId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadataForms" => list(form_output()),
+        "requestReason" => String.t() | atom(),
+        "reviewerId" => [String.t() | atom()],
+        "status" => list(any()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type update_subscription_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_group_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_project_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentDeploymentDetails" => environment_deployment_details(),
+        "failureReasons" => list(project_deletion_error()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
+        "projectProfileId" => String.t() | atom(),
+        "projectStatus" => list(any()),
+        "resourceTags" => list(resource_tag()),
+        "userParameters" => list(environment_configuration_user_parameter())
+      }
+
+  """
+  @type update_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration() :: %{
+        "accountPools" => list(String.t() | atom()),
+        "awsAccount" => list(),
+        "awsRegion" => list(),
+        "configurationParameters" => environment_configuration_parameters_details(),
+        "deploymentMode" => list(any()),
+        "deploymentOrder" => integer(),
+        "description" => String.t() | atom(),
+        "environmentBlueprintId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type environment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_properties_input() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type iam_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_iam_principal() :: %{
+        "principalArn" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_iam_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_in_account_pool_output() :: %{
+        "items" => list(account_info()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_accounts_in_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_predictions_output() :: %{
+        "assetId" => String.t() | atom(),
+        "assetRevision" => String.t() | atom(),
+        "domainId" => String.t() | atom()
+      }
+
+  """
+  @type reject_predictions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_rule_output() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "detail" => list(),
+        "identifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "targetType" => list(any())
+      }
+
+  """
+  @type create_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_action_output() :: %{
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "parameters" => list()
+      }
+
+  """
+  @type update_environment_action_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_type_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "formsOutput" => map(),
+        "name" => String.t() | atom(),
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_asset_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentDeploymentDetails" => environment_deployment_details(),
+        "failureReasons" => list(project_deletion_error()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
+        "projectProfileId" => String.t() | atom(),
+        "projectStatus" => list(any()),
+        "resourceTags" => list(resource_tag()),
+        "userParameters" => list(environment_configuration_user_parameter())
+      }
+
+  """
+  @type get_project_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_time_series_data_points_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("formName") => String.t() | atom()
+      }
+
+  """
+  @type delete_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_node_reference() :: %{
+        "eventTimestamp" => [non_neg_integer()],
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type lineage_node_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_source_output() :: %{
+        "assetFormsOutput" => list(form_output()),
+        "configuration" => list(),
+        "connectionId" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "enableSetting" => list(any()),
+        "environmentId" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "id" => String.t() | atom(),
+        "lastRunAt" => non_neg_integer(),
+        "lastRunErrorMessage" => data_source_error_message(),
+        "lastRunStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "publishOnImport" => [boolean()],
+        "retainPermissionsOnRevokeFailure" => [boolean()],
+        "schedule" => schedule_configuration(),
+        "selfGrantStatus" => list(),
+        "status" => list(any()),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type delete_data_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration_parameter() :: %{
+        "isEditable" => [boolean()],
+        "name" => String.t() | atom(),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type environment_configuration_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timeout_config() :: %{
+        "runTimeoutInMinutes" => [integer()]
+      }
+
+  """
+  @type timeout_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_form_type_output() :: %{}
+
+  """
+  @type delete_form_type_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_profiles_output() :: %{
+        "items" => list(environment_profile_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environment_profiles_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_from_project_profile_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()],
+        "projectProfiles" => list([String.t() | atom()]())
+      }
+
+  """
+  @type create_project_from_project_profile_policy_grant_detail() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      owner_user_properties() :: %{
+        "userIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type owner_user_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_profile_output() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentBlueprintId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type create_environment_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      greater_than_or_equal_to_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type greater_than_or_equal_to_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_time_series_data_point_output() :: %{
+        "domainId" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityType" => list(any()),
+        "form" => time_series_data_point_form_output(),
+        "formName" => String.t() | atom()
+      }
+
+  """
+  @type get_time_series_data_point_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      iam_properties_output() :: %{
+        "environmentId" => [String.t() | atom()],
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type iam_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_properties_input() :: %{
+        "securityGroupId" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_node_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "eventTimestamp" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "sourceIdentifier" => [String.t() | atom()],
+        "typeName" => [String.t() | atom()],
+        "typeRevision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type lineage_node_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_rule_output() :: %{
+        "action" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "detail" => list(),
+        "identifier" => String.t() | atom(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_expression() :: %{
+        "expression" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type filter_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_pools_input() :: %{
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_account_pools_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connection_summary() :: %{
+        "configurations" => list(configuration()),
+        "connectionId" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "physicalEndpoints" => list(physical_endpoint()),
+        "projectId" => String.t() | atom(),
+        "props" => list(),
+        "scope" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type connection_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_unit_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_domain_unit_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_equal_to_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type not_equal_to_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_form_summary() :: %{
+        "formName" => String.t() | atom(),
+        "typeName" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type metadata_form_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_listing() :: %{
+        "assetId" => String.t() | atom(),
+        "assetRevision" => String.t() | atom(),
+        "assetType" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "forms" => String.t() | atom(),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "governedGlossaryTerms" => list(detailed_glossary_term()),
+        "latestTimeSeriesDataPointForms" => list(time_series_data_point_summary_form_output()),
+        "owningProjectId" => String.t() | atom()
+      }
+
+  """
+  @type asset_listing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_blueprint_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type get_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_memberships_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_project_memberships_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_target_input() :: %{}
+
+  """
+  @type delete_subscription_target_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_pool_output() :: %{
+        "accountSource" => list(),
         "createdAt" => [non_neg_integer()],
         "createdBy" => String.t() | atom(),
         "description" => String.t() | atom(),
@@ -9009,11 +5639,2296 @@ defmodule AWS.DataZone do
         "id" => String.t() | atom(),
         "lastUpdatedAt" => [non_neg_integer()],
         "name" => String.t() | atom(),
+        "resolutionStrategy" => list(any()),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_account_pool_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glossary_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type glossary_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detailed_glossary_term() :: %{
+        "name" => String.t() | atom(),
+        "shortDescription" => String.t() | atom()
+      }
+
+  """
+  @type detailed_glossary_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      user_details() :: %{
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type user_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_item() :: %{
+        "additionalAttributes" => asset_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "externalIdentifier" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "governedGlossaryTerms" => list(String.t() | atom()),
+        "identifier" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type asset_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      business_name_generation_configuration() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type business_name_generation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_emr_properties_input() :: %{
+        "computeArn" => [String.t() | atom()],
+        "instanceProfileArn" => [String.t() | atom()],
+        "javaVirtualEnv" => [String.t() | atom()],
+        "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
+        "pythonVirtualEnv" => [String.t() | atom()],
+        "runtimeRole" => [String.t() | atom()],
+        "trustedCertificatesS3Uri" => [String.t() | atom()]
+      }
+
+  """
+  @type spark_emr_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_metadata_generation_run_input() :: %{
+        optional("type") => list(any())
+      }
+
+  """
+  @type get_metadata_generation_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_glue_properties_input() :: %{
+        "additionalArgs" => spark_glue_args(),
+        "glueConnectionName" => [String.t() | atom()],
+        "glueConnectionNames" => list(String.t() | atom()),
+        "glueVersion" => [String.t() | atom()],
+        "idleTimeout" => [integer()],
+        "javaVirtualEnv" => [String.t() | atom()],
+        "numberOfWorkers" => [integer()],
+        "pythonVirtualEnv" => [String.t() | atom()],
+        "workerType" => [String.t() | atom()]
+      }
+
+  """
+  @type spark_glue_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hyper_pod_properties_output() :: %{
+        "clusterArn" => [String.t() | atom()],
+        "clusterName" => [String.t() | atom()],
+        "orchestrator" => list(any())
+      }
+
+  """
+  @type hyper_pod_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("usageRestrictions") => list(list(any())()),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_glossary_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_notebook_run_input() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type stop_notebook_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_type_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "formsOutput" => map(),
+        "name" => String.t() | atom(),
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_asset_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_grant_output() :: %{
+        "assets" => list(subscribed_asset()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "grantedEntity" => list(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "subscriptionId" => String.t() | atom(),
+        "subscriptionTargetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_subscription_grant_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_info() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountName" => String.t() | atom(),
+        "supportedRegions" => list(String.t() | atom())
+      }
+
+  """
+  @type account_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_blueprint_configurations_output() :: %{
+        "items" => list(environment_blueprint_configuration_item()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environment_blueprint_configurations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_source_run_activities_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_data_source_run_activities_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      query_graph_output() :: %{
+        "items" => list(list()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type query_graph_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_run_activity() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataAssetId" => [String.t() | atom()],
+        "dataAssetStatus" => list(any()),
+        "dataSourceRunId" => String.t() | atom(),
+        "database" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "lineageSummary" => lineage_info(),
+        "projectId" => String.t() | atom(),
+        "technicalDescription" => String.t() | atom(),
+        "technicalName" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type data_source_run_activity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_policy_grant_output() :: %{}
+
+  """
+  @type remove_policy_grant_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscription_target_output() :: %{
+        "applicableAssetTypes" => list(String.t() | atom()),
+        "authorizedPrincipals" => list(String.t() | atom()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "manageAccessRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
+        "type" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type update_subscription_target_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_metadata_generation_run_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("type") => list(any()),
+        optional("types") => list(list(any())()),
+        required("owningProjectIdentifier") => String.t() | atom(),
+        required("target") => metadata_generation_run_target()
+      }
+
+  """
+  @type start_metadata_generation_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      match_offset() :: %{
+        "endOffset" => [integer()],
+        "startOffset" => [integer()]
+      }
+
+  """
+  @type match_offset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_run_input() :: %{}
+
+  """
+  @type get_data_source_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_policy_grant_principal() :: %{
+        "domainUnitDesignation" => list(any()),
+        "domainUnitGrantFilter" => list(),
+        "domainUnitIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type domain_unit_policy_grant_principal() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_deletion_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type project_deletion_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_user_properties() :: %{
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type domain_unit_user_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glossary_term_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type glossary_term_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glossary_input() :: %{}
+
+  """
+  @type get_glossary_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mlflow_properties_output() :: %{
+        "trackingServerArn" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      like_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type like_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_project_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_series_data_point_summary_form_output() :: %{
+        "contentSummary" => [String.t() | atom()],
+        "formName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type time_series_data_point_summary_form_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environment_blueprints_input() :: %{
+        optional("managed") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_environment_blueprints_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_input() :: %{
+        optional("deploymentOrder") => [integer()],
+        optional("description") => [String.t() | atom()],
+        optional("environmentAccountIdentifier") => [String.t() | atom()],
+        optional("environmentAccountRegion") => [String.t() | atom()],
+        optional("environmentBlueprintIdentifier") => [String.t() | atom()],
+        optional("environmentConfigurationId") => [String.t() | atom()],
+        optional("environmentConfigurationName") => String.t() | atom(),
+        optional("environmentProfileIdentifier") => String.t() | atom(),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("userParameters") => list(environment_parameter()),
+        required("name") => [String.t() | atom()],
+        required("projectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_environment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_product_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "items" => list(data_product_item()),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type project_profile_summary() :: %{(String.t() | atom()) => any()}
+  @type create_data_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_notebook_run_output() :: %{
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type stop_notebook_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_term_output() :: %{
+        "domainId" => String.t() | atom(),
+        "glossaryId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "longDescription" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "shortDescription" => String.t() | atom(),
+        "status" => list(any()),
+        "termRelations" => term_relations(),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type create_glossary_term_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_input() :: %{
+        optional("connectionIdentifier") => [String.t() | atom()],
+        optional("environmentIdentifier") => [String.t() | atom()],
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("type") => String.t() | atom(),
+        required("projectIdentifier") => [String.t() | atom()]
+      }
+
+  """
+  @type list_data_sources_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_data_export_configuration_output() :: %{}
+
+  """
+  @type put_data_export_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_glue_args() :: %{
+        "connection" => [String.t() | atom()]
+      }
+
+  """
+  @type spark_glue_args() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_input() :: %{}
+
+  """
+  @type delete_asset_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_run_configuration_input() :: %{
+        "dataAccessRole" => [String.t() | atom()],
+        "redshiftCredentialConfiguration" => redshift_credential_configuration(),
+        "redshiftStorage" => list(),
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
+      }
+
+  """
+  @type redshift_run_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_user_profile_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("sessionName") => [String.t() | atom()],
+        optional("userType") => list(any()),
+        required("userIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_user_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_rule() :: %{
+        "rule" => list(any()),
+        "threshold" => [float()]
+      }
+
+  """
+  @type reject_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sso_user_profile_details() :: %{
+        "firstName" => String.t() | atom(),
+        "lastName" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type sso_user_profile_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_input() :: %{
+        optional("withSecret") => [boolean()]
+      }
+
+  """
+  @type get_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_account_pool_handler() :: %{
+        "lambdaExecutionRoleArn" => String.t() | atom(),
+        "lambdaFunctionArn" => String.t() | atom()
+      }
+
+  """
+  @type custom_account_pool_handler() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_environment_role_input() :: %{}
+
+  """
+  @type disassociate_environment_role_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_unit_output() :: %{
+        "ancestorDomainUnitIds" => list(String.t() | atom()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owners" => list(list()),
+        "parentDomainUnitId" => String.t() | atom()
+      }
+
+  """
+  @type create_domain_unit_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_product_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("formsInput") => list(form_input()),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("items") => list(data_product_item()),
+        required("name") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_data_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notebook_export_error() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type notebook_export_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      spark_emr_properties_patch() :: %{
+        "computeArn" => [String.t() | atom()],
+        "instanceProfileArn" => [String.t() | atom()],
+        "javaVirtualEnv" => [String.t() | atom()],
+        "logUri" => [String.t() | atom()],
+        "managedEndpointArn" => [String.t() | atom()],
+        "pythonVirtualEnv" => [String.t() | atom()],
+        "runtimeRole" => [String.t() | atom()],
+        "trustedCertificatesS3Uri" => [String.t() | atom()]
+      }
+
+  """
+  @type spark_emr_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connections_input() :: %{
+        optional("environmentIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("name") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("projectIdentifier") => String.t() | atom(),
+        optional("scope") => list(any()),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_connections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_rule_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("action") => list(any()),
+        required("detail") => list(),
+        required("name") => String.t() | atom(),
+        required("scope") => rule_scope(),
+        required("target") => list()
+      }
+
+  """
+  @type create_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_job_run_input() :: %{}
+
+  """
+  @type get_job_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configurable_action_parameter() :: %{
+        "key" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type configurable_action_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_connection() :: %{
+        "athenaProperties" => map(),
+        "authenticationConfiguration" => authentication_configuration(),
+        "compatibleComputeEnvironments" => list(list(any())()),
+        "connectionProperties" => map(),
+        "connectionSchemaVersion" => [integer()],
+        "connectionType" => list(any()),
+        "creationTime" => [non_neg_integer()],
+        "description" => [String.t() | atom()],
+        "lastConnectionValidationTime" => [non_neg_integer()],
+        "lastUpdatedBy" => [String.t() | atom()],
+        "lastUpdatedTime" => [non_neg_integer()],
+        "matchCriteria" => list([String.t() | atom()]()),
+        "name" => [String.t() | atom()],
+        "physicalConnectionRequirements" => physical_connection_requirements(),
+        "pythonProperties" => map(),
+        "sparkProperties" => map(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()]
+      }
+
+  """
+  @type glue_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_projects_output() :: %{
+        "items" => list(project_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_projects_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_group_profiles_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("searchText") => String.t() | atom(),
+        required("groupType") => list(any())
+      }
+
+  """
+  @type search_group_profiles_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_mwaa_properties_input() :: %{
+        "mwaaEnvironmentName" => [String.t() | atom()]
+      }
+
+  """
+  @type workflows_mwaa_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_profile_input() :: %{}
+
+  """
+  @type delete_project_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_group_profile_input() :: %{}
+
+  """
+  @type get_group_profile_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_governed_terms_output() :: %{}
+
+  """
+  @type associate_governed_terms_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      search_types_input() :: %{
+        optional("filters") => list(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("searchIn") => list(search_in_item()),
+        optional("searchText") => String.t() | atom(),
+        optional("sort") => search_sort(),
+        required("managed") => [boolean()],
+        required("searchScope") => list(any())
+      }
+
+  """
+  @type search_types_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notification_resource() :: %{
+        "id" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type notification_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_run_error() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type job_run_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_glossary_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type update_glossary_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_blueprint_output() :: %{
+        "createdAt" => [non_neg_integer()],
+        "deploymentProperties" => deployment_properties(),
+        "description" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type update_environment_blueprint_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_request_details_input() :: %{}
+
+  """
+  @type get_subscription_request_details_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      authentication_configuration_input() :: %{
+        "authenticationType" => list(any()),
+        "basicAuthenticationCredentials" => basic_authentication_credentials(),
+        "customAuthenticationCredentials" => map(),
+        "kmsKeyArn" => [String.t() | atom()],
+        "oAuth2Properties" => o_auth2_properties(),
+        "secretArn" => [String.t() | atom()]
+      }
+
+  """
+  @type authentication_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_product_revisions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_product_revisions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscription_target_form() :: %{
+        "content" => [String.t() | atom()],
+        "formName" => String.t() | atom()
+      }
+
+  """
+  @type subscription_target_form() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_profile_input() :: %{
+        optional("sessionName") => [String.t() | atom()],
+        optional("type") => list(any()),
+        required("status") => list(any())
+      }
+
+  """
+  @type update_user_profile_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_subscription_request_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "decisionComment" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "existingSubscriptionId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "metadataForms" => list(form_output()),
+        "requestReason" => String.t() | atom(),
+        "reviewerId" => [String.t() | atom()],
+        "status" => list(any()),
+        "subscribedListings" => list(subscribed_listing()),
+        "subscribedPrincipals" => list(list()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type accept_subscription_request_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_listing() :: %{
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "item" => list(),
+        "name" => String.t() | atom(),
+        "ownerProjectId" => String.t() | atom(),
+        "ownerProjectName" => [String.t() | atom()],
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_listing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_user_profiles_output() :: %{
+        "items" => list(user_profile_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_user_profiles_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      athena_properties_patch() :: %{
+        "workgroupName" => [String.t() | atom()]
+      }
+
+  """
+  @type athena_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_input() :: %{
+        optional("blueprintVersion") => [String.t() | atom()],
+        optional("description") => [String.t() | atom()],
+        optional("environmentConfigurationName") => String.t() | atom(),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("name") => [String.t() | atom()],
+        optional("userParameters") => list(environment_parameter())
+      }
+
+  """
+  @type update_environment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      self_grant_status_detail() :: %{
+        "databaseName" => [String.t() | atom()],
+        "failureCause" => [String.t() | atom()],
+        "schemaName" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type self_grant_status_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      username_password() :: %{
+        "password" => String.t() | atom(),
+        "username" => String.t() | atom()
+      }
+
+  """
+  @type username_password() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notebook_run_error() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type notebook_run_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      single_sign_on() :: %{
+        "idcInstanceArn" => [String.t() | atom()],
+        "type" => list(any()),
+        "userAssignment" => list(any())
+      }
+
+  """
+  @type single_sign_on() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_blueprint_configuration_output() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "domainId" => String.t() | atom(),
+        "enabledRegions" => list(String.t() | atom()),
+        "environmentBlueprintId" => String.t() | atom(),
+        "environmentRolePermissionBoundary" => String.t() | atom(),
+        "manageAccessRoleArn" => String.t() | atom(),
+        "provisioningConfigurations" => list(list()),
+        "provisioningRoleArn" => String.t() | atom(),
+        "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type get_environment_blueprint_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_connection_input() :: %{
+        optional("awsLocation") => aws_location(),
+        optional("clientToken") => [String.t() | atom()],
+        optional("configurations") => list(configuration()),
+        optional("description") => String.t() | atom(),
+        optional("enableTrustedIdentityPropagation") => [boolean()],
+        optional("environmentIdentifier") => String.t() | atom(),
+        optional("props") => list(),
+        optional("scope") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_scope() :: %{
+        "assetType" => asset_types_for_rule(),
+        "dataProduct" => [boolean()],
+        "project" => projects_for_rule()
+      }
+
+  """
+  @type rule_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_profile_output() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentBlueprintId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type get_environment_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      not_in_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type not_in_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_accounts_in_account_pool_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_accounts_in_account_pool_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_event_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "eventSummary" => list(),
+        "eventTime" => [non_neg_integer()],
+        "id" => String.t() | atom(),
+        "processingStatus" => list(any())
+      }
+
+  """
+  @type lineage_event_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_listing_item() :: %{
+        "additionalAttributes" => asset_listing_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityRevision" => String.t() | atom(),
+        "entityType" => String.t() | atom(),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "governedGlossaryTerms" => list(detailed_glossary_term()),
+        "listingCreatedBy" => String.t() | atom(),
+        "listingId" => String.t() | atom(),
+        "listingRevision" => String.t() | atom(),
+        "listingUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom()
+      }
+
+  """
+  @type asset_listing_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_blueprint_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "provisioningProperties" => list(),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type environment_blueprint_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_self_grant_status_output() :: %{
+        "selfGrantStatusDetails" => list(self_grant_status_detail())
+      }
+
+  """
+  @type glue_self_grant_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lakehouse_properties_input() :: %{
+        "glueLineageSyncEnabled" => [boolean()]
+      }
+
+  """
+  @type lakehouse_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("domainUnitId") => String.t() | atom(),
+        optional("glossaryTerms") => list(String.t() | atom()),
+        optional("membershipAssignments") => list(project_membership_assignment()),
+        optional("projectCategory") => [String.t() | atom()],
+        optional("projectExecutionRole") => String.t() | atom(),
+        optional("projectProfileId") => String.t() | atom(),
+        optional("resourceTags") => map(),
+        optional("userParameters") => list(environment_configuration_user_parameter()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_pool_input() :: %{
+        optional("accountSource") => list(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("resolutionStrategy") => list(any())
+      }
+
+  """
+  @type update_account_pool_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_output() :: %{}
+
+  """
+  @type delete_project_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_output() :: %{
+        "arn" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "domainExecutionRole" => String.t() | atom(),
+        "domainVersion" => list(any()),
+        "id" => String.t() | atom(),
+        "kmsKeyIdentifier" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "portalUrl" => [String.t() | atom()],
+        "rootDomainUnitId" => String.t() | atom(),
+        "serviceRole" => String.t() | atom(),
+        "singleSignOn" => single_sign_on(),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type create_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      mlflow_properties_patch() :: %{
+        "trackingServerArn" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_iam_principal_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_iam_principal_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_choice() :: %{
+        "predictionChoices" => list([integer()]()),
+        "predictionTarget" => [String.t() | atom()]
+      }
+
+  """
+  @type reject_choice() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_properties_input() :: %{
+        "glueConnectionInput" => glue_connection_input()
+      }
+
+  """
+  @type glue_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_governed_terms_input() :: %{
+        required("governedGlossaryTerms") => list(String.t() | atom())
+      }
+
+  """
+  @type associate_governed_terms_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      equal_to_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type equal_to_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration_user_parameter() :: %{
+        "environmentConfigurationName" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "environmentParameters" => list(environment_parameter()),
+        "environmentResolvedAccount" => environment_resolved_account()
+      }
+
+  """
+  @type environment_configuration_user_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_sql_query_run_details() :: %{
+        "errorMessages" => list([String.t() | atom()]()),
+        "numQueriesFailed" => [integer()],
+        "queryEndTime" => [non_neg_integer()],
+        "queryStartTime" => [non_neg_integer()],
+        "totalQueriesProcessed" => [integer()]
+      }
+
+  """
+  @type lineage_sql_query_run_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glossary_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type get_glossary_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_item_additional_attributes() :: %{
+        "matchRationale" => list(list())
+      }
+
+  """
+  @type data_product_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_summary() :: %{
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()]
+      }
+
+  """
+  @type domain_unit_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_targets_output() :: %{
+        "items" => list(subscription_target_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_subscription_targets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      form_input() :: %{
+        "content" => [String.t() | atom()],
+        "formName" => String.t() | atom(),
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type form_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_form_type_output() :: %{
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type create_form_type_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_project_profiles_output() :: %{
+        "items" => list(project_profile_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_project_profiles_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_input() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "forms" => list(form_input())
+      }
+
+  """
+  @type attribute_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_user() :: %{
+        "details" => list(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_user() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glossary_term_enforcement_detail() :: %{
+        "requiredGlossaryTermIds" => list(String.t() | atom())
+      }
+
+  """
+  @type glossary_term_enforcement_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environments_output() :: %{
+        "items" => list(environment_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_environments_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_grant_member() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "detail" => list(),
+        "grantId" => String.t() | atom(),
+        "principal" => list()
+      }
+
+  """
+  @type policy_grant_member() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_run_details() :: %{
+        "sqlQueryRunDetails" => lineage_sql_query_run_details()
+      }
+
+  """
+  @type lineage_run_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_environment_blueprint_configuration_output() :: %{
+        "allowUserProvidedConfigurations" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "domainId" => String.t() | atom(),
+        "enabledRegions" => list(String.t() | atom()),
+        "environmentBlueprintId" => String.t() | atom(),
+        "environmentRolePermissionBoundary" => String.t() | atom(),
+        "manageAccessRoleArn" => String.t() | atom(),
+        "provisioningConfigurations" => list(list()),
+        "provisioningRoleArn" => String.t() | atom(),
+        "regionalParameters" => map(),
+        "resourceConfigurations" => list(resource_configuration()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type put_environment_blueprint_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cell_information() :: %{}
+
+  """
+  @type cell_information() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      not_like_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type not_like_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_connection_input() :: %{
+        "athenaProperties" => map(),
+        "authenticationConfiguration" => authentication_configuration_input(),
+        "connectionProperties" => map(),
+        "connectionType" => list(any()),
+        "description" => [String.t() | atom()],
+        "matchCriteria" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "physicalConnectionRequirements" => physical_connection_requirements(),
+        "pythonProperties" => map(),
+        "sparkProperties" => map(),
+        "validateCredentials" => [boolean()],
+        "validateForComputeEnvironments" => list(list(any())())
+      }
+
+  """
+  @type glue_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_product_output() :: %{}
+
+  """
+  @type delete_data_product_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glossary_term_input() :: %{}
+
+  """
+  @type get_glossary_term_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_group_properties() :: %{
+        "groupId" => [String.t() | atom()]
+      }
+
+  """
+  @type domain_unit_group_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_glossary_term_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "glossaryId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "longDescription" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "shortDescription" => String.t() | atom(),
+        "status" => list(any()),
+        "termRelations" => term_relations(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom(),
+        "usageRestrictions" => list(list(any())())
+      }
+
+  """
+  @type get_glossary_term_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_configuration() :: %{
+        "schedule" => String.t() | atom(),
+        "timezone" => list(any())
+      }
+
+  """
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("description") => [String.t() | atom()],
+        optional("domainExecutionRole") => String.t() | atom(),
+        optional("name") => [String.t() | atom()],
+        optional("serviceRole") => String.t() | atom(),
+        optional("singleSignOn") => single_sign_on()
+      }
+
+  """
+  @type update_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_notebook_input() :: %{
+        optional("cellOrder") => list(cell_information()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("environmentConfiguration") => environment_config(),
+        optional("metadata") => map(),
+        optional("name") => String.t() | atom(),
+        optional("parameters") => map(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type update_notebook_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_notebook_import_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "notebookId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "sourceLocation" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type start_notebook_import_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_product_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "firstRevisionCreatedAt" => non_neg_integer(),
+        "firstRevisionCreatedBy" => String.t() | atom(),
+        "formsOutput" => list(form_output()),
+        "glossaryTerms" => list(String.t() | atom()),
+        "id" => String.t() | atom(),
+        "items" => list(data_product_item()),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_data_product_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_lineage_event_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("event") => binary()
+      }
+
+  """
+  @type post_lineage_event_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_source_runs_output() :: %{
+        "items" => list(data_source_run_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_source_runs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_grant_input() :: %{
+        optional("assetTargetNames") => list(asset_target_name_map()),
+        optional("clientToken") => [String.t() | atom()],
+        optional("subscriptionTargetIdentifier") => String.t() | atom(),
+        required("environmentIdentifier") => String.t() | atom(),
+        required("grantedEntity") => list()
+      }
+
+  """
+  @type create_subscription_grant_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      in_expression() :: %{
+        "columnName" => [String.t() | atom()],
+        "values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type in_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      time_series_data_point_form_output() :: %{
+        "content" => [String.t() | atom()],
+        "formName" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "timestamp" => [non_neg_integer()],
+        "typeIdentifier" => String.t() | atom(),
+        "typeRevision" => String.t() | atom()
+      }
+
+  """
+  @type time_series_data_point_form_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_events_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("processingStatus") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("timestampAfter") => [non_neg_integer()],
+        optional("timestampBefore") => [non_neg_integer()]
+      }
+
+  """
+  @type list_lineage_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_serverless_storage() :: %{
+        "workgroupName" => [String.t() | atom()]
+      }
+
+  """
+  @type redshift_serverless_storage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_predictions_output() :: %{
+        "assetId" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type accept_predictions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "retainPermissions" => [boolean()],
+        "status" => list(any()),
+        "subscribedListing" => subscribed_listing(),
+        "subscribedPrincipal" => list(),
+        "subscriptionRequestId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_subscription_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      notebook_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type notebook_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_revisions_output() :: %{
+        "items" => list(asset_revision()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_revisions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscription_requests_input() :: %{
+        optional("approverProjectId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
+        optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any()),
+        optional("subscribedListingId") => String.t() | atom()
+      }
+
+  """
+  @type list_subscription_requests_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_node_history_input() :: %{
+        optional("direction") => list(any()),
+        optional("eventTimestampGTE") => [non_neg_integer()],
+        optional("eventTimestampLTE") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_lineage_node_history_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_revision() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type asset_revision() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_filters_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_asset_filters_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_pool_input() :: %{}
+
+  """
+  @type get_account_pool_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      topic() :: %{
+        "resource" => notification_resource(),
+        "role" => list(any()),
+        "subject" => [String.t() | atom()]
+      }
+
+  """
+  @type topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_notebook_output() :: %{
+        "cellOrder" => list(cell_information()),
+        "computeId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentConfiguration" => environment_config(),
+        "error" => notebook_error(),
+        "id" => String.t() | atom(),
+        "lockExpiresAt" => [non_neg_integer()],
+        "lockedAt" => [non_neg_integer()],
+        "lockedBy" => [String.t() | atom()],
+        "metadata" => map(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "parameters" => map(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type update_notebook_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_profile_output() :: %{
+        "allowCustomProjectResourceTags" => [boolean()],
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentConfigurations" => list(environment_configuration()),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "projectResourceTags" => list(resource_tag_parameter()),
+        "projectResourceTagsDescription" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type create_project_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accepted_asset_scope() :: %{
+        "assetId" => String.t() | atom(),
+        "filterIds" => list(String.t() | atom())
+      }
+
+  """
+  @type accepted_asset_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_unit_input() :: %{}
+
+  """
+  @type get_domain_unit_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any())
+      }
+
+  """
+  @type list_job_runs_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      entity_pattern() :: %{
+        "entityType" => list(any()),
+        "filters" => list(),
+        "identifier" => [String.t() | atom()]
+      }
+
+  """
+  @type entity_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_parameter() :: %{
+        "defaultValue" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "fieldType" => [String.t() | atom()],
+        "isEditable" => [boolean()],
+        "isOptional" => [boolean()],
+        "isUpdateSupported" => [boolean()],
+        "keyName" => [String.t() | atom()]
+      }
+
+  """
+  @type custom_parameter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9043,227 +7958,1557 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      lakehouse_properties_patch() :: %{
-        "glueLineageSyncEnabled" => [boolean()]
-      }
-
-  """
-  @type lakehouse_properties_patch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_export_configuration_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "encryptionConfiguration" => encryption_configuration(),
-        "isExportEnabled" => [boolean()],
-        "s3TableBucketArn" => [String.t() | atom()],
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_data_export_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_notebooks_output() :: %{
-        "items" => list(notebook_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_notebooks_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_notebook_export_input() :: %{}
-
-  """
-  @type get_notebook_export_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_unit_group_properties() :: %{
-        "groupId" => [String.t() | atom()]
-      }
-
-  """
-  @type domain_unit_group_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_subscription_request_input() :: %{
-        optional("assetPermissions") => list(asset_permission()),
-        optional("assetScopes") => list(accepted_asset_scope()),
-        optional("decisionComment") => String.t() | atom()
-      }
-
-  """
-  @type accept_subscription_request_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_subscription_input() :: %{}
-
-  """
-  @type get_subscription_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscription_requests_output() :: %{
-        "items" => list(subscription_request_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_subscription_requests_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_glossary_term_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("longDescription") => String.t() | atom(),
-        optional("shortDescription") => String.t() | atom(),
+      list_notebooks_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
         optional("status") => list(any()),
-        optional("termRelations") => term_relations(),
-        required("glossaryIdentifier") => String.t() | atom(),
-        required("name") => String.t() | atom()
+        required("owningProjectIdentifier") => String.t() | atom()
       }
 
   """
-  @type create_glossary_term_input() :: %{(String.t() | atom()) => any()}
+  @type list_notebooks_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_glossary_input() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("status") => list(any())
+      encryption_configuration() :: %{
+        "kmsKeyArn" => [String.t() | atom()],
+        "sseAlgorithm" => [String.t() | atom()]
       }
 
   """
-  @type update_glossary_input() :: %{(String.t() | atom()) => any()}
+  @type encryption_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_metadata_generation_run_input() :: %{
-        optional("type") => list(any())
+      get_environment_blueprint_input() :: %{}
+
+  """
+  @type get_environment_blueprint_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_listing_item() :: %{
+        "additionalAttributes" => data_product_listing_item_additional_attributes(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "entityId" => String.t() | atom(),
+        "entityRevision" => String.t() | atom(),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "items" => list(listing_summary_item()),
+        "listingCreatedBy" => String.t() | atom(),
+        "listingId" => String.t() | atom(),
+        "listingRevision" => String.t() | atom(),
+        "listingUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom()
       }
 
   """
-  @type get_metadata_generation_run_input() :: %{(String.t() | atom()) => any()}
+  @type data_product_listing_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_environment_profile_input() :: %{}
-
-  """
-  @type delete_environment_profile_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_environment_blueprint_input() :: %{
-        optional("description") => [String.t() | atom()],
-        optional("provisioningProperties") => list(),
-        optional("userParameters") => list(custom_parameter())
-      }
-
-  """
-  @type update_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_group_profile_output() :: %{
-        "domainId" => String.t() | atom(),
-        "groupName" => String.t() | atom(),
+      domain_summary() :: %{
+        "arn" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainVersion" => list(any()),
         "id" => String.t() | atom(),
-        "rolePrincipalArn" => [String.t() | atom()],
-        "rolePrincipalId" => [String.t() | atom()],
+        "lastUpdatedAt" => non_neg_integer(),
+        "managedAccountId" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "portalUrl" => [String.t() | atom()],
         "status" => list(any())
       }
 
   """
-  @type create_group_profile_output() :: %{(String.t() | atom()) => any()}
+  @type domain_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cell_information() :: %{}
+      list_asset_revisions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
 
   """
-  @type cell_information() :: %{}
+  @type list_asset_revisions_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_project_profile_output() :: %{}
+      data_source_run_lineage_summary() :: %{
+        "importStatus" => list(any())
+      }
 
   """
-  @type delete_project_profile_output() :: %{}
+  @type data_source_run_lineage_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_get_attributes_metadata_output() :: %{
-        "attributes" => list(batch_get_attribute_output()),
+      use_asset_type_policy_grant_detail() :: %{
+        "domainUnitId" => String.t() | atom()
+      }
+
+  """
+  @type use_asset_type_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      listing_revision_input() :: %{
+        "identifier" => String.t() | atom(),
+        "revision" => String.t() | atom()
+      }
+
+  """
+  @type listing_revision_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_subscription_input() :: %{}
+
+  """
+  @type cancel_subscription_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_action_input() :: %{}
+
+  """
+  @type get_environment_action_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_input() :: %{
+        optional("skipDeletionCheck") => [boolean()]
+      }
+
+  """
+  @type delete_project_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_action_input() :: %{
+        optional("description") => [String.t() | atom()],
+        optional("name") => [String.t() | atom()],
+        optional("parameters") => list()
+      }
+
+  """
+  @type update_environment_action_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_subscription_grant_status_output() :: %{
+        "assets" => list(subscribed_asset()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "grantedEntity" => list(),
+        "id" => String.t() | atom(),
+        "status" => list(any()),
+        "subscriptionId" => String.t() | atom(),
+        "subscriptionTargetId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type update_subscription_grant_status_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_asset_output() :: %{}
+
+  """
+  @type delete_asset_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      glue_run_configuration_output() :: %{
+        "accountId" => [String.t() | atom()],
+        "autoImportDataQualityResult" => [boolean()],
+        "catalogName" => [String.t() | atom()],
+        "dataAccessRole" => [String.t() | atom()],
+        "region" => [String.t() | atom()],
+        "relationalFilterConfigurations" => list(relational_filter_configuration())
+      }
+
+  """
+  @type glue_run_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failure_cause() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type failure_cause() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_data_source_run_input() :: %{
+        optional("clientToken") => [String.t() | atom()]
+      }
+
+  """
+  @type start_data_source_run_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_job_runs_output() :: %{
+        "items" => list(job_run_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_job_runs_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entity_owners_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_entity_owners_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      all_users_grant_filter() :: %{}
+
+  """
+  @type all_users_grant_filter() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      relation_pattern() :: %{
+        "maxPathLength" => [integer()],
+        "relationDirection" => list(any()),
+        "relationType" => list(any())
+      }
+
+  """
+  @type relation_pattern() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rules_output() :: %{
+        "items" => list(rule_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_rules_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_summary() :: %{
+        "action" => list(any()),
+        "identifier" => String.t() | atom(),
+        "lastUpdatedBy" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "ruleType" => list(any()),
+        "scope" => rule_scope(),
+        "target" => list(),
+        "targetType" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type rule_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_glossary_term_input() :: %{
+        optional("glossaryIdentifier") => String.t() | atom(),
+        optional("longDescription") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        optional("shortDescription") => String.t() | atom(),
+        optional("status") => list(any()),
+        optional("termRelations") => term_relations()
+      }
+
+  """
+  @type update_glossary_term_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_entity_owner_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("owner") => list()
+      }
+
+  """
+  @type add_entity_owner_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_entity_owners_output() :: %{
+        "nextToken" => String.t() | atom(),
+        "owners" => list(list())
+      }
+
+  """
+  @type list_entity_owners_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_connection_output() :: %{
+        "configurations" => list(configuration()),
+        "connectionCredentials" => connection_credentials(),
+        "connectionId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "environmentUserRole" => [String.t() | atom()],
+        "name" => String.t() | atom(),
+        "physicalEndpoints" => list(physical_endpoint()),
+        "projectId" => String.t() | atom(),
+        "props" => list(),
+        "scope" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type get_connection_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_product_input() :: %{
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type get_data_product_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_product_listing() :: %{
+        "createdAt" => non_neg_integer(),
+        "dataProductId" => String.t() | atom(),
+        "dataProductRevision" => String.t() | atom(),
+        "forms" => String.t() | atom(),
+        "glossaryTerms" => list(detailed_glossary_term()),
+        "items" => list(listing_summary()),
+        "owningProjectId" => String.t() | atom()
+      }
+
+  """
+  @type data_product_listing() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_environment_blueprint_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("userParameters") => list(custom_parameter()),
+        required("name") => String.t() | atom(),
+        required("provisioningProperties") => list()
+      }
+
+  """
+  @type create_environment_blueprint_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_action_summary() :: %{
+        "description" => [String.t() | atom()],
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => [String.t() | atom()],
+        "parameters" => list()
+      }
+
+  """
+  @type environment_action_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_notifications_input() :: %{
+        optional("afterTimestamp") => [non_neg_integer()],
+        optional("beforeTimestamp") => [non_neg_integer()],
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("subjects") => list([String.t() | atom()]()),
+        optional("taskStatus") => list(any()),
+        required("type") => list(any())
+      }
+
+  """
+  @type list_notifications_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_error() :: %{
+        "code" => [String.t() | atom()],
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type environment_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_project_input() :: %{}
+
+  """
+  @type get_project_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_deployment_details() :: %{
+        "environmentFailureReasons" => map(),
+        "overallDeploymentStatus" => list(any())
+      }
+
+  """
+  @type environment_deployment_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_target_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("provider") => [String.t() | atom()],
+        optional("subscriptionGrantCreationMode") => list(any()),
+        required("applicableAssetTypes") => list(String.t() | atom()),
+        required("authorizedPrincipals") => list(String.t() | atom()),
+        required("manageAccessRole") => String.t() | atom(),
+        required("name") => String.t() | atom(),
+        required("subscriptionTargetConfig") => list(subscription_target_form()),
+        required("type") => [String.t() | atom()]
+      }
+
+  """
+  @type create_subscription_target_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_asset_filters_output() :: %{
+        "items" => list(asset_filter_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_asset_filters_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_attribute_output() :: %{
+        "attributeIdentifier" => String.t() | atom(),
+        "forms" => list(form_output())
+      }
+
+  """
+  @type batch_get_attribute_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_root_domain_unit_owner_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("currentOwner") => String.t() | atom(),
+        required("newOwner") => [String.t() | atom()]
+      }
+
+  """
+  @type update_root_domain_unit_owner_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      column_filter_configuration() :: %{
+        "includedColumnNames" => list([String.t() | atom()]())
+      }
+
+  """
+  @type column_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_in_data_product_listing_item() :: %{
+        "entityId" => [String.t() | atom()],
+        "entityRevision" => [String.t() | atom()],
+        "entityType" => [String.t() | atom()]
+      }
+
+  """
+  @type asset_in_data_product_listing_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_listing_change_set_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("entityRevision") => String.t() | atom(),
+        required("action") => list(any()),
+        required("entityIdentifier") => String.t() | atom(),
+        required("entityType") => list(any())
+      }
+
+  """
+  @type create_listing_change_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      amazon_q_properties_output() :: %{
+        "authMode" => [String.t() | atom()],
+        "isEnabled" => [boolean()],
+        "profileArn" => [String.t() | atom()]
+      }
+
+  """
+  @type amazon_q_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_subscriptions_input() :: %{
+        optional("approverProjectId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("owningGroupId") => String.t() | atom(),
+        optional("owningIamPrincipalArn") => String.t() | atom(),
+        optional("owningProjectId") => String.t() | atom(),
+        optional("owningUserId") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("status") => list(any()),
+        optional("subscribedListingId") => String.t() | atom(),
+        optional("subscriptionRequestIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_subscriptions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_subscription_target_output() :: %{
+        "applicableAssetTypes" => list(String.t() | atom()),
+        "authorizedPrincipals" => list(String.t() | atom()),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "manageAccessRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "provider" => [String.t() | atom()],
+        "subscriptionGrantCreationMode" => list(any()),
+        "subscriptionTargetConfig" => list(subscription_target_form()),
+        "type" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type create_subscription_target_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_unit_target() :: %{
+        "domainUnitId" => String.t() | atom(),
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type domain_unit_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_notebook_export_output() :: %{
+        "completedAt" => non_neg_integer(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "error" => notebook_export_error(),
+        "fileFormat" => list(any()),
+        "id" => String.t() | atom(),
+        "notebookId" => String.t() | atom(),
+        "outputLocation" => list(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_notebook_export_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_project_membership_input() :: %{
+        required("designation") => list(any()),
+        required("member") => list()
+      }
+
+  """
+  @type create_project_membership_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_environment_input() :: %{}
+
+  """
+  @type delete_environment_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_units_for_parent_output() :: %{
+        "items" => list(domain_unit_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_units_for_parent_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_configuration_parameters_details() :: %{
+        "parameterOverrides" => list(environment_configuration_parameter()),
+        "resolvedParameters" => list(environment_configuration_parameter()),
+        "ssmPath" => String.t() | atom()
+      }
+
+  """
+  @type environment_configuration_parameters_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_pools_output() :: %{
+        "items" => list(account_pool_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_account_pools_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_entity_owner_output() :: %{}
+
+  """
+  @type add_entity_owner_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      configurable_environment_action() :: %{
+        "auth" => list(any()),
+        "parameters" => list(configurable_action_parameter()),
+        "type" => [String.t() | atom()]
+      }
+
+  """
+  @type configurable_environment_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_notebook_output() :: %{}
+
+  """
+  @type delete_notebook_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_attributes_metadata_output() :: %{
+        "attributes" => list(batch_put_attribute_output()),
         "errors" => list(attribute_error())
       }
 
   """
-  @type batch_get_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
+  @type batch_put_attributes_metadata_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_put_attributes_metadata_input() :: %{
+      delete_asset_type_input() :: %{}
+
+  """
+  @type delete_asset_type_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_data_export_configuration_input() :: %{
         optional("clientToken") => String.t() | atom(),
-        required("attributes") => list(attribute_input())
+        optional("encryptionConfiguration") => encryption_configuration(),
+        required("enableExport") => [boolean()]
       }
 
   """
-  @type batch_put_attributes_metadata_input() :: %{(String.t() | atom()) => any()}
+  @type put_data_export_configuration_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      data_product_item_additional_attributes() :: %{
-        "matchRationale" => list(list())
+      delete_rule_output() :: %{}
+
+  """
+  @type delete_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_parameter() :: %{
+        "name" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
       }
 
   """
-  @type data_product_item_additional_attributes() :: %{(String.t() | atom()) => any()}
+  @type environment_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_metadata_generation_run_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "types" => list(list(any())())
+      }
+
+  """
+  @type start_metadata_generation_run_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_product_input() :: %{}
+
+  """
+  @type delete_data_product_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource() :: %{
+        "name" => [String.t() | atom()],
+        "provider" => [String.t() | atom()],
+        "type" => [String.t() | atom()],
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_subscription_request_input() :: %{}
+
+  """
+  @type delete_subscription_request_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      environment_resolved_account() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "regionName" => String.t() | atom(),
+        "sourceAccountPoolId" => String.t() | atom()
+      }
+
+  """
+  @type environment_resolved_account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_metadata_generation_run_input() :: %{}
+
+  """
+  @type cancel_metadata_generation_run_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_sources_output() :: %{
+        "items" => list(data_source_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_data_sources_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      post_time_series_data_points_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("forms") => list(time_series_data_point_form_input())
+      }
+
+  """
+  @type post_time_series_data_points_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_listing_details() :: %{
+        "listingId" => String.t() | atom(),
+        "listingStatus" => list(any())
+      }
+
+  """
+  @type asset_listing_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_account_pool_output() :: %{}
+
+  """
+  @type delete_account_pool_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      row_filter_configuration() :: %{
+        "rowFilter" => list(),
+        "sensitive" => [boolean()]
+      }
+
+  """
+  @type row_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_sync_schedule() :: %{
+        "schedule" => [String.t() | atom()]
+      }
+
+  """
+  @type lineage_sync_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflows_serverless_properties_output() :: %{}
+
+  """
+  @type workflows_serverless_properties_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_output() :: %{
+        "description" => [String.t() | atom()],
+        "domainExecutionRole" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "name" => [String.t() | atom()],
+        "rootDomainUnitId" => String.t() | atom(),
+        "serviceRole" => String.t() | atom(),
+        "singleSignOn" => single_sign_on()
+      }
+
+  """
+  @type update_domain_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_policy_grant_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("detail") => list(),
+        required("policyType") => list(any()),
+        required("principal") => list()
+      }
+
+  """
+  @type add_policy_grant_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_environment_role_output() :: %{}
+
+  """
+  @type associate_environment_role_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_environment_input() :: %{}
+
+  """
+  @type get_environment_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_asset_filter_input() :: %{
+        optional("configuration") => list(),
+        optional("description") => String.t() | atom(),
+        optional("name") => [String.t() | atom()]
+      }
+
+  """
+  @type update_asset_filter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_export_configuration_input() :: %{}
+
+  """
+  @type get_data_export_configuration_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_asset() :: %{
+        "assetId" => String.t() | atom(),
+        "assetRevision" => String.t() | atom(),
+        "assetScope" => asset_scope(),
+        "failureCause" => failure_cause(),
+        "failureTimestamp" => [non_neg_integer()],
+        "grantedTimestamp" => [non_neg_integer()],
+        "permissions" => list(),
+        "status" => list(any()),
+        "targetName" => [String.t() | atom()]
+      }
+
+  """
+  @type subscribed_asset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_summary() :: %{
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "domainUnitId" => String.t() | atom(),
+        "failureReasons" => list(project_deletion_error()),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectCategory" => [String.t() | atom()],
+        "projectStatus" => list(any()),
+        "updatedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type project_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_profile_output() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "environmentBlueprintId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
+      }
+
+  """
+  @type update_environment_profile_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redshift_properties_output() :: %{
+        "credentials" => list(),
+        "databaseName" => [String.t() | atom()],
+        "isProvisionedSecret" => [boolean()],
+        "jdbcIamUrl" => [String.t() | atom()],
+        "jdbcUrl" => [String.t() | atom()],
+        "lineageSync" => redshift_lineage_sync_configuration_output(),
+        "redshiftTempDir" => [String.t() | atom()],
+        "status" => list(any()),
+        "storage" => list()
+      }
+
+  """
+  @type redshift_properties_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_asset_input() :: %{
+        optional("revision") => String.t() | atom()
+      }
+
+  """
+  @type get_asset_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_glossary_policy_grant_detail() :: %{
+        "includeChildDomainUnits" => [boolean()]
+      }
+
+  """
+  @type create_glossary_policy_grant_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_configuration() :: %{
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameters" => map(),
+        "region" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      projects_for_rule() :: %{
+        "selectionMode" => list(any()),
+        "specificProjects" => list(String.t() | atom())
+      }
+
+  """
+  @type projects_for_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "attribute" => String.t() | atom(),
+        "intValue" => [float()],
+        "operator" => list(any()),
+        "value" => [String.t() | atom()]
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      owner_group_properties() :: %{
+        "groupIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type owner_group_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_listing_output() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "item" => list(),
+        "listingRevision" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type get_listing_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_group() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subscribed_user_input() :: %{
+        "identifier" => String.t() | atom()
+      }
+
+  """
+  @type subscribed_user_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_data_export_configuration_output() :: %{}
+
+  """
+  @type delete_data_export_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mlflow_properties_input() :: %{
+        "trackingServerArn" => [String.t() | atom()]
+      }
+
+  """
+  @type mlflow_properties_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_source() :: %{
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type trigger_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_lineage_events_output() :: %{
+        "items" => list(lineage_event_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_lineage_events_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_asset_filter_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("description") => String.t() | atom(),
+        required("configuration") => list(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_asset_filter_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_project_membership_input() :: %{
+        required("member") => list()
+      }
+
+  """
+  @type delete_project_membership_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_environments_input() :: %{
+        optional("awsAccountId") => String.t() | atom(),
+        optional("awsAccountRegion") => String.t() | atom(),
+        optional("environmentBlueprintIdentifier") => String.t() | atom(),
+        optional("environmentProfileIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("name") => [String.t() | atom()],
+        optional("nextToken") => String.t() | atom(),
+        optional("provider") => [String.t() | atom()],
+        optional("status") => list(any()),
+        required("projectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_environments_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      compute_config() :: %{
+        "environmentVersion" => [String.t() | atom()],
+        "instanceType" => String.t() | atom()
+      }
+
+  """
+  @type compute_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_type_item() :: %{
+        "createdAt" => non_neg_integer(),
+        "createdBy" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "formsOutput" => map(),
+        "name" => String.t() | atom(),
+        "originDomainId" => String.t() | atom(),
+        "originProjectId" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "revision" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => String.t() | atom()
+      }
+
+  """
+  @type asset_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_properties_patch() :: %{
+        "securityGroupId" => String.t() | atom(),
+        "subnetIds" => list(String.t() | atom()),
+        "vpcId" => String.t() | atom()
+      }
+
+  """
+  @type vpc_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_source_output() :: %{
+        "assetFormsOutput" => list(form_output()),
+        "configuration" => list(),
+        "connectionId" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "enableSetting" => list(any()),
+        "environmentId" => String.t() | atom(),
+        "errorMessage" => data_source_error_message(),
+        "id" => String.t() | atom(),
+        "lastRunAssetCount" => [integer()],
+        "lastRunAt" => non_neg_integer(),
+        "lastRunErrorMessage" => data_source_error_message(),
+        "lastRunStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "projectId" => String.t() | atom(),
+        "publishOnImport" => [boolean()],
+        "recommendation" => recommendation_configuration(),
+        "schedule" => schedule_configuration(),
+        "selfGrantStatus" => list(),
+        "status" => list(any()),
+        "type" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_data_source_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_source_summary() :: %{
+        "connectionId" => [String.t() | atom()],
+        "createdAt" => non_neg_integer(),
+        "dataSourceId" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "enableSetting" => list(any()),
+        "environmentId" => [String.t() | atom()],
+        "lastRunAssetCount" => [integer()],
+        "lastRunAt" => non_neg_integer(),
+        "lastRunErrorMessage" => data_source_error_message(),
+        "lastRunStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "schedule" => schedule_configuration(),
+        "status" => list(any()),
+        "type" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type data_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_input() :: %{
+        optional("clientToken") => [String.t() | atom()],
+        optional("description") => [String.t() | atom()],
+        optional("domainExecutionRole") => String.t() | atom(),
+        optional("domainVersion") => list(any()),
+        optional("kmsKeyIdentifier") => String.t() | atom(),
+        optional("serviceRole") => String.t() | atom(),
+        optional("singleSignOn") => single_sign_on(),
+        optional("tags") => map(),
+        required("name") => [String.t() | atom()]
+      }
+
+  """
+  @type create_domain_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      o_auth2_client_application() :: %{
+        "aWSManagedClientApplicationReference" => [String.t() | atom()],
+        "userManagedClientApplicationClientId" => [String.t() | atom()]
+      }
+
+  """
+  @type o_auth2_client_application() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_listing_input() :: %{
+        optional("listingRevision") => String.t() | atom()
+      }
+
+  """
+  @type get_listing_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_policy_grants_output() :: %{
+        "grantList" => list(policy_grant_member()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_policy_grants_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_subscription_target_input() :: %{}
+
+  """
+  @type get_subscription_target_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_notebook_export_input() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("fileFormat") => list(any()),
+        required("notebookIdentifier") => String.t() | atom(),
+        required("owningProjectIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type start_notebook_export_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_info() :: %{
+        "errorMessage" => String.t() | atom(),
+        "eventId" => [String.t() | atom()],
+        "eventStatus" => list(any())
+      }
+
+  """
+  @type lineage_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_connections_output() :: %{
+        "items" => list(connection_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_connections_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9291,1728 +9536,1483 @@ defmodule AWS.DataZone do
 
   ## Example:
 
-      start_notebook_import_output() :: %{
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
+      s3_destination() :: %{
+        "uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_environment_output() :: %{
+        "awsAccountId" => String.t() | atom(),
+        "awsAccountRegion" => String.t() | atom(),
+        "createdAt" => [non_neg_integer()],
+        "createdBy" => [String.t() | atom()],
+        "deploymentProperties" => deployment_properties(),
         "description" => String.t() | atom(),
         "domainId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "notebookId" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "sourceLocation" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type start_notebook_import_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_group_profiles_output() :: %{
-        "items" => list(group_profile_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type search_group_profiles_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_subscriptions_output() :: %{
-        "items" => list(subscription_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_subscriptions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_subscription_target_input() :: %{
-        optional("applicableAssetTypes") => list(String.t() | atom()),
-        optional("authorizedPrincipals") => list(String.t() | atom()),
-        optional("manageAccessRole") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        optional("provider") => [String.t() | atom()],
-        optional("subscriptionGrantCreationMode") => list(any()),
-        optional("subscriptionTargetConfig") => list(subscription_target_form())
-      }
-
-  """
-  @type update_subscription_target_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_asset_revisions_input() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_asset_revisions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_input() :: %{
-        optional("clientToken") => [String.t() | atom()],
-        optional("description") => [String.t() | atom()],
-        optional("domainExecutionRole") => String.t() | atom(),
-        optional("name") => [String.t() | atom()],
-        optional("serviceRole") => String.t() | atom(),
-        optional("singleSignOn") => single_sign_on()
-      }
-
-  """
-  @type update_domain_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_subscription_grant_output() :: %{
-        "assets" => list(subscribed_asset()),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "environmentId" => String.t() | atom(),
-        "grantedEntity" => list(),
+        "environmentActions" => list(configurable_environment_action()),
+        "environmentBlueprintId" => String.t() | atom(),
+        "environmentConfigurationId" => String.t() | atom(),
+        "environmentConfigurationName" => String.t() | atom(),
+        "environmentProfileId" => String.t() | atom(),
+        "glossaryTerms" => list(String.t() | atom()),
         "id" => String.t() | atom(),
-        "status" => list(any()),
-        "subscriptionId" => String.t() | atom(),
-        "subscriptionTargetId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => String.t() | atom()
-      }
-
-  """
-  @type delete_subscription_grant_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lake_formation_configuration() :: %{
-        "locationRegistrationExcludeS3Locations" => list(String.t() | atom()),
-        "locationRegistrationRole" => String.t() | atom()
-      }
-
-  """
-  @type lake_formation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_graph_output() :: %{
-        "items" => list(list()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type query_graph_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_properties_input() :: %{
-        "registerS3AccessGrantLocation" => [boolean()],
-        "s3AccessGrantLocationId" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_properties_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_listing_output() :: %{}
-
-  """
-  @type delete_listing_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      form_input() :: %{
-        "content" => [String.t() | atom()],
-        "formName" => String.t() | atom(),
-        "typeIdentifier" => String.t() | atom(),
-        "typeRevision" => String.t() | atom()
-      }
-
-  """
-  @type form_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_glossary_output() :: %{
-        "description" => String.t() | atom(),
-        "domainId" => String.t() | atom(),
-        "id" => String.t() | atom(),
+        "lastDeployment" => deployment(),
         "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom(),
-        "status" => list(any()),
-        "usageRestrictions" => list(list(any())())
-      }
-
-  """
-  @type create_glossary_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mlflow_properties_output() :: %{
-        "trackingServerArn" => [String.t() | atom()]
-      }
-
-  """
-  @type mlflow_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      basic_authentication_credentials() :: %{
-        "password" => [String.t() | atom()],
-        "userName" => [String.t() | atom()]
-      }
-
-  """
-  @type basic_authentication_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      environment_configuration_parameter() :: %{
-        "isEditable" => [boolean()],
-        "name" => String.t() | atom(),
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type environment_configuration_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      configurable_action_parameter() :: %{
-        "key" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
-      }
-
-  """
-  @type configurable_action_parameter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      amazon_q_properties_output() :: %{
-        "authMode" => [String.t() | atom()],
-        "isEnabled" => [boolean()],
-        "profileArn" => [String.t() | atom()]
-      }
-
-  """
-  @type amazon_q_properties_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource() :: %{
-        "name" => [String.t() | atom()],
+        "projectId" => String.t() | atom(),
         "provider" => [String.t() | atom()],
-        "type" => [String.t() | atom()],
-        "value" => [String.t() | atom()]
+        "provisionedResources" => list(resource()),
+        "provisioningProperties" => list(),
+        "status" => list(any()),
+        "updatedAt" => [non_neg_integer()],
+        "userParameters" => list(custom_parameter())
       }
 
   """
-  @type resource() :: %{(String.t() | atom()) => any()}
+  @type update_environment_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      redshift_run_configuration_output() :: %{
-        "accountId" => [String.t() | atom()],
-        "dataAccessRole" => [String.t() | atom()],
-        "redshiftCredentialConfiguration" => redshift_credential_configuration(),
-        "redshiftStorage" => list(),
-        "region" => [String.t() | atom()],
-        "relationalFilterConfigurations" => list(relational_filter_configuration())
-      }
-
-  """
-  @type redshift_run_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_environment_blueprint_configuration_input() :: %{
-        optional("allowUserProvidedConfigurations") => [boolean()],
-        optional("environmentRolePermissionBoundary") => String.t() | atom(),
-        optional("globalParameters") => map(),
-        optional("manageAccessRoleArn") => String.t() | atom(),
-        optional("provisioningConfigurations") => list(list()),
-        optional("provisioningRoleArn") => String.t() | atom(),
-        optional("regionalParameters") => map(),
-        optional("resourceConfigurations") => list(put_resource_configuration()),
-        required("enabledRegions") => list(String.t() | atom())
-      }
-
-  """
-  @type put_environment_blueprint_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_product_listing_item() :: %{
-        "additionalAttributes" => data_product_listing_item_additional_attributes(),
+      metadata_generation_run_item() :: %{
         "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "entityId" => String.t() | atom(),
-        "entityRevision" => String.t() | atom(),
-        "glossaryTerms" => list(detailed_glossary_term()),
-        "items" => list(listing_summary_item()),
-        "listingCreatedBy" => String.t() | atom(),
-        "listingId" => String.t() | atom(),
-        "listingRevision" => String.t() | atom(),
-        "listingUpdatedBy" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owningProjectId" => String.t() | atom()
+        "createdBy" => String.t() | atom(),
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "owningProjectId" => String.t() | atom(),
+        "status" => list(any()),
+        "target" => metadata_generation_run_target(),
+        "type" => list(any()),
+        "types" => list(list(any())())
       }
 
   """
-  @type data_product_listing_item() :: %{(String.t() | atom()) => any()}
+  @type metadata_generation_run_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      project_membership_assignment() :: %{
+        "designation" => list(any()),
+        "member" => list()
+      }
+
+  """
+  @type project_membership_assignment() :: %{(String.t() | atom()) => any()}
 
   @type accept_predictions_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type accept_subscription_request_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type add_entity_owner_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type add_policy_grant_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_environment_role_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type associate_governed_terms_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type batch_get_attributes_metadata_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type batch_put_attributes_metadata_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_metadata_generation_run_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_subscription_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_account_pool_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_asset_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_asset_filter_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_asset_revision_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_asset_type_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_connection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_product_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_product_revision_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_data_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_domain_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_domain_unit_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_environment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_environment_action_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_environment_blueprint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_environment_profile_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_form_type_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_glossary_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_glossary_term_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_group_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_listing_change_set_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_notebook_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_project_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_project_membership_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_project_profile_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_rule_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_subscription_grant_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_subscription_request_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_subscription_target_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_user_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_account_pool_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_asset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_asset_filter_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_asset_type_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_connection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_data_export_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_data_product_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_data_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_domain_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_domain_unit_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_environment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_environment_action_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_environment_blueprint_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_environment_blueprint_configuration_errors() ::
-          validation_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | validation_exception() | access_denied_exception()
 
   @type delete_environment_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_form_type_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_glossary_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_glossary_term_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_listing_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_notebook_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_project_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_project_membership_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_project_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_rule_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_subscription_grant_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_subscription_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_subscription_target_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_time_series_data_points_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type disassociate_environment_role_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_governed_terms_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_account_pool_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_asset_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_asset_filter_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_asset_type_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_connection_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_export_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_product_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_data_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_data_source_run_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_domain_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_domain_unit_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_environment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_environment_action_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_environment_blueprint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_environment_blueprint_configuration_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_environment_credentials_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_environment_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_form_type_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_glossary_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_glossary_term_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_group_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type get_iam_portal_login_url_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_job_run_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_lineage_event_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_lineage_node_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_listing_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_metadata_generation_run_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_notebook_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_notebook_export_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_notebook_run_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_project_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_project_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_rule_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_subscription_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_subscription_grant_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_subscription_request_details_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_subscription_target_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_time_series_data_point_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_user_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_account_pools_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_accounts_in_account_pool_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_asset_filters_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_asset_revisions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_connections_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_data_product_revisions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_data_source_run_activities_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_data_source_runs_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_data_sources_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_domain_units_for_parent_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_domains_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_entity_owners_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_environment_actions_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_environment_blueprint_configurations_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_environment_blueprints_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_environment_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_environments_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_job_runs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_lineage_events_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_lineage_node_history_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_metadata_generation_runs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_notebook_runs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_notebooks_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_notifications_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_policy_grants_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_project_memberships_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_project_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_projects_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_rules_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_subscription_grants_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_subscription_requests_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_subscription_targets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_subscriptions_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type list_time_series_data_points_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type post_lineage_event_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type post_time_series_data_points_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_data_export_configuration_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_environment_blueprint_configuration_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type query_graph_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type reject_predictions_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type reject_subscription_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type remove_entity_owner_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type remove_policy_grant_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type revoke_subscription_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type search_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type search_group_profiles_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type search_listings_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type search_types_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type search_user_profiles_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type start_data_source_run_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_metadata_generation_run_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_notebook_export_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_notebook_import_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type start_notebook_run_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_notebook_run_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
-  @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
 
   @type update_account_pool_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_asset_filter_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_connection_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_data_source_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_domain_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_domain_unit_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_environment_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_environment_action_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_environment_blueprint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_environment_profile_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_glossary_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_glossary_term_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_group_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type update_notebook_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_project_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_project_profile_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_root_domain_unit_owner_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_rule_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_subscription_grant_status_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_subscription_request_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_subscription_target_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_user_profile_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

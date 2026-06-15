@@ -13,259 +13,27 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      permission_group_params() :: %{
-        "datasetPermissions" => list(resource_permission()),
-        "permissionGroupId" => String.t() | atom()
-      }
-
-  """
-  @type permission_group_params() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_permission_group_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        required("applicationPermissions") => list(list(any())()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_permission_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_external_data_view_access_details_request() :: %{}
-
-  """
-  @type get_external_data_view_access_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_by_permission_group_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "users" => list(user_by_permission_group())
-      }
-
-  """
-  @type list_users_by_permission_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_permission_group_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_permission_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_response() :: %{
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_programmatic_access_credentials_response() :: %{
-        "credentials" => credentials(),
-        "durationInMinutes" => float()
-      }
-
-  """
-  @type get_programmatic_access_credentials_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dataset_response() :: %{
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_response() :: %{
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type update_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schema_definition() :: %{
-        "columns" => list(column_definition()),
-        "primaryKeyColumns" => list(String.t() | atom())
-      }
-
-  """
-  @type schema_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_view_response() :: %{
-        "dataViewId" => String.t() | atom(),
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type create_data_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      credentials() :: %{
-        "accessKeyId" => String.t() | atom(),
-        "secretAccessKey" => String.t() | atom(),
-        "sessionToken" => String.t() | atom()
-      }
-
-  """
-  @type credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_response() :: %{
-        "apiAccess" => list(any()),
-        "apiAccessPrincipalArn" => String.t() | atom(),
-        "createTime" => float(),
-        "emailAddress" => String.t() | atom(),
-        "firstName" => String.t() | atom(),
-        "lastDisabledTime" => float(),
-        "lastEnabledTime" => float(),
-        "lastLoginTime" => float(),
-        "lastModifiedTime" => float(),
-        "lastName" => String.t() | atom(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type get_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_user_from_permission_group_response() :: %{
-        "statusCode" => integer()
-      }
-
-  """
-  @type disassociate_user_from_permission_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permission_groups_by_user_request() :: %{
+      list_permission_groups_request() :: %{
         optional("nextToken") => String.t() | atom(),
         required("maxResults") => integer()
       }
 
   """
-  @type list_permission_groups_by_user_request() :: %{(String.t() | atom()) => any()}
+  @type list_permission_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_datasets_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_user_to_permission_group_response() :: %{
-        "statusCode" => integer()
-      }
-
-  """
-  @type associate_user_to_permission_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_permission_group_request() :: %{}
-
-  """
-  @type get_permission_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_data_view_request() :: %{
-        optional("asOfTimestamp") => float(),
-        optional("autoUpdate") => boolean(),
+      create_changeset_request() :: %{
         optional("clientToken") => String.t() | atom(),
-        optional("partitionColumns") => list(String.t() | atom()),
-        optional("sortColumns") => list(String.t() | atom()),
-        required("destinationTypeParams") => data_view_destination_type_params()
+        required("changeType") => list(any()),
+        required("formatParams") => map(),
+        required("sourceParams") => map()
       }
 
   """
-  @type create_data_view_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_users_by_permission_group_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("maxResults") => integer()
-      }
-
-  """
-  @type list_users_by_permission_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_external_data_view_access_details_response() :: %{
-        "credentials" => aws_credentials(),
-        "s3Location" => s3_location()
-      }
-
-  """
-  @type get_external_data_view_access_details_response() :: %{(String.t() | atom()) => any()}
+  @type create_changeset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -280,179 +48,35 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      create_permission_group_response() :: %{
+      update_permission_group_response() :: %{
         "permissionGroupId" => String.t() | atom()
       }
 
   """
-  @type create_permission_group_response() :: %{(String.t() | atom()) => any()}
+  @type update_permission_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_permission_group_response() :: %{
-        "permissionGroupId" => String.t() | atom()
+      get_programmatic_access_credentials_request() :: %{
+        optional("durationInMinutes") => float(),
+        required("environmentId") => String.t() | atom()
       }
 
   """
-  @type delete_permission_group_response() :: %{(String.t() | atom()) => any()}
+  @type get_programmatic_access_credentials_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_permission_groups_by_user_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "permissionGroups" => list(permission_group_by_user())
+      get_permission_group_response() :: %{
+        "permissionGroup" => permission_group()
       }
 
   """
-  @type list_permission_groups_by_user_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset() :: %{
-        "alias" => String.t() | atom(),
-        "createTime" => float(),
-        "datasetArn" => String.t() | atom(),
-        "datasetDescription" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetTitle" => String.t() | atom(),
-        "kind" => list(any()),
-        "lastModifiedTime" => float(),
-        "ownerInfo" => dataset_owner_info(),
-        "schemaDefinition" => schema_union()
-      }
-
-  """
-  @type dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_response() :: %{
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_view_request() :: %{}
-
-  """
-  @type get_data_view_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom(),
-        "reason" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_changeset_response() :: %{
-        "changesetId" => String.t() | atom(),
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type create_changeset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_user_request() :: %{}
-
-  """
-  @type get_user_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      dataset_owner_info() :: %{
-        "email" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "phoneNumber" => String.t() | atom()
-      }
-
-  """
-  @type dataset_owner_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_working_location_response() :: %{
-        "s3Bucket" => String.t() | atom(),
-        "s3Path" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type get_working_location_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_data_view_response() :: %{
-        "asOfTimestamp" => float(),
-        "autoUpdate" => boolean(),
-        "createTime" => float(),
-        "dataViewArn" => String.t() | atom(),
-        "dataViewId" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "destinationTypeParams" => data_view_destination_type_params(),
-        "errorInfo" => data_view_error_info(),
-        "lastModifiedTime" => float(),
-        "partitionColumns" => list(String.t() | atom()),
-        "sortColumns" => list(String.t() | atom()),
-        "status" => list(any())
-      }
-
-  """
-  @type get_data_view_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_user_from_permission_group_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_user_from_permission_group_request() :: %{(String.t() | atom()) => any()}
+  @type get_permission_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -483,101 +107,95 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      list_users_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "users" => list(user())
+      get_working_location_response() :: %{
+        "s3Bucket" => String.t() | atom(),
+        "s3Path" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type list_users_response() :: %{(String.t() | atom()) => any()}
+  @type get_working_location_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_permission_group_response() :: %{
-        "permissionGroup" => permission_group()
-      }
+      throttling_exception() :: %{}
 
   """
-  @type get_permission_group_response() :: %{(String.t() | atom()) => any()}
+  @type throttling_exception() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      data_view_destination_type_params() :: %{
-        "destinationType" => String.t() | atom(),
-        "s3DestinationExportFileFormat" => list(any()),
-        "s3DestinationExportFileFormatOptions" => map()
+      aws_credentials() :: %{
+        "accessKeyId" => String.t() | atom(),
+        "expiration" => float(),
+        "secretAccessKey" => String.t() | atom(),
+        "sessionToken" => String.t() | atom()
       }
 
   """
-  @type data_view_destination_type_params() :: %{(String.t() | atom()) => any()}
+  @type aws_credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_permission_group_request() :: %{
-        optional("applicationPermissions") => list(list(any())()),
-        optional("clientToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom()
+      permission_group_params() :: %{
+        "datasetPermissions" => list(resource_permission()),
+        "permissionGroupId" => String.t() | atom()
       }
 
   """
-  @type update_permission_group_request() :: %{(String.t() | atom()) => any()}
+  @type permission_group_params() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_changeset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("changeType") => list(any()),
-        required("formatParams") => map(),
-        required("sourceParams") => map()
+      credentials() :: %{
+        "accessKeyId" => String.t() | atom(),
+        "secretAccessKey" => String.t() | atom(),
+        "sessionToken" => String.t() | atom()
       }
 
   """
-  @type create_changeset_request() :: %{(String.t() | atom()) => any()}
+  @type credentials() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      schema_union() :: %{
-        "tabularSchemaConfig" => schema_definition()
+      update_dataset_response() :: %{
+        "datasetId" => String.t() | atom()
       }
 
   """
-  @type schema_union() :: %{(String.t() | atom()) => any()}
+  @type update_dataset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_changeset_request() :: %{
-        optional("clientToken") => String.t() | atom(),
-        required("formatParams") => map(),
-        required("sourceParams") => map()
+      access_denied_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type update_changeset_request() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_location() :: %{
-        "bucket" => String.t() | atom(),
-        "key" => String.t() | atom()
+      enable_user_response() :: %{
+        "userId" => String.t() | atom()
       }
 
   """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
+  @type enable_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,6 +217,125 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
+      disassociate_user_from_permission_group_response() :: %{
+        "statusCode" => integer()
+      }
+
+  """
+  @type disassociate_user_from_permission_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_response() :: %{
+        "apiAccess" => list(any()),
+        "apiAccessPrincipalArn" => String.t() | atom(),
+        "createTime" => float(),
+        "emailAddress" => String.t() | atom(),
+        "firstName" => String.t() | atom(),
+        "lastDisabledTime" => float(),
+        "lastEnabledTime" => float(),
+        "lastLoginTime" => float(),
+        "lastModifiedTime" => float(),
+        "lastName" => String.t() | atom(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type get_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_union() :: %{
+        "tabularSchemaConfig" => schema_definition()
+      }
+
+  """
+  @type schema_union() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_data_view_response() :: %{
+        "dataViewId" => String.t() | atom(),
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type create_data_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_request() :: %{
+        optional("apiAccess") => list(any()),
+        optional("apiAccessPrincipalArn") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("firstName") => String.t() | atom(),
+        optional("lastName") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type update_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_changeset_response() :: %{
+        "changesetId" => String.t() | atom(),
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type update_changeset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_datasets_response() :: %{
+        "datasets" => list(dataset()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reset_user_password_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type reset_user_password_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_changesets_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom()
@@ -606,6 +343,89 @@ defmodule AWS.Finspacedata do
 
   """
   @type list_changesets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_changeset_response() :: %{
+        "changesetId" => String.t() | atom(),
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type create_changeset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_response() :: %{
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_working_location_request() :: %{
+        optional("locationType") => list(any())
+      }
+
+  """
+  @type get_working_location_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_view_destination_type_params() :: %{
+        "destinationType" => String.t() | atom(),
+        "s3DestinationExportFileFormat" => list(any()),
+        "s3DestinationExportFileFormatOptions" => map()
+      }
+
+  """
+  @type data_view_destination_type_params() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permission_groups_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "permissionGroups" => list(permission_group())
+      }
+
+  """
+  @type list_permission_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permission_groups_by_user_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "permissionGroups" => list(permission_group_by_user())
+      }
+
+  """
+  @type list_permission_groups_by_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,6 +454,84 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
+      get_data_view_request() :: %{}
+
+  """
+  @type get_data_view_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_group_response() :: %{
+        "permissionGroupId" => String.t() | atom()
+      }
+
+  """
+  @type create_permission_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schema_definition() :: %{
+        "columns" => list(column_definition()),
+        "primaryKeyColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type schema_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_user_response() :: %{
+        "userId" => String.t() | atom()
+      }
+
+  """
+  @type update_user_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "bucket" => String.t() | atom(),
+        "key" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_permission_group_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        required("applicationPermissions") => list(list(any())()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_user_request() :: %{}
+
+  """
+  @type get_user_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       internal_server_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -645,23 +543,18 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      reset_user_password_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      permission_group() :: %{
+        "applicationPermissions" => list(list(any())()),
+        "createTime" => float(),
+        "description" => String.t() | atom(),
+        "lastModifiedTime" => float(),
+        "membershipStatus" => list(any()),
+        "name" => String.t() | atom(),
+        "permissionGroupId" => String.t() | atom()
       }
 
   """
-  @type reset_user_password_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disable_user_response() :: %{
-        "userId" => String.t() | atom()
-      }
-
-  """
-  @type disable_user_response() :: %{(String.t() | atom()) => any()}
+  @type permission_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -679,202 +572,13 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      get_changeset_response() :: %{
-        "activeFromTimestamp" => float(),
-        "activeUntilTimestamp" => float(),
-        "changeType" => list(any()),
-        "changesetArn" => String.t() | atom(),
-        "changesetId" => String.t() | atom(),
-        "createTime" => float(),
-        "datasetId" => String.t() | atom(),
-        "errorInfo" => changeset_error_info(),
-        "formatParams" => map(),
-        "sourceParams" => map(),
-        "status" => list(any()),
-        "updatedByChangesetId" => String.t() | atom(),
-        "updatesChangesetId" => String.t() | atom()
-      }
-
-  """
-  @type get_changeset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permission_groups_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "permissionGroups" => list(permission_group())
-      }
-
-  """
-  @type list_permission_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_changeset_response() :: %{
-        "changesetId" => String.t() | atom(),
-        "datasetId" => String.t() | atom()
-      }
-
-  """
-  @type update_changeset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_view_error_info() :: %{
-        "errorCategory" => list(any()),
-        "errorMessage" => String.t() | atom()
-      }
-
-  """
-  @type data_view_error_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aws_credentials() :: %{
-        "accessKeyId" => String.t() | atom(),
-        "expiration" => float(),
-        "secretAccessKey" => String.t() | atom(),
-        "sessionToken" => String.t() | atom()
-      }
-
-  """
-  @type aws_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dataset_request() :: %{}
-
-  """
-  @type get_dataset_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_user_request() :: %{
-        optional("apiAccess") => list(any()),
-        optional("apiAccessPrincipalArn") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("firstName") => String.t() | atom(),
-        optional("lastName") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type update_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dataset_response() :: %{
-        "alias" => String.t() | atom(),
-        "createTime" => float(),
-        "datasetArn" => String.t() | atom(),
-        "datasetDescription" => String.t() | atom(),
-        "datasetId" => String.t() | atom(),
-        "datasetTitle" => String.t() | atom(),
-        "kind" => list(any()),
-        "lastModifiedTime" => float(),
-        "schemaDefinition" => schema_union(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_dataset_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
+      resource_not_found_exception() :: %{
         "message" => String.t() | atom(),
         "reason" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dataset_request() :: %{
-        optional("alias") => String.t() | atom(),
-        optional("clientToken") => String.t() | atom(),
-        optional("datasetDescription") => String.t() | atom(),
-        optional("ownerInfo") => dataset_owner_info(),
-        optional("schemaDefinition") => schema_union(),
-        required("datasetTitle") => String.t() | atom(),
-        required("kind") => list(any()),
-        required("permissionGroupParams") => permission_group_params()
-      }
-
-  """
-  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      enable_user_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type enable_user_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_permission_group_response() :: %{
-        "permissionGroupId" => String.t() | atom()
-      }
-
-  """
-  @type update_permission_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      associate_user_to_permission_group_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type associate_user_to_permission_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{}
-
-  """
-  @type throttling_exception() :: %{}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -903,25 +607,23 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      list_data_views_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      disable_user_request() :: %{
+        optional("clientToken") => String.t() | atom()
       }
 
   """
-  @type list_data_views_request() :: %{(String.t() | atom()) => any()}
+  @type disable_user_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_users_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("maxResults") => integer()
+      disable_user_response() :: %{
+        "userId" => String.t() | atom()
       }
 
   """
-  @type list_users_request() :: %{(String.t() | atom()) => any()}
+  @type disable_user_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -946,110 +648,26 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      limit_exceeded_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_working_location_request() :: %{
-        optional("locationType") => list(any())
-      }
-
-  """
-  @type get_working_location_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_permission() :: %{
-        "permission" => String.t() | atom()
-      }
-
-  """
-  @type resource_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dataset_request() :: %{
-        optional("clientToken") => String.t() | atom()
-      }
-
-  """
-  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_datasets_response() :: %{
-        "datasets" => list(dataset()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_datasets_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      permission_group() :: %{
-        "applicationPermissions" => list(list(any())()),
-        "createTime" => float(),
-        "description" => String.t() | atom(),
-        "lastModifiedTime" => float(),
-        "membershipStatus" => list(any()),
+      dataset_owner_info() :: %{
+        "email" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "permissionGroupId" => String.t() | atom()
+        "phoneNumber" => String.t() | atom()
       }
 
   """
-  @type permission_group() :: %{(String.t() | atom()) => any()}
+  @type dataset_owner_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_programmatic_access_credentials_request() :: %{
-        optional("durationInMinutes") => float(),
-        required("environmentId") => String.t() | atom()
-      }
-
-  """
-  @type get_programmatic_access_credentials_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_permission_groups_request() :: %{
-        optional("nextToken") => String.t() | atom(),
-        required("maxResults") => integer()
-      }
-
-  """
-  @type list_permission_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_changesets_response() :: %{
-        "changesets" => list(changeset_summary()),
+      list_data_views_response() :: %{
+        "dataViews" => list(data_view_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_changesets_response() :: %{(String.t() | atom()) => any()}
+  @type list_data_views_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1077,12 +695,90 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      disable_user_request() :: %{
-        optional("clientToken") => String.t() | atom()
+      create_data_view_request() :: %{
+        optional("asOfTimestamp") => float(),
+        optional("autoUpdate") => boolean(),
+        optional("clientToken") => String.t() | atom(),
+        optional("partitionColumns") => list(String.t() | atom()),
+        optional("sortColumns") => list(String.t() | atom()),
+        required("destinationTypeParams") => data_view_destination_type_params()
       }
 
   """
-  @type disable_user_request() :: %{(String.t() | atom()) => any()}
+  @type create_data_view_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_by_permission_group_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "users" => list(user_by_permission_group())
+      }
+
+  """
+  @type list_users_by_permission_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_permission_group_request() :: %{}
+
+  """
+  @type get_permission_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_permission_group_request() :: %{
+        optional("applicationPermissions") => list(list(any())()),
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_request() :: %{
+        optional("alias") => String.t() | atom(),
+        optional("clientToken") => String.t() | atom(),
+        optional("datasetDescription") => String.t() | atom(),
+        optional("ownerInfo") => dataset_owner_info(),
+        optional("schemaDefinition") => schema_union(),
+        required("datasetTitle") => String.t() | atom(),
+        required("kind") => list(any()),
+        required("permissionGroupParams") => permission_group_params()
+      }
+
+  """
+  @type create_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_request() :: %{}
+
+  """
+  @type get_dataset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_permission() :: %{
+        "permission" => String.t() | atom()
+      }
+
+  """
+  @type resource_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1099,12 +795,72 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      enable_user_response() :: %{
-        "userId" => String.t() | atom()
+      conflict_exception() :: %{
+        "message" => String.t() | atom(),
+        "reason" => String.t() | atom()
       }
 
   """
-  @type enable_user_response() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_changeset_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("formatParams") => map(),
+        required("sourceParams") => map()
+      }
+
+  """
+  @type update_changeset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_permission_group_response() :: %{
+        "permissionGroupId" => String.t() | atom()
+      }
+
+  """
+  @type delete_permission_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_user_from_permission_group_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_user_from_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("maxResults") => integer()
+      }
+
+  """
+  @type list_users_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_external_data_view_access_details_response() :: %{
+        "credentials" => aws_credentials(),
+        "s3Location" => s3_location()
+      }
+
+  """
+  @type get_external_data_view_access_details_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1123,13 +879,226 @@ defmodule AWS.Finspacedata do
 
   ## Example:
 
-      list_data_views_response() :: %{
-        "dataViews" => list(data_view_summary()),
+      list_datasets_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_datasets_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_permission_groups_by_user_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("maxResults") => integer()
+      }
+
+  """
+  @type list_permission_groups_by_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_changesets_response() :: %{
+        "changesets" => list(changeset_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_data_views_response() :: %{(String.t() | atom()) => any()}
+  @type list_changesets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dataset() :: %{
+        "alias" => String.t() | atom(),
+        "createTime" => float(),
+        "datasetArn" => String.t() | atom(),
+        "datasetDescription" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetTitle" => String.t() | atom(),
+        "kind" => list(any()),
+        "lastModifiedTime" => float(),
+        "ownerInfo" => dataset_owner_info(),
+        "schemaDefinition" => schema_union()
+      }
+
+  """
+  @type dataset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_data_views_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_data_views_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_to_permission_group_response() :: %{
+        "statusCode" => integer()
+      }
+
+  """
+  @type associate_user_to_permission_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_permission_group_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dataset_response() :: %{
+        "datasetId" => String.t() | atom()
+      }
+
+  """
+  @type create_dataset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "users" => list(user())
+      }
+
+  """
+  @type list_users_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_users_by_permission_group_request() :: %{
+        optional("nextToken") => String.t() | atom(),
+        required("maxResults") => integer()
+      }
+
+  """
+  @type list_users_by_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_changeset_response() :: %{
+        "activeFromTimestamp" => float(),
+        "activeUntilTimestamp" => float(),
+        "changeType" => list(any()),
+        "changesetArn" => String.t() | atom(),
+        "changesetId" => String.t() | atom(),
+        "createTime" => float(),
+        "datasetId" => String.t() | atom(),
+        "errorInfo" => changeset_error_info(),
+        "formatParams" => map(),
+        "sourceParams" => map(),
+        "status" => list(any()),
+        "updatedByChangesetId" => String.t() | atom(),
+        "updatesChangesetId" => String.t() | atom()
+      }
+
+  """
+  @type get_changeset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_view_error_info() :: %{
+        "errorCategory" => list(any()),
+        "errorMessage" => String.t() | atom()
+      }
+
+  """
+  @type data_view_error_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_external_data_view_access_details_request() :: %{}
+
+  """
+  @type get_external_data_view_access_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_user_to_permission_group_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type associate_user_to_permission_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_data_view_response() :: %{
+        "asOfTimestamp" => float(),
+        "autoUpdate" => boolean(),
+        "createTime" => float(),
+        "dataViewArn" => String.t() | atom(),
+        "dataViewId" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "destinationTypeParams" => data_view_destination_type_params(),
+        "errorInfo" => data_view_error_info(),
+        "lastModifiedTime" => float(),
+        "partitionColumns" => list(String.t() | atom()),
+        "sortColumns" => list(String.t() | atom()),
+        "status" => list(any())
+      }
+
+  """
+  @type get_data_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dataset_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_dataset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_programmatic_access_credentials_response() :: %{
+        "credentials" => credentials(),
+        "durationInMinutes" => float()
+      }
+
+  """
+  @type get_programmatic_access_credentials_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1148,242 +1117,273 @@ defmodule AWS.Finspacedata do
   """
   @type create_user_request() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      enable_user_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type enable_user_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dataset_response() :: %{
+        "alias" => String.t() | atom(),
+        "createTime" => float(),
+        "datasetArn" => String.t() | atom(),
+        "datasetDescription" => String.t() | atom(),
+        "datasetId" => String.t() | atom(),
+        "datasetTitle" => String.t() | atom(),
+        "kind" => list(any()),
+        "lastModifiedTime" => float(),
+        "schemaDefinition" => schema_union(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_dataset_response() :: %{(String.t() | atom()) => any()}
+
   @type associate_user_to_permission_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_changeset_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_data_view_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
 
   @type create_dataset_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_permission_group_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_user_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_dataset_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_permission_group_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type disable_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type disassociate_user_from_permission_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type enable_user_errors() ::
-          limit_exceeded_exception()
-          | throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_changeset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_data_view_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type get_dataset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type get_external_data_view_access_details_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_permission_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_programmatic_access_credentials_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_user_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_working_location_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_changesets_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type list_data_views_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_datasets_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_permission_groups_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_permission_groups_by_user_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_users_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_users_by_permission_group_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type reset_user_password_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_changeset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_dataset_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_permission_group_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_user_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   def metadata do
     %{

@@ -82,107 +82,96 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      update_game_server_input() :: %{
-        optional("GameServerData") => String.t() | atom(),
-        optional("HealthCheck") => list(any()),
-        optional("UtilizationStatus") => list(any()),
-        required("GameServerGroupName") => String.t() | atom(),
-        required("GameServerId") => String.t() | atom()
-      }
-      
-  """
-  @type update_game_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      player_gateway_configuration() :: %{
-        "GameServerIpProtocolSupported" => list(any())
-      }
-      
-  """
-  @type player_gateway_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_fleet_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_fleet_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_server_group_input() :: %{
-        optional("BalancingStrategy") => list(any()),
-        optional("GameServerProtectionPolicy") => list(any()),
-        optional("InstanceDefinitions") => list(instance_definition()),
-        optional("RoleArn") => String.t() | atom(),
-        required("GameServerGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type update_game_server_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compute_input() :: %{
-        optional("ComputeStatus") => list(any()),
-        optional("ContainerGroupDefinitionName") => String.t() | atom(),
+      describe_scaling_policies_input() :: %{
         optional("Limit") => integer(),
         optional("Location") => String.t() | atom(),
         optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => list(any()),
         required("FleetId") => String.t() | atom()
       }
       
   """
-  @type list_compute_input() :: %{(String.t() | atom()) => any()}
+  @type describe_scaling_policies_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      fleet_utilization() :: %{
-        "ActiveGameSessionCount" => integer(),
-        "ActiveServerProcessCount" => integer(),
-        "CurrentPlayerSessionCount" => integer(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "MaximumPlayerSessionCount" => integer()
+      create_game_server_group_input() :: %{
+        optional("AutoScalingPolicy") => game_server_group_auto_scaling_policy(),
+        optional("BalancingStrategy") => list(any()),
+        optional("GameServerProtectionPolicy") => list(any()),
+        optional("Tags") => list(tag()),
+        optional("VpcSubnets") => list(String.t() | atom()),
+        required("GameServerGroupName") => String.t() | atom(),
+        required("InstanceDefinitions") => list(instance_definition()),
+        required("LaunchTemplate") => launch_template_specification(),
+        required("MaxSize") => integer(),
+        required("MinSize") => integer(),
+        required("RoleArn") => String.t() | atom()
       }
       
   """
-  @type fleet_utilization() :: %{(String.t() | atom()) => any()}
+  @type create_game_server_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_fleet_port_settings_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
+      runtime_configuration() :: %{
+        "GameSessionActivationTimeoutSeconds" => integer(),
+        "MaxConcurrentGameSessionActivations" => integer(),
+        "ServerProcesses" => list(server_process())
       }
       
   """
-  @type update_fleet_port_settings_output() :: %{(String.t() | atom()) => any()}
+  @type runtime_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      deregister_compute_output() :: %{}
+      priority_configuration_override() :: %{
+        "LocationOrder" => list(String.t() | atom()),
+        "PlacementFallbackStrategy" => list(any())
+      }
       
   """
-  @type deregister_compute_output() :: %{}
+  @type priority_configuration_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_player_sessions_output() :: %{
+        "PlayerSessions" => list(player_session())
+      }
+      
+  """
+  @type create_player_sessions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_location_utilization_output() :: %{
+        "FleetUtilization" => fleet_utilization()
+      }
+      
+  """
+  @type describe_fleet_location_utilization_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_location_utilization_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("Location") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_location_utilization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -204,12 +193,1316 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      describe_matchmaking_input() :: %{
-        required("TicketIds") => list(String.t() | atom())
+      locational_deployment() :: %{
+        "DeploymentStatus" => list(any())
       }
       
   """
-  @type describe_matchmaking_input() :: %{(String.t() | atom()) => any()}
+  @type locational_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_session_queues_output() :: %{
+        "GameSessionQueues" => list(game_session_queue()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_session_queues_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      target_configuration() :: %{
+        "TargetValue" => float()
+      }
+      
+  """
+  @type target_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      launch_template_specification() :: %{
+        "LaunchTemplateId" => String.t() | atom(),
+        "LaunchTemplateName" => String.t() | atom(),
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_game_session_input() :: %{
+        required("GameSessionId") => String.t() | atom(),
+        required("TerminationMode") => list(any())
+      }
+      
+  """
+  @type terminate_game_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_matchmaking_rule_set_input() :: %{
+        required("RuleSetBody") => String.t() | atom()
+      }
+      
+  """
+  @type validate_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resolve_alias_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type resolve_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_fleet_input() :: %{
+        optional("BillingType") => list(any()),
+        optional("Description") => String.t() | atom(),
+        optional("GameServerContainerGroupDefinitionName") => String.t() | atom(),
+        optional("GameServerContainerGroupsPerInstance") => integer(),
+        optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
+        optional("InstanceConnectionPortRange") => connection_port_range(),
+        optional("InstanceInboundPermissions") => list(ip_permission()),
+        optional("InstanceType") => String.t() | atom(),
+        optional("Locations") => list(location_configuration()),
+        optional("LogConfiguration") => log_configuration(),
+        optional("MetricGroups") => list(String.t() | atom()),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("PerInstanceContainerGroupDefinitionName") => String.t() | atom(),
+        optional("PlayerGatewayMode") => list(any()),
+        optional("Tags") => list(tag()),
+        required("FleetRoleArn") => String.t() | atom()
+      }
+      
+  """
+  @type create_container_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_port_range() :: %{
+        "FromPort" => integer(),
+        "Protocol" => list(any()),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type container_port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      player_connection_endpoint() :: %{
+        "IpAddress" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type player_connection_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_capacity_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type fleet_capacity_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_sessions_input() :: %{
+        optional("AliasId") => String.t() | atom(),
+        optional("FleetId") => String.t() | atom(),
+        optional("GameSessionId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_location_attributes_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "LocationAttributes" => list(location_attributes()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_location_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      claim_filter_option() :: %{
+        "InstanceStatuses" => list(list(any())())
+      }
+      
+  """
+  @type claim_filter_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_match_backfill_output() :: %{
+        "MatchmakingTicket" => matchmaking_ticket()
+      }
+      
+  """
+  @type start_match_backfill_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_fleet_actions_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type start_fleet_actions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_peering_connection() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "GameLiftVpcId" => String.t() | atom(),
+        "IpV4CidrBlock" => String.t() | atom(),
+        "PeerVpcId" => String.t() | atom(),
+        "Status" => vpc_peering_connection_status(),
+        "VpcPeeringConnectionId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_peering_connection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_scaling_policies_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "ScalingPolicies" => list(scaling_policy())
+      }
+      
+  """
+  @type describe_scaling_policies_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_match_output() :: %{}
+      
+  """
+  @type accept_match_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_script_input() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("StorageLocation") => s3_location(),
+        optional("Version") => String.t() | atom(),
+        optional("ZipFile") => binary(),
+        required("ScriptId") => String.t() | atom()
+      }
+      
+  """
+  @type update_script_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      matchmaking_ticket() :: %{
+        "ConfigurationArn" => String.t() | atom(),
+        "ConfigurationName" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "EstimatedWaitTime" => integer(),
+        "GameSessionConnectionInfo" => game_session_connection_info(),
+        "Players" => list(player()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom(),
+        "StatusReason" => String.t() | atom(),
+        "TicketId" => String.t() | atom()
+      }
+      
+  """
+  @type matchmaking_ticket() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_locations_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "LocationStates" => list(location_state())
+      }
+      
+  """
+  @type create_fleet_locations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_credentials() :: %{
+        "Secret" => String.t() | atom(),
+        "UserName" => String.t() | atom()
+      }
+      
+  """
+  @type instance_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_game_servers_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortOrder") => list(any()),
+        required("GameServerGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type list_game_servers_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_player_session_output() :: %{
+        "PlayerSession" => player_session()
+      }
+      
+  """
+  @type create_player_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_group_definition_input() :: %{
+        optional("ContainerGroupType") => list(any()),
+        optional("GameServerContainerDefinition") => game_server_container_definition_input(),
+        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
+        optional("Tags") => list(tag()),
+        optional("VersionDescription") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("OperatingSystem") => list(any()),
+        required("TotalMemoryLimitMebibytes") => integer(),
+        required("TotalVcpuLimit") => float()
+      }
+      
+  """
+  @type create_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_session_details_input() :: %{
+        optional("AliasId") => String.t() | atom(),
+        optional("FleetId") => String.t() | atom(),
+        optional("GameSessionId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_session_details_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_session_queue_output() :: %{
+        "GameSessionQueue" => game_session_queue()
+      }
+      
+  """
+  @type update_game_session_queue_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_attributes_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_runtime_configuration_input() :: %{
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_runtime_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_player_connection_details_output() :: %{
+        "GameSessionId" => String.t() | atom(),
+        "PlayerConnectionDetails" => list(player_connection_detail())
+      }
+      
+  """
+  @type get_player_connection_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_fleet_actions_input() :: %{
+        optional("Location") => String.t() | atom(),
+        required("Actions") => list(list(any())()),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_fleet_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t() | atom(),
+        required("ResumeActions") => list(list(any())())
+      }
+      
+  """
+  @type resume_game_server_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_attributes_input() :: %{
+        optional("AnywhereConfiguration") => anywhere_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("MetricGroups") => list(String.t() | atom()),
+        optional("Name") => String.t() | atom(),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_container_group_definitions_output() :: %{
+        "ContainerGroupDefinitions" => list(container_group_definition()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_container_group_definitions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aws_credentials() :: %{
+        "AccessKeyId" => String.t() | atom(),
+        "SecretAccessKey" => String.t() | atom(),
+        "SessionToken" => String.t() | atom()
+      }
+      
+  """
+  @type aws_credentials() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_container_fleets_output() :: %{
+        "ContainerFleets" => list(container_fleet()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_container_fleets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_identifier() :: %{
+        "ContainerName" => String.t() | atom(),
+        "ContainerRuntimeId" => String.t() | atom()
+      }
+      
+  """
+  @type container_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_matchmaking_configuration_input() :: %{
+        optional("AcceptanceTimeoutSeconds") => integer(),
+        optional("AdditionalPlayerCount") => integer(),
+        optional("BackfillMode") => list(any()),
+        optional("CustomEventData") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("FlexMatchMode") => list(any()),
+        optional("GameProperties") => list(game_property()),
+        optional("GameSessionData") => String.t() | atom(),
+        optional("GameSessionQueueArns") => list(String.t() | atom()),
+        optional("NotificationTarget") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("AcceptanceRequired") => boolean(),
+        required("Name") => String.t() | atom(),
+        required("RequestTimeoutSeconds") => integer(),
+        required("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type create_matchmaking_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_compute_input() :: %{
+        optional("ComputeStatus") => list(any()),
+        optional("ContainerGroupDefinitionName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type list_compute_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ec2_instance_limits_input() :: %{
+        optional("EC2InstanceType") => list(any()),
+        optional("Location") => String.t() | atom()
+      }
+      
+  """
+  @type describe_ec2_instance_limits_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_matchmaking_configurations_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom(),
+        optional("RuleSetName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_matchmaking_configurations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_events_input() :: %{
+        optional("EndTime") => non_neg_integer(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => non_neg_integer(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_events_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_health_check() :: %{
+        "Command" => list(String.t() | atom()),
+        "Interval" => integer(),
+        "Retries" => integer(),
+        "StartPeriod" => integer(),
+        "Timeout" => integer()
+      }
+      
+  """
+  @type container_health_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suspend_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type suspend_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_matchmaking_rule_sets_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_matchmaking_rule_sets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_game_sessions_input() :: %{
+        optional("AliasId") => String.t() | atom(),
+        optional("FilterExpression") => String.t() | atom(),
+        optional("FleetId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortExpression") => String.t() | atom()
+      }
+      
+  """
+  @type search_game_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      support_container_definition_input() :: %{
+        "ContainerName" => String.t() | atom(),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
+        "Essential" => boolean(),
+        "HealthCheck" => container_health_check(),
+        "ImageUri" => String.t() | atom(),
+        "MemoryHardLimitMebibytes" => integer(),
+        "MountPoints" => list(container_mount_point()),
+        "PortConfiguration" => container_port_configuration(),
+        "Vcpu" => float()
+      }
+      
+  """
+  @type support_container_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_container_fleet_output() :: %{
+        "ContainerFleet" => container_fleet()
+      }
+      
+  """
+  @type describe_container_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session() :: %{
+        "ComputeName" => String.t() | atom(),
+        "CreationTime" => non_neg_integer(),
+        "CreatorId" => String.t() | atom(),
+        "CurrentPlayerSessionCount" => integer(),
+        "DnsName" => String.t() | atom(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "GameProperties" => list(game_property()),
+        "GameSessionData" => String.t() | atom(),
+        "GameSessionId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "MatchmakerData" => String.t() | atom(),
+        "MaximumPlayerSessionCount" => integer(),
+        "Name" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
+        "PlayerSessionCreationPolicy" => list(any()),
+        "Port" => integer(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "TerminationTime" => non_neg_integer()
+      }
+      
+  """
+  @type game_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_group_definition_output() :: %{
+        "ContainerGroupDefinition" => container_group_definition()
+      }
+      
+  """
+  @type update_container_group_definition_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_counts() :: %{
+        "ACTIVE" => integer(),
+        "DESIRED" => integer(),
+        "IDLE" => integer(),
+        "MAXIMUM" => integer(),
+        "MINIMUM" => integer(),
+        "PENDING" => integer(),
+        "TERMINATING" => integer()
+      }
+      
+  """
+  @type ec2_instance_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_fleet_location_attributes() :: %{
+        "Location" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type container_fleet_location_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_peering_connection_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("PeerVpcAwsAccountId") => String.t() | atom(),
+        required("PeerVpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_peering_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_location_input() :: %{
+        required("LocationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_location_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_model() :: %{
+        "LocationArn" => String.t() | atom(),
+        "LocationName" => String.t() | atom(),
+        "PingBeacon" => ping_beacon()
+      }
+      
+  """
+  @type location_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type tag() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_creation_limit_policy() :: %{
+        "NewGameSessionsPerCreator" => integer(),
+        "PolicyPeriodInMinutes" => integer()
+      }
+      
+  """
+  @type game_session_creation_limit_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_fleet_actions_input() :: %{
+        optional("Location") => String.t() | atom(),
+        required("Actions") => list(list(any())()),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type start_fleet_actions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_fleets_input() :: %{
+        optional("BuildId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ScriptId") => String.t() | atom()
+      }
+      
+  """
+  @type list_fleets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      filter_configuration() :: %{
+        "AllowedLocations" => list(String.t() | atom())
+      }
+      
+  """
+  @type filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_peering_connections_output() :: %{
+        "VpcPeeringConnections" => list(vpc_peering_connection())
+      }
+      
+  """
+  @type describe_vpc_peering_connections_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type create_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      limit_exceeded_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_compute_input() :: %{
+        optional("CertificatePath") => String.t() | atom(),
+        optional("DnsName") => String.t() | atom(),
+        optional("IpAddress") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        required("ComputeName") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type register_compute_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_matchmaking_rule_set_output() :: %{
+        "RuleSet" => matchmaking_rule_set()
+      }
+      
+  """
+  @type create_matchmaking_rule_set_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_scaling_policy_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_scaling_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_peering_connection_status() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_peering_connection_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type describe_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_container_group_definition_input() :: %{
+        optional("VersionNumber") => integer(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type describe_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_detail() :: %{
+        "GameSession" => game_session(),
+        "ProtectionPolicy" => list(any())
+      }
+      
+  """
+  @type game_session_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compute_access_input() :: %{
+        required("ComputeName") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type get_compute_access_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_group_port_mapping() :: %{
+        "ContainerName" => String.t() | atom(),
+        "ContainerPortMappings" => list(container_port_mapping()),
+        "ContainerRuntimeId" => String.t() | atom()
+      }
+      
+  """
+  @type container_group_port_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_peering_authorization_input() :: %{
+        required("GameLiftAwsAccountId") => String.t() | atom(),
+        required("PeerVpcId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpc_peering_authorization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
+  """
+  @type describe_game_session_placement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_capacity_output() :: %{
+        "FleetCapacity" => list(fleet_capacity()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_capacity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compute_auth_token_output() :: %{
+        "AuthToken" => String.t() | atom(),
+        "ComputeArn" => String.t() | atom(),
+        "ComputeName" => String.t() | atom(),
+        "ExpirationTimestamp" => non_neg_integer(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type get_compute_auth_token_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      idempotent_parameter_mismatch_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_compute_access_output() :: %{
+        "ComputeArn" => String.t() | atom(),
+        "ComputeName" => String.t() | atom(),
+        "ContainerIdentifiers" => list(container_identifier()),
+        "Credentials" => aws_credentials(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+      
+  """
+  @type get_compute_access_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_build_output() :: %{
+        "Build" => build()
+      }
+      
+  """
+  @type describe_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_deployment_output() :: %{
+        "FleetDeployment" => fleet_deployment(),
+        "LocationalDeployments" => map()
+      }
+      
+  """
+  @type describe_fleet_deployment_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      out_of_capacity_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type out_of_capacity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_matchmaking_rule_set_output() :: %{}
+      
+  """
+  @type delete_matchmaking_rule_set_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_fleet() :: %{
+        "BillingType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "DeploymentDetails" => deployment_details(),
+        "Description" => String.t() | atom(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "FleetRoleArn" => String.t() | atom(),
+        "GameServerContainerGroupDefinitionArn" => String.t() | atom(),
+        "GameServerContainerGroupDefinitionName" => String.t() | atom(),
+        "GameServerContainerGroupsPerInstance" => integer(),
+        "GameSessionCreationLimitPolicy" => game_session_creation_limit_policy(),
+        "InstanceConnectionPortRange" => connection_port_range(),
+        "InstanceInboundPermissions" => list(ip_permission()),
+        "InstanceType" => String.t() | atom(),
+        "LocationAttributes" => list(container_fleet_location_attributes()),
+        "LogConfiguration" => log_configuration(),
+        "MaximumGameServerContainerGroupsPerInstance" => integer(),
+        "MetricGroups" => list(String.t() | atom()),
+        "NewGameSessionProtectionPolicy" => list(any()),
+        "PerInstanceContainerGroupDefinitionArn" => String.t() | atom(),
+        "PerInstanceContainerGroupDefinitionName" => String.t() | atom(),
+        "PlayerGatewayMode" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type container_fleet() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
+  """
+  @type stop_game_session_placement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_group_definition_output() :: %{
+        "ContainerGroupDefinition" => container_group_definition()
+      }
+      
+  """
+  @type create_container_group_definition_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_server_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_runtime_configuration_output() :: %{
+        "RuntimeConfiguration" => runtime_configuration()
+      }
+      
+  """
+  @type update_runtime_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminal_routing_strategy_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type terminal_routing_strategy_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_configuration() :: %{
+        "Location" => String.t() | atom()
+      }
+      
+  """
+  @type location_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      suspend_game_server_group_input() :: %{
+        required("GameServerGroupName") => String.t() | atom(),
+        required("SuspendActions") => list(list(any())())
+      }
+      
+  """
+  @type suspend_game_server_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_peering_connection_output() :: %{}
+      
+  """
+  @type create_vpc_peering_connection_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      unauthorized_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_game_session_queue_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_game_session_queue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_locations_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("Locations") => list(location_configuration())
+      }
+      
+  """
+  @type create_fleet_locations_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      routing_strategy() :: %{
+        "FleetId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Type" => list(any())
+      }
+      
+  """
+  @type routing_strategy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_matchmaking_rule_set_input() :: %{
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("RuleSetBody") => String.t() | atom()
+      }
+      
+  """
+  @type create_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      anywhere_configuration() :: %{
+        "Cost" => String.t() | atom()
+      }
+      
+  """
+  @type anywhere_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_compute_input() :: %{
+        required("ComputeName") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_compute_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -230,52 +1523,128 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      tag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("Tags") => list(tag())
+      describe_script_output() :: %{
+        "Script" => script()
       }
       
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type describe_script_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_locations_output() :: %{
-        "Locations" => list(location_model()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_locations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_fleet_location_attributes() :: %{
+      update_fleet_capacity_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
         "Location" => String.t() | atom(),
-        "PlayerGatewayStatus" => list(any()),
-        "Status" => list(any())
+        "ManagedCapacityConfiguration" => managed_capacity_configuration()
       }
       
   """
-  @type container_fleet_location_attributes() :: %{(String.t() | atom()) => any()}
+  @type update_fleet_capacity_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      game_server_container_group_counts() :: %{
-        "ACTIVE" => integer(),
-        "IDLE" => integer(),
-        "PENDING" => integer(),
-        "TERMINATING" => integer()
+      player_session() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t() | atom(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "GameSessionId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "PlayerData" => String.t() | atom(),
+        "PlayerId" => String.t() | atom(),
+        "PlayerSessionId" => String.t() | atom(),
+        "Port" => integer(),
+        "Status" => list(any()),
+        "TerminationTime" => non_neg_integer()
       }
       
   """
-  @type game_server_container_group_counts() :: %{(String.t() | atom()) => any()}
+  @type player_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_port_settings_input() :: %{
+        optional("Location") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_port_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_vpc_peering_connections_input() :: %{
+        optional("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_vpc_peering_connections_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_player_connection_details_input() :: %{
+        required("GameSessionId") => String.t() | atom(),
+        required("PlayerIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type get_player_connection_details_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_dependency() :: %{
+        "Condition" => list(any()),
+        "ContainerName" => String.t() | atom()
+      }
+      
+  """
+  @type container_dependency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_scaling_policy_output() :: %{
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_scaling_policy_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_matchmaking_input() :: %{
+        required("TicketIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type describe_matchmaking_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
+  """
+  @type update_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,566 +1663,26 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      tagging_failed_exception() :: %{
-        "Message" => String.t() | atom()
+      claim_game_server_output() :: %{
+        "GameServer" => game_server()
       }
       
   """
-  @type tagging_failed_exception() :: %{(String.t() | atom()) => any()}
+  @type claim_game_server_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      game_server_instance() :: %{
-        "GameServerGroupArn" => String.t() | atom(),
-        "GameServerGroupName" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "InstanceStatus" => list(any())
+      s3_location() :: %{
+        "Bucket" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "ObjectVersion" => String.t() | atom(),
+        "RoleArn" => String.t() | atom()
       }
       
   """
-  @type game_server_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_compute_output() :: %{
-        "ComputeList" => list(compute()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_compute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_container_fleet_input() :: %{
-        optional("DeploymentConfiguration") => deployment_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("GameServerContainerGroupDefinitionName") => String.t() | atom(),
-        optional("GameServerContainerGroupsPerInstance") => integer(),
-        optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
-        optional("InstanceConnectionPortRange") => connection_port_range(),
-        optional("InstanceInboundPermissionAuthorizations") => list(ip_permission()),
-        optional("InstanceInboundPermissionRevocations") => list(ip_permission()),
-        optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t() | atom()),
-        optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PerInstanceContainerGroupDefinitionName") => String.t() | atom(),
-        optional("RemoveAttributes") => list(list(any())()),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type update_container_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      priority_configuration() :: %{
-        "LocationOrder" => list(String.t() | atom()),
-        "PriorityOrder" => list(list(any())())
-      }
-      
-  """
-  @type priority_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      unauthorized_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type unauthorized_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_port_settings_input() :: %{
-        optional("Location") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_port_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_input() :: %{
-        optional("Tags") => list(tag()),
-        required("LocationName") => String.t() | atom()
-      }
-      
-  """
-  @type create_location_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_script_input() :: %{
-        required("ScriptId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_script_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_scaling_policy_output() :: %{
-        "Name" => String.t() | atom()
-      }
-      
-  """
-  @type put_scaling_policy_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolve_alias_input() :: %{
-        required("AliasId") => String.t() | atom()
-      }
-      
-  """
-  @type resolve_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      matched_player_session() :: %{
-        "PlayerId" => String.t() | atom(),
-        "PlayerSessionId" => String.t() | atom()
-      }
-      
-  """
-  @type matched_player_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
-      }
-      
-  """
-  @type create_game_server_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_script_output() :: %{
-        "Script" => script()
-      }
-      
-  """
-  @type describe_script_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_server_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      priority_configuration_override() :: %{
-        "LocationOrder" => list(String.t() | atom()),
-        "PlacementFallbackStrategy" => list(any())
-      }
-      
-  """
-  @type priority_configuration_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_capacity_output() :: %{
-        "FleetCapacity" => fleet_capacity()
-      }
-      
-  """
-  @type describe_fleet_location_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_output() :: %{
-        "FleetIds" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_fleets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_credentials() :: %{
-        "Secret" => String.t() | atom(),
-        "UserName" => String.t() | atom()
-      }
-      
-  """
-  @type instance_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_attributes_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "LocationAttributes" => list(location_attributes()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_location_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      build() :: %{
-        "BuildArn" => String.t() | atom(),
-        "BuildId" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "OperatingSystem" => list(any()),
-        "ServerSdkVersion" => String.t() | atom(),
-        "SizeOnDisk" => float(),
-        "Status" => list(any()),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type build() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      instance_definition() :: %{
-        "InstanceType" => list(any()),
-        "WeightedCapacity" => String.t() | atom()
-      }
-      
-  """
-  @type instance_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_matchmaking_rule_set_output() :: %{}
-      
-  """
-  @type delete_matchmaking_rule_set_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_server_container_definition_input() :: %{
-        "ContainerName" => String.t() | atom(),
-        "DependsOn" => list(container_dependency()),
-        "EnvironmentOverride" => list(container_environment()),
-        "ImageUri" => String.t() | atom(),
-        "MountPoints" => list(container_mount_point()),
-        "PortConfiguration" => container_port_configuration(),
-        "ServerSdkVersion" => String.t() | atom()
-      }
-      
-  """
-  @type game_server_container_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_matchmaking_output() :: %{
-        "MatchmakingTicket" => matchmaking_ticket()
-      }
-      
-  """
-  @type start_matchmaking_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compute_output() :: %{
-        "Compute" => compute()
-      }
-      
-  """
-  @type describe_compute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_server_group() :: %{
-        "AutoScalingGroupArn" => String.t() | atom(),
-        "BalancingStrategy" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "GameServerGroupArn" => String.t() | atom(),
-        "GameServerGroupName" => String.t() | atom(),
-        "GameServerProtectionPolicy" => list(any()),
-        "InstanceDefinitions" => list(instance_definition()),
-        "LastUpdatedTime" => non_neg_integer(),
-        "RoleArn" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => String.t() | atom(),
-        "SuspendedActions" => list(list(any())())
-      }
-      
-  """
-  @type game_server_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      support_container_definition() :: %{
-        "ContainerName" => String.t() | atom(),
-        "DependsOn" => list(container_dependency()),
-        "EnvironmentOverride" => list(container_environment()),
-        "Essential" => boolean(),
-        "HealthCheck" => container_health_check(),
-        "ImageUri" => String.t() | atom(),
-        "MemoryHardLimitMebibytes" => integer(),
-        "MountPoints" => list(container_mount_point()),
-        "PortConfiguration" => container_port_configuration(),
-        "ResolvedImageDigest" => String.t() | atom(),
-        "Vcpu" => float()
-      }
-      
-  """
-  @type support_container_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resume_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t() | atom(),
-        required("ResumeActions") => list(list(any())())
-      }
-      
-  """
-  @type resume_game_server_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_attributes_input() :: %{
-        optional("Limit") => integer(),
-        optional("Locations") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_location_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_locations_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "LocationStates" => list(location_state())
-      }
-      
-  """
-  @type delete_fleet_locations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_capacity_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("Location") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_location_capacity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_queues_output() :: %{
-        "GameSessionQueues" => list(game_session_queue()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_session_queues_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_fleet_output() :: %{}
-      
-  """
-  @type delete_container_fleet_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_player_sessions_output() :: %{
-        "PlayerSessions" => list(player_session())
-      }
-      
-  """
-  @type create_player_sessions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_matchmaking_configuration_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_matchmaking_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_build_output() :: %{
-        "Build" => build()
-      }
-      
-  """
-  @type update_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_deployment_input() :: %{
-        optional("DeploymentId") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_deployment_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_matchmaking_rule_set_output() :: %{
-        "Valid" => boolean()
-      }
-      
-  """
-  @type validate_matchmaking_rule_set_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      compute() :: %{
-        "ComputeArn" => String.t() | atom(),
-        "ComputeName" => String.t() | atom(),
-        "ComputeStatus" => list(any()),
-        "ContainerAttributes" => list(container_attribute()),
-        "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t() | atom(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "GameLiftAgentEndpoint" => String.t() | atom(),
-        "GameLiftServiceSdkEndpoint" => String.t() | atom(),
-        "GameServerContainerGroupDefinitionArn" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "OperatingSystem" => list(any()),
-        "Type" => list(any())
-      }
-      
-  """
-  @type compute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_game_session_queue_output() :: %{}
-      
-  """
-  @type delete_game_session_queue_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_peering_connection_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("PeerVpcAwsAccountId") => String.t() | atom(),
-        required("PeerVpcId") => String.t() | atom()
-      }
-      
-  """
-  @type create_vpc_peering_connection_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_utilization_output() :: %{
-        "FleetUtilization" => fleet_utilization()
-      }
-      
-  """
-  @type describe_fleet_location_utilization_output() :: %{(String.t() | atom()) => any()}
+  @type s3_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -886,148 +1715,64 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      ping_beacon() :: %{
-        "UDPEndpoint" => u_d_p_endpoint()
+      list_container_fleets_input() :: %{
+        optional("ContainerGroupDefinitionName") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type ping_beacon() :: %{(String.t() | atom()) => any()}
+  @type list_container_fleets_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_vpc_peering_authorizations_output() :: %{
-        "VpcPeeringAuthorizations" => list(vpc_peering_authorization())
-      }
+      stop_matchmaking_output() :: %{}
       
   """
-  @type describe_vpc_peering_authorizations_output() :: %{(String.t() | atom()) => any()}
+  @type stop_matchmaking_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      suspend_game_server_group_input() :: %{
-        required("GameServerGroupName") => String.t() | atom(),
-        required("SuspendActions") => list(list(any())())
+      describe_fleet_attributes_input() :: %{
+        optional("FleetIds") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type suspend_game_server_group_input() :: %{(String.t() | atom()) => any()}
+  @type describe_fleet_attributes_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      game_server_group_auto_scaling_policy() :: %{
-        "EstimatedInstanceWarmup" => integer(),
-        "TargetTrackingConfiguration" => target_tracking_configuration()
-      }
-      
-  """
-  @type game_server_group_auto_scaling_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session_creation_limit_policy() :: %{
-        "NewGameSessionsPerCreator" => integer(),
-        "PolicyPeriodInMinutes" => integer()
-      }
-      
-  """
-  @type game_session_creation_limit_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      runtime_configuration() :: %{
-        "GameSessionActivationTimeoutSeconds" => integer(),
-        "MaxConcurrentGameSessionActivations" => integer(),
-        "ServerProcesses" => list(server_process())
-      }
-      
-  """
-  @type runtime_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_container_group_definitions_output() :: %{
-        "ContainerGroupDefinitions" => list(container_group_definition()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_container_group_definitions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      player_session() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t() | atom(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "GameSessionId" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "PlayerData" => String.t() | atom(),
-        "PlayerId" => String.t() | atom(),
-        "PlayerSessionId" => String.t() | atom(),
-        "Port" => integer(),
-        "Status" => list(any()),
-        "TerminationTime" => non_neg_integer()
-      }
-      
-  """
-  @type player_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_input() :: %{
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      player() :: %{
-        "LatencyInMs" => map(),
-        "PlayerAttributes" => map(),
-        "PlayerId" => String.t() | atom(),
-        "Team" => String.t() | atom()
-      }
-      
-  """
-  @type player() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_attributes_input() :: %{
-        optional("AnywhereConfiguration") => anywhere_configuration(),
-        optional("Description") => String.t() | atom(),
-        optional("MetricGroups") => list(String.t() | atom()),
+      update_game_session_input() :: %{
+        optional("GameProperties") => list(game_property()),
+        optional("MaximumPlayerSessionCount") => integer(),
         optional("Name") => String.t() | atom(),
-        optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
-        required("FleetId") => String.t() | atom()
+        optional("PlayerSessionCreationPolicy") => list(any()),
+        optional("ProtectionPolicy") => list(any()),
+        required("GameSessionId") => String.t() | atom()
       }
       
   """
-  @type update_fleet_attributes_input() :: %{(String.t() | atom()) => any()}
+  @type update_game_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deregister_game_server_input() :: %{
+        required("GameServerGroupName") => String.t() | atom(),
+        required("GameServerId") => String.t() | atom()
+      }
+      
+  """
+  @type deregister_game_server_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1045,35 +1790,978 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      describe_runtime_configuration_output() :: %{
-        "RuntimeConfiguration" => runtime_configuration()
+      describe_vpc_peering_authorizations_output() :: %{
+        "VpcPeeringAuthorizations" => list(vpc_peering_authorization())
       }
       
   """
-  @type describe_runtime_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type describe_vpc_peering_authorizations_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_aliases_output() :: %{
-        "Aliases" => list(alias()),
+      describe_fleet_location_attributes_input() :: %{
+        optional("Limit") => integer(),
+        optional("Locations") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_location_attributes_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_details() :: %{
+        "LatestDeploymentId" => String.t() | atom()
+      }
+      
+  """
+  @type deployment_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_deployment() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DeploymentConfiguration" => deployment_configuration(),
+        "DeploymentId" => String.t() | atom(),
+        "DeploymentStatus" => list(any()),
+        "FleetId" => String.t() | atom(),
+        "GameServerBinaryArn" => String.t() | atom(),
+        "PerInstanceBinaryArn" => String.t() | atom(),
+        "RollbackGameServerBinaryArn" => String.t() | atom(),
+        "RollbackPerInstanceBinaryArn" => String.t() | atom()
+      }
+      
+  """
+  @type fleet_deployment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_location_output() :: %{
+        "Location" => location_model()
+      }
+      
+  """
+  @type create_location_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_scaling_policy_input() :: %{
+        optional("ComparisonOperator") => list(any()),
+        optional("EvaluationPeriods") => integer(),
+        optional("PolicyType") => list(any()),
+        optional("ScalingAdjustment") => integer(),
+        optional("ScalingAdjustmentType") => list(any()),
+        optional("TargetConfiguration") => target_configuration(),
+        optional("Threshold") => float(),
+        required("FleetId") => String.t() | atom(),
+        required("MetricName") => list(any()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type put_scaling_policy_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_capacity() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "GameServerContainerGroupCounts" => game_server_container_group_counts(),
+        "InstanceCounts" => ec2_instance_counts(),
+        "InstanceType" => list(any()),
+        "Location" => String.t() | atom(),
+        "ManagedCapacityConfiguration" => managed_capacity_configuration()
+      }
+      
+  """
+  @type fleet_capacity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_build_input() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("Version") => String.t() | atom(),
+        required("BuildId") => String.t() | atom()
+      }
+      
+  """
+  @type update_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_game_server_group_input() :: %{
+        optional("DeleteOption") => list(any()),
+        required("GameServerGroupName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_game_server_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_matchmaking_rule_set_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_locations_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "LocationStates" => list(location_state())
+      }
+      
+  """
+  @type delete_fleet_locations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_instances_output() :: %{
+        "Instances" => list(instance()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_aliases_output() :: %{(String.t() | atom()) => any()}
+  @type describe_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      out_of_capacity_exception() :: %{
+      delete_container_group_definition_output() :: %{}
+      
+  """
+  @type delete_container_group_definition_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_scripts_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_scripts_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_input() :: %{
+        optional("AnywhereConfiguration") => anywhere_configuration(),
+        optional("BuildId") => String.t() | atom(),
+        optional("CertificateConfiguration") => certificate_configuration(),
+        optional("ComputeType") => list(any()),
+        optional("Description") => String.t() | atom(),
+        optional("EC2InboundPermissions") => list(ip_permission()),
+        optional("EC2InstanceType") => list(any()),
+        optional("FleetType") => list(any()),
+        optional("InstanceRoleArn") => String.t() | atom(),
+        optional("InstanceRoleCredentialsProvider") => list(any()),
+        optional("Locations") => list(location_configuration()),
+        optional("LogPaths") => list(String.t() | atom()),
+        optional("MetricGroups") => list(String.t() | atom()),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("PeerVpcAwsAccountId") => String.t() | atom(),
+        optional("PeerVpcId") => String.t() | atom(),
+        optional("PlayerGatewayConfiguration") => player_gateway_configuration(),
+        optional("PlayerGatewayMode") => list(any()),
+        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
+        optional("RuntimeConfiguration") => runtime_configuration(),
+        optional("ScriptId") => String.t() | atom(),
+        optional("ServerLaunchParameters") => String.t() | atom(),
+        optional("ServerLaunchPath") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance_definition() :: %{
+        "InstanceType" => list(any()),
+        "WeightedCapacity" => String.t() | atom()
+      }
+      
+  """
+  @type instance_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      attribute_value() :: %{
+        "N" => float(),
+        "S" => String.t() | atom(),
+        "SDM" => map(),
+        "SL" => list(String.t() | atom())
+      }
+      
+  """
+  @type attribute_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_game_session_placement_output() :: %{
+        "GameSessionPlacement" => game_session_placement()
+      }
+      
+  """
+  @type start_game_session_placement_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_script_input() :: %{
+        required("ScriptId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_script_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_fleet_actions_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type stop_fleet_actions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_state() :: %{
+        "Location" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
+        "Status" => list(any())
+      }
+      
+  """
+  @type location_state() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_build_input() :: %{
+        required("BuildId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_player_session_input() :: %{
+        optional("PlayerData") => String.t() | atom(),
+        required("GameSessionId") => String.t() | atom(),
+        required("PlayerId") => String.t() | atom()
+      }
+      
+  """
+  @type create_player_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_ec2_instance_limits_output() :: %{
+        "EC2InstanceLimits" => list(ec2_instance_limit())
+      }
+      
+  """
+  @type describe_ec2_instance_limits_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("Tags") => list(tag())
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_fleet_output() :: %{
+        "FleetAttributes" => fleet_attributes(),
+        "LocationStates" => list(location_state())
+      }
+      
+  """
+  @type create_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      compute() :: %{
+        "ComputeArn" => String.t() | atom(),
+        "ComputeName" => String.t() | atom(),
+        "ComputeStatus" => list(any()),
+        "ContainerAttributes" => list(container_attribute()),
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t() | atom(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "GameLiftAgentEndpoint" => String.t() | atom(),
+        "GameLiftServiceSdkEndpoint" => String.t() | atom(),
+        "GameServerContainerGroupDefinitionArn" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "OperatingSystem" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type compute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_matchmaking_rule_sets_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "RuleSets" => list(matchmaking_rule_set())
+      }
+      
+  """
+  @type describe_matchmaking_rule_sets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_port_settings_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_port_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_port_configuration() :: %{
+        "ContainerPortRanges" => list(container_port_range())
+      }
+      
+  """
+  @type container_port_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aliases_input() :: %{
+        optional("Limit") => integer(),
+        optional("Name") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("RoutingStrategyType") => list(any())
+      }
+      
+  """
+  @type list_aliases_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      validate_matchmaking_rule_set_output() :: %{
+        "Valid" => boolean()
+      }
+      
+  """
+  @type validate_matchmaking_rule_set_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_deployment_input() :: %{
+        optional("DeploymentId") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_deployment_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_player_sessions_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "PlayerSessions" => list(player_session())
+      }
+      
+  """
+  @type describe_player_sessions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_matchmaking_configuration_input() :: %{
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type delete_matchmaking_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_queue_destination() :: %{
+        "DestinationArn" => String.t() | atom()
+      }
+      
+  """
+  @type game_session_queue_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_output() :: %{
+        "Builds" => list(build()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_builds_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_container_group_definition_versions_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type list_container_group_definition_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_builds_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Status") => list(any())
+      }
+      
+  """
+  @type list_builds_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_locations_output() :: %{
+        "Locations" => list(location_model()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_locations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_queue() :: %{
+        "CustomEventData" => String.t() | atom(),
+        "Destinations" => list(game_session_queue_destination()),
+        "FilterConfiguration" => filter_configuration(),
+        "GameSessionQueueArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NotificationTarget" => String.t() | atom(),
+        "PlayerLatencyPolicies" => list(player_latency_policy()),
+        "PriorityConfiguration" => priority_configuration(),
+        "TimeoutInSeconds" => integer()
+      }
+      
+  """
+  @type game_session_queue() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      vpc_peering_authorization() :: %{
+        "CreationTime" => non_neg_integer(),
+        "ExpirationTime" => non_neg_integer(),
+        "GameLiftAwsAccountId" => String.t() | atom(),
+        "PeerVpcAwsAccountId" => String.t() | atom(),
+        "PeerVpcId" => String.t() | atom()
+      }
+      
+  """
+  @type vpc_peering_authorization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_session_queues_input() :: %{
+        optional("Limit") => integer(),
+        optional("Names") => list(String.t() | atom()),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_session_queues_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type update_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      instance() :: %{
+        "CreationTime" => non_neg_integer(),
+        "DnsName" => String.t() | atom(),
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "OperatingSystem" => list(any()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+      
+  """
+  @type instance() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_matchmaking_input() :: %{
+        optional("TicketId") => String.t() | atom(),
+        required("ConfigurationName") => String.t() | atom(),
+        required("Players") => list(player())
+      }
+      
+  """
+  @type start_matchmaking_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_port_settings_input() :: %{
+        optional("InboundPermissionAuthorizations") => list(ip_permission()),
+        optional("InboundPermissionRevocations") => list(ip_permission()),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_port_settings_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_attributes_output() :: %{
+        "FleetAttributes" => list(fleet_attributes()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_attributes_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_game_server_groups_output() :: %{
+        "GameServerGroups" => list(game_server_group()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_game_server_groups_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_peering_connection_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("VpcPeeringConnectionId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_vpc_peering_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_script_output() :: %{
+        "Script" => script()
+      }
+      
+  """
+  @type create_script_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_group_definition() :: %{
+        "ContainerGroupDefinitionArn" => String.t() | atom(),
+        "ContainerGroupType" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "GameServerContainerDefinition" => game_server_container_definition(),
+        "Name" => String.t() | atom(),
+        "OperatingSystem" => list(any()),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "SupportContainerDefinitions" => list(support_container_definition()),
+        "TotalMemoryLimitMebibytes" => integer(),
+        "TotalVcpuLimit" => float(),
+        "VersionDescription" => String.t() | atom(),
+        "VersionNumber" => integer()
+      }
+      
+  """
+  @type container_group_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_placement() :: %{
+        "DnsName" => String.t() | atom(),
+        "EndTime" => non_neg_integer(),
+        "GameProperties" => list(game_property()),
+        "GameSessionArn" => String.t() | atom(),
+        "GameSessionData" => String.t() | atom(),
+        "GameSessionId" => String.t() | atom(),
+        "GameSessionName" => String.t() | atom(),
+        "GameSessionQueueName" => String.t() | atom(),
+        "GameSessionRegion" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "MatchmakerData" => String.t() | atom(),
+        "MaximumPlayerSessionCount" => integer(),
+        "PlacedPlayerSessions" => list(placed_player_session()),
+        "PlacementId" => String.t() | atom(),
+        "PlayerGatewayStatus" => list(any()),
+        "PlayerLatencies" => list(player_latency()),
+        "Port" => integer(),
+        "PriorityConfigurationOverride" => priority_configuration_override(),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type game_session_placement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_player_sessions_input() :: %{
+        optional("GameSessionId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("PlayerId") => String.t() | atom(),
+        optional("PlayerSessionId") => String.t() | atom(),
+        optional("PlayerSessionStatusFilter") => String.t() | atom()
+      }
+      
+  """
+  @type describe_player_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_match_backfill_input() :: %{
+        optional("GameSessionArn") => String.t() | atom(),
+        optional("TicketId") => String.t() | atom(),
+        required("ConfigurationName") => String.t() | atom(),
+        required("Players") => list(player())
+      }
+      
+  """
+  @type start_match_backfill_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_game_session_log_url_output() :: %{
+        "PreSignedUrl" => String.t() | atom()
+      }
+      
+  """
+  @type get_game_session_log_url_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_location_output() :: %{}
+      
+  """
+  @type delete_location_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_instance_access_output() :: %{
+        "InstanceAccess" => instance_access()
+      }
+      
+  """
+  @type get_instance_access_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_peering_authorization_output() :: %{}
+      
+  """
+  @type delete_vpc_peering_authorization_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_game_session_placement_input() :: %{
+        optional("DesiredPlayerSessions") => list(desired_player_session()),
+        optional("GameProperties") => list(game_property()),
+        optional("GameSessionData") => String.t() | atom(),
+        optional("GameSessionName") => String.t() | atom(),
+        optional("PlayerLatencies") => list(player_latency()),
+        optional("PriorityConfigurationOverride") => priority_configuration_override(),
+        required("GameSessionQueueName") => String.t() | atom(),
+        required("MaximumPlayerSessionCount") => integer(),
+        required("PlacementId") => String.t() | atom()
+      }
+      
+  """
+  @type start_game_session_placement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_server_input() :: %{
+        required("GameServerGroupName") => String.t() | atom(),
+        required("GameServerId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_server_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_fleet_input() :: %{
+        optional("DeploymentConfiguration") => deployment_configuration(),
+        optional("Description") => String.t() | atom(),
+        optional("GameServerContainerGroupDefinitionName") => String.t() | atom(),
+        optional("GameServerContainerGroupsPerInstance") => integer(),
+        optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
+        optional("InstanceConnectionPortRange") => connection_port_range(),
+        optional("InstanceInboundPermissionAuthorizations") => list(ip_permission()),
+        optional("InstanceInboundPermissionRevocations") => list(ip_permission()),
+        optional("LogConfiguration") => log_configuration(),
+        optional("MetricGroups") => list(String.t() | atom()),
+        optional("NewGameSessionProtectionPolicy") => list(any()),
+        optional("PerInstanceContainerGroupDefinitionName") => String.t() | atom(),
+        optional("RemoveAttributes") => list(list(any())()),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type update_container_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      desired_player_session() :: %{
+        "PlayerData" => String.t() | atom(),
+        "PlayerId" => String.t() | atom()
+      }
+      
+  """
+  @type desired_player_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_session_full_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type out_of_capacity_exception() :: %{(String.t() | atom()) => any()}
+  @type game_session_full_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_session_queue_input() :: %{
+        optional("CustomEventData") => String.t() | atom(),
+        optional("Destinations") => list(game_session_queue_destination()),
+        optional("FilterConfiguration") => filter_configuration(),
+        optional("NotificationTarget") => String.t() | atom(),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
+        optional("PriorityConfiguration") => priority_configuration(),
+        optional("TimeoutInSeconds") => integer(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_game_session_queue_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      conflict_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_script_output() :: %{
+        "Script" => script()
+      }
+      
+  """
+  @type update_script_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_container_fleet_input() :: %{
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_container_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_session_output() :: %{
+        "GameSession" => game_session()
+      }
+      
+  """
+  @type update_game_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1103,552 +2791,12 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      describe_vpc_peering_connections_output() :: %{
-        "VpcPeeringConnections" => list(vpc_peering_connection())
+      get_game_session_log_url_input() :: %{
+        required("GameSessionId") => String.t() | atom()
       }
       
   """
-  @type describe_vpc_peering_connections_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_deployment_output() :: %{
-        "FleetDeployment" => fleet_deployment(),
-        "LocationalDeployments" => map()
-      }
-      
-  """
-  @type describe_fleet_deployment_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_builds_input() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Status") => list(any())
-      }
-      
-  """
-  @type list_builds_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_game_session_log_url_output() :: %{
-        "PreSignedUrl" => String.t() | atom()
-      }
-      
-  """
-  @type get_game_session_log_url_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_container_group_definition_output() :: %{
-        "ContainerGroupDefinition" => container_group_definition()
-      }
-      
-  """
-  @type create_container_group_definition_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_matchmaking_configuration_output() :: %{
-        "Configuration" => matchmaking_configuration()
-      }
-      
-  """
-  @type update_matchmaking_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
-      }
-      
-  """
-  @type describe_game_server_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_ec2_instance_limits_input() :: %{
-        optional("EC2InstanceType") => list(any()),
-        optional("Location") => String.t() | atom()
-      }
-      
-  """
-  @type describe_ec2_instance_limits_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_port_settings_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "InboundPermissions" => list(ip_permission()),
-        "Location" => String.t() | atom(),
-        "UpdateStatus" => list(any())
-      }
-      
-  """
-  @type describe_fleet_port_settings_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_vpc_peering_connections_input() :: %{
-        optional("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_vpc_peering_connections_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      placed_player_session() :: %{
-        "PlayerId" => String.t() | atom(),
-        "PlayerSessionId" => String.t() | atom()
-      }
-      
-  """
-  @type placed_player_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_game_server_input() :: %{
-        required("GameServerGroupName") => String.t() | atom(),
-        required("GameServerId") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_game_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_service_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      desired_player_session() :: %{
-        "PlayerData" => String.t() | atom(),
-        "PlayerId" => String.t() | atom()
-      }
-      
-  """
-  @type desired_player_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_game_session_placement_output() :: %{
-        "GameSessionPlacement" => game_session_placement()
-      }
-      
-  """
-  @type start_game_session_placement_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet_capacity_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type fleet_capacity_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_matchmaking_rule_set_input() :: %{
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("RuleSetBody") => String.t() | atom()
-      }
-      
-  """
-  @type create_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom(),
-        required("TagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_input() :: %{
-        required("GameServerGroupName") => String.t() | atom(),
-        required("GameServerId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet_capacity() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "GameServerContainerGroupCounts" => game_server_container_group_counts(),
-        "InstanceCounts" => ec2_instance_counts(),
-        "InstanceType" => list(any()),
-        "Location" => String.t() | atom(),
-        "ManagedCapacityConfiguration" => managed_capacity_configuration()
-      }
-      
-  """
-  @type fleet_capacity() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      put_scaling_policy_input() :: %{
-        optional("ComparisonOperator") => list(any()),
-        optional("EvaluationPeriods") => integer(),
-        optional("PolicyType") => list(any()),
-        optional("ScalingAdjustment") => integer(),
-        optional("ScalingAdjustmentType") => list(any()),
-        optional("TargetConfiguration") => target_configuration(),
-        optional("Threshold") => float(),
-        required("FleetId") => String.t() | atom(),
-        required("MetricName") => list(any()),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type put_scaling_policy_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_scripts_input() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_scripts_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_port_settings_input() :: %{
-        optional("InboundPermissionAuthorizations") => list(ip_permission()),
-        optional("InboundPermissionRevocations") => list(ip_permission()),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type update_fleet_port_settings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_match_input() :: %{
-        required("AcceptanceType") => list(any()),
-        required("PlayerIds") => list(String.t() | atom()),
-        required("TicketId") => String.t() | atom()
-      }
-      
-  """
-  @type accept_match_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_game_session_placement_input() :: %{
-        required("PlacementId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_game_session_placement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      location_configuration() :: %{
-        "Location" => String.t() | atom()
-      }
-      
-  """
-  @type location_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      server_process() :: %{
-        "ConcurrentExecutions" => integer(),
-        "LaunchPath" => String.t() | atom(),
-        "Parameters" => String.t() | atom()
-      }
-      
-  """
-  @type server_process() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      location_state() :: %{
-        "Location" => String.t() | atom(),
-        "PlayerGatewayStatus" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type location_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_session_output() :: %{
-        "GameSession" => game_session()
-      }
-      
-  """
-  @type create_game_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resolve_alias_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
-      }
-      
-  """
-  @type resolve_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_location_utilization_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("Location") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_location_utilization_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      support_container_definition_input() :: %{
-        "ContainerName" => String.t() | atom(),
-        "DependsOn" => list(container_dependency()),
-        "EnvironmentOverride" => list(container_environment()),
-        "Essential" => boolean(),
-        "HealthCheck" => container_health_check(),
-        "ImageUri" => String.t() | atom(),
-        "MemoryHardLimitMebibytes" => integer(),
-        "MountPoints" => list(container_mount_point()),
-        "PortConfiguration" => container_port_configuration(),
-        "Vcpu" => float()
-      }
-      
-  """
-  @type support_container_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_upload_credentials_output() :: %{
-        "StorageLocation" => s3_location(),
-        "UploadCredentials" => aws_credentials()
-      }
-      
-  """
-  @type request_upload_credentials_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_matchmaking_configurations_input() :: %{
-        optional("Limit") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom(),
-        optional("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_matchmaking_configurations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_port_mapping() :: %{
-        "ConnectionPort" => integer(),
-        "ContainerPort" => integer(),
-        "Protocol" => list(any())
-      }
-      
-  """
-  @type container_port_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_game_server_output() :: %{
-        "GameServer" => game_server()
-      }
-      
-  """
-  @type register_game_server_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_alias_input() :: %{
-        required("AliasId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_group_definition_input() :: %{
-        optional("VersionCountToRetain") => integer(),
-        optional("VersionNumber") => integer(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_container_group_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
-      }
-      
-  """
-  @type update_game_server_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      request_upload_credentials_input() :: %{
-        required("BuildId") => String.t() | atom()
-      }
-      
-  """
-  @type request_upload_credentials_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      managed_capacity_configuration() :: %{
-        "ScaleInAfterInactivityMinutes" => integer(),
-        "ZeroCapacityStrategy" => list(any())
-      }
-      
-  """
-  @type managed_capacity_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session_queue() :: %{
-        "CustomEventData" => String.t() | atom(),
-        "Destinations" => list(game_session_queue_destination()),
-        "FilterConfiguration" => filter_configuration(),
-        "GameSessionQueueArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NotificationTarget" => String.t() | atom(),
-        "PlayerLatencyPolicies" => list(player_latency_policy()),
-        "PriorityConfiguration" => priority_configuration(),
-        "TimeoutInSeconds" => integer()
-      }
-      
-  """
-  @type game_session_queue() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      accept_match_output() :: %{}
-      
-  """
-  @type accept_match_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      location_attributes() :: %{
-        "LocationState" => location_state(),
-        "StoppedActions" => list(list(any())()),
-        "UpdateStatus" => list(any())
-      }
-      
-  """
-  @type location_attributes() :: %{(String.t() | atom()) => any()}
+  @type get_game_session_log_url_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1668,50 +2816,31 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      list_game_server_groups_output() :: %{
-        "GameServerGroups" => list(game_server_group()),
-        "NextToken" => String.t() | atom()
+      untag_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom(),
+        required("TagKeys") => list(String.t() | atom())
       }
       
   """
-  @type list_game_server_groups_output() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_container_group_definition_versions_input() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Name") => String.t() | atom()
+      game_server_container_definition() :: %{
+        "ContainerName" => String.t() | atom(),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
+        "ImageUri" => String.t() | atom(),
+        "MountPoints" => list(container_mount_point()),
+        "PortConfiguration" => container_port_configuration(),
+        "ResolvedImageDigest" => String.t() | atom(),
+        "ServerSdkVersion" => String.t() | atom()
       }
       
   """
-  @type list_container_group_definition_versions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_peering_authorization_input() :: %{
-        required("GameLiftAwsAccountId") => String.t() | atom(),
-        required("PeerVpcId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_vpc_peering_authorization_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_peering_connection_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("VpcPeeringConnectionId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_vpc_peering_connection_input() :: %{(String.t() | atom()) => any()}
+  @type game_server_container_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1729,25 +2858,74 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      deployment_configuration() :: %{
-        "ImpairmentStrategy" => list(any()),
-        "MinimumHealthyPercentage" => integer(),
-        "ProtectionStrategy" => list(any())
+      create_location_input() :: %{
+        optional("Tags") => list(tag()),
+        required("LocationName") => String.t() | atom()
       }
       
   """
-  @type deployment_configuration() :: %{(String.t() | atom()) => any()}
+  @type create_location_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_script_input() :: %{
-        required("ScriptId") => String.t() | atom()
+      list_scripts_output() :: %{
+        "NextToken" => String.t() | atom(),
+        "Scripts" => list(script())
       }
       
   """
-  @type describe_script_input() :: %{(String.t() | atom()) => any()}
+  @type list_scripts_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_game_session_input() :: %{
+        optional("AliasId") => String.t() | atom(),
+        optional("CreatorId") => String.t() | atom(),
+        optional("FleetId") => String.t() | atom(),
+        optional("GameProperties") => list(game_property()),
+        optional("GameSessionData") => String.t() | atom(),
+        optional("GameSessionId") => String.t() | atom(),
+        optional("IdempotencyToken") => String.t() | atom(),
+        optional("Location") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        required("MaximumPlayerSessionCount") => integer()
+      }
+      
+  """
+  @type create_game_session_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      not_ready_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      script() :: %{
+        "CreationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "NodeJsVersion" => String.t() | atom(),
+        "ScriptArn" => String.t() | atom(),
+        "ScriptId" => String.t() | atom(),
+        "SizeOnDisk" => float(),
+        "StorageLocation" => s3_location(),
+        "Version" => String.t() | atom()
+      }
+      
+  """
+  @type script() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1767,389 +2945,108 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      search_game_sessions_input() :: %{
-        optional("AliasId") => String.t() | atom(),
-        optional("FilterExpression") => String.t() | atom(),
-        optional("FleetId") => String.t() | atom(),
+      describe_game_server_instances_input() :: %{
+        optional("InstanceIds") => list(String.t() | atom()),
         optional("Limit") => integer(),
-        optional("Location") => String.t() | atom(),
         optional("NextToken") => String.t() | atom(),
-        optional("SortExpression") => String.t() | atom()
+        required("GameServerGroupName") => String.t() | atom()
       }
       
   """
-  @type search_game_sessions_input() :: %{(String.t() | atom()) => any()}
+  @type describe_game_server_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_script_output() :: %{
-        "Script" => script()
+      start_matchmaking_output() :: %{
+        "MatchmakingTicket" => matchmaking_ticket()
       }
       
   """
-  @type update_script_output() :: %{(String.t() | atom()) => any()}
+  @type start_matchmaking_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
+      request_upload_credentials_input() :: %{
+        required("BuildId") => String.t() | atom()
       }
       
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type request_upload_credentials_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      container_group_definition() :: %{
-        "ContainerGroupDefinitionArn" => String.t() | atom(),
-        "ContainerGroupType" => list(any()),
+      describe_game_session_details_output() :: %{
+        "GameSessionDetails" => list(game_session_detail()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_game_session_details_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_build_input() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("OperatingSystem") => list(any()),
+        optional("ServerSdkVersion") => String.t() | atom(),
+        optional("StorageLocation") => s3_location(),
+        optional("Tags") => list(tag()),
+        optional("Version") => String.t() | atom()
+      }
+      
+  """
+  @type create_build_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      deployment_configuration() :: %{
+        "ImpairmentStrategy" => list(any()),
+        "MinimumHealthyPercentage" => integer(),
+        "ProtectionStrategy" => list(any())
+      }
+      
+  """
+  @type deployment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      build() :: %{
+        "BuildArn" => String.t() | atom(),
+        "BuildId" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
-        "GameServerContainerDefinition" => game_server_container_definition(),
         "Name" => String.t() | atom(),
         "OperatingSystem" => list(any()),
+        "ServerSdkVersion" => String.t() | atom(),
+        "SizeOnDisk" => float(),
         "Status" => list(any()),
-        "StatusReason" => String.t() | atom(),
-        "SupportContainerDefinitions" => list(support_container_definition()),
-        "TotalMemoryLimitMebibytes" => integer(),
-        "TotalVcpuLimit" => float(),
-        "VersionDescription" => String.t() | atom(),
-        "VersionNumber" => integer()
+        "Version" => String.t() | atom()
       }
       
   """
-  @type container_group_definition() :: %{(String.t() | atom()) => any()}
+  @type build() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_game_session_queue_input() :: %{
-        optional("CustomEventData") => String.t() | atom(),
-        optional("Destinations") => list(game_session_queue_destination()),
-        optional("FilterConfiguration") => filter_configuration(),
-        optional("NotificationTarget") => String.t() | atom(),
-        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
-        optional("PriorityConfiguration") => priority_configuration(),
-        optional("TimeoutInSeconds") => integer(),
-        required("Name") => String.t() | atom()
+      register_game_server_output() :: %{
+        "GameServer" => game_server()
       }
       
   """
-  @type update_game_session_queue_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_location_input() :: %{
-        required("LocationName") => String.t() | atom()
-      }
-      
-  """
-  @type delete_location_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_capacity_input() :: %{
-        optional("FleetIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_capacity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminate_game_session_input() :: %{
-        required("GameSessionId") => String.t() | atom(),
-        required("TerminationMode") => list(any())
-      }
-      
-  """
-  @type terminate_game_session_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_compute_access_output() :: %{
-        "ComputeArn" => String.t() | atom(),
-        "ComputeName" => String.t() | atom(),
-        "ContainerIdentifiers" => list(container_identifier()),
-        "Credentials" => aws_credentials(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-      
-  """
-  @type get_compute_access_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_matchmaking_rule_sets_input() :: %{
-        optional("Limit") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_matchmaking_rule_sets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_sessions_output() :: %{
-        "GameSessions" => list(game_session()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_sessions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_events_input() :: %{
-        optional("EndTime") => non_neg_integer(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StartTime") => non_neg_integer(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_events_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_container_group_definition_input() :: %{
-        optional("GameServerContainerDefinition") => game_server_container_definition_input(),
-        optional("OperatingSystem") => list(any()),
-        optional("SourceVersionNumber") => integer(),
-        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
-        optional("TotalMemoryLimitMebibytes") => integer(),
-        optional("TotalVcpuLimit") => float(),
-        optional("VersionDescription") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type update_container_group_definition_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_container_fleet_input() :: %{
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_container_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_matchmaking_output() :: %{
-        "TicketList" => list(matchmaking_ticket())
-      }
-      
-  """
-  @type describe_matchmaking_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_alias_input() :: %{
-        required("AliasId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleet_deployments_output() :: %{
-        "FleetDeployments" => list(fleet_deployment()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_fleet_deployments_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_runtime_configuration_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("RuntimeConfiguration") => runtime_configuration()
-      }
-      
-  """
-  @type update_runtime_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_alias_output() :: %{
-        "Alias" => alias()
-      }
-      
-  """
-  @type create_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_session_queue_output() :: %{
-        "GameSessionQueue" => game_session_queue()
-      }
-      
-  """
-  @type update_game_session_queue_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_capacity_input() :: %{
-        optional("DesiredInstances") => integer(),
-        optional("Location") => String.t() | atom(),
-        optional("ManagedCapacityConfiguration") => managed_capacity_configuration(),
-        optional("MaxSize") => integer(),
-        optional("MinSize") => integer(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type update_fleet_capacity_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      idempotent_parameter_mismatch_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type idempotent_parameter_mismatch_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_health_check() :: %{
-        "Command" => list(String.t() | atom()),
-        "Interval" => integer(),
-        "Retries" => integer(),
-        "StartPeriod" => integer(),
-        "Timeout" => integer()
-      }
-      
-  """
-  @type container_health_check() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_player_session_input() :: %{
-        optional("PlayerData") => String.t() | atom(),
-        required("GameSessionId") => String.t() | atom(),
-        required("PlayerId") => String.t() | atom()
-      }
-      
-  """
-  @type create_player_session_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_instance_counts() :: %{
-        "ACTIVE" => integer(),
-        "DESIRED" => integer(),
-        "IDLE" => integer(),
-        "MAXIMUM" => integer(),
-        "MINIMUM" => integer(),
-        "PENDING" => integer(),
-        "TERMINATING" => integer()
-      }
-      
-  """
-  @type ec2_instance_counts() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_alias_output() :: %{
-        "Alias" => alias()
-      }
-      
-  """
-  @type update_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_fleet_locations_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("Locations") => list(String.t() | atom())
-      }
-      
-  """
-  @type delete_fleet_locations_input() :: %{(String.t() | atom()) => any()}
+  @type register_game_server_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2166,483 +3063,163 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      not_found_exception() :: %{
+      update_build_output() :: %{
+        "Build" => build()
+      }
+      
+  """
+  @type update_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      player() :: %{
+        "LatencyInMs" => map(),
+        "PlayerAttributes" => map(),
+        "PlayerId" => String.t() | atom(),
+        "Team" => String.t() | atom()
+      }
+      
+  """
+  @type player() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_game_session_status_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_game_session_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      player_latency_policy() :: %{
-        "MaximumIndividualPlayerLatencyMilliseconds" => integer(),
-        "PolicyDurationSeconds" => integer()
-      }
-      
-  """
-  @type player_latency_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_build_input() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("Version") => String.t() | atom(),
-        required("BuildId") => String.t() | atom()
-      }
-      
-  """
-  @type update_build_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_compute_output() :: %{
-        "Compute" => compute()
-      }
-      
-  """
-  @type register_compute_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ip_permission() :: %{
-        "FromPort" => integer(),
-        "IpRange" => String.t() | atom(),
-        "Protocol" => list(any()),
-        "ToPort" => integer()
-      }
-      
-  """
-  @type ip_permission() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_locations_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("Locations") => list(location_configuration())
-      }
-      
-  """
-  @type create_fleet_locations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_script_input() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("StorageLocation") => s3_location(),
-        optional("Version") => String.t() | atom(),
-        optional("ZipFile") => binary(),
-        required("ScriptId") => String.t() | atom()
-      }
-      
-  """
-  @type update_script_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_vpc_peering_connection_output() :: %{}
-      
-  """
-  @type delete_vpc_peering_connection_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_sessions_input() :: %{
-        optional("AliasId") => String.t() | atom(),
-        optional("FleetId") => String.t() | atom(),
-        optional("GameSessionId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Location") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_sessions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      filter_configuration() :: %{
-        "AllowedLocations" => list(String.t() | atom())
-      }
-      
-  """
-  @type filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_matchmaking_rule_set_output() :: %{
-        "RuleSet" => matchmaking_rule_set()
-      }
-      
-  """
-  @type create_matchmaking_rule_set_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_matchmaking_configuration_input() :: %{
-        optional("AcceptanceTimeoutSeconds") => integer(),
-        optional("AdditionalPlayerCount") => integer(),
-        optional("BackfillMode") => list(any()),
-        optional("CustomEventData") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("FlexMatchMode") => list(any()),
-        optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t() | atom(),
-        optional("GameSessionQueueArns") => list(String.t() | atom()),
-        optional("NotificationTarget") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("AcceptanceRequired") => boolean(),
-        required("Name") => String.t() | atom(),
-        required("RequestTimeoutSeconds") => integer(),
-        required("RuleSetName") => String.t() | atom()
-      }
-      
-  """
-  @type create_matchmaking_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_game_session_placement_input() :: %{
-        optional("DesiredPlayerSessions") => list(desired_player_session()),
-        optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t() | atom(),
-        optional("GameSessionName") => String.t() | atom(),
-        optional("PlayerLatencies") => list(player_latency()),
-        optional("PriorityConfigurationOverride") => priority_configuration_override(),
-        required("GameSessionQueueName") => String.t() | atom(),
-        required("MaximumPlayerSessionCount") => integer(),
-        required("PlacementId") => String.t() | atom()
-      }
-      
-  """
-  @type start_game_session_placement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_placement_input() :: %{
-        required("PlacementId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_session_placement_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_container_group_definition_versions_output() :: %{
-        "ContainerGroupDefinitions" => list(container_group_definition()),
+      describe_game_server_instances_output() :: %{
+        "GameServerInstances" => list(game_server_instance()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type list_container_group_definition_versions_output() :: %{(String.t() | atom()) => any()}
+  @type describe_game_server_instances_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "Tags" => list(tag())
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_fleet_locations_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "LocationStates" => list(location_state())
-      }
-      
-  """
-  @type create_fleet_locations_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_matchmaking_input() :: %{
-        required("TicketId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_matchmaking_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_peering_authorization() :: %{
-        "CreationTime" => non_neg_integer(),
-        "ExpirationTime" => non_neg_integer(),
-        "GameLiftAwsAccountId" => String.t() | atom(),
-        "PeerVpcAwsAccountId" => String.t() | atom(),
-        "PeerVpcId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_peering_authorization() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_runtime_configuration_input() :: %{
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_runtime_configuration_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_alias_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("RoutingStrategy") => routing_strategy(),
+      resolve_alias_input() :: %{
         required("AliasId") => String.t() | atom()
       }
       
   """
-  @type update_alias_input() :: %{(String.t() | atom()) => any()}
+  @type resolve_alias_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_matchmaking_configuration_output() :: %{}
-      
-  """
-  @type delete_matchmaking_configuration_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      not_ready_exception() :: %{
-        "Message" => String.t() | atom()
+      create_vpc_peering_authorization_output() :: %{
+        "VpcPeeringAuthorization" => vpc_peering_authorization()
       }
       
   """
-  @type not_ready_exception() :: %{(String.t() | atom()) => any()}
+  @type create_vpc_peering_authorization_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_compute_access_input() :: %{
-        required("ComputeName") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type get_compute_access_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      attribute_value() :: %{
-        "N" => float(),
-        "S" => String.t() | atom(),
-        "SDM" => map(),
-        "SL" => list(String.t() | atom())
-      }
-      
-  """
-  @type attribute_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_identifier() :: %{
-        "ContainerName" => String.t() | atom(),
-        "ContainerRuntimeId" => String.t() | atom()
-      }
-      
-  """
-  @type container_identifier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_matchmaking_configuration_output() :: %{
-        "Configuration" => matchmaking_configuration()
-      }
-      
-  """
-  @type create_matchmaking_configuration_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      anywhere_configuration() :: %{
-        "Cost" => String.t() | atom()
-      }
-      
-  """
-  @type anywhere_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      s3_location() :: %{
-        "Bucket" => String.t() | atom(),
-        "Key" => String.t() | atom(),
-        "ObjectVersion" => String.t() | atom(),
-        "RoleArn" => String.t() | atom()
-      }
-      
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_build_input() :: %{
-        required("BuildId") => String.t() | atom()
-      }
-      
-  """
-  @type delete_build_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_player_sessions_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "PlayerSessions" => list(player_session())
-      }
-      
-  """
-  @type describe_player_sessions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instances_output() :: %{
-        "Instances" => list(instance()),
+      search_game_sessions_output() :: %{
+        "GameSessions" => list(game_session()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_instances_output() :: %{(String.t() | atom()) => any()}
+  @type search_game_sessions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      container_group_port_mapping() :: %{
-        "ContainerName" => String.t() | atom(),
-        "ContainerPortMappings" => list(container_port_mapping()),
-        "ContainerRuntimeId" => String.t() | atom()
+      player_gateway_configuration() :: %{
+        "GameServerIpProtocolSupported" => list(any())
       }
       
   """
-  @type container_group_port_mapping() :: %{(String.t() | atom()) => any()}
+  @type player_gateway_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_aliases_input() :: %{
-        optional("Limit") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("RoutingStrategyType") => list(any())
+      target_tracking_configuration() :: %{
+        "TargetValue" => float()
       }
       
   """
-  @type list_aliases_input() :: %{(String.t() | atom()) => any()}
+  @type target_tracking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_fleet_utilization_input() :: %{
-        optional("FleetIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_utilization_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_container_group_definition_output() :: %{
+      describe_container_group_definition_output() :: %{
         "ContainerGroupDefinition" => container_group_definition()
       }
       
   """
-  @type update_container_group_definition_output() :: %{(String.t() | atom()) => any()}
+  @type describe_container_group_definition_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_instance_access_input() :: %{
-        required("FleetId") => String.t() | atom(),
-        required("InstanceId") => String.t() | atom()
+      create_alias_output() :: %{
+        "Alias" => alias()
       }
       
   """
-  @type get_instance_access_input() :: %{(String.t() | atom()) => any()}
+  @type create_alias_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_fleet_output() :: %{
-        "FleetAttributes" => fleet_attributes(),
-        "LocationStates" => list(location_state())
+      resource_creation_limit_policy() :: %{
+        "NewGameSessionsPerCreator" => integer(),
+        "PolicyPeriodInMinutes" => integer()
       }
       
   """
-  @type create_fleet_output() :: %{(String.t() | atom()) => any()}
+  @type resource_creation_limit_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      certificate_configuration() :: %{
+        "CertificateType" => list(any())
+      }
+      
+  """
+  @type certificate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      accept_match_input() :: %{
+        required("AcceptanceType") => list(any()),
+        required("PlayerIds") => list(String.t() | atom()),
+        required("TicketId") => String.t() | atom()
+      }
+      
+  """
+  @type accept_match_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2686,500 +3263,87 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      list_game_server_groups_input() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
+      matchmaking_rule_set() :: %{
+        "CreationTime" => non_neg_integer(),
+        "RuleSetArn" => String.t() | atom(),
+        "RuleSetBody" => String.t() | atom(),
+        "RuleSetName" => String.t() | atom()
       }
       
   """
-  @type list_game_server_groups_input() :: %{(String.t() | atom()) => any()}
+  @type matchmaking_rule_set() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      locational_deployment() :: %{
-        "DeploymentStatus" => list(any())
+      create_matchmaking_configuration_output() :: %{
+        "Configuration" => matchmaking_configuration()
       }
       
   """
-  @type locational_deployment() :: %{(String.t() | atom()) => any()}
+  @type create_matchmaking_configuration_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_container_group_definition_input() :: %{
-        optional("ContainerGroupType") => list(any()),
-        optional("GameServerContainerDefinition") => game_server_container_definition_input(),
-        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
-        optional("Tags") => list(tag()),
-        optional("VersionDescription") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("OperatingSystem") => list(any()),
-        required("TotalMemoryLimitMebibytes") => integer(),
-        required("TotalVcpuLimit") => float()
-      }
+      delete_game_session_queue_output() :: %{}
       
   """
-  @type create_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+  @type delete_game_session_queue_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      describe_player_sessions_input() :: %{
-        optional("GameSessionId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("PlayerId") => String.t() | atom(),
-        optional("PlayerSessionId") => String.t() | atom(),
-        optional("PlayerSessionStatusFilter") => String.t() | atom()
-      }
-      
-  """
-  @type describe_player_sessions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_session_input() :: %{
-        optional("GameProperties") => list(game_property()),
-        optional("MaximumPlayerSessionCount") => integer(),
-        optional("Name") => String.t() | atom(),
-        optional("PlayerSessionCreationPolicy") => list(any()),
-        optional("ProtectionPolicy") => list(any()),
-        required("GameSessionId") => String.t() | atom()
-      }
-      
-  """
-  @type update_game_session_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      matchmaking_ticket() :: %{
-        "ConfigurationArn" => String.t() | atom(),
-        "ConfigurationName" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "EstimatedWaitTime" => integer(),
-        "GameSessionConnectionInfo" => game_session_connection_info(),
-        "Players" => list(player()),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom(),
-        "StatusReason" => String.t() | atom(),
-        "TicketId" => String.t() | atom()
-      }
-      
-  """
-  @type matchmaking_ticket() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_capacity_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "ManagedCapacityConfiguration" => managed_capacity_configuration()
-      }
-      
-  """
-  @type update_fleet_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_server_output() :: %{
-        "GameServer" => game_server()
-      }
-      
-  """
-  @type update_game_server_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_container_fleet_input() :: %{
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_container_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_session_queue_input() :: %{
-        optional("CustomEventData") => String.t() | atom(),
-        optional("Destinations") => list(game_session_queue_destination()),
-        optional("FilterConfiguration") => filter_configuration(),
-        optional("NotificationTarget") => String.t() | atom(),
-        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
-        optional("PriorityConfiguration") => priority_configuration(),
-        optional("Tags") => list(tag()),
-        optional("TimeoutInSeconds") => integer(),
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type create_game_session_queue_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_details_input() :: %{
-        optional("AliasId") => String.t() | atom(),
-        optional("FleetId") => String.t() | atom(),
-        optional("GameSessionId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Location") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_session_details_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_fleet_actions_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
-      }
-      
-  """
-  @type start_fleet_actions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      validate_matchmaking_rule_set_input() :: %{
-        required("RuleSetBody") => String.t() | atom()
-      }
-      
-  """
-  @type validate_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_fleets_input() :: %{
-        optional("BuildId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ScriptId") => String.t() | atom()
-      }
-      
-  """
-  @type list_fleets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_game_servers_input() :: %{
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortOrder") => list(any()),
+      update_game_server_group_input() :: %{
+        optional("BalancingStrategy") => list(any()),
+        optional("GameServerProtectionPolicy") => list(any()),
+        optional("InstanceDefinitions") => list(instance_definition()),
+        optional("RoleArn") => String.t() | atom(),
         required("GameServerGroupName") => String.t() | atom()
       }
       
   """
-  @type list_game_servers_input() :: %{(String.t() | atom()) => any()}
+  @type update_game_server_group_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_fleet_input() :: %{
-        optional("AnywhereConfiguration") => anywhere_configuration(),
-        optional("BuildId") => String.t() | atom(),
-        optional("CertificateConfiguration") => certificate_configuration(),
-        optional("ComputeType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        optional("EC2InboundPermissions") => list(ip_permission()),
-        optional("EC2InstanceType") => list(any()),
-        optional("FleetType") => list(any()),
-        optional("InstanceRoleArn") => String.t() | atom(),
-        optional("InstanceRoleCredentialsProvider") => list(any()),
-        optional("Locations") => list(location_configuration()),
-        optional("LogPaths") => list(String.t() | atom()),
-        optional("MetricGroups") => list(String.t() | atom()),
-        optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PeerVpcAwsAccountId") => String.t() | atom(),
-        optional("PeerVpcId") => String.t() | atom(),
-        optional("PlayerGatewayConfiguration") => player_gateway_configuration(),
-        optional("PlayerGatewayMode") => list(any()),
-        optional("ResourceCreationLimitPolicy") => resource_creation_limit_policy(),
-        optional("RuntimeConfiguration") => runtime_configuration(),
-        optional("ScriptId") => String.t() | atom(),
-        optional("ServerLaunchParameters") => String.t() | atom(),
-        optional("ServerLaunchPath") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom()
+      container_port_mapping() :: %{
+        "ConnectionPort" => integer(),
+        "ContainerPort" => integer(),
+        "Protocol" => list(any())
       }
       
   """
-  @type create_fleet_input() :: %{(String.t() | atom()) => any()}
+  @type container_port_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_matchmaking_input() :: %{
-        optional("TicketId") => String.t() | atom(),
-        required("ConfigurationName") => String.t() | atom(),
-        required("Players") => list(player())
+      get_instance_access_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type start_matchmaking_input() :: %{(String.t() | atom()) => any()}
+  @type get_instance_access_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      connection_port_range() :: %{
-        "FromPort" => integer(),
-        "ToPort" => integer()
+      delete_fleet_locations_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("Locations") => list(String.t() | atom())
       }
       
   """
-  @type connection_port_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_environment() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type container_environment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_mount_point() :: %{
-        "AccessLevel" => list(any()),
-        "ContainerPath" => String.t() | atom(),
-        "InstancePath" => String.t() | atom()
-      }
-      
-  """
-  @type container_mount_point() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_fleet_actions_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
-      }
-      
-  """
-  @type stop_fleet_actions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      claim_filter_option() :: %{
-        "InstanceStatuses" => list(list(any())())
-      }
-      
-  """
-  @type claim_filter_option() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_game_session_queue_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_game_session_queue_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deregister_compute_input() :: %{
-        required("ComputeName") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type deregister_compute_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_events_output() :: %{
-        "Events" => list(event()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_events_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_peering_authorization_output() :: %{
-        "VpcPeeringAuthorization" => vpc_peering_authorization()
-      }
-      
-  """
-  @type create_vpc_peering_authorization_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_session_queue_output() :: %{
-        "GameSessionQueue" => game_session_queue()
-      }
-      
-  """
-  @type create_game_session_queue_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      location_model() :: %{
-        "LocationArn" => String.t() | atom(),
-        "LocationName" => String.t() | atom(),
-        "PingBeacon" => ping_beacon()
-      }
-      
-  """
-  @type location_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event() :: %{
-        "Count" => float(),
-        "EventCode" => list(any()),
-        "EventId" => String.t() | atom(),
-        "EventTime" => non_neg_integer(),
-        "Message" => String.t() | atom(),
-        "PreSignedLogUrl" => String.t() | atom(),
-        "ResourceId" => String.t() | atom()
-      }
-      
-  """
-  @type event() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_instances_input() :: %{
-        optional("InstanceId") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("Location") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_instances_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_output() :: %{
-        "GameServer" => game_server()
-      }
-      
-  """
-  @type describe_game_server_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      u_d_p_endpoint() :: %{
-        "Domain" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type u_d_p_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_peering_authorization_input() :: %{
-        required("GameLiftAwsAccountId") => String.t() | atom(),
-        required("PeerVpcId") => String.t() | atom()
-      }
-      
-  """
-  @type create_vpc_peering_authorization_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_queues_input() :: %{
-        optional("Limit") => integer(),
-        optional("Names") => list(String.t() | atom()),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_session_queues_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_game_sessions_output() :: %{
-        "GameSessions" => list(game_session()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type search_game_sessions_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_match_backfill_output() :: %{
-        "MatchmakingTicket" => matchmaking_ticket()
-      }
-      
-  """
-  @type start_match_backfill_output() :: %{(String.t() | atom()) => any()}
+  @type delete_fleet_locations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3202,12 +3366,86 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      update_runtime_configuration_output() :: %{
-        "RuntimeConfiguration" => runtime_configuration()
+      describe_game_session_placement_input() :: %{
+        required("PlacementId") => String.t() | atom()
       }
       
   """
-  @type update_runtime_configuration_output() :: %{(String.t() | atom()) => any()}
+  @type describe_game_session_placement_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
+  """
+  @type describe_game_server_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_fleet_capacity_input() :: %{
+        optional("DesiredInstances") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("ManagedCapacityConfiguration") => managed_capacity_configuration(),
+        optional("MaxSize") => integer(),
+        optional("MinSize") => integer(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type update_fleet_capacity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      resume_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type resume_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_service_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type internal_service_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_server_instance() :: %{
+        "GameServerGroupArn" => String.t() | atom(),
+        "GameServerGroupName" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "InstanceStatus" => list(any())
+      }
+      
+  """
+  @type game_server_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3226,56 +3464,472 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      instance() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DnsName" => String.t() | atom(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "OperatingSystem" => list(any()),
-        "Status" => list(any()),
-        "Type" => list(any())
+      list_locations_input() :: %{
+        optional("Filters") => list(list(any())()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
       
   """
-  @type instance() :: %{(String.t() | atom()) => any()}
+  @type list_locations_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      terminate_game_session_output() :: %{
+      describe_fleet_location_capacity_output() :: %{
+        "FleetCapacity" => fleet_capacity()
+      }
+      
+  """
+  @type describe_fleet_location_capacity_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_script_input() :: %{
+        required("ScriptId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_script_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_alias_input() :: %{
+        required("AliasId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_container_group_definitions_input() :: %{
+        optional("ContainerGroupType") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_container_group_definitions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_location_capacity_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("Location") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_location_capacity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_instance_limit() :: %{
+        "CurrentInstances" => integer(),
+        "EC2InstanceType" => list(any()),
+        "InstanceLimit" => integer(),
+        "Location" => String.t() | atom()
+      }
+      
+  """
+  @type ec2_instance_limit() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_server_input() :: %{
+        optional("GameServerData") => String.t() | atom(),
+        optional("HealthCheck") => list(any()),
+        optional("UtilizationStatus") => list(any()),
+        required("GameServerGroupName") => String.t() | atom(),
+        required("GameServerId") => String.t() | atom()
+      }
+      
+  """
+  @type update_game_server_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_player_sessions_input() :: %{
+        optional("PlayerDataMap") => map(),
+        required("GameSessionId") => String.t() | atom(),
+        required("PlayerIds") => list(String.t() | atom())
+      }
+      
+  """
+  @type create_player_sessions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_environment() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type container_environment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_alias_input() :: %{
+        required("AliasId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      connection_port_range() :: %{
+        "FromPort" => integer(),
+        "ToPort" => integer()
+      }
+      
+  """
+  @type connection_port_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_server_container_group_counts() :: %{
+        "ACTIVE" => integer(),
+        "IDLE" => integer(),
+        "PENDING" => integer(),
+        "TERMINATING" => integer()
+      }
+      
+  """
+  @type game_server_container_group_counts() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      placed_player_session() :: %{
+        "PlayerId" => String.t() | atom(),
+        "PlayerSessionId" => String.t() | atom()
+      }
+      
+  """
+  @type placed_player_session() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_alias_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("Name") => String.t() | atom(),
+        required("RoutingStrategy") => routing_strategy()
+      }
+      
+  """
+  @type create_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tagging_failed_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type tagging_failed_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_matchmaking_output() :: %{
+        "TicketList" => list(matchmaking_ticket())
+      }
+      
+  """
+  @type describe_matchmaking_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      request_upload_credentials_output() :: %{
+        "StorageLocation" => s3_location(),
+        "UploadCredentials" => aws_credentials()
+      }
+      
+  """
+  @type request_upload_credentials_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_game_server_groups_input() :: %{
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_game_server_groups_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      player_latency_policy() :: %{
+        "MaximumIndividualPlayerLatencyMilliseconds" => integer(),
+        "PolicyDurationSeconds" => integer()
+      }
+      
+  """
+  @type player_latency_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_build_output() :: %{
+        "Build" => build(),
+        "StorageLocation" => s3_location(),
+        "UploadCredentials" => aws_credentials()
+      }
+      
+  """
+  @type create_build_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_matchmaking_configuration_output() :: %{}
+      
+  """
+  @type delete_matchmaking_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_server_group() :: %{
+        "AutoScalingGroupArn" => String.t() | atom(),
+        "BalancingStrategy" => list(any()),
+        "CreationTime" => non_neg_integer(),
+        "GameServerGroupArn" => String.t() | atom(),
+        "GameServerGroupName" => String.t() | atom(),
+        "GameServerProtectionPolicy" => list(any()),
+        "InstanceDefinitions" => list(instance_definition()),
+        "LastUpdatedTime" => non_neg_integer(),
+        "RoleArn" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => String.t() | atom(),
+        "SuspendedActions" => list(list(any())())
+      }
+      
+  """
+  @type game_server_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_compute_output() :: %{
+        "Compute" => compute()
+      }
+      
+  """
+  @type register_compute_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      u_d_p_endpoint() :: %{
+        "Domain" => String.t() | atom(),
+        "Port" => integer()
+      }
+      
+  """
+  @type u_d_p_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_capacity_input() :: %{
+        optional("FleetIds") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_capacity_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_port_settings_output() :: %{
+        "FleetArn" => String.t() | atom(),
+        "FleetId" => String.t() | atom(),
+        "InboundPermissions" => list(ip_permission()),
+        "Location" => String.t() | atom(),
+        "UpdateStatus" => list(any())
+      }
+      
+  """
+  @type describe_fleet_port_settings_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_game_session_output() :: %{
         "GameSession" => game_session()
       }
       
   """
-  @type terminate_game_session_output() :: %{(String.t() | atom()) => any()}
+  @type create_game_session_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_game_session_log_url_input() :: %{
-        required("GameSessionId") => String.t() | atom()
+      game_server() :: %{
+        "ClaimStatus" => list(any()),
+        "ConnectionInfo" => String.t() | atom(),
+        "GameServerData" => String.t() | atom(),
+        "GameServerGroupArn" => String.t() | atom(),
+        "GameServerGroupName" => String.t() | atom(),
+        "GameServerId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom(),
+        "LastClaimTime" => non_neg_integer(),
+        "LastHealthCheckTime" => non_neg_integer(),
+        "RegistrationTime" => non_neg_integer(),
+        "UtilizationStatus" => list(any())
       }
       
   """
-  @type get_game_session_log_url_input() :: %{(String.t() | atom()) => any()}
+  @type game_server() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      start_fleet_actions_input() :: %{
-        optional("Location") => String.t() | atom(),
-        required("Actions") => list(list(any())()),
-        required("FleetId") => String.t() | atom()
+      unsupported_region_exception() :: %{
+        "Message" => String.t() | atom()
       }
       
   """
-  @type start_fleet_actions_input() :: %{(String.t() | atom()) => any()}
+  @type unsupported_region_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_runtime_configuration_input() :: %{
+        required("FleetId") => String.t() | atom(),
+        required("RuntimeConfiguration") => runtime_configuration()
+      }
+      
+  """
+  @type update_runtime_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      priority_configuration() :: %{
+        "LocationOrder" => list(String.t() | atom()),
+        "PriorityOrder" => list(list(any())())
+      }
+      
+  """
+  @type priority_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      invalid_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type invalid_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      managed_capacity_configuration() :: %{
+        "ScaleInAfterInactivityMinutes" => integer(),
+        "ZeroCapacityStrategy" => list(any())
+      }
+      
+  """
+  @type managed_capacity_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_alias_input() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("RoutingStrategy") => routing_strategy(),
+        required("AliasId") => String.t() | atom()
+      }
+      
+  """
+  @type update_alias_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      location_attributes() :: %{
+        "LocationState" => location_state(),
+        "StoppedActions" => list(list(any())()),
+        "UpdateStatus" => list(any())
+      }
+      
+  """
+  @type location_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_fleet_utilization_input() :: %{
+        optional("FleetIds") => list(String.t() | atom()),
+        optional("Limit") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type describe_fleet_utilization_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3305,619 +3959,195 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      resume_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
+      deregister_compute_output() :: %{}
+      
+  """
+  @type deregister_compute_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      register_game_server_input() :: %{
+        optional("ConnectionInfo") => String.t() | atom(),
+        optional("GameServerData") => String.t() | atom(),
+        required("GameServerGroupName") => String.t() | atom(),
+        required("GameServerId") => String.t() | atom(),
+        required("InstanceId") => String.t() | atom()
       }
       
   """
-  @type resume_game_server_group_output() :: %{(String.t() | atom()) => any()}
+  @type register_game_server_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_vpc_peering_authorization_output() :: %{}
-      
-  """
-  @type delete_vpc_peering_authorization_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      unsupported_region_exception() :: %{
+      invalid_fleet_status_exception() :: %{
         "Message" => String.t() | atom()
       }
       
   """
-  @type unsupported_region_exception() :: %{(String.t() | atom()) => any()}
+  @type invalid_fleet_status_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_scripts_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "Scripts" => list(script())
+      delete_container_fleet_input() :: %{
+        required("FleetId") => String.t() | atom()
       }
       
   """
-  @type list_scripts_output() :: %{(String.t() | atom()) => any()}
+  @type delete_container_fleet_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_container_group_definition_output() :: %{}
-      
-  """
-  @type delete_container_group_definition_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_game_server_group_input() :: %{
-        optional("DeleteOption") => list(any()),
-        required("GameServerGroupName") => String.t() | atom()
+      event() :: %{
+        "Count" => float(),
+        "EventCode" => list(any()),
+        "EventId" => String.t() | atom(),
+        "EventTime" => non_neg_integer(),
+        "Message" => String.t() | atom(),
+        "PreSignedLogUrl" => String.t() | atom(),
+        "ResourceId" => String.t() | atom()
       }
       
   """
-  @type delete_game_server_group_input() :: %{(String.t() | atom()) => any()}
+  @type event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      game_session_full_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type game_session_full_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      aws_credentials() :: %{
-        "AccessKeyId" => String.t() | atom(),
-        "SecretAccessKey" => String.t() | atom(),
-        "SessionToken" => String.t() | atom()
-      }
-      
-  """
-  @type aws_credentials() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_port_range() :: %{
+      ip_permission() :: %{
         "FromPort" => integer(),
+        "IpRange" => String.t() | atom(),
         "Protocol" => list(any()),
         "ToPort" => integer()
       }
       
   """
-  @type container_port_range() :: %{(String.t() | atom()) => any()}
+  @type ip_permission() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_matchmaking_rule_sets_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "RuleSets" => list(matchmaking_rule_set())
+      stop_game_session_placement_input() :: %{
+        required("PlacementId") => String.t() | atom()
       }
       
   """
-  @type describe_matchmaking_rule_sets_output() :: %{(String.t() | atom()) => any()}
+  @type stop_game_session_placement_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      game_property() :: %{
-        "Key" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-      
-  """
-  @type game_property() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_container_group_definitions_input() :: %{
-        optional("ContainerGroupType") => list(any()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_container_group_definitions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      suspend_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
-      }
-      
-  """
-  @type suspend_game_server_group_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_instance_access_output() :: %{
-        "InstanceAccess" => instance_access()
-      }
-      
-  """
-  @type get_instance_access_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_attributes_input() :: %{
-        optional("FleetIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_attributes_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_location_output() :: %{
-        "Location" => location_model()
-      }
-      
-  """
-  @type create_location_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_session_input() :: %{
-        optional("AliasId") => String.t() | atom(),
-        optional("CreatorId") => String.t() | atom(),
-        optional("FleetId") => String.t() | atom(),
-        optional("GameProperties") => list(game_property()),
-        optional("GameSessionData") => String.t() | atom(),
-        optional("GameSessionId") => String.t() | atom(),
-        optional("IdempotencyToken") => String.t() | atom(),
-        optional("Location") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        required("MaximumPlayerSessionCount") => integer()
-      }
-      
-  """
-  @type create_game_session_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      routing_strategy() :: %{
-        "FleetId" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Type" => list(any())
-      }
-      
-  """
-  @type routing_strategy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      fleet_deployment() :: %{
-        "CreationTime" => non_neg_integer(),
-        "DeploymentConfiguration" => deployment_configuration(),
-        "DeploymentId" => String.t() | atom(),
-        "DeploymentStatus" => list(any()),
-        "FleetId" => String.t() | atom(),
-        "GameServerBinaryArn" => String.t() | atom(),
-        "PerInstanceBinaryArn" => String.t() | atom(),
-        "RollbackGameServerBinaryArn" => String.t() | atom(),
-        "RollbackPerInstanceBinaryArn" => String.t() | atom()
-      }
-      
-  """
-  @type fleet_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session_queue_destination() :: %{
-        "DestinationArn" => String.t() | atom()
-      }
-      
-  """
-  @type game_session_queue_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_instances_output() :: %{
-        "GameServerInstances" => list(game_server_instance()),
+      describe_game_sessions_output() :: %{
+        "GameSessions" => list(game_session()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_game_server_instances_output() :: %{(String.t() | atom()) => any()}
+  @type describe_game_sessions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_compute_auth_token_output() :: %{
-        "AuthToken" => String.t() | atom(),
-        "ComputeArn" => String.t() | atom(),
-        "ComputeName" => String.t() | atom(),
-        "ExpirationTimestamp" => non_neg_integer(),
+      log_configuration() :: %{
+        "LogDestination" => list(any()),
+        "LogGroupArn" => String.t() | atom(),
+        "S3BucketName" => String.t() | atom()
+      }
+      
+  """
+  @type log_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      fleet_utilization() :: %{
+        "ActiveGameSessionCount" => integer(),
+        "ActiveServerProcessCount" => integer(),
+        "CurrentPlayerSessionCount" => integer(),
         "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
+        "FleetId" => String.t() | atom(),
+        "Location" => String.t() | atom(),
+        "MaximumPlayerSessionCount" => integer()
       }
       
   """
-  @type get_compute_auth_token_output() :: %{(String.t() | atom()) => any()}
+  @type fleet_utilization() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_ec2_instance_limits_output() :: %{
-        "EC2InstanceLimits" => list(ec2_instance_limit())
+      create_container_fleet_output() :: %{
+        "ContainerFleet" => container_fleet()
       }
       
   """
-  @type describe_ec2_instance_limits_output() :: %{(String.t() | atom()) => any()}
+  @type create_container_fleet_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_game_server_group_output() :: %{
-        "GameServerGroup" => game_server_group()
+      create_game_session_queue_output() :: %{
+        "GameSessionQueue" => game_session_queue()
       }
       
   """
-  @type delete_game_server_group_output() :: %{(String.t() | atom()) => any()}
+  @type create_game_session_queue_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_build_output() :: %{
-        "Build" => build()
+      describe_compute_output() :: %{
+        "Compute" => compute()
       }
       
   """
-  @type describe_build_output() :: %{(String.t() | atom()) => any()}
+  @type describe_compute_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      delete_scaling_policy_input() :: %{
-        required("FleetId") => String.t() | atom(),
+      create_game_session_queue_input() :: %{
+        optional("CustomEventData") => String.t() | atom(),
+        optional("Destinations") => list(game_session_queue_destination()),
+        optional("FilterConfiguration") => filter_configuration(),
+        optional("NotificationTarget") => String.t() | atom(),
+        optional("PlayerLatencyPolicies") => list(player_latency_policy()),
+        optional("PriorityConfiguration") => priority_configuration(),
+        optional("Tags") => list(tag()),
+        optional("TimeoutInSeconds") => integer(),
         required("Name") => String.t() | atom()
       }
       
   """
-  @type delete_scaling_policy_input() :: %{(String.t() | atom()) => any()}
+  @type create_game_session_queue_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_tags_for_resource_request() :: %{
-        required("ResourceARN") => String.t() | atom()
-      }
-      
-  """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_capacity_output() :: %{
-        "FleetCapacity" => list(fleet_capacity()),
+      list_compute_output() :: %{
+        "ComputeList" => list(compute()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_fleet_capacity_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_locations_input() :: %{
-        optional("Filters") => list(list(any())()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_locations_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_container_group_port_mappings_input() :: %{
-        optional("ComputeName") => String.t() | atom(),
-        optional("ContainerName") => String.t() | atom(),
-        optional("InstanceId") => String.t() | atom(),
-        required("ContainerGroupType") => list(any()),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_container_group_port_mappings_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_fleet() :: %{
-        "BillingType" => list(any()),
-        "CreationTime" => non_neg_integer(),
-        "DeploymentDetails" => deployment_details(),
-        "Description" => String.t() | atom(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "FleetRoleArn" => String.t() | atom(),
-        "GameServerContainerGroupDefinitionArn" => String.t() | atom(),
-        "GameServerContainerGroupDefinitionName" => String.t() | atom(),
-        "GameServerContainerGroupsPerInstance" => integer(),
-        "GameSessionCreationLimitPolicy" => game_session_creation_limit_policy(),
-        "InstanceConnectionPortRange" => connection_port_range(),
-        "InstanceInboundPermissions" => list(ip_permission()),
-        "InstanceType" => String.t() | atom(),
-        "LocationAttributes" => list(container_fleet_location_attributes()),
-        "LogConfiguration" => log_configuration(),
-        "MaximumGameServerContainerGroupsPerInstance" => integer(),
-        "MetricGroups" => list(String.t() | atom()),
-        "NewGameSessionProtectionPolicy" => list(any()),
-        "PerInstanceContainerGroupDefinitionArn" => String.t() | atom(),
-        "PerInstanceContainerGroupDefinitionName" => String.t() | atom(),
-        "PlayerGatewayMode" => list(any()),
-        "Status" => list(any())
-      }
-      
-  """
-  @type container_fleet() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_fleet_attributes_output() :: %{
-        "FleetAttributes" => list(fleet_attributes()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type describe_fleet_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      script() :: %{
-        "CreationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "NodeJsVersion" => String.t() | atom(),
-        "ScriptArn" => String.t() | atom(),
-        "ScriptId" => String.t() | atom(),
-        "SizeOnDisk" => float(),
-        "StorageLocation" => s3_location(),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type script() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_creation_limit_policy() :: %{
-        "NewGameSessionsPerCreator" => integer(),
-        "PolicyPeriodInMinutes" => integer()
-      }
-      
-  """
-  @type resource_creation_limit_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_server() :: %{
-        "ClaimStatus" => list(any()),
-        "ConnectionInfo" => String.t() | atom(),
-        "GameServerData" => String.t() | atom(),
-        "GameServerGroupArn" => String.t() | atom(),
-        "GameServerGroupName" => String.t() | atom(),
-        "GameServerId" => String.t() | atom(),
-        "InstanceId" => String.t() | atom(),
-        "LastClaimTime" => non_neg_integer(),
-        "LastHealthCheckTime" => non_neg_integer(),
-        "RegistrationTime" => non_neg_integer(),
-        "UtilizationStatus" => list(any())
-      }
-      
-  """
-  @type game_server() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_player_session_output() :: %{
-        "PlayerSession" => player_session()
-      }
-      
-  """
-  @type create_player_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_alias_output() :: %{
-        "Alias" => alias()
-      }
-      
-  """
-  @type describe_alias_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_placement_output() :: %{
-        "GameSessionPlacement" => game_session_placement()
-      }
-      
-  """
-  @type describe_game_session_placement_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      invalid_game_session_status_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type invalid_game_session_status_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      container_port_configuration() :: %{
-        "ContainerPortRanges" => list(container_port_range())
-      }
-      
-  """
-  @type container_port_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_compute_input() :: %{
-        optional("CertificatePath") => String.t() | atom(),
-        optional("DnsName") => String.t() | atom(),
-        optional("IpAddress") => String.t() | atom(),
-        optional("Location") => String.t() | atom(),
-        required("ComputeName") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type register_compute_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_location_output() :: %{}
-      
-  """
-  @type delete_location_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      limit_exceeded_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_matchmaking_output() :: %{}
-      
-  """
-  @type stop_matchmaking_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_alias_input() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("Tags") => list(tag()),
-        required("Name") => String.t() | atom(),
-        required("RoutingStrategy") => routing_strategy()
-      }
-      
-  """
-  @type create_alias_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_match_backfill_input() :: %{
-        optional("GameSessionArn") => String.t() | atom(),
-        optional("TicketId") => String.t() | atom(),
-        required("ConfigurationName") => String.t() | atom(),
-        required("Players") => list(player())
-      }
-      
-  """
-  @type start_match_backfill_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_instance_limit() :: %{
-        "CurrentInstances" => integer(),
-        "EC2InstanceType" => list(any()),
-        "InstanceLimit" => integer(),
-        "Location" => String.t() | atom()
-      }
-      
-  """
-  @type ec2_instance_limit() :: %{(String.t() | atom()) => any()}
+  @type list_compute_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3930,65 +4160,6 @@ defmodule AWS.GameLift do
       
   """
   @type get_compute_auth_token_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_container_fleets_output() :: %{
-        "ContainerFleets" => list(container_fleet()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_container_fleets_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      target_configuration() :: %{
-        "TargetValue" => float()
-      }
-      
-  """
-  @type target_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_player_connection_details_output() :: %{
-        "GameSessionId" => String.t() | atom(),
-        "PlayerConnectionDetails" => list(player_connection_detail())
-      }
-      
-  """
-  @type get_player_connection_details_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      launch_template_specification() :: %{
-        "LaunchTemplateId" => String.t() | atom(),
-        "LaunchTemplateName" => String.t() | atom(),
-        "Version" => String.t() | atom()
-      }
-      
-  """
-  @type launch_template_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      claim_game_server_output() :: %{
-        "GameServer" => game_server()
-      }
-      
-  """
-  @type claim_game_server_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4011,21 +4182,6 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      describe_scaling_policies_input() :: %{
-        optional("Limit") => integer(),
-        optional("Location") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => list(any()),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_scaling_policies_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
       list_game_servers_output() :: %{
         "GameServers" => list(game_server()),
         "NextToken" => String.t() | atom()
@@ -4038,191 +4194,43 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      vpc_peering_connection_status() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom()
+      describe_instances_input() :: %{
+        optional("InstanceId") => String.t() | atom(),
+        optional("Limit") => integer(),
+        optional("Location") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
       }
       
   """
-  @type vpc_peering_connection_status() :: %{(String.t() | atom()) => any()}
+  @type describe_instances_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_container_fleet_output() :: %{
-        "ContainerFleet" => container_fleet()
+      describe_container_group_port_mappings_input() :: %{
+        optional("ComputeName") => String.t() | atom(),
+        optional("ContainerName") => String.t() | atom(),
+        optional("InstanceId") => String.t() | atom(),
+        required("ContainerGroupType") => list(any()),
+        required("FleetId") => String.t() | atom()
       }
       
   """
-  @type describe_container_fleet_output() :: %{(String.t() | atom()) => any()}
+  @type describe_container_group_port_mappings_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_scaling_policies_output() :: %{
-        "NextToken" => String.t() | atom(),
-        "ScalingPolicies" => list(scaling_policy())
-      }
-      
-  """
-  @type describe_scaling_policies_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      delete_matchmaking_rule_set_input() :: %{
-        required("Name") => String.t() | atom()
-      }
-      
-  """
-  @type delete_matchmaking_rule_set_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_build_input() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("OperatingSystem") => list(any()),
-        optional("ServerSdkVersion") => String.t() | atom(),
-        optional("StorageLocation") => s3_location(),
-        optional("Tags") => list(tag()),
-        optional("Version") => String.t() | atom()
-      }
-      
-  """
-  @type create_build_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_server_container_definition() :: %{
-        "ContainerName" => String.t() | atom(),
-        "DependsOn" => list(container_dependency()),
-        "EnvironmentOverride" => list(container_environment()),
-        "ImageUri" => String.t() | atom(),
-        "MountPoints" => list(container_mount_point()),
-        "PortConfiguration" => container_port_configuration(),
-        "ResolvedImageDigest" => String.t() | atom(),
-        "ServerSdkVersion" => String.t() | atom()
-      }
-      
-  """
-  @type game_server_container_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      vpc_peering_connection() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "GameLiftVpcId" => String.t() | atom(),
-        "IpV4CidrBlock" => String.t() | atom(),
-        "PeerVpcId" => String.t() | atom(),
-        "Status" => vpc_peering_connection_status(),
-        "VpcPeeringConnectionId" => String.t() | atom()
-      }
-      
-  """
-  @type vpc_peering_connection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_fleet_attributes_output() :: %{
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom()
-      }
-      
-  """
-  @type update_fleet_attributes_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_build_output() :: %{
-        "Build" => build(),
-        "StorageLocation" => s3_location(),
-        "UploadCredentials" => aws_credentials()
-      }
-      
-  """
-  @type create_build_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      deployment_details() :: %{
-        "LatestDeploymentId" => String.t() | atom()
-      }
-      
-  """
-  @type deployment_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_session_details_output() :: %{
-        "GameSessionDetails" => list(game_session_detail()),
+      describe_fleet_events_output() :: %{
+        "Events" => list(event()),
         "NextToken" => String.t() | atom()
       }
       
   """
-  @type describe_game_session_details_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_vpc_peering_connection_output() :: %{}
-      
-  """
-  @type create_vpc_peering_connection_output() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      log_configuration() :: %{
-        "LogDestination" => list(any()),
-        "LogGroupArn" => String.t() | atom(),
-        "S3BucketName" => String.t() | atom()
-      }
-      
-  """
-  @type log_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session_detail() :: %{
-        "GameSession" => game_session(),
-        "ProtectionPolicy" => list(any())
-      }
-      
-  """
-  @type game_session_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_game_session_placement_output() :: %{
-        "GameSessionPlacement" => game_session_placement()
-      }
-      
-  """
-  @type stop_game_session_placement_output() :: %{(String.t() | atom()) => any()}
+  @type describe_fleet_events_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4232,261 +4240,6 @@ defmodule AWS.GameLift do
       
   """
   @type describe_vpc_peering_authorizations_input() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_container_group_definition_output() :: %{
-        "ContainerGroupDefinition" => container_group_definition()
-      }
-      
-  """
-  @type describe_container_group_definition_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_game_server_group_input() :: %{
-        optional("AutoScalingPolicy") => game_server_group_auto_scaling_policy(),
-        optional("BalancingStrategy") => list(any()),
-        optional("GameServerProtectionPolicy") => list(any()),
-        optional("Tags") => list(tag()),
-        optional("VpcSubnets") => list(String.t() | atom()),
-        required("GameServerGroupName") => String.t() | atom(),
-        required("InstanceDefinitions") => list(instance_definition()),
-        required("LaunchTemplate") => launch_template_specification(),
-        required("MaxSize") => integer(),
-        required("MinSize") => integer(),
-        required("RoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_game_server_group_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      stop_fleet_actions_input() :: %{
-        optional("Location") => String.t() | atom(),
-        required("Actions") => list(list(any())()),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type stop_fleet_actions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      certificate_configuration() :: %{
-        "CertificateType" => list(any())
-      }
-      
-  """
-  @type certificate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      matchmaking_rule_set() :: %{
-        "CreationTime" => non_neg_integer(),
-        "RuleSetArn" => String.t() | atom(),
-        "RuleSetBody" => String.t() | atom(),
-        "RuleSetName" => String.t() | atom()
-      }
-      
-  """
-  @type matchmaking_rule_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_compute_input() :: %{
-        required("ComputeName") => String.t() | atom(),
-        required("FleetId") => String.t() | atom()
-      }
-      
-  """
-  @type describe_compute_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_container_fleet_input() :: %{
-        optional("BillingType") => list(any()),
-        optional("Description") => String.t() | atom(),
-        optional("GameServerContainerGroupDefinitionName") => String.t() | atom(),
-        optional("GameServerContainerGroupsPerInstance") => integer(),
-        optional("GameSessionCreationLimitPolicy") => game_session_creation_limit_policy(),
-        optional("InstanceConnectionPortRange") => connection_port_range(),
-        optional("InstanceInboundPermissions") => list(ip_permission()),
-        optional("InstanceType") => String.t() | atom(),
-        optional("Locations") => list(location_configuration()),
-        optional("LogConfiguration") => log_configuration(),
-        optional("MetricGroups") => list(String.t() | atom()),
-        optional("NewGameSessionProtectionPolicy") => list(any()),
-        optional("PerInstanceContainerGroupDefinitionName") => String.t() | atom(),
-        optional("PlayerGatewayMode") => list(any()),
-        optional("Tags") => list(tag()),
-        required("FleetRoleArn") => String.t() | atom()
-      }
-      
-  """
-  @type create_container_fleet_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      register_game_server_input() :: %{
-        optional("ConnectionInfo") => String.t() | atom(),
-        optional("GameServerData") => String.t() | atom(),
-        required("GameServerGroupName") => String.t() | atom(),
-        required("GameServerId") => String.t() | atom(),
-        required("InstanceId") => String.t() | atom()
-      }
-      
-  """
-  @type register_game_server_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_player_sessions_input() :: %{
-        optional("PlayerDataMap") => map(),
-        required("GameSessionId") => String.t() | atom(),
-        required("PlayerIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type create_player_sessions_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session_placement() :: %{
-        "DnsName" => String.t() | atom(),
-        "EndTime" => non_neg_integer(),
-        "GameProperties" => list(game_property()),
-        "GameSessionArn" => String.t() | atom(),
-        "GameSessionData" => String.t() | atom(),
-        "GameSessionId" => String.t() | atom(),
-        "GameSessionName" => String.t() | atom(),
-        "GameSessionQueueName" => String.t() | atom(),
-        "GameSessionRegion" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "MatchmakerData" => String.t() | atom(),
-        "MaximumPlayerSessionCount" => integer(),
-        "PlacedPlayerSessions" => list(placed_player_session()),
-        "PlacementId" => String.t() | atom(),
-        "PlayerGatewayStatus" => list(any()),
-        "PlayerLatencies" => list(player_latency()),
-        "Port" => integer(),
-        "PriorityConfigurationOverride" => priority_configuration_override(),
-        "StartTime" => non_neg_integer(),
-        "Status" => list(any())
-      }
-      
-  """
-  @type game_session_placement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      game_session() :: %{
-        "ComputeName" => String.t() | atom(),
-        "CreationTime" => non_neg_integer(),
-        "CreatorId" => String.t() | atom(),
-        "CurrentPlayerSessionCount" => integer(),
-        "DnsName" => String.t() | atom(),
-        "FleetArn" => String.t() | atom(),
-        "FleetId" => String.t() | atom(),
-        "GameProperties" => list(game_property()),
-        "GameSessionData" => String.t() | atom(),
-        "GameSessionId" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "Location" => String.t() | atom(),
-        "MatchmakerData" => String.t() | atom(),
-        "MaximumPlayerSessionCount" => integer(),
-        "Name" => String.t() | atom(),
-        "PlayerGatewayStatus" => list(any()),
-        "PlayerSessionCreationPolicy" => list(any()),
-        "Port" => integer(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "TerminationTime" => non_neg_integer()
-      }
-      
-  """
-  @type game_session() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_game_session_output() :: %{
-        "GameSession" => game_session()
-      }
-      
-  """
-  @type update_game_session_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_player_connection_details_input() :: %{
-        required("GameSessionId") => String.t() | atom(),
-        required("PlayerIds") => list(String.t() | atom())
-      }
-      
-  """
-  @type get_player_connection_details_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_container_fleet_output() :: %{
-        "ContainerFleet" => container_fleet()
-      }
-      
-  """
-  @type update_container_fleet_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      player_connection_endpoint() :: %{
-        "IpAddress" => String.t() | atom(),
-        "Port" => integer()
-      }
-      
-  """
-  @type player_connection_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_builds_output() :: %{
-        "Builds" => list(build()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_builds_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4508,46 +4261,331 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      create_container_fleet_output() :: %{
-        "ContainerFleet" => container_fleet()
+      list_container_group_definition_versions_output() :: %{
+        "ContainerGroupDefinitions" => list(container_group_definition()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type create_container_fleet_output() :: %{(String.t() | atom()) => any()}
+  @type list_container_group_definition_versions_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      create_script_output() :: %{
-        "Script" => script()
-      }
+      delete_container_fleet_output() :: %{}
       
   """
-  @type create_script_output() :: %{(String.t() | atom()) => any()}
+  @type delete_container_fleet_output() :: %{}
 
   @typedoc """
 
   ## Example:
       
-      target_tracking_configuration() :: %{
-        "TargetValue" => float()
+      game_server_group_auto_scaling_policy() :: %{
+        "EstimatedInstanceWarmup" => integer(),
+        "TargetTrackingConfiguration" => target_tracking_configuration()
       }
       
   """
-  @type target_tracking_configuration() :: %{(String.t() | atom()) => any()}
+  @type game_server_group_auto_scaling_policy() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      describe_container_group_definition_input() :: %{
+      describe_alias_output() :: %{
+        "Alias" => alias()
+      }
+      
+  """
+  @type describe_alias_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_vpc_peering_connection_output() :: %{}
+      
+  """
+  @type delete_vpc_peering_connection_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_runtime_configuration_output() :: %{
+        "RuntimeConfiguration" => runtime_configuration()
+      }
+      
+  """
+  @type describe_runtime_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_vpc_peering_authorization_input() :: %{
+        required("GameLiftAwsAccountId") => String.t() | atom(),
+        required("PeerVpcId") => String.t() | atom()
+      }
+      
+  """
+  @type create_vpc_peering_authorization_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      terminate_game_session_output() :: %{
+        "GameSession" => game_session()
+      }
+      
+  """
+  @type terminate_game_session_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_fleet_input() :: %{
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type delete_fleet_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_group_definition_input() :: %{
+        optional("VersionCountToRetain") => integer(),
         optional("VersionNumber") => integer(),
         required("Name") => String.t() | atom()
       }
       
   """
-  @type describe_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+  @type delete_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_mount_point() :: %{
+        "AccessLevel" => list(any()),
+        "ContainerPath" => String.t() | atom(),
+        "InstancePath" => String.t() | atom()
+      }
+      
+  """
+  @type container_mount_point() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_game_server_output() :: %{
+        "GameServer" => game_server()
+      }
+      
+  """
+  @type update_game_server_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      server_process() :: %{
+        "ConcurrentExecutions" => integer(),
+        "LaunchPath" => String.t() | atom(),
+        "Parameters" => String.t() | atom()
+      }
+      
+  """
+  @type server_process() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_server_container_definition_input() :: %{
+        "ContainerName" => String.t() | atom(),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
+        "ImageUri" => String.t() | atom(),
+        "MountPoints" => list(container_mount_point()),
+        "PortConfiguration" => container_port_configuration(),
+        "ServerSdkVersion" => String.t() | atom()
+      }
+      
+  """
+  @type game_server_container_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      game_property() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type game_property() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_matchmaking_configuration_output() :: %{
+        "Configuration" => matchmaking_configuration()
+      }
+      
+  """
+  @type update_matchmaking_configuration_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ping_beacon() :: %{
+        "UDPEndpoint" => u_d_p_endpoint()
+      }
+      
+  """
+  @type ping_beacon() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      support_container_definition() :: %{
+        "ContainerName" => String.t() | atom(),
+        "DependsOn" => list(container_dependency()),
+        "EnvironmentOverride" => list(container_environment()),
+        "Essential" => boolean(),
+        "HealthCheck" => container_health_check(),
+        "ImageUri" => String.t() | atom(),
+        "MemoryHardLimitMebibytes" => integer(),
+        "MountPoints" => list(container_mount_point()),
+        "PortConfiguration" => container_port_configuration(),
+        "ResolvedImageDigest" => String.t() | atom(),
+        "Vcpu" => float()
+      }
+      
+  """
+  @type support_container_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("ResourceARN") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_fleets_output() :: %{
+        "FleetIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_fleets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      stop_matchmaking_input() :: %{
+        required("TicketId") => String.t() | atom()
+      }
+      
+  """
+  @type stop_matchmaking_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_aliases_output() :: %{
+        "Aliases" => list(alias()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_aliases_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_game_server_group_output() :: %{
+        "GameServerGroup" => game_server_group()
+      }
+      
+  """
+  @type delete_game_server_group_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_group_definition_input() :: %{
+        optional("GameServerContainerDefinition") => game_server_container_definition_input(),
+        optional("OperatingSystem") => list(any()),
+        optional("SourceVersionNumber") => integer(),
+        optional("SupportContainerDefinitions") => list(support_container_definition_input()),
+        optional("TotalMemoryLimitMebibytes") => integer(),
+        optional("TotalVcpuLimit") => float(),
+        optional("VersionDescription") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_container_group_definition_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_compute_input() :: %{
+        required("ComputeName") => String.t() | atom(),
+        required("FleetId") => String.t() | atom()
+      }
+      
+  """
+  @type describe_compute_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_fleet_output() :: %{
+        "ContainerFleet" => container_fleet()
+      }
+      
+  """
+  @type update_container_fleet_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      matched_player_session() :: %{
+        "PlayerId" => String.t() | atom(),
+        "PlayerSessionId" => String.t() | atom()
+      }
+      
+  """
+  @type matched_player_session() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4565,570 +4603,532 @@ defmodule AWS.GameLift do
 
   ## Example:
       
-      container_dependency() :: %{
-        "Condition" => list(any()),
-        "ContainerName" => String.t() | atom()
+      list_fleet_deployments_output() :: %{
+        "FleetDeployments" => list(fleet_deployment()),
+        "NextToken" => String.t() | atom()
       }
       
   """
-  @type container_dependency() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_container_fleets_input() :: %{
-        optional("ContainerGroupDefinitionName") => String.t() | atom(),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_container_fleets_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      describe_game_server_instances_input() :: %{
-        optional("InstanceIds") => list(String.t() | atom()),
-        optional("Limit") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("GameServerGroupName") => String.t() | atom()
-      }
-      
-  """
-  @type describe_game_server_instances_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      terminal_routing_strategy_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-      
-  """
-  @type terminal_routing_strategy_exception() :: %{(String.t() | atom()) => any()}
+  @type list_fleet_deployments_output() :: %{(String.t() | atom()) => any()}
 
   @type accept_match_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type claim_game_server_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
-          | conflict_exception()
+          invalid_request_exception()
           | internal_service_exception()
-          | out_of_capacity_exception()
+          | not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
+          | out_of_capacity_exception()
 
   @type create_alias_errors() ::
-          limit_exceeded_exception()
-          | invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_build_errors() ::
           invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
 
   @type create_container_fleet_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_container_group_definition_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_fleet_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
+          | tagging_failed_exception()
+          | internal_service_exception()
           | not_ready_exception()
           | not_found_exception()
-          | invalid_request_exception()
           | conflict_exception()
-          | internal_service_exception()
           | unauthorized_exception()
-          | tagging_failed_exception()
+          | limit_exceeded_exception()
 
   @type create_fleet_locations_errors() ::
-          limit_exceeded_exception()
+          invalid_fleet_status_exception()
+          | invalid_request_exception()
           | unsupported_region_exception()
+          | internal_service_exception()
           | not_ready_exception()
           | not_found_exception()
-          | invalid_request_exception()
           | conflict_exception()
-          | internal_service_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | limit_exceeded_exception()
 
   @type create_game_server_group_errors() ::
-          limit_exceeded_exception()
-          | invalid_request_exception()
-          | conflict_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | conflict_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_game_session_errors() ::
-          terminal_routing_strategy_exception()
-          | limit_exceeded_exception()
-          | unsupported_region_exception()
-          | not_found_exception()
-          | idempotent_parameter_mismatch_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
-          | conflict_exception()
-          | fleet_capacity_exceeded_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | terminal_routing_strategy_exception()
+          | idempotent_parameter_mismatch_exception()
+          | limit_exceeded_exception()
+          | fleet_capacity_exceeded_exception()
 
   @type create_game_session_queue_errors() ::
-          limit_exceeded_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_location_errors() ::
-          limit_exceeded_exception()
-          | invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type create_matchmaking_configuration_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | limit_exceeded_exception()
 
   @type create_matchmaking_rule_set_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | limit_exceeded_exception()
 
   @type create_player_session_errors() ::
-          terminal_routing_strategy_exception()
-          | invalid_game_session_status_exception()
-          | game_session_full_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | invalid_game_session_status_exception()
+          | not_found_exception()
+          | game_session_full_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type create_player_sessions_errors() ::
-          terminal_routing_strategy_exception()
-          | invalid_game_session_status_exception()
-          | game_session_full_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | invalid_game_session_status_exception()
+          | not_found_exception()
+          | game_session_full_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type create_script_errors() ::
           invalid_request_exception()
-          | conflict_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | unauthorized_exception()
 
   @type create_vpc_peering_authorization_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type create_vpc_peering_connection_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_alias_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_build_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_container_fleet_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_container_group_definition_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_fleet_errors() ::
-          not_found_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
           | tagging_failed_exception()
-          | invalid_fleet_status_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_fleet_locations_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_game_server_group_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_game_session_queue_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_location_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_matchmaking_configuration_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
 
   @type delete_matchmaking_rule_set_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
 
   @type delete_scaling_policy_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_script_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
-          | unauthorized_exception()
+          invalid_request_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
+          | unauthorized_exception()
 
   @type delete_vpc_peering_authorization_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type delete_vpc_peering_connection_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type deregister_compute_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type deregister_game_server_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_alias_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_build_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_compute_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_container_fleet_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_container_group_definition_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_container_group_port_mappings_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type describe_ec2_instance_limits_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
           | unauthorized_exception()
 
   @type describe_fleet_attributes_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_capacity_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_deployment_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_events_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_location_attributes_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_location_capacity_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_location_utilization_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_port_settings_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_fleet_utilization_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_server_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_server_group_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_server_instances_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_session_details_errors() ::
-          terminal_routing_strategy_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type describe_game_session_placement_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_session_queues_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_game_sessions_errors() ::
-          terminal_routing_strategy_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type describe_instances_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_matchmaking_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
 
   @type describe_matchmaking_configurations_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
 
   @type describe_matchmaking_rule_sets_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type describe_player_sessions_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_runtime_configuration_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_scaling_policies_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_script_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type describe_vpc_peering_authorizations_errors() ::
           invalid_request_exception() | internal_service_exception() | unauthorized_exception()
 
   @type describe_vpc_peering_connections_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type get_compute_access_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type get_compute_auth_token_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type get_game_session_log_url_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type get_instance_access_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type get_player_connection_details_errors() ::
-          limit_exceeded_exception()
-          | invalid_game_session_status_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | invalid_game_session_status_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type list_aliases_errors() ::
           invalid_request_exception() | internal_service_exception() | unauthorized_exception()
@@ -5137,41 +5137,41 @@ defmodule AWS.GameLift do
           invalid_request_exception() | internal_service_exception() | unauthorized_exception()
 
   @type list_compute_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
           | unauthorized_exception()
 
   @type list_container_fleets_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
           | unauthorized_exception()
 
   @type list_container_group_definition_versions_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type list_container_group_definitions_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
           | unauthorized_exception()
 
   @type list_fleet_deployments_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type list_fleets_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type list_game_server_groups_errors() ::
@@ -5187,241 +5187,241 @@ defmodule AWS.GameLift do
           invalid_request_exception() | internal_service_exception() | unauthorized_exception()
 
   @type list_tags_for_resource_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
 
   @type put_scaling_policy_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type register_compute_errors() ::
-          limit_exceeded_exception()
-          | not_ready_exception()
-          | invalid_request_exception()
-          | conflict_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_ready_exception()
+          | conflict_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type register_game_server_errors() ::
-          limit_exceeded_exception()
-          | invalid_request_exception()
-          | conflict_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | conflict_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type request_upload_credentials_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type resolve_alias_errors() ::
-          terminal_routing_strategy_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type resume_game_server_group_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type search_game_sessions_errors() ::
-          terminal_routing_strategy_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | terminal_routing_strategy_exception()
 
   @type start_fleet_actions_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type start_game_session_placement_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type start_match_backfill_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type start_matchmaking_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type stop_fleet_actions_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type stop_game_session_placement_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type stop_matchmaking_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type suspend_game_server_group_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type tag_resource_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
 
   @type terminate_game_session_errors() ::
-          invalid_game_session_status_exception()
+          invalid_request_exception()
+          | internal_service_exception()
+          | invalid_game_session_status_exception()
           | not_ready_exception()
           | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
           | unauthorized_exception()
 
   @type untag_resource_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | tagging_failed_exception()
+          | internal_service_exception()
+          | not_found_exception()
 
   @type update_alias_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type update_build_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type update_container_fleet_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
+          | internal_service_exception()
           | not_ready_exception()
           | not_found_exception()
-          | invalid_request_exception()
-          | internal_service_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type update_container_group_definition_errors() ::
-          limit_exceeded_exception()
+          invalid_request_exception()
           | unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
+          | limit_exceeded_exception()
 
   @type update_fleet_attributes_errors() ::
-          limit_exceeded_exception()
-          | not_found_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
-          | conflict_exception()
           | internal_service_exception()
+          | not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | limit_exceeded_exception()
 
   @type update_fleet_capacity_errors() ::
-          limit_exceeded_exception()
-          | unsupported_region_exception()
-          | not_found_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
-          | conflict_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | limit_exceeded_exception()
 
   @type update_fleet_port_settings_errors() ::
-          limit_exceeded_exception()
-          | not_found_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
-          | conflict_exception()
           | internal_service_exception()
+          | not_found_exception()
+          | conflict_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | limit_exceeded_exception()
 
   @type update_game_server_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type update_game_server_group_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type update_game_session_errors() ::
-          invalid_game_session_status_exception()
+          invalid_request_exception()
+          | internal_service_exception()
+          | invalid_game_session_status_exception()
           | not_ready_exception()
           | not_found_exception()
-          | invalid_request_exception()
           | conflict_exception()
-          | internal_service_exception()
           | unauthorized_exception()
 
   @type update_game_session_queue_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type update_matchmaking_configuration_errors() ::
-          unsupported_region_exception()
-          | not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
+          | not_found_exception()
 
   @type update_runtime_configuration_errors() ::
-          limit_exceeded_exception()
-          | not_found_exception()
+          invalid_fleet_status_exception()
           | invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
-          | invalid_fleet_status_exception()
+          | limit_exceeded_exception()
 
   @type update_script_errors() ::
-          not_found_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
           | internal_service_exception()
+          | not_found_exception()
           | unauthorized_exception()
 
   @type validate_matchmaking_rule_set_errors() ::
-          unsupported_region_exception()
-          | invalid_request_exception()
+          invalid_request_exception()
+          | unsupported_region_exception()
           | internal_service_exception()
 
   def metadata do
@@ -5499,7 +5499,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, accept_match_errors()}
   def accept_match(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "AcceptMatch", input, options)
   end
@@ -5564,7 +5565,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, claim_game_server_errors()}
   def claim_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ClaimGameServer", input, options)
   end
@@ -5609,7 +5611,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_alias_errors()}
   def create_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateAlias", input, options)
   end
@@ -5674,7 +5677,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_build_errors()}
   def create_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateBuild", input, options)
   end
@@ -5800,7 +5804,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_fleet_errors()}
   def create_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerFleet", input, options)
   end
@@ -5975,7 +5980,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_container_group_definition_errors()}
   def create_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateContainerGroupDefinition", input, options)
   end
@@ -6096,7 +6102,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_errors()}
   def create_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleet", input, options)
   end
@@ -6147,7 +6154,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_fleet_locations_errors()}
   def create_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateFleetLocations", input, options)
   end
@@ -6219,7 +6227,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_server_group_errors()}
   def create_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameServerGroup", input, options)
   end
@@ -6291,7 +6300,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_errors()}
   def create_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameSession", input, options)
   end
@@ -6415,7 +6425,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_game_session_queue_errors()}
   def create_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateGameSessionQueue", input, options)
   end
@@ -6432,7 +6443,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_location_errors()}
   def create_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateLocation", input, options)
   end
@@ -6484,7 +6496,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_configuration_errors()}
   def create_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingConfiguration", input, options)
   end
@@ -6530,7 +6543,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_matchmaking_rule_set_errors()}
   def create_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateMatchmakingRuleSet", input, options)
   end
@@ -6572,7 +6586,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_session_errors()}
   def create_player_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlayerSession", input, options)
   end
@@ -6611,7 +6626,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_player_sessions_errors()}
   def create_player_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlayerSessions", input, options)
   end
@@ -6673,7 +6689,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_script_errors()}
   def create_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateScript", input, options)
   end
@@ -6735,7 +6752,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_authorization_errors()}
   def create_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringAuthorization", input, options)
   end
@@ -6794,7 +6812,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, create_vpc_peering_connection_errors()}
   def create_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreateVpcPeeringConnection", input, options)
   end
@@ -6820,7 +6839,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_alias_errors()}
   def delete_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteAlias", input, options)
   end
@@ -6851,7 +6871,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_build_errors()}
   def delete_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteBuild", input, options)
   end
@@ -6881,7 +6902,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_fleet_errors()}
   def delete_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerFleet", input, options)
   end
@@ -6943,7 +6965,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_container_group_definition_errors()}
   def delete_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteContainerGroupDefinition", input, options)
   end
@@ -6978,7 +7001,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_errors()}
   def delete_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleet", input, options)
   end
@@ -7012,7 +7036,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_fleet_locations_errors()}
   def delete_fleet_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteFleetLocations", input, options)
   end
@@ -7066,7 +7091,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_server_group_errors()}
   def delete_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGameServerGroup", input, options)
   end
@@ -7088,7 +7114,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_game_session_queue_errors()}
   def delete_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteGameSessionQueue", input, options)
   end
@@ -7109,7 +7136,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_location_errors()}
   def delete_location(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteLocation", input, options)
   end
@@ -7131,7 +7159,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_configuration_errors()}
   def delete_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingConfiguration", input, options)
   end
@@ -7159,7 +7188,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_matchmaking_rule_set_errors()}
   def delete_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteMatchmakingRuleSet", input, options)
   end
@@ -7186,7 +7216,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_scaling_policy_errors()}
   def delete_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScalingPolicy", input, options)
   end
@@ -7223,7 +7254,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_script_errors()}
   def delete_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteScript", input, options)
   end
@@ -7248,7 +7280,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_authorization_errors()}
   def delete_vpc_peering_authorization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringAuthorization", input, options)
   end
@@ -7278,7 +7311,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, delete_vpc_peering_connection_errors()}
   def delete_vpc_peering_connection(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeleteVpcPeeringConnection", input, options)
   end
@@ -7305,7 +7339,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_compute_errors()}
   def deregister_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterCompute", input, options)
   end
@@ -7336,7 +7371,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, deregister_game_server_errors()}
   def deregister_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeregisterGameServer", input, options)
   end
@@ -7364,7 +7400,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_alias_errors()}
   def describe_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeAlias", input, options)
   end
@@ -7391,7 +7428,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_build_errors()}
   def describe_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeBuild", input, options)
   end
@@ -7448,7 +7486,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_compute_errors()}
   def describe_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeCompute", input, options)
   end
@@ -7486,7 +7525,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_fleet_errors()}
   def describe_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerFleet", input, options)
   end
@@ -7532,7 +7572,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_group_definition_errors()}
   def describe_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerGroupDefinition", input, options)
   end
@@ -7593,7 +7634,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_container_group_port_mappings_errors()}
   def describe_container_group_port_mappings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeContainerGroupPortMappings", input, options)
   end
@@ -7678,7 +7720,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_ec2_instance_limits_errors()}
   def describe_ec2_instance_limits(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeEC2InstanceLimits", input, options)
   end
@@ -7724,7 +7767,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_attributes_errors()}
   def describe_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetAttributes", input, options)
   end
@@ -7779,7 +7823,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_capacity_errors()}
   def describe_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetCapacity", input, options)
   end
@@ -7810,7 +7855,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_deployment_errors()}
   def describe_fleet_deployment(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetDeployment", input, options)
   end
@@ -7844,7 +7890,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_events_errors()}
   def describe_fleet_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetEvents", input, options)
   end
@@ -7898,7 +7945,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_attributes_errors()}
   def describe_fleet_location_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationAttributes", input, options)
   end
@@ -7941,7 +7989,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_capacity_errors()}
   def describe_fleet_location_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationCapacity", input, options)
   end
@@ -7984,7 +8033,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_location_utilization_errors()}
   def describe_fleet_location_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetLocationUtilization", input, options)
   end
@@ -8028,7 +8078,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_port_settings_errors()}
   def describe_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetPortSettings", input, options)
   end
@@ -8083,7 +8134,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_fleet_utilization_errors()}
   def describe_fleet_utilization(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeFleetUtilization", input, options)
   end
@@ -8112,7 +8164,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_errors()}
   def describe_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServer", input, options)
   end
@@ -8145,7 +8198,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_group_errors()}
   def describe_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServerGroup", input, options)
   end
@@ -8189,7 +8243,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_server_instances_errors()}
   def describe_game_server_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameServerInstances", input, options)
   end
@@ -8242,7 +8297,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_details_errors()}
   def describe_game_session_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionDetails", input, options)
   end
@@ -8275,7 +8331,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_placement_errors()}
   def describe_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionPlacement", input, options)
   end
@@ -8305,7 +8362,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_session_queues_errors()}
   def describe_game_session_queues(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessionQueues", input, options)
   end
@@ -8367,7 +8425,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_game_sessions_errors()}
   def describe_game_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeGameSessions", input, options)
   end
@@ -8427,7 +8486,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_instances_errors()}
   def describe_instances(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeInstances", input, options)
   end
@@ -8470,7 +8530,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_errors()}
   def describe_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmaking", input, options)
   end
@@ -8506,7 +8567,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_configurations_errors()}
   def describe_matchmaking_configurations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingConfigurations", input, options)
   end
@@ -8535,7 +8597,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_matchmaking_rule_sets_errors()}
   def describe_matchmaking_rule_sets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeMatchmakingRuleSets", input, options)
   end
@@ -8580,7 +8643,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_player_sessions_errors()}
   def describe_player_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribePlayerSessions", input, options)
   end
@@ -8618,7 +8682,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_runtime_configuration_errors()}
   def describe_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeRuntimeConfiguration", input, options)
   end
@@ -8647,7 +8712,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_scaling_policies_errors()}
   def describe_scaling_policies(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScalingPolicies", input, options)
   end
@@ -8676,7 +8742,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_script_errors()}
   def describe_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeScript", input, options)
   end
@@ -8706,7 +8773,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_authorizations_errors()}
   def describe_vpc_peering_authorizations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringAuthorizations", input, options)
   end
@@ -8740,7 +8808,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, describe_vpc_peering_connections_errors()}
   def describe_vpc_peering_connections(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DescribeVpcPeeringConnections", input, options)
   end
@@ -8790,7 +8859,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_access_errors()}
   def get_compute_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeAccess", input, options)
   end
@@ -8847,7 +8917,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_compute_auth_token_errors()}
   def get_compute_auth_token(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetComputeAuthToken", input, options)
   end
@@ -8876,7 +8947,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_game_session_log_url_errors()}
   def get_game_session_log_url(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetGameSessionLogUrl", input, options)
   end
@@ -8930,7 +9002,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_instance_access_errors()}
   def get_instance_access(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetInstanceAccess", input, options)
   end
@@ -8967,7 +9040,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, get_player_connection_details_errors()}
   def get_player_connection_details(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlayerConnectionDetails", input, options)
   end
@@ -8995,7 +9069,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_aliases_errors()}
   def list_aliases(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListAliases", input, options)
   end
@@ -9026,7 +9101,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_builds_errors()}
   def list_builds(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListBuilds", input, options)
   end
@@ -9074,7 +9150,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_compute_errors()}
   def list_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListCompute", input, options)
   end
@@ -9121,7 +9198,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_fleets_errors()}
   def list_container_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerFleets", input, options)
   end
@@ -9169,7 +9247,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definition_versions_errors()}
   def list_container_group_definition_versions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitionVersions", input, options)
   end
@@ -9214,7 +9293,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_container_group_definitions_errors()}
   def list_container_group_definitions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListContainerGroupDefinitions", input, options)
   end
@@ -9254,7 +9334,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleet_deployments_errors()}
   def list_fleet_deployments(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleetDeployments", input, options)
   end
@@ -9301,7 +9382,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_fleets_errors()}
   def list_fleets(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListFleets", input, options)
   end
@@ -9318,7 +9400,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_server_groups_errors()}
   def list_game_server_groups(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGameServerGroups", input, options)
   end
@@ -9345,7 +9428,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_game_servers_errors()}
   def list_game_servers(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListGameServers", input, options)
   end
@@ -9371,7 +9455,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_locations_errors()}
   def list_locations(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListLocations", input, options)
   end
@@ -9398,7 +9483,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_scripts_errors()}
   def list_scripts(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListScripts", input, options)
   end
@@ -9435,7 +9521,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -9543,7 +9630,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, put_scaling_policy_errors()}
   def put_scaling_policy(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "PutScalingPolicy", input, options)
   end
@@ -9602,7 +9690,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_compute_errors()}
   def register_compute(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterCompute", input, options)
   end
@@ -9645,7 +9734,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, register_game_server_errors()}
   def register_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RegisterGameServer", input, options)
   end
@@ -9677,7 +9767,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, request_upload_credentials_errors()}
   def request_upload_credentials(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "RequestUploadCredentials", input, options)
   end
@@ -9706,7 +9797,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resolve_alias_errors()}
   def resolve_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResolveAlias", input, options)
   end
@@ -9743,7 +9835,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, resume_game_server_group_errors()}
   def resume_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ResumeGameServerGroup", input, options)
   end
@@ -9865,7 +9958,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, search_game_sessions_errors()}
   def search_game_sessions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SearchGameSessions", input, options)
   end
@@ -9907,7 +10001,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_fleet_actions_errors()}
   def start_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartFleetActions", input, options)
   end
@@ -10038,7 +10133,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_game_session_placement_errors()}
   def start_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartGameSessionPlacement", input, options)
   end
@@ -10113,7 +10209,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_match_backfill_errors()}
   def start_match_backfill(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMatchBackfill", input, options)
   end
@@ -10171,7 +10268,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, start_matchmaking_errors()}
   def start_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartMatchmaking", input, options)
   end
@@ -10221,7 +10319,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_fleet_actions_errors()}
   def stop_fleet_actions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopFleetActions", input, options)
   end
@@ -10253,7 +10352,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_game_session_placement_errors()}
   def stop_game_session_placement(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopGameSessionPlacement", input, options)
   end
@@ -10291,7 +10391,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, stop_matchmaking_errors()}
   def stop_matchmaking(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StopMatchmaking", input, options)
   end
@@ -10335,7 +10436,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, suspend_game_server_group_errors()}
   def suspend_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "SuspendGameServerGroup", input, options)
   end
@@ -10378,7 +10480,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -10451,7 +10554,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, terminate_game_session_errors()}
   def terminate_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TerminateGameSession", input, options)
   end
@@ -10493,7 +10597,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -10521,7 +10626,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_alias_errors()}
   def update_alias(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateAlias", input, options)
   end
@@ -10550,7 +10656,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_build_errors()}
   def update_build(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateBuild", input, options)
   end
@@ -10638,7 +10745,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_fleet_errors()}
   def update_container_fleet(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerFleet", input, options)
   end
@@ -10714,7 +10822,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_container_group_definition_errors()}
   def update_container_group_definition(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateContainerGroupDefinition", input, options)
   end
@@ -10751,7 +10860,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_attributes_errors()}
   def update_fleet_attributes(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetAttributes", input, options)
   end
@@ -10843,7 +10953,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_capacity_errors()}
   def update_fleet_capacity(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetCapacity", input, options)
   end
@@ -10880,7 +10991,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_fleet_port_settings_errors()}
   def update_fleet_port_settings(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateFleetPortSettings", input, options)
   end
@@ -10932,7 +11044,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_errors()}
   def update_game_server(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameServer", input, options)
   end
@@ -10967,7 +11080,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_server_group_errors()}
   def update_game_server_group(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameServerGroup", input, options)
   end
@@ -10991,7 +11105,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_errors()}
   def update_game_session(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameSession", input, options)
   end
@@ -11021,7 +11136,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_game_session_queue_errors()}
   def update_game_session_queue(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateGameSessionQueue", input, options)
   end
@@ -11047,7 +11163,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_matchmaking_configuration_errors()}
   def update_matchmaking_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateMatchmakingConfiguration", input, options)
   end
@@ -11089,7 +11206,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_runtime_configuration_errors()}
   def update_runtime_configuration(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateRuntimeConfiguration", input, options)
   end
@@ -11130,7 +11248,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, update_script_errors()}
   def update_script(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdateScript", input, options)
   end
@@ -11158,7 +11277,8 @@ defmodule AWS.GameLift do
           | {:error, term()}
           | {:error, validate_matchmaking_rule_set_errors()}
   def validate_matchmaking_rule_set(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ValidateMatchmakingRuleSet", input, options)
   end

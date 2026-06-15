@@ -25,164 +25,51 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      global_aurora_configuration() :: %{
-        "behavior" => list(any()),
+      get_plan_response() :: %{
+        "plan" => plan()
+      }
+      
+  """
+  @type get_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associated_alarm() :: %{
+        "alarmType" => list(any()),
         "crossAccountRole" => String.t() | atom(),
-        "databaseClusterArns" => list(String.t() | atom()),
         "externalId" => [String.t() | atom()],
-        "globalClusterIdentifier" => String.t() | atom(),
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => global_aurora_ungraceful()
+        "resourceIdentifier" => [String.t() | atom()]
       }
       
   """
-  @type global_aurora_configuration() :: %{(String.t() | atom()) => any()}
+  @type associated_alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_report_output_configuration() :: %{
-        "bucketOwner" => String.t() | atom(),
-        "bucketPath" => [String.t() | atom()]
+      list_plan_execution_events_response() :: %{
+        "items" => list(execution_event()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type s3_report_output_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_plan_execution_events_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      document_db_configuration() :: %{
-        "behavior" => list(any()),
-        "crossAccountRole" => String.t() | atom(),
-        "databaseClusterArns" => list(String.t() | atom()),
-        "externalId" => [String.t() | atom()],
-        "globalClusterIdentifier" => String.t() | atom(),
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => document_db_ungraceful()
+      kubernetes_scaling_resource() :: %{
+        "hpaName" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "namespace" => String.t() | atom()
       }
       
   """
-  @type document_db_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_ungraceful() :: %{
-        "behavior" => list(any())
-      }
-      
-  """
-  @type lambda_ungraceful() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      neptune_ungraceful() :: %{
-        "ungraceful" => list(any())
-      }
-      
-  """
-  @type neptune_ungraceful() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("tags") => map()
-      }
-      
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      arc_routing_control_state() :: %{
-        "routingControlArn" => String.t() | atom(),
-        "state" => list(any())
-      }
-      
-  """
-  @type arc_routing_control_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_route53_health_checks_in_region_response() :: %{
-        "healthChecks" => list(route53_health_check()),
-        "nextToken" => String.t() | atom()
-      }
-      
-  """
-  @type list_route53_health_checks_in_region_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambdas() :: %{
-        "arn" => String.t() | atom(),
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
-      }
-      
-  """
-  @type lambdas() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trigger() :: %{
-        "action" => list(any()),
-        "conditions" => list(trigger_condition()),
-        "description" => [String.t() | atom()],
-        "minDelayMinutesBetweenExecutions" => [integer()],
-        "targetRegion" => String.t() | atom()
-      }
-      
-  """
-  @type trigger() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      eks_resource_scaling_ungraceful() :: %{
-        "minimumSuccessPercentage" => [integer()]
-      }
-      
-  """
-  @type eks_resource_scaling_ungraceful() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_response() :: %{}
-      
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      illegal_state_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type illegal_state_exception() :: %{(String.t() | atom()) => any()}
+  @type kubernetes_scaling_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -200,39 +87,77 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      list_plans_in_region_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      arc_routing_control_state() :: %{
+        "routingControlArn" => String.t() | atom(),
+        "state" => list(any())
       }
       
   """
-  @type list_plans_in_region_request() :: %{(String.t() | atom()) => any()}
+  @type arc_routing_control_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      update_plan_execution_step_request() :: %{
-        required("actionToTake") => list(any()),
-        required("comment") => String.t() | atom(),
-        required("executionId") => String.t() | atom(),
-        required("planArn") => String.t() | atom(),
-        required("stepName") => [String.t() | atom()]
+      list_plan_executions_response() :: %{
+        "items" => list(abbreviated_execution()),
+        "nextToken" => [String.t() | atom()]
       }
       
   """
-  @type update_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+  @type list_plan_executions_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ecs_ungraceful() :: %{
-        "minimumSuccessPercentage" => [integer()]
+      eks_cluster() :: %{
+        "clusterArn" => String.t() | atom(),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()]
       }
       
   """
-  @type ecs_ungraceful() :: %{(String.t() | atom()) => any()}
+  @type eks_cluster() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aurora_serverless_scaling_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "regionDatabaseClusterArns" => map(),
+        "targetPercent" => [integer()],
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type aurora_serverless_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      execution_approval_configuration() :: %{
+        "approvalRole" => String.t() | atom(),
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type execution_approval_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -250,153 +175,71 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      region_switch_plan_configuration() :: %{
-        "arn" => String.t() | atom(),
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
+      resource_warning() :: %{
+        "resourceArn" => String.t() | atom(),
+        "stepName" => String.t() | atom(),
+        "version" => [String.t() | atom()],
+        "warningMessage" => [String.t() | atom()],
+        "warningStatus" => list(any()),
+        "warningUpdatedTime" => [non_neg_integer()],
+        "workflow" => minimal_workflow()
       }
       
   """
-  @type region_switch_plan_configuration() :: %{(String.t() | atom()) => any()}
+  @type resource_warning() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      eks_resource_scaling_configuration() :: %{
+      ec2_asg_capacity_increase_configuration() :: %{
+        "asgs" => list(asg()),
         "capacityMonitoringApproach" => list(any()),
-        "eksClusters" => list(eks_cluster()),
-        "kubernetesResourceType" => kubernetes_resource_type(),
-        "scalingResources" => list(map()),
         "targetPercent" => [integer()],
         "timeoutMinutes" => [integer()],
-        "ungraceful" => eks_resource_scaling_ungraceful()
+        "ungraceful" => ec2_ungraceful()
       }
       
   """
-  @type eks_resource_scaling_configuration() :: %{(String.t() | atom()) => any()}
+  @type ec2_asg_capacity_increase_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      service() :: %{
-        "clusterArn" => String.t() | atom(),
+      rds_promote_read_replica_configuration() :: %{
         "crossAccountRole" => String.t() | atom(),
+        "dbInstanceArnMap" => map(),
         "externalId" => [String.t() | atom()],
-        "serviceArn" => String.t() | atom()
+        "timeoutMinutes" => [integer()]
       }
       
   """
-  @type service() :: %{(String.t() | atom()) => any()}
+  @type rds_promote_read_replica_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_plan_request() :: %{
+      get_plan_in_region_request() :: %{
         required("arn") => String.t() | atom()
       }
       
   """
-  @type get_plan_request() :: %{(String.t() | atom()) => any()}
+  @type get_plan_in_region_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_plans_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-      
-  """
-  @type list_plans_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      illegal_argument_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      untag_resource_request() :: %{
-        required("arn") => String.t() | atom(),
-        required("resourceTagKeys") => list(String.t() | atom())
-      }
-      
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_plan_execution_step_response() :: %{}
-      
-  """
-  @type update_plan_execution_step_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      ec2_ungraceful() :: %{
-        "minimumSuccessPercentage" => [integer()]
-      }
-      
-  """
-  @type ec2_ungraceful() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_route53_health_checks_request() :: %{
-        optional("hostedZoneId") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("recordName") => String.t() | atom(),
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type list_route53_health_checks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      event_source_mapping() :: %{
+      lambdas() :: %{
         "arn" => String.t() | atom(),
         "crossAccountRole" => String.t() | atom(),
         "externalId" => [String.t() | atom()]
       }
       
   """
-  @type event_source_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      associated_alarm() :: %{
-        "alarmType" => list(any()),
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()],
-        "resourceIdentifier" => [String.t() | atom()]
-      }
-      
-  """
-  @type associated_alarm() :: %{(String.t() | atom()) => any()}
+  @type lambdas() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -421,50 +264,41 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      route53_resource_record_set() :: %{
-        "recordSetIdentifier" => String.t() | atom(),
-        "region" => String.t() | atom()
-      }
-      
-  """
-  @type route53_resource_record_set() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      trigger_condition() :: %{
-        "associatedAlarmName" => [String.t() | atom()],
-        "condition" => list(any())
-      }
-      
-  """
-  @type trigger_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_not_found_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-      
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_plan_execution_request() :: %{
+      list_plans_in_region_request() :: %{
         optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()],
-        required("executionId") => String.t() | atom(),
-        required("planArn") => String.t() | atom()
+        optional("nextToken") => String.t() | atom()
       }
       
   """
-  @type get_plan_execution_request() :: %{(String.t() | atom()) => any()}
+  @type list_plans_in_region_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      neptune_global_database_configuration() :: %{
+        "behavior" => list(any()),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "regionDatabaseClusterArns" => map(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => neptune_ungraceful()
+      }
+      
+  """
+  @type neptune_global_database_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_in_region_response() :: %{
+        "plan" => plan()
+      }
+      
+  """
+  @type get_plan_in_region_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -485,137 +319,16 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      list_plan_execution_events_response() :: %{
-        "items" => list(execution_event()),
-        "nextToken" => [String.t() | atom()]
+      step_state() :: %{
+        "endTime" => [non_neg_integer()],
+        "name" => String.t() | atom(),
+        "startTime" => [non_neg_integer()],
+        "status" => list(any()),
+        "stepMode" => list(any())
       }
       
   """
-  @type list_plan_execution_events_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kubernetes_resource_type() :: %{
-        "apiVersion" => [String.t() | atom()],
-        "kind" => [String.t() | atom()]
-      }
-      
-  """
-  @type kubernetes_resource_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      execution_approval_configuration() :: %{
-        "approvalRole" => String.t() | atom(),
-        "timeoutMinutes" => [integer()]
-      }
-      
-  """
-  @type execution_approval_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      parallel_execution_block_configuration() :: %{
-        "steps" => list(step())
-      }
-      
-  """
-  @type parallel_execution_block_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_plan_execution_response() :: %{}
-      
-  """
-  @type update_plan_execution_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      aurora_serverless_scaling_configuration() :: %{
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()],
-        "globalClusterIdentifier" => String.t() | atom(),
-        "regionDatabaseClusterArns" => map(),
-        "targetPercent" => [integer()],
-        "timeoutMinutes" => [integer()]
-      }
-      
-  """
-  @type aurora_serverless_scaling_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      kubernetes_scaling_resource() :: %{
-        "hpaName" => [String.t() | atom()],
-        "name" => [String.t() | atom()],
-        "namespace" => String.t() | atom()
-      }
-      
-  """
-  @type kubernetes_scaling_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      eks_cluster() :: %{
-        "clusterArn" => String.t() | atom(),
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
-      }
-      
-  """
-  @type eks_cluster() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      report_configuration() :: %{
-        "reportOutput" => list(list())
-      }
-      
-  """
-  @type report_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      workflow() :: %{
-        "steps" => list(step()),
-        "workflowDescription" => [String.t() | atom()],
-        "workflowTargetAction" => list(any()),
-        "workflowTargetRegion" => String.t() | atom()
-      }
-      
-  """
-  @type workflow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_plan_evaluation_status_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        required("planArn") => String.t() | atom()
-      }
-      
-  """
-  @type get_plan_evaluation_status_request() :: %{(String.t() | atom()) => any()}
+  @type step_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -634,168 +347,12 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      list_tags_for_resource_response() :: %{
-        "resourceTags" => map()
-      }
-      
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_plan_response() :: %{
-        "plan" => plan()
-      }
-      
-  """
-  @type update_plan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      update_plan_request() :: %{
-        optional("associatedAlarms") => map(),
-        optional("description") => [String.t() | atom()],
-        optional("recoveryTimeObjectiveMinutes") => [integer()],
-        optional("reportConfiguration") => report_configuration(),
-        optional("triggers") => list(trigger()),
-        required("arn") => String.t() | atom(),
-        required("executionRole") => String.t() | atom(),
-        required("workflows") => list(workflow())
-      }
-      
-  """
-  @type update_plan_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      resource_warning() :: %{
-        "resourceArn" => String.t() | atom(),
-        "stepName" => String.t() | atom(),
-        "version" => [String.t() | atom()],
-        "warningMessage" => [String.t() | atom()],
-        "warningStatus" => list(any()),
-        "warningUpdatedTime" => [non_neg_integer()],
-        "workflow" => minimal_workflow()
-      }
-      
-  """
-  @type resource_warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      ecs_capacity_increase_configuration() :: %{
-        "capacityMonitoringApproach" => list(any()),
-        "services" => list(service()),
-        "targetPercent" => [integer()],
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => ecs_ungraceful()
-      }
-      
-  """
-  @type ecs_capacity_increase_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      document_db_ungraceful() :: %{
-        "ungraceful" => list(any())
-      }
-      
-  """
-  @type document_db_ungraceful() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_plan_executions_response() :: %{
-        "items" => list(abbreviated_execution()),
-        "nextToken" => [String.t() | atom()]
-      }
-      
-  """
-  @type list_plan_executions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      arc_routing_control_configuration() :: %{
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()],
-        "regionAndRoutingControls" => map(),
-        "timeoutMinutes" => [integer()]
-      }
-      
-  """
-  @type arc_routing_control_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      create_plan_response() :: %{
-        "plan" => plan()
-      }
-      
-  """
-  @type create_plan_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      internal_server_exception() :: %{
+      illegal_argument_exception() :: %{
         "message" => [String.t() | atom()]
       }
       
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_plan_execution_response() :: %{
-        "actualRecoveryTime" => String.t() | atom(),
-        "comment" => [String.t() | atom()],
-        "endTime" => [non_neg_integer()],
-        "executionAction" => list(any()),
-        "executionId" => String.t() | atom(),
-        "executionRegion" => [String.t() | atom()],
-        "executionState" => list(any()),
-        "generatedReportDetails" => list(generated_report()),
-        "mode" => list(any()),
-        "nextToken" => [String.t() | atom()],
-        "plan" => plan(),
-        "planArn" => String.t() | atom(),
-        "recoveryExecutionId" => [String.t() | atom()],
-        "startTime" => [non_neg_integer()],
-        "stepStates" => list(step_state()),
-        "updatedAt" => [non_neg_integer()],
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type get_plan_execution_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      cancel_plan_execution_response() :: %{}
-      
-  """
-  @type cancel_plan_execution_response() :: %{}
+  @type illegal_argument_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -808,42 +365,6 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type list_plans_in_region_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      asg() :: %{
-        "arn" => String.t() | atom(),
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()]
-      }
-      
-  """
-  @type asg() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_plans_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "plans" => list(abbreviated_plan())
-      }
-      
-  """
-  @type list_plans_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      get_plan_response() :: %{
-        "plan" => plan()
-      }
-      
-  """
-  @type get_plan_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -864,44 +385,46 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      get_plan_in_region_response() :: %{
-        "plan" => plan()
+      get_plan_execution_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        required("executionId") => String.t() | atom(),
+        required("planArn") => String.t() | atom()
       }
       
   """
-  @type get_plan_in_region_response() :: %{(String.t() | atom()) => any()}
+  @type get_plan_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      generated_report() :: %{
-        "reportGenerationTime" => [non_neg_integer()],
-        "reportOutput" => list()
+      service() :: %{
+        "clusterArn" => String.t() | atom(),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "serviceArn" => String.t() | atom()
       }
       
   """
-  @type generated_report() :: %{(String.t() | atom()) => any()}
+  @type service() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      access_denied_exception() :: %{
-        "message" => [String.t() | atom()]
+      document_db_configuration() :: %{
+        "behavior" => list(any()),
+        "crossAccountRole" => String.t() | atom(),
+        "databaseClusterArns" => list(String.t() | atom()),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => document_db_ungraceful()
       }
       
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      tag_resource_response() :: %{}
-      
-  """
-  @type tag_resource_response() :: %{}
+  @type document_db_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -918,139 +441,52 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      delete_plan_response() :: %{}
-      
-  """
-  @type delete_plan_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      list_tags_for_resource_request() :: %{
-        required("arn") => String.t() | atom()
+      update_plan_execution_request() :: %{
+        optional("comment") => String.t() | atom(),
+        required("action") => list(any()),
+        required("executionId") => String.t() | atom(),
+        required("planArn") => String.t() | atom()
       }
       
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type update_plan_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      s3_report_output() :: %{
-        "s3ObjectKey" => [String.t() | atom()]
-      }
-      
-  """
-  @type s3_report_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      global_aurora_ungraceful() :: %{
+      document_db_ungraceful() :: %{
         "ungraceful" => list(any())
       }
       
   """
-  @type global_aurora_ungraceful() :: %{(String.t() | atom()) => any()}
+  @type document_db_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      get_plan_in_region_request() :: %{
-        required("arn") => String.t() | atom()
-      }
-      
-  """
-  @type get_plan_in_region_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      aurora_provisioned_scaling_configuration() :: %{
+      arc_routing_control_configuration() :: %{
         "crossAccountRole" => String.t() | atom(),
         "externalId" => [String.t() | atom()],
-        "globalClusterIdentifier" => String.t() | atom(),
-        "instanceArns" => map(),
-        "regionDatabaseClusterArns" => map(),
+        "regionAndRoutingControls" => map(),
         "timeoutMinutes" => [integer()]
       }
       
   """
-  @type aurora_provisioned_scaling_configuration() :: %{(String.t() | atom()) => any()}
+  @type arc_routing_control_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      step_state() :: %{
-        "endTime" => [non_neg_integer()],
-        "name" => String.t() | atom(),
-        "startTime" => [non_neg_integer()],
-        "status" => list(any()),
-        "stepMode" => list(any())
+      s3_report_output_configuration() :: %{
+        "bucketOwner" => String.t() | atom(),
+        "bucketPath" => [String.t() | atom()]
       }
       
   """
-  @type step_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      abbreviated_execution() :: %{
-        "actualRecoveryTime" => String.t() | atom(),
-        "comment" => [String.t() | atom()],
-        "endTime" => [non_neg_integer()],
-        "executionAction" => list(any()),
-        "executionId" => String.t() | atom(),
-        "executionRegion" => [String.t() | atom()],
-        "executionState" => list(any()),
-        "mode" => list(any()),
-        "planArn" => String.t() | atom(),
-        "recoveryExecutionId" => [String.t() | atom()],
-        "startTime" => [non_neg_integer()],
-        "updatedAt" => [non_neg_integer()],
-        "version" => [String.t() | atom()]
-      }
-      
-  """
-  @type abbreviated_execution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_event_source_mapping_configuration() :: %{
-        "action" => list(any()),
-        "regionEventSourceMappings" => map(),
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => lambda_event_source_mapping_ungraceful()
-      }
-      
-  """
-  @type lambda_event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      start_plan_execution_request() :: %{
-        optional("comment") => String.t() | atom(),
-        optional("latestVersion") => [String.t() | atom()],
-        optional("mode") => list(any()),
-        optional("recoveryExecutionId") => String.t() | atom(),
-        required("action") => list(any()),
-        required("planArn") => String.t() | atom(),
-        required("targetRegion") => [String.t() | atom()]
-      }
-      
-  """
-  @type start_plan_execution_request() :: %{(String.t() | atom()) => any()}
+  @type s3_report_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1078,16 +514,63 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      approve_plan_execution_step_request() :: %{
-        optional("comment") => String.t() | atom(),
-        required("approval") => list(any()),
-        required("executionId") => String.t() | atom(),
-        required("planArn") => String.t() | atom(),
-        required("stepName") => String.t() | atom()
+      eks_resource_scaling_configuration() :: %{
+        "capacityMonitoringApproach" => list(any()),
+        "eksClusters" => list(eks_cluster()),
+        "kubernetesResourceType" => kubernetes_resource_type(),
+        "scalingResources" => list(map()),
+        "targetPercent" => [integer()],
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => eks_resource_scaling_ungraceful()
       }
       
   """
-  @type approve_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+  @type eks_resource_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      aurora_provisioned_scaling_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "instanceArns" => map(),
+        "regionDatabaseClusterArns" => map(),
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type aurora_provisioned_scaling_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approve_plan_execution_step_response() :: %{}
+      
+  """
+  @type approve_plan_execution_step_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      cancel_plan_execution_response() :: %{}
+      
+  """
+  @type cancel_plan_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      internal_server_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+      
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1122,28 +605,52 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      minimal_workflow() :: %{
-        "action" => list(any()),
-        "name" => [String.t() | atom()]
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type minimal_workflow() :: %{(String.t() | atom()) => any()}
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      ec2_asg_capacity_increase_configuration() :: %{
-        "asgs" => list(asg()),
-        "capacityMonitoringApproach" => list(any()),
-        "targetPercent" => [integer()],
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => ec2_ungraceful()
+      neptune_ungraceful() :: %{
+        "ungraceful" => list(any())
       }
       
   """
-  @type ec2_asg_capacity_increase_configuration() :: %{(String.t() | atom()) => any()}
+  @type neptune_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("tags") => map()
+      }
+      
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      start_plan_execution_request() :: %{
+        optional("comment") => String.t() | atom(),
+        optional("latestVersion") => [String.t() | atom()],
+        optional("mode") => list(any()),
+        optional("recoveryExecutionId") => String.t() | atom(),
+        required("action") => list(any()),
+        required("planArn") => String.t() | atom(),
+        required("targetRegion") => [String.t() | atom()]
+      }
+      
+  """
+  @type start_plan_execution_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1166,31 +673,260 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      route53_health_check_configuration() :: %{
-        "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()],
-        "hostedZoneId" => String.t() | atom(),
-        "recordName" => String.t() | atom(),
-        "recordSets" => list(route53_resource_record_set()),
-        "timeoutMinutes" => [integer()]
+      update_plan_request() :: %{
+        optional("associatedAlarms") => map(),
+        optional("description") => [String.t() | atom()],
+        optional("recoveryTimeObjectiveMinutes") => [integer()],
+        optional("reportConfiguration") => report_configuration(),
+        optional("triggers") => list(trigger()),
+        required("arn") => String.t() | atom(),
+        required("executionRole") => String.t() | atom(),
+        required("workflows") => list(workflow())
       }
       
   """
-  @type route53_health_check_configuration() :: %{(String.t() | atom()) => any()}
+  @type update_plan_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      list_plan_executions_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => [String.t() | atom()],
-        optional("state") => list(any()),
-        required("planArn") => String.t() | atom()
+      global_aurora_ungraceful() :: %{
+        "ungraceful" => list(any())
       }
       
   """
-  @type list_plan_executions_request() :: %{(String.t() | atom()) => any()}
+  @type global_aurora_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_plan_response() :: %{
+        "plan" => plan()
+      }
+      
+  """
+  @type create_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      workflow() :: %{
+        "steps" => list(step()),
+        "workflowDescription" => [String.t() | atom()],
+        "workflowTargetAction" => list(any()),
+        "workflowTargetRegion" => String.t() | atom()
+      }
+      
+  """
+  @type workflow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      tag_resource_response() :: %{}
+      
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_plan_execution_step_response() :: %{}
+      
+  """
+  @type update_plan_execution_step_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_route53_health_checks_in_region_response() :: %{
+        "healthChecks" => list(route53_health_check()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_route53_health_checks_in_region_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_plan_response() :: %{}
+      
+  """
+  @type delete_plan_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_response() :: %{}
+      
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      event_source_mapping() :: %{
+        "arn" => String.t() | atom(),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()]
+      }
+      
+  """
+  @type event_source_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      generated_report() :: %{
+        "reportGenerationTime" => [non_neg_integer()],
+        "reportOutput" => list()
+      }
+      
+  """
+  @type generated_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_plans_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "plans" => list(abbreviated_plan())
+      }
+      
+  """
+  @type list_plans_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      untag_resource_request() :: %{
+        required("arn") => String.t() | atom(),
+        required("resourceTagKeys") => list(String.t() | atom())
+      }
+      
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_plan_execution_step_request() :: %{
+        required("actionToTake") => list(any()),
+        required("comment") => String.t() | atom(),
+        required("executionId") => String.t() | atom(),
+        required("planArn") => String.t() | atom(),
+        required("stepName") => [String.t() | atom()]
+      }
+      
+  """
+  @type update_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_plan_execution_response() :: %{}
+      
+  """
+  @type update_plan_execution_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      parallel_execution_block_configuration() :: %{
+        "steps" => list(step())
+      }
+      
+  """
+  @type parallel_execution_block_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      plan() :: %{
+        "arn" => String.t() | atom(),
+        "associatedAlarms" => map(),
+        "description" => [String.t() | atom()],
+        "executionRole" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "owner" => String.t() | atom(),
+        "primaryRegion" => String.t() | atom(),
+        "recoveryApproach" => list(any()),
+        "recoveryTimeObjectiveMinutes" => [integer()],
+        "regions" => list(String.t() | atom()),
+        "reportConfiguration" => report_configuration(),
+        "triggers" => list(trigger()),
+        "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()],
+        "workflows" => list(workflow())
+      }
+      
+  """
+  @type plan() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_event_source_mapping_ungraceful() :: %{
+        "behavior" => list(any())
+      }
+      
+  """
+  @type lambda_event_source_mapping_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_plans_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_plans_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_event_source_mapping_configuration() :: %{
+        "action" => list(any()),
+        "regionEventSourceMappings" => map(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => lambda_event_source_mapping_ungraceful()
+      }
+      
+  """
+  @type lambda_event_source_mapping_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ec2_ungraceful() :: %{
+        "minimumSuccessPercentage" => [integer()]
+      }
+      
+  """
+  @type ec2_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1211,15 +947,115 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      update_plan_execution_request() :: %{
-        optional("comment") => String.t() | atom(),
-        required("action") => list(any()),
-        required("executionId") => String.t() | atom(),
-        required("planArn") => String.t() | atom()
+      trigger() :: %{
+        "action" => list(any()),
+        "conditions" => list(trigger_condition()),
+        "description" => [String.t() | atom()],
+        "minDelayMinutesBetweenExecutions" => [integer()],
+        "targetRegion" => String.t() | atom()
       }
       
   """
-  @type update_plan_execution_request() :: %{(String.t() | atom()) => any()}
+  @type trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_response() :: %{
+        "resourceTags" => map()
+      }
+      
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route53_resource_record_set() :: %{
+        "recordSetIdentifier" => String.t() | atom(),
+        "region" => String.t() | atom()
+      }
+      
+  """
+  @type route53_resource_record_set() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      lambda_ungraceful() :: %{
+        "behavior" => list(any())
+      }
+      
+  """
+  @type lambda_ungraceful() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      minimal_workflow() :: %{
+        "action" => list(any()),
+        "name" => [String.t() | atom()]
+      }
+      
+  """
+  @type minimal_workflow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      approve_plan_execution_step_request() :: %{
+        optional("comment") => String.t() | atom(),
+        required("approval") => list(any()),
+        required("executionId") => String.t() | atom(),
+        required("planArn") => String.t() | atom(),
+        required("stepName") => String.t() | atom()
+      }
+      
+  """
+  @type approve_plan_execution_step_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      s3_report_output() :: %{
+        "s3ObjectKey" => [String.t() | atom()]
+      }
+      
+  """
+  @type s3_report_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ecs_capacity_increase_configuration() :: %{
+        "capacityMonitoringApproach" => list(any()),
+        "services" => list(service()),
+        "targetPercent" => [integer()],
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => ecs_ungraceful()
+      }
+      
+  """
+  @type ecs_capacity_increase_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      trigger_condition() :: %{
+        "associatedAlarmName" => [String.t() | atom()],
+        "condition" => list(any())
+      }
+      
+  """
+  @type trigger_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1234,6 +1070,17 @@ defmodule AWS.ARCRegionswitch do
       
   """
   @type rds_create_cross_region_replica_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      ecs_ungraceful() :: %{
+        "minimumSuccessPercentage" => [integer()]
+      }
+      
+  """
+  @type ecs_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1261,52 +1108,25 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      neptune_global_database_configuration() :: %{
-        "behavior" => list(any()),
+      asg() :: %{
+        "arn" => String.t() | atom(),
         "crossAccountRole" => String.t() | atom(),
-        "externalId" => [String.t() | atom()],
-        "globalClusterIdentifier" => String.t() | atom(),
-        "regionDatabaseClusterArns" => map(),
-        "timeoutMinutes" => [integer()],
-        "ungraceful" => neptune_ungraceful()
+        "externalId" => [String.t() | atom()]
       }
       
   """
-  @type neptune_global_database_configuration() :: %{(String.t() | atom()) => any()}
+  @type asg() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
       
-      approve_plan_execution_step_response() :: %{}
-      
-  """
-  @type approve_plan_execution_step_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-      
-      rds_promote_read_replica_configuration() :: %{
-        "crossAccountRole" => String.t() | atom(),
-        "dbInstanceArnMap" => map(),
-        "externalId" => [String.t() | atom()],
-        "timeoutMinutes" => [integer()]
+      illegal_state_exception() :: %{
+        "message" => [String.t() | atom()]
       }
       
   """
-  @type rds_promote_read_replica_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      lambda_event_source_mapping_ungraceful() :: %{
-        "behavior" => list(any())
-      }
-      
-  """
-  @type lambda_event_source_mapping_ungraceful() :: %{(String.t() | atom()) => any()}
+  @type illegal_state_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1327,84 +1147,264 @@ defmodule AWS.ARCRegionswitch do
 
   ## Example:
       
-      plan() :: %{
-        "arn" => String.t() | atom(),
-        "associatedAlarms" => map(),
-        "description" => [String.t() | atom()],
-        "executionRole" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "owner" => String.t() | atom(),
-        "primaryRegion" => String.t() | atom(),
-        "recoveryApproach" => list(any()),
-        "recoveryTimeObjectiveMinutes" => [integer()],
-        "regions" => list(String.t() | atom()),
-        "reportConfiguration" => report_configuration(),
-        "triggers" => list(trigger()),
-        "updatedAt" => [non_neg_integer()],
-        "version" => [String.t() | atom()],
-        "workflows" => list(workflow())
+      update_plan_response() :: %{
+        "plan" => plan()
       }
       
   """
-  @type plan() :: %{(String.t() | atom()) => any()}
+  @type update_plan_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      global_aurora_configuration() :: %{
+        "behavior" => list(any()),
+        "crossAccountRole" => String.t() | atom(),
+        "databaseClusterArns" => list(String.t() | atom()),
+        "externalId" => [String.t() | atom()],
+        "globalClusterIdentifier" => String.t() | atom(),
+        "timeoutMinutes" => [integer()],
+        "ungraceful" => global_aurora_ungraceful()
+      }
+      
+  """
+  @type global_aurora_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_route53_health_checks_request() :: %{
+        optional("hostedZoneId") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("recordName") => String.t() | atom(),
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type list_route53_health_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      region_switch_plan_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()]
+      }
+      
+  """
+  @type region_switch_plan_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_execution_response() :: %{
+        "actualRecoveryTime" => String.t() | atom(),
+        "comment" => [String.t() | atom()],
+        "endTime" => [non_neg_integer()],
+        "executionAction" => list(any()),
+        "executionId" => String.t() | atom(),
+        "executionRegion" => [String.t() | atom()],
+        "executionState" => list(any()),
+        "generatedReportDetails" => list(generated_report()),
+        "mode" => list(any()),
+        "nextToken" => [String.t() | atom()],
+        "plan" => plan(),
+        "planArn" => String.t() | atom(),
+        "recoveryExecutionId" => [String.t() | atom()],
+        "startTime" => [non_neg_integer()],
+        "stepStates" => list(step_state()),
+        "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+      
+  """
+  @type get_plan_execution_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      report_configuration() :: %{
+        "reportOutput" => list(list())
+      }
+      
+  """
+  @type report_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_evaluation_status_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        required("planArn") => String.t() | atom()
+      }
+      
+  """
+  @type get_plan_evaluation_status_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_tags_for_resource_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_plan_request() :: %{
+        required("arn") => String.t() | atom()
+      }
+      
+  """
+  @type get_plan_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      abbreviated_execution() :: %{
+        "actualRecoveryTime" => String.t() | atom(),
+        "comment" => [String.t() | atom()],
+        "endTime" => [non_neg_integer()],
+        "executionAction" => list(any()),
+        "executionId" => String.t() | atom(),
+        "executionRegion" => [String.t() | atom()],
+        "executionState" => list(any()),
+        "mode" => list(any()),
+        "planArn" => String.t() | atom(),
+        "recoveryExecutionId" => [String.t() | atom()],
+        "startTime" => [non_neg_integer()],
+        "updatedAt" => [non_neg_integer()],
+        "version" => [String.t() | atom()]
+      }
+      
+  """
+  @type abbreviated_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      route53_health_check_configuration() :: %{
+        "crossAccountRole" => String.t() | atom(),
+        "externalId" => [String.t() | atom()],
+        "hostedZoneId" => String.t() | atom(),
+        "recordName" => String.t() | atom(),
+        "recordSets" => list(route53_resource_record_set()),
+        "timeoutMinutes" => [integer()]
+      }
+      
+  """
+  @type route53_health_check_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      kubernetes_resource_type() :: %{
+        "apiVersion" => [String.t() | atom()],
+        "kind" => [String.t() | atom()]
+      }
+      
+  """
+  @type kubernetes_resource_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_plan_executions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => [String.t() | atom()],
+        optional("state") => list(any()),
+        required("planArn") => String.t() | atom()
+      }
+      
+  """
+  @type list_plan_executions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      eks_resource_scaling_ungraceful() :: %{
+        "minimumSuccessPercentage" => [integer()]
+      }
+      
+  """
+  @type eks_resource_scaling_ungraceful() :: %{(String.t() | atom()) => any()}
 
   @type approve_plan_execution_step_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   @type cancel_plan_execution_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
-  @type delete_plan_errors() :: resource_not_found_exception() | illegal_state_exception()
+  @type delete_plan_errors() :: illegal_state_exception() | resource_not_found_exception()
 
   @type get_plan_errors() :: resource_not_found_exception()
 
   @type get_plan_evaluation_status_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
-  @type get_plan_execution_errors() :: access_denied_exception() | resource_not_found_exception()
+  @type get_plan_execution_errors() :: resource_not_found_exception() | access_denied_exception()
 
-  @type get_plan_in_region_errors() :: access_denied_exception() | resource_not_found_exception()
+  @type get_plan_in_region_errors() :: resource_not_found_exception() | access_denied_exception()
 
   @type list_plan_execution_events_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   @type list_plan_executions_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   @type list_plans_in_region_errors() :: access_denied_exception()
 
   @type list_route53_health_checks_errors() ::
-          access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | illegal_argument_exception()
+          | access_denied_exception()
 
   @type list_route53_health_checks_in_region_errors() ::
-          access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
           | illegal_argument_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception()
 
   @type start_plan_execution_errors() ::
-          access_denied_exception()
+          illegal_state_exception()
           | resource_not_found_exception()
           | illegal_argument_exception()
-          | illegal_state_exception()
+          | access_denied_exception()
 
-  @type tag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+  @type tag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
 
-  @type untag_resource_errors() :: internal_server_exception() | resource_not_found_exception()
+  @type untag_resource_errors() :: resource_not_found_exception() | internal_server_exception()
 
   @type update_plan_errors() :: resource_not_found_exception()
 
   @type update_plan_execution_errors() ::
-          access_denied_exception() | resource_not_found_exception() | illegal_state_exception()
+          illegal_state_exception() | resource_not_found_exception() | access_denied_exception()
 
   @type update_plan_execution_step_errors() ::
-          access_denied_exception() | resource_not_found_exception()
+          resource_not_found_exception() | access_denied_exception()
 
   def metadata do
     %{
@@ -1438,7 +1438,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, approve_plan_execution_step_errors()}
   def approve_plan_execution_step(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ApprovePlanExecutionStep", input, options)
   end
@@ -1458,7 +1459,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, cancel_plan_execution_errors()}
   def cancel_plan_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CancelPlanExecution", input, options)
   end
@@ -1479,7 +1481,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def create_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "CreatePlan", input, options)
   end
@@ -1497,7 +1500,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, delete_plan_errors()}
   def delete_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "DeletePlan", input, options)
   end
@@ -1513,7 +1517,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_errors()}
   def get_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlan", input, options)
   end
@@ -1530,7 +1535,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_evaluation_status_errors()}
   def get_plan_evaluation_status(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlanEvaluationStatus", input, options)
   end
@@ -1546,7 +1552,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_execution_errors()}
   def get_plan_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlanExecution", input, options)
   end
@@ -1563,7 +1570,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, get_plan_in_region_errors()}
   def get_plan_in_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "GetPlanInRegion", input, options)
   end
@@ -1579,7 +1587,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plan_execution_events_errors()}
   def list_plan_execution_events(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlanExecutionEvents", input, options)
   end
@@ -1595,7 +1604,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plan_executions_errors()}
   def list_plan_executions(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlanExecutions", input, options)
   end
@@ -1608,7 +1618,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
   def list_plans(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlans", input, options)
   end
@@ -1623,7 +1634,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_plans_in_region_errors()}
   def list_plans_in_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListPlansInRegion", input, options)
   end
@@ -1637,7 +1649,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_route53_health_checks_errors()}
   def list_route53_health_checks(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoute53HealthChecks", input, options)
   end
@@ -1655,7 +1668,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_route53_health_checks_in_region_errors()}
   def list_route53_health_checks_in_region(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListRoute53HealthChecksInRegion", input, options)
   end
@@ -1669,7 +1683,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, list_tags_for_resource_errors()}
   def list_tags_for_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "ListTagsForResource", input, options)
   end
@@ -1688,7 +1703,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, start_plan_execution_errors()}
   def start_plan_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "StartPlanExecution", input, options)
   end
@@ -1705,7 +1721,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, tag_resource_errors()}
   def tag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "TagResource", input, options)
   end
@@ -1719,7 +1736,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, untag_resource_errors()}
   def untag_resource(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
   end
@@ -1736,7 +1754,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_errors()}
   def update_plan(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePlan", input, options)
   end
@@ -1753,7 +1772,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_execution_errors()}
   def update_plan_execution(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePlanExecution", input, options)
   end
@@ -1769,7 +1789,8 @@ defmodule AWS.ARCRegionswitch do
           | {:error, term()}
           | {:error, update_plan_execution_step_errors()}
   def update_plan_execution_step(%Client{} = client, input, options \\ []) do
-    meta = metadata()
+    meta =
+      metadata()
 
     Request.request_post(client, meta, "UpdatePlanExecutionStep", input, options)
   end

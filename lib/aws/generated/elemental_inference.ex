@@ -21,75 +21,6 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      clipping_config() :: %{
-        "callbackMetadata" => String.t() | atom()
-      }
-
-  """
-  @type clipping_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_feed_request() :: %{}
-
-  """
-  @type delete_feed_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_dictionary_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_dictionary_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_dictionary_entries_response() :: %{
-        "entries" => String.t() | atom()
-      }
-
-  """
-  @type export_dictionary_entries_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_dictionary_request() :: %{
-        optional("entries") => String.t() | atom(),
-        optional("tags") => map(),
-        required("language") => list(any()),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type create_dictionary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       create_feed_response() :: %{
         "arn" => String.t() | atom(),
         "association" => feed_association(),
@@ -108,29 +39,36 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      untag_resource_request() :: %{
-        required("tagKeys") => list(String.t() | atom())
+      delete_feed_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type delete_feed_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_dictionary_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "language" => list(any()),
-        "name" => String.t() | atom(),
-        "references" => list(String.t() | atom()),
-        "status" => list(any()),
-        "tags" => map()
+      create_feed_request() :: %{
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("outputs") => list(create_output())
       }
 
   """
-  @type get_dictionary_response() :: %{(String.t() | atom()) => any()}
+  @type create_feed_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_dictionary_entries_request() :: %{}
+
+  """
+  @type export_dictionary_entries_request() :: %{}
 
   @typedoc """
 
@@ -143,6 +81,64 @@ defmodule AWS.ElementalInference do
 
   """
   @type aspect_ratio() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_feed_request() :: %{
+        required("name") => String.t() | atom(),
+        required("outputs") => list(update_output())
+      }
+
+  """
+  @type update_feed_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      feed_association() :: %{
+        "associatedResourceName" => String.t() | atom()
+      }
+
+  """
+  @type feed_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_dictionary_entries_response() :: %{
+        "entries" => String.t() | atom()
+      }
+
+  """
+  @type export_dictionary_entries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dictionary_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type delete_dictionary_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -165,112 +161,23 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      delete_dictionary_request() :: %{}
-
-  """
-  @type delete_dictionary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      feed_association() :: %{
-        "associatedResourceName" => String.t() | atom()
-      }
-
-  """
-  @type feed_association() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
+      too_many_request_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+  @type too_many_request_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      resource_not_found_exception() :: %{
+      validation_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cropping_config() :: %{}
-
-  """
-  @type cropping_config() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_feed_request() :: %{
-        required("name") => String.t() | atom(),
-        required("outputs") => list(update_output())
-      }
-
-  """
-  @type update_feed_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_dictionary_entries_request() :: %{}
-
-  """
-  @type export_dictionary_entries_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dictionary_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "language" => list(any()),
-        "name" => String.t() | atom(),
-        "references" => list(String.t() | atom()),
-        "status" => list(any()),
-        "tags" => map()
-      }
-
-  """
-  @type update_dictionary_response() :: %{(String.t() | atom()) => any()}
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -294,14 +201,139 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      create_feed_request() :: %{
-        optional("tags") => map(),
-        required("name") => String.t() | atom(),
-        required("outputs") => list(create_output())
+      disassociate_feed_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom()
       }
 
   """
-  @type create_feed_request() :: %{(String.t() | atom()) => any()}
+  @type disassociate_feed_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      subtitling_config() :: %{
+        "aspectRatio" => aspect_ratio(),
+        "dictionary" => String.t() | atom(),
+        "language" => list(any()),
+        "profanityFilter" => list(any())
+      }
+
+  """
+  @type subtitling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dictionary_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "language" => list(any()),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type update_dictionary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_feed_request() :: %{}
+
+  """
+  @type delete_feed_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_error_exception() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_feeds_request() :: %{
+        optional("maxResults") => [integer()],
+        optional("nextToken") => [String.t() | atom()]
+      }
+
+  """
+  @type list_feeds_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      associate_feed_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type associate_feed_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dictionary_response() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "language" => list(any()),
+        "name" => String.t() | atom(),
+        "references" => list(String.t() | atom()),
+        "status" => list(any()),
+        "tags" => map()
+      }
+
+  """
+  @type get_dictionary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_feeds_response() :: %{
+        "feeds" => list(feed_summary()),
+        "nextToken" => [String.t() | atom()]
+      }
+
+  """
+  @type list_feeds_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -321,6 +353,55 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      get_feed_request() :: %{}
+
+  """
+  @type get_feed_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_dictionary_request() :: %{
+        optional("entries") => String.t() | atom(),
+        optional("tags") => map(),
+        required("language") => list(any()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_dictionary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      clipping_config() :: %{
+        "callbackMetadata" => String.t() | atom()
+      }
+
+  """
+  @type clipping_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dictionary_summary() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "language" => list(any()),
+        "name" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type dictionary_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_feed_request() :: %{
         optional("dryRun") => [boolean()],
         required("associatedResourceName") => String.t() | atom(),
@@ -334,115 +415,12 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      associate_feed_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type associate_feed_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_dictionary_request() :: %{
-        optional("entries") => String.t() | atom(),
-        optional("language") => list(any()),
-        optional("name") => String.t() | atom()
-      }
-
-  """
-  @type update_dictionary_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_feeds_response() :: %{
-        "feeds" => list(feed_summary()),
-        "nextToken" => [String.t() | atom()]
-      }
-
-  """
-  @type list_feeds_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
+      conflict_exception() :: %{
         "message" => [String.t() | atom()]
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_dictionary_request() :: %{}
-
-  """
-  @type get_dictionary_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_output() :: %{
-        "description" => String.t() | atom(),
-        "fromAssociation" => [boolean()],
-        "name" => String.t() | atom(),
-        "outputConfig" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_request_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type too_many_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -460,16 +438,59 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      dictionary_summary() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "language" => list(any()),
+      untag_resource_request() :: %{
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_dictionary_request() :: %{}
+
+  """
+  @type get_dictionary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_output() :: %{
+        "description" => String.t() | atom(),
+        "fromAssociation" => [boolean()],
         "name" => String.t() | atom(),
+        "outputConfig" => list(),
         "status" => list(any())
       }
 
   """
-  @type dictionary_summary() :: %{(String.t() | atom()) => any()}
+  @type update_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disassociate_feed_request() :: %{
+        optional("dryRun") => [boolean()],
+        required("associatedResourceName") => String.t() | atom()
+      }
+
+  """
+  @type disassociate_feed_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -508,6 +529,52 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
+      get_output() :: %{
+        "description" => String.t() | atom(),
+        "fromAssociation" => [boolean()],
+        "name" => String.t() | atom(),
+        "outputConfig" => list(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cropping_config() :: %{}
+
+  """
+  @type cropping_config() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_dictionary_request() :: %{}
+
+  """
+  @type delete_dictionary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_dictionary_request() :: %{
+        optional("entries") => String.t() | atom(),
+        optional("language") => list(any()),
+        optional("name") => String.t() | atom()
+      }
+
+  """
+  @type update_dictionary_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_dictionaries_response() :: %{
         "dictionaries" => list(dictionary_summary()),
         "nextToken" => [String.t() | atom()]
@@ -520,210 +587,143 @@ defmodule AWS.ElementalInference do
 
   ## Example:
 
-      get_feed_request() :: %{}
+      list_tags_for_resource_request() :: %{}
 
   """
-  @type get_feed_request() :: %{}
+  @type list_tags_for_resource_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      disassociate_feed_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom()
+      service_quota_exceeded_exception() :: %{
+        "message" => [String.t() | atom()]
       }
 
   """
-  @type disassociate_feed_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disassociate_feed_request() :: %{
-        optional("dryRun") => [boolean()],
-        required("associatedResourceName") => String.t() | atom()
-      }
-
-  """
-  @type disassociate_feed_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_feeds_request() :: %{
-        optional("maxResults") => [integer()],
-        optional("nextToken") => [String.t() | atom()]
-      }
-
-  """
-  @type list_feeds_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      subtitling_config() :: %{
-        "aspectRatio" => aspect_ratio(),
-        "dictionary" => String.t() | atom(),
-        "language" => list(any()),
-        "profanityFilter" => list(any())
-      }
-
-  """
-  @type subtitling_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_output() :: %{
-        "description" => String.t() | atom(),
-        "fromAssociation" => [boolean()],
-        "name" => String.t() | atom(),
-        "outputConfig" => list(),
-        "status" => list(any())
-      }
-
-  """
-  @type update_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_feed_response() :: %{
-        "arn" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type delete_feed_response() :: %{(String.t() | atom()) => any()}
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @type associate_feed_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type create_dictionary_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type create_feed_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type delete_dictionary_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type delete_feed_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type disassociate_feed_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type export_dictionary_entries_errors() ::
           internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type get_dictionary_errors() ::
           internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type get_feed_errors() ::
           internal_server_error_exception()
+          | resource_not_found_exception()
           | too_many_request_exception()
           | access_denied_exception()
-          | resource_not_found_exception()
 
   @type list_dictionaries_errors() ::
           internal_server_error_exception()
-          | too_many_request_exception()
           | validation_exception()
+          | too_many_request_exception()
           | access_denied_exception()
 
   @type list_feeds_errors() ::
           internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
           internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
           | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type untag_resource_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type update_dictionary_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
+          conflict_exception()
+          | internal_server_error_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   @type update_feed_errors() ::
-          internal_server_error_exception()
-          | too_many_request_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_error_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | too_many_request_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

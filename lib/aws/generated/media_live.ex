@@ -13,51 +13,212 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      static_image_output_deactivate_schedule_action_settings() :: %{
-        "FadeOut" => integer(),
-        "Layer" => integer(),
-        "OutputNames" => list(String.t() | atom())
+      get_cloud_watch_alarm_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t() | atom(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
       }
 
   """
-  @type static_image_output_deactivate_schedule_action_settings() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scte27_destination_settings() :: %{}
-
-  """
-  @type scte27_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_alert() :: %{
-        "AlertType" => String.t() | atom(),
-        "ClearedTimestamp" => non_neg_integer(),
+      transferring_input_device_summary() :: %{
         "Id" => String.t() | atom(),
         "Message" => String.t() | atom(),
-        "PipelineId" => String.t() | atom(),
-        "SetTimestamp" => non_neg_integer(),
+        "TargetCustomerId" => String.t() | atom(),
+        "TransferType" => list(any())
+      }
+
+  """
+  @type transferring_input_device_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_output_destination_settings() :: %{
+        "ChannelEndpointId" => String.t() | atom(),
+        "ChannelGroup" => String.t() | atom(),
+        "ChannelId" => String.t() | atom(),
+        "ChannelName" => String.t() | atom(),
+        "MediaPackageRegionName" => String.t() | atom()
+      }
+
+  """
+  @type media_package_output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_cdn_settings() :: %{
+        "ArchiveS3Settings" => archive_s3_settings()
+      }
+
+  """
+  @type archive_cdn_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_channel_request() :: %{}
+
+  """
+  @type start_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channels_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remix_settings() :: %{
+        "ChannelMappings" => list(audio_channel_mapping()),
+        "ChannelsIn" => integer(),
+        "ChannelsOut" => integer()
+      }
+
+  """
+  @type remix_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_primary_channel_settings() :: %{
+        "FollowingChannelArns" => list(String.t() | atom()),
+        "LinkedChannelType" => list(any())
+      }
+
+  """
+  @type describe_primary_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_response() :: %{
+        "Channel" => channel()
+      }
+
+  """
+  @type create_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_settings() :: %{
+        "AudioFeedInputs" => list(audio_feed_input()),
+        "FeedArn" => String.t() | atom()
+      }
+
+  """
+  @type inference_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelIds" => list(String.t() | atom()),
+        "ClusterType" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type multiplex_alert() :: %{(String.t() | atom()) => any()}
+  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_cloud_watch_alarm_template_group_request() :: %{}
+      fmp4_hls_settings() :: %{
+        "AudioRenditionSets" => String.t() | atom(),
+        "NielsenId3Behavior" => list(any()),
+        "TimedMetadataBehavior" => list(any())
+      }
 
   """
-  @type delete_cloud_watch_alarm_template_group_request() :: %{}
+  @type fmp4_hls_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_input_security_group_response() :: %{
+        "SecurityGroup" => input_security_group()
+      }
+
+  """
+  @type update_input_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_watch_alarm_template_groups_response() :: %{
+        "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cloud_watch_alarm_template_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_delete_monitor_deployment_request() :: %{}
+
+  """
+  @type start_delete_monitor_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scte27_source_settings() :: %{
+        "OcrLanguage" => list(any()),
+        "Pid" => integer()
+      }
+
+  """
+  @type scte27_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -80,39 +241,753 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      archive_s3_settings() :: %{
-        "CannedAcl" => list(any())
+      multicast_settings() :: %{
+        "Sources" => list(multicast_source())
       }
 
   """
-  @type archive_s3_settings() :: %{(String.t() | atom()) => any()}
+  @type multicast_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      caption_rectangle() :: %{
-        "Height" => float(),
-        "LeftOffset" => float(),
-        "TopOffset" => float(),
-        "Width" => float()
+      smart_subtitle_source_settings() :: %{
+        "CaptionSynchronizationMode" => list(any()),
+        "InferenceFeedOutput" => String.t() | atom()
       }
 
   """
-  @type caption_rectangle() :: %{(String.t() | atom()) => any()}
+  @type smart_subtitle_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scte35_time_signal_apos() :: %{
-        "AdAvailOffset" => integer(),
-        "NoRegionalBlackoutFlag" => list(any()),
-        "WebDeliveryAllowedFlag" => list(any())
+      hls_timed_metadata_schedule_action_settings() :: %{
+        "Id3" => String.t() | atom()
       }
 
   """
-  @type scte35_time_signal_apos() :: %{(String.t() | atom()) => any()}
+  @type hls_timed_metadata_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multiplex_program_response() :: %{
+        "MultiplexProgram" => multiplex_program()
+      }
+
+  """
+  @type create_multiplex_program_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_bridge_rule_template_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_event_bridge_rule_template_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_watch_alarm_template_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_cloud_watch_alarm_template_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_input_security_group_request() :: %{
+        optional("Tags") => map(),
+        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
+      }
+
+  """
+  @type create_input_security_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_settings() :: %{
+        "ConnectedRouterInputs" => media_connect_router_output_connection_map(),
+        "ContainerSettings" => media_connect_router_container_settings(),
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type media_connect_router_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_request() :: %{
+        optional("AnywhereSettings") => anywhere_settings(),
+        optional("CdiInputSpecification") => cdi_input_specification(),
+        optional("ChannelEngineVersion") => channel_engine_version_request(),
+        optional("ChannelSecurityGroups") => list(String.t() | atom()),
+        optional("Destinations") => list(output_destination()),
+        optional("DryRun") => boolean(),
+        optional("EncoderSettings") => encoder_settings(),
+        optional("InferenceSettings") => inference_settings(),
+        optional("InputAttachments") => list(input_attachment()),
+        optional("InputSpecification") => input_specification(),
+        optional("LinkedChannelSettings") => linked_channel_settings(),
+        optional("LogLevel") => list(any()),
+        optional("Maintenance") => maintenance_update_settings(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("SpecialRouterSettings") => special_router_settings()
+      }
+
+  """
+  @type update_channel_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_ingest_output_settings() :: %{
+        "NameModifier" => String.t() | atom()
+      }
+
+  """
+  @type cmaf_ingest_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_group_settings() :: %{
+        "AvailabilityZones" => list(String.t() | atom())
+      }
+
+  """
+  @type media_connect_router_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_pool_create_request() :: %{
+        "Cidr" => String.t() | atom()
+      }
+
+  """
+  @type ip_pool_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_source_request() :: %{
+        "Decryption" => srt_caller_decryption_request(),
+        "MinimumLatency" => integer(),
+        "SrtListenerAddress" => String.t() | atom(),
+        "SrtListenerPort" => String.t() | atom(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_caller_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_devices_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_input_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_placement_group_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("Nodes") => list(String.t() | atom())
+      }
+
+  """
+  @type update_channel_placement_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_watermark_settings() :: %{
+        "NielsenWatermarksSettings" => nielsen_watermarks_settings()
+      }
+
+  """
+  @type audio_watermark_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      restart_channel_pipelines_request() :: %{
+        optional("PipelineIds") => list(list(any())())
+      }
+
+  """
+  @type restart_channel_pipelines_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_registration_script_response() :: %{
+        "NodeRegistrationScript" => String.t() | atom()
+      }
+
+  """
+  @type create_node_registration_script_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_multiplex_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Destinations" => list(multiplex_output_destination()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type describe_multiplex_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_media_store_settings() :: %{
+        "ConnectionRetryInterval" => integer(),
+        "FilecacheDuration" => integer(),
+        "MediaStoreStorageClass" => list(any()),
+        "NumRetries" => integer(),
+        "RestartDelay" => integer()
+      }
+
+  """
+  @type hls_media_store_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_action_settings() :: %{
+        "HlsId3SegmentTaggingSettings" => hls_id3_segment_tagging_schedule_action_settings(),
+        "HlsTimedMetadataSettings" => hls_timed_metadata_schedule_action_settings(),
+        "Id3SegmentTaggingSettings" => id3_segment_tagging_schedule_action_settings(),
+        "InputPrepareSettings" => input_prepare_schedule_action_settings(),
+        "InputSwitchSettings" => input_switch_schedule_action_settings(),
+        "MotionGraphicsImageActivateSettings" => motion_graphics_activate_schedule_action_settings(),
+        "MotionGraphicsImageDeactivateSettings" => motion_graphics_deactivate_schedule_action_settings(),
+        "PauseStateSettings" => pause_state_schedule_action_settings(),
+        "Scte35InputSettings" => scte35_input_schedule_action_settings(),
+        "Scte35ReturnToNetworkSettings" => scte35_return_to_network_schedule_action_settings(),
+        "Scte35SpliceInsertSettings" => scte35_splice_insert_schedule_action_settings(),
+        "Scte35TimeSignalSettings" => scte35_time_signal_schedule_action_settings(),
+        "StaticImageActivateSettings" => static_image_activate_schedule_action_settings(),
+        "StaticImageDeactivateSettings" => static_image_deactivate_schedule_action_settings(),
+        "StaticImageOutputActivateSettings" => static_image_output_activate_schedule_action_settings(),
+        "StaticImageOutputDeactivateSettings" => static_image_output_deactivate_schedule_action_settings(),
+        "TimedMetadataSettings" => timed_metadata_schedule_action_settings()
+      }
+
+  """
+  @type schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_start_response() :: %{
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
+      }
+
+  """
+  @type batch_start_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_input_device_request() :: %{}
+
+  """
+  @type describe_input_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_placement_group_request() :: %{}
+
+  """
+  @type describe_channel_placement_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_alarm_template_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t() | atom(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type cloud_watch_alarm_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_nit_settings() :: %{
+        "NetworkId" => integer(),
+        "NetworkName" => String.t() | atom(),
+        "RepInterval" => integer()
+      }
+
+  """
+  @type dvb_nit_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_watch_alarm_template_group_request() :: %{}
+
+  """
+  @type get_cloud_watch_alarm_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_timecode() :: %{
+        "LastFrameClippingBehavior" => list(any()),
+        "Timecode" => String.t() | atom()
+      }
+
+  """
+  @type stop_timecode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_response() :: %{
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
+      }
+
+  """
+  @type batch_delete_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timed_metadata_schedule_action_settings() :: %{
+        "Id3" => String.t() | atom()
+      }
+
+  """
+  @type timed_metadata_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_response() :: %{
+        "Networks" => list(describe_network_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_networks_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multiplex_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Destinations" => list(multiplex_output_destination()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type delete_multiplex_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_multiplex_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Destinations" => list(multiplex_output_destination()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type stop_multiplex_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping_create_request() :: %{
+        "LogicalInterfaceName" => String.t() | atom(),
+        "NetworkId" => String.t() | atom()
+      }
+
+  """
+  @type interface_mapping_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      av1_color_space_settings() :: %{
+        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
+        "Hdr10Settings" => hdr10_settings(),
+        "Hlg2020Settings" => hlg2020_settings(),
+        "Rec601Settings" => rec601_settings(),
+        "Rec709Settings" => rec709_settings()
+      }
+
+  """
+  @type av1_color_space_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multiplex_program_request() :: %{
+        optional("MultiplexProgramSettings") => multiplex_program_settings()
+      }
+
+  """
+  @type update_multiplex_program_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multiplex_response() :: %{
+        "Multiplex" => multiplex()
+      }
+
+  """
+  @type create_multiplex_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route() :: %{
+        "Cidr" => String.t() | atom(),
+        "Gateway" => String.t() | atom()
+      }
+
+  """
+  @type route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelIds" => list(String.t() | atom()),
+        "ClusterType" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_m2ts_settings() :: %{
+        "AbsentInputAudioBehavior" => list(any()),
+        "Arib" => list(any()),
+        "AudioBufferModel" => list(any()),
+        "AudioFramesPerPes" => integer(),
+        "AudioStreamType" => list(any()),
+        "CcDescriptor" => list(any()),
+        "Ebif" => list(any()),
+        "EsRateInPes" => list(any()),
+        "Klv" => list(any()),
+        "NielsenId3Behavior" => list(any()),
+        "PcrControl" => list(any()),
+        "PcrPeriod" => integer(),
+        "Scte35Control" => list(any()),
+        "Scte35PrerollPullupMilliseconds" => float()
+      }
+
+  """
+  @type multiplex_m2ts_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      follower_channel_settings() :: %{
+        "LinkedChannelType" => list(any()),
+        "PrimaryChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type follower_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_connection_map() :: %{
+        "Pipeline0" => String.t() | atom(),
+        "Pipeline1" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_connection_map() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_request() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type input_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_vpc_request() :: %{
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type input_vpc_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings_summary(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type multiplex_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Nodes" => list(describe_node_summary())
+      }
+
+  """
+  @type list_nodes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_settings_summary() :: %{
+        "TransportStreamBitrate" => integer()
+      }
+
+  """
+  @type multiplex_settings_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_schedule_response() :: %{
+        "Creates" => batch_schedule_action_create_result(),
+        "Deletes" => batch_schedule_action_delete_result()
+      }
+
+  """
+  @type batch_update_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reservation_resource_specification() :: %{
+        "ChannelClass" => list(any()),
+        "Codec" => list(any()),
+        "MaximumBitrate" => list(any()),
+        "MaximumFramerate" => list(any()),
+        "Resolution" => list(any()),
+        "ResourceType" => list(any()),
+        "SpecialFeature" => list(any()),
+        "VideoQuality" => list(any())
+      }
+
+  """
+  @type reservation_resource_specification() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_input_device_request() :: %{
+        optional("TargetCustomerId") => String.t() | atom(),
+        optional("TargetRegion") => String.t() | atom(),
+        optional("TransferMessage") => String.t() | atom()
+      }
+
+  """
+  @type transfer_input_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      udp_group_settings() :: %{
+        "InputLossAction" => list(any()),
+        "TimedMetadataId3Frame" => list(any()),
+        "TimedMetadataId3Period" => integer()
+      }
+
+  """
+  @type udp_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()),
+        optional("RequestId") => String.t() | atom(),
+        optional("Role") => list(any()),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_node_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_bridge_rule_template_group_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_event_bridge_rule_template_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cluster_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelIds" => list(String.t() | atom()),
+        "ClusterType" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -135,127 +1010,82 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      srt_output_settings() :: %{
-        "BufferMsec" => integer(),
-        "ContainerSettings" => udp_container_settings(),
-        "Destination" => output_location_ref(),
-        "EncryptionType" => list(any()),
-        "Latency" => integer()
+      schedule_action() :: %{
+        "ActionName" => String.t() | atom(),
+        "ScheduleActionSettings" => schedule_action_settings(),
+        "ScheduleActionStartSettings" => schedule_action_start_settings()
       }
 
   """
-  @type srt_output_settings() :: %{(String.t() | atom()) => any()}
+  @type schedule_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_cluster_request() :: %{}
-
-  """
-  @type describe_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_networks_response() :: %{
-        "Networks" => list(describe_network_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_networks_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_request() :: %{}
-
-  """
-  @type delete_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_rule_template_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EventTargetCount" => integer(),
-        "EventType" => list(any()),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type event_bridge_rule_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_capture_group_settings() :: %{
-        "Destination" => output_location_ref(),
-        "FrameCaptureCdnSettings" => frame_capture_cdn_settings()
-      }
-
-  """
-  @type frame_capture_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_settings() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type input_device_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_input_security_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_input_security_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_bridge_rule_templates_request() :: %{
+      list_cloud_watch_alarm_templates_request() :: %{
         optional("GroupIdentifier") => String.t() | atom(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
+        optional("Scope") => String.t() | atom(),
         optional("SignalMapIdentifier") => String.t() | atom()
       }
 
   """
-  @type list_event_bridge_rule_templates_request() :: %{(String.t() | atom()) => any()}
+  @type list_cloud_watch_alarm_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_timecode() :: %{
-        "LastFrameClippingBehavior" => list(any()),
-        "Timecode" => String.t() | atom()
+      update_cluster_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("NetworkSettings") => cluster_network_settings_update_request()
       }
 
   """
-  @type stop_timecode() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_group_settings() :: %{}
+
+  """
+  @type multiplex_group_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_node_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_requests_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -278,6 +1108,87 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
+      start_delete_monitor_deployment_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DiscoveryEntryPointArn" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t() | atom(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_delete_monitor_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type create_node_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_failed_result_model() :: %{
+        "Arn" => String.t() | atom(),
+        "Code" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type batch_failed_result_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ac3_settings() :: %{
+        "AttenuationControl" => list(any()),
+        "Bitrate" => float(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "Dialnorm" => integer(),
+        "DrcProfile" => list(any()),
+        "LfeFilter" => list(any()),
+        "MetadataControl" => list(any())
+      }
+
+  """
+  @type ac3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       input_destination() :: %{
         "Ip" => String.t() | atom(),
         "Network" => String.t() | atom(),
@@ -289,6 +1200,564 @@ defmodule AWS.MediaLive do
 
   """
   @type input_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reservations_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Reservations" => list(reservation())
+      }
+
+  """
+  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_program() :: %{
+        "ChannelId" => String.t() | atom(),
+        "MultiplexProgramSettings" => multiplex_program_settings(),
+        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
+        "ProgramName" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_program() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      key_provider_settings() :: %{
+        "StaticKeySettings" => static_key_settings()
+      }
+
+  """
+  @type key_provider_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cloud_watch_alarm_template_group_request() :: %{}
+
+  """
+  @type delete_cloud_watch_alarm_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
+        "Arn" => String.t() | atom(),
+        "CdiInputSpecification" => cdi_input_specification(),
+        "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
+        "EncoderSettings" => encoder_settings(),
+        "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
+        "InputAttachments" => list(input_attachment()),
+        "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
+        "LogLevel" => list(any()),
+        "Maintenance" => maintenance_status(),
+        "Name" => String.t() | atom(),
+        "PipelineDetails" => list(pipeline_detail()),
+        "PipelinesRunningCount" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "Vpc" => vpc_output_settings_description()
+      }
+
+  """
+  @type start_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_alarm_template_group_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map(),
+        "TemplateCount" => integer()
+      }
+
+  """
+  @type cloud_watch_alarm_template_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_program_pipeline_detail() :: %{
+        "ActiveChannelPipeline" => String.t() | atom(),
+        "PipelineId" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_program_pipeline_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_multiplex_program_request() :: %{}
+
+  """
+  @type describe_multiplex_program_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_bridge_rule_template_request() :: %{}
+
+  """
+  @type delete_event_bridge_rule_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      wav_settings() :: %{
+        "BitDepth" => float(),
+        "CodingMode" => list(any()),
+        "SampleRate" => float()
+      }
+
+  """
+  @type wav_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_settings_request() :: %{
+        "Decryption" => srt_listener_decryption_request(),
+        "MinimumLatency" => integer(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_update_request() :: %{
+        "SourceIp" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type multicast_source_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_decryption_request() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_caller_decryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_cloud_watch_alarm_template_request() :: %{}
+
+  """
+  @type get_cloud_watch_alarm_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_schedule_response() :: %{}
+
+  """
+  @type delete_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      thumbnail_detail() :: %{
+        "PipelineId" => String.t() | atom(),
+        "Thumbnails" => list(thumbnail())
+      }
+
+  """
+  @type thumbnail_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_alerts_response() :: %{
+        "Alerts" => list(channel_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      blackout_slate() :: %{
+        "BlackoutSlateImage" => input_location(),
+        "NetworkEndBlackout" => list(any()),
+        "NetworkEndBlackoutImage" => input_location(),
+        "NetworkId" => String.t() | atom(),
+        "State" => list(any())
+      }
+
+  """
+  @type blackout_slate() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sdi_source() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Mode" => list(any()),
+        "Name" => String.t() | atom(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sdi_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_input_device_transfer_response() :: %{}
+
+  """
+  @type cancel_input_device_transfer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_schedule_action_delete_result() :: %{
+        "ScheduleActions" => list(schedule_action())
+      }
+
+  """
+  @type batch_schedule_action_delete_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_time_signal_apos() :: %{
+        "AdAvailOffset" => integer(),
+        "NoRegionalBlackoutFlag" => list(any()),
+        "WebDeliveryAllowedFlag" => list(any())
+      }
+
+  """
+  @type scte35_time_signal_apos() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_output_destination() :: %{
+        "MediaConnectSettings" => multiplex_media_connect_output_destination_settings()
+      }
+
+  """
+  @type multiplex_output_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_sdi_sources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_sdi_sources_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      standard_hls_settings() :: %{
+        "AudioRenditionSets" => String.t() | atom(),
+        "M3u8Settings" => m3u8_settings()
+      }
+
+  """
+  @type standard_hls_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_response() :: %{
+        "Versions" => list(channel_engine_version_response())
+      }
+
+  """
+  @type list_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reservation_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Count" => integer(),
+        "CurrencyCode" => String.t() | atom(),
+        "Duration" => integer(),
+        "DurationUnits" => list(any()),
+        "End" => String.t() | atom(),
+        "FixedPrice" => float(),
+        "Name" => String.t() | atom(),
+        "OfferingDescription" => String.t() | atom(),
+        "OfferingId" => String.t() | atom(),
+        "OfferingType" => list(any()),
+        "Region" => String.t() | atom(),
+        "RenewalSettings" => renewal_settings(),
+        "ReservationId" => String.t() | atom(),
+        "ResourceSpecification" => reservation_resource_specification(),
+        "Start" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "UsagePrice" => float()
+      }
+
+  """
+  @type describe_reservation_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_template_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SignalMapIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_event_bridge_rule_template_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_placement_group_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("Nodes") => list(String.t() | atom()),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_channel_placement_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_partner_input_response() :: %{
+        "Input" => input()
+      }
+
+  """
+  @type create_partner_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_timecode() :: %{
+        "Timecode" => String.t() | atom()
+      }
+
+  """
+  @type start_timecode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_s3_settings() :: %{
+        "CannedAcl" => list(any())
+      }
+
+  """
+  @type hls_s3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_selector() :: %{
+        "ColorSpace" => list(any()),
+        "ColorSpaceSettings" => video_selector_color_space_settings(),
+        "ColorSpaceUsage" => list(any()),
+        "SelectorSettings" => video_selector_settings()
+      }
+
+  """
+  @type video_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_hd_settings() :: %{
+        "ActiveInput" => list(any()),
+        "ConfiguredInput" => list(any()),
+        "DeviceState" => list(any()),
+        "Framerate" => float(),
+        "Height" => integer(),
+        "LatencyMs" => integer(),
+        "MaxBitrate" => integer(),
+        "ScanType" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type input_device_hd_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_silence_failover_settings() :: %{
+        "AudioSelectorName" => String.t() | atom(),
+        "AudioSilenceThresholdMsec" => integer()
+      }
+
+  """
+  @type audio_silence_failover_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      id3_segment_tagging_schedule_action_settings() :: %{
+        "Id3" => String.t() | atom(),
+        "Tag" => String.t() | atom()
+      }
+
+  """
+  @type id3_segment_tagging_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_selector_settings() :: %{
+        "VideoSelectorPid" => video_selector_pid(),
+        "VideoSelectorProgramId" => video_selector_program_id()
+      }
+
+  """
+  @type video_selector_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_group_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_cloud_watch_alarm_template_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_input_device_maintenance_window_request() :: %{}
+
+  """
+  @type start_input_device_maintenance_window_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      maintenance_create_settings() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceStartTime" => String.t() | atom()
+      }
+
+  """
+  @type maintenance_create_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      maintenance_update_settings() :: %{
+        "MaintenanceDay" => list(any()),
+        "MaintenanceScheduledDate" => String.t() | atom(),
+        "MaintenanceStartTime" => String.t() | atom()
+      }
+
+  """
+  @type maintenance_update_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_group_settings() :: %{
+        "ArchiveGroupSettings" => archive_group_settings(),
+        "CmafIngestGroupSettings" => cmaf_ingest_group_settings(),
+        "FrameCaptureGroupSettings" => frame_capture_group_settings(),
+        "HlsGroupSettings" => hls_group_settings(),
+        "MediaConnectRouterGroupSettings" => media_connect_router_group_settings(),
+        "MediaPackageGroupSettings" => media_package_group_settings(),
+        "MsSmoothGroupSettings" => ms_smooth_group_settings(),
+        "MultiplexGroupSettings" => multiplex_group_settings(),
+        "RtmpGroupSettings" => rtmp_group_settings(),
+        "SrtGroupSettings" => srt_group_settings(),
+        "UdpGroupSettings" => udp_group_settings()
+      }
+
+  """
+  @type output_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -320,55 +1789,467 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      batch_start_response() :: %{
-        "Failed" => list(batch_failed_result_model()),
-        "Successful" => list(batch_successful_result_model())
+      audio_normalization_settings() :: %{
+        "Algorithm" => list(any()),
+        "AlgorithmControl" => list(any()),
+        "PeakCalculation" => list(any()),
+        "PeakLimiterThreshold" => float(),
+        "TargetLkfs" => float()
       }
 
   """
-  @type batch_start_response() :: %{(String.t() | atom()) => any()}
+  @type audio_normalization_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scte20_source_settings() :: %{
-        "Convert608To708" => list(any()),
-        "Source608ChannelNumber" => integer()
+      describe_input_device_thumbnail_request() :: %{
+        required("Accept") => list(any())
       }
 
   """
-  @type scte20_source_settings() :: %{(String.t() | atom()) => any()}
+  @type describe_input_device_thumbnail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_cloud_watch_alarm_template_request() :: %{}
-
-  """
-  @type delete_cloud_watch_alarm_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_signal_maps_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "SignalMaps" => list(signal_map_summary())
+      video_codec_settings() :: %{
+        "Av1Settings" => av1_settings(),
+        "FrameCaptureSettings" => frame_capture_settings(),
+        "H264Settings" => h264_settings(),
+        "H265Settings" => h265_settings(),
+        "Mpeg2Settings" => mpeg2_settings()
       }
 
   """
-  @type list_signal_maps_response() :: %{(String.t() | atom()) => any()}
+  @type video_codec_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_multiplex_program_request() :: %{}
+      describe_inference_settings() :: %{
+        "AudioFeedInputs" => list(audio_feed_input()),
+        "FeedArn" => String.t() | atom()
+      }
 
   """
-  @type delete_multiplex_program_request() :: %{}
+  @type describe_inference_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_prepare_schedule_action_settings() :: %{
+        "InputAttachmentNameReference" => String.t() | atom(),
+        "InputClippingSettings" => input_clipping_settings(),
+        "UrlPath" => list(String.t() | atom())
+      }
+
+  """
+  @type input_prepare_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_class_request() :: %{
+        optional("Destinations") => list(output_destination()),
+        required("ChannelClass") => list(any())
+      }
+
+  """
+  @type update_channel_class_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_node_request() :: %{}
+
+  """
+  @type delete_node_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_network_settings_update_request() :: %{
+        "DefaultRoute" => String.t() | atom(),
+        "InterfaceMappings" => list(interface_mapping_update_request())
+      }
+
+  """
+  @type cluster_network_settings_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ms_smooth_output_settings() :: %{
+        "H265PackagingType" => list(any()),
+        "NameModifier" => String.t() | atom()
+      }
+
+  """
+  @type ms_smooth_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_partner_input_request() :: %{
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_partner_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_video_settings() :: %{
+        "ConstantBitrate" => integer(),
+        "StatmuxSettings" => multiplex_statmux_video_settings()
+      }
+
+  """
+  @type multiplex_video_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_description() :: %{
+        "AudioDashRoles" => list(list(any())()),
+        "AudioNormalizationSettings" => audio_normalization_settings(),
+        "AudioSelectorName" => String.t() | atom(),
+        "AudioType" => list(any()),
+        "AudioTypeControl" => list(any()),
+        "AudioWatermarkingSettings" => audio_watermark_settings(),
+        "CodecSettings" => audio_codec_settings(),
+        "DvbDashAccessibility" => list(any()),
+        "LanguageCode" => String.t() | atom(),
+        "LanguageCodeControl" => list(any()),
+        "Name" => String.t() | atom(),
+        "RemixSettings" => remix_settings(),
+        "StreamName" => String.t() | atom()
+      }
+
+  """
+  @type audio_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_input_security_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "State" => list(any()),
+        "Tags" => map(),
+        "WhitelistRules" => list(input_whitelist_rule())
+      }
+
+  """
+  @type describe_input_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_black_failover_settings() :: %{
+        "BlackDetectThreshold" => float(),
+        "VideoBlackThresholdMsec" => integer()
+      }
+
+  """
+  @type video_black_failover_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte20_plus_embedded_destination_settings() :: %{}
+
+  """
+  @type scte20_plus_embedded_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_output_settings_description() :: %{
+        "AvailabilityZones" => list(String.t() | atom()),
+        "NetworkInterfaceIds" => list(String.t() | atom()),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_output_settings_description() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cluster_alerts_response() :: %{
+        "Alerts" => list(cluster_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cluster_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_decryption() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_decryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_settings_update_request() :: %{
+        "Sources" => list(multicast_source_update_request())
+      }
+
+  """
+  @type multicast_settings_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      raw_settings() :: %{}
+
+  """
+  @type raw_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_descriptor_settings() :: %{
+        "SegmentationDescriptorScte35DescriptorSettings" => scte35_segmentation_descriptor()
+      }
+
+  """
+  @type scte35_descriptor_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_anywhere_settings() :: %{
+        "ChannelPlacementGroupId" => String.t() | atom(),
+        "ClusterId" => String.t() | atom()
+      }
+
+  """
+  @type describe_anywhere_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_settings() :: %{
+        "ArchiveOutputSettings" => archive_output_settings(),
+        "CmafIngestOutputSettings" => cmaf_ingest_output_settings(),
+        "FrameCaptureOutputSettings" => frame_capture_output_settings(),
+        "HlsOutputSettings" => hls_output_settings(),
+        "MediaConnectRouterOutputSettings" => media_connect_router_output_settings(),
+        "MediaPackageOutputSettings" => media_package_output_settings(),
+        "MsSmoothOutputSettings" => ms_smooth_output_settings(),
+        "MultiplexOutputSettings" => multiplex_output_settings(),
+        "RtmpOutputSettings" => rtmp_output_settings(),
+        "SrtOutputSettings" => srt_output_settings(),
+        "UdpOutputSettings" => udp_output_settings()
+      }
+
+  """
+  @type output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_statmux_video_settings() :: %{
+        "MaximumBitrate" => integer(),
+        "MinimumBitrate" => integer(),
+        "Priority" => integer()
+      }
+
+  """
+  @type multiplex_statmux_video_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sdi_source_request() :: %{
+        optional("Mode") => list(any()),
+        optional("Name") => String.t() | atom(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type update_sdi_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_settings() :: %{
+        "SrtCallerSources" => list(srt_caller_source()),
+        "SrtListenerSettings" => srt_listener_settings()
+      }
+
+  """
+  @type srt_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_resource() :: %{
+        "Destinations" => list(media_resource_neighbor()),
+        "Name" => String.t() | atom(),
+        "Sources" => list(media_resource_neighbor())
+      }
+
+  """
+  @type media_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reject_input_device_transfer_response() :: %{}
+
+  """
+  @type reject_input_device_transfer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_input_response() :: %{
+        "Input" => input()
+      }
+
+  """
+  @type update_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      motion_graphics_activate_schedule_action_settings() :: %{
+        "Duration" => float(),
+        "PasswordParam" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type motion_graphics_activate_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_settings() :: %{
+        "MaximumVideoBufferDelayMilliseconds" => integer(),
+        "TransportStreamBitrate" => integer(),
+        "TransportStreamId" => integer(),
+        "TransportStreamReservedBitrate" => integer()
+      }
+
+  """
+  @type multiplex_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_event_bridge_rule_template_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_sub_destination_settings() :: %{
+        "Alignment" => list(any()),
+        "BackgroundColor" => list(any()),
+        "BackgroundOpacity" => integer(),
+        "Font" => input_location(),
+        "FontColor" => list(any()),
+        "FontOpacity" => integer(),
+        "FontResolution" => integer(),
+        "FontSize" => String.t() | atom(),
+        "OutlineColor" => list(any()),
+        "OutlineSize" => integer(),
+        "ShadowColor" => list(any()),
+        "ShadowOpacity" => integer(),
+        "ShadowXOffset" => integer(),
+        "ShadowYOffset" => integer(),
+        "SubtitleRows" => list(any()),
+        "TeletextGridControl" => list(any()),
+        "XPosition" => integer(),
+        "YPosition" => integer()
+      }
+
+  """
+  @type dvb_sub_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_input_settings() :: %{
+        "Destinations" => list(router_destination()),
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type router_input_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multiplex_response() :: %{
+        "Multiplex" => multiplex()
+      }
+
+  """
+  @type update_multiplex_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -387,36 +2268,273 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      input_source() :: %{
-        "PasswordParam" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
+      describe_offering_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CurrencyCode" => String.t() | atom(),
+        "Duration" => integer(),
+        "DurationUnits" => list(any()),
+        "FixedPrice" => float(),
+        "OfferingDescription" => String.t() | atom(),
+        "OfferingId" => String.t() | atom(),
+        "OfferingType" => list(any()),
+        "Region" => String.t() | atom(),
+        "ResourceSpecification" => reservation_resource_specification(),
+        "UsagePrice" => float()
       }
 
   """
-  @type input_source() :: %{(String.t() | atom()) => any()}
+  @type describe_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      srt_listener_settings() :: %{
-        "Decryption" => srt_listener_decryption(),
-        "MinimumLatency" => integer(),
-        "StreamId" => String.t() | atom()
+      describe_input_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AttachedChannels" => list(String.t() | atom()),
+        "Destinations" => list(input_destination()),
+        "Id" => String.t() | atom(),
+        "InputClass" => list(any()),
+        "InputDevices" => list(input_device_settings()),
+        "InputNetworkLocation" => list(any()),
+        "InputPartnerIds" => list(String.t() | atom()),
+        "InputSourceType" => list(any()),
+        "MediaConnectFlows" => list(media_connect_flow()),
+        "MulticastSettings" => multicast_settings(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "RouterSettings" => router_input_settings(),
+        "SdiSources" => list(String.t() | atom()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
+        "Sources" => list(input_source()),
+        "SrtSettings" => srt_settings(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "Type" => list(any())
       }
 
   """
-  @type srt_listener_settings() :: %{(String.t() | atom()) => any()}
+  @type describe_input_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_input_device_transfer_response() :: %{}
+      color_correction_settings() :: %{
+        "GlobalColorCorrections" => list(color_correction())
+      }
 
   """
-  @type cancel_input_device_transfer_response() :: %{}
+  @type color_correction_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_request() :: %{
+        optional("ComparisonOperator") => list(any()),
+        optional("DatapointsToAlarm") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("EvaluationPeriods") => integer(),
+        optional("GroupIdentifier") => String.t() | atom(),
+        optional("MetricName") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("Period") => integer(),
+        optional("Statistic") => list(any()),
+        optional("TargetResourceType") => list(any()),
+        optional("Threshold") => float(),
+        optional("TreatMissingData") => list(any())
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_only_hls_settings() :: %{
+        "AudioGroupId" => String.t() | atom(),
+        "AudioOnlyImage" => input_location(),
+        "AudioTrackType" => list(any()),
+        "SegmentType" => list(any())
+      }
+
+  """
+  @type audio_only_hls_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_channel_placement_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Nodes" => list(String.t() | atom()),
+        "State" => list(any())
+      }
+
+  """
+  @type create_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_program_channel_destination_settings() :: %{
+        "MultiplexId" => String.t() | atom(),
+        "ProgramName" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_program_channel_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signal_maps_request() :: %{
+        optional("CloudWatchAlarmTemplateGroupIdentifier") => String.t() | atom(),
+        optional("EventBridgeRuleTemplateGroupIdentifier") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_signal_maps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dolby_vision81_settings() :: %{}
+
+  """
+  @type dolby_vision81_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      rtmp_output_settings() :: %{
+        "CertificateMode" => list(any()),
+        "ConnectionRetryInterval" => integer(),
+        "Destination" => output_location_ref(),
+        "NumRetries" => integer()
+      }
+
+  """
+  @type rtmp_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_cluster_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelIds" => list(String.t() | atom()),
+        "ClusterType" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceRoleArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => cluster_network_settings(),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_cluster_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_group_request() :: %{}
+
+  """
+  @type get_event_bridge_rule_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_settings_request() :: %{
+        "SrtCallerSources" => list(srt_caller_source_request()),
+        "SrtListenerSettings" => srt_listener_settings_request()
+      }
+
+  """
+  @type srt_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ebu_tt_d_destination_settings() :: %{
+        "CopyrightHolder" => String.t() | atom(),
+        "DefaultFontSize" => integer(),
+        "DefaultLineHeight" => integer(),
+        "FillLineGap" => list(any()),
+        "FontFamily" => String.t() | atom(),
+        "StyleControl" => list(any())
+      }
+
+  """
+  @type ebu_tt_d_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_destination_settings() :: %{
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_additional_destinations() :: %{
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type media_package_additional_destinations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_container_settings() :: %{
+        "MultiplexM2tsSettings" => multiplex_m2ts_settings()
+      }
+
+  """
+  @type multiplex_container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -439,158 +2557,58 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      video_selector_settings() :: %{
-        "VideoSelectorPid" => video_selector_pid(),
-        "VideoSelectorProgramId" => video_selector_program_id()
-      }
-
-  """
-  @type video_selector_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_group_settings() :: %{
-        "InputLossAction" => list(any())
-      }
-
-  """
-  @type srt_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_schedule_request() :: %{
-        optional("Creates") => batch_schedule_action_create_request(),
-        optional("Deletes") => batch_schedule_action_delete_request()
-      }
-
-  """
-  @type batch_update_schedule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_destination() :: %{
-        "AvailabilityZoneName" => String.t() | atom(),
-        "RouterOutputArn" => String.t() | atom()
-      }
-
-  """
-  @type router_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_inference_settings() :: %{
-        "AudioFeedInputs" => list(audio_feed_input()),
-        "FeedArn" => String.t() | atom()
-      }
-
-  """
-  @type describe_inference_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_summary() :: %{
+      delete_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
+        "CdiInputSpecification" => cdi_input_specification(),
+        "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
+        "EncoderSettings" => encoder_settings(),
         "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings_summary(),
+        "InferenceSettings" => describe_inference_settings(),
+        "InputAttachments" => list(input_attachment()),
+        "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
+        "LogLevel" => list(any()),
+        "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
+        "PipelineDetails" => list(pipeline_detail()),
         "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
+        "RoleArn" => String.t() | atom(),
         "State" => list(any()),
-        "Tags" => map()
+        "Tags" => map(),
+        "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type multiplex_summary() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_multiplex_request() :: %{}
-
-  """
-  @type stop_multiplex_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_tags_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
+      router_settings() :: %{
+        "Destinations" => list(router_destination_settings()),
+        "EncryptionType" => list(any()),
+        "SecretArn" => String.t() | atom()
       }
 
   """
-  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+  @type router_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_input_device_request() :: %{
-        optional("AvailabilityZone") => String.t() | atom(),
-        optional("HdDeviceSettings") => input_device_configurable_settings(),
-        optional("Name") => String.t() | atom(),
-        optional("UhdDeviceSettings") => input_device_configurable_settings()
+      ip_pool_update_request() :: %{
+        "Cidr" => String.t() | atom()
       }
 
   """
-  @type update_input_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multiplex_programs_response() :: %{
-        "MultiplexPrograms" => list(multiplex_program_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_multiplex_programs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_request() :: %{}
-
-  """
-  @type describe_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scte27_source_settings() :: %{
-        "OcrLanguage" => list(any()),
-        "Pid" => integer()
-      }
-
-  """
-  @type scte27_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_engine_version_response() :: %{
-        "ExpirationDate" => non_neg_integer(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type channel_engine_version_response() :: %{(String.t() | atom()) => any()}
+  @type ip_pool_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -630,2267 +2648,15 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      update_channel_class_response() :: %{
-        "Channel" => channel()
-      }
-
-  """
-  @type update_channel_class_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      archive_group_settings() :: %{
-        "ArchiveCdnSettings" => archive_cdn_settings(),
-        "Destination" => output_location_ref(),
-        "RolloverInterval" => integer()
-      }
-
-  """
-  @type archive_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_akamai_settings() :: %{
-        "ConnectionRetryInterval" => integer(),
-        "FilecacheDuration" => integer(),
-        "HttpTransferMode" => list(any()),
-        "NumRetries" => integer(),
-        "RestartDelay" => integer(),
-        "Salt" => String.t() | atom(),
-        "Token" => String.t() | atom()
-      }
-
-  """
-  @type hls_akamai_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_signal_map_request() :: %{}
-
-  """
-  @type get_signal_map_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sdi_source_mapping() :: %{
-        "CardNumber" => integer(),
-        "ChannelNumber" => integer(),
-        "SdiSource" => String.t() | atom()
-      }
-
-  """
-  @type sdi_source_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_only_hls_settings() :: %{
-        "AudioGroupId" => String.t() | atom(),
-        "AudioOnlyImage" => input_location(),
-        "AudioTrackType" => list(any()),
-        "SegmentType" => list(any())
-      }
-
-  """
-  @type audio_only_hls_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_delivery_restrictions() :: %{
-        "ArchiveAllowedFlag" => list(any()),
-        "DeviceRestrictions" => list(any()),
-        "NoRegionalBlackoutFlag" => list(any()),
-        "WebDeliveryAllowedFlag" => list(any())
-      }
-
-  """
-  @type scte35_delivery_restrictions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_program_summary() :: %{
-        "ChannelId" => String.t() | atom(),
-        "ProgramName" => String.t() | atom()
-      }
-
-  """
-  @type multiplex_program_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cloud_watch_alarm_template_request() :: %{
-        optional("ComparisonOperator") => list(any()),
-        optional("DatapointsToAlarm") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("EvaluationPeriods") => integer(),
-        optional("GroupIdentifier") => String.t() | atom(),
-        optional("MetricName") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("Period") => integer(),
-        optional("Statistic") => list(any()),
-        optional("TargetResourceType") => list(any()),
-        optional("Threshold") => float(),
-        optional("TreatMissingData") => list(any())
-      }
-
-  """
-  @type update_cloud_watch_alarm_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_decryption_request() :: %{
-        "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t() | atom()
-      }
-
-  """
-  @type srt_caller_decryption_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_response() :: %{
-        "Channel" => channel()
-      }
-
-  """
-  @type create_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_placement_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Nodes" => list(String.t() | atom()),
-        "State" => list(any())
-      }
-
-  """
-  @type describe_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_router_group_settings() :: %{
-        "AvailabilityZones" => list(String.t() | atom())
-      }
-
-  """
-  @type media_connect_router_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_return_to_network_schedule_action_settings() :: %{
-        "SpliceEventId" => float()
-      }
-
-  """
-  @type scte35_return_to_network_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_pool_update_request() :: %{
-        "Cidr" => String.t() | atom()
-      }
-
-  """
-  @type ip_pool_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_engine_version_request() :: %{
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type channel_engine_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_input_device_request() :: %{}
-
-  """
-  @type start_input_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      pause_state_schedule_action_settings() :: %{
-        "Pipelines" => list(pipeline_pause_state_settings())
-      }
-
-  """
-  @type pause_state_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelIds" => list(String.t() | atom()),
-        "ClusterType" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceRoleArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => cluster_network_settings(),
-        "State" => list(any())
-      }
-
-  """
-  @type describe_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_placement_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Nodes" => list(String.t() | atom()),
-        "State" => list(any())
-      }
-
-  """
-  @type update_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_decryption() :: %{
-        "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t() | atom()
-      }
-
-  """
-  @type srt_caller_decryption() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_network_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedClusterIds" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "IpPools" => list(ip_pool()),
-        "Name" => String.t() | atom(),
-        "Routes" => list(route()),
-        "State" => list(any())
-      }
-
-  """
-  @type describe_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_input_settings() :: %{
-        "HlsInputSettings" => hls_input_settings(),
-        "MulticastInputSettings" => multicast_input_settings(),
-        "ServerValidation" => list(any())
-      }
-
-  """
-  @type network_input_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mp2_settings() :: %{
-        "Bitrate" => float(),
-        "CodingMode" => list(any()),
-        "SampleRate" => float()
-      }
-
-  """
-  @type mp2_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_reservation_request() :: %{}
-
-  """
-  @type delete_reservation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_output_destination() :: %{
-        "MediaConnectSettings" => multiplex_media_connect_output_destination_settings()
-      }
-
-  """
-  @type multiplex_output_destination() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      monitor_deployment() :: %{
-        "DetailsUri" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type monitor_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_failed_result_model() :: %{
-        "Arn" => String.t() | atom(),
-        "Code" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type batch_failed_result_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_settings() :: %{
-        "Sources" => list(multicast_source())
-      }
-
-  """
-  @type multicast_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_response() :: %{
-        "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t() | atom(),
-        "CdiInputSpecification" => cdi_input_specification(),
-        "ChannelClass" => list(any()),
-        "ChannelEngineVersion" => channel_engine_version_response(),
-        "ChannelSecurityGroups" => list(String.t() | atom()),
-        "Destinations" => list(output_destination()),
-        "EgressEndpoints" => list(channel_egress_endpoint()),
-        "EncoderSettings" => encoder_settings(),
-        "Id" => String.t() | atom(),
-        "InferenceSettings" => describe_inference_settings(),
-        "InputAttachments" => list(input_attachment()),
-        "InputSpecification" => input_specification(),
-        "LinkedChannelSettings" => describe_linked_channel_settings(),
-        "LogLevel" => list(any()),
-        "Maintenance" => maintenance_status(),
-        "Name" => String.t() | atom(),
-        "PipelineDetails" => list(pipeline_detail()),
-        "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "Vpc" => vpc_output_settings_description()
-      }
-
-  """
-  @type delete_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_configuration() :: %{
-        "KmsKeyId" => String.t() | atom()
-      }
-
-  """
-  @type account_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_placement_group_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("Nodes") => list(String.t() | atom())
-      }
-
-  """
-  @type update_channel_placement_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_input_security_group_request() :: %{
-        optional("Tags") => map(),
-        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
-      }
-
-  """
-  @type update_input_security_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thumbnail() :: %{
-        "Body" => String.t() | atom(),
-        "ContentType" => String.t() | atom(),
-        "ThumbnailType" => list(any()),
-        "TimeStamp" => non_neg_integer()
-      }
-
-  """
-  @type thumbnail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      udp_output_settings() :: %{
-        "BufferMsec" => integer(),
-        "ContainerSettings" => udp_container_settings(),
-        "Destination" => output_location_ref(),
-        "FecOutputSettings" => fec_output_settings()
-      }
-
-  """
-  @type udp_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_location() :: %{
-        "PasswordParam" => String.t() | atom(),
-        "Uri" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type input_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_configuration_request() :: %{}
-
-  """
-  @type describe_account_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      nielsen_configuration() :: %{
-        "DistributorId" => String.t() | atom(),
-        "NielsenPcmToId3Tagging" => list(any())
-      }
-
-  """
-  @type nielsen_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_selector() :: %{
-        "LanguageCode" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "SelectorSettings" => caption_selector_settings()
-      }
-
-  """
-  @type caption_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("NodeInterfaceMappings") => list(node_interface_mapping_create_request()),
-        optional("RequestId") => String.t() | atom(),
-        optional("Role") => list(any()),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_node_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelIds" => list(String.t() | atom()),
-        "ClusterType" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceRoleArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => cluster_network_settings(),
-        "State" => list(any())
-      }
-
-  """
-  @type create_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_input_device_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZone" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "DeviceSettingsSyncState" => list(any()),
-        "DeviceUpdateStatus" => list(any()),
-        "HdDeviceSettings" => input_device_hd_settings(),
-        "Id" => String.t() | atom(),
-        "MacAddress" => String.t() | atom(),
-        "MedialiveInputArns" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => input_device_network_settings(),
-        "OutputType" => list(any()),
-        "SerialNumber" => String.t() | atom(),
-        "Tags" => map(),
-        "Type" => list(any()),
-        "UhdDeviceSettings" => input_device_uhd_settings()
-      }
-
-  """
-  @type update_input_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_gateway_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_gateway_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_request() :: %{
-        "Id" => String.t() | atom()
-      }
-
-  """
-  @type input_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_network_settings() :: %{
-        "DnsAddresses" => list(String.t() | atom()),
-        "Gateway" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "IpScheme" => list(any()),
-        "SubnetMask" => String.t() | atom()
-      }
-
-  """
-  @type input_device_network_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_program() :: %{
-        "ChannelId" => String.t() | atom(),
-        "MultiplexProgramSettings" => multiplex_program_settings(),
-        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t() | atom()
-      }
-
-  """
-  @type multiplex_program() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_selector_settings() :: %{
-        "AncillarySourceSettings" => ancillary_source_settings(),
-        "AribSourceSettings" => arib_source_settings(),
-        "DvbSubSourceSettings" => dvb_sub_source_settings(),
-        "EmbeddedSourceSettings" => embedded_source_settings(),
-        "Scte20SourceSettings" => scte20_source_settings(),
-        "Scte27SourceSettings" => scte27_source_settings(),
-        "SmartSubtitleSourceSettings" => smart_subtitle_source_settings(),
-        "TeletextSourceSettings" => teletext_source_settings()
-      }
-
-  """
-  @type caption_selector_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hlg2020_settings() :: %{}
-
-  """
-  @type hlg2020_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_loss_failover_settings() :: %{
-        "InputLossThresholdMsec" => integer()
-      }
-
-  """
-  @type input_loss_failover_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multiplex_program_request() :: %{
-        required("MultiplexProgramSettings") => multiplex_program_settings(),
-        required("ProgramName") => String.t() | atom(),
-        required("RequestId") => String.t() | atom()
-      }
-
-  """
-  @type create_multiplex_program_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_input_device_response() :: %{}
-
-  """
-  @type transfer_input_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      forbidden_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reservations_request() :: %{
-        optional("ChannelClass") => String.t() | atom(),
-        optional("Codec") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("MaximumBitrate") => String.t() | atom(),
-        optional("MaximumFramerate") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Resolution") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("SpecialFeature") => String.t() | atom(),
-        optional("VideoQuality") => String.t() | atom()
-      }
-
-  """
-  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      router_input_settings() :: %{
-        "Destinations" => list(router_destination()),
-        "EncryptionType" => list(any()),
-        "SecretArn" => String.t() | atom()
-      }
-
-  """
-  @type router_input_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_cdn_settings() :: %{
-        "HlsAkamaiSettings" => hls_akamai_settings(),
-        "HlsBasicPutSettings" => hls_basic_put_settings(),
-        "HlsMediaStoreSettings" => hls_media_store_settings(),
-        "HlsS3Settings" => hls_s3_settings(),
-        "HlsWebdavSettings" => hls_webdav_settings()
-      }
-
-  """
-  @type hls_cdn_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_alerts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StateFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_alerts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_rule_template_group_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map(),
-        "TemplateCount" => integer()
-      }
-
-  """
-  @type event_bridge_rule_template_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_codec_settings() :: %{
-        "AacSettings" => aac_settings(),
-        "Ac3Settings" => ac3_settings(),
-        "Eac3AtmosSettings" => eac3_atmos_settings(),
-        "Eac3Settings" => eac3_settings(),
-        "Mp2Settings" => mp2_settings(),
-        "PassThroughSettings" => pass_through_settings(),
-        "WavSettings" => wav_settings()
-      }
-
-  """
-  @type audio_codec_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ComparisonOperator" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DatapointsToAlarm" => integer(),
-        "Description" => String.t() | atom(),
-        "EvaluationPeriods" => integer(),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Period" => integer(),
-        "Statistic" => list(any()),
-        "Tags" => map(),
-        "TargetResourceType" => list(any()),
-        "Threshold" => float(),
-        "TreatMissingData" => list(any())
-      }
-
-  """
-  @type update_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_offerings_request() :: %{
-        optional("ChannelClass") => String.t() | atom(),
-        optional("ChannelConfiguration") => String.t() | atom(),
-        optional("Codec") => String.t() | atom(),
-        optional("Duration") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("MaximumBitrate") => String.t() | atom(),
-        optional("MaximumFramerate") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Resolution") => String.t() | atom(),
-        optional("ResourceType") => String.t() | atom(),
-        optional("SpecialFeature") => String.t() | atom(),
-        optional("VideoQuality") => String.t() | atom()
-      }
-
-  """
-  @type list_offerings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sdi_source_response() :: %{
-        "SdiSource" => sdi_source()
-      }
-
-  """
-  @type create_sdi_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_placement_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Nodes" => list(String.t() | atom()),
-        "State" => list(any())
-      }
-
-  """
-  @type create_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_account_configuration_response() :: %{
-        "AccountConfiguration" => account_configuration()
-      }
-
-  """
-  @type describe_account_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_input_security_group_response() :: %{}
-
-  """
-  @type delete_input_security_group_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_offerings_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Offerings" => list(offering())
-      }
-
-  """
-  @type list_offerings_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_signal_map_request() :: %{}
-
-  """
-  @type delete_signal_map_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_input_security_group_response() :: %{
-        "SecurityGroup" => input_security_group()
-      }
-
-  """
-  @type update_input_security_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_bridge_rule_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EventTargets" => list(event_bridge_rule_template_target()),
-        "EventType" => list(any()),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_event_bridge_rule_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transferring_input_device_summary() :: %{
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "TargetCustomerId" => String.t() | atom(),
-        "TransferType" => list(any())
-      }
-
-  """
-  @type transferring_input_device_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      aac_settings() :: %{
-        "Bitrate" => float(),
-        "CodingMode" => list(any()),
-        "InputType" => list(any()),
-        "Profile" => list(any()),
-        "RateControlMode" => list(any()),
-        "RawFormat" => list(any()),
-        "SampleRate" => float(),
-        "Spec" => list(any()),
-        "VbrQuality" => list(any())
-      }
-
-  """
-  @type aac_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_settings() :: %{
-        "AudioSelectors" => list(audio_selector()),
-        "CaptionSelectors" => list(caption_selector()),
-        "DeblockFilter" => list(any()),
-        "DenoiseFilter" => list(any()),
-        "FilterStrength" => integer(),
-        "InputFilter" => list(any()),
-        "NetworkInputSettings" => network_input_settings(),
-        "Scte35Pid" => integer(),
-        "Smpte2038DataPreference" => list(any()),
-        "SourceEndBehavior" => list(any()),
-        "VideoSelector" => video_selector()
-      }
-
-  """
-  @type input_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multiplex_request() :: %{
-        optional("Tags") => map(),
-        required("AvailabilityZones") => list(String.t() | atom()),
-        required("MultiplexSettings") => multiplex_settings(),
-        required("Name") => String.t() | atom(),
-        required("RequestId") => String.t() | atom()
-      }
-
-  """
-  @type create_multiplex_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      h265_color_space_settings() :: %{
-        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
-        "DolbyVision81Settings" => dolby_vision81_settings(),
-        "Hdr10Settings" => hdr10_settings(),
-        "Hlg2020Settings" => hlg2020_settings(),
-        "Rec601Settings" => rec601_settings(),
-        "Rec709Settings" => rec709_settings()
-      }
-
-  """
-  @type h265_color_space_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      smpte2110_receiver_group() :: %{
-        "SdpSettings" => smpte2110_receiver_group_sdp_settings()
-      }
-
-  """
-  @type smpte2110_receiver_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_node_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "ManagedInstanceId" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
-      }
-
-  """
-  @type describe_node_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_node_state_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
-      }
-
-  """
-  @type update_node_state_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      smpte2110_receiver_group_settings() :: %{
-        "Smpte2110ReceiverGroups" => list(smpte2110_receiver_group())
-      }
-
-  """
-  @type smpte2110_receiver_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_program_channel_destination_settings() :: %{
-        "MultiplexId" => String.t() | atom(),
-        "ProgramName" => String.t() | atom()
-      }
-
-  """
-  @type multiplex_program_channel_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_interface_mapping_create_request() :: %{
-        "LogicalInterfaceName" => String.t() | atom(),
-        "NetworkInterfaceMode" => list(any()),
-        "PhysicalInterfaceName" => String.t() | atom()
-      }
-
-  """
-  @type node_interface_mapping_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_capture_output_settings() :: %{
-        "NameModifier" => String.t() | atom()
-      }
-
-  """
-  @type frame_capture_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_response() :: %{
-        "Failed" => list(batch_failed_result_model()),
-        "Successful" => list(batch_successful_result_model())
-      }
-
-  """
-  @type batch_delete_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_update_request() :: %{
-        "Cidr" => String.t() | atom(),
-        "Gateway" => String.t() | atom()
-      }
-
-  """
-  @type route_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rec709_settings() :: %{}
-
-  """
-  @type rec709_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      id3_segment_tagging_schedule_action_settings() :: %{
-        "Id3" => String.t() | atom(),
-        "Tag" => String.t() | atom()
-      }
-
-  """
-  @type id3_segment_tagging_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      disabled_locking_settings() :: %{
-        "CustomEpoch" => String.t() | atom()
-      }
-
-  """
-  @type disabled_locking_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_selector_pid() :: %{
-        "Pid" => integer()
-      }
-
-  """
-  @type video_selector_pid() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_settings_update_request() :: %{
-        "Sources" => list(multicast_source_update_request())
-      }
-
-  """
-  @type multicast_settings_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      av1_color_space_settings() :: %{
-        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
-        "Hdr10Settings" => hdr10_settings(),
-        "Hlg2020Settings" => hlg2020_settings(),
-        "Rec601Settings" => rec601_settings(),
-        "Rec709Settings" => rec709_settings()
-      }
-
-  """
-  @type av1_color_space_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      m3u8_settings() :: %{
-        "AudioFramesPerPes" => integer(),
-        "AudioPids" => String.t() | atom(),
-        "EcmPid" => String.t() | atom(),
-        "KlvBehavior" => list(any()),
-        "KlvDataPids" => String.t() | atom(),
-        "NielsenId3Behavior" => list(any()),
-        "PatInterval" => integer(),
-        "PcrControl" => list(any()),
-        "PcrPeriod" => integer(),
-        "PcrPid" => String.t() | atom(),
-        "PmtInterval" => integer(),
-        "PmtPid" => String.t() | atom(),
-        "ProgramNum" => integer(),
-        "Scte35Behavior" => list(any()),
-        "Scte35Pid" => String.t() | atom(),
-        "TimedMetadataBehavior" => list(any()),
-        "TimedMetadataPid" => String.t() | atom(),
-        "TransportStreamId" => integer(),
-        "VideoPid" => String.t() | atom()
-      }
-
-  """
-  @type m3u8_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_sub_source_settings() :: %{
-        "OcrLanguage" => list(any()),
-        "Pid" => integer()
-      }
-
-  """
-  @type dvb_sub_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_flow() :: %{
-        "FlowArn" => String.t() | atom()
-      }
-
-  """
-  @type media_connect_flow() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_network_request() :: %{}
-
-  """
-  @type describe_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_splice_insert_schedule_action_settings() :: %{
-        "Duration" => float(),
-        "SpliceEventId" => float()
-      }
-
-  """
-  @type scte35_splice_insert_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      motion_graphics_configuration() :: %{
-        "MotionGraphicsInsertion" => list(any()),
-        "MotionGraphicsSettings" => motion_graphics_settings()
-      }
-
-  """
-  @type motion_graphics_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type update_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_bridge_rule_template_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_event_bridge_rule_template_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      udp_container_settings() :: %{
-        "M2tsSettings" => m2ts_settings()
-      }
-
-  """
-  @type udp_container_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_schedule_response() :: %{}
-
-  """
-  @type delete_schedule_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance_update_settings() :: %{
+      maintenance_status() :: %{
         "MaintenanceDay" => list(any()),
+        "MaintenanceDeadline" => String.t() | atom(),
         "MaintenanceScheduledDate" => String.t() | atom(),
         "MaintenanceStartTime" => String.t() | atom()
       }
 
   """
-  @type maintenance_update_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_security_group() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "Inputs" => list(String.t() | atom()),
-        "State" => list(any()),
-        "Tags" => map(),
-        "WhitelistRules" => list(input_whitelist_rule())
-      }
-
-  """
-  @type input_security_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ComparisonOperator" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DatapointsToAlarm" => integer(),
-        "Description" => String.t() | atom(),
-        "EvaluationPeriods" => integer(),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Period" => integer(),
-        "Statistic" => list(any()),
-        "Tags" => map(),
-        "TargetResourceType" => list(any()),
-        "Threshold" => float(),
-        "TreatMissingData" => list(any())
-      }
-
-  """
-  @type create_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      smart_subtitle_source_settings() :: %{
-        "CaptionSynchronizationMode" => list(any()),
-        "InferenceFeedOutput" => String.t() | atom()
-      }
-
-  """
-  @type smart_subtitle_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_channel_level() :: %{
-        "Gain" => integer(),
-        "InputChannel" => integer()
-      }
-
-  """
-  @type input_channel_level() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ms_smooth_output_settings() :: %{
-        "H265PackagingType" => list(any()),
-        "NameModifier" => String.t() | atom()
-      }
-
-  """
-  @type ms_smooth_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reboot_input_device_request() :: %{
-        optional("Force") => list(any())
-      }
-
-  """
-  @type reboot_input_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      embedded_plus_scte20_destination_settings() :: %{}
-
-  """
-  @type embedded_plus_scte20_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cloud_watch_alarm_template_groups_response() :: %{
-        "CloudWatchAlarmTemplateGroups" => list(cloud_watch_alarm_template_group_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cloud_watch_alarm_template_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_requests_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type too_many_requests_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      motion_graphics_deactivate_schedule_action_settings() :: %{}
-
-  """
-  @type motion_graphics_deactivate_schedule_action_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_whitelist_rule_cidr() :: %{
-        "Cidr" => String.t() | atom()
-      }
-
-  """
-  @type input_whitelist_rule_cidr() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timed_metadata_schedule_action_settings() :: %{
-        "Id3" => String.t() | atom()
-      }
-
-  """
-  @type timed_metadata_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sdi_source() :: %{
-        "Arn" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Inputs" => list(String.t() | atom()),
-        "Mode" => list(any()),
-        "Name" => String.t() | atom(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type sdi_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_placement_group_request() :: %{}
-
-  """
-  @type describe_channel_placement_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_configurable_settings() :: %{
-        "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()),
-        "Codec" => list(any()),
-        "ConfiguredInput" => list(any()),
-        "InputResolution" => String.t() | atom(),
-        "LatencyMs" => integer(),
-        "MaxBitrate" => integer(),
-        "MediaconnectSettings" => input_device_media_connect_configurable_settings()
-      }
-
-  """
-  @type input_device_configurable_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_bridge_rule_template_target() :: %{
-        "Arn" => String.t() | atom()
-      }
-
-  """
-  @type event_bridge_rule_template_target() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_node_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
-      }
-
-  """
-  @type update_node_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      smpte_tt_destination_settings() :: %{}
-
-  """
-  @type smpte_tt_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_source() :: %{
-        "Decryption" => srt_caller_decryption(),
-        "MinimumLatency" => integer(),
-        "SrtListenerAddress" => String.t() | atom(),
-        "SrtListenerPort" => String.t() | atom(),
-        "StreamId" => String.t() | atom()
-      }
-
-  """
-  @type srt_caller_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_channel_request() :: %{}
-
-  """
-  @type stop_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_language_mapping() :: %{
-        "CaptionChannel" => integer(),
-        "LanguageCode" => String.t() | atom(),
-        "LanguageDescription" => String.t() | atom()
-      }
-
-  """
-  @type caption_language_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multiplex_programs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_multiplex_programs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_node_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
-      }
-
-  """
-  @type describe_node_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_registration_script_response() :: %{
-        "NodeRegistrationScript" => String.t() | atom()
-      }
-
-  """
-  @type create_node_registration_script_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cluster_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("NetworkSettings") => cluster_network_settings_update_request()
-      }
-
-  """
-  @type update_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_alert() :: %{
-        "AlertType" => String.t() | atom(),
-        "ClearedTimestamp" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "PipelineId" => String.t() | atom(),
-        "SetTimestamp" => non_neg_integer(),
-        "State" => list(any())
-      }
-
-  """
-  @type channel_alert() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reservation_resource_specification() :: %{
-        "ChannelClass" => list(any()),
-        "Codec" => list(any()),
-        "MaximumBitrate" => list(any()),
-        "MaximumFramerate" => list(any()),
-        "Resolution" => list(any()),
-        "ResourceType" => list(any()),
-        "SpecialFeature" => list(any()),
-        "VideoQuality" => list(any())
-      }
-
-  """
-  @type reservation_resource_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_input_security_group_request() :: %{
-        optional("Tags") => map(),
-        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
-      }
-
-  """
-  @type create_input_security_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_monitor_deployment_request() :: %{
-        optional("DryRun") => boolean()
-      }
-
-  """
-  @type start_monitor_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_network_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AssociatedClusterIds" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "IpPools" => list(ip_pool()),
-        "Name" => String.t() | atom(),
-        "Routes" => list(route()),
-        "State" => list(any())
-      }
-
-  """
-  @type delete_network_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_request() :: %{
-        optional("ChannelIds") => list(String.t() | atom()),
-        optional("InputIds") => list(String.t() | atom()),
-        optional("InputSecurityGroupIds") => list(String.t() | atom()),
-        optional("MultiplexIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_delete_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_registration_script_request() :: %{
-        optional("Id") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("NodeInterfaceMappings") => list(node_interface_mapping()),
-        optional("RequestId") => String.t() | atom(),
-        optional("Role") => list(any())
-      }
-
-  """
-  @type create_node_registration_script_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_source_update_request() :: %{
-        "SourceIp" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type multicast_source_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_input_security_groups_response() :: %{
-        "InputSecurityGroups" => list(input_security_group()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_input_security_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_description() :: %{
-        "CodecSettings" => video_codec_settings(),
-        "Height" => integer(),
-        "Name" => String.t() | atom(),
-        "RespondToAfd" => list(any()),
-        "ScalingBehavior" => list(any()),
-        "Sharpness" => integer(),
-        "Width" => integer()
-      }
-
-  """
-  @type video_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sdi_source_request() :: %{}
-
-  """
-  @type delete_sdi_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ttml_destination_settings() :: %{
-        "StyleControl" => list(any())
-      }
-
-  """
-  @type ttml_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_multiplex_request() :: %{}
-
-  """
-  @type start_multiplex_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      input_attachment() :: %{
-        "AutomaticInputFailoverSettings" => automatic_input_failover_settings(),
-        "InputAttachmentName" => String.t() | atom(),
-        "InputId" => String.t() | atom(),
-        "InputSettings" => input_settings(),
-        "LogicalInterfaceNames" => list(String.t() | atom())
-      }
-
-  """
-  @type input_attachment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cdi_input_specification() :: %{
-        "Resolution" => list(any())
-      }
-
-  """
-  @type cdi_input_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_track() :: %{
-        "PremixSettings" => audio_pre_mixer_settings(),
-        "Track" => integer()
-      }
-
-  """
-  @type audio_track() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_package_output_settings() :: %{
-        "MediaPackageV2DestinationSettings" => media_package_v2_destination_settings()
-      }
-
-  """
-  @type media_package_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      timecode_config() :: %{
-        "Source" => list(any()),
-        "SyncThreshold" => integer()
-      }
-
-  """
-  @type timecode_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_input_device_transfer_request() :: %{}
-
-  """
-  @type accept_input_device_transfer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_input_devices_response() :: %{
-        "InputDevices" => list(input_device_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_input_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_specification() :: %{
-        "Codec" => list(any()),
-        "MaximumBitrate" => list(any()),
-        "Resolution" => list(any())
-      }
-
-  """
-  @type input_specification() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_input_settings() :: %{
-        "SourceIpAddress" => String.t() | atom()
-      }
-
-  """
-  @type multicast_input_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_locking_settings() :: %{
-        "CustomEpoch" => String.t() | atom(),
-        "PipelineLockingMethod" => list(any())
-      }
-
-  """
-  @type pipeline_locking_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_partner_input_request() :: %{
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_partner_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_schedule_action_create_request() :: %{
-        "ScheduleActions" => list(schedule_action())
-      }
-
-  """
-  @type batch_schedule_action_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_settings_create_request() :: %{
-        "Sources" => list(multicast_source_create_request())
-      }
-
-  """
-  @type multicast_settings_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_group_settings() :: %{
-        "ArchiveGroupSettings" => archive_group_settings(),
-        "CmafIngestGroupSettings" => cmaf_ingest_group_settings(),
-        "FrameCaptureGroupSettings" => frame_capture_group_settings(),
-        "HlsGroupSettings" => hls_group_settings(),
-        "MediaConnectRouterGroupSettings" => media_connect_router_group_settings(),
-        "MediaPackageGroupSettings" => media_package_group_settings(),
-        "MsSmoothGroupSettings" => ms_smooth_group_settings(),
-        "MultiplexGroupSettings" => multiplex_group_settings(),
-        "RtmpGroupSettings" => rtmp_group_settings(),
-        "SrtGroupSettings" => srt_group_settings(),
-        "UdpGroupSettings" => udp_group_settings()
-      }
-
-  """
-  @type output_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_schedule_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ScheduleActions" => list(schedule_action())
-      }
-
-  """
-  @type describe_schedule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_mapping() :: %{
-        "LogicalInterfaceName" => String.t() | atom(),
-        "NetworkId" => String.t() | atom()
-      }
-
-  """
-  @type interface_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      h264_color_space_settings() :: %{
-        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
-        "Rec601Settings" => rec601_settings(),
-        "Rec709Settings" => rec709_settings()
-      }
-
-  """
-  @type h264_color_space_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_reservation_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("RenewalSettings") => renewal_settings()
-      }
-
-  """
-  @type update_reservation_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_tags_request() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_tags_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_multiplex_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t() | atom(),
-        "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
-        "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type stop_multiplex_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_input_response() :: %{
-        "Input" => input()
-      }
-
-  """
-  @type create_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route_create_request() :: %{
-        "Cidr" => String.t() | atom(),
-        "Gateway" => String.t() | atom()
-      }
-
-  """
-  @type route_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_source_create_request() :: %{
-        "SourceIp" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type multicast_source_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_uhd_audio_channel_pair_config() :: %{
-        "Id" => integer(),
-        "Profile" => list(any())
-      }
-
-  """
-  @type input_device_uhd_audio_channel_pair_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_placement_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_channel_placement_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_selector_program_id() :: %{
-        "ProgramId" => integer()
-      }
-
-  """
-  @type video_selector_program_id() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ms_smooth_group_settings() :: %{
-        "AcquisitionPointId" => String.t() | atom(),
-        "AudioOnlyTimecodeControl" => list(any()),
-        "CertificateMode" => list(any()),
-        "ConnectionRetryInterval" => integer(),
-        "Destination" => output_location_ref(),
-        "EventId" => String.t() | atom(),
-        "EventIdMode" => list(any()),
-        "EventStopBehavior" => list(any()),
-        "FilecacheDuration" => integer(),
-        "FragmentLength" => integer(),
-        "InputLossAction" => list(any()),
-        "NumRetries" => integer(),
-        "RestartDelay" => integer(),
-        "SegmentationMode" => list(any()),
-        "SendDelayMs" => integer(),
-        "SparseTrackType" => list(any()),
-        "StreamManifestBehavior" => list(any()),
-        "TimestampOffset" => String.t() | atom(),
-        "TimestampOffsetMode" => list(any())
-      }
-
-  """
-  @type ms_smooth_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cloud_watch_alarm_template_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_cloud_watch_alarm_template_group_response() :: %{(String.t() | atom()) => any()}
+  @type maintenance_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2923,86 +2689,700 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      hls_id3_segment_tagging_schedule_action_settings() :: %{
-        "Id3" => String.t() | atom(),
-        "Tag" => String.t() | atom()
+      failover_condition() :: %{
+        "FailoverConditionSettings" => failover_condition_settings()
       }
 
   """
-  @type hls_id3_segment_tagging_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+  @type failover_condition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_multiplex_program_response() :: %{
-        "ChannelId" => String.t() | atom(),
-        "MultiplexProgramSettings" => multiplex_program_settings(),
-        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t() | atom()
-      }
-
-  """
-  @type delete_multiplex_program_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_summary() :: %{
-        "AnywhereSettings" => describe_anywhere_settings(),
+      create_event_bridge_rule_template_group_response() :: %{
         "Arn" => String.t() | atom(),
-        "CdiInputSpecification" => cdi_input_specification(),
-        "ChannelClass" => list(any()),
-        "ChannelEngineVersion" => channel_engine_version_response(),
-        "ChannelSecurityGroups" => list(String.t() | atom()),
-        "Destinations" => list(output_destination()),
-        "EgressEndpoints" => list(channel_egress_endpoint()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "InferenceSettings" => describe_inference_settings(),
-        "InputAttachments" => list(input_attachment()),
-        "InputSpecification" => input_specification(),
-        "LinkedChannelSettings" => describe_linked_channel_settings(),
-        "LogLevel" => list(any()),
-        "Maintenance" => maintenance_status(),
+        "ModifiedAt" => non_neg_integer(),
         "Name" => String.t() | atom(),
-        "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "UsedChannelEngineVersions" => list(channel_engine_version_response()),
-        "Vpc" => vpc_output_settings_description()
+        "Tags" => map()
       }
 
   """
-  @type channel_summary() :: %{(String.t() | atom()) => any()}
+  @type create_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_settings() :: %{
-        "AudioOnlyHlsSettings" => audio_only_hls_settings(),
-        "Fmp4HlsSettings" => fmp4_hls_settings(),
-        "FrameCaptureHlsSettings" => frame_capture_hls_settings(),
-        "StandardHlsSettings" => standard_hls_settings()
+      media_connect_flow() :: %{
+        "FlowArn" => String.t() | atom()
       }
 
   """
-  @type hls_settings() :: %{(String.t() | atom()) => any()}
+  @type media_connect_flow() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      archive_container_settings() :: %{
-        "M2tsSettings" => m2ts_settings(),
-        "RawSettings" => raw_settings()
+      thumbnail_configuration() :: %{
+        "State" => list(any())
       }
 
   """
-  @type archive_container_settings() :: %{(String.t() | atom()) => any()}
+  @type thumbnail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      h265_filter_settings() :: %{
+        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
+        "TemporalFilterSettings" => temporal_filter_settings()
+      }
+
+  """
+  @type h265_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output() :: %{
+        "AudioDescriptionNames" => list(String.t() | atom()),
+        "CaptionDescriptionNames" => list(String.t() | atom()),
+        "OutputName" => String.t() | atom(),
+        "OutputSettings" => output_settings(),
+        "VideoDescriptionName" => String.t() | atom()
+      }
+
+  """
+  @type output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_versions_request() :: %{}
+
+  """
+  @type list_versions_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_schedule_action_delete_request() :: %{
+        "ActionNames" => list(String.t() | atom())
+      }
+
+  """
+  @type batch_schedule_action_delete_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_node_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_node_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_monitor_deployment_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DiscoveryEntryPointArn" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t() | atom(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_monitor_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source_create_request() :: %{
+        "SourceIp" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type multicast_source_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      burn_in_destination_settings() :: %{
+        "Alignment" => list(any()),
+        "BackgroundColor" => list(any()),
+        "BackgroundOpacity" => integer(),
+        "Font" => input_location(),
+        "FontColor" => list(any()),
+        "FontOpacity" => integer(),
+        "FontResolution" => integer(),
+        "FontSize" => String.t() | atom(),
+        "OutlineColor" => list(any()),
+        "OutlineSize" => integer(),
+        "ShadowColor" => list(any()),
+        "ShadowOpacity" => integer(),
+        "ShadowXOffset" => integer(),
+        "ShadowYOffset" => integer(),
+        "SubtitleRows" => list(any()),
+        "TeletextGridControl" => list(any()),
+        "XPosition" => integer(),
+        "YPosition" => integer()
+      }
+
+  """
+  @type burn_in_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_settings() :: %{
+        "AudioSelectors" => list(audio_selector()),
+        "CaptionSelectors" => list(caption_selector()),
+        "DeblockFilter" => list(any()),
+        "DenoiseFilter" => list(any()),
+        "FilterStrength" => integer(),
+        "InputFilter" => list(any()),
+        "NetworkInputSettings" => network_input_settings(),
+        "Scte35Pid" => integer(),
+        "Smpte2038DataPreference" => list(any()),
+        "SourceEndBehavior" => list(any()),
+        "VideoSelector" => video_selector()
+      }
+
+  """
+  @type input_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_templates_response() :: %{
+        "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_event_bridge_rule_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cluster_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_cluster_alerts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      gateway_timeout_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_akamai_settings() :: %{
+        "ConnectionRetryInterval" => integer(),
+        "FilecacheDuration" => integer(),
+        "HttpTransferMode" => list(any()),
+        "NumRetries" => integer(),
+        "RestartDelay" => integer(),
+        "Salt" => String.t() | atom(),
+        "Token" => String.t() | atom()
+      }
+
+  """
+  @type hls_akamai_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_return_to_network_schedule_action_settings() :: %{
+        "SpliceEventId" => float()
+      }
+
+  """
+  @type scte35_return_to_network_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_rectangle() :: %{
+        "Height" => float(),
+        "LeftOffset" => float(),
+        "TopOffset" => float(),
+        "Width" => float()
+      }
+
+  """
+  @type caption_rectangle() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      linked_channel_settings() :: %{
+        "FollowerChannelSettings" => follower_channel_settings(),
+        "PrimaryChannelSettings" => primary_channel_settings()
+      }
+
+  """
+  @type linked_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_destination_vpc() :: %{
+        "AvailabilityZone" => String.t() | atom(),
+        "NetworkInterfaceId" => String.t() | atom()
+      }
+
+  """
+  @type input_destination_vpc() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_follower_channel_settings() :: %{
+        "LinkedChannelType" => list(any()),
+        "PrimaryChannelArn" => String.t() | atom()
+      }
+
+  """
+  @type describe_follower_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_network_settings() :: %{
+        "DnsAddresses" => list(String.t() | atom()),
+        "Gateway" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "IpScheme" => list(any()),
+        "SubnetMask" => String.t() | atom()
+      }
+
+  """
+  @type input_device_network_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signal_map_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DiscoveryEntryPointArn" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t() | atom(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_signal_map_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_program_service_descriptor() :: %{
+        "ProviderName" => String.t() | atom(),
+        "ServiceName" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_program_service_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      router_destination() :: %{
+        "AvailabilityZoneName" => String.t() | atom(),
+        "RouterOutputArn" => String.t() | atom()
+      }
+
+  """
+  @type router_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_rule_template_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EventTargetCount" => integer(),
+        "EventType" => list(any()),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type event_bridge_rule_template_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_configuration_request() :: %{}
+
+  """
+  @type describe_account_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_output_settings() :: %{
+        "MediaPackageV2DestinationSettings" => media_package_v2_destination_settings()
+      }
+
+  """
+  @type media_package_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_device_transfers_response() :: %{
+        "InputDeviceTransfers" => list(transferring_input_device_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_input_device_transfers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multiplex_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
+      }
+
+  """
+  @type list_multiplex_alerts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multiplex_program_response() :: %{
+        "MultiplexProgram" => multiplex_program()
+      }
+
+  """
+  @type update_multiplex_program_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_signal_maps_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SignalMaps" => list(signal_map_summary())
+      }
+
+  """
+  @type list_signal_maps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_request_destination_route() :: %{
+        "Cidr" => String.t() | atom(),
+        "Gateway" => String.t() | atom()
+      }
+
+  """
+  @type input_request_destination_route() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_bridge_rule_templates_request() :: %{
+        optional("GroupIdentifier") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SignalMapIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type list_event_bridge_rule_templates_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_configurable_settings() :: %{
+        "AudioChannelPairs" => list(input_device_configurable_audio_channel_pair_config()),
+        "Codec" => list(any()),
+        "ConfiguredInput" => list(any()),
+        "InputResolution" => String.t() | atom(),
+        "LatencyMs" => integer(),
+        "MaxBitrate" => integer(),
+        "MediaconnectSettings" => input_device_media_connect_configurable_settings()
+      }
+
+  """
+  @type input_device_configurable_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pid_selection() :: %{
+        "Pid" => integer(),
+        "Pids" => list(audio_pid())
+      }
+
+  """
+  @type audio_pid_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_v2_group_settings() :: %{
+        "AdditionalDestinations" => list(media_package_additional_destinations()),
+        "CaptionLanguageMappings" => list(caption_language_mapping()),
+        "Id3Behavior" => list(any()),
+        "KlvBehavior" => list(any()),
+        "NielsenId3Behavior" => list(any()),
+        "Scte35Type" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthUnits" => list(any()),
+        "TimedMetadataId3Frame" => list(any()),
+        "TimedMetadataId3Period" => integer(),
+        "TimedMetadataPassthrough" => list(any())
+      }
+
+  """
+  @type media_package_v2_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_media_connect_output_destination_settings() :: %{
+        "EntitlementArn" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_media_connect_output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_input_security_group_request() :: %{}
+
+  """
+  @type delete_input_security_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_webdav_settings() :: %{
+        "ConnectionRetryInterval" => integer(),
+        "FilecacheDuration" => integer(),
+        "HttpTransferMode" => list(any()),
+        "NumRetries" => integer(),
+        "RestartDelay" => integer()
+      }
+
+  """
+  @type hls_webdav_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_dolby_e_decode() :: %{
+        "ProgramSelection" => list(any())
+      }
+
+  """
+  @type audio_dolby_e_decode() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_source() :: %{
+        "SourceIp" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type multicast_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      reboot_input_device_response() :: %{}
+
+  """
+  @type reboot_input_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_source() :: %{
+        "Decryption" => srt_caller_decryption(),
+        "MinimumLatency" => integer(),
+        "SrtListenerAddress" => String.t() | atom(),
+        "SrtListenerPort" => String.t() | atom(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_caller_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      purchase_offering_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("RenewalSettings") => renewal_settings(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Start") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Count") => integer()
+      }
+
+  """
+  @type purchase_offering_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_multiplex_request() :: %{
+        optional("MultiplexSettings") => multiplex_settings(),
+        optional("Name") => String.t() | atom(),
+        optional("PacketIdentifiersMapping") => map()
+      }
+
+  """
+  @type update_multiplex_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_pause_state_settings() :: %{
+        "PipelineId" => list(any())
+      }
+
+  """
+  @type pipeline_pause_state_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_cloud_watch_alarm_templates_response() :: %{
+        "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_cloud_watch_alarm_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nielsen_watermarks_settings() :: %{
+        "NielsenCbetSettings" => nielsen_c_b_e_t(),
+        "NielsenDistributionType" => list(any()),
+        "NielsenNaesIiNwSettings" => nielsen_naes_ii_nw()
+      }
+
+  """
+  @type nielsen_watermarks_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3041,219 +3421,18 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      start_channel_request() :: %{}
-
-  """
-  @type start_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      router_destination_settings() :: %{
-        "AvailabilityZoneName" => String.t() | atom()
+      video_selector_pid() :: %{
+        "Pid" => integer()
       }
 
   """
-  @type router_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type video_selector_pid() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      avail_configuration() :: %{
-        "AvailSettings" => avail_settings(),
-        "Scte35SegmentationScope" => list(any())
-      }
-
-  """
-  @type avail_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cluster_request() :: %{
-        optional("ClusterType") => list(any()),
-        optional("InstanceRoleArn") => String.t() | atom(),
-        optional("Name") => String.t() | atom(),
-        optional("NetworkSettings") => cluster_network_settings_create_request(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thumbnails_response() :: %{
-        "ThumbnailDetails" => list(thumbnail_detail())
-      }
-
-  """
-  @type describe_thumbnails_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      global_configuration() :: %{
-        "InitialAudioGain" => integer(),
-        "InputEndAction" => list(any()),
-        "InputLossBehavior" => input_loss_behavior(),
-        "OutputLockingMode" => list(any()),
-        "OutputLockingSettings" => output_locking_settings(),
-        "OutputTimingSource" => list(any()),
-        "SupportLowFramerateInputs" => list(any())
-      }
-
-  """
-  @type global_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_stop_response() :: %{
-        "Failed" => list(batch_failed_result_model()),
-        "Successful" => list(batch_successful_result_model())
-      }
-
-  """
-  @type batch_stop_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input() :: %{
-        "Arn" => String.t() | atom(),
-        "AttachedChannels" => list(String.t() | atom()),
-        "Destinations" => list(input_destination()),
-        "Id" => String.t() | atom(),
-        "InputClass" => list(any()),
-        "InputDevices" => list(input_device_settings()),
-        "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t() | atom()),
-        "InputSourceType" => list(any()),
-        "MediaConnectFlows" => list(media_connect_flow()),
-        "MulticastSettings" => multicast_settings(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "RouterSettings" => router_input_settings(),
-        "SdiSources" => list(String.t() | atom()),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
-        "Sources" => list(input_source()),
-        "SrtSettings" => srt_settings(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "Type" => list(any())
-      }
-
-  """
-  @type input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automatic_input_failover_settings() :: %{
-        "ErrorClearTimeMsec" => integer(),
-        "FailoverConditions" => list(failover_condition()),
-        "InputPreference" => list(any()),
-        "SecondaryInputId" => String.t() | atom()
-      }
-
-  """
-  @type automatic_input_failover_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_input_device_maintenance_window_response() :: %{}
-
-  """
-  @type start_input_device_maintenance_window_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_input_request() :: %{}
-
-  """
-  @type delete_input_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_input_request() :: %{
-        optional("Destinations") => list(input_destination_request()),
-        optional("InputDevices") => list(input_device_request()),
-        optional("InputSecurityGroups") => list(String.t() | atom()),
-        optional("MediaConnectFlows") => list(media_connect_flow_request()),
-        optional("MulticastSettings") => multicast_settings_update_request(),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("SdiSources") => list(String.t() | atom()),
-        optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
-        optional("Sources") => list(input_source_request()),
-        optional("SpecialRouterSettings") => special_router_settings(),
-        optional("SrtSettings") => srt_settings_request()
-      }
-
-  """
-  @type update_input_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule_action_settings() :: %{
-        "HlsId3SegmentTaggingSettings" => hls_id3_segment_tagging_schedule_action_settings(),
-        "HlsTimedMetadataSettings" => hls_timed_metadata_schedule_action_settings(),
-        "Id3SegmentTaggingSettings" => id3_segment_tagging_schedule_action_settings(),
-        "InputPrepareSettings" => input_prepare_schedule_action_settings(),
-        "InputSwitchSettings" => input_switch_schedule_action_settings(),
-        "MotionGraphicsImageActivateSettings" => motion_graphics_activate_schedule_action_settings(),
-        "MotionGraphicsImageDeactivateSettings" => motion_graphics_deactivate_schedule_action_settings(),
-        "PauseStateSettings" => pause_state_schedule_action_settings(),
-        "Scte35InputSettings" => scte35_input_schedule_action_settings(),
-        "Scte35ReturnToNetworkSettings" => scte35_return_to_network_schedule_action_settings(),
-        "Scte35SpliceInsertSettings" => scte35_splice_insert_schedule_action_settings(),
-        "Scte35TimeSignalSettings" => scte35_time_signal_schedule_action_settings(),
-        "StaticImageActivateSettings" => static_image_activate_schedule_action_settings(),
-        "StaticImageDeactivateSettings" => static_image_deactivate_schedule_action_settings(),
-        "StaticImageOutputActivateSettings" => static_image_output_activate_schedule_action_settings(),
-        "StaticImageOutputDeactivateSettings" => static_image_output_deactivate_schedule_action_settings(),
-        "TimedMetadataSettings" => timed_metadata_schedule_action_settings()
-      }
-
-  """
-  @type schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_network_summary() :: %{
+      describe_network_response() :: %{
         "Arn" => String.t() | atom(),
         "AssociatedClusterIds" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
@@ -3264,427 +3443,141 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_network_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multiplex_media_connect_output_destination_settings() :: %{
-        "EntitlementArn" => String.t() | atom()
+      smpte2110_receiver_group_settings() :: %{
+        "Smpte2110ReceiverGroups" => list(smpte2110_receiver_group())
       }
 
   """
-  @type multiplex_media_connect_output_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type smpte2110_receiver_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_reservation_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Count" => integer(),
-        "CurrencyCode" => String.t() | atom(),
-        "Duration" => integer(),
-        "DurationUnits" => list(any()),
-        "End" => String.t() | atom(),
-        "FixedPrice" => float(),
-        "Name" => String.t() | atom(),
-        "OfferingDescription" => String.t() | atom(),
-        "OfferingId" => String.t() | atom(),
-        "OfferingType" => list(any()),
-        "Region" => String.t() | atom(),
-        "RenewalSettings" => renewal_settings(),
-        "ReservationId" => String.t() | atom(),
-        "ResourceSpecification" => reservation_resource_specification(),
-        "Start" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "UsagePrice" => float()
+      batch_schedule_action_create_request() :: %{
+        "ScheduleActions" => list(schedule_action())
       }
 
   """
-  @type delete_reservation_response() :: %{(String.t() | atom()) => any()}
+  @type batch_schedule_action_create_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      nielsen_naes_ii_nw() :: %{
-        "CheckDigitString" => String.t() | atom(),
-        "Sid" => float(),
-        "Timezone" => list(any())
+      frame_capture_hls_settings() :: %{}
+
+  """
+  @type frame_capture_hls_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      static_image_output_deactivate_schedule_action_settings() :: %{
+        "FadeOut" => integer(),
+        "Layer" => integer(),
+        "OutputNames" => list(String.t() | atom())
       }
 
   """
-  @type nielsen_naes_ii_nw() :: %{(String.t() | atom()) => any()}
+  @type static_image_output_deactivate_schedule_action_settings() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      rec601_settings() :: %{}
-
-  """
-  @type rec601_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cloud_watch_alarm_template_group_request() :: %{}
-
-  """
-  @type get_cloud_watch_alarm_template_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_stop_request() :: %{
-        optional("ChannelIds") => list(String.t() | atom()),
-        optional("MultiplexIds") => list(String.t() | atom())
+      hls_basic_put_settings() :: %{
+        "ConnectionRetryInterval" => integer(),
+        "FilecacheDuration" => integer(),
+        "NumRetries" => integer(),
+        "RestartDelay" => integer()
       }
 
   """
-  @type batch_stop_request() :: %{(String.t() | atom()) => any()}
+  @type hls_basic_put_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_network_request() :: %{}
-
-  """
-  @type delete_network_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_bridge_rule_template_group_request() :: %{}
-
-  """
-  @type get_event_bridge_rule_template_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_input_device_transfer_request() :: %{}
-
-  """
-  @type cancel_input_device_transfer_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_cluster_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelIds" => list(String.t() | atom()),
-        "ClusterType" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceRoleArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => cluster_network_settings(),
-        "State" => list(any())
+      update_input_security_group_request() :: %{
+        optional("Tags") => map(),
+        optional("WhitelistRules") => list(input_whitelist_rule_cidr())
       }
 
   """
-  @type describe_cluster_summary() :: %{(String.t() | atom()) => any()}
+  @type update_input_security_group_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      output_group() :: %{
-        "Name" => String.t() | atom(),
-        "OutputGroupSettings" => output_group_settings(),
-        "Outputs" => list(output())
+      delete_input_response() :: %{}
+
+  """
+  @type delete_input_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_network_request() :: %{}
+
+  """
+  @type describe_network_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_network_settings_create_request() :: %{
+        "DefaultRoute" => String.t() | atom(),
+        "InterfaceMappings" => list(interface_mapping_create_request())
       }
 
   """
-  @type output_group() :: %{(String.t() | atom()) => any()}
+  @type cluster_network_settings_create_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_device_uhd_settings() :: %{
-        "ActiveInput" => list(any()),
-        "AudioChannelPairs" => list(input_device_uhd_audio_channel_pair_config()),
-        "Codec" => list(any()),
-        "ConfiguredInput" => list(any()),
-        "DeviceState" => list(any()),
-        "Framerate" => float(),
-        "Height" => integer(),
-        "InputResolution" => String.t() | atom(),
-        "LatencyMs" => integer(),
-        "MaxBitrate" => integer(),
-        "MediaconnectSettings" => input_device_media_connect_settings(),
-        "ScanType" => list(any()),
-        "Width" => integer()
-      }
-
-  """
-  @type input_device_uhd_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      arib_source_settings() :: %{}
-
-  """
-  @type arib_source_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_inputs_request() :: %{
+      list_clusters_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_inputs_request() :: %{(String.t() | atom()) => any()}
+  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_input_security_group_request() :: %{}
+      start_input_device_request() :: %{}
 
   """
-  @type delete_input_security_group_request() :: %{}
+  @type start_input_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      node_interface_mapping() :: %{
-        "LogicalInterfaceName" => String.t() | atom(),
-        "NetworkInterfaceMode" => list(any()),
-        "PhysicalInterfaceIpAddresses" => list(String.t() | atom()),
-        "PhysicalInterfaceName" => String.t() | atom()
+      update_node_state_request() :: %{
+        optional("State") => list(any())
       }
 
   """
-  @type node_interface_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_group_settings() :: %{}
-
-  """
-  @type multiplex_group_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_description() :: %{
-        "AudioDashRoles" => list(list(any())()),
-        "AudioNormalizationSettings" => audio_normalization_settings(),
-        "AudioSelectorName" => String.t() | atom(),
-        "AudioType" => list(any()),
-        "AudioTypeControl" => list(any()),
-        "AudioWatermarkingSettings" => audio_watermark_settings(),
-        "CodecSettings" => audio_codec_settings(),
-        "DvbDashAccessibility" => list(any()),
-        "LanguageCode" => String.t() | atom(),
-        "LanguageCodeControl" => list(any()),
-        "Name" => String.t() | atom(),
-        "RemixSettings" => remix_settings(),
-        "StreamName" => String.t() | atom()
-      }
-
-  """
-  @type audio_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_partner_input_response() :: %{
-        "Input" => input()
-      }
-
-  """
-  @type create_partner_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      archive_output_settings() :: %{
-        "ContainerSettings" => archive_container_settings(),
-        "Extension" => String.t() | atom(),
-        "NameModifier" => String.t() | atom()
-      }
-
-  """
-  @type archive_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_class_request() :: %{
-        optional("Destinations") => list(output_destination()),
-        required("ChannelClass") => list(any())
-      }
-
-  """
-  @type update_channel_class_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_codec_settings() :: %{
-        "Av1Settings" => av1_settings(),
-        "FrameCaptureSettings" => frame_capture_settings(),
-        "H264Settings" => h264_settings(),
-        "H265Settings" => h265_settings(),
-        "Mpeg2Settings" => mpeg2_settings()
-      }
-
-  """
-  @type video_codec_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      udp_group_settings() :: %{
-        "InputLossAction" => list(any()),
-        "TimedMetadataId3Frame" => list(any()),
-        "TimedMetadataId3Period" => integer()
-      }
-
-  """
-  @type udp_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_input_security_group_response() :: %{
-        "SecurityGroup" => input_security_group()
-      }
-
-  """
-  @type create_input_security_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_settings_request() :: %{
-        "SrtCallerSources" => list(srt_caller_source_request()),
-        "SrtListenerSettings" => srt_listener_settings_request()
-      }
-
-  """
-  @type srt_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_response() :: %{
-        "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t() | atom(),
-        "CdiInputSpecification" => cdi_input_specification(),
-        "ChannelClass" => list(any()),
-        "ChannelEngineVersion" => channel_engine_version_response(),
-        "ChannelSecurityGroups" => list(String.t() | atom()),
-        "Destinations" => list(output_destination()),
-        "EgressEndpoints" => list(channel_egress_endpoint()),
-        "EncoderSettings" => encoder_settings(),
-        "Id" => String.t() | atom(),
-        "InferenceSettings" => describe_inference_settings(),
-        "InputAttachments" => list(input_attachment()),
-        "InputSpecification" => input_specification(),
-        "LinkedChannelSettings" => describe_linked_channel_settings(),
-        "LogLevel" => list(any()),
-        "Maintenance" => maintenance_status(),
-        "Name" => String.t() | atom(),
-        "PipelineDetails" => list(pipeline_detail()),
-        "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "Vpc" => vpc_output_settings_description()
-      }
-
-  """
-  @type describe_channel_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_multiplex_program_response() :: %{
-        "ChannelId" => String.t() | atom(),
-        "MultiplexProgramSettings" => multiplex_program_settings(),
-        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
-        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
-        "ProgramName" => String.t() | atom()
-      }
-
-  """
-  @type describe_multiplex_program_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rtmp_group_settings() :: %{
-        "AdMarkers" => list(list(any())()),
-        "AuthenticationScheme" => list(any()),
-        "CacheFullBehavior" => list(any()),
-        "CacheLength" => integer(),
-        "CaptionData" => list(any()),
-        "IncludeFillerNalUnits" => list(any()),
-        "InputLossAction" => list(any()),
-        "RestartDelay" => integer()
-      }
-
-  """
-  @type rtmp_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_cloud_watch_alarm_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ComparisonOperator" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DatapointsToAlarm" => integer(),
-        "Description" => String.t() | atom(),
-        "EvaluationPeriods" => integer(),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Period" => integer(),
-        "Statistic" => list(any()),
-        "Tags" => map(),
-        "TargetResourceType" => list(any()),
-        "Threshold" => float(),
-        "TreatMissingData" => list(any())
-      }
-
-  """
-  @type get_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
+  @type update_node_state_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3705,859 +3598,132 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      update_multiplex_request() :: %{
-        optional("MultiplexSettings") => multiplex_settings(),
-        optional("Name") => String.t() | atom(),
-        optional("PacketIdentifiersMapping") => map()
+      start_input_device_response() :: %{}
+
+  """
+  @type start_input_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      motion_graphics_deactivate_schedule_action_settings() :: %{}
+
+  """
+  @type motion_graphics_deactivate_schedule_action_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      webvtt_destination_settings() :: %{
+        "StyleControl" => list(any())
       }
 
   """
-  @type update_multiplex_request() :: %{(String.t() | atom()) => any()}
+  @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_package_additional_destinations() :: %{
-        "Destination" => output_location_ref()
+      unprocessable_entity_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ValidationErrors" => list(validation_error())
       }
 
   """
-  @type media_package_additional_destinations() :: %{(String.t() | atom()) => any()}
+  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cluster_network_settings() :: %{
-        "DefaultRoute" => String.t() | atom(),
-        "InterfaceMappings" => list(interface_mapping())
-      }
-
-  """
-  @type cluster_network_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_mapping_create_request() :: %{
-        "LogicalInterfaceName" => String.t() | atom(),
-        "NetworkId" => String.t() | atom()
-      }
-
-  """
-  @type interface_mapping_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eac3_settings() :: %{
-        "AttenuationControl" => list(any()),
-        "Bitrate" => float(),
-        "BitstreamMode" => list(any()),
-        "CodingMode" => list(any()),
-        "DcFilter" => list(any()),
-        "Dialnorm" => integer(),
-        "DrcLine" => list(any()),
-        "DrcRf" => list(any()),
-        "LfeControl" => list(any()),
-        "LfeFilter" => list(any()),
-        "LoRoCenterMixLevel" => float(),
-        "LoRoSurroundMixLevel" => float(),
-        "LtRtCenterMixLevel" => float(),
-        "LtRtSurroundMixLevel" => float(),
-        "MetadataControl" => list(any()),
-        "PassthroughControl" => list(any()),
-        "PhaseControl" => list(any()),
-        "StereoDownmix" => list(any()),
-        "SurroundExMode" => list(any()),
-        "SurroundMode" => list(any())
-      }
-
-  """
-  @type eac3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_thumbnails_request() :: %{
-        required("PipelineId") => String.t() | atom(),
-        required("ThumbnailType") => String.t() | atom()
-      }
-
-  """
-  @type describe_thumbnails_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_sdi_sources_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_sdi_sources_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_primary_channel_settings() :: %{
-        "FollowingChannelArns" => list(String.t() | atom()),
-        "LinkedChannelType" => list(any())
-      }
-
-  """
-  @type describe_primary_channel_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte20_plus_embedded_destination_settings() :: %{}
-
-  """
-  @type scte20_plus_embedded_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_signal_map_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DiscoveryEntryPointArn" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
-        "FailedMediaResourceMap" => map(),
-        "Id" => String.t() | atom(),
-        "LastDiscoveredAt" => non_neg_integer(),
-        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
-        "MediaResourceMap" => map(),
-        "ModifiedAt" => non_neg_integer(),
-        "MonitorChangesPendingDeployment" => boolean(),
-        "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type create_signal_map_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      not_found_exception() :: %{
+      internal_server_error_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_timecode() :: %{
-        "Timecode" => String.t() | atom()
-      }
-
-  """
-  @type start_timecode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_cloud_watch_alarm_template_group_request() :: %{
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type update_cloud_watch_alarm_template_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_channel_request() :: %{}
-
-  """
-  @type describe_channel_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_pool() :: %{
-        "Cidr" => String.t() | atom()
-      }
-
-  """
-  @type ip_pool() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_update_schedule_response() :: %{
-        "Creates" => batch_schedule_action_create_result(),
-        "Deletes" => batch_schedule_action_delete_result()
-      }
-
-  """
-  @type batch_update_schedule_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_input_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t() | atom(),
-        "Mode" => list(any())
-      }
-
-  """
-  @type scte35_input_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_networks_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_networks_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      caption_destination_settings() :: %{
-        "AribDestinationSettings" => arib_destination_settings(),
-        "BurnInDestinationSettings" => burn_in_destination_settings(),
-        "DvbSubDestinationSettings" => dvb_sub_destination_settings(),
-        "EbuTtDDestinationSettings" => ebu_tt_d_destination_settings(),
-        "EmbeddedDestinationSettings" => embedded_destination_settings(),
-        "EmbeddedPlusScte20DestinationSettings" => embedded_plus_scte20_destination_settings(),
-        "RtmpCaptionInfoDestinationSettings" => rtmp_caption_info_destination_settings(),
-        "Scte20PlusEmbeddedDestinationSettings" => scte20_plus_embedded_destination_settings(),
-        "Scte27DestinationSettings" => scte27_destination_settings(),
-        "SmpteTtDestinationSettings" => smpte_tt_destination_settings(),
-        "TeletextDestinationSettings" => teletext_destination_settings(),
-        "TtmlDestinationSettings" => ttml_destination_settings(),
-        "WebvttDestinationSettings" => webvtt_destination_settings()
-      }
-
-  """
-  @type caption_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      route() :: %{
-        "Cidr" => String.t() | atom(),
-        "Gateway" => String.t() | atom()
-      }
-
-  """
-  @type route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_response() :: %{
+      offering() :: %{
         "Arn" => String.t() | atom(),
-        "AttachedChannels" => list(String.t() | atom()),
-        "Destinations" => list(input_destination()),
-        "Id" => String.t() | atom(),
-        "InputClass" => list(any()),
-        "InputDevices" => list(input_device_settings()),
-        "InputNetworkLocation" => list(any()),
-        "InputPartnerIds" => list(String.t() | atom()),
-        "InputSourceType" => list(any()),
-        "MediaConnectFlows" => list(media_connect_flow()),
-        "MulticastSettings" => multicast_settings(),
-        "Name" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "RouterSettings" => router_input_settings(),
-        "SdiSources" => list(String.t() | atom()),
-        "SecurityGroups" => list(String.t() | atom()),
-        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
-        "Sources" => list(input_source()),
-        "SrtSettings" => srt_settings(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "Type" => list(any())
-      }
-
-  """
-  @type describe_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_resource_neighbor() :: %{
-        "Arn" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type media_resource_neighbor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_request() :: %{
-        optional("AnywhereSettings") => anywhere_settings(),
-        optional("CdiInputSpecification") => cdi_input_specification(),
-        optional("ChannelClass") => list(any()),
-        optional("ChannelEngineVersion") => channel_engine_version_request(),
-        optional("ChannelSecurityGroups") => list(String.t() | atom()),
-        optional("Destinations") => list(output_destination()),
-        optional("DryRun") => boolean(),
-        optional("EncoderSettings") => encoder_settings(),
-        optional("InferenceSettings") => inference_settings(),
-        optional("InputAttachments") => list(input_attachment()),
-        optional("InputSpecification") => input_specification(),
-        optional("LinkedChannelSettings") => linked_channel_settings(),
-        optional("LogLevel") => list(any()),
-        optional("Maintenance") => maintenance_create_settings(),
-        optional("Name") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Reserved") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("Vpc") => vpc_output_settings()
-      }
-
-  """
-  @type create_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_nodes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_delete_monitor_deployment_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DiscoveryEntryPointArn" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
-        "FailedMediaResourceMap" => map(),
-        "Id" => String.t() | atom(),
-        "LastDiscoveredAt" => non_neg_integer(),
-        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
-        "MediaResourceMap" => map(),
-        "ModifiedAt" => non_neg_integer(),
-        "MonitorChangesPendingDeployment" => boolean(),
-        "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type start_delete_monitor_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      motion_graphics_settings() :: %{
-        "HtmlMotionGraphicsSettings" => html_motion_graphics_settings()
-      }
-
-  """
-  @type motion_graphics_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_bridge_rule_template_group_request() :: %{}
-
-  """
-  @type delete_event_bridge_rule_template_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      h265_settings() :: %{
-        "MvTemporalPredictor" => list(any()),
-        "LookAheadRateControl" => list(any()),
-        "MinQp" => integer(),
-        "TileWidth" => integer(),
-        "TreeblockSize" => list(any()),
-        "ColorSpaceSettings" => h265_color_space_settings(),
-        "SubgopLength" => list(any()),
-        "QvbrQualityLevel" => integer(),
-        "Profile" => list(any()),
-        "AlternativeTransferFunction" => list(any()),
-        "FilterSettings" => h265_filter_settings(),
-        "TileHeight" => integer(),
-        "Bitrate" => integer(),
-        "BufSize" => integer(),
-        "RateControlMode" => list(any()),
-        "GopSizeUnits" => list(any()),
-        "MinIInterval" => integer(),
-        "AdaptiveQuantization" => list(any()),
-        "MvOverPictureBoundaries" => list(any()),
-        "Level" => list(any()),
-        "TimecodeBurninSettings" => timecode_burnin_settings(),
-        "FramerateDenominator" => integer(),
-        "GopNumBFrames" => integer(),
-        "FlickerAq" => list(any()),
-        "TimecodeInsertion" => list(any()),
-        "Deblocking" => list(any()),
-        "TilePadding" => list(any()),
-        "ParNumerator" => integer(),
-        "MinBitrate" => integer(),
-        "GopClosedCadence" => integer(),
-        "FramerateNumerator" => integer(),
-        "Tier" => list(any()),
-        "ParDenominator" => integer(),
-        "ScanType" => list(any()),
-        "GopSize" => float(),
-        "FixedAfd" => list(any()),
-        "ColorMetadata" => list(any()),
-        "GopBReference" => list(any()),
-        "SceneChangeDetect" => list(any()),
-        "AfdSignaling" => list(any()),
-        "Slices" => integer(),
-        "MaxBitrate" => integer()
-      }
-
-  """
-  @type h265_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_locking_settings() :: %{
-        "DisabledLockingSettings" => disabled_locking_settings(),
-        "EpochLockingSettings" => epoch_locking_settings(),
-        "PipelineLockingSettings" => pipeline_locking_settings()
-      }
-
-  """
-  @type output_locking_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      teletext_destination_settings() :: %{}
-
-  """
-  @type teletext_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      color_space_passthrough_settings() :: %{}
-
-  """
-  @type color_space_passthrough_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multiplex_program_response() :: %{
-        "MultiplexProgram" => multiplex_program()
-      }
-
-  """
-  @type create_multiplex_program_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_multiplex_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t() | atom(),
-        "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
-        "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type start_multiplex_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "Tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_error() :: %{
-        "ElementPath" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom()
-      }
-
-  """
-  @type validation_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      transfer_input_device_request() :: %{
-        optional("TargetCustomerId") => String.t() | atom(),
-        optional("TargetRegion") => String.t() | atom(),
-        optional("TransferMessage") => String.t() | atom()
-      }
-
-  """
-  @type transfer_input_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_request_destination_route() :: %{
-        "Cidr" => String.t() | atom(),
-        "Gateway" => String.t() | atom()
-      }
-
-  """
-  @type input_request_destination_route() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_program_packet_identifiers_map() :: %{
-        "AribCaptionsPid" => integer(),
-        "AudioPids" => list(integer()),
-        "DvbSubPids" => list(integer()),
-        "DvbTeletextPid" => integer(),
-        "DvbTeletextPids" => list(integer()),
-        "EcmPid" => integer(),
-        "EtvPlatformPid" => integer(),
-        "EtvSignalPid" => integer(),
-        "KlvDataPids" => list(integer()),
-        "PcrPid" => integer(),
-        "PmtPid" => integer(),
-        "PrivateMetadataPid" => integer(),
-        "Scte27Pids" => list(integer()),
-        "Scte35Pid" => integer(),
-        "Smpte2038Pid" => integer(),
-        "TimedMetadataPid" => integer(),
-        "VideoPid" => integer()
-      }
-
-  """
-  @type multiplex_program_packet_identifiers_map() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_input_device_request() :: %{}
-
-  """
-  @type stop_input_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_multiplex_response() :: %{
-        "Multiplex" => multiplex()
-      }
-
-  """
-  @type update_multiplex_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      linked_channel_settings() :: %{
-        "FollowerChannelSettings" => follower_channel_settings(),
-        "PrimaryChannelSettings" => primary_channel_settings()
-      }
-
-  """
-  @type linked_channel_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      feature_activations() :: %{
-        "InputPrepareScheduleActions" => list(any()),
-        "OutputStaticImageOverlayScheduleActions" => list(any())
-      }
-
-  """
-  @type feature_activations() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_output_settings() :: %{
-        "ContainerSettings" => multiplex_container_settings(),
-        "Destination" => output_location_ref()
-      }
-
-  """
-  @type multiplex_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reservation() :: %{
-        "Arn" => String.t() | atom(),
-        "Count" => integer(),
         "CurrencyCode" => String.t() | atom(),
         "Duration" => integer(),
         "DurationUnits" => list(any()),
-        "End" => String.t() | atom(),
         "FixedPrice" => float(),
-        "Name" => String.t() | atom(),
         "OfferingDescription" => String.t() | atom(),
         "OfferingId" => String.t() | atom(),
         "OfferingType" => list(any()),
         "Region" => String.t() | atom(),
-        "RenewalSettings" => renewal_settings(),
-        "ReservationId" => String.t() | atom(),
         "ResourceSpecification" => reservation_resource_specification(),
-        "Start" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
         "UsagePrice" => float()
       }
 
   """
-  @type reservation() :: %{(String.t() | atom()) => any()}
+  @type offering() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_follower_channel_settings() :: %{
-        "LinkedChannelType" => list(any()),
-        "PrimaryChannelArn" => String.t() | atom()
+      rec601_settings() :: %{}
+
+  """
+  @type rec601_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_cdn_settings() :: %{
+        "HlsAkamaiSettings" => hls_akamai_settings(),
+        "HlsBasicPutSettings" => hls_basic_put_settings(),
+        "HlsMediaStoreSettings" => hls_media_store_settings(),
+        "HlsS3Settings" => hls_s3_settings(),
+        "HlsWebdavSettings" => hls_webdav_settings()
       }
 
   """
-  @type describe_follower_channel_settings() :: %{(String.t() | atom()) => any()}
+  @type hls_cdn_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_schedule_action_create_result() :: %{
-        "ScheduleActions" => list(schedule_action())
+      motion_graphics_configuration() :: %{
+        "MotionGraphicsInsertion" => list(any()),
+        "MotionGraphicsSettings" => motion_graphics_settings()
       }
 
   """
-  @type batch_schedule_action_create_result() :: %{(String.t() | atom()) => any()}
+  @type motion_graphics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      srt_output_destination_settings() :: %{
-        "ConnectionMode" => list(any()),
-        "EncryptionPassphraseSecretArn" => String.t() | atom(),
-        "ListenerPort" => integer(),
-        "StreamId" => String.t() | atom(),
-        "Url" => String.t() | atom()
+      h264_color_space_settings() :: %{
+        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
+        "Rec601Settings" => rec601_settings(),
+        "Rec709Settings" => rec709_settings()
       }
 
   """
-  @type srt_output_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type h264_color_space_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_connect_router_container_settings() :: %{
-        "M2tsSettings" => m2ts_settings()
-      }
+      delete_input_security_group_response() :: %{}
 
   """
-  @type media_connect_router_container_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multicast_source() :: %{
-        "SourceIp" => String.t() | atom(),
-        "Url" => String.t() | atom()
-      }
-
-  """
-  @type multicast_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      archive_cdn_settings() :: %{
-        "ArchiveS3Settings" => archive_s3_settings()
-      }
-
-  """
-  @type archive_cdn_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_sdi_source_response() :: %{
-        "SdiSource" => sdi_source()
-      }
-
-  """
-  @type delete_sdi_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_device_thumbnail_request() :: %{
-        required("Accept") => list(any())
-      }
-
-  """
-  @type describe_input_device_thumbnail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_versions_response() :: %{
-        "Versions" => list(channel_engine_version_response())
-      }
-
-  """
-  @type list_versions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_placement_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Nodes" => list(String.t() | atom()),
-        "State" => list(any())
-      }
-
-  """
-  @type delete_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_inputs_response() :: %{
-        "Inputs" => list(input()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_inputs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ancillary_source_settings() :: %{
-        "SourceAncillaryChannelNumber" => integer()
-      }
-
-  """
-  @type ancillary_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_bridge_rule_template_request() :: %{}
-
-  """
-  @type delete_event_bridge_rule_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      html_motion_graphics_settings() :: %{}
-
-  """
-  @type html_motion_graphics_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_response() :: %{
-        "Clusters" => list(describe_cluster_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
+  @type delete_input_security_group_response() :: %{}
 
   @typedoc """
 
@@ -4575,335 +3741,115 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_channels_response() :: %{
-        "Channels" => list(channel_summary()),
-        "NextToken" => String.t() | atom()
+      monitor_deployment() :: %{
+        "DetailsUri" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "Status" => list(any())
       }
 
   """
-  @type list_channels_response() :: %{(String.t() | atom()) => any()}
+  @type monitor_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_delete_monitor_deployment_request() :: %{}
-
-  """
-  @type start_delete_monitor_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_router_output_connection() :: %{
-        "RouterInputArn" => String.t() | atom()
+      h264_settings() :: %{
+        "ParControl" => list(any()),
+        "Level" => list(any()),
+        "TemporalAq" => list(any()),
+        "Bitrate" => integer(),
+        "MinIInterval" => integer(),
+        "ColorSpaceSettings" => h264_color_space_settings(),
+        "RateControlMode" => list(any()),
+        "QvbrQualityLevel" => integer(),
+        "BufSize" => integer(),
+        "SubgopLength" => list(any()),
+        "Syntax" => list(any()),
+        "Profile" => list(any()),
+        "AfdSignaling" => list(any()),
+        "GopClosedCadence" => integer(),
+        "Softness" => integer(),
+        "ScanType" => list(any()),
+        "ParNumerator" => integer(),
+        "GopSizeUnits" => list(any()),
+        "SceneChangeDetect" => list(any()),
+        "ParDenominator" => integer(),
+        "TimecodeBurninSettings" => timecode_burnin_settings(),
+        "SpatialAq" => list(any()),
+        "MinBitrate" => integer(),
+        "FilterSettings" => h264_filter_settings(),
+        "NumRefFrames" => integer(),
+        "BufFillPct" => integer(),
+        "AdaptiveQuantization" => list(any()),
+        "EntropyEncoding" => list(any()),
+        "FlickerAq" => list(any()),
+        "FramerateNumerator" => integer(),
+        "MaxBitrate" => integer(),
+        "GopSize" => float(),
+        "FixedAfd" => list(any()),
+        "MinQp" => integer(),
+        "FramerateDenominator" => integer(),
+        "ColorMetadata" => list(any()),
+        "Slices" => integer(),
+        "ForceFieldPictures" => list(any()),
+        "LookAheadRateControl" => list(any()),
+        "FramerateControl" => list(any()),
+        "TimecodeInsertion" => list(any()),
+        "GopNumBFrames" => integer(),
+        "QualityLevel" => list(any()),
+        "GopBReference" => list(any())
       }
 
   """
-  @type media_connect_router_output_connection() :: %{(String.t() | atom()) => any()}
+  @type h264_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      nielsen_c_b_e_t() :: %{
-        "CbetCheckDigitString" => String.t() | atom(),
-        "CbetStepaside" => list(any()),
-        "Csid" => String.t() | atom()
+      stop_input_device_response() :: %{}
+
+  """
+  @type stop_input_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_account_configuration_response() :: %{
+        "AccountConfiguration" => account_configuration()
       }
 
   """
-  @type nielsen_c_b_e_t() :: %{(String.t() | atom()) => any()}
+  @type describe_account_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      audio_selector_settings() :: %{
-        "AudioHlsRenditionSelection" => audio_hls_rendition_selection(),
-        "AudioLanguageSelection" => audio_language_selection(),
-        "AudioPidSelection" => audio_pid_selection(),
-        "AudioTrackSelection" => audio_track_selection()
-      }
+      start_input_device_maintenance_window_response() :: %{}
 
   """
-  @type audio_selector_settings() :: %{(String.t() | atom()) => any()}
+  @type start_input_device_maintenance_window_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      input_switch_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t() | atom(),
-        "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t() | atom())
-      }
-
-  """
-  @type input_switch_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelIds" => list(String.t() | atom()),
-        "ClusterType" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceRoleArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => cluster_network_settings(),
-        "State" => list(any())
-      }
-
-  """
-  @type delete_cluster_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dvb_sub_destination_settings() :: %{
-        "Alignment" => list(any()),
-        "BackgroundColor" => list(any()),
-        "BackgroundOpacity" => integer(),
-        "Font" => input_location(),
-        "FontColor" => list(any()),
-        "FontOpacity" => integer(),
-        "FontResolution" => integer(),
-        "FontSize" => String.t() | atom(),
-        "OutlineColor" => list(any()),
-        "OutlineSize" => integer(),
-        "ShadowColor" => list(any()),
-        "ShadowOpacity" => integer(),
-        "ShadowXOffset" => integer(),
-        "ShadowYOffset" => integer(),
-        "SubtitleRows" => list(any()),
-        "TeletextGridControl" => list(any()),
-        "XPosition" => integer(),
-        "YPosition" => integer()
-      }
-
-  """
-  @type dvb_sub_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_selector() :: %{
-        "ColorSpace" => list(any()),
-        "ColorSpaceSettings" => video_selector_color_space_settings(),
-        "ColorSpaceUsage" => list(any()),
-        "SelectorSettings" => video_selector_settings()
-      }
-
-  """
-  @type video_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_language_selection() :: %{
+      caption_description() :: %{
+        "Accessibility" => list(any()),
+        "CaptionDashRoles" => list(list(any())()),
+        "CaptionSelectorName" => String.t() | atom(),
+        "DestinationSettings" => caption_destination_settings(),
+        "DvbDashAccessibility" => list(any()),
         "LanguageCode" => String.t() | atom(),
-        "LanguageSelectionPolicy" => list(any())
+        "LanguageDescription" => String.t() | atom(),
+        "Name" => String.t() | atom()
       }
 
   """
-  @type audio_language_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_channel_mapping() :: %{
-        "InputChannelLevels" => list(input_channel_level()),
-        "OutputChannel" => integer()
-      }
-
-  """
-  @type audio_channel_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_caller_source_request() :: %{
-        "Decryption" => srt_caller_decryption_request(),
-        "MinimumLatency" => integer(),
-        "SrtListenerAddress" => String.t() | atom(),
-        "SrtListenerPort" => String.t() | atom(),
-        "StreamId" => String.t() | atom()
-      }
-
-  """
-  @type srt_caller_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_group_settings() :: %{
-        "RedundantManifest" => list(any()),
-        "HlsId3SegmentTagging" => list(any()),
-        "TimestampDeltaMilliseconds" => integer(),
-        "DirectoryStructure" => list(any()),
-        "KeyProviderSettings" => key_provider_settings(),
-        "EncryptionType" => list(any()),
-        "SegmentationMode" => list(any()),
-        "StreamInfResolution" => list(any()),
-        "Mode" => list(any()),
-        "IndexNSegments" => integer(),
-        "ClientCache" => list(any()),
-        "SegmentLength" => integer(),
-        "CaptionLanguageSetting" => list(any()),
-        "HlsCdnSettings" => hls_cdn_settings(),
-        "ConstantIv" => String.t() | atom(),
-        "DiscontinuityTags" => list(any()),
-        "Destination" => output_location_ref(),
-        "BaseUrlManifest" => String.t() | atom(),
-        "TsFileMode" => list(any()),
-        "OutputSelection" => list(any()),
-        "CaptionLanguageMappings" => list(caption_language_mapping()),
-        "KeepSegments" => integer(),
-        "TimedMetadataId3Frame" => list(any()),
-        "SegmentsPerSubdirectory" => integer(),
-        "KeyFormatVersions" => String.t() | atom(),
-        "ManifestCompression" => list(any()),
-        "ProgramDateTimePeriod" => integer(),
-        "TimedMetadataId3Period" => integer(),
-        "BaseUrlContent1" => String.t() | atom(),
-        "IvInManifest" => list(any()),
-        "MinSegmentLength" => integer(),
-        "InputLossAction" => list(any()),
-        "ProgramDateTime" => list(any()),
-        "CodecSpecification" => list(any()),
-        "ProgramDateTimeClock" => list(any()),
-        "ManifestDurationFormat" => list(any()),
-        "IFrameOnlyPlaylists" => list(any()),
-        "IncompleteSegmentBehavior" => list(any()),
-        "BaseUrlManifest1" => String.t() | atom(),
-        "AdMarkers" => list(list(any())()),
-        "BaseUrlContent" => String.t() | atom(),
-        "IvSource" => list(any()),
-        "KeyFormat" => String.t() | atom()
-      }
-
-  """
-  @type hls_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      h264_filter_settings() :: %{
-        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
-        "TemporalFilterSettings" => temporal_filter_settings()
-      }
-
-  """
-  @type h264_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_settings() :: %{
-        "ArchiveOutputSettings" => archive_output_settings(),
-        "CmafIngestOutputSettings" => cmaf_ingest_output_settings(),
-        "FrameCaptureOutputSettings" => frame_capture_output_settings(),
-        "HlsOutputSettings" => hls_output_settings(),
-        "MediaConnectRouterOutputSettings" => media_connect_router_output_settings(),
-        "MediaPackageOutputSettings" => media_package_output_settings(),
-        "MsSmoothOutputSettings" => ms_smooth_output_settings(),
-        "MultiplexOutputSettings" => multiplex_output_settings(),
-        "RtmpOutputSettings" => rtmp_output_settings(),
-        "SrtOutputSettings" => srt_output_settings(),
-        "UdpOutputSettings" => udp_output_settings()
-      }
-
-  """
-  @type output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_channel_request() :: %{
-        optional("AnywhereSettings") => anywhere_settings(),
-        optional("CdiInputSpecification") => cdi_input_specification(),
-        optional("ChannelEngineVersion") => channel_engine_version_request(),
-        optional("ChannelSecurityGroups") => list(String.t() | atom()),
-        optional("Destinations") => list(output_destination()),
-        optional("DryRun") => boolean(),
-        optional("EncoderSettings") => encoder_settings(),
-        optional("InferenceSettings") => inference_settings(),
-        optional("InputAttachments") => list(input_attachment()),
-        optional("InputSpecification") => input_specification(),
-        optional("LinkedChannelSettings") => linked_channel_settings(),
-        optional("LogLevel") => list(any()),
-        optional("Maintenance") => maintenance_update_settings(),
-        optional("Name") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("SpecialRouterSettings") => special_router_settings()
-      }
-
-  """
-  @type update_channel_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      fmp4_hls_settings() :: %{
-        "AudioRenditionSets" => String.t() | atom(),
-        "NielsenId3Behavior" => list(any()),
-        "TimedMetadataBehavior" => list(any())
-      }
-
-  """
-  @type fmp4_hls_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_settings() :: %{
-        "MaximumVideoBufferDelayMilliseconds" => integer(),
-        "TransportStreamBitrate" => integer(),
-        "TransportStreamId" => integer(),
-        "TransportStreamReservedBitrate" => integer()
-      }
-
-  """
-  @type multiplex_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_selector() :: %{
-        "Name" => String.t() | atom(),
-        "SelectorSettings" => audio_selector_settings()
-      }
-
-  """
-  @type audio_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_configurable_audio_channel_pair_config() :: %{
-        "Id" => integer(),
-        "Profile" => list(any())
-      }
-
-  """
-  @type input_device_configurable_audio_channel_pair_config() :: %{(String.t() | atom()) => any()}
+  @type caption_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4943,518 +3889,123 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      multiplex_program_service_descriptor() :: %{
-        "ProviderName" => String.t() | atom(),
-        "ServiceName" => String.t() | atom()
+      mpeg2_filter_settings() :: %{
+        "TemporalFilterSettings" => temporal_filter_settings()
       }
 
   """
-  @type multiplex_program_service_descriptor() :: %{(String.t() | atom()) => any()}
+  @type mpeg2_filter_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_connect_flow_request() :: %{
-        "FlowArn" => String.t() | atom()
+      describe_thumbnails_response() :: %{
+        "ThumbnailDetails" => list(thumbnail_detail())
       }
 
   """
-  @type media_connect_flow_request() :: %{(String.t() | atom()) => any()}
+  @type describe_thumbnails_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_multiplex_response() :: %{
+      srt_listener_settings() :: %{
+        "Decryption" => srt_listener_decryption(),
+        "MinimumLatency" => integer(),
+        "StreamId" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_group_response() :: %{
         "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t() | atom(),
-        "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
-        "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type describe_multiplex_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ip_pool_create_request() :: %{
-        "Cidr" => String.t() | atom()
-      }
-
-  """
-  @type ip_pool_create_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_signal_map_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
-        "DiscoveryEntryPointArn" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
-        "FailedMediaResourceMap" => map(),
         "Id" => String.t() | atom(),
-        "LastDiscoveredAt" => non_neg_integer(),
-        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
-        "MediaResourceMap" => map(),
         "ModifiedAt" => non_neg_integer(),
-        "MonitorChangesPendingDeployment" => boolean(),
-        "MonitorDeployment" => monitor_deployment(),
         "Name" => String.t() | atom(),
-        "Status" => list(any()),
         "Tags" => map()
       }
 
   """
-  @type get_signal_map_response() :: %{(String.t() | atom()) => any()}
+  @type create_cloud_watch_alarm_template_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_cloud_watch_alarm_template_request() :: %{}
-
-  """
-  @type get_cloud_watch_alarm_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_device_thumbnail_response() :: %{
-        "Body" => binary(),
-        "ContentLength" => float(),
-        "ContentType" => list(any()),
-        "ETag" => String.t() | atom(),
-        "LastModified" => non_neg_integer()
+      frame_capture_settings() :: %{
+        "CaptureInterval" => integer(),
+        "CaptureIntervalUnits" => list(any()),
+        "TimecodeBurninSettings" => timecode_burnin_settings()
       }
 
   """
-  @type describe_input_device_thumbnail_response() :: %{(String.t() | atom()) => any()}
+  @type frame_capture_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sdi_source_request() :: %{
-        optional("Mode") => list(any()),
-        optional("Name") => String.t() | atom(),
-        optional("Type") => list(any())
+      update_reservation_response() :: %{
+        "Reservation" => reservation()
       }
 
   """
-  @type update_sdi_source_request() :: %{(String.t() | atom()) => any()}
+  @type update_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      motion_graphics_activate_schedule_action_settings() :: %{
+      color_space_passthrough_settings() :: %{}
+
+  """
+  @type color_space_passthrough_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_splice_insert_schedule_action_settings() :: %{
         "Duration" => float(),
-        "PasswordParam" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
+        "SpliceEventId" => float()
       }
 
   """
-  @type motion_graphics_activate_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+  @type scte35_splice_insert_schedule_action_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      nielsen_watermarks_settings() :: %{
-        "NielsenCbetSettings" => nielsen_c_b_e_t(),
-        "NielsenDistributionType" => list(any()),
-        "NielsenNaesIiNwSettings" => nielsen_naes_ii_nw()
-      }
-
-  """
-  @type nielsen_watermarks_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      key_provider_settings() :: %{
-        "StaticKeySettings" => static_key_settings()
-      }
-
-  """
-  @type key_provider_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      avail_blanking() :: %{
-        "AvailBlankingImage" => input_location(),
-        "State" => list(any())
-      }
-
-  """
-  @type avail_blanking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_clusters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_clusters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_location_ref() :: %{
-        "DestinationRefId" => String.t() | atom()
-      }
-
-  """
-  @type output_location_ref() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      temporal_filter_settings() :: %{
-        "PostFilterSharpening" => list(any()),
-        "Strength" => list(any())
-      }
-
-  """
-  @type temporal_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_multiplex_program_response() :: %{
-        "MultiplexProgram" => multiplex_program()
-      }
-
-  """
-  @type update_multiplex_program_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_input_response() :: %{}
-
-  """
-  @type delete_input_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_container_settings() :: %{
-        "MultiplexM2tsSettings" => multiplex_m2ts_settings()
-      }
-
-  """
-  @type multiplex_container_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_capture_s3_settings() :: %{
-        "CannedAcl" => list(any())
-      }
-
-  """
-  @type frame_capture_s3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_time_signal_schedule_action_settings() :: %{
-        "Scte35Descriptors" => list(scte35_descriptor())
-      }
-
-  """
-  @type scte35_time_signal_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      arib_destination_settings() :: %{}
-
-  """
-  @type arib_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_package_v2_group_settings() :: %{
-        "AdditionalDestinations" => list(media_package_additional_destinations()),
-        "CaptionLanguageMappings" => list(caption_language_mapping()),
-        "Id3Behavior" => list(any()),
-        "KlvBehavior" => list(any()),
-        "NielsenId3Behavior" => list(any()),
-        "Scte35Type" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthUnits" => list(any()),
-        "TimedMetadataId3Frame" => list(any()),
-        "TimedMetadataId3Period" => integer(),
-        "TimedMetadataPassthrough" => list(any())
-      }
-
-  """
-  @type media_package_v2_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_ingest_output_settings() :: %{
-        "NameModifier" => String.t() | atom()
-      }
-
-  """
-  @type cmaf_ingest_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channel_placement_groups_response() :: %{
-        "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()),
+      list_inputs_response() :: %{
+        "Inputs" => list(input()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_channel_placement_groups_response() :: %{(String.t() | atom()) => any()}
+  @type list_inputs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      schedule_action() :: %{
-        "ActionName" => String.t() | atom(),
-        "ScheduleActionSettings" => schedule_action_settings(),
-        "ScheduleActionStartSettings" => schedule_action_start_settings()
+      list_alerts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StateFilter") => String.t() | atom()
       }
 
   """
-  @type schedule_action() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_multiplex_program_request() :: %{
-        optional("MultiplexProgramSettings") => multiplex_program_settings()
-      }
-
-  """
-  @type update_multiplex_program_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      epoch_locking_settings() :: %{
-        "CustomEpoch" => String.t() | atom(),
-        "JamSyncTime" => String.t() | atom()
-      }
-
-  """
-  @type epoch_locking_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_image_deactivate_schedule_action_settings() :: %{
-        "FadeOut" => integer(),
-        "Layer" => integer()
-      }
-
-  """
-  @type static_image_deactivate_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_multiplex_request() :: %{}
-
-  """
-  @type describe_multiplex_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_package_group_settings() :: %{
-        "Destination" => output_location_ref(),
-        "MediapackageV2GroupSettings" => media_package_v2_group_settings()
-      }
-
-  """
-  @type media_package_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_signal_map_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t() | atom()),
-        optional("Description") => String.t() | atom(),
-        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t() | atom()),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DiscoveryEntryPointArn") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_signal_map_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_multiplex_request() :: %{}
-
-  """
-  @type delete_multiplex_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      teletext_source_settings() :: %{
-        "OutputRectangle" => caption_rectangle(),
-        "PageNumber" => String.t() | atom()
-      }
-
-  """
-  @type teletext_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_network_request() :: %{
-        optional("IpPools") => list(ip_pool_create_request()),
-        optional("Name") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Routes") => list(route_create_request()),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_network_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance_status() :: %{
-        "MaintenanceDay" => list(any()),
-        "MaintenanceDeadline" => String.t() | atom(),
-        "MaintenanceScheduledDate" => String.t() | atom(),
-        "MaintenanceStartTime" => String.t() | atom()
-      }
-
-  """
-  @type maintenance_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_channel_placement_group_request() :: %{
-        optional("Name") => String.t() | atom(),
-        optional("Nodes") => list(String.t() | atom()),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map()
-      }
-
-  """
-  @type create_channel_placement_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      frame_capture_hls_settings() :: %{}
-
-  """
-  @type frame_capture_hls_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_cluster_request() :: %{}
-
-  """
-  @type delete_cluster_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      esam() :: %{
-        "AcquisitionPointId" => String.t() | atom(),
-        "AdAvailOffset" => integer(),
-        "PasswordParam" => String.t() | atom(),
-        "PoisEndpoint" => String.t() | atom(),
-        "Username" => String.t() | atom(),
-        "ZoneIdentity" => String.t() | atom()
-      }
-
-  """
-  @type esam() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_image_output_activate_schedule_action_settings() :: %{
-        "Duration" => integer(),
-        "FadeIn" => integer(),
-        "FadeOut" => integer(),
-        "Height" => integer(),
-        "Image" => input_location(),
-        "ImageX" => integer(),
-        "ImageY" => integer(),
-        "Layer" => integer(),
-        "Opacity" => integer(),
-        "OutputNames" => list(String.t() | atom()),
-        "Width" => integer()
-      }
-
-  """
-  @type static_image_output_activate_schedule_action_settings() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_alerts_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5466,136 +4017,6 @@ defmodule AWS.MediaLive do
 
   """
   @type input_whitelist_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cluster_alerts_response() :: %{
-        "Alerts" => list(cluster_alert()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_cluster_alerts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_security_group_request() :: %{}
-
-  """
-  @type describe_input_security_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_output_settings_description() :: %{
-        "AvailabilityZones" => list(String.t() | atom()),
-        "NetworkInterfaceIds" => list(String.t() | atom()),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_output_settings_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      blackout_slate() :: %{
-        "BlackoutSlateImage" => input_location(),
-        "NetworkEndBlackout" => list(any()),
-        "NetworkEndBlackoutImage" => input_location(),
-        "NetworkId" => String.t() | atom(),
-        "State" => list(any())
-      }
-
-  """
-  @type blackout_slate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vpc_output_settings() :: %{
-        "PublicAddressAllocationIds" => list(String.t() | atom()),
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type vpc_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_prepare_schedule_action_settings() :: %{
-        "InputAttachmentNameReference" => String.t() | atom(),
-        "InputClippingSettings" => input_clipping_settings(),
-        "UrlPath" => list(String.t() | atom())
-      }
-
-  """
-  @type input_prepare_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_bridge_rule_template_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_event_bridge_rule_template_group_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failover_condition() :: %{
-        "FailoverConditionSettings" => failover_condition_settings()
-      }
-
-  """
-  @type failover_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_bridge_rule_template_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventTargets") => list(event_bridge_rule_template_target()),
-        optional("EventType") => list(any()),
-        optional("GroupIdentifier") => String.t() | atom(),
-        optional("Name") => String.t() | atom()
-      }
-
-  """
-  @type update_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      special_router_settings() :: %{
-        "RouterArn" => String.t() | atom()
-      }
-
-  """
-  @type special_router_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5619,240 +4040,203 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      dvb_tdt_settings() :: %{
-        "RepInterval" => integer()
+      list_event_bridge_rule_template_groups_response() :: %{
+        "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type dvb_tdt_settings() :: %{(String.t() | atom()) => any()}
+  @type list_event_bridge_rule_template_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_input_devices_request() :: %{
+      cancel_input_device_transfer_request() :: %{}
+
+  """
+  @type cancel_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      primary_channel_settings() :: %{
+        "LinkedChannelType" => list(any())
+      }
+
+  """
+  @type primary_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_alert() :: %{
+        "AlertType" => String.t() | atom(),
+        "ClearedTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PipelineId" => String.t() | atom(),
+        "SetTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type multiplex_alert() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_channel_level() :: %{
+        "Gain" => integer(),
+        "InputChannel" => integer()
+      }
+
+  """
+  @type input_channel_level() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_multiplex_request() :: %{}
+
+  """
+  @type stop_multiplex_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_signal_map_request() :: %{}
+
+  """
+  @type delete_signal_map_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_schedule_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_input_devices_request() :: %{(String.t() | atom()) => any()}
+  @type describe_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      standard_hls_settings() :: %{
-        "AudioRenditionSets" => String.t() | atom(),
-        "M3u8Settings" => m3u8_settings()
-      }
+      delete_network_request() :: %{}
 
   """
-  @type standard_hls_settings() :: %{(String.t() | atom()) => any()}
+  @type delete_network_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      unprocessable_entity_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ValidationErrors" => list(validation_error())
-      }
-
-  """
-  @type unprocessable_entity_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      encoder_settings() :: %{
-        "AudioDescriptions" => list(audio_description()),
-        "AvailBlanking" => avail_blanking(),
-        "AvailConfiguration" => avail_configuration(),
-        "BlackoutSlate" => blackout_slate(),
-        "CaptionDescriptions" => list(caption_description()),
-        "ColorCorrectionSettings" => color_correction_settings(),
-        "FeatureActivations" => feature_activations(),
-        "GlobalConfiguration" => global_configuration(),
-        "MotionGraphicsConfiguration" => motion_graphics_configuration(),
-        "NielsenConfiguration" => nielsen_configuration(),
-        "OutputGroups" => list(output_group()),
-        "ThumbnailConfiguration" => thumbnail_configuration(),
-        "TimecodeConfig" => timecode_config(),
-        "VideoDescriptions" => list(video_description())
-      }
-
-  """
-  @type encoder_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_channel_placement_group_request() :: %{}
-
-  """
-  @type delete_channel_placement_group_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      webvtt_destination_settings() :: %{
-        "StyleControl" => list(any())
-      }
-
-  """
-  @type webvtt_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      avail_settings() :: %{
-        "Esam" => esam(),
-        "Scte35SpliceInsert" => scte35_splice_insert(),
-        "Scte35TimeSignalApos" => scte35_time_signal_apos()
-      }
-
-  """
-  @type avail_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_sdi_source_request() :: %{
-        optional("Mode") => list(any()),
-        optional("Name") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        optional("Type") => list(any())
-      }
-
-  """
-  @type create_sdi_source_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dolby_vision81_settings() :: %{}
-
-  """
-  @type dolby_vision81_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_reservations_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Reservations" => list(reservation())
-      }
-
-  """
-  @type list_reservations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_input_device_maintenance_window_request() :: %{}
-
-  """
-  @type start_input_device_maintenance_window_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      h265_filter_settings() :: %{
-        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
-        "TemporalFilterSettings" => temporal_filter_settings()
-      }
-
-  """
-  @type h265_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_timed_metadata_schedule_action_settings() :: %{
-        "Id3" => String.t() | atom()
-      }
-
-  """
-  @type hls_timed_metadata_schedule_action_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      successful_monitor_deployment() :: %{
-        "DetailsUri" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type successful_monitor_deployment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      immediate_mode_schedule_action_start_settings() :: %{}
-
-  """
-  @type immediate_mode_schedule_action_start_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_feed_input() :: %{
-        "AudioSelectorName" => String.t() | atom(),
-        "FeedInput" => String.t() | atom()
-      }
-
-  """
-  @type audio_feed_input() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_network_response() :: %{
+      update_cluster_response() :: %{
         "Arn" => String.t() | atom(),
-        "AssociatedClusterIds" => list(String.t() | atom()),
+        "ChannelIds" => list(String.t() | atom()),
+        "ClusterType" => list(any()),
         "Id" => String.t() | atom(),
-        "IpPools" => list(ip_pool()),
         "Name" => String.t() | atom(),
-        "Routes" => list(route()),
+        "NetworkSettings" => cluster_network_settings(),
         "State" => list(any())
       }
 
   """
-  @type update_network_response() :: %{(String.t() | atom()) => any()}
+  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      thumbnail_configuration() :: %{
-        "State" => list(any())
+      frame_capture_cdn_settings() :: %{
+        "FrameCaptureS3Settings" => frame_capture_s3_settings()
       }
 
   """
-  @type thumbnail_configuration() :: %{(String.t() | atom()) => any()}
+  @type frame_capture_cdn_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_reservation_response() :: %{
+      sdi_source_mapping_update_request() :: %{
+        "CardNumber" => integer(),
+        "ChannelNumber" => integer(),
+        "SdiSource" => String.t() | atom()
+      }
+
+  """
+  @type sdi_source_mapping_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cluster_network_settings() :: %{
+        "DefaultRoute" => String.t() | atom(),
+        "InterfaceMappings" => list(interface_mapping())
+      }
+
+  """
+  @type cluster_network_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_container_settings() :: %{
+        "M2tsSettings" => m2ts_settings(),
+        "RawSettings" => raw_settings()
+      }
+
+  """
+  @type archive_container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_time_signal_schedule_action_settings() :: %{
+        "Scte35Descriptors" => list(scte35_descriptor())
+      }
+
+  """
+  @type scte35_time_signal_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_request() :: %{}
+
+  """
+  @type delete_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      special_router_settings() :: %{
+        "RouterArn" => String.t() | atom()
+      }
+
+  """
+  @type special_router_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_reservation_response() :: %{
         "Arn" => String.t() | atom(),
         "Count" => integer(),
         "CurrencyCode" => String.t() | atom(),
@@ -5875,591 +4259,223 @@ defmodule AWS.MediaLive do
       }
 
   """
-  @type describe_reservation_response() :: %{(String.t() | atom()) => any()}
+  @type delete_reservation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      remix_settings() :: %{
-        "ChannelMappings" => list(audio_channel_mapping()),
-        "ChannelsIn" => integer(),
-        "ChannelsOut" => integer()
-      }
-
-  """
-  @type remix_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_key_settings() :: %{
-        "KeyProviderServer" => input_location(),
-        "StaticKeyValue" => String.t() | atom()
-      }
-
-  """
-  @type static_key_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      thumbnail_detail() :: %{
-        "PipelineId" => String.t() | atom(),
-        "Thumbnails" => list(thumbnail())
-      }
-
-  """
-  @type thumbnail_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_video_settings() :: %{
-        "ConstantBitrate" => integer(),
-        "StatmuxSettings" => multiplex_statmux_video_settings()
-      }
-
-  """
-  @type multiplex_video_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      burn_in_destination_settings() :: %{
-        "Alignment" => list(any()),
-        "BackgroundColor" => list(any()),
-        "BackgroundOpacity" => integer(),
-        "Font" => input_location(),
-        "FontColor" => list(any()),
-        "FontOpacity" => integer(),
-        "FontResolution" => integer(),
-        "FontSize" => String.t() | atom(),
-        "OutlineColor" => list(any()),
-        "OutlineSize" => integer(),
-        "ShadowColor" => list(any()),
-        "ShadowOpacity" => integer(),
-        "ShadowXOffset" => integer(),
-        "ShadowYOffset" => integer(),
-        "SubtitleRows" => list(any()),
-        "TeletextGridControl" => list(any()),
-        "XPosition" => integer(),
-        "YPosition" => integer()
-      }
-
-  """
-  @type burn_in_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mpeg2_settings() :: %{
-        "AdaptiveQuantization" => list(any()),
-        "AfdSignaling" => list(any()),
-        "ColorMetadata" => list(any()),
-        "ColorSpace" => list(any()),
-        "DisplayAspectRatio" => list(any()),
-        "FilterSettings" => mpeg2_filter_settings(),
-        "FixedAfd" => list(any()),
-        "FramerateDenominator" => integer(),
-        "FramerateNumerator" => integer(),
-        "GopClosedCadence" => integer(),
-        "GopNumBFrames" => integer(),
-        "GopSize" => float(),
-        "GopSizeUnits" => list(any()),
-        "ScanType" => list(any()),
-        "SubgopLength" => list(any()),
-        "TimecodeBurninSettings" => timecode_burnin_settings(),
-        "TimecodeInsertion" => list(any())
-      }
-
-  """
-  @type mpeg2_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
+      video_description() :: %{
+        "CodecSettings" => video_codec_settings(),
+        "Height" => integer(),
         "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
+        "RespondToAfd" => list(any()),
+        "ScalingBehavior" => list(any()),
+        "Sharpness" => integer(),
+        "Width" => integer()
       }
 
   """
-  @type create_node_response() :: %{(String.t() | atom()) => any()}
+  @type video_description() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_event_bridge_rule_template_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EventTargets" => list(event_bridge_rule_template_target()),
-        "EventType" => list(any()),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
+      create_channel_request() :: %{
+        optional("AnywhereSettings") => anywhere_settings(),
+        optional("CdiInputSpecification") => cdi_input_specification(),
+        optional("ChannelClass") => list(any()),
+        optional("ChannelEngineVersion") => channel_engine_version_request(),
+        optional("ChannelSecurityGroups") => list(String.t() | atom()),
+        optional("Destinations") => list(output_destination()),
+        optional("DryRun") => boolean(),
+        optional("EncoderSettings") => encoder_settings(),
+        optional("InferenceSettings") => inference_settings(),
+        optional("InputAttachments") => list(input_attachment()),
+        optional("InputSpecification") => input_specification(),
+        optional("LinkedChannelSettings") => linked_channel_settings(),
+        optional("LogLevel") => list(any()),
+        optional("Maintenance") => maintenance_create_settings(),
+        optional("Name") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Reserved") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Vpc") => vpc_output_settings()
       }
 
   """
-  @type update_event_bridge_rule_template_response() :: %{(String.t() | atom()) => any()}
+  @type create_channel_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_cloud_watch_alarm_template_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map()
+      router_destination_settings() :: %{
+        "AvailabilityZoneName" => String.t() | atom()
       }
 
   """
-  @type create_cloud_watch_alarm_template_group_response() :: %{(String.t() | atom()) => any()}
+  @type router_destination_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_sdi_source_response() :: %{
+      create_sdi_source_response() :: %{
         "SdiSource" => sdi_source()
       }
 
   """
-  @type update_sdi_source_response() :: %{(String.t() | atom()) => any()}
+  @type create_sdi_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multiplex() :: %{
+      feature_activations() :: %{
+        "InputPrepareScheduleActions" => list(any()),
+        "OutputStaticImageOverlayScheduleActions" => list(any())
+      }
+
+  """
+  @type feature_activations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_update_signal_map_request() :: %{
+        optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t() | atom()),
+        optional("Description") => String.t() | atom(),
+        optional("DiscoveryEntryPointArn") => String.t() | atom(),
+        optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t() | atom()),
+        optional("ForceRediscovery") => boolean(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type start_update_signal_map_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_summary() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
         "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Destinations" => list(multiplex_output_destination()),
+        "CdiInputSpecification" => cdi_input_specification(),
+        "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
         "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings(),
+        "InferenceSettings" => describe_inference_settings(),
+        "InputAttachments" => list(input_attachment()),
+        "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
+        "LogLevel" => list(any()),
+        "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
         "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
+        "RoleArn" => String.t() | atom(),
         "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type multiplex() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_ingest_caption_language_mapping() :: %{
-        "CaptionChannel" => integer(),
-        "LanguageCode" => String.t() | atom()
-      }
-
-  """
-  @type cmaf_ingest_caption_language_mapping() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_sdi_source_request() :: %{}
-
-  """
-  @type describe_sdi_source_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      smpte2110_receiver_group_sdp_settings() :: %{
-        "AncillarySdps" => list(input_sdp_location()),
-        "AudioSdps" => list(input_sdp_location()),
-        "VideoSdp" => input_sdp_location()
-      }
-
-  """
-  @type smpte2110_receiver_group_sdp_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cmaf_ingest_group_settings() :: %{
-        "AdditionalDestinations" => list(additional_destinations()),
-        "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()),
-        "Destination" => output_location_ref(),
-        "Id3Behavior" => list(any()),
-        "Id3NameModifier" => String.t() | atom(),
-        "KlvBehavior" => list(any()),
-        "KlvNameModifier" => String.t() | atom(),
-        "NielsenId3Behavior" => list(any()),
-        "NielsenId3NameModifier" => String.t() | atom(),
-        "Scte35NameModifier" => String.t() | atom(),
-        "Scte35Type" => list(any()),
-        "SegmentLength" => integer(),
-        "SegmentLengthUnits" => list(any()),
-        "SendDelayMs" => integer(),
-        "TimedMetadataId3Frame" => list(any()),
-        "TimedMetadataId3Period" => integer(),
-        "TimedMetadataPassthrough" => list(any())
-      }
-
-  """
-  @type cmaf_ingest_group_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_vpc_request() :: %{
-        "SecurityGroupIds" => list(String.t() | atom()),
-        "SubnetIds" => list(String.t() | atom())
-      }
-
-  """
-  @type input_vpc_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_output_settings() :: %{
-        "H265PackagingType" => list(any()),
-        "HlsSettings" => hls_settings(),
-        "NameModifier" => String.t() | atom(),
-        "SegmentModifier" => String.t() | atom()
-      }
-
-  """
-  @type hls_output_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      accept_input_device_transfer_response() :: %{}
-
-  """
-  @type accept_input_device_transfer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_bridge_rule_template_group_request() :: %{
-        optional("Description") => String.t() | atom()
-      }
-
-  """
-  @type update_event_bridge_rule_template_group_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_node_response() :: %{
-        "Arn" => String.t() | atom(),
-        "ChannelPlacementGroups" => list(String.t() | atom()),
-        "ClusterId" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "Id" => String.t() | atom(),
-        "InstanceArn" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeInterfaceMappings" => list(node_interface_mapping()),
-        "Role" => list(any()),
-        "SdiSourceMappings" => list(sdi_source_mapping()),
-        "State" => list(any())
-      }
-
-  """
-  @type delete_node_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZone" => String.t() | atom(),
-        "ConnectionState" => list(any()),
-        "DeviceSettingsSyncState" => list(any()),
-        "DeviceUpdateStatus" => list(any()),
-        "HdDeviceSettings" => input_device_hd_settings(),
-        "Id" => String.t() | atom(),
-        "MacAddress" => String.t() | atom(),
-        "MedialiveInputArns" => list(String.t() | atom()),
-        "Name" => String.t() | atom(),
-        "NetworkSettings" => input_device_network_settings(),
-        "OutputType" => list(any()),
-        "SerialNumber" => String.t() | atom(),
         "Tags" => map(),
-        "Type" => list(any()),
-        "UhdDeviceSettings" => input_device_uhd_settings()
+        "UsedChannelEngineVersions" => list(channel_engine_version_response()),
+        "Vpc" => vpc_output_settings_description()
       }
 
   """
-  @type input_device_summary() :: %{(String.t() | atom()) => any()}
+  @type channel_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ac3_settings() :: %{
-        "AttenuationControl" => list(any()),
+      eac3_atmos_settings() :: %{
         "Bitrate" => float(),
-        "BitstreamMode" => list(any()),
         "CodingMode" => list(any()),
         "Dialnorm" => integer(),
-        "DrcProfile" => list(any()),
-        "LfeFilter" => list(any()),
-        "MetadataControl" => list(any())
+        "DrcLine" => list(any()),
+        "DrcRf" => list(any()),
+        "HeightTrim" => float(),
+        "SurroundTrim" => float()
       }
 
   """
-  @type ac3_settings() :: %{(String.t() | atom()) => any()}
+  @type eac3_atmos_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multiplex_program_settings() :: %{
-        "PreferredChannelPipeline" => list(any()),
-        "ProgramNumber" => integer(),
-        "ServiceDescriptor" => multiplex_program_service_descriptor(),
-        "VideoSettings" => multiplex_video_settings()
-      }
+      delete_reservation_request() :: %{}
 
   """
-  @type multiplex_program_settings() :: %{(String.t() | atom()) => any()}
+  @type delete_reservation_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      media_package_v2_destination_settings() :: %{
-        "AudioGroupId" => String.t() | atom(),
-        "AudioRenditionSets" => String.t() | atom(),
-        "HlsAutoSelect" => list(any()),
-        "HlsDefault" => list(any())
-      }
-
-  """
-  @type media_package_v2_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      color_correction_settings() :: %{
-        "GlobalColorCorrections" => list(color_correction())
-      }
-
-  """
-  @type color_correction_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sdi_source_summary() :: %{
+      create_cloud_watch_alarm_template_response() :: %{
         "Arn" => String.t() | atom(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t() | atom(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "Inputs" => list(String.t() | atom()),
-        "Mode" => list(any()),
+        "MetricName" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
         "Name" => String.t() | atom(),
-        "State" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type sdi_source_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_input_security_group_response() :: %{
-        "Arn" => String.t() | atom(),
-        "Channels" => list(String.t() | atom()),
-        "Id" => String.t() | atom(),
-        "Inputs" => list(String.t() | atom()),
-        "State" => list(any()),
+        "Period" => integer(),
+        "Statistic" => list(any()),
         "Tags" => map(),
-        "WhitelistRules" => list(input_whitelist_rule())
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
       }
 
   """
-  @type describe_input_security_group_response() :: %{(String.t() | atom()) => any()}
+  @type create_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_reservation_request() :: %{}
-
-  """
-  @type describe_reservation_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_error_exception() :: %{
-        "Message" => String.t() | atom()
+      sdi_source_mapping() :: %{
+        "CardNumber" => integer(),
+        "ChannelNumber" => integer(),
+        "SdiSource" => String.t() | atom()
       }
 
   """
-  @type internal_server_error_exception() :: %{(String.t() | atom()) => any()}
+  @type sdi_source_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_node_request() :: %{}
+      rec709_settings() :: %{}
 
   """
-  @type delete_node_request() :: %{}
+  @type rec709_settings() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_cloud_watch_alarm_templates_response() :: %{
-        "CloudWatchAlarmTemplates" => list(cloud_watch_alarm_template_summary()),
-        "NextToken" => String.t() | atom()
+      input_destination_route() :: %{
+        "Cidr" => String.t() | atom(),
+        "Gateway" => String.t() | atom()
       }
 
   """
-  @type list_cloud_watch_alarm_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_bridge_rule_template_groups_response() :: %{
-        "EventBridgeRuleTemplateGroups" => list(event_bridge_rule_template_group_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_bridge_rule_template_groups_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reject_input_device_transfer_response() :: %{}
-
-  """
-  @type reject_input_device_transfer_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      embedded_source_settings() :: %{
-        "Convert608To708" => list(any()),
-        "Scte20Detection" => list(any()),
-        "Source608ChannelNumber" => integer(),
-        "Source608TrackNumber" => integer()
-      }
-
-  """
-  @type embedded_source_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_multiplex_response() :: %{
-        "Multiplex" => multiplex()
-      }
-
-  """
-  @type create_multiplex_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_bridge_rule_template_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SignalMapIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type list_event_bridge_rule_template_groups_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      media_resource() :: %{
-        "Destinations" => list(media_resource_neighbor()),
-        "Name" => String.t() | atom(),
-        "Sources" => list(media_resource_neighbor())
-      }
-
-  """
-  @type media_resource() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_cloud_watch_alarm_template_request() :: %{
-        optional("DatapointsToAlarm") => integer(),
-        optional("Description") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("ComparisonOperator") => list(any()),
-        required("EvaluationPeriods") => integer(),
-        required("GroupIdentifier") => String.t() | atom(),
-        required("MetricName") => String.t() | atom(),
-        required("Name") => String.t() | atom(),
-        required("Period") => integer(),
-        required("Statistic") => list(any()),
-        required("TargetResourceType") => list(any()),
-        required("Threshold") => float(),
-        required("TreatMissingData") => list(any())
-      }
-
-  """
-  @type create_cloud_watch_alarm_template_request() :: %{(String.t() | atom()) => any()}
+  @type input_destination_route() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6498,184 +4514,186 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_versions_request() :: %{}
+      static_image_deactivate_schedule_action_settings() :: %{
+        "FadeOut" => integer(),
+        "Layer" => integer()
+      }
 
   """
-  @type list_versions_request() :: %{}
+  @type static_image_deactivate_schedule_action_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      caption_description() :: %{
-        "Accessibility" => list(any()),
-        "CaptionDashRoles" => list(list(any())()),
-        "CaptionSelectorName" => String.t() | atom(),
-        "DestinationSettings" => caption_destination_settings(),
-        "DvbDashAccessibility" => list(any()),
+      mp2_settings() :: %{
+        "Bitrate" => float(),
+        "CodingMode" => list(any()),
+        "SampleRate" => float()
+      }
+
+  """
+  @type mp2_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_create_request() :: %{
+        "Cidr" => String.t() | atom(),
+        "Gateway" => String.t() | atom()
+      }
+
+  """
+  @type route_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_selector() :: %{
         "LanguageCode" => String.t() | atom(),
-        "LanguageDescription" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type caption_description() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_media_connect_settings() :: %{
-        "FlowArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "SourceName" => String.t() | atom()
-      }
-
-  """
-  @type input_device_media_connect_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_channel_response() :: %{
-        "AnywhereSettings" => describe_anywhere_settings(),
-        "Arn" => String.t() | atom(),
-        "CdiInputSpecification" => cdi_input_specification(),
-        "ChannelClass" => list(any()),
-        "ChannelEngineVersion" => channel_engine_version_response(),
-        "ChannelSecurityGroups" => list(String.t() | atom()),
-        "Destinations" => list(output_destination()),
-        "EgressEndpoints" => list(channel_egress_endpoint()),
-        "EncoderSettings" => encoder_settings(),
-        "Id" => String.t() | atom(),
-        "InferenceSettings" => describe_inference_settings(),
-        "InputAttachments" => list(input_attachment()),
-        "InputSpecification" => input_specification(),
-        "LinkedChannelSettings" => describe_linked_channel_settings(),
-        "LogLevel" => list(any()),
-        "Maintenance" => maintenance_status(),
         "Name" => String.t() | atom(),
-        "PipelineDetails" => list(pipeline_detail()),
-        "PipelinesRunningCount" => integer(),
-        "RoleArn" => String.t() | atom(),
-        "State" => list(any()),
-        "Tags" => map(),
-        "Vpc" => vpc_output_settings_description()
+        "SelectorSettings" => caption_selector_settings()
       }
 
   """
-  @type start_channel_response() :: %{(String.t() | atom()) => any()}
+  @type caption_selector() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      frame_capture_cdn_settings() :: %{
-        "FrameCaptureS3Settings" => frame_capture_s3_settings()
+      multicast_input_settings() :: %{
+        "SourceIpAddress" => String.t() | atom()
       }
 
   """
-  @type frame_capture_cdn_settings() :: %{(String.t() | atom()) => any()}
+  @type multicast_input_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hdr10_settings() :: %{
-        "MaxCll" => integer(),
-        "MaxFall" => integer()
-      }
-
-  """
-  @type hdr10_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      offering() :: %{
+      multiplex() :: %{
         "Arn" => String.t() | atom(),
-        "CurrencyCode" => String.t() | atom(),
-        "Duration" => integer(),
-        "DurationUnits" => list(any()),
-        "FixedPrice" => float(),
-        "OfferingDescription" => String.t() | atom(),
-        "OfferingId" => String.t() | atom(),
-        "OfferingType" => list(any()),
-        "Region" => String.t() | atom(),
-        "ResourceSpecification" => reservation_resource_specification(),
-        "UsagePrice" => float()
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Destinations" => list(multiplex_output_destination()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
       }
 
   """
-  @type offering() :: %{(String.t() | atom()) => any()}
+  @type multiplex() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      raw_settings() :: %{}
-
-  """
-  @type raw_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      claim_device_response() :: %{}
-
-  """
-  @type claim_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      media_connect_router_output_destination_settings() :: %{
-        "EncryptionType" => list(any()),
-        "SecretArn" => String.t() | atom()
+      ms_smooth_group_settings() :: %{
+        "AcquisitionPointId" => String.t() | atom(),
+        "AudioOnlyTimecodeControl" => list(any()),
+        "CertificateMode" => list(any()),
+        "ConnectionRetryInterval" => integer(),
+        "Destination" => output_location_ref(),
+        "EventId" => String.t() | atom(),
+        "EventIdMode" => list(any()),
+        "EventStopBehavior" => list(any()),
+        "FilecacheDuration" => integer(),
+        "FragmentLength" => integer(),
+        "InputLossAction" => list(any()),
+        "NumRetries" => integer(),
+        "RestartDelay" => integer(),
+        "SegmentationMode" => list(any()),
+        "SendDelayMs" => integer(),
+        "SparseTrackType" => list(any()),
+        "StreamManifestBehavior" => list(any()),
+        "TimestampOffset" => String.t() | atom(),
+        "TimestampOffsetMode" => list(any())
       }
 
   """
-  @type media_connect_router_output_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type ms_smooth_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      pipeline_pause_state_settings() :: %{
-        "PipelineId" => list(any())
+      list_cloud_watch_alarm_template_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Scope") => String.t() | atom(),
+        optional("SignalMapIdentifier") => String.t() | atom()
       }
 
   """
-  @type pipeline_pause_state_settings() :: %{(String.t() | atom()) => any()}
+  @type list_cloud_watch_alarm_template_groups_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_connect_router_output_settings() :: %{
-        "ConnectedRouterInputs" => media_connect_router_output_connection_map(),
-        "ContainerSettings" => media_connect_router_container_settings(),
-        "Destination" => output_location_ref()
+      multiplex_program_packet_identifiers_map() :: %{
+        "AribCaptionsPid" => integer(),
+        "AudioPids" => list(integer()),
+        "DvbSubPids" => list(integer()),
+        "DvbTeletextPid" => integer(),
+        "DvbTeletextPids" => list(integer()),
+        "EcmPid" => integer(),
+        "EtvPlatformPid" => integer(),
+        "EtvSignalPid" => integer(),
+        "KlvDataPids" => list(integer()),
+        "PcrPid" => integer(),
+        "PmtPid" => integer(),
+        "PrivateMetadataPid" => integer(),
+        "Scte27Pids" => list(integer()),
+        "Scte35Pid" => integer(),
+        "Smpte2038Pid" => integer(),
+        "TimedMetadataPid" => integer(),
+        "VideoPid" => integer()
       }
 
   """
-  @type media_connect_router_output_settings() :: %{(String.t() | atom()) => any()}
+  @type multiplex_program_packet_identifiers_map() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      video_selector_color_space_settings() :: %{
-        "Hdr10Settings" => hdr10_settings()
+      scte35_delivery_restrictions() :: %{
+        "ArchiveAllowedFlag" => list(any()),
+        "DeviceRestrictions" => list(any()),
+        "NoRegionalBlackoutFlag" => list(any()),
+        "WebDeliveryAllowedFlag" => list(any())
       }
 
   """
-  @type video_selector_color_space_settings() :: %{(String.t() | atom()) => any()}
+  @type scte35_delivery_restrictions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_descriptor() :: %{
+        "Scte35DescriptorSettings" => scte35_descriptor_settings()
+      }
+
+  """
+  @type scte35_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_channel_placement_group_request() :: %{}
+
+  """
+  @type delete_channel_placement_group_request() :: %{}
 
   @typedoc """
 
@@ -6693,230 +4711,92 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      frame_capture_settings() :: %{
-        "CaptureInterval" => integer(),
-        "CaptureIntervalUnits" => list(any()),
-        "TimecodeBurninSettings" => timecode_burnin_settings()
-      }
-
-  """
-  @type frame_capture_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_silence_failover_settings() :: %{
-        "AudioSelectorName" => String.t() | atom(),
-        "AudioSilenceThresholdMsec" => integer()
-      }
-
-  """
-  @type audio_silence_failover_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reboot_input_device_response() :: %{}
-
-  """
-  @type reboot_input_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      gateway_timeout_exception() :: %{
+      conflict_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type gateway_timeout_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      srt_settings() :: %{
-        "SrtCallerSources" => list(srt_caller_source()),
-        "SrtListenerSettings" => srt_listener_settings()
+      reservation() :: %{
+        "Arn" => String.t() | atom(),
+        "Count" => integer(),
+        "CurrencyCode" => String.t() | atom(),
+        "Duration" => integer(),
+        "DurationUnits" => list(any()),
+        "End" => String.t() | atom(),
+        "FixedPrice" => float(),
+        "Name" => String.t() | atom(),
+        "OfferingDescription" => String.t() | atom(),
+        "OfferingId" => String.t() | atom(),
+        "OfferingType" => list(any()),
+        "Region" => String.t() | atom(),
+        "RenewalSettings" => renewal_settings(),
+        "ReservationId" => String.t() | atom(),
+        "ResourceSpecification" => reservation_resource_specification(),
+        "Start" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "UsagePrice" => float()
       }
 
   """
-  @type srt_settings() :: %{(String.t() | atom()) => any()}
+  @type reservation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rtmp_output_settings() :: %{
-        "CertificateMode" => list(any()),
-        "ConnectionRetryInterval" => integer(),
-        "Destination" => output_location_ref(),
-        "NumRetries" => integer()
+      not_found_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type rtmp_output_settings() :: %{(String.t() | atom()) => any()}
+  @type not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      m2ts_settings() :: %{
-        "TimedMetadataPid" => String.t() | atom(),
-        "Scte35PrerollPullupMilliseconds" => float(),
-        "EtvPlatformPid" => String.t() | atom(),
-        "NullPacketBitrate" => float(),
-        "PcrPid" => String.t() | atom(),
-        "Klv" => list(any()),
-        "DvbTeletextPid" => String.t() | atom(),
-        "AudioBufferModel" => list(any()),
-        "PcrPeriod" => integer(),
-        "DvbSdtSettings" => dvb_sdt_settings(),
-        "AribCaptionsPid" => String.t() | atom(),
-        "TransportStreamId" => integer(),
-        "PatInterval" => integer(),
-        "Bitrate" => integer(),
-        "EcmPid" => String.t() | atom(),
-        "PmtPid" => String.t() | atom(),
-        "EbpPlacement" => list(any()),
-        "Scte35Pid" => String.t() | atom(),
-        "AudioStreamType" => list(any()),
-        "Ebif" => list(any()),
-        "FragmentTime" => float(),
-        "AudioFramesPerPes" => integer(),
-        "SegmentationMarkers" => list(any()),
-        "CcDescriptor" => list(any()),
-        "Scte35Control" => list(any()),
-        "SegmentationTime" => float(),
-        "PcrControl" => list(any()),
-        "EbpLookaheadMs" => integer(),
-        "VideoPid" => String.t() | atom(),
-        "DvbTdtSettings" => dvb_tdt_settings(),
-        "DvbSubPids" => String.t() | atom(),
-        "AudioPids" => String.t() | atom(),
-        "AribCaptionsPidControl" => list(any()),
-        "KlvDataPids" => String.t() | atom(),
-        "Arib" => list(any()),
-        "AbsentInputAudioBehavior" => list(any()),
-        "EtvSignalPid" => String.t() | atom(),
-        "BufferModel" => list(any()),
-        "DvbNitSettings" => dvb_nit_settings(),
-        "RateMode" => list(any()),
-        "TimedMetadataBehavior" => list(any()),
-        "EbpAudioInterval" => list(any()),
-        "ProgramNum" => integer(),
-        "Scte27Pids" => String.t() | atom(),
-        "EsRateInPes" => list(any()),
-        "PmtInterval" => integer(),
-        "NielsenId3Behavior" => list(any()),
-        "SegmentationStyle" => list(any())
+      create_cluster_request() :: %{
+        optional("ClusterType") => list(any()),
+        optional("InstanceRoleArn") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("NetworkSettings") => cluster_network_settings_create_request(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map()
       }
 
   """
-  @type m2ts_settings() :: %{(String.t() | atom()) => any()}
+  @type create_cluster_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dvb_sdt_settings() :: %{
-        "OutputSdt" => list(any()),
-        "RepInterval" => integer(),
-        "ServiceName" => String.t() | atom(),
-        "ServiceProviderName" => String.t() | atom()
+      audio_language_selection() :: %{
+        "LanguageCode" => String.t() | atom(),
+        "LanguageSelectionPolicy" => list(any())
       }
 
   """
-  @type dvb_sdt_settings() :: %{(String.t() | atom()) => any()}
+  @type audio_language_selection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_destination_request() :: %{
-        "Network" => String.t() | atom(),
-        "NetworkRoutes" => list(input_request_destination_route()),
-        "StaticIpAddress" => String.t() | atom(),
-        "StreamName" => String.t() | atom()
-      }
-
-  """
-  @type input_destination_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_alerts_response() :: %{
-        "Alerts" => list(channel_alert()),
+      list_clusters_response() :: %{
+        "Clusters" => list(describe_cluster_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_alerts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      schedule_action_start_settings() :: %{
-        "FixedModeScheduleActionStartSettings" => fixed_mode_schedule_action_start_settings(),
-        "FollowModeScheduleActionStartSettings" => follow_mode_schedule_action_start_settings(),
-        "ImmediateModeScheduleActionStartSettings" => immediate_mode_schedule_action_start_settings()
-      }
-
-  """
-  @type schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_m2ts_settings() :: %{
-        "AbsentInputAudioBehavior" => list(any()),
-        "Arib" => list(any()),
-        "AudioBufferModel" => list(any()),
-        "AudioFramesPerPes" => integer(),
-        "AudioStreamType" => list(any()),
-        "CcDescriptor" => list(any()),
-        "Ebif" => list(any()),
-        "EsRateInPes" => list(any()),
-        "Klv" => list(any()),
-        "NielsenId3Behavior" => list(any()),
-        "PcrControl" => list(any()),
-        "PcrPeriod" => integer(),
-        "Scte35Control" => list(any()),
-        "Scte35PrerollPullupMilliseconds" => float()
-      }
-
-  """
-  @type multiplex_m2ts_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_input_response() :: %{
-        "Input" => input()
-      }
-
-  """
-  @type update_input_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_destination_vpc() :: %{
-        "AvailabilityZone" => String.t() | atom(),
-        "NetworkInterfaceId" => String.t() | atom()
-      }
-
-  """
-  @type input_destination_vpc() :: %{(String.t() | atom()) => any()}
+  @type list_clusters_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6931,65 +4811,6 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_multiplex_alerts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StateFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_multiplex_alerts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      eac3_atmos_settings() :: %{
-        "Bitrate" => float(),
-        "CodingMode" => list(any()),
-        "Dialnorm" => integer(),
-        "DrcLine" => list(any()),
-        "DrcRf" => list(any()),
-        "HeightTrim" => float(),
-        "SurroundTrim" => float()
-      }
-
-  """
-  @type eac3_atmos_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pipeline_detail() :: %{
-        "ActiveInputAttachmentName" => String.t() | atom(),
-        "ActiveInputSwitchActionName" => String.t() | atom(),
-        "ActiveMotionGraphicsActionName" => String.t() | atom(),
-        "ActiveMotionGraphicsUri" => String.t() | atom(),
-        "ChannelEngineVersion" => channel_engine_version_response(),
-        "MediaConnectRouterOutputConnectionMap" => map(),
-        "PipelineId" => String.t() | atom()
-      }
-
-  """
-  @type pipeline_detail() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_bridge_rule_templates_response() :: %{
-        "EventBridgeRuleTemplates" => list(event_bridge_rule_template_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_bridge_rule_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       rtmp_caption_info_destination_settings() :: %{}
 
   """
@@ -6999,46 +4820,155 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      get_event_bridge_rule_template_request() :: %{}
+      purchase_offering_response() :: %{
+        "Reservation" => reservation()
+      }
 
   """
-  @type get_event_bridge_rule_template_request() :: %{}
+  @type purchase_offering_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      follower_channel_settings() :: %{
-        "LinkedChannelType" => list(any()),
-        "PrimaryChannelArn" => String.t() | atom()
-      }
+      describe_offering_request() :: %{}
 
   """
-  @type follower_channel_settings() :: %{(String.t() | atom()) => any()}
+  @type describe_offering_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      wav_settings() :: %{
-        "BitDepth" => float(),
-        "CodingMode" => list(any()),
-        "SampleRate" => float()
+      smpte2110_receiver_group_sdp_settings() :: %{
+        "AncillarySdps" => list(input_sdp_location()),
+        "AudioSdps" => list(input_sdp_location()),
+        "VideoSdp" => input_sdp_location()
       }
 
   """
-  @type wav_settings() :: %{(String.t() | atom()) => any()}
+  @type smpte2110_receiver_group_sdp_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      additional_destinations() :: %{
-        "Destination" => output_location_ref()
+      teletext_source_settings() :: %{
+        "OutputRectangle" => caption_rectangle(),
+        "PageNumber" => String.t() | atom()
       }
 
   """
-  @type additional_destinations() :: %{(String.t() | atom()) => any()}
+  @type teletext_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping() :: %{
+        "LogicalInterfaceName" => String.t() | atom(),
+        "NetworkId" => String.t() | atom()
+      }
+
+  """
+  @type interface_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timecode_config() :: %{
+        "Source" => list(any()),
+        "SyncThreshold" => integer()
+      }
+
+  """
+  @type timecode_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      smpte_tt_destination_settings() :: %{}
+
+  """
+  @type smpte_tt_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_output_settings() :: %{
+        "PublicAddressAllocationIds" => list(String.t() | atom()),
+        "SecurityGroupIds" => list(String.t() | atom()),
+        "SubnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_placement_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_channel_placement_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_output_settings() :: %{
+        "BufferMsec" => integer(),
+        "ContainerSettings" => udp_container_settings(),
+        "Destination" => output_location_ref(),
+        "EncryptionType" => list(any()),
+        "Latency" => integer()
+      }
+
+  """
+  @type srt_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      multiplex_program_summary() :: %{
+        "ChannelId" => String.t() | atom(),
+        "ProgramName" => String.t() | atom()
+      }
+
+  """
+  @type multiplex_program_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_track() :: %{
+        "PremixSettings" => audio_pre_mixer_settings(),
+        "Track" => integer()
+      }
+
+  """
+  @type audio_track() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_inputs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_inputs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7057,47 +4987,210 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      hls_input_settings() :: %{
-        "Bandwidth" => integer(),
-        "BufferSegments" => integer(),
-        "Retries" => integer(),
-        "RetryInterval" => integer(),
-        "Scte35Source" => list(any())
+      frame_capture_group_settings() :: %{
+        "Destination" => output_location_ref(),
+        "FrameCaptureCdnSettings" => frame_capture_cdn_settings()
       }
 
   """
-  @type hls_input_settings() :: %{(String.t() | atom()) => any()}
+  @type frame_capture_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      bad_request_exception() :: %{
+      m2ts_settings() :: %{
+        "CcDescriptor" => list(any()),
+        "DvbSdtSettings" => dvb_sdt_settings(),
+        "Bitrate" => integer(),
+        "Scte35Pid" => String.t() | atom(),
+        "PcrPid" => String.t() | atom(),
+        "AudioBufferModel" => list(any()),
+        "DvbSubPids" => String.t() | atom(),
+        "Ebif" => list(any()),
+        "SegmentationTime" => float(),
+        "Scte27Pids" => String.t() | atom(),
+        "EbpPlacement" => list(any()),
+        "PmtPid" => String.t() | atom(),
+        "BufferModel" => list(any()),
+        "FragmentTime" => float(),
+        "AribCaptionsPid" => String.t() | atom(),
+        "KlvDataPids" => String.t() | atom(),
+        "TransportStreamId" => integer(),
+        "ProgramNum" => integer(),
+        "EtvPlatformPid" => String.t() | atom(),
+        "SegmentationMarkers" => list(any()),
+        "PcrPeriod" => integer(),
+        "Arib" => list(any()),
+        "EcmPid" => String.t() | atom(),
+        "Klv" => list(any()),
+        "EsRateInPes" => list(any()),
+        "DvbNitSettings" => dvb_nit_settings(),
+        "PmtInterval" => integer(),
+        "PcrControl" => list(any()),
+        "EbpAudioInterval" => list(any()),
+        "AudioStreamType" => list(any()),
+        "RateMode" => list(any()),
+        "AudioFramesPerPes" => integer(),
+        "NullPacketBitrate" => float(),
+        "VideoPid" => String.t() | atom(),
+        "Scte35Control" => list(any()),
+        "AribCaptionsPidControl" => list(any()),
+        "DvbTeletextPid" => String.t() | atom(),
+        "TimedMetadataBehavior" => list(any()),
+        "NielsenId3Behavior" => list(any()),
+        "EtvSignalPid" => String.t() | atom(),
+        "DvbTdtSettings" => dvb_tdt_settings(),
+        "EbpLookaheadMs" => integer(),
+        "AbsentInputAudioBehavior" => list(any()),
+        "Scte35PrerollPullupMilliseconds" => float(),
+        "AudioPids" => String.t() | atom(),
+        "PatInterval" => integer(),
+        "SegmentationStyle" => list(any()),
+        "TimedMetadataPid" => String.t() | atom()
+      }
+
+  """
+  @type m2ts_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_reservation_request() :: %{}
+
+  """
+  @type describe_reservation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      immediate_mode_schedule_action_start_settings() :: %{}
+
+  """
+  @type immediate_mode_schedule_action_start_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_input_request() :: %{}
+
+  """
+  @type describe_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_offerings_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Offerings" => list(offering())
+      }
+
+  """
+  @type list_offerings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_locking_settings() :: %{
+        "DisabledLockingSettings" => disabled_locking_settings(),
+        "EpochLockingSettings" => epoch_locking_settings(),
+        "PipelineLockingSettings" => pipeline_locking_settings()
+      }
+
+  """
+  @type output_locking_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_error() :: %{
+        "ElementPath" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type validation_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ttml_destination_settings() :: %{
+        "StyleControl" => list(any())
+      }
+
+  """
+  @type ttml_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_gateway_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+  @type bad_gateway_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_schedule_action_delete_result() :: %{
-        "ScheduleActions" => list(schedule_action())
+      describe_cluster_request() :: %{}
+
+  """
+  @type describe_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_update_schedule_request() :: %{
+        optional("Creates") => batch_schedule_action_create_request(),
+        optional("Deletes") => batch_schedule_action_delete_request()
       }
 
   """
-  @type batch_schedule_action_delete_result() :: %{(String.t() | atom()) => any()}
+  @type batch_update_schedule_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_node_request() :: %{}
+      create_event_bridge_rule_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EventTargets" => list(event_bridge_rule_template_target()),
+        "EventType" => list(any()),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
+      }
 
   """
-  @type describe_node_request() :: %{}
+  @type create_event_bridge_rule_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      successful_monitor_deployment() :: %{
+        "DetailsUri" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type successful_monitor_deployment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7112,25 +5205,281 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      inference_settings() :: %{
-        "AudioFeedInputs" => list(audio_feed_input()),
-        "FeedArn" => String.t() | atom()
+      list_input_device_transfers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("TransferType") => String.t() | atom()
       }
 
   """
-  @type inference_settings() :: %{(String.t() | atom()) => any()}
+  @type list_input_device_transfers_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_linked_channel_settings() :: %{
-        "FollowerChannelSettings" => describe_follower_channel_settings(),
-        "PrimaryChannelSettings" => describe_primary_channel_settings()
+      describe_multiplex_program_response() :: %{
+        "ChannelId" => String.t() | atom(),
+        "MultiplexProgramSettings" => multiplex_program_settings(),
+        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
+        "ProgramName" => String.t() | atom()
       }
 
   """
-  @type describe_linked_channel_settings() :: %{(String.t() | atom()) => any()}
+  @type describe_multiplex_program_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_feed_input() :: %{
+        "AudioSelectorName" => String.t() | atom(),
+        "FeedInput" => String.t() | atom()
+      }
+
+  """
+  @type audio_feed_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_signal_map_request() :: %{}
+
+  """
+  @type get_signal_map_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_class_response() :: %{
+        "Channel" => channel()
+      }
+
+  """
+  @type update_channel_class_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nielsen_c_b_e_t() :: %{
+        "CbetCheckDigitString" => String.t() | atom(),
+        "CbetStepaside" => list(any()),
+        "Csid" => String.t() | atom()
+      }
+
+  """
+  @type nielsen_c_b_e_t() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "DeviceSettingsSyncState" => list(any()),
+        "DeviceUpdateStatus" => list(any()),
+        "HdDeviceSettings" => input_device_hd_settings(),
+        "Id" => String.t() | atom(),
+        "MacAddress" => String.t() | atom(),
+        "MedialiveInputArns" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => input_device_network_settings(),
+        "OutputType" => list(any()),
+        "SerialNumber" => String.t() | atom(),
+        "Tags" => map(),
+        "Type" => list(any()),
+        "UhdDeviceSettings" => input_device_uhd_settings()
+      }
+
+  """
+  @type input_device_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_input_device_transfer_request() :: %{}
+
+  """
+  @type accept_input_device_transfer_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_security_groups_response() :: %{
+        "InputSecurityGroups" => list(input_security_group()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_input_security_groups_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_security_groups_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_input_security_groups_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_input_schedule_action_settings() :: %{
+        "InputAttachmentNameReference" => String.t() | atom(),
+        "Mode" => list(any())
+      }
+
+  """
+  @type scte35_input_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_request() :: %{
+        optional("ChannelIds") => list(String.t() | atom()),
+        optional("InputIds") => list(String.t() | atom()),
+        optional("InputSecurityGroupIds") => list(String.t() | atom()),
+        optional("MultiplexIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_output_destination_settings() :: %{
+        "ConnectionMode" => list(any()),
+        "EncryptionPassphraseSecretArn" => String.t() | atom(),
+        "ListenerPort" => integer(),
+        "StreamId" => String.t() | atom(),
+        "Url" => String.t() | atom()
+      }
+
+  """
+  @type srt_output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hlg2020_settings() :: %{}
+
+  """
+  @type hlg2020_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      schedule_action_start_settings() :: %{
+        "FixedModeScheduleActionStartSettings" => fixed_mode_schedule_action_start_settings(),
+        "FollowModeScheduleActionStartSettings" => follow_mode_schedule_action_start_settings(),
+        "ImmediateModeScheduleActionStartSettings" => immediate_mode_schedule_action_start_settings()
+      }
+
+  """
+  @type schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signal_map_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorDeploymentStatus" => list(any()),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type signal_map_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_alert() :: %{
+        "AlertType" => String.t() | atom(),
+        "ClearedTimestamp" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "PipelineId" => String.t() | atom(),
+        "SetTimestamp" => non_neg_integer(),
+        "State" => list(any())
+      }
+
+  """
+  @type channel_alert() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_rule_template_target() :: %{
+        "Arn" => String.t() | atom()
+      }
+
+  """
+  @type event_bridge_rule_template_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_flow_request() :: %{
+        "FlowArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_flow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pre_mixer_settings() :: %{
+        "AudioNormalizationSettings" => audio_normalization_settings(),
+        "Channels" => integer(),
+        "GainDb" => float(),
+        "RemixSettings" => remix_settings()
+      }
+
+  """
+  @type audio_pre_mixer_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      color_correction() :: %{
+        "InputColorSpace" => list(any()),
+        "OutputColorSpace" => list(any()),
+        "Uri" => String.t() | atom()
+      }
+
+  """
+  @type color_correction() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7156,30 +5505,6 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      sdi_source_mapping_update_request() :: %{
-        "CardNumber" => integer(),
-        "ChannelNumber" => integer(),
-        "SdiSource" => String.t() | atom()
-      }
-
-  """
-  @type sdi_source_mapping_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_schedule_action_delete_request() :: %{
-        "ActionNames" => list(String.t() | atom())
-      }
-
-  """
-  @type batch_schedule_action_delete_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       list_sdi_sources_response() :: %{
         "NextToken" => String.t() | atom(),
         "SdiSources" => list(sdi_source_summary())
@@ -7192,124 +5517,68 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_input_device_transfers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("TransferType") => String.t() | atom()
-      }
-
-  """
-  @type list_input_device_transfers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      embedded_destination_settings() :: %{}
-
-  """
-  @type embedded_destination_settings() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      maintenance_create_settings() :: %{
-        "MaintenanceDay" => list(any()),
-        "MaintenanceStartTime" => String.t() | atom()
-      }
-
-  """
-  @type maintenance_create_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      restart_channel_pipelines_request() :: %{
-        optional("PipelineIds") => list(list(any())())
-      }
-
-  """
-  @type restart_channel_pipelines_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      failover_condition_settings() :: %{
-        "AudioSilenceSettings" => audio_silence_failover_settings(),
-        "InputLossSettings" => input_loss_failover_settings(),
-        "VideoBlackSettings" => video_black_failover_settings()
-      }
-
-  """
-  @type failover_condition_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      channel_egress_endpoint() :: %{
-        "SourceIp" => String.t() | atom()
-      }
-
-  """
-  @type channel_egress_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      input_device_media_connect_configurable_settings() :: %{
-        "FlowArn" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SecretArn" => String.t() | atom(),
-        "SourceName" => String.t() | atom()
-      }
-
-  """
-  @type input_device_media_connect_configurable_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_monitor_deployment_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DiscoveryEntryPointArn" => String.t() | atom(),
-        "ErrorMessage" => String.t() | atom(),
-        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
-        "FailedMediaResourceMap" => map(),
-        "Id" => String.t() | atom(),
-        "LastDiscoveredAt" => non_neg_integer(),
-        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
-        "MediaResourceMap" => map(),
-        "ModifiedAt" => non_neg_integer(),
-        "MonitorChangesPendingDeployment" => boolean(),
-        "MonitorDeployment" => monitor_deployment(),
-        "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type start_monitor_deployment_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multiplexes_response() :: %{
-        "Multiplexes" => list(multiplex_summary()),
+      list_multiplex_programs_response() :: %{
+        "MultiplexPrograms" => list(multiplex_program_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_multiplexes_response() :: %{(String.t() | atom()) => any()}
+  @type list_multiplex_programs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_loss_failover_settings() :: %{
+        "InputLossThresholdMsec" => integer()
+      }
+
+  """
+  @type input_loss_failover_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_request() :: %{}
+
+  """
+  @type describe_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      udp_container_settings() :: %{
+        "M2tsSettings" => m2ts_settings()
+      }
+
+  """
+  @type udp_container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      motion_graphics_settings() :: %{
+        "HtmlMotionGraphicsSettings" => html_motion_graphics_settings()
+      }
+
+  """
+  @type motion_graphics_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_group() :: %{
+        "Name" => String.t() | atom(),
+        "OutputGroupSettings" => output_group_settings(),
+        "Outputs" => list(output())
+      }
+
+  """
+  @type output_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7324,27 +5593,531 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_multiplexes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      update_event_bridge_rule_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EventTargets" => list(event_bridge_rule_template_target()),
+        "EventType" => list(any()),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """
-  @type list_multiplexes_request() :: %{(String.t() | atom()) => any()}
+  @type update_event_bridge_rule_template_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cloud_watch_alarm_template_groups_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Scope") => String.t() | atom(),
-        optional("SignalMapIdentifier") => String.t() | atom()
+      nielsen_naes_ii_nw() :: %{
+        "CheckDigitString" => String.t() | atom(),
+        "Sid" => float(),
+        "Timezone" => list(any())
       }
 
   """
-  @type list_cloud_watch_alarm_template_groups_request() :: %{(String.t() | atom()) => any()}
+  @type nielsen_naes_ii_nw() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ip_pool() :: %{
+        "Cidr" => String.t() | atom()
+      }
+
+  """
+  @type ip_pool() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_input_device_request() :: %{
+        optional("AvailabilityZone") => String.t() | atom(),
+        optional("HdDeviceSettings") => input_device_configurable_settings(),
+        optional("Name") => String.t() | atom(),
+        optional("UhdDeviceSettings") => input_device_configurable_settings()
+      }
+
+  """
+  @type update_input_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      claim_device_response() :: %{}
+
+  """
+  @type claim_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      input_location() :: %{
+        "PasswordParam" => String.t() | atom(),
+        "Uri" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type input_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      nielsen_configuration() :: %{
+        "DistributorId" => String.t() | atom(),
+        "NielsenPcmToId3Tagging" => list(any())
+      }
+
+  """
+  @type nielsen_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_hls_rendition_selection() :: %{
+        "GroupId" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type audio_hls_rendition_selection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_network_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedClusterIds" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "IpPools" => list(ip_pool()),
+        "Name" => String.t() | atom(),
+        "Routes" => list(route()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_network_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_configuration_response() :: %{
+        "AccountConfiguration" => account_configuration()
+      }
+
+  """
+  @type update_account_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      anywhere_settings() :: %{
+        "ChannelPlacementGroupId" => String.t() | atom(),
+        "ClusterId" => String.t() | atom()
+      }
+
+  """
+  @type anywhere_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_container_settings() :: %{
+        "M2tsSettings" => m2ts_settings()
+      }
+
+  """
+  @type media_connect_router_container_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cloud_watch_alarm_template_request() :: %{}
+
+  """
+  @type delete_cloud_watch_alarm_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      encoder_settings() :: %{
+        "AudioDescriptions" => list(audio_description()),
+        "AvailBlanking" => avail_blanking(),
+        "AvailConfiguration" => avail_configuration(),
+        "BlackoutSlate" => blackout_slate(),
+        "CaptionDescriptions" => list(caption_description()),
+        "ColorCorrectionSettings" => color_correction_settings(),
+        "FeatureActivations" => feature_activations(),
+        "GlobalConfiguration" => global_configuration(),
+        "MotionGraphicsConfiguration" => motion_graphics_configuration(),
+        "NielsenConfiguration" => nielsen_configuration(),
+        "OutputGroups" => list(output_group()),
+        "ThumbnailConfiguration" => thumbnail_configuration(),
+        "TimecodeConfig" => timecode_config(),
+        "VideoDescriptions" => list(video_description())
+      }
+
+  """
+  @type encoder_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte20_source_settings() :: %{
+        "Convert608To708" => list(any()),
+        "Source608ChannelNumber" => integer()
+      }
+
+  """
+  @type scte20_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_tdt_settings() :: %{
+        "RepInterval" => integer()
+      }
+
+  """
+  @type dvb_tdt_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_input_device_request() :: %{}
+
+  """
+  @type stop_input_device_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      arib_destination_settings() :: %{}
+
+  """
+  @type arib_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      ancillary_source_settings() :: %{
+        "SourceAncillaryChannelNumber" => integer()
+      }
+
+  """
+  @type ancillary_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_output_settings() :: %{
+        "H265PackagingType" => list(any()),
+        "HlsSettings" => hls_settings(),
+        "NameModifier" => String.t() | atom(),
+        "SegmentModifier" => String.t() | atom()
+      }
+
+  """
+  @type hls_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      teletext_destination_settings() :: %{}
+
+  """
+  @type teletext_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_engine_version_response() :: %{
+        "ExpirationDate" => non_neg_integer(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type channel_engine_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_linked_channel_settings() :: %{
+        "FollowerChannelSettings" => describe_follower_channel_settings(),
+        "PrimaryChannelSettings" => describe_primary_channel_settings()
+      }
+
+  """
+  @type describe_linked_channel_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_selector_settings() :: %{
+        "AncillarySourceSettings" => ancillary_source_settings(),
+        "AribSourceSettings" => arib_source_settings(),
+        "DvbSubSourceSettings" => dvb_sub_source_settings(),
+        "EmbeddedSourceSettings" => embedded_source_settings(),
+        "Scte20SourceSettings" => scte20_source_settings(),
+        "Scte27SourceSettings" => scte27_source_settings(),
+        "SmartSubtitleSourceSettings" => smart_subtitle_source_settings(),
+        "TeletextSourceSettings" => teletext_source_settings()
+      }
+
+  """
+  @type caption_selector_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_tags_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_bridge_rule_template_group_request() :: %{}
+
+  """
+  @type delete_event_bridge_rule_template_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ComparisonOperator" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "DatapointsToAlarm" => integer(),
+        "Description" => String.t() | atom(),
+        "EvaluationPeriods" => integer(),
+        "GroupId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "MetricName" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Period" => integer(),
+        "Statistic" => list(any()),
+        "Tags" => map(),
+        "TargetResourceType" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => list(any())
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_input_device_thumbnail_response() :: %{
+        "Body" => binary(),
+        "ContentLength" => float(),
+        "ContentType" => list(any()),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer()
+      }
+
+  """
+  @type describe_input_device_thumbnail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      eac3_settings() :: %{
+        "AttenuationControl" => list(any()),
+        "Bitrate" => float(),
+        "BitstreamMode" => list(any()),
+        "CodingMode" => list(any()),
+        "DcFilter" => list(any()),
+        "Dialnorm" => integer(),
+        "DrcLine" => list(any()),
+        "DrcRf" => list(any()),
+        "LfeControl" => list(any()),
+        "LfeFilter" => list(any()),
+        "LoRoCenterMixLevel" => float(),
+        "LoRoSurroundMixLevel" => float(),
+        "LtRtCenterMixLevel" => float(),
+        "LtRtSurroundMixLevel" => float(),
+        "MetadataControl" => list(any()),
+        "PassthroughControl" => list(any()),
+        "PhaseControl" => list(any()),
+        "StereoDownmix" => list(any()),
+        "SurroundExMode" => list(any()),
+        "SurroundMode" => list(any())
+      }
+
+  """
+  @type eac3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_id3_segment_tagging_schedule_action_settings() :: %{
+        "Id3" => String.t() | atom(),
+        "Tag" => String.t() | atom()
+      }
+
+  """
+  @type hls_id3_segment_tagging_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_channel_mapping() :: %{
+        "InputChannelLevels" => list(input_channel_level()),
+        "OutputChannel" => integer()
+      }
+
+  """
+  @type audio_channel_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_image_output_activate_schedule_action_settings() :: %{
+        "Duration" => integer(),
+        "FadeIn" => integer(),
+        "FadeOut" => integer(),
+        "Height" => integer(),
+        "Image" => input_location(),
+        "ImageX" => integer(),
+        "ImageY" => integer(),
+        "Layer" => integer(),
+        "Opacity" => integer(),
+        "OutputNames" => list(String.t() | atom()),
+        "Width" => integer()
+      }
+
+  """
+  @type static_image_output_activate_schedule_action_settings() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_sdt_settings() :: %{
+        "OutputSdt" => list(any()),
+        "RepInterval" => integer(),
+        "ServiceName" => String.t() | atom(),
+        "ServiceProviderName" => String.t() | atom()
+      }
+
+  """
+  @type dvb_sdt_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "Tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_multiplex_request() :: %{}
+
+  """
+  @type describe_multiplex_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_pid() :: %{
+        "DolbyEDecode" => audio_dolby_e_decode(),
+        "Pid" => integer(),
+        "PremixSettings" => audio_pre_mixer_settings()
+      }
+
+  """
+  @type audio_pid() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      esam() :: %{
+        "AcquisitionPointId" => String.t() | atom(),
+        "AdAvailOffset" => integer(),
+        "PasswordParam" => String.t() | atom(),
+        "PoisEndpoint" => String.t() | atom(),
+        "Username" => String.t() | atom(),
+        "ZoneIdentity" => String.t() | atom()
+      }
+
+  """
+  @type esam() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_uhd_settings() :: %{
+        "ActiveInput" => list(any()),
+        "AudioChannelPairs" => list(input_device_uhd_audio_channel_pair_config()),
+        "Codec" => list(any()),
+        "ConfiguredInput" => list(any()),
+        "DeviceState" => list(any()),
+        "Framerate" => float(),
+        "Height" => integer(),
+        "InputResolution" => String.t() | atom(),
+        "LatencyMs" => integer(),
+        "MaxBitrate" => integer(),
+        "MediaconnectSettings" => input_device_media_connect_settings(),
+        "ScanType" => list(any()),
+        "Width" => integer()
+      }
+
+  """
+  @type input_device_uhd_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7374,393 +6147,203 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      audio_pid_selection() :: %{
-        "Pid" => integer(),
-        "Pids" => list(audio_pid())
+      multiplex_program_settings() :: %{
+        "PreferredChannelPipeline" => list(any()),
+        "ProgramNumber" => integer(),
+        "ServiceDescriptor" => multiplex_program_service_descriptor(),
+        "VideoSettings" => multiplex_video_settings()
       }
 
   """
-  @type audio_pid_selection() :: %{(String.t() | atom()) => any()}
+  @type multiplex_program_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_source_request() :: %{
-        "PasswordParam" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
+      create_signal_map_response() :: %{
+        "Arn" => String.t() | atom(),
+        "CloudWatchAlarmTemplateGroupIds" => list(String.t() | atom()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DiscoveryEntryPointArn" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom(),
+        "EventBridgeRuleTemplateGroupIds" => list(String.t() | atom()),
+        "FailedMediaResourceMap" => map(),
+        "Id" => String.t() | atom(),
+        "LastDiscoveredAt" => non_neg_integer(),
+        "LastSuccessfulMonitorDeployment" => successful_monitor_deployment(),
+        "MediaResourceMap" => map(),
+        "ModifiedAt" => non_neg_integer(),
+        "MonitorChangesPendingDeployment" => boolean(),
+        "MonitorDeployment" => monitor_deployment(),
+        "Name" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
       }
 
   """
-  @type input_source_request() :: %{(String.t() | atom()) => any()}
+  @type create_signal_map_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cluster_network_settings_update_request() :: %{
-        "DefaultRoute" => String.t() | atom(),
-        "InterfaceMappings" => list(interface_mapping_update_request())
+      input_specification() :: %{
+        "Codec" => list(any()),
+        "MaximumBitrate" => list(any()),
+        "Resolution" => list(any())
       }
 
   """
-  @type cluster_network_settings_update_request() :: %{(String.t() | atom()) => any()}
+  @type input_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      srt_listener_decryption() :: %{
-        "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t() | atom()
+      global_configuration() :: %{
+        "InitialAudioGain" => integer(),
+        "InputEndAction" => list(any()),
+        "InputLossBehavior" => input_loss_behavior(),
+        "OutputLockingMode" => list(any()),
+        "OutputLockingSettings" => output_locking_settings(),
+        "OutputTimingSource" => list(any()),
+        "SupportLowFramerateInputs" => list(any())
       }
 
   """
-  @type srt_listener_decryption() :: %{(String.t() | atom()) => any()}
+  @type global_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_anywhere_settings() :: %{
-        "ChannelPlacementGroupId" => String.t() | atom(),
-        "ClusterId" => String.t() | atom()
+      m3u8_settings() :: %{
+        "AudioFramesPerPes" => integer(),
+        "AudioPids" => String.t() | atom(),
+        "EcmPid" => String.t() | atom(),
+        "KlvBehavior" => list(any()),
+        "KlvDataPids" => String.t() | atom(),
+        "NielsenId3Behavior" => list(any()),
+        "PatInterval" => integer(),
+        "PcrControl" => list(any()),
+        "PcrPeriod" => integer(),
+        "PcrPid" => String.t() | atom(),
+        "PmtInterval" => integer(),
+        "PmtPid" => String.t() | atom(),
+        "ProgramNum" => integer(),
+        "Scte35Behavior" => list(any()),
+        "Scte35Pid" => String.t() | atom(),
+        "TimedMetadataBehavior" => list(any()),
+        "TimedMetadataPid" => String.t() | atom(),
+        "TransportStreamId" => integer(),
+        "VideoPid" => String.t() | atom()
       }
 
   """
-  @type describe_anywhere_settings() :: %{(String.t() | atom()) => any()}
+  @type m3u8_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      primary_channel_settings() :: %{
-        "LinkedChannelType" => list(any())
-      }
-
-  """
-  @type primary_channel_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      mpeg2_filter_settings() :: %{
-        "TemporalFilterSettings" => temporal_filter_settings()
-      }
-
-  """
-  @type mpeg2_filter_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_node_state_request() :: %{
-        optional("State") => list(any())
-      }
-
-  """
-  @type update_node_state_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_normalization_settings() :: %{
-        "Algorithm" => list(any()),
-        "AlgorithmControl" => list(any()),
-        "PeakCalculation" => list(any()),
-        "PeakLimiterThreshold" => float(),
-        "TargetLkfs" => float()
-      }
-
-  """
-  @type audio_normalization_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_s3_settings() :: %{
-        "CannedAcl" => list(any())
-      }
-
-  """
-  @type hls_s3_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_destination_settings() :: %{
-        "PasswordParam" => String.t() | atom(),
-        "StreamName" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "Username" => String.t() | atom()
-      }
-
-  """
-  @type output_destination_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_segmentation_descriptor() :: %{
-        "DeliveryRestrictions" => scte35_delivery_restrictions(),
-        "SegmentNum" => integer(),
-        "SegmentationCancelIndicator" => list(any()),
-        "SegmentationDuration" => float(),
-        "SegmentationEventId" => float(),
-        "SegmentationTypeId" => integer(),
-        "SegmentationUpid" => String.t() | atom(),
-        "SegmentationUpidType" => integer(),
-        "SegmentsExpected" => integer(),
-        "SubSegmentNum" => integer(),
-        "SubSegmentsExpected" => integer()
-      }
-
-  """
-  @type scte35_segmentation_descriptor() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_multiplex_alerts_response() :: %{
-        "Alerts" => list(multiplex_alert()),
+      list_multiplexes_response() :: %{
+        "Multiplexes" => list(multiplex_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_multiplex_alerts_response() :: %{(String.t() | atom()) => any()}
+  @type list_multiplexes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_connect_router_output_connection_map() :: %{
-        "Pipeline0" => String.t() | atom(),
-        "Pipeline1" => String.t() | atom()
+      network_input_settings() :: %{
+        "HlsInputSettings" => hls_input_settings(),
+        "MulticastInputSettings" => multicast_input_settings(),
+        "ServerValidation" => list(any())
       }
 
   """
-  @type media_connect_router_output_connection_map() :: %{(String.t() | atom()) => any()}
+  @type network_input_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_cluster_alerts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StateFilter") => String.t() | atom()
+      udp_output_settings() :: %{
+        "BufferMsec" => integer(),
+        "ContainerSettings" => udp_container_settings(),
+        "Destination" => output_location_ref(),
+        "FecOutputSettings" => fec_output_settings()
       }
 
   """
-  @type list_cluster_alerts_request() :: %{(String.t() | atom()) => any()}
+  @type udp_output_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      anywhere_settings() :: %{
-        "ChannelPlacementGroupId" => String.t() | atom(),
-        "ClusterId" => String.t() | atom()
+      describe_thumbnails_request() :: %{
+        required("PipelineId") => String.t() | atom(),
+        required("ThumbnailType") => String.t() | atom()
       }
 
   """
-  @type anywhere_settings() :: %{(String.t() | atom()) => any()}
+  @type describe_thumbnails_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      timecode_burnin_settings() :: %{
-        "FontSize" => list(any()),
-        "Position" => list(any()),
-        "Prefix" => String.t() | atom()
+      cdi_input_specification() :: %{
+        "Resolution" => list(any())
       }
 
   """
-  @type timecode_burnin_settings() :: %{(String.t() | atom()) => any()}
+  @type cdi_input_specification() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      renewal_settings() :: %{
-        "AutomaticRenewal" => list(any()),
-        "RenewalCount" => integer()
+      frame_capture_output_settings() :: %{
+        "NameModifier" => String.t() | atom()
       }
 
   """
-  @type renewal_settings() :: %{(String.t() | atom()) => any()}
+  @type frame_capture_output_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      ebu_tt_d_destination_settings() :: %{
-        "CopyrightHolder" => String.t() | atom(),
-        "DefaultFontSize" => integer(),
-        "DefaultLineHeight" => integer(),
-        "FillLineGap" => list(any()),
-        "FontFamily" => String.t() | atom(),
-        "StyleControl" => list(any())
+      delete_channel_placement_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Nodes" => list(String.t() | atom()),
+        "State" => list(any())
       }
 
   """
-  @type ebu_tt_d_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type delete_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      router_settings() :: %{
-        "Destinations" => list(router_destination_settings()),
-        "EncryptionType" => list(any()),
-        "SecretArn" => String.t() | atom()
+      pause_state_schedule_action_settings() :: %{
+        "Pipelines" => list(pipeline_pause_state_settings())
       }
 
   """
-  @type router_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_configuration_response() :: %{
-        "AccountConfiguration" => account_configuration()
-      }
-
-  """
-  @type update_account_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_bridge_rule_template_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventTargets") => list(event_bridge_rule_template_target()),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("EventType") => list(any()),
-        required("GroupIdentifier") => String.t() | atom(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type create_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      video_black_failover_settings() :: %{
-        "BlackDetectThreshold" => float(),
-        "VideoBlackThresholdMsec" => integer()
-      }
-
-  """
-  @type video_black_failover_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_hls_rendition_selection() :: %{
-        "GroupId" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type audio_hls_rendition_selection() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_settings_summary() :: %{
-        "TransportStreamBitrate" => integer()
-      }
-
-  """
-  @type multiplex_settings_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_dolby_e_decode() :: %{
-        "ProgramSelection" => list(any())
-      }
-
-  """
-  @type audio_dolby_e_decode() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      follow_mode_schedule_action_start_settings() :: %{
-        "FollowPoint" => list(any()),
-        "ReferenceActionName" => String.t() | atom()
-      }
-
-  """
-  @type follow_mode_schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_watermark_settings() :: %{
-        "NielsenWatermarksSettings" => nielsen_watermarks_settings()
-      }
-
-  """
-  @type audio_watermark_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_splice_insert() :: %{
-        "AdAvailOffset" => integer(),
-        "NoRegionalBlackoutFlag" => list(any()),
-        "WebDeliveryAllowedFlag" => list(any())
-      }
-
-  """
-  @type scte35_splice_insert() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      claim_device_request() :: %{
-        optional("Id") => String.t() | atom()
-      }
-
-  """
-  @type claim_device_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_pid() :: %{
-        "DolbyEDecode" => audio_dolby_e_decode(),
-        "Pid" => integer(),
-        "PremixSettings" => audio_pre_mixer_settings()
-      }
-
-  """
-  @type audio_pid() :: %{(String.t() | atom()) => any()}
+  @type pause_state_schedule_action_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7794,227 +6377,454 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      list_signal_maps_request() :: %{
-        optional("CloudWatchAlarmTemplateGroupIdentifier") => String.t() | atom(),
-        optional("EventBridgeRuleTemplateGroupIdentifier") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      scte35_splice_insert() :: %{
+        "AdAvailOffset" => integer(),
+        "NoRegionalBlackoutFlag" => list(any()),
+        "WebDeliveryAllowedFlag" => list(any())
       }
 
   """
-  @type list_signal_maps_request() :: %{(String.t() | atom()) => any()}
+  @type scte35_splice_insert() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_device_hd_settings() :: %{
-        "ActiveInput" => list(any()),
-        "ConfiguredInput" => list(any()),
-        "DeviceState" => list(any()),
-        "Framerate" => float(),
-        "Height" => integer(),
-        "LatencyMs" => integer(),
-        "MaxBitrate" => integer(),
+      multiplex_output_settings() :: %{
+        "ContainerSettings" => multiplex_container_settings(),
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type multiplex_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      dvb_sub_source_settings() :: %{
+        "OcrLanguage" => list(any()),
+        "Pid" => integer()
+      }
+
+  """
+  @type dvb_sub_source_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_stop_response() :: %{
+        "Failed" => list(batch_failed_result_model()),
+        "Successful" => list(batch_successful_result_model())
+      }
+
+  """
+  @type batch_stop_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_start_request() :: %{
+        optional("ChannelIds") => list(String.t() | atom()),
+        optional("MultiplexIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_start_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_multiplex_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZones" => list(String.t() | atom()),
+        "Destinations" => list(multiplex_output_destination()),
+        "Id" => String.t() | atom(),
+        "MultiplexSettings" => multiplex_settings(),
+        "Name" => String.t() | atom(),
+        "PipelinesRunningCount" => integer(),
+        "ProgramCount" => integer(),
+        "State" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type start_multiplex_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_s3_settings() :: %{
+        "CannedAcl" => list(any())
+      }
+
+  """
+  @type archive_s3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      pipeline_locking_settings() :: %{
+        "CustomEpoch" => String.t() | atom(),
+        "PipelineLockingMethod" => list(any())
+      }
+
+  """
+  @type pipeline_locking_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      transfer_input_device_response() :: %{}
+
+  """
+  @type transfer_input_device_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_media_connect_configurable_settings() :: %{
+        "FlowArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
+        "SourceName" => String.t() | atom()
+      }
+
+  """
+  @type input_device_media_connect_configurable_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_engine_version_request() :: %{
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type channel_engine_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_input_request() :: %{
+        optional("Destinations") => list(input_destination_request()),
+        optional("InputDevices") => list(input_device_request()),
+        optional("InputSecurityGroups") => list(String.t() | atom()),
+        optional("MediaConnectFlows") => list(media_connect_flow_request()),
+        optional("MulticastSettings") => multicast_settings_update_request(),
+        optional("Name") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("SdiSources") => list(String.t() | atom()),
+        optional("Smpte2110ReceiverGroupSettings") => smpte2110_receiver_group_settings(),
+        optional("Sources") => list(input_source_request()),
+        optional("SpecialRouterSettings") => special_router_settings(),
+        optional("SrtSettings") => srt_settings_request()
+      }
+
+  """
+  @type update_input_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_input_devices_response() :: %{
+        "InputDevices" => list(input_device_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_input_devices_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_switch_schedule_action_settings() :: %{
+        "InputAttachmentNameReference" => String.t() | atom(),
+        "InputClippingSettings" => input_clipping_settings(),
+        "UrlPath" => list(String.t() | atom())
+      }
+
+  """
+  @type input_switch_schedule_action_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_listener_decryption_request() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_listener_decryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      channel_egress_endpoint() :: %{
+        "SourceIp" => String.t() | atom()
+      }
+
+  """
+  @type channel_egress_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_configurable_audio_channel_pair_config() :: %{
+        "Id" => integer(),
+        "Profile" => list(any())
+      }
+
+  """
+  @type input_device_configurable_audio_channel_pair_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_codec_settings() :: %{
+        "AacSettings" => aac_settings(),
+        "Ac3Settings" => ac3_settings(),
+        "Eac3AtmosSettings" => eac3_atmos_settings(),
+        "Eac3Settings" => eac3_settings(),
+        "Mp2Settings" => mp2_settings(),
+        "PassThroughSettings" => pass_through_settings(),
+        "WavSettings" => wav_settings()
+      }
+
+  """
+  @type audio_codec_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      temporal_filter_settings() :: %{
+        "PostFilterSharpening" => list(any()),
+        "Strength" => list(any())
+      }
+
+  """
+  @type temporal_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      archive_output_settings() :: %{
+        "ContainerSettings" => archive_container_settings(),
+        "Extension" => String.t() | atom(),
+        "NameModifier" => String.t() | atom()
+      }
+
+  """
+  @type archive_output_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multiplex_programs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_multiplex_programs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_resource_neighbor() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type media_resource_neighbor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_caller_decryption() :: %{
+        "Algorithm" => list(any()),
+        "PassphraseSecretArn" => String.t() | atom()
+      }
+
+  """
+  @type srt_caller_decryption() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_multiplex_request() :: %{}
+
+  """
+  @type start_multiplex_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      mpeg2_settings() :: %{
+        "AdaptiveQuantization" => list(any()),
+        "AfdSignaling" => list(any()),
+        "ColorMetadata" => list(any()),
+        "ColorSpace" => list(any()),
+        "DisplayAspectRatio" => list(any()),
+        "FilterSettings" => mpeg2_filter_settings(),
+        "FixedAfd" => list(any()),
+        "FramerateDenominator" => integer(),
+        "FramerateNumerator" => integer(),
+        "GopClosedCadence" => integer(),
+        "GopNumBFrames" => integer(),
+        "GopSize" => float(),
+        "GopSizeUnits" => list(any()),
         "ScanType" => list(any()),
-        "Width" => integer()
+        "SubgopLength" => list(any()),
+        "TimecodeBurninSettings" => timecode_burnin_settings(),
+        "TimecodeInsertion" => list(any())
       }
 
   """
-  @type input_device_hd_settings() :: %{(String.t() | atom()) => any()}
+  @type mpeg2_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scte35_descriptor_settings() :: %{
-        "SegmentationDescriptorScte35DescriptorSettings" => scte35_segmentation_descriptor()
+      input_destination_request() :: %{
+        "Network" => String.t() | atom(),
+        "NetworkRoutes" => list(input_request_destination_route()),
+        "StaticIpAddress" => String.t() | atom(),
+        "StreamName" => String.t() | atom()
       }
 
   """
-  @type scte35_descriptor_settings() :: %{(String.t() | atom()) => any()}
+  @type input_destination_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_input_device_response() :: %{}
-
-  """
-  @type start_input_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_channels_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      pipeline_detail() :: %{
+        "ActiveInputAttachmentName" => String.t() | atom(),
+        "ActiveInputSwitchActionName" => String.t() | atom(),
+        "ActiveMotionGraphicsActionName" => String.t() | atom(),
+        "ActiveMotionGraphicsUri" => String.t() | atom(),
+        "ChannelEngineVersion" => channel_engine_version_response(),
+        "MediaConnectRouterOutputConnectionMap" => map(),
+        "PipelineId" => String.t() | atom()
       }
 
   """
-  @type list_channels_request() :: %{(String.t() | atom()) => any()}
+  @type pipeline_detail() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_sdp_location() :: %{
-        "MediaIndex" => integer(),
-        "SdpUrl" => String.t() | atom()
+      embedded_plus_scte20_destination_settings() :: %{}
+
+  """
+  @type embedded_plus_scte20_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_reservation_request() :: %{
+        optional("Name") => String.t() | atom(),
+        optional("RenewalSettings") => renewal_settings()
       }
 
   """
-  @type input_sdp_location() :: %{(String.t() | atom()) => any()}
+  @type update_reservation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      dvb_nit_settings() :: %{
-        "NetworkId" => integer(),
-        "NetworkName" => String.t() | atom(),
-        "RepInterval" => integer()
-      }
-
-  """
-  @type dvb_nit_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_schedule_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type describe_schedule_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_sdi_source_response() :: %{
-        "SdiSource" => sdi_source()
-      }
-
-  """
-  @type describe_sdi_source_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_alarm_template_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "ComparisonOperator" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "DatapointsToAlarm" => integer(),
-        "Description" => String.t() | atom(),
-        "EvaluationPeriods" => integer(),
-        "GroupId" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "MetricName" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Period" => integer(),
-        "Statistic" => list(any()),
-        "Tags" => map(),
-        "TargetResourceType" => list(any()),
-        "Threshold" => float(),
-        "TreatMissingData" => list(any())
-      }
-
-  """
-  @type cloud_watch_alarm_template_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_input_device_response() :: %{}
-
-  """
-  @type stop_input_device_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_alarm_template_group_summary() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "Tags" => map(),
-        "TemplateCount" => integer()
-      }
-
-  """
-  @type cloud_watch_alarm_template_group_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      srt_listener_settings_request() :: %{
-        "Decryption" => srt_listener_decryption_request(),
-        "MinimumLatency" => integer(),
-        "StreamId" => String.t() | atom()
-      }
-
-  """
-  @type srt_listener_settings_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_account_configuration_request() :: %{
-        optional("AccountConfiguration") => account_configuration()
-      }
-
-  """
-  @type update_account_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_offering_response() :: %{
-        "Arn" => String.t() | atom(),
-        "CurrencyCode" => String.t() | atom(),
-        "Duration" => integer(),
-        "DurationUnits" => list(any()),
-        "FixedPrice" => float(),
-        "OfferingDescription" => String.t() | atom(),
-        "OfferingId" => String.t() | atom(),
-        "OfferingType" => list(any()),
-        "Region" => String.t() | atom(),
-        "ResourceSpecification" => reservation_resource_specification(),
-        "UsagePrice" => float()
-      }
-
-  """
-  @type describe_offering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_basic_put_settings() :: %{
-        "ConnectionRetryInterval" => integer(),
-        "FilecacheDuration" => integer(),
-        "NumRetries" => integer(),
+      rtmp_group_settings() :: %{
+        "AdMarkers" => list(list(any())()),
+        "AuthenticationScheme" => list(any()),
+        "CacheFullBehavior" => list(any()),
+        "CacheLength" => integer(),
+        "CaptionData" => list(any()),
+        "IncludeFillerNalUnits" => list(any()),
+        "InputLossAction" => list(any()),
         "RestartDelay" => integer()
       }
 
   """
-  @type hls_basic_put_settings() :: %{(String.t() | atom()) => any()}
+  @type rtmp_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_sdi_source_request() :: %{}
+
+  """
+  @type describe_sdi_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      sdi_source_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "Mode" => list(any()),
+        "Name" => String.t() | atom(),
+        "State" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sdi_source_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_connect_router_output_connection() :: %{
+        "RouterInputArn" => String.t() | atom()
+      }
+
+  """
+  @type media_connect_router_output_connection() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8033,120 +6843,313 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      srt_listener_decryption_request() :: %{
-        "Algorithm" => list(any()),
-        "PassphraseSecretArn" => String.t() | atom()
+      renewal_settings() :: %{
+        "AutomaticRenewal" => list(any()),
+        "RenewalCount" => integer()
       }
 
   """
-  @type srt_listener_decryption_request() :: %{(String.t() | atom()) => any()}
+  @type renewal_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      fixed_mode_schedule_action_start_settings() :: %{
-        "Time" => String.t() | atom()
+      forbidden_exception() :: %{
+        "Message" => String.t() | atom()
       }
 
   """
-  @type fixed_mode_schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
+  @type forbidden_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cluster_network_settings_create_request() :: %{
-        "DefaultRoute" => String.t() | atom(),
-        "InterfaceMappings" => list(interface_mapping_create_request())
+      h265_settings() :: %{
+        "Level" => list(any()),
+        "Bitrate" => integer(),
+        "MinIInterval" => integer(),
+        "ColorSpaceSettings" => h265_color_space_settings(),
+        "RateControlMode" => list(any()),
+        "QvbrQualityLevel" => integer(),
+        "BufSize" => integer(),
+        "SubgopLength" => list(any()),
+        "Profile" => list(any()),
+        "AfdSignaling" => list(any()),
+        "GopClosedCadence" => integer(),
+        "ScanType" => list(any()),
+        "MvTemporalPredictor" => list(any()),
+        "MvOverPictureBoundaries" => list(any()),
+        "ParNumerator" => integer(),
+        "GopSizeUnits" => list(any()),
+        "SceneChangeDetect" => list(any()),
+        "ParDenominator" => integer(),
+        "TimecodeBurninSettings" => timecode_burnin_settings(),
+        "TreeblockSize" => list(any()),
+        "MinBitrate" => integer(),
+        "FilterSettings" => h265_filter_settings(),
+        "Deblocking" => list(any()),
+        "AdaptiveQuantization" => list(any()),
+        "FlickerAq" => list(any()),
+        "FramerateNumerator" => integer(),
+        "MaxBitrate" => integer(),
+        "GopSize" => float(),
+        "FixedAfd" => list(any()),
+        "TilePadding" => list(any()),
+        "TileWidth" => integer(),
+        "MinQp" => integer(),
+        "FramerateDenominator" => integer(),
+        "AlternativeTransferFunction" => list(any()),
+        "ColorMetadata" => list(any()),
+        "Slices" => integer(),
+        "LookAheadRateControl" => list(any()),
+        "Tier" => list(any()),
+        "TimecodeInsertion" => list(any()),
+        "GopNumBFrames" => integer(),
+        "TileHeight" => integer(),
+        "GopBReference" => list(any())
       }
 
   """
-  @type cluster_network_settings_create_request() :: %{(String.t() | atom()) => any()}
+  @type h265_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      input_destination_route() :: %{
-        "Cidr" => String.t() | atom(),
-        "Gateway" => String.t() | atom()
+      update_event_bridge_rule_template_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventTargets") => list(event_bridge_rule_template_target()),
+        optional("EventType") => list(any()),
+        optional("GroupIdentifier") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
       }
 
   """
-  @type input_destination_route() :: %{(String.t() | atom()) => any()}
+  @type update_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_nodes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Nodes" => list(describe_node_summary())
+      smpte2110_receiver_group() :: %{
+        "SdpSettings" => smpte2110_receiver_group_sdp_settings()
       }
 
   """
-  @type list_nodes_response() :: %{(String.t() | atom()) => any()}
+  @type smpte2110_receiver_group() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_input_device_transfers_response() :: %{
-        "InputDeviceTransfers" => list(transferring_input_device_summary()),
+      frame_capture_s3_settings() :: %{
+        "CannedAcl" => list(any())
+      }
+
+  """
+  @type frame_capture_s3_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_whitelist_rule_cidr() :: %{
+        "Cidr" => String.t() | atom()
+      }
+
+  """
+  @type input_whitelist_rule_cidr() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      html_motion_graphics_settings() :: %{}
+
+  """
+  @type html_motion_graphics_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disabled_locking_settings() :: %{
+        "CustomEpoch" => String.t() | atom()
+      }
+
+  """
+  @type disabled_locking_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bad_request_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_channel_placement_groups_response() :: %{
+        "ChannelPlacementGroups" => list(describe_channel_placement_group_summary()),
         "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_input_device_transfers_response() :: %{(String.t() | atom()) => any()}
+  @type list_channel_placement_groups_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      signal_map_summary() :: %{
+      input_attachment() :: %{
+        "AutomaticInputFailoverSettings" => automatic_input_failover_settings(),
+        "InputAttachmentName" => String.t() | atom(),
+        "InputId" => String.t() | atom(),
+        "InputSettings" => input_settings(),
+        "LogicalInterfaceNames" => list(String.t() | atom())
+      }
+
+  """
+  @type input_attachment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_interface_mapping_create_request() :: %{
+        "LogicalInterfaceName" => String.t() | atom(),
+        "NetworkInterfaceMode" => list(any()),
+        "PhysicalInterfaceName" => String.t() | atom()
+      }
+
+  """
+  @type node_interface_mapping_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      h265_color_space_settings() :: %{
+        "ColorSpacePassthroughSettings" => color_space_passthrough_settings(),
+        "DolbyVision81Settings" => dolby_vision81_settings(),
+        "Hdr10Settings" => hdr10_settings(),
+        "Hlg2020Settings" => hlg2020_settings(),
+        "Rec601Settings" => rec601_settings(),
+        "Rec709Settings" => rec709_settings()
+      }
+
+  """
+  @type h265_color_space_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_cluster_request() :: %{}
+
+  """
+  @type delete_cluster_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_input_security_group_response() :: %{
+        "SecurityGroup" => input_security_group()
+      }
+
+  """
+  @type create_input_security_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_interface_mapping() :: %{
+        "LogicalInterfaceName" => String.t() | atom(),
+        "NetworkInterfaceMode" => list(any()),
+        "PhysicalInterfaceIpAddresses" => list(String.t() | atom()),
+        "PhysicalInterfaceName" => String.t() | atom()
+      }
+
+  """
+  @type node_interface_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_networks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_networks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_key_settings() :: %{
+        "KeyProviderServer" => input_location(),
+        "StaticKeyValue" => String.t() | atom()
+      }
+
+  """
+  @type static_key_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_network_summary() :: %{
         "Arn" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
+        "AssociatedClusterIds" => list(String.t() | atom()),
         "Id" => String.t() | atom(),
-        "ModifiedAt" => non_neg_integer(),
-        "MonitorDeploymentStatus" => list(any()),
+        "IpPools" => list(ip_pool()),
         "Name" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
+        "Routes" => list(route()),
+        "State" => list(any())
       }
 
   """
-  @type signal_map_summary() :: %{(String.t() | atom()) => any()}
+  @type describe_network_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      media_package_output_destination_settings() :: %{
-        "ChannelEndpointId" => String.t() | atom(),
-        "ChannelGroup" => String.t() | atom(),
-        "ChannelId" => String.t() | atom(),
-        "ChannelName" => String.t() | atom(),
-        "MediaPackageRegionName" => String.t() | atom()
+      embedded_source_settings() :: %{
+        "Convert608To708" => list(any()),
+        "Scte20Detection" => list(any()),
+        "Source608ChannelNumber" => integer(),
+        "Source608TrackNumber" => integer()
       }
 
   """
-  @type media_package_output_destination_settings() :: %{(String.t() | atom()) => any()}
+  @type embedded_source_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_cloud_watch_alarm_template_group_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RequestId") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
+      avail_settings() :: %{
+        "Esam" => esam(),
+        "Scte35SpliceInsert" => scte35_splice_insert(),
+        "Scte35TimeSignalApos" => scte35_time_signal_apos()
       }
 
   """
-  @type create_cloud_watch_alarm_template_group_request() :: %{(String.t() | atom()) => any()}
+  @type avail_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8165,137 +7168,13 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      describe_offering_request() :: %{}
-
-  """
-  @type describe_offering_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_cloud_watch_alarm_templates_request() :: %{
-        optional("GroupIdentifier") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("Scope") => String.t() | atom(),
-        optional("SignalMapIdentifier") => String.t() | atom()
+      list_channels_response() :: %{
+        "Channels" => list(channel_summary()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_cloud_watch_alarm_templates_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      audio_pre_mixer_settings() :: %{
-        "AudioNormalizationSettings" => audio_normalization_settings(),
-        "Channels" => integer(),
-        "GainDb" => float(),
-        "RemixSettings" => remix_settings()
-      }
-
-  """
-  @type audio_pre_mixer_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_start_request() :: %{
-        optional("ChannelIds") => list(String.t() | atom()),
-        optional("MultiplexIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_start_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      hls_webdav_settings() :: %{
-        "ConnectionRetryInterval" => integer(),
-        "FilecacheDuration" => integer(),
-        "HttpTransferMode" => list(any()),
-        "NumRetries" => integer(),
-        "RestartDelay" => integer()
-      }
-
-  """
-  @type hls_webdav_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      multiplex_statmux_video_settings() :: %{
-        "MaximumBitrate" => integer(),
-        "MinimumBitrate" => integer(),
-        "Priority" => integer()
-      }
-
-  """
-  @type multiplex_statmux_video_settings() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      interface_mapping_update_request() :: %{
-        "LogicalInterfaceName" => String.t() | atom(),
-        "NetworkId" => String.t() | atom()
-      }
-
-  """
-  @type interface_mapping_update_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output() :: %{
-        "AudioDescriptionNames" => list(String.t() | atom()),
-        "CaptionDescriptionNames" => list(String.t() | atom()),
-        "OutputName" => String.t() | atom(),
-        "OutputSettings" => output_settings(),
-        "VideoDescriptionName" => String.t() | atom()
-      }
-
-  """
-  @type output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      purchase_offering_response() :: %{
-        "Reservation" => reservation()
-      }
-
-  """
-  @type purchase_offering_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_multiplex_response() :: %{
-        "Arn" => String.t() | atom(),
-        "AvailabilityZones" => list(String.t() | atom()),
-        "Destinations" => list(multiplex_output_destination()),
-        "Id" => String.t() | atom(),
-        "MultiplexSettings" => multiplex_settings(),
-        "Name" => String.t() | atom(),
-        "PipelinesRunningCount" => integer(),
-        "ProgramCount" => integer(),
-        "State" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type delete_multiplex_response() :: %{(String.t() | atom()) => any()}
+  @type list_channels_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8321,1275 +7200,2396 @@ defmodule AWS.MediaLive do
 
   ## Example:
 
-      describe_multiplex_program_request() :: %{}
-
-  """
-  @type describe_multiplex_program_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      scte35_descriptor() :: %{
-        "Scte35DescriptorSettings" => scte35_descriptor_settings()
+      list_multiplexes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type scte35_descriptor() :: %{(String.t() | atom()) => any()}
+  @type list_multiplexes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      purchase_offering_request() :: %{
+      create_input_response() :: %{
+        "Input" => input()
+      }
+
+  """
+  @type create_input_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type describe_sdi_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_account_configuration_request() :: %{
+        optional("AccountConfiguration") => account_configuration()
+      }
+
+  """
+  @type update_account_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_selector_settings() :: %{
+        "AudioHlsRenditionSelection" => audio_hls_rendition_selection(),
+        "AudioLanguageSelection" => audio_language_selection(),
+        "AudioPidSelection" => audio_pid_selection(),
+        "AudioTrackSelection" => audio_track_selection()
+      }
+
+  """
+  @type audio_selector_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_request() :: %{}
+
+  """
+  @type describe_node_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_cloud_watch_alarm_template_group_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_cloud_watch_alarm_template_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      route_update_request() :: %{
+        "Cidr" => String.t() | atom(),
+        "Gateway" => String.t() | atom()
+      }
+
+  """
+  @type route_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
+      }
+
+  """
+  @type update_sdi_source_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      interface_mapping_update_request() :: %{
+        "LogicalInterfaceName" => String.t() | atom(),
+        "NetworkId" => String.t() | atom()
+      }
+
+  """
+  @type interface_mapping_update_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      failover_condition_settings() :: %{
+        "AudioSilenceSettings" => audio_silence_failover_settings(),
+        "InputLossSettings" => input_loss_failover_settings(),
+        "VideoBlackSettings" => video_black_failover_settings()
+      }
+
+  """
+  @type failover_condition_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_input_request() :: %{}
+
+  """
+  @type delete_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_v2_destination_settings() :: %{
+        "AudioGroupId" => String.t() | atom(),
+        "AudioRenditionSets" => String.t() | atom(),
+        "HlsAutoSelect" => list(any()),
+        "HlsDefault" => list(any())
+      }
+
+  """
+  @type media_package_v2_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multiplex_program_request() :: %{}
+
+  """
+  @type delete_multiplex_program_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      epoch_locking_settings() :: %{
+        "CustomEpoch" => String.t() | atom(),
+        "JamSyncTime" => String.t() | atom()
+      }
+
+  """
+  @type epoch_locking_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_settings() :: %{
+        "Id" => String.t() | atom()
+      }
+
+  """
+  @type input_device_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_location_ref() :: %{
+        "DestinationRefId" => String.t() | atom()
+      }
+
+  """
+  @type output_location_ref() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_bridge_rule_template_request() :: %{}
+
+  """
+  @type get_event_bridge_rule_template_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_registration_script_request() :: %{
+        optional("Id") => String.t() | atom(),
         optional("Name") => String.t() | atom(),
-        optional("RenewalSettings") => renewal_settings(),
+        optional("NodeInterfaceMappings") => list(node_interface_mapping()),
         optional("RequestId") => String.t() | atom(),
-        optional("Start") => String.t() | atom(),
+        optional("Role") => list(any())
+      }
+
+  """
+  @type create_node_registration_script_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_offerings_request() :: %{
+        optional("ChannelClass") => String.t() | atom(),
+        optional("ChannelConfiguration") => String.t() | atom(),
+        optional("Codec") => String.t() | atom(),
+        optional("Duration") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("MaximumBitrate") => String.t() | atom(),
+        optional("MaximumFramerate") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Resolution") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("SpecialFeature") => String.t() | atom(),
+        optional("VideoQuality") => String.t() | atom()
+      }
+
+  """
+  @type list_offerings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_channel_request() :: %{}
+
+  """
+  @type stop_channel_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      output_destination_settings() :: %{
+        "PasswordParam" => String.t() | atom(),
+        "StreamName" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type output_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_cloud_watch_alarm_template_request() :: %{
+        optional("DatapointsToAlarm") => integer(),
+        optional("Description") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
         optional("Tags") => map(),
-        required("Count") => integer()
+        required("ComparisonOperator") => list(any()),
+        required("EvaluationPeriods") => integer(),
+        required("GroupIdentifier") => String.t() | atom(),
+        required("MetricName") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Period") => integer(),
+        required("Statistic") => list(any()),
+        required("TargetResourceType") => list(any()),
+        required("Threshold") => float(),
+        required("TreatMissingData") => list(any())
       }
 
   """
-  @type purchase_offering_request() :: %{(String.t() | atom()) => any()}
+  @type create_cloud_watch_alarm_template_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      h264_settings() :: %{
-        "LookAheadRateControl" => list(any()),
-        "MinQp" => integer(),
-        "ParControl" => list(any()),
-        "ColorSpaceSettings" => h264_color_space_settings(),
-        "SubgopLength" => list(any()),
-        "QvbrQualityLevel" => integer(),
-        "Profile" => list(any()),
-        "FilterSettings" => h264_filter_settings(),
-        "Bitrate" => integer(),
-        "TemporalAq" => list(any()),
-        "BufSize" => integer(),
-        "RateControlMode" => list(any()),
-        "GopSizeUnits" => list(any()),
-        "MinIInterval" => integer(),
-        "QualityLevel" => list(any()),
-        "EntropyEncoding" => list(any()),
-        "NumRefFrames" => integer(),
-        "Softness" => integer(),
-        "AdaptiveQuantization" => list(any()),
-        "FramerateControl" => list(any()),
-        "Level" => list(any()),
-        "TimecodeBurninSettings" => timecode_burnin_settings(),
-        "FramerateDenominator" => integer(),
-        "GopNumBFrames" => integer(),
-        "FlickerAq" => list(any()),
-        "TimecodeInsertion" => list(any()),
-        "ParNumerator" => integer(),
-        "MinBitrate" => integer(),
-        "GopClosedCadence" => integer(),
-        "FramerateNumerator" => integer(),
-        "ForceFieldPictures" => list(any()),
-        "ParDenominator" => integer(),
-        "ScanType" => list(any()),
-        "Syntax" => list(any()),
-        "BufFillPct" => integer(),
-        "GopSize" => float(),
-        "FixedAfd" => list(any()),
-        "SpatialAq" => list(any()),
-        "ColorMetadata" => list(any()),
-        "GopBReference" => list(any()),
-        "SceneChangeDetect" => list(any()),
-        "AfdSignaling" => list(any()),
-        "Slices" => integer(),
-        "MaxBitrate" => integer()
+      video_selector_program_id() :: %{
+        "ProgramId" => integer()
       }
 
   """
-  @type h264_settings() :: %{(String.t() | atom()) => any()}
+  @type video_selector_program_id() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      multiplex_program_pipeline_detail() :: %{
-        "ActiveChannelPipeline" => String.t() | atom(),
-        "PipelineId" => String.t() | atom()
+      create_network_request() :: %{
+        optional("IpPools") => list(ip_pool_create_request()),
+        optional("Name") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Routes") => list(route_create_request()),
+        optional("Tags") => map()
       }
 
   """
-  @type multiplex_program_pipeline_detail() :: %{(String.t() | atom()) => any()}
+  @type create_network_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      color_correction() :: %{
-        "InputColorSpace" => list(any()),
-        "OutputColorSpace" => list(any()),
-        "Uri" => String.t() | atom()
+      archive_group_settings() :: %{
+        "ArchiveCdnSettings" => archive_cdn_settings(),
+        "Destination" => output_location_ref(),
+        "RolloverInterval" => integer()
       }
 
   """
-  @type color_correction() :: %{(String.t() | atom()) => any()}
+  @type archive_group_settings() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_cluster_response() :: %{
+      input_device_uhd_audio_channel_pair_config() :: %{
+        "Id" => integer(),
+        "Profile" => list(any())
+      }
+
+  """
+  @type input_device_uhd_audio_channel_pair_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_bridge_rule_template_group_summary() :: %{
         "Arn" => String.t() | atom(),
-        "ChannelIds" => list(String.t() | atom()),
-        "ClusterType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ModifiedAt" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "Tags" => map(),
+        "TemplateCount" => integer()
+      }
+
+  """
+  @type event_bridge_rule_template_group_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte27_destination_settings() :: %{}
+
+  """
+  @type scte27_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      audio_selector() :: %{
+        "Name" => String.t() | atom(),
+        "SelectorSettings" => audio_selector_settings()
+      }
+
+  """
+  @type audio_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_source_request() :: %{
+        "PasswordParam" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type input_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      srt_group_settings() :: %{
+        "InputLossAction" => list(any())
+      }
+
+  """
+  @type srt_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_response() :: %{
+        "AnywhereSettings" => describe_anywhere_settings(),
+        "Arn" => String.t() | atom(),
+        "CdiInputSpecification" => cdi_input_specification(),
+        "ChannelClass" => list(any()),
+        "ChannelEngineVersion" => channel_engine_version_response(),
+        "ChannelSecurityGroups" => list(String.t() | atom()),
+        "Destinations" => list(output_destination()),
+        "EgressEndpoints" => list(channel_egress_endpoint()),
+        "EncoderSettings" => encoder_settings(),
+        "Id" => String.t() | atom(),
+        "InferenceSettings" => describe_inference_settings(),
+        "InputAttachments" => list(input_attachment()),
+        "InputSpecification" => input_specification(),
+        "LinkedChannelSettings" => describe_linked_channel_settings(),
+        "LogLevel" => list(any()),
+        "Maintenance" => maintenance_status(),
+        "Name" => String.t() | atom(),
+        "PipelineDetails" => list(pipeline_detail()),
+        "PipelinesRunningCount" => integer(),
+        "RoleArn" => String.t() | atom(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "Vpc" => vpc_output_settings_description()
+      }
+
+  """
+  @type describe_channel_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_schedule_action_create_result() :: %{
+        "ScheduleActions" => list(schedule_action())
+      }
+
+  """
+  @type batch_schedule_action_create_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      accept_input_device_transfer_response() :: %{}
+
+  """
+  @type accept_input_device_transfer_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_bridge_rule_template_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventTargets") => list(event_bridge_rule_template_target()),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("EventType") => list(any()),
+        required("GroupIdentifier") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type create_event_bridge_rule_template_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      thumbnail() :: %{
+        "Body" => String.t() | atom(),
+        "ContentType" => String.t() | atom(),
+        "ThumbnailType" => list(any()),
+        "TimeStamp" => non_neg_integer()
+      }
+
+  """
+  @type thumbnail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_channel_placement_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "Name" => String.t() | atom(),
-        "NetworkSettings" => cluster_network_settings(),
+        "Nodes" => list(String.t() | atom()),
         "State" => list(any())
       }
 
   """
-  @type update_cluster_response() :: %{(String.t() | atom()) => any()}
+  @type describe_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_update_signal_map_request() :: %{
+      update_node_state_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_node_state_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_group_settings() :: %{
+        "InputLossAction" => list(any()),
+        "EncryptionType" => list(any()),
+        "DiscontinuityTags" => list(any()),
+        "MinSegmentLength" => integer(),
+        "TimestampDeltaMilliseconds" => integer(),
+        "OutputSelection" => list(any()),
+        "ProgramDateTimeClock" => list(any()),
+        "CodecSpecification" => list(any()),
+        "TimedMetadataId3Frame" => list(any()),
+        "ConstantIv" => String.t() | atom(),
+        "BaseUrlContent" => String.t() | atom(),
+        "ManifestCompression" => list(any()),
+        "ProgramDateTimePeriod" => integer(),
+        "KeepSegments" => integer(),
+        "IvInManifest" => list(any()),
+        "SegmentationMode" => list(any()),
+        "IvSource" => list(any()),
+        "DirectoryStructure" => list(any()),
+        "CaptionLanguageSetting" => list(any()),
+        "KeyProviderSettings" => key_provider_settings(),
+        "IncompleteSegmentBehavior" => list(any()),
+        "TsFileMode" => list(any()),
+        "Destination" => output_location_ref(),
+        "IFrameOnlyPlaylists" => list(any()),
+        "BaseUrlManifest1" => String.t() | atom(),
+        "HlsId3SegmentTagging" => list(any()),
+        "ManifestDurationFormat" => list(any()),
+        "Mode" => list(any()),
+        "KeyFormat" => String.t() | atom(),
+        "BaseUrlManifest" => String.t() | atom(),
+        "SegmentsPerSubdirectory" => integer(),
+        "HlsCdnSettings" => hls_cdn_settings(),
+        "BaseUrlContent1" => String.t() | atom(),
+        "SegmentLength" => integer(),
+        "TimedMetadataId3Period" => integer(),
+        "ProgramDateTime" => list(any()),
+        "CaptionLanguageMappings" => list(caption_language_mapping()),
+        "RedundantManifest" => list(any()),
+        "IndexNSegments" => integer(),
+        "KeyFormatVersions" => String.t() | atom(),
+        "AdMarkers" => list(list(any())()),
+        "ClientCache" => list(any()),
+        "StreamInfResolution" => list(any())
+      }
+
+  """
+  @type hls_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_signal_map_request() :: %{
         optional("CloudWatchAlarmTemplateGroupIdentifiers") => list(String.t() | atom()),
         optional("Description") => String.t() | atom(),
-        optional("DiscoveryEntryPointArn") => String.t() | atom(),
         optional("EventBridgeRuleTemplateGroupIdentifiers") => list(String.t() | atom()),
-        optional("ForceRediscovery") => boolean(),
-        optional("Name") => String.t() | atom()
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DiscoveryEntryPointArn") => String.t() | atom(),
+        required("Name") => String.t() | atom()
       }
 
   """
-  @type start_update_signal_map_request() :: %{(String.t() | atom()) => any()}
+  @type create_signal_map_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_reservation_response() :: %{
-        "Reservation" => reservation()
+      delete_sdi_source_response() :: %{
+        "SdiSource" => sdi_source()
       }
 
   """
-  @type update_reservation_response() :: %{(String.t() | atom()) => any()}
+  @type delete_sdi_source_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      hls_media_store_settings() :: %{
-        "ConnectionRetryInterval" => integer(),
-        "FilecacheDuration" => integer(),
-        "MediaStoreStorageClass" => list(any()),
-        "NumRetries" => integer(),
-        "RestartDelay" => integer()
+      delete_network_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AssociatedClusterIds" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "IpPools" => list(ip_pool()),
+        "Name" => String.t() | atom(),
+        "Routes" => list(route()),
+        "State" => list(any())
       }
 
   """
-  @type hls_media_store_settings() :: %{(String.t() | atom()) => any()}
+  @type delete_network_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      describe_input_device_request() :: %{}
+      caption_destination_settings() :: %{
+        "AribDestinationSettings" => arib_destination_settings(),
+        "BurnInDestinationSettings" => burn_in_destination_settings(),
+        "DvbSubDestinationSettings" => dvb_sub_destination_settings(),
+        "EbuTtDDestinationSettings" => ebu_tt_d_destination_settings(),
+        "EmbeddedDestinationSettings" => embedded_destination_settings(),
+        "EmbeddedPlusScte20DestinationSettings" => embedded_plus_scte20_destination_settings(),
+        "RtmpCaptionInfoDestinationSettings" => rtmp_caption_info_destination_settings(),
+        "Scte20PlusEmbeddedDestinationSettings" => scte20_plus_embedded_destination_settings(),
+        "Scte27DestinationSettings" => scte27_destination_settings(),
+        "SmpteTtDestinationSettings" => smpte_tt_destination_settings(),
+        "TeletextDestinationSettings" => teletext_destination_settings(),
+        "TtmlDestinationSettings" => ttml_destination_settings(),
+        "WebvttDestinationSettings" => webvtt_destination_settings()
+      }
 
   """
-  @type describe_input_device_request() :: %{}
+  @type caption_destination_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      avail_configuration() :: %{
+        "AvailSettings" => avail_settings(),
+        "Scte35SegmentationScope" => list(any())
+      }
+
+  """
+  @type avail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_reservations_request() :: %{
+        optional("ChannelClass") => String.t() | atom(),
+        optional("Codec") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("MaximumBitrate") => String.t() | atom(),
+        optional("MaximumFramerate") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("Resolution") => String.t() | atom(),
+        optional("ResourceType") => String.t() | atom(),
+        optional("SpecialFeature") => String.t() | atom(),
+        optional("VideoQuality") => String.t() | atom()
+      }
+
+  """
+  @type list_reservations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multiplex_program_response() :: %{
+        "ChannelId" => String.t() | atom(),
+        "MultiplexProgramSettings" => multiplex_program_settings(),
+        "PacketIdentifiersMap" => multiplex_program_packet_identifiers_map(),
+        "PipelineDetails" => list(multiplex_program_pipeline_detail()),
+        "ProgramName" => String.t() | atom()
+      }
+
+  """
+  @type delete_multiplex_program_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_monitor_deployment_request() :: %{
+        optional("DryRun") => boolean()
+      }
+
+  """
+  @type start_monitor_deployment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      claim_device_request() :: %{
+        optional("Id") => String.t() | atom()
+      }
+
+  """
+  @type claim_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_sdi_source_request() :: %{
+        optional("Mode") => list(any()),
+        optional("Name") => String.t() | atom(),
+        optional("RequestId") => String.t() | atom(),
+        optional("Tags") => map(),
+        optional("Type") => list(any())
+      }
+
+  """
+  @type create_sdi_source_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multiplex_program_request() :: %{
+        required("MultiplexProgramSettings") => multiplex_program_settings(),
+        required("ProgramName") => String.t() | atom(),
+        required("RequestId") => String.t() | atom()
+      }
+
+  """
+  @type create_multiplex_program_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      video_selector_color_space_settings() :: %{
+        "Hdr10Settings" => hdr10_settings()
+      }
+
+  """
+  @type video_selector_color_space_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_stop_request() :: %{
+        optional("ChannelIds") => list(String.t() | atom()),
+        optional("MultiplexIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_stop_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      timecode_burnin_settings() :: %{
+        "FontSize" => list(any()),
+        "Position" => list(any()),
+        "Prefix" => String.t() | atom()
+      }
+
+  """
+  @type timecode_burnin_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_tags_request() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type create_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_device_media_connect_settings() :: %{
+        "FlowArn" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SecretArn" => String.t() | atom(),
+        "SourceName" => String.t() | atom()
+      }
+
+  """
+  @type input_device_media_connect_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_sdp_location() :: %{
+        "MediaIndex" => integer(),
+        "SdpUrl" => String.t() | atom()
+      }
+
+  """
+  @type input_sdp_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_multiplex_request() :: %{
+        optional("Tags") => map(),
+        required("AvailabilityZones") => list(String.t() | atom()),
+        required("MultiplexSettings") => multiplex_settings(),
+        required("Name") => String.t() | atom(),
+        required("RequestId") => String.t() | atom()
+      }
+
+  """
+  @type create_multiplex_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_multiplex_alerts_response() :: %{
+        "Alerts" => list(multiplex_alert()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_multiplex_alerts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      embedded_destination_settings() :: %{}
+
+  """
+  @type embedded_destination_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      h264_filter_settings() :: %{
+        "BandwidthReductionFilterSettings" => bandwidth_reduction_filter_settings(),
+        "TemporalFilterSettings" => temporal_filter_settings()
+      }
+
+  """
+  @type h264_filter_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_multiplex_request() :: %{}
+
+  """
+  @type delete_multiplex_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_input_settings() :: %{
+        "Bandwidth" => integer(),
+        "BufferSegments" => integer(),
+        "Retries" => integer(),
+        "RetryInterval" => integer(),
+        "Scte35Source" => list(any())
+      }
+
+  """
+  @type hls_input_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      arib_source_settings() :: %{}
+
+  """
+  @type arib_source_settings() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_node_response() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type delete_node_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_ingest_caption_language_mapping() :: %{
+        "CaptionChannel" => integer(),
+        "LanguageCode" => String.t() | atom()
+      }
+
+  """
+  @type cmaf_ingest_caption_language_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      aac_settings() :: %{
+        "Bitrate" => float(),
+        "CodingMode" => list(any()),
+        "InputType" => list(any()),
+        "Profile" => list(any()),
+        "RateControlMode" => list(any()),
+        "RawFormat" => list(any()),
+        "SampleRate" => float(),
+        "Spec" => list(any()),
+        "VbrQuality" => list(any())
+      }
+
+  """
+  @type aac_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_destinations() :: %{
+        "Destination" => output_location_ref()
+      }
+
+  """
+  @type additional_destinations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_source() :: %{
+        "PasswordParam" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "Username" => String.t() | atom()
+      }
+
+  """
+  @type input_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_channel_placement_group_response() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Nodes" => list(String.t() | atom()),
+        "State" => list(any())
+      }
+
+  """
+  @type update_channel_placement_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_input_security_group_request() :: %{}
+
+  """
+  @type describe_input_security_group_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      reboot_input_device_request() :: %{
+        optional("Force") => list(any())
+      }
+
+  """
+  @type reboot_input_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      multicast_settings_create_request() :: %{
+        "Sources" => list(multicast_source_create_request())
+      }
+
+  """
+  @type multicast_settings_create_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      account_configuration() :: %{
+        "KmsKeyId" => String.t() | atom()
+      }
+
+  """
+  @type account_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_schedule_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ScheduleActions" => list(schedule_action())
+      }
+
+  """
+  @type describe_schedule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      fixed_mode_schedule_action_start_settings() :: %{
+        "Time" => String.t() | atom()
+      }
+
+  """
+  @type fixed_mode_schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_sdi_source_request() :: %{}
+
+  """
+  @type delete_sdi_source_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      caption_language_mapping() :: %{
+        "CaptionChannel" => integer(),
+        "LanguageCode" => String.t() | atom(),
+        "LanguageDescription" => String.t() | atom()
+      }
+
+  """
+  @type caption_language_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      avail_blanking() :: %{
+        "AvailBlankingImage" => input_location(),
+        "State" => list(any())
+      }
+
+  """
+  @type avail_blanking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hls_settings() :: %{
+        "AudioOnlyHlsSettings" => audio_only_hls_settings(),
+        "Fmp4HlsSettings" => fmp4_hls_settings(),
+        "FrameCaptureHlsSettings" => frame_capture_hls_settings(),
+        "StandardHlsSettings" => standard_hls_settings()
+      }
+
+  """
+  @type hls_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cmaf_ingest_group_settings() :: %{
+        "AdditionalDestinations" => list(additional_destinations()),
+        "CaptionLanguageMappings" => list(cmaf_ingest_caption_language_mapping()),
+        "Destination" => output_location_ref(),
+        "Id3Behavior" => list(any()),
+        "Id3NameModifier" => String.t() | atom(),
+        "KlvBehavior" => list(any()),
+        "KlvNameModifier" => String.t() | atom(),
+        "NielsenId3Behavior" => list(any()),
+        "NielsenId3NameModifier" => String.t() | atom(),
+        "Scte35NameModifier" => String.t() | atom(),
+        "Scte35Type" => list(any()),
+        "SegmentLength" => integer(),
+        "SegmentLengthUnits" => list(any()),
+        "SendDelayMs" => integer(),
+        "TimedMetadataId3Frame" => list(any()),
+        "TimedMetadataId3Period" => integer(),
+        "TimedMetadataPassthrough" => list(any())
+      }
+
+  """
+  @type cmaf_ingest_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hdr10_settings() :: %{
+        "MaxCll" => integer(),
+        "MaxFall" => integer()
+      }
+
+  """
+  @type hdr10_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_package_group_settings() :: %{
+        "Destination" => output_location_ref(),
+        "MediapackageV2GroupSettings" => media_package_v2_group_settings()
+      }
+
+  """
+  @type media_package_group_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input() :: %{
+        "Arn" => String.t() | atom(),
+        "AttachedChannels" => list(String.t() | atom()),
+        "Destinations" => list(input_destination()),
+        "Id" => String.t() | atom(),
+        "InputClass" => list(any()),
+        "InputDevices" => list(input_device_settings()),
+        "InputNetworkLocation" => list(any()),
+        "InputPartnerIds" => list(String.t() | atom()),
+        "InputSourceType" => list(any()),
+        "MediaConnectFlows" => list(media_connect_flow()),
+        "MulticastSettings" => multicast_settings(),
+        "Name" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "RouterSettings" => router_input_settings(),
+        "SdiSources" => list(String.t() | atom()),
+        "SecurityGroups" => list(String.t() | atom()),
+        "Smpte2110ReceiverGroupSettings" => smpte2110_receiver_group_settings(),
+        "Sources" => list(input_source()),
+        "SrtSettings" => srt_settings(),
+        "State" => list(any()),
+        "Tags" => map(),
+        "Type" => list(any())
+      }
+
+  """
+  @type input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      follow_mode_schedule_action_start_settings() :: %{
+        "FollowPoint" => list(any()),
+        "ReferenceActionName" => String.t() | atom()
+      }
+
+  """
+  @type follow_mode_schedule_action_start_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      input_security_group() :: %{
+        "Arn" => String.t() | atom(),
+        "Channels" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "Inputs" => list(String.t() | atom()),
+        "State" => list(any()),
+        "Tags" => map(),
+        "WhitelistRules" => list(input_whitelist_rule())
+      }
+
+  """
+  @type input_security_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_input_device_response() :: %{
+        "Arn" => String.t() | atom(),
+        "AvailabilityZone" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "DeviceSettingsSyncState" => list(any()),
+        "DeviceUpdateStatus" => list(any()),
+        "HdDeviceSettings" => input_device_hd_settings(),
+        "Id" => String.t() | atom(),
+        "MacAddress" => String.t() | atom(),
+        "MedialiveInputArns" => list(String.t() | atom()),
+        "Name" => String.t() | atom(),
+        "NetworkSettings" => input_device_network_settings(),
+        "OutputType" => list(any()),
+        "SerialNumber" => String.t() | atom(),
+        "Tags" => map(),
+        "Type" => list(any()),
+        "UhdDeviceSettings" => input_device_uhd_settings()
+      }
+
+  """
+  @type update_input_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scte35_segmentation_descriptor() :: %{
+        "DeliveryRestrictions" => scte35_delivery_restrictions(),
+        "SegmentNum" => integer(),
+        "SegmentationCancelIndicator" => list(any()),
+        "SegmentationDuration" => float(),
+        "SegmentationEventId" => float(),
+        "SegmentationTypeId" => integer(),
+        "SegmentationUpid" => String.t() | atom(),
+        "SegmentationUpidType" => integer(),
+        "SegmentsExpected" => integer(),
+        "SubSegmentNum" => integer(),
+        "SubSegmentsExpected" => integer()
+      }
+
+  """
+  @type scte35_segmentation_descriptor() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automatic_input_failover_settings() :: %{
+        "ErrorClearTimeMsec" => integer(),
+        "FailoverConditions" => list(failover_condition()),
+        "InputPreference" => list(any()),
+        "SecondaryInputId" => String.t() | atom()
+      }
+
+  """
+  @type automatic_input_failover_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "ChannelPlacementGroups" => list(String.t() | atom()),
+        "ClusterId" => String.t() | atom(),
+        "ConnectionState" => list(any()),
+        "Id" => String.t() | atom(),
+        "InstanceArn" => String.t() | atom(),
+        "ManagedInstanceId" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeInterfaceMappings" => list(node_interface_mapping()),
+        "Role" => list(any()),
+        "SdiSourceMappings" => list(sdi_source_mapping()),
+        "State" => list(any())
+      }
+
+  """
+  @type describe_node_summary() :: %{(String.t() | atom()) => any()}
 
   @type accept_input_device_transfer_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type batch_delete_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type batch_start_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type batch_stop_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type batch_update_schedule_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type cancel_input_device_transfer_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type claim_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_channel_placement_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_cloud_watch_alarm_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_cluster_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_event_bridge_rule_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_event_bridge_rule_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_input_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_input_security_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_multiplex_program_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_network_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_node_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_node_registration_script_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_partner_input_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_sdi_source_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type create_signal_map_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type create_tags_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type delete_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_channel_placement_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_cloud_watch_alarm_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_cluster_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_event_bridge_rule_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_event_bridge_rule_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_input_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_input_security_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_multiplex_program_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_network_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_node_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_reservation_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_schedule_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_sdi_source_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type delete_signal_map_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type delete_tags_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type describe_account_configuration_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_channel_placement_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_cluster_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_input_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_input_device_thumbnail_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_input_security_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_multiplex_program_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_network_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_node_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_offering_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_reservation_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_schedule_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_sdi_source_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type describe_thumbnails_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type get_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_cloud_watch_alarm_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_event_bridge_rule_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_event_bridge_rule_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type get_signal_map_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_alerts_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_channel_placement_groups_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_channels_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_cloud_watch_alarm_template_groups_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_cloud_watch_alarm_templates_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_cluster_alerts_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_clusters_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_event_bridge_rule_template_groups_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_event_bridge_rule_templates_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_input_device_transfers_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_input_devices_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_input_security_groups_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_inputs_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_multiplex_alerts_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_multiplex_programs_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_multiplexes_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_networks_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_nodes_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_offerings_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_reservations_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_sdi_sources_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type list_signal_maps_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | too_many_requests_exception()
 
   @type list_tags_for_resource_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
           | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
 
   @type list_versions_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type purchase_offering_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type reboot_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type reject_input_device_transfer_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type restart_channel_pipelines_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type start_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type start_delete_monitor_deployment_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type start_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type start_input_device_maintenance_window_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type start_monitor_deployment_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type start_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type start_update_signal_map_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type stop_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type stop_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type stop_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type transfer_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_account_configuration_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_channel_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
 
   @type update_channel_class_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_channel_placement_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_cloud_watch_alarm_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type update_cloud_watch_alarm_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type update_cluster_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_event_bridge_rule_template_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type update_event_bridge_rule_template_group_errors() ::
           bad_request_exception()
-          | internal_server_error_exception()
+          | forbidden_exception()
           | not_found_exception()
           | conflict_exception()
+          | internal_server_error_exception()
           | too_many_requests_exception()
-          | forbidden_exception()
 
   @type update_input_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
 
   @type update_input_device_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_input_security_group_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
 
   @type update_multiplex_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
 
   @type update_multiplex_program_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | not_found_exception()
-          | conflict_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
 
   @type update_network_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_node_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_node_state_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | unprocessable_entity_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | unprocessable_entity_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_reservation_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | not_found_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | not_found_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   @type update_sdi_source_errors() ::
           bad_request_exception()
-          | gateway_timeout_exception()
-          | internal_server_error_exception()
-          | conflict_exception()
-          | too_many_requests_exception()
           | forbidden_exception()
           | bad_gateway_exception()
+          | conflict_exception()
+          | internal_server_error_exception()
+          | gateway_timeout_exception()
+          | too_many_requests_exception()
 
   def metadata do
     %{

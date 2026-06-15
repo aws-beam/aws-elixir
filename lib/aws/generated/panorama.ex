@@ -21,104 +21,31 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      create_node_from_template_job_request() :: %{
-        optional("JobTags") => list(job_resource_tags()),
-        optional("NodeDescription") => String.t() | atom(),
-        required("NodeName") => String.t() | atom(),
-        required("OutputPackageName") => String.t() | atom(),
-        required("OutputPackageVersion") => String.t() | atom(),
-        required("TemplateParameters") => map(),
-        required("TemplateType") => String.t() | atom()
-      }
+      describe_device_request() :: %{}
 
   """
-  @type create_node_from_template_job_request() :: %{(String.t() | atom()) => any()}
+  @type describe_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      device_job() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "DeviceId" => String.t() | atom(),
-        "DeviceName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "JobType" => String.t() | atom()
-      }
+      delete_device_request() :: %{}
 
   """
-  @type device_job() :: %{(String.t() | atom()) => any()}
+  @type delete_device_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_devices_request() :: %{
-        optional("DeviceAggregatedStatusFilter") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NameFilter") => String.t() | atom(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SortBy") => String.t() | atom(),
-        optional("SortOrder") => String.t() | atom()
+      node_signal() :: %{
+        "NodeInstanceId" => String.t() | atom(),
+        "Signal" => String.t() | atom()
       }
 
   """
-  @type list_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("Tags") => map()
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provision_device_response() :: %{
-        optional("Certificates") => binary(),
-        optional("DeviceId") => String.t() | atom(),
-        optional("IotThingName") => String.t() | atom(),
-        required("Arn") => String.t() | atom(),
-        required("Status") => String.t() | atom()
-      }
-
-  """
-  @type provision_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_import_job_request() :: %{
-        optional("JobTags") => list(job_resource_tags()),
-        required("ClientToken") => String.t() | atom(),
-        required("InputConfig") => package_import_job_input_config(),
-        required("JobType") => String.t() | atom(),
-        required("OutputConfig") => package_import_job_output_config()
-      }
-
-  """
-  @type create_package_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      provision_device_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("NetworkingConfiguration") => network_payload(),
-        optional("Tags") => map(),
-        required("Name") => String.t() | atom()
-      }
-
-  """
-  @type provision_device_request() :: %{(String.t() | atom()) => any()}
+  @type node_signal() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -141,140 +68,73 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      describe_application_instance_details_response() :: %{
-        optional("ApplicationInstanceId") => String.t() | atom(),
-        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
-        optional("CreatedTime") => non_neg_integer(),
-        optional("DefaultRuntimeContextDevice") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("ManifestOverridesPayload") => list(),
-        optional("ManifestPayload") => list(),
-        optional("Name") => String.t() | atom()
+      conflict_exception_error_argument() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type describe_application_instance_details_response() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception_error_argument() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      untag_resource_response() :: %{}
+      list_packages_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
 
   """
-  @type untag_resource_response() :: %{}
+  @type list_packages_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_node_from_template_jobs_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("NodeFromTemplateJobs") => list(node_from_template_job())
+      panorama_node() :: %{
+        "Category" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "NodeId" => String.t() | atom(),
+        "OwnerAccount" => String.t() | atom(),
+        "PackageArn" => String.t() | atom(),
+        "PackageId" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "PatchVersion" => String.t() | atom()
       }
 
   """
-  @type list_node_from_template_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type panorama_node() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_package_request() :: %{
-        optional("Tags") => map(),
-        required("PackageName") => String.t() | atom()
+      package_import_job_output() :: %{
+        "OutputS3Location" => out_put_s3_location(),
+        "PackageId" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom(),
+        "PatchVersion" => String.t() | atom()
       }
 
   """
-  @type create_package_request() :: %{(String.t() | atom()) => any()}
+  @type package_import_job_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_application_instance_request() :: %{
-        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("ManifestOverridesPayload") => list(),
-        optional("Name") => String.t() | atom(),
-        optional("RuntimeRoleArn") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DefaultRuntimeContextDevice") => String.t() | atom(),
-        required("ManifestPayload") => list()
+      create_package_response() :: %{
+        optional("Arn") => String.t() | atom(),
+        optional("PackageId") => String.t() | atom(),
+        required("StorageLocation") => storage_location()
       }
 
   """
-  @type create_application_instance_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_status() :: %{
-        "Ethernet0Status" => ethernet_status(),
-        "Ethernet1Status" => ethernet_status(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "NtpStatus" => ntp_status()
-      }
-
-  """
-  @type network_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      reported_runtime_context_state() :: %{
-        "DesiredState" => String.t() | atom(),
-        "DeviceReportedStatus" => String.t() | atom(),
-        "DeviceReportedTime" => non_neg_integer(),
-        "RuntimeContextName" => String.t() | atom()
-      }
-
-  """
-  @type reported_runtime_context_state() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_import_jobs_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("PackageImportJobs") => list(package_import_job())
-      }
-
-  """
-  @type list_package_import_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_input_config() :: %{
-        "S3Location" => s3_location()
-      }
-
-  """
-  @type package_version_input_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_device_job_response() :: %{
-        optional("CreatedTime") => non_neg_integer(),
-        optional("DeviceArn") => String.t() | atom(),
-        optional("DeviceId") => String.t() | atom(),
-        optional("DeviceName") => String.t() | atom(),
-        optional("DeviceType") => String.t() | atom(),
-        optional("ImageVersion") => String.t() | atom(),
-        optional("JobId") => String.t() | atom(),
-        optional("JobType") => String.t() | atom(),
-        optional("Status") => String.t() | atom()
-      }
-
-  """
-  @type describe_device_job_response() :: %{(String.t() | atom()) => any()}
+  @type create_package_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -305,90 +165,10 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      create_job_for_devices_response() :: %{
-        required("Jobs") => list(job())
-      }
+      deregister_package_version_response() :: %{}
 
   """
-  @type create_job_for_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_input_port() :: %{
-        "DefaultValue" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "MaxConnections" => integer(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type node_input_port() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_import_job_request() :: %{}
-
-  """
-  @type describe_package_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_packages_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_packages_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_device_metadata_response() :: %{
-        optional("DeviceId") => String.t() | atom()
-      }
-
-  """
-  @type update_device_metadata_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ethernet_status() :: %{
-        "ConnectionStatus" => String.t() | atom(),
-        "HwAddress" => String.t() | atom(),
-        "IpAddress" => String.t() | atom()
-      }
-
-  """
-  @type ethernet_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_response() :: %{
-        optional("ReadAccessPrincipalArns") => list(String.t() | atom()),
-        optional("WriteAccessPrincipalArns") => list(String.t() | atom()),
-        required("Arn") => String.t() | atom(),
-        required("CreatedTime") => non_neg_integer(),
-        required("PackageId") => String.t() | atom(),
-        required("PackageName") => String.t() | atom(),
-        required("StorageLocation") => storage_location(),
-        required("Tags") => map()
-      }
-
-  """
-  @type describe_package_response() :: %{(String.t() | atom()) => any()}
+  @type deregister_package_version_response() :: %{}
 
   @typedoc """
 
@@ -407,10 +187,74 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      delete_device_request() :: %{}
+      package_import_job() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "JobId" => String.t() | atom(),
+        "JobType" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
+      }
 
   """
-  @type delete_device_request() :: %{}
+  @type package_import_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_from_template_job_response() :: %{
+        optional("JobTags") => list(job_resource_tags()),
+        optional("NodeDescription") => String.t() | atom(),
+        required("CreatedTime") => non_neg_integer(),
+        required("JobId") => String.t() | atom(),
+        required("LastUpdatedTime") => non_neg_integer(),
+        required("NodeName") => String.t() | atom(),
+        required("OutputPackageName") => String.t() | atom(),
+        required("OutputPackageVersion") => String.t() | atom(),
+        required("Status") => String.t() | atom(),
+        required("StatusMessage") => String.t() | atom(),
+        required("TemplateParameters") => map(),
+        required("TemplateType") => String.t() | atom()
+      }
+
+  """
+  @type describe_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_devices_jobs_request() :: %{
+        optional("DeviceId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_devices_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      application_instance() :: %{
+        "ApplicationInstanceId" => String.t() | atom(),
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "DefaultRuntimeContextDevice" => String.t() | atom(),
+        "DefaultRuntimeContextDeviceName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "HealthStatus" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "RuntimeContextStates" => list(reported_runtime_context_state()),
+        "Status" => String.t() | atom(),
+        "StatusDescription" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type application_instance() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -428,120 +272,39 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      signal_application_instance_node_instances_response() :: %{
-        required("ApplicationInstanceId") => String.t() | atom()
+      list_nodes_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("Nodes") => list(node())
       }
 
   """
-  @type signal_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
+  @type list_nodes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_device_metadata_request() :: %{
-        optional("Description") => String.t() | atom()
+      list_devices_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("Devices") => list(device())
       }
 
   """
-  @type update_device_metadata_request() :: %{(String.t() | atom()) => any()}
+  @type list_devices_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_application_instances_response() :: %{
-        optional("ApplicationInstances") => list(application_instance()),
-        optional("NextToken") => String.t() | atom()
+      list_application_instances_request() :: %{
+        optional("DeviceId") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("StatusFilter") => String.t() | atom()
       }
 
   """
-  @type list_application_instances_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("TagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_output_port() :: %{
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type node_output_port() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      panorama_node() :: %{
-        "Category" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "NodeId" => String.t() | atom(),
-        "OwnerAccount" => String.t() | atom(),
-        "PackageArn" => String.t() | atom(),
-        "PackageId" => String.t() | atom(),
-        "PackageName" => String.t() | atom(),
-        "PackageVersion" => String.t() | atom(),
-        "PatchVersion" => String.t() | atom()
-      }
-
-  """
-  @type panorama_node() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_list_item() :: %{
-        "Arn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "PackageId" => String.t() | atom(),
-        "PackageName" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type package_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_from_template_job() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "JobId" => String.t() | atom(),
-        "NodeName" => String.t() | atom(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom(),
-        "TemplateType" => String.t() | atom()
-      }
-
-  """
-  @type node_from_template_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_node_from_template_job_request() :: %{}
-
-  """
-  @type describe_node_from_template_job_request() :: %{}
+  @type list_application_instances_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -571,516 +334,6 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      package_import_job_output_config() :: %{
-        "PackageVersionOutputConfig" => package_version_output_config()
-      }
-
-  """
-  @type package_import_job_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ntp_status() :: %{
-        "ConnectionStatus" => String.t() | atom(),
-        "IpAddress" => String.t() | atom(),
-        "NtpServerName" => String.t() | atom()
-      }
-
-  """
-  @type ntp_status() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ethernet_payload() :: %{
-        "ConnectionType" => String.t() | atom(),
-        "StaticIpConnectionInfo" => static_ip_connection_info()
-      }
-
-  """
-  @type ethernet_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "ErrorArguments" => list(conflict_exception_error_argument()),
-        "ErrorId" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_response() :: %{}
-
-  """
-  @type delete_package_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "Message" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_error_argument() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_error_argument() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_package_import_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_package_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_package_version_request() :: %{
-        optional("OwnerAccount") => String.t() | atom(),
-        optional("UpdatedLatestPatchVersion") => String.t() | atom()
-      }
-
-  """
-  @type deregister_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_signal() :: %{
-        "NodeInstanceId" => String.t() | atom(),
-        "Signal" => String.t() | atom()
-      }
-
-  """
-  @type node_signal() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_import_job_input_config() :: %{
-        "PackageVersionInputConfig" => package_version_input_config()
-      }
-
-  """
-  @type package_import_job_input_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      application_instance() :: %{
-        "ApplicationInstanceId" => String.t() | atom(),
-        "Arn" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "DefaultRuntimeContextDevice" => String.t() | atom(),
-        "DefaultRuntimeContextDeviceName" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "HealthStatus" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "RuntimeContextStates" => list(reported_runtime_context_state()),
-        "Status" => String.t() | atom(),
-        "StatusDescription" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type application_instance() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_device_request() :: %{}
-
-  """
-  @type describe_device_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
-        "Message" => String.t() | atom(),
-        "QuotaCode" => String.t() | atom(),
-        "ResourceId" => String.t() | atom(),
-        "ResourceType" => String.t() | atom(),
-        "ServiceCode" => String.t() | atom()
-      }
-
-  """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_node_from_template_job_response() :: %{
-        required("JobId") => String.t() | atom()
-      }
-
-  """
-  @type create_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      network_payload() :: %{
-        "Ethernet0" => ethernet_payload(),
-        "Ethernet1" => ethernet_payload(),
-        "Ntp" => ntp_payload()
-      }
-
-  """
-  @type network_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      ntp_payload() :: %{
-        "NtpServers" => list(String.t() | atom())
-      }
-
-  """
-  @type ntp_payload() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      node_interface() :: %{
-        "Inputs" => list(node_input_port()),
-        "Outputs" => list(node_output_port())
-      }
-
-  """
-  @type node_interface() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      static_ip_connection_info() :: %{
-        "DefaultGateway" => String.t() | atom(),
-        "Dns" => list(String.t() | atom()),
-        "IpAddress" => String.t() | atom(),
-        "Mask" => String.t() | atom()
-      }
-
-  """
-  @type static_ip_connection_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodes_request() :: %{
-        optional("Category") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("OwnerAccount") => String.t() | atom(),
-        optional("PackageName") => String.t() | atom(),
-        optional("PackageVersion") => String.t() | atom(),
-        optional("PatchVersion") => String.t() | atom()
-      }
-
-  """
-  @type list_nodes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_application_instance_request() :: %{}
-
-  """
-  @type describe_application_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        optional("Tags") => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_version_response() :: %{
-        optional("OwnerAccount") => String.t() | atom(),
-        optional("PackageArn") => String.t() | atom(),
-        optional("RegisteredTime") => non_neg_integer(),
-        optional("StatusDescription") => String.t() | atom(),
-        required("IsLatestPatch") => boolean(),
-        required("PackageId") => String.t() | atom(),
-        required("PackageName") => String.t() | atom(),
-        required("PackageVersion") => String.t() | atom(),
-        required("PatchVersion") => String.t() | atom(),
-        required("Status") => String.t() | atom()
-      }
-
-  """
-  @type describe_package_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        required("Devices") => list(device())
-      }
-
-  """
-  @type list_devices_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_package_version_response() :: %{}
-
-  """
-  @type register_package_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception_field() :: %{
-        "Message" => String.t() | atom(),
-        "Name" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_device_job_request() :: %{}
-
-  """
-  @type describe_device_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_location() :: %{
-        "BucketName" => String.t() | atom(),
-        "ObjectKey" => String.t() | atom(),
-        "Region" => String.t() | atom()
-      }
-
-  """
-  @type s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_node_from_template_job_response() :: %{
-        optional("JobTags") => list(job_resource_tags()),
-        optional("NodeDescription") => String.t() | atom(),
-        required("CreatedTime") => non_neg_integer(),
-        required("JobId") => String.t() | atom(),
-        required("LastUpdatedTime") => non_neg_integer(),
-        required("NodeName") => String.t() | atom(),
-        required("OutputPackageName") => String.t() | atom(),
-        required("OutputPackageVersion") => String.t() | atom(),
-        required("Status") => String.t() | atom(),
-        required("StatusMessage") => String.t() | atom(),
-        required("TemplateParameters") => map(),
-        required("TemplateType") => String.t() | atom()
-      }
-
-  """
-  @type describe_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_device_response() :: %{
-        optional("DeviceId") => String.t() | atom()
-      }
-
-  """
-  @type delete_device_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_jobs_request() :: %{
-        optional("DeviceId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_devices_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_application_instance_details_request() :: %{}
-
-  """
-  @type describe_application_instance_details_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_node_from_template_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_node_from_template_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom(),
-        "RetryAfterSeconds" => integer()
-      }
-
-  """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      remove_application_instance_request() :: %{}
-
-  """
-  @type remove_application_instance_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_application_instance_response() :: %{
-        required("ApplicationInstanceId") => String.t() | atom()
-      }
-
-  """
-  @type create_application_instance_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_import_job_response() :: %{
-        required("JobId") => String.t() | atom()
-      }
-
-  """
-  @type create_package_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_devices_jobs_response() :: %{
-        optional("DeviceJobs") => list(device_job()),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_devices_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_import_job_output() :: %{
-        "OutputS3Location" => out_put_s3_location(),
-        "PackageId" => String.t() | atom(),
-        "PackageVersion" => String.t() | atom(),
-        "PatchVersion" => String.t() | atom()
-      }
-
-  """
-  @type package_import_job_output() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      out_put_s3_location() :: %{
-        "BucketName" => String.t() | atom(),
-        "ObjectKey" => String.t() | atom()
-      }
-
-  """
-  @type out_put_s3_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_package_request() :: %{
-        optional("ForceDelete") => boolean()
-      }
-
-  """
-  @type delete_package_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -1092,291 +345,15 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      describe_package_import_job_response() :: %{
-        optional("ClientToken") => String.t() | atom(),
-        optional("JobTags") => list(job_resource_tags()),
-        required("CreatedTime") => non_neg_integer(),
-        required("InputConfig") => package_import_job_input_config(),
-        required("JobId") => String.t() | atom(),
-        required("JobType") => String.t() | atom(),
-        required("LastUpdatedTime") => non_neg_integer(),
-        required("Output") => package_import_job_output(),
-        required("OutputConfig") => package_import_job_output_config(),
-        required("Status") => String.t() | atom(),
-        required("StatusMessage") => String.t() | atom()
+      reported_runtime_context_state() :: %{
+        "DesiredState" => String.t() | atom(),
+        "DeviceReportedStatus" => String.t() | atom(),
+        "DeviceReportedTime" => non_neg_integer(),
+        "RuntimeContextName" => String.t() | atom()
       }
 
   """
-  @type describe_package_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      storage_location() :: %{
-        "BinaryPrefixLocation" => String.t() | atom(),
-        "Bucket" => String.t() | atom(),
-        "GeneratedPrefixLocation" => String.t() | atom(),
-        "ManifestPrefixLocation" => String.t() | atom(),
-        "RepoPrefixLocation" => String.t() | atom()
-      }
-
-  """
-  @type storage_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      signal_application_instance_node_instances_request() :: %{
-        required("NodeSignals") => list(node_signal())
-      }
-
-  """
-  @type signal_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      alternate_software_metadata() :: %{
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type alternate_software_metadata() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_resource_tags() :: %{
-        "ResourceType" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type job_resource_tags() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_exception() :: %{
-        "ErrorArguments" => list(validation_exception_error_argument()),
-        "ErrorId" => String.t() | atom(),
-        "Fields" => list(validation_exception_field()),
-        "Message" => String.t() | atom(),
-        "Reason" => String.t() | atom()
-      }
-
-  """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      job() :: %{
-        "DeviceId" => String.t() | atom(),
-        "JobId" => String.t() | atom()
-      }
-
-  """
-  @type job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception_error_argument() :: %{
-        "Name" => String.t() | atom(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception_error_argument() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_instance_dependencies_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("PackageObjects") => list(package_object())
-      }
-
-  """
-  @type list_application_instance_dependencies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_request() :: %{}
-
-  """
-  @type describe_package_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_instance_node_instances_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_package_response() :: %{
-        optional("Arn") => String.t() | atom(),
-        optional("PackageId") => String.t() | atom(),
-        required("StorageLocation") => storage_location()
-      }
-
-  """
-  @type create_package_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_package_version_response() :: %{}
-
-  """
-  @type deregister_package_version_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      ota_job_config() :: %{
-        "AllowMajorVersionUpdate" => boolean(),
-        "ImageVersion" => String.t() | atom()
-      }
-
-  """
-  @type ota_job_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_node_request() :: %{
-        optional("OwnerAccount") => String.t() | atom()
-      }
-
-  """
-  @type describe_node_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device() :: %{
-        "Brand" => String.t() | atom(),
-        "CreatedTime" => non_neg_integer(),
-        "CurrentSoftware" => String.t() | atom(),
-        "Description" => String.t() | atom(),
-        "DeviceAggregatedStatus" => String.t() | atom(),
-        "DeviceId" => String.t() | atom(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "LatestDeviceJob" => latest_device_job(),
-        "LeaseExpirationTime" => non_neg_integer(),
-        "Name" => String.t() | atom(),
-        "ProvisioningStatus" => String.t() | atom(),
-        "Tags" => map(),
-        "Type" => String.t() | atom()
-      }
-
-  """
-  @type device() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      latest_device_job() :: %{
-        "ImageVersion" => String.t() | atom(),
-        "JobType" => String.t() | atom(),
-        "Status" => String.t() | atom()
-      }
-
-  """
-  @type latest_device_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      describe_package_version_request() :: %{
-        optional("OwnerAccount") => String.t() | atom(),
-        optional("PatchVersion") => String.t() | atom()
-      }
-
-  """
-  @type describe_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_job_for_devices_request() :: %{
-        optional("DeviceJobConfig") => device_job_config(),
-        required("DeviceIds") => list(String.t() | atom()),
-        required("JobType") => String.t() | atom()
-      }
-
-  """
-  @type create_job_for_devices_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_package_version_request() :: %{
-        optional("MarkLatest") => boolean(),
-        optional("OwnerAccount") => String.t() | atom()
-      }
-
-  """
-  @type register_package_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_instance_node_instances_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("NodeInstances") => list(node_instance())
-      }
-
-  """
-  @type list_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
+  @type reported_runtime_context_state() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1394,76 +371,16 @@ defmodule AWS.Panorama do
 
   ## Example:
 
-      remove_application_instance_response() :: %{}
-
-  """
-  @type remove_application_instance_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_nodes_response() :: %{
-        optional("NextToken") => String.t() | atom(),
-        optional("Nodes") => list(node())
+      create_package_import_job_request() :: %{
+        optional("JobTags") => list(job_resource_tags()),
+        required("ClientToken") => String.t() | atom(),
+        required("InputConfig") => package_import_job_input_config(),
+        required("JobType") => String.t() | atom(),
+        required("OutputConfig") => package_import_job_output_config()
       }
 
   """
-  @type list_nodes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      device_job_config() :: %{
-        "OTAJobConfig" => ota_job_config()
-      }
-
-  """
-  @type device_job_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_version_output_config() :: %{
-        "MarkLatest" => boolean(),
-        "PackageName" => String.t() | atom(),
-        "PackageVersion" => String.t() | atom()
-      }
-
-  """
-  @type package_version_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      package_import_job() :: %{
-        "CreatedTime" => non_neg_integer(),
-        "JobId" => String.t() | atom(),
-        "JobType" => String.t() | atom(),
-        "LastUpdatedTime" => non_neg_integer(),
-        "Status" => String.t() | atom(),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type package_import_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_application_instances_request() :: %{
-        optional("DeviceId") => String.t() | atom(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("StatusFilter") => String.t() | atom()
-      }
-
-  """
-  @type list_application_instances_request() :: %{(String.t() | atom()) => any()}
+  @type create_package_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1495,203 +412,1286 @@ defmodule AWS.Panorama do
   """
   @type describe_device_response() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      list_devices_request() :: %{
+        optional("DeviceAggregatedStatusFilter") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NameFilter") => String.t() | atom(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortBy") => String.t() | atom(),
+        optional("SortOrder") => String.t() | atom()
+      }
+
+  """
+  @type list_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device() :: %{
+        "Brand" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "CurrentSoftware" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DeviceAggregatedStatus" => String.t() | atom(),
+        "DeviceId" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "LatestDeviceJob" => latest_device_job(),
+        "LeaseExpirationTime" => non_neg_integer(),
+        "Name" => String.t() | atom(),
+        "ProvisioningStatus" => String.t() | atom(),
+        "Tags" => map(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type device() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_interface() :: %{
+        "Inputs" => list(node_input_port()),
+        "Outputs" => list(node_output_port())
+      }
+
+  """
+  @type node_interface() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_instance_request() :: %{
+        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ManifestOverridesPayload") => list(),
+        optional("Name") => String.t() | atom(),
+        optional("RuntimeRoleArn") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DefaultRuntimeContextDevice") => String.t() | atom(),
+        required("ManifestPayload") => list()
+      }
+
+  """
+  @type create_application_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_application_instance_request() :: %{}
+
+  """
+  @type remove_application_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "ErrorArguments" => list(validation_exception_error_argument()),
+        "ErrorId" => String.t() | atom(),
+        "Fields" => list(validation_exception_field()),
+        "Message" => String.t() | atom(),
+        "Reason" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_node_from_template_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_node_from_template_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_instance_dependencies_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("PackageObjects") => list(package_object())
+      }
+
+  """
+  @type list_application_instance_dependencies_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_import_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_package_import_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_resource_tags() :: %{
+        "ResourceType" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type job_resource_tags() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_package_version_response() :: %{}
+
+  """
+  @type register_package_version_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      provision_device_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("NetworkingConfiguration") => network_payload(),
+        optional("Tags") => map(),
+        required("Name") => String.t() | atom()
+      }
+
+  """
+  @type provision_device_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_metadata_request() :: %{
+        optional("Description") => String.t() | atom()
+      }
+
+  """
+  @type update_device_metadata_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_request() :: %{
+        optional("Tags") => map(),
+        required("PackageName") => String.t() | atom()
+      }
+
+  """
+  @type create_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_location() :: %{
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom(),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_package_version_request() :: %{
+        optional("MarkLatest") => boolean(),
+        optional("OwnerAccount") => String.t() | atom()
+      }
+
+  """
+  @type register_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ntp_status() :: %{
+        "ConnectionStatus" => String.t() | atom(),
+        "IpAddress" => String.t() | atom(),
+        "NtpServerName" => String.t() | atom()
+      }
+
+  """
+  @type ntp_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_instances_response() :: %{
+        optional("ApplicationInstances") => list(application_instance()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_application_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_import_job_request() :: %{}
+
+  """
+  @type describe_package_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom(),
+        "RetryAfterSeconds" => integer()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_input_port() :: %{
+        "DefaultValue" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "MaxConnections" => integer(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type node_input_port() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_import_job_output_config() :: %{
+        "PackageVersionOutputConfig" => package_version_output_config()
+      }
+
+  """
+  @type package_import_job_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("Tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_job_config() :: %{
+        "OTAJobConfig" => ota_job_config()
+      }
+
+  """
+  @type device_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_from_template_job_request() :: %{}
+
+  """
+  @type describe_node_from_template_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_version_response() :: %{
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PackageArn") => String.t() | atom(),
+        optional("RegisteredTime") => non_neg_integer(),
+        optional("StatusDescription") => String.t() | atom(),
+        required("IsLatestPatch") => boolean(),
+        required("PackageId") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
+        required("PackageVersion") => String.t() | atom(),
+        required("PatchVersion") => String.t() | atom(),
+        required("Status") => String.t() | atom()
+      }
+
+  """
+  @type describe_package_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_request() :: %{
+        optional("ForceDelete") => boolean()
+      }
+
+  """
+  @type delete_package_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_for_devices_request() :: %{
+        optional("DeviceJobConfig") => device_job_config(),
+        required("DeviceIds") => list(String.t() | atom()),
+        required("JobType") => String.t() | atom()
+      }
+
+  """
+  @type create_job_for_devices_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ethernet_status() :: %{
+        "ConnectionStatus" => String.t() | atom(),
+        "HwAddress" => String.t() | atom(),
+        "IpAddress" => String.t() | atom()
+      }
+
+  """
+  @type ethernet_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_error_argument() :: %{
+        "Name" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_error_argument() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_location() :: %{
+        "BinaryPrefixLocation" => String.t() | atom(),
+        "Bucket" => String.t() | atom(),
+        "GeneratedPrefixLocation" => String.t() | atom(),
+        "ManifestPrefixLocation" => String.t() | atom(),
+        "RepoPrefixLocation" => String.t() | atom()
+      }
+
+  """
+  @type storage_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_node_from_template_jobs_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("NodeFromTemplateJobs") => list(node_from_template_job())
+      }
+
+  """
+  @type list_node_from_template_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_import_job_response() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("JobTags") => list(job_resource_tags()),
+        required("CreatedTime") => non_neg_integer(),
+        required("InputConfig") => package_import_job_input_config(),
+        required("JobId") => String.t() | atom(),
+        required("JobType") => String.t() | atom(),
+        required("LastUpdatedTime") => non_neg_integer(),
+        required("Output") => package_import_job_output(),
+        required("OutputConfig") => package_import_job_output_config(),
+        required("Status") => String.t() | atom(),
+        required("StatusMessage") => String.t() | atom()
+      }
+
+  """
+  @type describe_package_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_from_template_job_response() :: %{
+        required("JobId") => String.t() | atom()
+      }
+
+  """
+  @type create_node_from_template_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_output_config() :: %{
+        "MarkLatest" => boolean(),
+        "PackageName" => String.t() | atom(),
+        "PackageVersion" => String.t() | atom()
+      }
+
+  """
+  @type package_version_output_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
+        "ErrorArguments" => list(conflict_exception_error_argument()),
+        "ErrorId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom()
+      }
+
+  """
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_application_instance_response() :: %{
+        required("ApplicationInstanceId") => String.t() | atom()
+      }
+
+  """
+  @type create_application_instance_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_request() :: %{}
+
+  """
+  @type describe_package_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_devices_jobs_response() :: %{
+        optional("DeviceJobs") => list(device_job()),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_devices_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provision_device_response() :: %{
+        optional("Certificates") => binary(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("IotThingName") => String.t() | atom(),
+        required("Arn") => String.t() | atom(),
+        required("Status") => String.t() | atom()
+      }
+
+  """
+  @type provision_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception_field() :: %{
+        "Message" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("TagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      device_job() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "DeviceId" => String.t() | atom(),
+        "DeviceName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "JobType" => String.t() | atom()
+      }
+
+  """
+  @type device_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remove_application_instance_response() :: %{}
+
+  """
+  @type remove_application_instance_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      signal_application_instance_node_instances_response() :: %{
+        required("ApplicationInstanceId") => String.t() | atom()
+      }
+
+  """
+  @type signal_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_package_response() :: %{}
+
+  """
+  @type delete_package_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_version_request() :: %{
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PatchVersion") => String.t() | atom()
+      }
+
+  """
+  @type describe_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_status() :: %{
+        "Ethernet0Status" => ethernet_status(),
+        "Ethernet1Status" => ethernet_status(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "NtpStatus" => ntp_status()
+      }
+
+  """
+  @type network_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ethernet_payload() :: %{
+        "ConnectionType" => String.t() | atom(),
+        "StaticIpConnectionInfo" => static_ip_connection_info()
+      }
+
+  """
+  @type ethernet_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      network_payload() :: %{
+        "Ethernet0" => ethernet_payload(),
+        "Ethernet1" => ethernet_payload(),
+        "Ntp" => ntp_payload()
+      }
+
+  """
+  @type network_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_device_job_response() :: %{
+        optional("CreatedTime") => non_neg_integer(),
+        optional("DeviceArn") => String.t() | atom(),
+        optional("DeviceId") => String.t() | atom(),
+        optional("DeviceName") => String.t() | atom(),
+        optional("DeviceType") => String.t() | atom(),
+        optional("ImageVersion") => String.t() | atom(),
+        optional("JobId") => String.t() | atom(),
+        optional("JobType") => String.t() | atom(),
+        optional("Status") => String.t() | atom()
+      }
+
+  """
+  @type describe_device_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_package_import_job_response() :: %{
+        required("JobId") => String.t() | atom()
+      }
+
+  """
+  @type create_package_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        optional("Tags") => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      out_put_s3_location() :: %{
+        "BucketName" => String.t() | atom(),
+        "ObjectKey" => String.t() | atom()
+      }
+
+  """
+  @type out_put_s3_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_device_response() :: %{
+        optional("DeviceId") => String.t() | atom()
+      }
+
+  """
+  @type delete_device_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_device_metadata_response() :: %{
+        optional("DeviceId") => String.t() | atom()
+      }
+
+  """
+  @type update_device_metadata_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_nodes_request() :: %{
+        optional("Category") => String.t() | atom(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("PackageName") => String.t() | atom(),
+        optional("PackageVersion") => String.t() | atom(),
+        optional("PatchVersion") => String.t() | atom()
+      }
+
+  """
+  @type list_nodes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ota_job_config() :: %{
+        "AllowMajorVersionUpdate" => boolean(),
+        "ImageVersion" => String.t() | atom()
+      }
+
+  """
+  @type ota_job_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job() :: %{
+        "DeviceId" => String.t() | atom(),
+        "JobId" => String.t() | atom()
+      }
+
+  """
+  @type job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_node_from_template_job_request() :: %{
+        optional("JobTags") => list(job_resource_tags()),
+        optional("NodeDescription") => String.t() | atom(),
+        required("NodeName") => String.t() | atom(),
+        required("OutputPackageName") => String.t() | atom(),
+        required("OutputPackageVersion") => String.t() | atom(),
+        required("TemplateParameters") => map(),
+        required("TemplateType") => String.t() | atom()
+      }
+
+  """
+  @type create_node_from_template_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_device_job_request() :: %{}
+
+  """
+  @type describe_device_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_application_instance_details_request() :: %{}
+
+  """
+  @type describe_application_instance_details_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_package_response() :: %{
+        optional("ReadAccessPrincipalArns") => list(String.t() | atom()),
+        optional("WriteAccessPrincipalArns") => list(String.t() | atom()),
+        required("Arn") => String.t() | atom(),
+        required("CreatedTime") => non_neg_integer(),
+        required("PackageId") => String.t() | atom(),
+        required("PackageName") => String.t() | atom(),
+        required("StorageLocation") => storage_location(),
+        required("Tags") => map()
+      }
+
+  """
+  @type describe_package_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_instance_node_instances_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        optional("NodeInstances") => list(node_instance())
+      }
+
+  """
+  @type list_application_instance_node_instances_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      ntp_payload() :: %{
+        "NtpServers" => list(String.t() | atom())
+      }
+
+  """
+  @type ntp_payload() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_package_import_jobs_response() :: %{
+        optional("NextToken") => String.t() | atom(),
+        required("PackageImportJobs") => list(package_import_job())
+      }
+
+  """
+  @type list_package_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_node_request() :: %{
+        optional("OwnerAccount") => String.t() | atom()
+      }
+
+  """
+  @type describe_node_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_package_version_request() :: %{
+        optional("OwnerAccount") => String.t() | atom(),
+        optional("UpdatedLatestPatchVersion") => String.t() | atom()
+      }
+
+  """
+  @type deregister_package_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_version_input_config() :: %{
+        "S3Location" => s3_location()
+      }
+
+  """
+  @type package_version_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      signal_application_instance_node_instances_request() :: %{
+        required("NodeSignals") => list(node_signal())
+      }
+
+  """
+  @type signal_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      static_ip_connection_info() :: %{
+        "DefaultGateway" => String.t() | atom(),
+        "Dns" => list(String.t() | atom()),
+        "IpAddress" => String.t() | atom(),
+        "Mask" => String.t() | atom()
+      }
+
+  """
+  @type static_ip_connection_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_application_instance_node_instances_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_application_instance_node_instances_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_application_instance_details_response() :: %{
+        optional("ApplicationInstanceId") => String.t() | atom(),
+        optional("ApplicationInstanceIdToReplace") => String.t() | atom(),
+        optional("CreatedTime") => non_neg_integer(),
+        optional("DefaultRuntimeContextDevice") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("ManifestOverridesPayload") => list(),
+        optional("ManifestPayload") => list(),
+        optional("Name") => String.t() | atom()
+      }
+
+  """
+  @type describe_application_instance_details_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_output_port() :: %{
+        "Description" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type node_output_port() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      alternate_software_metadata() :: %{
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type alternate_software_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      package_import_job_input_config() :: %{
+        "PackageVersionInputConfig" => package_version_input_config()
+      }
+
+  """
+  @type package_import_job_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      package_list_item() :: %{
+        "Arn" => String.t() | atom(),
+        "CreatedTime" => non_neg_integer(),
+        "PackageId" => String.t() | atom(),
+        "PackageName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type package_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_application_instance_request() :: %{}
+
+  """
+  @type describe_application_instance_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      latest_device_job() :: %{
+        "ImageVersion" => String.t() | atom(),
+        "JobType" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type latest_device_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      node_from_template_job() :: %{
+        "CreatedTime" => non_neg_integer(),
+        "JobId" => String.t() | atom(),
+        "NodeName" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom(),
+        "TemplateType" => String.t() | atom()
+      }
+
+  """
+  @type node_from_template_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "QuotaCode" => String.t() | atom(),
+        "ResourceId" => String.t() | atom(),
+        "ResourceType" => String.t() | atom(),
+        "ServiceCode" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_job_for_devices_response() :: %{
+        required("Jobs") => list(job())
+      }
+
+  """
+  @type create_job_for_devices_response() :: %{(String.t() | atom()) => any()}
+
   @type create_application_instance_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_job_for_devices_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_node_from_template_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_package_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type create_package_import_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_device_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type delete_package_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type deregister_package_version_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_application_instance_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_application_instance_details_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_device_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_device_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_node_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_node_from_template_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_package_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_package_import_job_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type describe_package_version_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_application_instance_dependencies_errors() ::
-          access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception()
 
   @type list_application_instance_node_instances_errors() ::
-          access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception()
 
   @type list_application_instances_errors() ::
-          access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception()
 
   @type list_devices_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_devices_jobs_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_node_from_template_jobs_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_nodes_errors() ::
-          validation_exception() | internal_server_exception() | conflict_exception()
+          conflict_exception() | internal_server_exception() | validation_exception()
 
   @type list_package_import_jobs_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_packages_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type list_tags_for_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type provision_device_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type register_package_version_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          conflict_exception()
           | internal_server_exception()
-          | conflict_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type remove_application_instance_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type signal_application_instance_node_instances_errors() ::
-          validation_exception()
-          | access_denied_exception()
+          service_quota_exceeded_exception()
           | internal_server_exception()
-          | service_quota_exceeded_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   @type tag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type untag_resource_errors() ::
-          validation_exception() | internal_server_exception() | resource_not_found_exception()
+          resource_not_found_exception() | internal_server_exception() | validation_exception()
 
   @type update_device_metadata_errors() ::
-          validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
+          conflict_exception()
           | resource_not_found_exception()
-          | conflict_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
 
   def metadata do
     %{

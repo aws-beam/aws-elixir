@@ -14,487 +14,76 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      model_customization_job_summary() :: %{
-        "baseModelArn" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "customModelArn" => String.t() | atom(),
-        "customModelName" => String.t() | atom(),
-        "customizationType" => list(any()),
-        "endTime" => non_neg_integer(),
-        "jobArn" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "status" => list(any()),
-        "statusDetails" => status_details()
+      invocation_logs_config() :: %{
+        "invocationLogSource" => list(),
+        "requestMetadataFilters" => list(),
+        "usePromptResponse" => boolean()
       }
 
   """
-  @type model_customization_job_summary() :: %{(String.t() | atom()) => any()}
+  @type invocation_logs_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_custom_models_request() :: %{
-        optional("baseModelArnEquals") => String.t() | atom(),
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("foundationModelArnEquals") => String.t() | atom(),
-        optional("isOwned") => [boolean()],
-        optional("maxResults") => integer(),
-        optional("modelStatus") => list(any()),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
+      validation_data_config() :: %{
+        "validators" => list(validator())
       }
 
   """
-  @type list_custom_models_request() :: %{(String.t() | atom()) => any()}
+  @type validation_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_automated_reasoning_policies_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("policyArn") => String.t() | atom()
+      automated_reasoning_policy_generated_test_case() :: %{
+        "expectedAggregatedFindingsResult" => list(any()),
+        "guardContent" => String.t() | atom(),
+        "queryContent" => String.t() | atom()
       }
 
   """
-  @type list_automated_reasoning_policies_request() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_generated_test_case() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      export_automated_reasoning_policy_version_response() :: %{
-        "policyDefinition" => automated_reasoning_policy_definition()
+      automated_reasoning_check_rule() :: %{
+        "id" => String.t() | atom(),
+        "policyVersionArn" => String.t() | atom()
       }
 
   """
-  @type export_automated_reasoning_policy_version_response() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_check_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      marketplace_model_endpoint_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "endpointArn" => String.t() | atom(),
-        "modelSourceIdentifier" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()],
-        "updatedAt" => non_neg_integer()
+      create_prompt_router_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("fallbackModel") => prompt_router_target_model(),
+        required("models") => list(prompt_router_target_model()),
+        required("promptRouterName") => String.t() | atom(),
+        required("routingCriteria") => routing_criteria()
       }
 
   """
-  @type marketplace_model_endpoint_summary() :: %{(String.t() | atom()) => any()}
+  @type create_prompt_router_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_automated_reasoning_policy_config() :: %{
-        "confidenceThreshold" => float(),
-        "policies" => list(String.t() | atom())
-      }
+      deregister_marketplace_model_endpoint_response() :: %{}
 
   """
-  @type guardrail_automated_reasoning_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_next_scenario_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_next_scenario_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_provisioned_model_throughput_response() :: %{}
-
-  """
-  @type delete_provisioned_model_throughput_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_import_job_response() :: %{
-        "jobArn" => String.t() | atom()
-      }
-
-  """
-  @type create_model_import_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_test_result_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_test_result_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evaluation_job_response() :: %{
-        "applicationType" => list(any()),
-        "creationTime" => non_neg_integer(),
-        "customerEncryptionKeyId" => String.t() | atom(),
-        "evaluationConfig" => list(),
-        "failureMessages" => list(String.t() | atom()),
-        "inferenceConfig" => list(),
-        "jobArn" => String.t() | atom(),
-        "jobDescription" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "jobType" => list(any()),
-        "lastModifiedTime" => non_neg_integer(),
-        "outputDataConfig" => evaluation_output_data_config(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type get_evaluation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      foundation_model_summary() :: %{
-        "customizationsSupported" => list(list(any())()),
-        "inferenceTypesSupported" => list(list(any())()),
-        "inputModalities" => list(list(any())()),
-        "modelArn" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "modelLifecycle" => foundation_model_lifecycle(),
-        "modelName" => String.t() | atom(),
-        "outputModalities" => list(list(any())()),
-        "providerName" => String.t() | atom(),
-        "responseStreamingSupported" => [boolean()]
-      }
-
-  """
-  @type foundation_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_marketplace_model_endpoints_response() :: %{
-        "marketplaceModelEndpoints" => list(marketplace_model_endpoint_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_marketplace_model_endpoints_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_attribute_schema() :: %{
-        "description" => [String.t() | atom()],
-        "key" => [String.t() | atom()],
-        "type" => list(any())
-      }
-
-  """
-  @type metadata_attribute_schema() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filters_tier_config() :: %{
-        "tierName" => list(any())
-      }
-
-  """
-  @type guardrail_content_filters_tier_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tags") => list(tag())
-      }
-
-  """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_guardrail_request() :: %{
-        optional("guardrailVersion") => String.t() | atom()
-      }
-
-  """
-  @type delete_guardrail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_model_invocation_job_request() :: %{}
-
-  """
-  @type stop_model_invocation_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_type_annotation() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_type_annotation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_model_response() :: %{}
-
-  """
-  @type delete_custom_model_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_inference_config_summary() :: %{
-        "modelConfigSummary" => evaluation_model_config_summary(),
-        "ragConfigSummary" => evaluation_rag_config_summary()
-      }
-
-  """
-  @type evaluation_inference_config_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policies_response() :: %{
-        "automatedReasoningPolicySummaries" => list(automated_reasoning_policy_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_automated_reasoning_policies_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_invocation_job_response() :: %{
-        "jobArn" => String.t() | atom()
-      }
-
-  """
-  @type create_model_invocation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_response() :: %{}
-
-  """
-  @type delete_resource_policy_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_inference_profiles_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("typeEquals") => list(any())
-      }
-
-  """
-  @type list_inference_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
-        "buildWorkflowAssets" => list(),
-        "buildWorkflowId" => String.t() | atom(),
-        "policyArn" => String.t() | atom()
-      }
-
-  """
-  @type get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_evaluation_job_error() :: %{
-        "code" => [String.t() | atom()],
-        "jobIdentifier" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_delete_evaluation_job_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      offer() :: %{
-        "offerId" => String.t() | atom(),
-        "offerToken" => String.t() | atom(),
-        "termDetails" => term_details()
-      }
-
-  """
-  @type offer() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_evaluation_job_request() :: %{}
-
-  """
-  @type get_evaluation_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_foundation_model_availability_request() :: %{}
-
-  """
-  @type get_foundation_model_availability_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_evaluation_job_response() :: %{}
-
-  """
-  @type stop_evaluation_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioned_model_throughput_request() :: %{}
-
-  """
-  @type get_provisioned_model_throughput_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_type_value_pair() :: %{
-        "typeName" => String.t() | atom(),
-        "valueName" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_definition_type_value_pair() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_enforced_guardrail_configuration_request() :: %{}
-
-  """
-  @type delete_enforced_guardrail_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_planning() :: %{}
-
-  """
-  @type automated_reasoning_policy_planning() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_customization_job_response() :: %{
-        "jobArn" => String.t() | atom()
-      }
-
-  """
-  @type create_model_customization_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      sage_maker_endpoint() :: %{
-        "executionRole" => String.t() | atom(),
-        "initialInstanceCount" => integer(),
-        "instanceType" => String.t() | atom(),
-        "kmsEncryptionKey" => String.t() | atom(),
-        "vpc" => vpc_config()
-      }
-
-  """
-  @type sage_maker_endpoint() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_guardrail_response() :: %{
-        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy(),
-        "blockedInputMessaging" => String.t() | atom(),
-        "blockedOutputsMessaging" => String.t() | atom(),
-        "contentPolicy" => guardrail_content_policy(),
-        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy(),
-        "createdAt" => non_neg_integer(),
-        "crossRegionDetails" => guardrail_cross_region_details(),
-        "description" => String.t() | atom(),
-        "failureRecommendations" => list(String.t() | atom()),
-        "guardrailArn" => String.t() | atom(),
-        "guardrailId" => String.t() | atom(),
-        "kmsKeyArn" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy(),
-        "status" => list(any()),
-        "statusReasons" => list(String.t() | atom()),
-        "topicPolicy" => guardrail_topic_policy(),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom(),
-        "wordPolicy" => guardrail_word_policy()
-      }
-
-  """
-  @type get_guardrail_response() :: %{(String.t() | atom()) => any()}
+  @type deregister_marketplace_model_endpoint_response() :: %{}
 
   @typedoc """
 
@@ -520,44 +109,42 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      guardrail_topic_policy_config() :: %{
-        "tierConfig" => guardrail_topics_tier_config(),
-        "topicsConfig" => list(guardrail_topic_config())
+      create_provisioned_model_throughput_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("commitmentDuration") => list(any()),
+        optional("tags") => list(tag()),
+        required("modelId") => String.t() | atom(),
+        required("modelUnits") => integer(),
+        required("provisionedModelName") => String.t() | atom()
       }
 
   """
-  @type guardrail_topic_policy_config() :: %{(String.t() | atom()) => any()}
+  @type create_provisioned_model_throughput_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_model_invocation_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any()),
-        optional("submitTimeAfter") => non_neg_integer(),
-        optional("submitTimeBefore") => non_neg_integer()
+      training_details() :: %{
+        "creationTime" => non_neg_integer(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
       }
 
   """
-  @type list_model_invocation_jobs_request() :: %{(String.t() | atom()) => any()}
+  @type training_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_update_variable_annotation() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "newName" => String.t() | atom()
+      update_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t() | atom(),
+        "testCaseId" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_update_variable_annotation() :: %{
+  @type update_automated_reasoning_policy_test_case_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -565,46 +152,48 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_advanced_prompt_optimization_job_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "encryptionKeyArn" => String.t() | atom(),
-        "failureMessage" => String.t() | atom(),
-        "inputConfig" => advanced_prompt_optimization_input_config(),
-        "jobArn" => String.t() | atom(),
-        "jobDescription" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "jobStatus" => list(any()),
-        "lastModifiedTime" => non_neg_integer(),
-        "modelConfigurations" => list(model_configuration()),
-        "outputConfig" => advanced_prompt_optimization_output_config()
+      list_advanced_prompt_optimization_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
       }
 
   """
-  @type get_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
+  @type list_advanced_prompt_optimization_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_guardrail_request() :: %{
-        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
+      create_automated_reasoning_policy_version_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
-        optional("contentPolicyConfig") => guardrail_content_policy_config(),
-        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
-        optional("crossRegionConfig") => guardrail_cross_region_config(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
         optional("tags") => list(tag()),
-        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
-        optional("wordPolicyConfig") => guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t() | atom(),
-        required("blockedOutputsMessaging") => String.t() | atom(),
-        required("name") => String.t() | atom()
+        required("lastUpdatedDefinitionHash") => String.t() | atom()
       }
 
   """
-  @type create_guardrail_request() :: %{(String.t() | atom()) => any()}
+  @type create_automated_reasoning_policy_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validator() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type validator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_model_request() :: %{}
+
+  """
+  @type get_custom_model_request() :: %{}
 
   @typedoc """
 
@@ -623,527 +212,16 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      text_inference_config() :: %{
-        "maxTokens" => integer(),
-        "stopSequences" => list([String.t() | atom()]()),
-        "temperature" => float(),
-        "topP" => float()
+      external_sources_retrieve_and_generate_configuration() :: %{
+        "generationConfiguration" => external_sources_generation_configuration(),
+        "modelArn" => String.t() | atom(),
+        "sources" => list(external_source())
       }
 
   """
-  @type text_inference_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_marketplace_model_endpoints_request() :: %{
-        optional("maxResults") => integer(),
-        optional("modelSourceEquals") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_marketplace_model_endpoints_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_summary() :: %{
-        "arn" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "crossRegionDetails" => guardrail_cross_region_details(),
-        "description" => String.t() | atom(),
-        "id" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type guardrail_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_generated_test_case() :: %{
-        "expectedAggregatedFindingsResult" => list(any()),
-        "guardContent" => String.t() | atom(),
-        "queryContent" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_generated_test_case() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_word_policy() :: %{
-        "managedWordLists" => list(guardrail_managed_words()),
-        "words" => list(guardrail_word())
-      }
-
-  """
-  @type guardrail_word_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_evaluation_jobs_request() :: %{
-        optional("applicationTypeEquals") => list(any()),
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any())
-      }
-
-  """
-  @type list_evaluation_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_test_case_response() :: %{
-        "policyArn" => String.t() | atom(),
-        "testCase" => automated_reasoning_policy_test_case()
-      }
-
-  """
-  @type get_automated_reasoning_policy_test_case_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_inference_profile_response() :: %{
-        "inferenceProfileArn" => String.t() | atom(),
-        "status" => list(any())
-      }
-
-  """
-  @type create_inference_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      external_source() :: %{
-        "byteContent" => byte_content_doc(),
-        "s3Location" => s3_object_doc(),
-        "sourceType" => list(any())
-      }
-
-  """
-  @type external_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_configuration() :: %{
-        "maxTokens" => [integer()],
-        "stopSequences" => list([String.t() | atom()]()),
-        "temperature" => [float()],
-        "topP" => [float()]
-      }
-
-  """
-  @type inference_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_evaluation_config() :: %{
-        "customMetricConfig" => automated_evaluation_custom_metric_config(),
-        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
-        "evaluatorModelConfig" => list()
-      }
-
-  """
-  @type automated_evaluation_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_in_use_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topic_config() :: %{
-        "definition" => String.t() | atom(),
-        "examples" => list(String.t() | atom()),
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "name" => String.t() | atom(),
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_topic_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_inference_profile_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "inferenceProfileArn" => String.t() | atom(),
-        "inferenceProfileId" => String.t() | atom(),
-        "inferenceProfileName" => String.t() | atom(),
-        "models" => list(inference_profile_model()),
-        "status" => list(any()),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_inference_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topics_tier() :: %{
-        "tierName" => list(any())
-      }
-
-  """
-  @type guardrail_topics_tier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_update_type_annotation() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "newName" => String.t() | atom(),
-        "values" => list(list())
-      }
-
-  """
-  @type automated_reasoning_policy_update_type_annotation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      human_workflow_config() :: %{
-        "flowDefinitionArn" => String.t() | atom(),
-        "instructions" => String.t() | atom()
-      }
-
-  """
-  @type human_workflow_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_policy() :: %{
-        "filters" => list(guardrail_content_filter()),
-        "tier" => guardrail_content_filters_tier()
-      }
-
-  """
-  @type guardrail_content_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      routing_criteria() :: %{
-        "responseQualityDifference" => [float()]
-      }
-
-  """
-  @type routing_criteria() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_object_doc() :: %{
-        "uri" => String.t() | atom()
-      }
-
-  """
-  @type s3_object_doc() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_marketplace_model_endpoint_request() :: %{}
-
-  """
-  @type get_marketplace_model_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_automated_reasoning_policy_build_workflow_request() :: %{
-        required("lastUpdatedAt") => non_neg_integer()
-      }
-
-  """
-  @type delete_automated_reasoning_policy_build_workflow_request() :: %{
+  @type external_sources_retrieve_and_generate_configuration() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_satisfiable_finding() :: %{
-        "claimsFalseScenario" => automated_reasoning_check_scenario(),
-        "claimsTrueScenario" => automated_reasoning_check_scenario(),
-        "logicWarning" => automated_reasoning_check_logic_warning(),
-        "translation" => automated_reasoning_check_translation()
-      }
-
-  """
-  @type automated_reasoning_check_satisfiable_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_model_import_jobs_request() :: %{
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any())
-      }
-
-  """
-  @type list_model_import_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topics_tier_config() :: %{
-        "tierName" => list(any())
-      }
-
-  """
-  @type guardrail_topics_tier_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_build_workflow_repair_content() :: %{
-        "annotations" => list(list())
-      }
-
-  """
-  @type automated_reasoning_policy_build_workflow_repair_content() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_logic_warning() :: %{
-        "claims" => list(automated_reasoning_logic_statement()),
-        "premises" => list(automated_reasoning_logic_statement()),
-        "type" => list(any())
-      }
-
-  """
-  @type automated_reasoning_check_logic_warning() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_contextual_grounding_filter_config() :: %{
-        "action" => list(any()),
-        "enabled" => [boolean()],
-        "threshold" => [float()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_contextual_grounding_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_model_deployment_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("modelArn") => String.t() | atom(),
-        required("modelDeploymentName") => String.t() | atom()
-      }
-
-  """
-  @type create_custom_model_deployment_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
-        optional("assetId") => String.t() | atom(),
-        required("assetType") => list(any())
-      }
-
-  """
-  @type get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_model_customization_jobs_request() :: %{
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any())
-      }
-
-  """
-  @type list_model_customization_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_foundation_model_agreement_offers_response() :: %{
-        "modelId" => String.t() | atom(),
-        "offers" => list(offer())
-      }
-
-  """
-  @type list_foundation_model_agreement_offers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_provisioned_model_throughputs_request() :: %{
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("modelArnEquals") => String.t() | atom(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any())
-      }
-
-  """
-  @type list_provisioned_model_throughputs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_rule() :: %{
-        "id" => String.t() | atom(),
-        "policyVersionArn" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_check_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_annotations_response() :: %{
-        "annotationSetHash" => String.t() | atom(),
-        "annotations" => list(list()),
-        "buildWorkflowId" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_automated_reasoning_policy_annotations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_rule() :: %{
-        "alternateExpression" => String.t() | atom(),
-        "expression" => String.t() | atom(),
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_definition_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      pricing_term() :: %{
-        "rateCard" => list(dimensional_price_rate())
-      }
-
-  """
-  @type pricing_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_model_deployment_request() :: %{}
-
-  """
-  @type delete_custom_model_deployment_request() :: %{}
 
   @typedoc """
 
@@ -1168,170 +246,26 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      create_guardrail_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "guardrailArn" => String.t() | atom(),
-        "guardrailId" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type create_guardrail_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_evaluation_job_request() :: %{}
-
-  """
-  @type stop_evaluation_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_annotated_chunk() :: %{
-        "content" => list(list()),
-        "pageNumber" => [integer()]
-      }
-
-  """
-  @type automated_reasoning_policy_annotated_chunk() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_enforced_guardrails_configuration_request() :: %{
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_enforced_guardrails_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketplace_model_endpoint() :: %{
-        "createdAt" => non_neg_integer(),
-        "endpointArn" => String.t() | atom(),
-        "endpointConfig" => list(),
-        "endpointStatus" => [String.t() | atom()],
-        "endpointStatusMessage" => [String.t() | atom()],
-        "modelSourceIdentifier" => String.t() | atom(),
-        "status" => list(any()),
-        "statusMessage" => [String.t() | atom()],
+      get_account_data_retention_response() :: %{
+        "mode" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type marketplace_model_endpoint() :: %{(String.t() | atom()) => any()}
+  @type get_account_data_retention_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_account_data_retention_request() :: %{
-        required("mode") => list(any())
+      automated_reasoning_policy_update_variable_annotation() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "newName" => String.t() | atom()
       }
 
   """
-  @type put_account_data_retention_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_evaluation_custom_metric_config() :: %{
-        "customMetrics" => list(list()),
-        "evaluatorModelConfig" => custom_metric_evaluator_model_config()
-      }
-
-  """
-  @type automated_evaluation_custom_metric_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_resource_policy_response() :: %{
-        "resourcePolicy" => String.t() | atom()
-      }
-
-  """
-  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_model_deployment_request() :: %{}
-
-  """
-  @type get_custom_model_deployment_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_prompt_optimization_job_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "jobArn" => String.t() | atom(),
-        "jobName" => String.t() | atom(),
-        "jobStatus" => list(any()),
-        "lastModifiedTime" => non_neg_integer()
-      }
-
-  """
-  @type advanced_prompt_optimization_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_model_config_summary() :: %{
-        "bedrockModelIdentifiers" => list(String.t() | atom()),
-        "precomputedInferenceSourceIdentifiers" => list(String.t() | atom())
-      }
-
-  """
-  @type evaluation_model_config_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_enforced_guardrail_configuration_response() :: %{}
-
-  """
-  @type delete_enforced_guardrail_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      invocation_logs_config() :: %{
-        "invocationLogSource" => list(),
-        "requestMetadataFilters" => list(),
-        "usePromptResponse" => boolean()
-      }
-
-  """
-  @type invocation_logs_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policy_build_workflows_response() :: %{
-        "automatedReasoningPolicyBuildWorkflowSummaries" => list(automated_reasoning_policy_build_workflow_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_automated_reasoning_policy_build_workflows_response() :: %{
+  @type automated_reasoning_policy_update_variable_annotation() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -1339,416 +273,218 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_prompt_router_request() :: %{}
+      update_provisioned_model_throughput_response() :: %{}
 
   """
-  @type get_prompt_router_request() :: %{}
+  @type update_provisioned_model_throughput_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      agreement_availability() :: %{
-        "errorMessage" => [String.t() | atom()],
-        "status" => list(any())
+      automated_reasoning_policy_add_rule_mutation() :: %{
+        "rule" => automated_reasoning_policy_definition_rule()
       }
 
   """
-  @type agreement_availability() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_add_rule_mutation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_add_rule_annotation() :: %{
-        "expression" => String.t() | atom()
-      }
+      delete_marketplace_model_endpoint_request() :: %{}
 
   """
-  @type automated_reasoning_policy_add_rule_annotation() :: %{(String.t() | atom()) => any()}
+  @type delete_marketplace_model_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      support_term() :: %{
-        "refundPolicyDescription" => [String.t() | atom()]
-      }
-
-  """
-  @type support_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policy_test_results_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "testResults" => list(automated_reasoning_policy_test_result())
-      }
-
-  """
-  @type list_automated_reasoning_policy_test_results_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_inference_profiles_response() :: %{
-        "inferenceProfileSummaries" => list(inference_profile_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_inference_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_enforced_guardrail_output_configuration() :: %{
-        "configId" => String.t() | atom(),
-        "createdAt" => non_neg_integer(),
-        "createdBy" => [String.t() | atom()],
-        "guardrailArn" => String.t() | atom(),
-        "guardrailId" => String.t() | atom(),
-        "guardrailVersion" => String.t() | atom(),
-        "inputTags" => list(any()),
-        "modelEnforcement" => model_enforcement(),
-        "owner" => String.t() | atom(),
-        "selectiveContentGuarding" => selective_content_guarding(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | atom()]
-      }
-
-  """
-  @type account_enforced_guardrail_output_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_rule_annotation() :: %{
-        "ruleId" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_rule_annotation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_custom_model_response() :: %{
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type create_custom_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_prompt_router_request() :: %{}
-
-  """
-  @type delete_prompt_router_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      cloud_watch_config() :: %{
-        "largeDataDeliveryS3Config" => s3_config(),
-        "logGroupName" => String.t() | atom(),
-        "roleArn" => String.t() | atom()
-      }
-
-  """
-  @type cloud_watch_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_inference_profile_request() :: %{}
-
-  """
-  @type delete_inference_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_scenario() :: %{
-        "alternateExpression" => String.t() | atom(),
-        "expectedResult" => list(any()),
-        "expression" => String.t() | atom(),
-        "ruleIds" => list(String.t() | atom())
-      }
-
-  """
-  @type automated_reasoning_policy_scenario() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      r_f_t_hyper_parameters() :: %{
-        "batchSize" => integer(),
-        "epochCount" => integer(),
-        "evalInterval" => integer(),
-        "inferenceMaxTokens" => integer(),
-        "learningRate" => float(),
-        "maxPromptLength" => integer(),
-        "reasoningEffort" => list(any()),
-        "trainingSamplePerPrompt" => integer()
-      }
-
-  """
-  @type r_f_t_hyper_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      logging_config() :: %{
-        "audioDataDeliveryEnabled" => [boolean()],
-        "cloudWatchConfig" => cloud_watch_config(),
-        "embeddingDataDeliveryEnabled" => [boolean()],
-        "imageDataDeliveryEnabled" => [boolean()],
-        "s3Config" => s3_config(),
-        "textDataDeliveryEnabled" => [boolean()],
-        "videoDataDeliveryEnabled" => [boolean()]
-      }
-
-  """
-  @type logging_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_request() :: %{
-        required("resourceARN") => String.t() | atom(),
-        required("tagKeys") => list(String.t() | atom())
-      }
-
-  """
-  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_metric_bedrock_evaluator_model() :: %{
-        "modelIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type custom_metric_bedrock_evaluator_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_update_type_mutation() :: %{
-        "type" => automated_reasoning_policy_definition_type()
-      }
-
-  """
-  @type automated_reasoning_policy_update_type_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      status_details() :: %{
-        "dataProcessingDetails" => data_processing_details(),
-        "trainingDetails" => training_details(),
-        "validationDetails" => validation_details()
-      }
-
-  """
-  @type status_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_inference_profile_request() :: %{
+      create_custom_model_deployment_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
         optional("tags") => list(tag()),
-        required("inferenceProfileName") => String.t() | atom(),
-        required("modelSource") => list()
+        required("modelArn") => String.t() | atom(),
+        required("modelDeploymentName") => String.t() | atom()
       }
 
   """
-  @type create_inference_profile_request() :: %{(String.t() | atom()) => any()}
+  @type create_custom_model_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_provisioned_model_throughputs_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "provisionedModelSummaries" => list(provisioned_model_summary())
+      evaluation_precomputed_retrieve_and_generate_source_config() :: %{
+        "ragSourceIdentifier" => String.t() | atom()
       }
 
   """
-  @type list_provisioned_model_throughputs_response() :: %{(String.t() | atom()) => any()}
+  @type evaluation_precomputed_retrieve_and_generate_source_config() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      provisioned_model_summary() :: %{
-        "commitmentDuration" => list(any()),
-        "commitmentExpirationTime" => non_neg_integer(),
+      get_automated_reasoning_policy_test_result_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_test_result_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_resource_policy_request() :: %{
+        required("resourceArn") => String.t() | atom(),
+        required("resourcePolicy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_foundation_model_response() :: %{
+        "modelDetails" => foundation_model_details()
+      }
+
+  """
+  @type get_foundation_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_config() :: %{
+        "bucketName" => String.t() | atom(),
+        "keyPrefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_processing_details() :: %{
         "creationTime" => non_neg_integer(),
-        "desiredModelArn" => String.t() | atom(),
-        "desiredModelUnits" => integer(),
-        "foundationModelArn" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "modelUnits" => integer(),
-        "provisionedModelArn" => String.t() | atom(),
-        "provisionedModelName" => String.t() | atom(),
         "status" => list(any())
       }
 
   """
-  @type provisioned_model_summary() :: %{(String.t() | atom()) => any()}
+  @type data_processing_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      retrieve_and_generate_configuration() :: %{
-        "externalSourcesConfiguration" => external_sources_retrieve_and_generate_configuration(),
-        "knowledgeBaseConfiguration" => knowledge_base_retrieve_and_generate_configuration(),
-        "type" => list(any())
+      human_evaluation_config() :: %{
+        "customMetrics" => list(human_evaluation_custom_metric()),
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
+        "humanWorkflowConfig" => human_workflow_config()
       }
 
   """
-  @type retrieve_and_generate_configuration() :: %{(String.t() | atom()) => any()}
+  @type human_evaluation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_update_variable_mutation() :: %{
-        "variable" => automated_reasoning_policy_definition_variable()
+      custom_metric_definition() :: %{
+        "instructions" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "ratingScale" => list(rating_scale_item())
       }
 
   """
-  @type automated_reasoning_policy_update_variable_mutation() :: %{(String.t() | atom()) => any()}
+  @type custom_metric_definition() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_build_workflow_document() :: %{
-        "document" => binary(),
-        "documentContentType" => list(any()),
-        "documentDescription" => String.t() | atom(),
-        "documentName" => String.t() | atom()
+      register_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
       }
 
   """
-  @type automated_reasoning_policy_build_workflow_document() :: %{(String.t() | atom()) => any()}
+  @type register_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_model_copy_job_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("modelKmsKeyId") => String.t() | atom(),
-        optional("targetModelTags") => list(tag()),
-        required("sourceModelArn") => String.t() | atom(),
-        required("targetModelName") => String.t() | atom()
+      automated_reasoning_policy_planning() :: %{}
+
+  """
+  @type automated_reasoning_policy_planning() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      legal_term() :: %{
+        "url" => [String.t() | atom()]
       }
 
   """
-  @type create_model_copy_job_request() :: %{(String.t() | atom()) => any()}
+  @type legal_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      prompt_router_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "fallbackModel" => prompt_router_target_model(),
-        "models" => list(prompt_router_target_model()),
-        "promptRouterArn" => String.t() | atom(),
-        "promptRouterName" => String.t() | atom(),
-        "routingCriteria" => routing_criteria(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
+      advanced_prompt_optimization_output_config() :: %{
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type prompt_router_summary() :: %{(String.t() | atom()) => any()}
+  @type advanced_prompt_optimization_output_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_automated_reasoning_policy_test_case_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("confidenceThreshold") => float(),
-        optional("queryContent") => String.t() | atom(),
-        required("expectedAggregatedFindingsResult") => list(any()),
-        required("guardContent") => String.t() | atom(),
-        required("lastUpdatedAt") => non_neg_integer()
-      }
-
-  """
-  @type update_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_model_deployments_request() :: %{
-        optional("createdAfter") => non_neg_integer(),
-        optional("createdBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("modelArnEquals") => String.t() | atom(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("statusEquals") => list(any())
-      }
-
-  """
-  @type list_custom_model_deployments_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_import_job_summary() :: %{
+      model_customization_job_summary() :: %{
+        "baseModelArn" => String.t() | atom(),
         "creationTime" => non_neg_integer(),
+        "customModelArn" => String.t() | atom(),
+        "customModelName" => String.t() | atom(),
+        "customizationType" => list(any()),
         "endTime" => non_neg_integer(),
-        "importedModelArn" => String.t() | atom(),
-        "importedModelName" => String.t() | atom(),
         "jobArn" => String.t() | atom(),
         "jobName" => String.t() | atom(),
         "lastModifiedTime" => non_neg_integer(),
-        "status" => list(any())
+        "status" => list(any()),
+        "statusDetails" => status_details()
       }
 
   """
-  @type model_import_job_summary() :: %{(String.t() | atom()) => any()}
+  @type model_customization_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_automated_reasoning_policy_build_workflow_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("sourceContent") => automated_reasoning_policy_build_workflow_source()
+      }
+
+  """
+  @type start_automated_reasoning_policy_build_workflow_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -1769,428 +505,302 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      guardrail_word() :: %{
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "text" => [String.t() | atom()]
+      distillation_config() :: %{
+        "teacherModelConfig" => teacher_model_config()
       }
 
   """
-  @type guardrail_word() :: %{(String.t() | atom()) => any()}
+  @type distillation_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_automated_reasoning_policy_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definitionHash" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
+      automated_reasoning_policy_annotated_chunk() :: %{
+        "content" => list(list()),
+        "pageNumber" => [integer()]
+      }
+
+  """
+  @type automated_reasoning_policy_annotated_chunk() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      knowledge_base_vector_search_configuration() :: %{
+        "filter" => list(),
+        "implicitFilterConfiguration" => implicit_filter_configuration(),
+        "numberOfResults" => [integer()],
+        "overrideSearchType" => list(any()),
+        "rerankingConfiguration" => vector_search_reranking_configuration()
+      }
+
+  """
+  @type knowledge_base_vector_search_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policies_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("policyArn") => String.t() | atom()
+      }
+
+  """
+  @type list_automated_reasoning_policies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      service_unavailable_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_result_asset_manifest() :: %{
+        "entries" => list(automated_reasoning_policy_build_result_asset_manifest_entry())
+      }
+
+  """
+  @type automated_reasoning_policy_build_result_asset_manifest() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_prompt_router_response() :: %{
+        "promptRouterArn" => String.t() | atom()
+      }
+
+  """
+  @type create_prompt_router_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_evaluation_custom_metric_config() :: %{
+        "customMetrics" => list(list()),
+        "evaluatorModelConfig" => custom_metric_evaluator_model_config()
+      }
+
+  """
+  @type automated_evaluation_custom_metric_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      external_source() :: %{
+        "byteContent" => byte_content_doc(),
+        "s3Location" => s3_object_doc(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type external_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_rule_mutation() :: %{
+        "rule" => automated_reasoning_policy_definition_rule()
+      }
+
+  """
+  @type automated_reasoning_policy_update_rule_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_variable_mutation() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_variable_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_invocation_job_response() :: %{}
+
+  """
+  @type stop_model_invocation_job_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_copy_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_model_copy_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_invocation_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_model_invocation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      update_guardrail_response() :: %{
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
         "updatedAt" => non_neg_integer(),
         "version" => String.t() | atom()
       }
 
   """
-  @type create_automated_reasoning_policy_response() :: %{(String.t() | atom()) => any()}
+  @type update_guardrail_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
-        "feedback" => String.t() | atom(),
-        "ruleIds" => list(String.t() | atom())
+      pricing_term() :: %{
+        "rateCard" => list(dimensional_price_rate())
       }
 
   """
-  @type automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type pricing_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_check_translation_option() :: %{
-        "translations" => list(automated_reasoning_check_translation())
+      byte_content_doc() :: %{
+        "contentType" => String.t() | atom(),
+        "data" => binary(),
+        "identifier" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_check_translation_option() :: %{(String.t() | atom()) => any()}
+  @type byte_content_doc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      inference_profile_model() :: %{
-        "modelArn" => String.t() | atom()
+      guardrail_content_filters_tier_config() :: %{
+        "tierName" => list(any())
       }
 
   """
-  @type inference_profile_model() :: %{(String.t() | atom()) => any()}
+  @type guardrail_content_filters_tier_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_update_type_value() :: %{
-        "description" => String.t() | atom(),
-        "newValue" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_update_type_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_profile_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "inferenceProfileArn" => String.t() | atom(),
-        "inferenceProfileId" => String.t() | atom(),
-        "inferenceProfileName" => String.t() | atom(),
-        "models" => list(inference_profile_model()),
-        "status" => list(any()),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type inference_profile_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_invocation_job_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("modelInvocationType") => list(any()),
-        optional("tags") => list(tag()),
-        optional("timeoutDurationInHours") => integer(),
-        optional("vpcConfig") => vpc_config(),
-        required("inputDataConfig") => list(),
-        required("jobName") => String.t() | atom(),
-        required("modelId") => String.t() | atom(),
-        required("outputDataConfig") => list(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_model_invocation_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_automated_reasoning_policy_test_case_request() :: %{
-        required("lastUpdatedAt") => non_neg_integer()
-      }
-
-  """
-  @type delete_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_provisioned_model_throughput_response() :: %{
-        "commitmentDuration" => list(any()),
-        "commitmentExpirationTime" => non_neg_integer(),
-        "creationTime" => non_neg_integer(),
-        "desiredModelArn" => String.t() | atom(),
-        "desiredModelUnits" => integer(),
-        "failureMessage" => String.t() | atom(),
-        "foundationModelArn" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "modelUnits" => integer(),
-        "provisionedModelArn" => String.t() | atom(),
-        "provisionedModelName" => String.t() | atom(),
+      foundation_model_lifecycle() :: %{
+        "endOfLifeTime" => non_neg_integer(),
+        "legacyTime" => non_neg_integer(),
+        "publicExtendedAccessTime" => non_neg_integer(),
+        "startOfLifeTime" => non_neg_integer(),
         "status" => list(any())
       }
 
   """
-  @type get_provisioned_model_throughput_response() :: %{(String.t() | atom()) => any()}
+  @type foundation_model_lifecycle() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      model_invocation_job_s3_output_data_config() :: %{
-        "s3BucketOwner" => String.t() | atom(),
-        "s3EncryptionKeyId" => String.t() | atom(),
-        "s3Uri" => String.t() | atom()
+      evaluation_rag_config_summary() :: %{
+        "bedrockKnowledgeBaseIdentifiers" => list(String.t() | atom()),
+        "precomputedRagSourceIdentifiers" => list(String.t() | atom())
       }
 
   """
-  @type model_invocation_job_s3_output_data_config() :: %{(String.t() | atom()) => any()}
+  @type evaluation_rag_config_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_automated_reasoning_policy_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("policyDefinition") => automated_reasoning_policy_definition(),
-        optional("tags") => list(tag()),
-        required("name") => String.t() | atom()
+      model_invocation_job_summary() :: %{
+        "clientRequestToken" => String.t() | atom(),
+        "endTime" => non_neg_integer(),
+        "errorRecordCount" => float(),
+        "inputDataConfig" => list(),
+        "jobArn" => String.t() | atom(),
+        "jobExpirationTime" => non_neg_integer(),
+        "jobName" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "message" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "modelInvocationType" => list(any()),
+        "outputDataConfig" => list(),
+        "processedRecordCount" => float(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any()),
+        "submitTime" => non_neg_integer(),
+        "successRecordCount" => float(),
+        "timeoutDurationInHours" => integer(),
+        "totalRecordCount" => float(),
+        "vpcConfig" => vpc_config()
       }
 
   """
-  @type create_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
+  @type model_invocation_job_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_automated_reasoning_policy_request() :: %{
-        optional("description") => String.t() | atom(),
-        optional("name") => String.t() | atom(),
-        required("policyDefinition") => automated_reasoning_policy_definition()
+      performance_configuration() :: %{
+        "latency" => list(any())
       }
 
   """
-  @type update_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bedrock_evaluator_model() :: %{
-        "modelIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type bedrock_evaluator_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_type() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "values" => list(automated_reasoning_policy_definition_type_value())
-      }
-
-  """
-  @type automated_reasoning_policy_definition_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_use_case_for_model_access_response() :: %{
-        "formData" => binary()
-      }
-
-  """
-  @type get_use_case_for_model_access_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_retrieve_and_generate_configuration() :: %{
-        "generationConfiguration" => generation_configuration(),
-        "knowledgeBaseId" => String.t() | atom(),
-        "modelArn" => String.t() | atom(),
-        "orchestrationConfiguration" => orchestration_configuration(),
-        "retrievalConfiguration" => knowledge_base_retrieval_configuration()
-      }
-
-  """
-  @type knowledge_base_retrieve_and_generate_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_annotated_line() :: %{
-        "lineNumber" => [integer()],
-        "lineText" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_annotated_line() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_foundation_model_request() :: %{}
-
-  """
-  @type get_foundation_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_variable_annotation() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_variable_annotation() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_custom_model_deployments_response() :: %{
-        "modelDeploymentSummaries" => list(custom_model_deployment_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_custom_model_deployments_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      deregister_marketplace_model_endpoint_response() :: %{}
-
-  """
-  @type deregister_marketplace_model_endpoint_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      imported_model_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "instructSupported" => boolean(),
-        "modelArchitecture" => String.t() | atom(),
-        "modelArn" => String.t() | atom(),
-        "modelName" => String.t() | atom()
-      }
-
-  """
-  @type imported_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_imported_model_request() :: %{}
-
-  """
-  @type get_imported_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_build_workflow_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_build_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_scenarios() :: %{
-        "policyScenarios" => list(automated_reasoning_policy_scenario())
-      }
-
-  """
-  @type automated_reasoning_policy_scenarios() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automated_reasoning_policy_version_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "definitionHash" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "version" => String.t() | atom()
-      }
-
-  """
-  @type create_automated_reasoning_policy_version_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_model_customization_job_response() :: %{}
-
-  """
-  @type stop_model_customization_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type conflict_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_enforcement() :: %{
-        "excludedModels" => list(String.t() | atom()),
-        "includedModels" => list(String.t() | atom())
-      }
-
-  """
-  @type model_enforcement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      query_transformation_configuration() :: %{
-        "type" => list(any())
-      }
-
-  """
-  @type query_transformation_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      retrieve_config() :: %{
-        "knowledgeBaseId" => String.t() | atom(),
-        "knowledgeBaseRetrievalConfiguration" => knowledge_base_retrieval_configuration()
-      }
-
-  """
-  @type retrieve_config() :: %{(String.t() | atom()) => any()}
+  @type performance_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2208,362 +818,96 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_model_copy_job_request() :: %{}
-
-  """
-  @type get_model_copy_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filter_config() :: %{
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "inputModalities" => list(list(any())()),
-        "inputStrength" => list(any()),
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "outputModalities" => list(list(any())()),
-        "outputStrength" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_content_filter_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_build_log_entry() :: %{
-        "annotation" => list(),
-        "buildSteps" => list(automated_reasoning_policy_build_step()),
-        "status" => list(any())
-      }
-
-  """
-  @type automated_reasoning_policy_build_log_entry() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_valid_finding() :: %{
-        "claimsTrueScenario" => automated_reasoning_check_scenario(),
-        "logicWarning" => automated_reasoning_check_logic_warning(),
-        "supportingRules" => list(automated_reasoning_check_rule()),
-        "translation" => automated_reasoning_check_translation()
-      }
-
-  """
-  @type automated_reasoning_check_valid_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_processing_details() :: %{
-        "creationTime" => non_neg_integer(),
-        "lastModifiedTime" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type data_processing_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policy_test_results_request() :: %{
+      list_model_customization_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
         optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
       }
 
   """
-  @type list_automated_reasoning_policy_test_results_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type list_model_customization_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_automated_reasoning_policy_test_workflow_response() :: %{
-        "policyArn" => String.t() | atom()
-      }
-
-  """
-  @type start_automated_reasoning_policy_test_workflow_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      list_guardrails_response() :: %{
-        "guardrails" => list(guardrail_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_guardrails_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_metric_definition() :: %{
-        "instructions" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "ratingScale" => list(rating_scale_item())
-      }
-
-  """
-  @type custom_metric_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policy_build_workflows_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_automated_reasoning_policy_build_workflows_request() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      field_for_reranking() :: %{
-        "fieldName" => [String.t() | atom()]
-      }
-
-  """
-  @type field_for_reranking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag() :: %{
-        "key" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type tag() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_inference_profile_request() :: %{}
-
-  """
-  @type get_inference_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_retrieval_configuration() :: %{
-        "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
-      }
-
-  """
-  @type knowledge_base_retrieval_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_marketplace_model_endpoint_request() :: %{
-        optional("acceptEula") => boolean(),
+      create_evaluation_job_request() :: %{
+        optional("applicationType") => list(any()),
         optional("clientRequestToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("endpointConfig") => list(),
-        required("endpointName") => String.t() | atom(),
-        required("modelSourceIdentifier") => String.t() | atom()
+        optional("customerEncryptionKeyId") => String.t() | atom(),
+        optional("jobDescription") => String.t() | atom(),
+        optional("jobTags") => list(tag()),
+        required("evaluationConfig") => list(),
+        required("inferenceConfig") => list(),
+        required("jobName") => String.t() | atom(),
+        required("outputDataConfig") => evaluation_output_data_config(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type create_evaluation_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_provisioned_model_throughput_request() :: %{}
-
-  """
-  @type delete_provisioned_model_throughput_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_dataset_metric_config() :: %{
-        "dataset" => evaluation_dataset(),
-        "metricNames" => list(String.t() | atom()),
-        "taskType" => list(any())
-      }
-
-  """
-  @type evaluation_dataset_metric_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_annotations_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_annotations_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filter() :: %{
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "inputModalities" => list(list(any())()),
-        "inputStrength" => list(any()),
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "outputModalities" => list(list(any())()),
-        "outputStrength" => list(any()),
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_content_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
-        "feedback" => String.t() | atom(),
-        "ruleIds" => list(String.t() | atom()),
-        "scenarioExpression" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_source_document() :: %{
-        "document" => binary(),
-        "documentContentType" => list(any()),
-        "documentDescription" => String.t() | atom(),
-        "documentHash" => String.t() | atom(),
-        "documentName" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_source_document() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_filters_tier() :: %{
-        "tierName" => list(any())
-      }
-
-  """
-  @type guardrail_content_filters_tier() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_automated_reasoning_policy_response() :: %{
-        "definitionHash" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_automated_reasoning_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioned_model_throughput_response() :: %{
-        "provisionedModelArn" => String.t() | atom()
-      }
-
-  """
-  @type create_provisioned_model_throughput_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_quota_exceeded_exception() :: %{
+      access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_model_deployment_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "customModelDeploymentArn" => String.t() | atom(),
-        "customModelDeploymentName" => String.t() | atom(),
-        "failureMessage" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "status" => list(any())
+      automated_reasoning_policy_update_variable_mutation() :: %{
+        "variable" => automated_reasoning_policy_definition_variable()
       }
 
   """
-  @type custom_model_deployment_summary() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_update_variable_mutation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_config() :: %{
-        "bucketName" => String.t() | atom(),
-        "keyPrefix" => String.t() | atom()
+      guardrail_content_policy_config() :: %{
+        "filtersConfig" => list(guardrail_content_filter_config()),
+        "tierConfig" => guardrail_content_filters_tier_config()
       }
 
   """
-  @type s3_config() :: %{(String.t() | atom()) => any()}
+  @type guardrail_content_policy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_model_invocation_jobs_response() :: %{
-        "invocationJobSummaries" => list(model_invocation_job_summary()),
+      list_marketplace_model_endpoints_response() :: %{
+        "marketplaceModelEndpoints" => list(marketplace_model_endpoint_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_model_invocation_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type list_marketplace_model_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_custom_model_deployment_request() :: %{
+        required("modelArn") => String.t() | atom()
+      }
+
+  """
+  @type update_custom_model_deployment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2596,291 +940,6 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      automated_reasoning_policy_delete_variable_mutation() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_variable_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      model_copy_job_summary() :: %{
-        "creationTime" => non_neg_integer(),
-        "failureMessage" => String.t() | atom(),
-        "jobArn" => String.t() | atom(),
-        "sourceAccountId" => String.t() | atom(),
-        "sourceModelArn" => String.t() | atom(),
-        "sourceModelName" => String.t() | atom(),
-        "status" => list(any()),
-        "targetModelArn" => String.t() | atom(),
-        "targetModelKmsKeyArn" => String.t() | atom(),
-        "targetModelName" => String.t() | atom(),
-        "targetModelTags" => list(tag())
-      }
-
-  """
-  @type model_copy_job_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_type_mutation() :: %{
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_type_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_contextual_grounding_filter() :: %{
-        "action" => list(any()),
-        "enabled" => [boolean()],
-        "threshold" => [float()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_contextual_grounding_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_provisioned_model_throughput_request() :: %{
-        optional("desiredModelId") => String.t() | atom(),
-        optional("desiredProvisionedModelName") => String.t() | atom()
-      }
-
-  """
-  @type update_provisioned_model_throughput_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_build_workflow_response() :: %{
-        "buildWorkflowId" => String.t() | atom(),
-        "buildWorkflowType" => list(any()),
-        "createdAt" => non_neg_integer(),
-        "documentContentType" => list(any()),
-        "documentDescription" => String.t() | atom(),
-        "documentName" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "status" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_automated_reasoning_policy_build_workflow_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_managed_words() :: %{
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_managed_words() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_custom_model_deployment_response() :: %{}
-
-  """
-  @type delete_custom_model_deployment_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_content_policy_config() :: %{
-        "filtersConfig" => list(guardrail_content_filter_config()),
-        "tierConfig" => guardrail_content_filters_tier_config()
-      }
-
-  """
-  @type guardrail_content_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      custom_model_deployment_update_details() :: %{
-        "modelArn" => String.t() | atom(),
-        "updateStatus" => list(any())
-      }
-
-  """
-  @type custom_model_deployment_update_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_output_data_config() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type evaluation_output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_precomputed_inference_source() :: %{
-        "inferenceSourceIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type evaluation_precomputed_inference_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_add_variable_mutation() :: %{
-        "variable" => automated_reasoning_policy_definition_variable()
-      }
-
-  """
-  @type automated_reasoning_policy_add_variable_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_automated_reasoning_policy_test_cases_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "testCases" => list(automated_reasoning_policy_test_case())
-      }
-
-  """
-  @type list_automated_reasoning_policy_test_cases_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      rating_scale_item() :: %{
-        "definition" => String.t() | atom(),
-        "value" => list()
-      }
-
-  """
-  @type rating_scale_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_iterative_refinement_content() :: %{
-        "documents" => list(automated_reasoning_policy_build_workflow_document()),
-        "feedback" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_iterative_refinement_content() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_provisioned_model_throughput_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("commitmentDuration") => list(any()),
-        optional("tags") => list(tag()),
-        required("modelId") => String.t() | atom(),
-        required("modelUnits") => integer(),
-        required("provisionedModelName") => String.t() | atom()
-      }
-
-  """
-  @type create_provisioned_model_throughput_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_prompt_router_response() :: %{}
-
-  """
-  @type delete_prompt_router_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_foundation_model_agreement_request() :: %{
-        required("modelId") => String.t() | atom()
-      }
-
-  """
-  @type delete_foundation_model_agreement_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_ingest_content_annotation() :: %{
-        "content" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_ingest_content_annotation() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_automated_reasoning_policy_test_case_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("confidenceThreshold") => float(),
-        optional("queryContent") => String.t() | atom(),
-        required("expectedAggregatedFindingsResult") => list(any()),
-        required("guardContent") => String.t() | atom()
-      }
-
-  """
-  @type create_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      teacher_model_config() :: %{
-        "maxResponseLengthForInference" => [integer()],
-        "teacherModelIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type teacher_model_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
       validation_details() :: %{
         "creationTime" => non_neg_integer(),
         "lastModifiedTime" => non_neg_integer(),
@@ -2894,38 +953,42 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      vpc_config() :: %{
-        "securityGroupIds" => list(String.t() | atom()),
-        "subnetIds" => list(String.t() | atom())
+      automated_reasoning_policy_build_workflow_summary() :: %{
+        "buildWorkflowId" => String.t() | atom(),
+        "buildWorkflowType" => list(any()),
+        "createdAt" => non_neg_integer(),
+        "policyArn" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type vpc_config() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_build_workflow_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_cross_region_details() :: %{
-        "guardrailProfileArn" => String.t() | atom(),
-        "guardrailProfileId" => String.t() | atom()
+      automated_reasoning_policy_definition_variable() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
       }
 
   """
-  @type guardrail_cross_region_details() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_definition_variable() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      external_sources_retrieve_and_generate_configuration() :: %{
-        "generationConfiguration" => external_sources_generation_configuration(),
-        "modelArn" => String.t() | atom(),
-        "sources" => list(external_source())
+      start_automated_reasoning_policy_test_workflow_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("testCaseIds") => list(String.t() | atom())
       }
 
   """
-  @type external_sources_retrieve_and_generate_configuration() :: %{
+  @type start_automated_reasoning_policy_test_workflow_request() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -2933,200 +996,58 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      delete_inference_profile_response() :: %{}
+      delete_automated_reasoning_policy_response() :: %{}
 
   """
-  @type delete_inference_profile_response() :: %{}
+  @type delete_automated_reasoning_policy_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_evaluation_job_response() :: %{
-        "errors" => list(batch_delete_evaluation_job_error()),
-        "evaluationJobs" => list(batch_delete_evaluation_job_item())
-      }
-
-  """
-  @type batch_delete_evaluation_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_prompt_router_response() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "fallbackModel" => prompt_router_target_model(),
-        "models" => list(prompt_router_target_model()),
-        "promptRouterArn" => String.t() | atom(),
-        "promptRouterName" => String.t() | atom(),
-        "routingCriteria" => routing_criteria(),
-        "status" => list(any()),
-        "type" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_prompt_router_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_marketplace_model_endpoint_response() :: %{
-        "marketplaceModelEndpoint" => marketplace_model_endpoint()
-      }
-
-  """
-  @type update_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_pii_entity() :: %{
-        "action" => list(any()),
+      guardrail_word_config() :: %{
         "inputAction" => list(any()),
         "inputEnabled" => [boolean()],
         "outputAction" => list(any()),
         "outputEnabled" => [boolean()],
-        "type" => list(any())
+        "text" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_pii_entity() :: %{(String.t() | atom()) => any()}
+  @type guardrail_word_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_cross_region_config() :: %{
-        "guardrailProfileIdentifier" => String.t() | atom()
+      human_workflow_config() :: %{
+        "flowDefinitionArn" => String.t() | atom(),
+        "instructions" => String.t() | atom()
       }
 
   """
-  @type guardrail_cross_region_config() :: %{(String.t() | atom()) => any()}
+  @type human_workflow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_response() :: %{
-        "tags" => list(tag())
+      delete_foundation_model_agreement_response() :: %{}
+
+  """
+  @type delete_foundation_model_agreement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      tag() :: %{
+        "key" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_imported_models_request() :: %{
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nameContains") => String.t() | atom(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_imported_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_model_invocation_logging_configuration_response() :: %{}
-
-  """
-  @type delete_model_invocation_logging_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      training_metrics() :: %{
-        "trainingLoss" => float()
-      }
-
-  """
-  @type training_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_advanced_prompt_optimization_job_request() :: %{}
-
-  """
-  @type get_advanced_prompt_optimization_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      r_f_t_config() :: %{
-        "graderConfig" => list(),
-        "hyperParameters" => r_f_t_hyper_parameters()
-      }
-
-  """
-  @type r_f_t_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_use_case_for_model_access_response() :: %{}
-
-  """
-  @type put_use_case_for_model_access_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_guardrail_request() :: %{
-        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
-        optional("contentPolicyConfig") => guardrail_content_policy_config(),
-        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
-        optional("crossRegionConfig") => guardrail_cross_region_config(),
-        optional("description") => String.t() | atom(),
-        optional("kmsKeyId") => String.t() | atom(),
-        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
-        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
-        optional("wordPolicyConfig") => guardrail_word_policy_config(),
-        required("blockedInputMessaging") => String.t() | atom(),
-        required("blockedOutputsMessaging") => String.t() | atom(),
-        required("name") => String.t() | atom()
-      }
-
-  """
-  @type update_guardrail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_import_job_request() :: %{}
-
-  """
-  @type get_model_import_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_input_text_reference() :: %{
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_check_input_text_reference() :: %{(String.t() | atom()) => any()}
+  @type tag() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3155,148 +1076,46 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      model_invocation_job_s3_input_data_config() :: %{
-        "s3BucketOwner" => String.t() | atom(),
-        "s3InputFormat" => list(any()),
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type model_invocation_job_s3_input_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_custom_model_request() :: %{}
-
-  """
-  @type get_custom_model_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_add_variable_annotation() :: %{
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "type" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_add_variable_annotation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      vector_search_reranking_configuration() :: %{
-        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+      guardrail_content_filter() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "inputModalities" => list(list(any())()),
+        "inputStrength" => list(any()),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "outputModalities" => list(list(any())()),
+        "outputStrength" => list(any()),
         "type" => list(any())
       }
 
   """
-  @type vector_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
+  @type guardrail_content_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      byte_content_doc() :: %{
-        "contentType" => String.t() | atom(),
-        "data" => binary(),
-        "identifier" => String.t() | atom()
+      evaluation_precomputed_inference_source() :: %{
+        "inferenceSourceIdentifier" => String.t() | atom()
       }
 
   """
-  @type byte_content_doc() :: %{(String.t() | atom()) => any()}
+  @type evaluation_precomputed_inference_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_statement_location() :: %{
-        "lines" => list([integer()]())
-      }
+      stop_evaluation_job_response() :: %{}
 
   """
-  @type automated_reasoning_policy_statement_location() :: %{(String.t() | atom()) => any()}
+  @type stop_evaluation_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      legal_term() :: %{
-        "url" => [String.t() | atom()]
-      }
-
-  """
-  @type legal_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_imported_models_response() :: %{
-        "modelSummaries" => list(imported_model_summary()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_imported_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      lambda_grader_config() :: %{
-        "lambdaArn" => String.t() | atom()
-      }
-
-  """
-  @type lambda_grader_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_unavailable_exception() :: %{
-        "message" => String.t() | atom()
-      }
-
-  """
-  @type service_unavailable_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_update_rule_mutation() :: %{
-        "rule" => automated_reasoning_policy_definition_rule()
-      }
-
-  """
-  @type automated_reasoning_policy_update_rule_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_next_scenario_response() :: %{
-        "policyArn" => String.t() | atom(),
-        "scenario" => automated_reasoning_policy_scenario()
-      }
-
-  """
-  @type get_automated_reasoning_policy_next_scenario_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      external_sources_generation_configuration() :: %{
+      generation_configuration() :: %{
         "additionalModelRequestFields" => map(),
         "guardrailConfiguration" => guardrail_configuration(),
         "kbInferenceConfig" => kb_inference_config(),
@@ -3304,16 +1123,246 @@ defmodule AWS.Bedrock do
       }
 
   """
-  @type external_sources_generation_configuration() :: %{(String.t() | atom()) => any()}
+  @type generation_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_model_customization_job_request() :: %{}
+      create_model_customization_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
 
   """
-  @type get_model_customization_job_request() :: %{}
+  @type create_model_customization_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_guardrail_request() :: %{
+        optional("guardrailVersion") => String.t() | atom()
+      }
+
+  """
+  @type get_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_atomic_statement() :: %{
+        "id" => String.t() | atom(),
+        "location" => automated_reasoning_policy_statement_location(),
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_atomic_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      routing_criteria() :: %{
+        "responseQualityDifference" => [float()]
+      }
+
+  """
+  @type routing_criteria() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition() :: %{
+        "rules" => list(automated_reasoning_policy_definition_rule()),
+        "types" => list(automated_reasoning_policy_definition_type()),
+        "variables" => list(automated_reasoning_policy_definition_variable()),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t() | atom(),
+        "testCase" => automated_reasoning_policy_test_case()
+      }
+
+  """
+  @type get_automated_reasoning_policy_test_case_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_config() :: %{
+        "knowledgeBaseId" => String.t() | atom(),
+        "knowledgeBaseRetrievalConfiguration" => knowledge_base_retrieval_configuration()
+      }
+
+  """
+  @type retrieve_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_router_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "fallbackModel" => prompt_router_target_model(),
+        "models" => list(prompt_router_target_model()),
+        "promptRouterArn" => String.t() | atom(),
+        "promptRouterName" => String.t() | atom(),
+        "routingCriteria" => routing_criteria(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_prompt_router_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_invocation_logging_configuration_request() :: %{}
+
+  """
+  @type delete_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("policyDefinition") => automated_reasoning_policy_definition(),
+        optional("tags") => list(tag()),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_advanced_prompt_optimization_job_request() :: %{}
+
+  """
+  @type get_advanced_prompt_optimization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_build_workflow_request() :: %{
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type delete_automated_reasoning_policy_build_workflow_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      model_import_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "endTime" => non_neg_integer(),
+        "importedModelArn" => String.t() | atom(),
+        "importedModelName" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "status" => list(any())
+      }
+
+  """
+  @type model_import_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_configuration() :: %{
+        "maxTokens" => [integer()],
+        "stopSequences" => list([String.t() | atom()]()),
+        "temperature" => [float()],
+        "topP" => [float()]
+      }
+
+  """
+  @type inference_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_advanced_prompt_optimization_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "failureMessage" => String.t() | atom(),
+        "inputConfig" => advanced_prompt_optimization_input_config(),
+        "jobArn" => String.t() | atom(),
+        "jobDescription" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelConfigurations" => list(model_configuration()),
+        "outputConfig" => advanced_prompt_optimization_output_config()
+      }
+
+  """
+  @type get_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_source_document() :: %{
+        "document" => binary(),
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t() | atom(),
+        "documentHash" => String.t() | atom(),
+        "documentName" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_source_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_router_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "fallbackModel" => prompt_router_target_model(),
+        "models" => list(prompt_router_target_model()),
+        "promptRouterArn" => String.t() | atom(),
+        "promptRouterName" => String.t() | atom(),
+        "routingCriteria" => routing_criteria(),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type prompt_router_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3332,83 +1381,544 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      create_prompt_router_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
+      automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
+        "naturalLanguage" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      r_f_t_hyper_parameters() :: %{
+        "batchSize" => integer(),
+        "epochCount" => integer(),
+        "evalInterval" => integer(),
+        "inferenceMaxTokens" => integer(),
+        "learningRate" => float(),
+        "maxPromptLength" => integer(),
+        "reasoningEffort" => list(any()),
+        "trainingSamplePerPrompt" => integer()
+      }
+
+  """
+  @type r_f_t_hyper_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_import_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_model_import_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_logic_warning() :: %{
+        "claims" => list(automated_reasoning_logic_statement()),
+        "premises" => list(automated_reasoning_logic_statement()),
+        "type" => list(any())
+      }
+
+  """
+  @type automated_reasoning_check_logic_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      deregister_marketplace_model_endpoint_request() :: %{}
+
+  """
+  @type deregister_marketplace_model_endpoint_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      model_invocation_job_s3_input_data_config() :: %{
+        "s3BucketOwner" => String.t() | atom(),
+        "s3InputFormat" => list(any()),
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type model_invocation_job_s3_input_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_model_invocation_logging_configuration_response() :: %{}
+
+  """
+  @type delete_model_invocation_logging_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_foundation_model_agreement_request() :: %{
+        required("modelId") => String.t() | atom()
+      }
+
+  """
+  @type delete_foundation_model_agreement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_cases_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_cases_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_evaluation_job_request() :: %{
+        required("jobIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_evaluation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioned_model_throughput_response() :: %{
+        "commitmentDuration" => list(any()),
+        "commitmentExpirationTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "desiredModelArn" => String.t() | atom(),
+        "desiredModelUnits" => integer(),
+        "failureMessage" => String.t() | atom(),
+        "foundationModelArn" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "modelUnits" => integer(),
+        "provisionedModelArn" => String.t() | atom(),
+        "provisionedModelName" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_provisioned_model_throughput_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_invocation_job_request() :: %{}
+
+  """
+  @type get_model_invocation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_enforced_guardrail_configuration_request() :: %{}
+
+  """
+  @type delete_enforced_guardrail_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_inference_profile_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "inferenceProfileArn" => String.t() | atom(),
+        "inferenceProfileId" => String.t() | atom(),
+        "inferenceProfileName" => String.t() | atom(),
+        "models" => list(inference_profile_model()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_inference_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_policy() :: %{
+        "tier" => guardrail_topics_tier(),
+        "topics" => list(guardrail_topic())
+      }
+
+  """
+  @type guardrail_topic_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_deployment_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "customModelDeploymentArn" => String.t() | atom(),
+        "customModelDeploymentName" => String.t() | atom(),
+        "failureMessage" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type custom_model_deployment_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_metric_evaluator_model_config() :: %{
+        "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model())
+      }
+
+  """
+  @type custom_metric_evaluator_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_model_request() :: %{}
+
+  """
+  @type delete_custom_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_inference_profiles_response() :: %{
+        "inferenceProfileSummaries" => list(inference_profile_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_inference_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_precomputed_retrieve_source_config() :: %{
+        "ragSourceIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_precomputed_retrieve_source_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      kb_inference_config() :: %{
+        "textInferenceConfig" => text_inference_config()
+      }
+
+  """
+  @type kb_inference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  """
+  @type cancel_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_variable_report() :: %{
+        "accuracyJustification" => String.t() | atom(),
+        "accuracyScore" => float(),
+        "groundingJustifications" => list(String.t() | atom()),
+        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
+        "policyVariable" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_variable_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      validation_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type validation_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_model_deployment_response() :: %{
+        "customModelDeploymentArn" => String.t() | atom()
+      }
+
+  """
+  @type create_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_rule() :: %{
+        "alternateExpression" => String.t() | atom(),
+        "expression" => String.t() | atom(),
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_translation_option() :: %{
+        "translations" => list(automated_reasoning_check_translation())
+      }
+
+  """
+  @type automated_reasoning_check_translation_option() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_scenarios() :: %{
+        "policyScenarios" => list(automated_reasoning_policy_scenario())
+      }
+
+  """
+  @type automated_reasoning_policy_scenarios() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_response() :: %{
+        "definitionHash" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type update_automated_reasoning_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rating_scale_item() :: %{
+        "definition" => String.t() | atom(),
+        "value" => list()
+      }
+
+  """
+  @type rating_scale_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy_config() :: %{
+        "managedWordListsConfig" => list(guardrail_managed_words_config()),
+        "wordsConfig" => list(guardrail_word_config())
+      }
+
+  """
+  @type guardrail_word_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_type_value() :: %{
+        "description" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_add_type_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_test_case_response() :: %{
+        "policyArn" => String.t() | atom(),
+        "testCaseId" => String.t() | atom()
+      }
+
+  """
+  @type create_automated_reasoning_policy_test_case_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_log_entry() :: %{
+        "annotation" => list(),
+        "buildSteps" => list(automated_reasoning_policy_build_step()),
+        "status" => list(any())
+      }
+
+  """
+  @type automated_reasoning_policy_build_log_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_guardrail_request() :: %{
+        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
+        optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
+        optional("crossRegionConfig") => guardrail_cross_region_config(),
         optional("description") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("fallbackModel") => prompt_router_target_model(),
-        required("models") => list(prompt_router_target_model()),
-        required("promptRouterName") => String.t() | atom(),
-        required("routingCriteria") => routing_criteria()
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
+        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t() | atom(),
+        required("blockedOutputsMessaging") => String.t() | atom(),
+        required("name") => String.t() | atom()
       }
 
   """
-  @type create_prompt_router_request() :: %{(String.t() | atom()) => any()}
+  @type update_guardrail_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      cancel_automated_reasoning_policy_build_workflow_response() :: %{}
-
-  """
-  @type cancel_automated_reasoning_policy_build_workflow_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      knowledge_base_vector_search_configuration() :: %{
-        "filter" => list(),
-        "implicitFilterConfiguration" => implicit_filter_configuration(),
-        "numberOfResults" => [integer()],
-        "overrideSearchType" => list(any()),
-        "rerankingConfiguration" => vector_search_reranking_configuration()
+      export_automated_reasoning_policy_version_response() :: %{
+        "policyDefinition" => automated_reasoning_policy_definition()
       }
 
   """
-  @type knowledge_base_vector_search_configuration() :: %{(String.t() | atom()) => any()}
+  @type export_automated_reasoning_policy_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_automated_reasoning_policy() :: %{
-        "confidenceThreshold" => float(),
-        "policies" => list(String.t() | atom())
+      marketplace_model_endpoint() :: %{
+        "createdAt" => non_neg_integer(),
+        "endpointArn" => String.t() | atom(),
+        "endpointConfig" => list(),
+        "endpointStatus" => [String.t() | atom()],
+        "endpointStatusMessage" => [String.t() | atom()],
+        "modelSourceIdentifier" => String.t() | atom(),
+        "status" => list(any()),
+        "statusMessage" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type guardrail_automated_reasoning_policy() :: %{(String.t() | atom()) => any()}
+  @type marketplace_model_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_automated_reasoning_policy_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_invocation_logging_configuration_request() :: %{}
-
-  """
-  @type get_model_invocation_logging_configuration_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_automated_reasoning_policy_request() :: %{
-        optional("force") => [boolean()]
+      vector_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
       }
 
   """
-  @type delete_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
+  @type vector_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_model_invocation_logging_configuration_request() :: %{
+        required("loggingConfig") => logging_config()
+      }
+
+  """
+  @type put_model_invocation_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_prompt_router_request() :: %{}
+
+  """
+  @type get_prompt_router_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      query_transformation_configuration() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type query_transformation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_model_response() :: %{
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type create_custom_model_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_copy_job_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("modelKmsKeyId") => String.t() | atom(),
+        optional("targetModelTags") => list(tag()),
+        required("sourceModelArn") => String.t() | atom(),
+        required("targetModelName") => String.t() | atom()
+      }
+
+  """
+  @type create_model_copy_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3423,167 +1933,58 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      put_account_data_retention_response() :: %{
-        "mode" => list(any()),
-        "updatedAt" => non_neg_integer()
+      cancel_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  """
+  @type cancel_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_type_mutation() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type put_account_data_retention_response() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_delete_type_mutation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      model_configuration() :: %{
-        "additionalModelRequestFields" => map(),
-        "inferenceConfig" => inference_configuration(),
-        "modelId" => String.t() | atom()
+      put_account_data_retention_request() :: %{
+        required("mode") => list(any())
       }
 
   """
-  @type model_configuration() :: %{(String.t() | atom()) => any()}
+  @type put_account_data_retention_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter_attribute() :: %{
-        "key" => String.t() | atom(),
-        "value" => any()
+      automated_reasoning_policy_rule_report() :: %{
+        "accuracyJustification" => String.t() | atom(),
+        "accuracyScore" => float(),
+        "groundingJustifications" => list(String.t() | atom()),
+        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
+        "rule" => String.t() | atom()
       }
 
   """
-  @type filter_attribute() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_rule_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_marketplace_model_endpoint_response() :: %{}
-
-  """
-  @type delete_marketplace_model_endpoint_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_test_result_response() :: %{
-        "testResult" => automated_reasoning_policy_test_result()
-      }
-
-  """
-  @type get_automated_reasoning_policy_test_result_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_imported_model_response() :: %{}
-
-  """
-  @type delete_imported_model_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_foundation_models_request() :: %{
-        optional("byCustomizationType") => list(any()),
-        optional("byInferenceType") => list(any()),
-        optional("byOutputModality") => list(any()),
-        optional("byProvider") => String.t() | atom()
-      }
-
-  """
-  @type list_foundation_models_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_statement_reference() :: %{
-        "documentId" => String.t() | atom(),
-        "statementId" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_statement_reference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_word_config() :: %{
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "text" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_word_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_automated_reasoning_policy_test_case_request() :: %{}
-
-  """
-  @type get_automated_reasoning_policy_test_case_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_sensitive_information_policy() :: %{
-        "piiEntities" => list(guardrail_pii_entity()),
-        "regexes" => list(guardrail_regex())
-      }
-
-  """
-  @type guardrail_sensitive_information_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      implicit_filter_configuration() :: %{
-        "metadataAttributes" => list(metadata_attribute_schema()),
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type implicit_filter_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      foundation_model_lifecycle() :: %{
-        "endOfLifeTime" => non_neg_integer(),
-        "legacyTime" => non_neg_integer(),
-        "publicExtendedAccessTime" => non_neg_integer(),
-        "startOfLifeTime" => non_neg_integer(),
-        "status" => list(any())
-      }
-
-  """
-  @type foundation_model_lifecycle() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_marketplace_model_endpoint_response() :: %{
+      update_marketplace_model_endpoint_response() :: %{
         "marketplaceModelEndpoint" => marketplace_model_endpoint()
       }
 
   """
-  @type create_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type update_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3607,121 +2008,321 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      guardrail_contextual_grounding_policy_config() :: %{
-        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
+      s3_object_doc() :: %{
+        "uri" => String.t() | atom()
       }
 
   """
-  @type guardrail_contextual_grounding_policy_config() :: %{(String.t() | atom()) => any()}
+  @type s3_object_doc() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_rule_report() :: %{
-        "accuracyJustification" => String.t() | atom(),
-        "accuracyScore" => float(),
-        "groundingJustifications" => list(String.t() | atom()),
-        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
-        "rule" => String.t() | atom()
+      list_custom_model_deployments_response() :: %{
+        "modelDeploymentSummaries" => list(custom_model_deployment_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_rule_report() :: %{(String.t() | atom()) => any()}
+  @type list_custom_model_deployments_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_use_case_for_model_access_request() :: %{
-        required("formData") => binary()
+      selective_content_guarding() :: %{
+        "messages" => list(any()),
+        "system" => list(any())
       }
 
   """
-  @type put_use_case_for_model_access_request() :: %{(String.t() | atom()) => any()}
+  @type selective_content_guarding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      evaluation_rag_config_summary() :: %{
-        "bedrockKnowledgeBaseIdentifiers" => list(String.t() | atom()),
-        "precomputedRagSourceIdentifiers" => list(String.t() | atom())
+      list_inference_profiles_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("typeEquals") => list(any())
       }
 
   """
-  @type evaluation_rag_config_summary() :: %{(String.t() | atom()) => any()}
+  @type list_inference_profiles_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_imported_model_request() :: %{}
+      batch_delete_evaluation_job_error() :: %{
+        "code" => [String.t() | atom()],
+        "jobIdentifier" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
 
   """
-  @type delete_imported_model_request() :: %{}
+  @type batch_delete_evaluation_job_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      distillation_config() :: %{
-        "teacherModelConfig" => teacher_model_config()
+      automated_reasoning_policy_delete_type_annotation() :: %{
+        "name" => String.t() | atom()
       }
 
   """
-  @type distillation_config() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_delete_type_annotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      vector_search_bedrock_reranking_configuration() :: %{
-        "metadataConfiguration" => metadata_configuration_for_reranking(),
-        "modelConfiguration" => vector_search_bedrock_reranking_model_configuration(),
-        "numberOfRerankedResults" => [integer()]
+      term_details() :: %{
+        "legalTerm" => legal_term(),
+        "supportTerm" => support_term(),
+        "usageBasedPricingTerm" => pricing_term(),
+        "validityTerm" => validity_term()
       }
 
   """
-  @type vector_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
+  @type term_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_automated_reasoning_policy_annotations_request() :: %{
-        required("annotations") => list(list()),
-        required("lastUpdatedAnnotationSetHash") => String.t() | atom()
+      knowledge_base_retrieval_configuration() :: %{
+        "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
 
   """
-  @type update_automated_reasoning_policy_annotations_request() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type knowledge_base_retrieval_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_enforced_guardrail_configuration_response() :: %{
-        "configId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "updatedBy" => [String.t() | atom()]
+      filter_attribute() :: %{
+        "key" => String.t() | atom(),
+        "value" => any()
       }
 
   """
-  @type put_enforced_guardrail_configuration_response() :: %{(String.t() | atom()) => any()}
+  @type filter_attribute() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_foundation_model_agreement_offers_request() :: %{
-        optional("offerType") => list(any())
+      list_model_invocation_jobs_response() :: %{
+        "invocationJobSummaries" => list(model_invocation_job_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_foundation_model_agreement_offers_request() :: %{(String.t() | atom()) => any()}
+  @type list_model_invocation_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_prompt_optimization_input_config() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type advanced_prompt_optimization_input_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_cross_region_details() :: %{
+        "guardrailProfileArn" => String.t() | atom(),
+        "guardrailProfileId" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_cross_region_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      foundation_model_summary() :: %{
+        "customizationsSupported" => list(list(any())()),
+        "inferenceTypesSupported" => list(list(any())()),
+        "inputModalities" => list(list(any())()),
+        "modelArn" => String.t() | atom(),
+        "modelId" => String.t() | atom(),
+        "modelLifecycle" => foundation_model_lifecycle(),
+        "modelName" => String.t() | atom(),
+        "outputModalities" => list(list(any())()),
+        "providerName" => String.t() | atom(),
+        "responseStreamingSupported" => [boolean()]
+      }
+
+  """
+  @type foundation_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_version_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definitionHash" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_automated_reasoning_policy_version_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_guardrails_request() :: %{
+        optional("guardrailIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_guardrails_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_test_case() :: %{
+        "confidenceThreshold" => float(),
+        "createdAt" => non_neg_integer(),
+        "expectedAggregatedFindingsResult" => list(any()),
+        "guardContent" => String.t() | atom(),
+        "queryContent" => String.t() | atom(),
+        "testCaseId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type automated_reasoning_policy_test_case() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_model_response() :: %{}
+
+  """
+  @type delete_custom_model_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_type_value() :: %{
+        "description" => String.t() | atom(),
+        "value" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      logging_config() :: %{
+        "audioDataDeliveryEnabled" => [boolean()],
+        "cloudWatchConfig" => cloud_watch_config(),
+        "embeddingDataDeliveryEnabled" => [boolean()],
+        "imageDataDeliveryEnabled" => [boolean()],
+        "s3Config" => s3_config(),
+        "textDataDeliveryEnabled" => [boolean()],
+        "videoDataDeliveryEnabled" => [boolean()]
+      }
+
+  """
+  @type logging_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_statement_location() :: %{
+        "lines" => list([integer()]())
+      }
+
+  """
+  @type automated_reasoning_policy_statement_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_request() :: %{
+        optional("automatedReasoningPolicyConfig") => guardrail_automated_reasoning_policy_config(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("contentPolicyConfig") => guardrail_content_policy_config(),
+        optional("contextualGroundingPolicyConfig") => guardrail_contextual_grounding_policy_config(),
+        optional("crossRegionConfig") => guardrail_cross_region_config(),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyId") => String.t() | atom(),
+        optional("sensitiveInformationPolicyConfig") => guardrail_sensitive_information_policy_config(),
+        optional("tags") => list(tag()),
+        optional("topicPolicyConfig") => guardrail_topic_policy_config(),
+        optional("wordPolicyConfig") => guardrail_word_policy_config(),
+        required("blockedInputMessaging") => String.t() | atom(),
+        required("blockedOutputsMessaging") => String.t() | atom(),
+        required("name") => String.t() | atom()
+      }
+
+  """
+  @type create_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_inference_profile_request() :: %{}
+
+  """
+  @type get_inference_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_custom_model_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("customModelDataSource") => list(),
+        optional("modelKmsKeyArn") => String.t() | atom(),
+        optional("modelSourceConfig") => list(),
+        optional("modelTags") => list(tag()),
+        optional("roleArn") => String.t() | atom(),
+        required("modelName") => String.t() | atom()
+      }
+
+  """
+  @type create_custom_model_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3739,130 +2340,31 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "message" => String.t() | atom()
+      list_model_import_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type list_model_import_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_model_copy_jobs_response() :: %{
-        "modelCopyJobSummaries" => list(model_copy_job_summary()),
+      list_automated_reasoning_policy_build_workflows_response() :: %{
+        "automatedReasoningPolicyBuildWorkflowSummaries" => list(automated_reasoning_policy_build_workflow_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_model_copy_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_build_log() :: %{
-        "entries" => list(automated_reasoning_policy_build_log_entry())
-      }
-
-  """
-  @type automated_reasoning_policy_build_log() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_add_type_mutation() :: %{
-        "type" => automated_reasoning_policy_definition_type()
-      }
-
-  """
-  @type automated_reasoning_policy_add_type_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      cancel_automated_reasoning_policy_build_workflow_request() :: %{}
-
-  """
-  @type cancel_automated_reasoning_policy_build_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_guardrail_response() :: %{}
-
-  """
-  @type delete_guardrail_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      validation_data_config() :: %{
-        "validators" => list(validator())
-      }
-
-  """
-  @type validation_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_evaluation_job_item() :: %{
-        "jobIdentifier" => String.t() | atom(),
-        "jobStatus" => list(any())
-      }
-
-  """
-  @type batch_delete_evaluation_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_model_invocation_job_response() :: %{}
-
-  """
-  @type stop_model_invocation_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_prompt_routers_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("type") => list(any())
-      }
-
-  """
-  @type list_prompt_routers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_provisioned_model_throughput_response() :: %{}
-
-  """
-  @type update_provisioned_model_throughput_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      start_automated_reasoning_policy_test_workflow_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("testCaseIds") => list(String.t() | atom())
-      }
-
-  """
-  @type start_automated_reasoning_policy_test_workflow_request() :: %{
+  @type list_automated_reasoning_policy_build_workflows_response() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -3870,64 +2372,101 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      guardrail_regex_config() :: %{
-        "action" => list(any()),
-        "description" => [String.t() | atom()],
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "name" => [String.t() | atom()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "pattern" => [String.t() | atom()]
+      batch_delete_advanced_prompt_optimization_job_response() :: %{
+        "advancedPromptOptimizationJobs" => list(batch_delete_advanced_prompt_optimization_job_item()),
+        "errors" => list(batch_delete_advanced_prompt_optimization_job_error())
       }
 
   """
-  @type guardrail_regex_config() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_advanced_prompt_optimization_job_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      put_model_invocation_logging_configuration_request() :: %{
-        required("loggingConfig") => logging_config()
+      model_enforcement() :: %{
+        "excludedModels" => list(String.t() | atom()),
+        "includedModels" => list(String.t() | atom())
       }
 
   """
-  @type put_model_invocation_logging_configuration_request() :: %{(String.t() | atom()) => any()}
+  @type model_enforcement() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_check_scenario() :: %{
-        "statements" => list(automated_reasoning_logic_statement())
+      provisioned_model_summary() :: %{
+        "commitmentDuration" => list(any()),
+        "commitmentExpirationTime" => non_neg_integer(),
+        "creationTime" => non_neg_integer(),
+        "desiredModelArn" => String.t() | atom(),
+        "desiredModelUnits" => integer(),
+        "foundationModelArn" => String.t() | atom(),
+        "lastModifiedTime" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "modelUnits" => integer(),
+        "provisionedModelArn" => String.t() | atom(),
+        "provisionedModelName" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type automated_reasoning_check_scenario() :: %{(String.t() | atom()) => any()}
+  @type provisioned_model_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_custom_model_deployment_response() :: %{
-        "customModelDeploymentArn" => String.t() | atom()
+      automated_reasoning_policy_add_rule_annotation() :: %{
+        "expression" => String.t() | atom()
       }
 
   """
-  @type update_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_add_rule_annotation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      put_resource_policy_request() :: %{
-        required("resourceArn") => String.t() | atom(),
-        required("resourcePolicy") => String.t() | atom()
+      evaluation_dataset() :: %{
+        "datasetLocation" => list(),
+        "name" => String.t() | atom()
       }
 
   """
-  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+  @type evaluation_dataset() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_invocation_job_request() :: %{}
+
+  """
+  @type stop_model_invocation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3942,92 +2481,155 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      custom_metric_evaluator_model_config() :: %{
-        "bedrockEvaluatorModels" => list(custom_metric_bedrock_evaluator_model())
+      list_model_invocation_jobs_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any()),
+        optional("submitTimeAfter") => non_neg_integer(),
+        optional("submitTimeBefore") => non_neg_integer()
       }
 
   """
-  @type custom_metric_evaluator_model_config() :: %{(String.t() | atom()) => any()}
+  @type list_model_invocation_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_foundation_model_agreement_request() :: %{
-        required("modelId") => String.t() | atom(),
-        required("offerToken") => String.t() | atom()
+      update_provisioned_model_throughput_request() :: %{
+        optional("desiredModelId") => String.t() | atom(),
+        optional("desiredProvisionedModelName") => String.t() | atom()
       }
 
   """
-  @type create_foundation_model_agreement_request() :: %{(String.t() | atom()) => any()}
+  @type update_provisioned_model_throughput_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_model_customization_jobs_response() :: %{
-        "modelCustomizationJobSummaries" => list(model_customization_job_summary()),
-        "nextToken" => String.t() | atom()
+      guardrail_automated_reasoning_policy_config() :: %{
+        "confidenceThreshold" => float(),
+        "policies" => list(String.t() | atom())
       }
 
   """
-  @type list_model_customization_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type guardrail_automated_reasoning_policy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_foundation_models_response() :: %{
-        "modelSummaries" => list(foundation_model_summary())
+      training_data_config() :: %{
+        "invocationLogsConfig" => invocation_logs_config(),
+        "s3Uri" => String.t() | atom()
       }
 
   """
-  @type list_foundation_models_response() :: %{(String.t() | atom()) => any()}
+  @type training_data_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_custom_model_deployment_response() :: %{
+      marketplace_model_endpoint_summary() :: %{
         "createdAt" => non_neg_integer(),
-        "customModelDeploymentArn" => String.t() | atom(),
-        "description" => String.t() | atom(),
-        "failureMessage" => String.t() | atom(),
-        "lastUpdatedAt" => non_neg_integer(),
-        "modelArn" => String.t() | atom(),
-        "modelDeploymentName" => String.t() | atom(),
+        "endpointArn" => String.t() | atom(),
+        "modelSourceIdentifier" => String.t() | atom(),
         "status" => list(any()),
-        "updateDetails" => custom_model_deployment_update_details()
+        "statusMessage" => [String.t() | atom()],
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type get_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type marketplace_model_endpoint_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_foundation_model_availability_response() :: %{
-        "agreementAvailability" => agreement_availability(),
-        "authorizationStatus" => list(any()),
-        "entitlementAvailability" => list(any()),
-        "modelId" => String.t() | atom(),
-        "regionAvailability" => list(any())
+      list_custom_model_deployments_request() :: %{
+        optional("createdAfter") => non_neg_integer(),
+        optional("createdBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("modelArnEquals") => String.t() | atom(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
       }
 
   """
-  @type get_foundation_model_availability_response() :: %{(String.t() | atom()) => any()}
+  @type list_custom_model_deployments_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      orchestration_configuration() :: %{
-        "queryTransformationConfiguration" => query_transformation_configuration()
+      delete_inference_profile_request() :: %{}
+
+  """
+  @type delete_inference_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enforced_guardrails_configuration_request() :: %{
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type orchestration_configuration() :: %{(String.t() | atom()) => any()}
+  @type list_enforced_guardrails_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_foundation_model_agreement_response() :: %{
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type create_foundation_model_agreement_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_models_request() :: %{
+        optional("baseModelArnEquals") => String.t() | atom(),
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("foundationModelArnEquals") => String.t() | atom(),
+        optional("isOwned") => [boolean()],
+        optional("maxResults") => integer(),
+        optional("modelStatus") => list(any()),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
+      }
+
+  """
+  @type list_custom_models_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_impossible_finding() :: %{
+        "contradictingRules" => list(automated_reasoning_check_rule()),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_impossible_finding() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4044,27 +2646,48 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      access_denied_exception() :: %{
-        "message" => String.t() | atom()
+      tag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tags") => list(tag())
       }
 
   """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_report_source_document() :: %{
-        "atomicStatements" => list(automated_reasoning_policy_atomic_statement()),
-        "documentContent" => list(automated_reasoning_policy_annotated_chunk()),
-        "documentHash" => String.t() | atom(),
-        "documentId" => String.t() | atom(),
-        "documentName" => String.t() | atom()
+      start_automated_reasoning_policy_test_workflow_response() :: %{
+        "policyArn" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_report_source_document() :: %{(String.t() | atom()) => any()}
+  @type start_automated_reasoning_policy_test_workflow_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      model_package_arn_data_source() :: %{
+        "modelPackageArn" => String.t() | atom()
+      }
+
+  """
+  @type model_package_arn_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_advanced_prompt_optimization_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4090,53 +2713,241 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_model_invocation_job_request() :: %{}
+      guardrail_pii_entity_config() :: %{
+        "action" => list(any()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "type" => list(any())
+      }
 
   """
-  @type get_model_invocation_job_request() :: %{}
+  @type guardrail_pii_entity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_advanced_prompt_optimization_jobs_response() :: %{
-        "jobSummaries" => list(advanced_prompt_optimization_job_summary()),
+      get_model_copy_job_request() :: %{}
+
+  """
+  @type get_model_copy_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_translation_ambiguous_finding() :: %{
+        "differenceScenarios" => list(automated_reasoning_check_scenario()),
+        "options" => list(automated_reasoning_check_translation_option())
+      }
+
+  """
+  @type automated_reasoning_check_translation_ambiguous_finding() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_cross_region_config() :: %{
+        "guardrailProfileIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_cross_region_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_output_data_config() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type evaluation_output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_custom_models_response() :: %{
+        "modelSummaries" => list(custom_model_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_advanced_prompt_optimization_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type list_custom_models_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_automated_reasoning_policy_response() :: %{}
+      stop_advanced_prompt_optimization_job_response() :: %{}
 
   """
-  @type delete_automated_reasoning_policy_response() :: %{}
+  @type stop_advanced_prompt_optimization_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_automated_reasoning_policy_build_workflow_response() :: %{}
-
-  """
-  @type delete_automated_reasoning_policy_build_workflow_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_advanced_prompt_optimization_job_request() :: %{
-        required("jobIdentifiers") => list(String.t() | atom())
+      guardrail_sensitive_information_policy() :: %{
+        "piiEntities" => list(guardrail_pii_entity()),
+        "regexes" => list(guardrail_regex())
       }
 
   """
-  @type batch_delete_advanced_prompt_optimization_job_request() :: %{
+  @type guardrail_sensitive_information_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_annotations_request() :: %{
+        required("annotations") => list(list()),
+        required("lastUpdatedAnnotationSetHash") => String.t() | atom()
+      }
+
+  """
+  @type update_automated_reasoning_policy_annotations_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      agreement_availability() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "status" => list(any())
+      }
+
+  """
+  @type agreement_availability() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_foundation_model_agreement_offers_request() :: %{
+        optional("offerType") => list(any())
+      }
+
+  """
+  @type list_foundation_model_agreement_offers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_guardrail_request() :: %{
+        optional("guardrailVersion") => String.t() | atom()
+      }
+
+  """
+  @type delete_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_word_policy() :: %{
+        "managedWordLists" => list(guardrail_managed_words()),
+        "words" => list(guardrail_word())
+      }
+
+  """
+  @type guardrail_word_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_invalid_finding() :: %{
+        "contradictingRules" => list(automated_reasoning_check_rule()),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_invalid_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_marketplace_model_endpoints_request() :: %{
+        optional("maxResults") => integer(),
+        optional("modelSourceEquals") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_marketplace_model_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      account_enforced_guardrail_inference_input_configuration() :: %{
+        "guardrailIdentifier" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "modelEnforcement" => model_enforcement(),
+        "selectiveContentGuarding" => selective_content_guarding()
+      }
+
+  """
+  @type account_enforced_guardrail_inference_input_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_policy() :: %{
+        "filters" => list(guardrail_contextual_grounding_filter())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inference_profile_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("inferenceProfileName") => String.t() | atom(),
+        required("modelSource") => list()
+      }
+
+  """
+  @type create_inference_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_customization_job_response() :: %{}
+
+  """
+  @type stop_model_customization_job_response() :: %{}
 
   @typedoc """
 
@@ -4167,198 +2978,117 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      generation_configuration() :: %{
-        "additionalModelRequestFields" => map(),
-        "guardrailConfiguration" => guardrail_configuration(),
-        "kbInferenceConfig" => kb_inference_config(),
-        "promptTemplate" => prompt_template()
+      put_enforced_guardrail_configuration_response() :: %{
+        "configId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type generation_configuration() :: %{(String.t() | atom()) => any()}
+  @type put_enforced_guardrail_configuration_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_use_case_for_model_access_request() :: %{}
-
-  """
-  @type get_use_case_for_model_access_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_prompt_router_response() :: %{
-        "promptRouterArn" => String.t() | atom()
+      resource_in_use_exception() :: %{
+        "message" => String.t() | atom()
       }
 
   """
-  @type create_prompt_router_response() :: %{(String.t() | atom()) => any()}
+  @type resource_in_use_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_evaluation_job_request() :: %{
-        optional("applicationType") => list(any()),
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("customerEncryptionKeyId") => String.t() | atom(),
-        optional("jobDescription") => String.t() | atom(),
-        optional("jobTags") => list(tag()),
-        required("evaluationConfig") => list(),
-        required("inferenceConfig") => list(),
-        required("jobName") => String.t() | atom(),
-        required("outputDataConfig") => evaluation_output_data_config(),
-        required("roleArn") => String.t() | atom()
+      automated_reasoning_policy_update_type_value() :: %{
+        "description" => String.t() | atom(),
+        "newValue" => String.t() | atom(),
+        "value" => String.t() | atom()
       }
 
   """
-  @type create_evaluation_job_request() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_update_type_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_check_no_translations_finding() :: %{}
-
-  """
-  @type automated_reasoning_check_no_translations_finding() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_marketplace_model_endpoint_response() :: %{
-        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      list_imported_models_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any())
       }
 
   """
-  @type get_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type list_imported_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_custom_model_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("customModelDataSource") => list(),
-        optional("modelKmsKeyArn") => String.t() | atom(),
-        optional("modelSourceConfig") => list(),
-        optional("modelTags") => list(tag()),
-        optional("roleArn") => String.t() | atom(),
-        required("modelName") => String.t() | atom()
-      }
-
-  """
-  @type create_custom_model_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_quality_report() :: %{
-        "conflictingRules" => list(String.t() | atom()),
-        "disjointRuleSets" => list(automated_reasoning_policy_disjoint_rule_set()),
-        "ruleCount" => [integer()],
-        "typeCount" => [integer()],
-        "unusedTypeValues" => list(automated_reasoning_policy_definition_type_value_pair()),
-        "unusedTypes" => list(String.t() | atom()),
-        "unusedVariables" => list(String.t() | atom()),
-        "variableCount" => [integer()]
-      }
-
-  """
-  @type automated_reasoning_policy_definition_quality_report() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_variable() :: %{
+      create_automated_reasoning_policy_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "definitionHash" => String.t() | atom(),
         "description" => String.t() | atom(),
         "name" => String.t() | atom(),
-        "type" => String.t() | atom()
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_definition_variable() :: %{(String.t() | atom()) => any()}
+  @type create_automated_reasoning_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      training_details() :: %{
-        "creationTime" => non_neg_integer(),
-        "lastModifiedTime" => non_neg_integer(),
-        "status" => list(any())
+      guardrail_contextual_grounding_filter() :: %{
+        "action" => list(any()),
+        "enabled" => [boolean()],
+        "threshold" => [float()],
+        "type" => list(any())
       }
 
   """
-  @type training_details() :: %{(String.t() | atom()) => any()}
+  @type guardrail_contextual_grounding_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_word_policy_config() :: %{
-        "managedWordListsConfig" => list(guardrail_managed_words_config()),
-        "wordsConfig" => list(guardrail_word_config())
+      list_model_copy_jobs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("sourceAccountEquals") => String.t() | atom(),
+        optional("sourceModelArnEquals") => String.t() | atom(),
+        optional("statusEquals") => list(any()),
+        optional("targetModelNameContains") => String.t() | atom()
       }
 
   """
-  @type guardrail_word_policy_config() :: %{(String.t() | atom()) => any()}
+  @type list_model_copy_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_fidelity_report() :: %{
-        "accuracyScore" => float(),
-        "coverageScore" => float(),
-        "documentSources" => list(automated_reasoning_policy_report_source_document()),
-        "ruleReports" => map(),
-        "variableReports" => map()
+      automated_reasoning_policy_delete_type_value() :: %{
+        "value" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_fidelity_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      export_automated_reasoning_policy_version_request() :: %{}
-
-  """
-  @type export_automated_reasoning_policy_version_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_translation() :: %{
-        "claims" => list(automated_reasoning_logic_statement()),
-        "confidence" => float(),
-        "premises" => list(automated_reasoning_logic_statement()),
-        "untranslatedClaims" => list(automated_reasoning_check_input_text_reference()),
-        "untranslatedPremises" => list(automated_reasoning_check_input_text_reference())
-      }
-
-  """
-  @type automated_reasoning_check_translation() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_delete_type_value() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4375,13 +3105,13 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      create_automated_reasoning_policy_test_case_response() :: %{
-        "policyArn" => String.t() | atom(),
-        "testCaseId" => String.t() | atom()
+      automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
+        "feedback" => String.t() | atom(),
+        "ruleIds" => list(String.t() | atom())
       }
 
   """
-  @type create_automated_reasoning_policy_test_case_response() :: %{
+  @type automated_reasoning_policy_update_from_rule_feedback_annotation() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -4389,306 +3119,264 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      list_evaluation_jobs_response() :: %{
-        "jobSummaries" => list(evaluation_summary()),
-        "nextToken" => String.t() | atom()
+      get_foundation_model_request() :: %{}
+
+  """
+  @type get_foundation_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_profile_model() :: %{
+        "modelArn" => String.t() | atom()
       }
 
   """
-  @type list_evaluation_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type inference_profile_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_sensitive_information_policy_config() :: %{
-        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
-        "regexesConfig" => list(guardrail_regex_config())
-      }
-
-  """
-  @type guardrail_sensitive_information_policy_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_model_customization_job_request() :: %{}
-
-  """
-  @type stop_model_customization_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      metadata_configuration_for_reranking() :: %{
-        "selectionMode" => list(any()),
-        "selectiveModeConfiguration" => list()
-      }
-
-  """
-  @type metadata_configuration_for_reranking() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_guardrail_version_response() :: %{
-        "guardrailId" => String.t() | atom(),
+      automated_reasoning_policy_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "policyId" => String.t() | atom(),
+        "updatedAt" => non_neg_integer(),
         "version" => String.t() | atom()
       }
 
   """
-  @type create_guardrail_version_response() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_custom_model_request() :: %{}
+      status_details() :: %{
+        "dataProcessingDetails" => data_processing_details(),
+        "trainingDetails" => training_details(),
+        "validationDetails" => validation_details()
+      }
 
   """
-  @type delete_custom_model_request() :: %{}
+  @type status_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      validation_exception() :: %{
+      get_automated_reasoning_policy_test_result_response() :: %{
+        "testResult" => automated_reasoning_policy_test_result()
+      }
+
+  """
+  @type get_automated_reasoning_policy_test_result_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "crossRegionDetails" => guardrail_cross_region_details(),
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type guardrail_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_model_throughputs_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "provisionedModelSummaries" => list(provisioned_model_summary())
+      }
+
+  """
+  @type list_provisioned_model_throughputs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      implicit_filter_configuration() :: %{
+        "metadataAttributes" => list(metadata_attribute_schema()),
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type implicit_filter_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_imported_model_request() :: %{}
+
+  """
+  @type delete_imported_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_exception() :: %{
         "message" => String.t() | atom()
       }
 
   """
-  @type validation_exception() :: %{(String.t() | atom()) => any()}
+  @type conflict_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_tags_for_resource_request() :: %{
-        required("resourceARN") => String.t() | atom()
+      custom_metric_bedrock_evaluator_model() :: %{
+        "modelIdentifier" => String.t() | atom()
       }
 
   """
-  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+  @type custom_metric_bedrock_evaluator_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_model_copy_job_response() :: %{
-        "jobArn" => String.t() | atom()
+      guardrail_topics_tier_config() :: %{
+        "tierName" => list(any())
       }
 
   """
-  @type create_model_copy_job_response() :: %{(String.t() | atom()) => any()}
+  @type guardrail_topics_tier_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      guardrail_pii_entity_config() :: %{
-        "action" => list(any()),
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "type" => list(any())
+      account_enforced_guardrail_output_configuration() :: %{
+        "configId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "createdBy" => [String.t() | atom()],
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "guardrailVersion" => String.t() | atom(),
+        "inputTags" => list(any()),
+        "modelEnforcement" => model_enforcement(),
+        "owner" => String.t() | atom(),
+        "selectiveContentGuarding" => selective_content_guarding(),
+        "updatedAt" => non_neg_integer(),
+        "updatedBy" => [String.t() | atom()]
       }
 
   """
-  @type guardrail_pii_entity_config() :: %{(String.t() | atom()) => any()}
+  @type account_enforced_guardrail_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_automated_reasoning_policy_annotations_response() :: %{
-        "annotationSetHash" => String.t() | atom(),
-        "buildWorkflowId" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type update_automated_reasoning_policy_annotations_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_impossible_finding() :: %{
-        "contradictingRules" => list(automated_reasoning_check_rule()),
-        "logicWarning" => automated_reasoning_check_logic_warning(),
-        "translation" => automated_reasoning_check_translation()
-      }
-
-  """
-  @type automated_reasoning_check_impossible_finding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_dataset() :: %{
-        "datasetLocation" => list(),
-        "name" => String.t() | atom()
-      }
-
-  """
-  @type evaluation_dataset() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_automated_reasoning_policy_version_request() :: %{
+      create_model_import_job_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
-        optional("tags") => list(tag()),
-        required("lastUpdatedDefinitionHash") => String.t() | atom()
+        optional("importedModelKmsKeyId") => String.t() | atom(),
+        optional("importedModelTags") => list(tag()),
+        optional("jobTags") => list(tag()),
+        optional("vpcConfig") => vpc_config(),
+        required("importedModelName") => String.t() | atom(),
+        required("jobName") => String.t() | atom(),
+        required("modelDataSource") => list(),
+        required("roleArn") => String.t() | atom()
       }
 
   """
-  @type create_automated_reasoning_policy_version_request() :: %{(String.t() | atom()) => any()}
+  @type create_model_import_job_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_update_rule_annotation() :: %{
-        "expression" => String.t() | atom(),
-        "ruleId" => String.t() | atom()
-      }
+      untag_resource_response() :: %{}
 
   """
-  @type automated_reasoning_policy_update_rule_annotation() :: %{(String.t() | atom()) => any()}
+  @type untag_resource_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_build_workflow_source() :: %{
-        "policyDefinition" => automated_reasoning_policy_definition(),
-        "workflowContent" => list()
-      }
+      get_marketplace_model_endpoint_request() :: %{}
 
   """
-  @type automated_reasoning_policy_build_workflow_source() :: %{(String.t() | atom()) => any()}
+  @type get_marketplace_model_endpoint_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_add_rule_mutation() :: %{
-        "rule" => automated_reasoning_policy_definition_rule()
-      }
+      delete_prompt_router_response() :: %{}
 
   """
-  @type automated_reasoning_policy_add_rule_mutation() :: %{(String.t() | atom()) => any()}
+  @type delete_prompt_router_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_automated_reasoning_policy_test_cases_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
+      dimensional_price_rate() :: %{
+        "description" => [String.t() | atom()],
+        "dimension" => [String.t() | atom()],
+        "price" => [String.t() | atom()],
+        "unit" => [String.t() | atom()]
       }
 
   """
-  @type list_automated_reasoning_policy_test_cases_request() :: %{(String.t() | atom()) => any()}
+  @type dimensional_price_rate() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      throttling_exception() :: %{
-        "message" => String.t() | atom()
+      list_automated_reasoning_policies_response() :: %{
+        "automatedReasoningPolicySummaries" => list(automated_reasoning_policy_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+  @type list_automated_reasoning_policies_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_advanced_prompt_optimization_job_response() :: %{
-        "advancedPromptOptimizationJobs" => list(batch_delete_advanced_prompt_optimization_job_item()),
-        "errors" => list(batch_delete_advanced_prompt_optimization_job_error())
+      get_resource_policy_response() :: %{
+        "resourcePolicy" => String.t() | atom()
       }
 
   """
-  @type batch_delete_advanced_prompt_optimization_job_response() :: %{
-          (String.t() | atom()) => any()
-        }
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      custom_model_units() :: %{
-        "customModelUnitsPerModelCopy" => [integer()],
-        "customModelUnitsVersion" => String.t() | atom()
+      list_guardrails_response() :: %{
+        "guardrails" => list(guardrail_summary()),
+        "nextToken" => String.t() | atom()
       }
 
   """
-  @type custom_model_units() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_automated_reasoning_policy_build_workflow_response() :: %{
-        "buildWorkflowId" => String.t() | atom(),
-        "policyArn" => String.t() | atom()
-      }
-
-  """
-  @type start_automated_reasoning_policy_build_workflow_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
-        "assetId" => String.t() | atom(),
-        "assetName" => String.t() | atom(),
-        "assetType" => list(any())
-      }
-
-  """
-  @type automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      put_enforced_guardrail_configuration_request() :: %{
-        optional("configId") => String.t() | atom(),
-        required("guardrailInferenceConfig") => account_enforced_guardrail_inference_input_configuration()
-      }
-
-  """
-  @type put_enforced_guardrail_configuration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_custom_model_deployment_request() :: %{
-        required("modelArn") => String.t() | atom()
-      }
-
-  """
-  @type update_custom_model_deployment_request() :: %{(String.t() | atom()) => any()}
+  @type list_guardrails_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4727,499 +3415,99 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      get_model_copy_job_response() :: %{
-        "creationTime" => non_neg_integer(),
-        "failureMessage" => String.t() | atom(),
-        "jobArn" => String.t() | atom(),
-        "sourceAccountId" => String.t() | atom(),
-        "sourceModelArn" => String.t() | atom(),
-        "sourceModelName" => String.t() | atom(),
-        "status" => list(any()),
-        "targetModelArn" => String.t() | atom(),
-        "targetModelKmsKeyArn" => String.t() | atom(),
-        "targetModelName" => String.t() | atom(),
-        "targetModelTags" => list(tag())
+      create_provisioned_model_throughput_response() :: %{
+        "provisionedModelArn" => String.t() | atom()
       }
 
   """
-  @type get_model_copy_job_response() :: %{(String.t() | atom()) => any()}
+  @type create_provisioned_model_throughput_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_summary() :: %{
-        "createdAt" => non_neg_integer(),
-        "description" => String.t() | atom(),
-        "name" => String.t() | atom(),
-        "policyArn" => String.t() | atom(),
-        "policyId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
-        "version" => String.t() | atom()
+      automated_reasoning_policy_fidelity_report() :: %{
+        "accuracyScore" => float(),
+        "coverageScore" => float(),
+        "documentSources" => list(automated_reasoning_policy_report_source_document()),
+        "ruleReports" => map(),
+        "variableReports" => map()
       }
 
   """
-  @type automated_reasoning_policy_summary() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_fidelity_report() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_marketplace_model_endpoint_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        required("endpointConfig") => list()
+      batch_delete_evaluation_job_response() :: %{
+        "errors" => list(batch_delete_evaluation_job_error()),
+        "evaluationJobs" => list(batch_delete_evaluation_job_item())
       }
 
   """
-  @type update_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
+  @type batch_delete_evaluation_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_custom_models_response() :: %{
-        "modelSummaries" => list(custom_model_summary()),
+      create_foundation_model_agreement_request() :: %{
+        required("modelId") => String.t() | atom(),
+        required("offerToken") => String.t() | atom()
+      }
+
+  """
+  @type create_foundation_model_agreement_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cloud_watch_config() :: %{
+        "largeDataDeliveryS3Config" => s3_config(),
+        "logGroupName" => String.t() | atom(),
+        "roleArn" => String.t() | atom()
+      }
+
+  """
+  @type cloud_watch_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_scenario() :: %{
+        "statements" => list(automated_reasoning_logic_statement())
+      }
+
+  """
+  @type automated_reasoning_check_scenario() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_request() :: %{
+        required("resourceARN") => String.t() | atom(),
+        required("tagKeys") => list(String.t() | atom())
+      }
+
+  """
+  @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_copy_jobs_response() :: %{
+        "modelCopyJobSummaries" => list(model_copy_job_summary()),
         "nextToken" => String.t() | atom()
       }
 
   """
-  @type list_custom_models_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_generated_test_cases() :: %{
-        "generatedTestCases" => list(automated_reasoning_policy_generated_test_case())
-      }
-
-  """
-  @type automated_reasoning_policy_generated_test_cases() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_test_case() :: %{
-        "confidenceThreshold" => float(),
-        "createdAt" => non_neg_integer(),
-        "expectedAggregatedFindingsResult" => list(any()),
-        "guardContent" => String.t() | atom(),
-        "queryContent" => String.t() | atom(),
-        "testCaseId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type automated_reasoning_policy_test_case() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_too_complex_finding() :: %{}
-
-  """
-  @type automated_reasoning_check_too_complex_finding() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      selective_content_guarding() :: %{
-        "messages" => list(any()),
-        "system" => list(any())
-      }
-
-  """
-  @type selective_content_guarding() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_prompt_routers_response() :: %{
-        "nextToken" => String.t() | atom(),
-        "promptRouterSummaries" => list(prompt_router_summary())
-      }
-
-  """
-  @type list_prompt_routers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_check_translation_ambiguous_finding() :: %{
-        "differenceScenarios" => list(automated_reasoning_check_scenario()),
-        "options" => list(automated_reasoning_check_translation_option())
-      }
-
-  """
-  @type automated_reasoning_check_translation_ambiguous_finding() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      vector_search_bedrock_reranking_model_configuration() :: %{
-        "additionalModelRequestFields" => map(),
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type vector_search_bedrock_reranking_model_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_logic_statement() :: %{
-        "logic" => String.t() | atom(),
-        "naturalLanguage" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_logic_statement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topic_policy() :: %{
-        "tier" => guardrail_topics_tier(),
-        "topics" => list(guardrail_topic())
-      }
-
-  """
-  @type guardrail_topic_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_resource_policy_response() :: %{
-        "resourceArn" => String.t() | atom()
-      }
-
-  """
-  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      output_data_config() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type output_data_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_model_invocation_logging_configuration_response() :: %{
-        "loggingConfig" => logging_config()
-      }
-
-  """
-  @type get_model_invocation_logging_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_automated_reasoning_policy_test_case_response() :: %{
-        "policyArn" => String.t() | atom(),
-        "testCaseId" => String.t() | atom()
-      }
-
-  """
-  @type update_automated_reasoning_policy_test_case_response() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      create_advanced_prompt_optimization_job_response() :: %{
-        "jobArn" => String.t() | atom()
-      }
-
-  """
-  @type create_advanced_prompt_optimization_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_type_value() :: %{
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_type_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_build_step() :: %{
-        "context" => list(),
-        "messages" => list(automated_reasoning_policy_build_step_message()),
-        "priorElement" => list()
-      }
-
-  """
-  @type automated_reasoning_policy_build_step() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_model_import_job_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("importedModelKmsKeyId") => String.t() | atom(),
-        optional("importedModelTags") => list(tag()),
-        optional("jobTags") => list(tag()),
-        optional("vpcConfig") => vpc_config(),
-        required("importedModelName") => String.t() | atom(),
-        required("jobName") => String.t() | atom(),
-        required("modelDataSource") => list(),
-        required("roleArn") => String.t() | atom()
-      }
-
-  """
-  @type create_model_import_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_guardrail_version_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        optional("description") => String.t() | atom()
-      }
-
-  """
-  @type create_guardrail_version_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_model_copy_jobs_request() :: %{
-        optional("creationTimeAfter") => non_neg_integer(),
-        optional("creationTimeBefore") => non_neg_integer(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any()),
-        optional("sourceAccountEquals") => String.t() | atom(),
-        optional("sourceModelArnEquals") => String.t() | atom(),
-        optional("statusEquals") => list(any()),
-        optional("targetModelNameContains") => String.t() | atom()
-      }
-
-  """
-  @type list_model_copy_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      prompt_router_target_model() :: %{
-        "modelArn" => String.t() | atom()
-      }
-
-  """
-  @type prompt_router_target_model() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_precomputed_retrieve_source_config() :: %{
-        "ragSourceIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type evaluation_precomputed_retrieve_source_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_guardrails_request() :: %{
-        optional("guardrailIdentifier") => String.t() | atom(),
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_guardrails_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      term_details() :: %{
-        "legalTerm" => legal_term(),
-        "supportTerm" => support_term(),
-        "usageBasedPricingTerm" => pricing_term(),
-        "validityTerm" => validity_term()
-      }
-
-  """
-  @type term_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validity_term() :: %{
-        "agreementDuration" => [String.t() | atom()]
-      }
-
-  """
-  @type validity_term() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      dimensional_price_rate() :: %{
-        "description" => [String.t() | atom()],
-        "dimension" => [String.t() | atom()],
-        "price" => [String.t() | atom()],
-        "unit" => [String.t() | atom()]
-      }
-
-  """
-  @type dimensional_price_rate() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_model_invocation_logging_configuration_response() :: %{}
-
-  """
-  @type put_model_invocation_logging_configuration_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_configuration() :: %{
-        "guardrailId" => [String.t() | atom()],
-        "guardrailVersion" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
-        "naturalLanguage" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_add_rule_from_natural_language_annotation() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      delete_resource_policy_request() :: %{}
-
-  """
-  @type delete_resource_policy_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_delete_rule_mutation() :: %{
-        "id" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_delete_rule_mutation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_foundation_model_agreement_response() :: %{
-        "modelId" => String.t() | atom()
-      }
-
-  """
-  @type create_foundation_model_agreement_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      validator() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type validator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      register_marketplace_model_endpoint_request() :: %{
-        required("modelSourceIdentifier") => String.t() | atom()
-      }
-
-  """
-  @type register_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_atomic_statement() :: %{
-        "id" => String.t() | atom(),
-        "location" => automated_reasoning_policy_statement_location(),
-        "text" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_atomic_statement() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_regex() :: %{
-        "action" => list(any()),
-        "description" => [String.t() | atom()],
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "name" => [String.t() | atom()],
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "pattern" => [String.t() | atom()]
-      }
-
-  """
-  @type guardrail_regex() :: %{(String.t() | atom()) => any()}
+  @type list_model_copy_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5242,107 +3530,481 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      batch_delete_evaluation_job_request() :: %{
-        required("jobIdentifiers") => list(String.t() | atom())
+      update_automated_reasoning_policy_annotations_response() :: %{
+        "annotationSetHash" => String.t() | atom(),
+        "buildWorkflowId" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type batch_delete_evaluation_job_request() :: %{(String.t() | atom()) => any()}
+  @type update_automated_reasoning_policy_annotations_response() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      advanced_prompt_optimization_input_config() :: %{
-        "s3Uri" => String.t() | atom()
+      guardrail_sensitive_information_policy_config() :: %{
+        "piiEntitiesConfig" => list(guardrail_pii_entity_config()),
+        "regexesConfig" => list(guardrail_regex_config())
       }
 
   """
-  @type advanced_prompt_optimization_input_config() :: %{(String.t() | atom()) => any()}
+  @type guardrail_sensitive_information_policy_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_automated_reasoning_policy_test_case_response() :: %{}
+      automated_reasoning_check_no_translations_finding() :: %{}
 
   """
-  @type delete_automated_reasoning_policy_test_case_response() :: %{}
+  @type automated_reasoning_check_no_translations_finding() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_evaluation_job_response() :: %{
-        "jobArn" => String.t() | atom()
+      get_automated_reasoning_policy_annotations_response() :: %{
+        "annotationSetHash" => String.t() | atom(),
+        "annotations" => list(list()),
+        "buildWorkflowId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "policyArn" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type create_evaluation_job_response() :: %{(String.t() | atom()) => any()}
+  @type get_automated_reasoning_policy_annotations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_guardrail_response() :: %{
-        "guardrailArn" => String.t() | atom(),
+      delete_resource_policy_request() :: %{}
+
+  """
+  @type delete_resource_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      put_use_case_for_model_access_response() :: %{}
+
+  """
+  @type put_use_case_for_model_access_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_import_jobs_response() :: %{
+        "modelImportJobSummaries" => list(model_import_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_model_import_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filter_config() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "inputModalities" => list(list(any())()),
+        "inputStrength" => list(any()),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "outputModalities" => list(list(any())()),
+        "outputStrength" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_content_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_automated_reasoning_policy_build_workflow_response() :: %{
+        "buildWorkflowId" => String.t() | atom(),
+        "policyArn" => String.t() | atom()
+      }
+
+  """
+  @type start_automated_reasoning_policy_build_workflow_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_step() :: %{
+        "context" => list(),
+        "messages" => list(automated_reasoning_policy_build_step_message()),
+        "priorElement" => list()
+      }
+
+  """
+  @type automated_reasoning_policy_build_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompt_routers_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("type") => list(any())
+      }
+
+  """
+  @type list_prompt_routers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_model_invocation_job_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("modelInvocationType") => list(any()),
+        optional("tags") => list(tag()),
+        optional("timeoutDurationInHours") => integer(),
+        optional("vpcConfig") => vpc_config(),
+        required("inputDataConfig") => list(),
+        required("jobName") => String.t() | atom(),
+        required("modelId") => String.t() | atom(),
+        required("outputDataConfig") => list(),
+        required("roleArn") => String.t() | atom()
+      }
+
+  """
+  @type create_model_invocation_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      training_metrics() :: %{
+        "trainingLoss" => float()
+      }
+
+  """
+  @type training_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioned_model_throughput_request() :: %{}
+
+  """
+  @type delete_provisioned_model_throughput_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      }
+
+  """
+  @type get_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_foundation_model_availability_response() :: %{
+        "agreementAvailability" => agreement_availability(),
+        "authorizationStatus" => list(any()),
+        "entitlementAvailability" => list(any()),
+        "modelId" => String.t() | atom(),
+        "regionAvailability" => list(any())
+      }
+
+  """
+  @type get_foundation_model_availability_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic() :: %{
+        "definition" => String.t() | atom(),
+        "examples" => list(String.t() | atom()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "name" => String.t() | atom(),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_test_case_request() :: %{
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type delete_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_use_case_for_model_access_request() :: %{}
+
+  """
+  @type get_use_case_for_model_access_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_imported_models_response() :: %{
+        "modelSummaries" => list(imported_model_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_imported_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vpc_config() :: %{
+        "securityGroupIds" => list(String.t() | atom()),
+        "subnetIds" => list(String.t() | atom())
+      }
+
+  """
+  @type vpc_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_foundation_model_availability_request() :: %{}
+
+  """
+  @type get_foundation_model_availability_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      external_sources_generation_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "guardrailConfiguration" => guardrail_configuration(),
+        "kbInferenceConfig" => kb_inference_config(),
+        "promptTemplate" => prompt_template()
+      }
+
+  """
+  @type external_sources_generation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_use_case_for_model_access_request() :: %{
+        required("formData") => binary()
+      }
+
+  """
+  @type put_use_case_for_model_access_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => vector_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type vector_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_model_invocation_logging_configuration_response() :: %{}
+
+  """
+  @type put_model_invocation_logging_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_annotated_line() :: %{
+        "lineNumber" => [integer()],
+        "lineText" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_annotated_line() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_evaluation_job_item() :: %{
+        "jobIdentifier" => String.t() | atom(),
+        "jobStatus" => list(any())
+      }
+
+  """
+  @type batch_delete_evaluation_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_scenario() :: %{
+        "alternateExpression" => String.t() | atom(),
+        "expectedResult" => list(any()),
+        "expression" => String.t() | atom(),
+        "ruleIds" => list(String.t() | atom())
+      }
+
+  """
+  @type automated_reasoning_policy_scenario() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_too_complex_finding() :: %{}
+
+  """
+  @type automated_reasoning_check_too_complex_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_log() :: %{
+        "entries" => list(automated_reasoning_policy_build_log_entry())
+      }
+
+  """
+  @type automated_reasoning_policy_build_log() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_version_response() :: %{
         "guardrailId" => String.t() | atom(),
-        "updatedAt" => non_neg_integer(),
         "version" => String.t() | atom()
       }
 
   """
-  @type update_guardrail_response() :: %{(String.t() | atom()) => any()}
+  @type create_guardrail_version_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      model_invocation_job_summary() :: %{
-        "clientRequestToken" => String.t() | atom(),
-        "endTime" => non_neg_integer(),
-        "errorRecordCount" => float(),
-        "inputDataConfig" => list(),
-        "jobArn" => String.t() | atom(),
-        "jobExpirationTime" => non_neg_integer(),
-        "jobName" => String.t() | atom(),
-        "lastModifiedTime" => non_neg_integer(),
-        "message" => String.t() | atom(),
-        "modelId" => String.t() | atom(),
-        "modelInvocationType" => list(any()),
-        "outputDataConfig" => list(),
-        "processedRecordCount" => float(),
-        "roleArn" => String.t() | atom(),
-        "status" => list(any()),
-        "submitTime" => non_neg_integer(),
-        "successRecordCount" => float(),
-        "timeoutDurationInHours" => integer(),
-        "totalRecordCount" => float(),
-        "vpcConfig" => vpc_config()
+      automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
+        "feedback" => String.t() | atom(),
+        "ruleIds" => list(String.t() | atom()),
+        "scenarioExpression" => String.t() | atom()
       }
 
   """
-  @type model_invocation_job_summary() :: %{(String.t() | atom()) => any()}
+  @type automated_reasoning_policy_update_from_scenario_feedback_annotation() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      deregister_marketplace_model_endpoint_request() :: %{}
-
-  """
-  @type deregister_marketplace_model_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      model_package_arn_data_source() :: %{
-        "modelPackageArn" => String.t() | atom()
+      knowledge_base_retrieve_and_generate_configuration() :: %{
+        "generationConfiguration" => generation_configuration(),
+        "knowledgeBaseId" => String.t() | atom(),
+        "modelArn" => String.t() | atom(),
+        "orchestrationConfiguration" => orchestration_configuration(),
+        "retrievalConfiguration" => knowledge_base_retrieval_configuration()
       }
 
   """
-  @type model_package_arn_data_source() :: %{(String.t() | atom()) => any()}
+  @type knowledge_base_retrieve_and_generate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
+        "buildWorkflowAssets" => list(),
+        "buildWorkflowId" => String.t() | atom(),
+        "policyArn" => String.t() | atom()
+      }
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_result_assets_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_advanced_prompt_optimization_job_request() :: %{
+        required("jobIdentifiers") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_test_case_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_test_case_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex_config() :: %{
+        "action" => list(any()),
+        "description" => [String.t() | atom()],
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "name" => [String.t() | atom()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "pattern" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_regex_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5360,35 +4022,179 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      automated_reasoning_policy_add_type_value() :: %{
-        "description" => String.t() | atom(),
-        "value" => String.t() | atom()
+      put_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_add_type_value() :: %{(String.t() | atom()) => any()}
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      register_marketplace_model_endpoint_response() :: %{
-        "marketplaceModelEndpoint" => marketplace_model_endpoint()
+      validity_term() :: %{
+        "agreementDuration" => [String.t() | atom()]
       }
 
   """
-  @type register_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
+  @type validity_term() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_build_result_asset_manifest() :: %{
-        "entries" => list(automated_reasoning_policy_build_result_asset_manifest_entry())
+      automated_reasoning_policy_report_source_document() :: %{
+        "atomicStatements" => list(automated_reasoning_policy_atomic_statement()),
+        "documentContent" => list(automated_reasoning_policy_annotated_chunk()),
+        "documentHash" => String.t() | atom(),
+        "documentId" => String.t() | atom(),
+        "documentName" => String.t() | atom()
       }
 
   """
-  @type automated_reasoning_policy_build_result_asset_manifest() :: %{
+  @type automated_reasoning_policy_report_source_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_model_deployment_request() :: %{}
+
+  """
+  @type delete_custom_model_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieve_and_generate_configuration() :: %{
+        "externalSourcesConfiguration" => external_sources_retrieve_and_generate_configuration(),
+        "knowledgeBaseConfiguration" => knowledge_base_retrieve_and_generate_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type retrieve_and_generate_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_configuration() :: %{
+        "guardrailId" => [String.t() | atom()],
+        "guardrailVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_customization_job_request() :: %{}
+
+  """
+  @type get_model_customization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      field_for_reranking() :: %{
+        "fieldName" => [String.t() | atom()]
+      }
+
+  """
+  @type field_for_reranking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_filters_tier() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_content_filters_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluation_job_response() :: %{
+        "applicationType" => list(any()),
+        "creationTime" => non_neg_integer(),
+        "customerEncryptionKeyId" => String.t() | atom(),
+        "evaluationConfig" => list(),
+        "failureMessages" => list(String.t() | atom()),
+        "inferenceConfig" => list(),
+        "jobArn" => String.t() | atom(),
+        "jobDescription" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobType" => list(any()),
+        "lastModifiedTime" => non_neg_integer(),
+        "outputDataConfig" => evaluation_output_data_config(),
+        "roleArn" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type get_evaluation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_valid_finding() :: %{
+        "claimsTrueScenario" => automated_reasoning_check_scenario(),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "supportingRules" => list(automated_reasoning_check_rule()),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_valid_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_variable_mutation() :: %{
+        "variable" => automated_reasoning_policy_definition_variable()
+      }
+
+  """
+  @type automated_reasoning_policy_add_variable_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_automated_reasoning_policy_test_case_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("confidenceThreshold") => float(),
+        optional("queryContent") => String.t() | atom(),
+        required("expectedAggregatedFindingsResult") => list(any()),
+        required("guardContent") => String.t() | atom()
+      }
+
+  """
+  @type create_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_type_value_pair() :: %{
+        "typeName" => String.t() | atom(),
+        "valueName" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type_value_pair() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -5396,12 +4202,511 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      kb_inference_config() :: %{
-        "textInferenceConfig" => text_inference_config()
+      delete_guardrail_response() :: %{}
+
+  """
+  @type delete_guardrail_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_next_scenario_response() :: %{
+        "policyArn" => String.t() | atom(),
+        "scenario" => automated_reasoning_policy_scenario()
       }
 
   """
-  @type kb_inference_config() :: %{(String.t() | atom()) => any()}
+  @type get_automated_reasoning_policy_next_scenario_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_automated_reasoning_policy() :: %{
+        "confidenceThreshold" => float(),
+        "policies" => list(String.t() | atom())
+      }
+
+  """
+  @type guardrail_automated_reasoning_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_next_scenario_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_next_scenario_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_evaluator_model() :: %{
+        "modelIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_evaluator_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      r_f_t_config() :: %{
+        "graderConfig" => list(),
+        "hyperParameters" => r_f_t_hyper_parameters()
+      }
+
+  """
+  @type r_f_t_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_config() :: %{
+        "definition" => String.t() | atom(),
+        "examples" => list(String.t() | atom()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "name" => String.t() | atom(),
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_topic_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lambda_grader_config() :: %{
+        "lambdaArn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_grader_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      register_marketplace_model_endpoint_request() :: %{
+        required("modelSourceIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type register_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_response() :: %{}
+
+  """
+  @type delete_resource_policy_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_managed_words() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_managed_words() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_invocation_job_s3_output_data_config() :: %{
+        "s3BucketOwner" => String.t() | atom(),
+        "s3EncryptionKeyId" => String.t() | atom(),
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type model_invocation_job_s3_output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => list(tag())
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_variable_annotation() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_add_variable_annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_deployment_update_details() :: %{
+        "modelArn" => String.t() | atom(),
+        "updateStatus" => list(any())
+      }
+
+  """
+  @type custom_model_deployment_update_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
+        "assetId" => String.t() | atom(),
+        "assetName" => String.t() | atom(),
+        "assetType" => list(any())
+      }
+
+  """
+  @type automated_reasoning_policy_build_result_asset_manifest_entry() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_invocation_logging_configuration_response() :: %{
+        "loggingConfig" => logging_config()
+      }
+
+  """
+  @type get_model_invocation_logging_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_pii_entity() :: %{
+        "action" => list(any()),
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_pii_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_configuration_for_reranking() :: %{
+        "selectionMode" => list(any()),
+        "selectiveModeConfiguration" => list()
+      }
+
+  """
+  @type metadata_configuration_for_reranking() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_input_text_reference() :: %{
+        "text" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_check_input_text_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_results_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testResults" => list(automated_reasoning_policy_test_result())
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_results_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_type_mutation() :: %{
+        "type" => automated_reasoning_policy_definition_type()
+      }
+
+  """
+  @type automated_reasoning_policy_update_type_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_marketplace_model_endpoint_request() :: %{
+        optional("acceptEula") => boolean(),
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("tags") => list(tag()),
+        required("endpointConfig") => list(),
+        required("endpointName") => String.t() | atom(),
+        required("modelSourceIdentifier") => String.t() | atom()
+      }
+
+  """
+  @type create_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_add_type_mutation() :: %{
+        "type" => automated_reasoning_policy_definition_type()
+      }
+
+  """
+  @type automated_reasoning_policy_add_type_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      too_many_tags_exception() :: %{
+        "message" => String.t() | atom(),
+        "resourceName" => String.t() | atom()
+      }
+
+  """
+  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_rule_annotation() :: %{
+        "expression" => String.t() | atom(),
+        "ruleId" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_update_rule_annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_advanced_prompt_optimization_jobs_response() :: %{
+        "jobSummaries" => list(advanced_prompt_optimization_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_advanced_prompt_optimization_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_repair_content() :: %{
+        "annotations" => list(list())
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_repair_content() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      imported_model_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "instructSupported" => boolean(),
+        "modelArchitecture" => String.t() | atom(),
+        "modelArn" => String.t() | atom(),
+        "modelName" => String.t() | atom()
+      }
+
+  """
+  @type imported_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_prompt_router_request() :: %{}
+
+  """
+  @type delete_prompt_router_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_annotations_request() :: %{}
+
+  """
+  @type get_automated_reasoning_policy_annotations_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      prompt_router_target_model() :: %{
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type prompt_router_target_model() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_profile_summary() :: %{
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "inferenceProfileArn" => String.t() | atom(),
+        "inferenceProfileId" => String.t() | atom(),
+        "inferenceProfileName" => String.t() | atom(),
+        "models" => list(inference_profile_model()),
+        "status" => list(any()),
+        "type" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type inference_profile_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sage_maker_endpoint() :: %{
+        "executionRole" => String.t() | atom(),
+        "initialInstanceCount" => integer(),
+        "instanceType" => String.t() | atom(),
+        "kmsEncryptionKey" => String.t() | atom(),
+        "vpc" => vpc_config()
+      }
+
+  """
+  @type sage_maker_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_request() :: %{
+        optional("force") => [boolean()]
+      }
+
+  """
+  @type delete_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_type() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "values" => list(automated_reasoning_policy_definition_type_value())
+      }
+
+  """
+  @type automated_reasoning_policy_definition_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      metadata_attribute_schema() :: %{
+        "description" => [String.t() | atom()],
+        "key" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type metadata_attribute_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_foundation_model_agreement_offers_response() :: %{
+        "modelId" => String.t() | atom(),
+        "offers" => list(offer())
+      }
+
+  """
+  @type list_foundation_model_agreement_offers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      teacher_model_config() :: %{
+        "maxResponseLengthForInference" => [integer()],
+        "teacherModelIdentifier" => String.t() | atom()
+      }
+
+  """
+  @type teacher_model_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      support_term() :: %{
+        "refundPolicyDescription" => [String.t() | atom()]
+      }
+
+  """
+  @type support_term() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_iterative_refinement_content() :: %{
+        "documents" => list(automated_reasoning_policy_build_workflow_document()),
+        "feedback" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_iterative_refinement_content() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
@@ -5429,13 +4734,119 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      start_automated_reasoning_policy_build_workflow_request() :: %{
-        optional("clientRequestToken") => String.t() | atom(),
-        required("sourceContent") => automated_reasoning_policy_build_workflow_source()
+      update_custom_model_deployment_response() :: %{
+        "customModelDeploymentArn" => String.t() | atom()
       }
 
   """
-  @type start_automated_reasoning_policy_build_workflow_request() :: %{
+  @type update_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "inferenceConfig" => inference_configuration(),
+        "modelId" => String.t() | atom()
+      }
+
+  """
+  @type model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_data_source() :: %{
+        "s3Uri" => String.t() | atom()
+      }
+
+  """
+  @type s3_data_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluation_jobs_response() :: %{
+        "jobSummaries" => list(evaluation_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_evaluation_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_evaluation_job_response() :: %{
+        "jobArn" => String.t() | atom()
+      }
+
+  """
+  @type create_evaluation_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_inference_config_summary() :: %{
+        "modelConfigSummary" => evaluation_model_config_summary(),
+        "ragConfigSummary" => evaluation_rag_config_summary()
+      }
+
+  """
+  @type evaluation_inference_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_rule_mutation() :: %{
+        "id" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_rule_mutation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_evaluation_jobs_request() :: %{
+        optional("applicationTypeEquals") => list(any()),
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
+  """
+  @type list_evaluation_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_definition_quality_report() :: %{
+        "conflictingRules" => list(String.t() | atom()),
+        "disjointRuleSets" => list(automated_reasoning_policy_disjoint_rule_set()),
+        "ruleCount" => [integer()],
+        "typeCount" => [integer()],
+        "unusedTypeValues" => list(automated_reasoning_policy_definition_type_value_pair()),
+        "unusedTypes" => list(String.t() | atom()),
+        "unusedVariables" => list(String.t() | atom()),
+        "variableCount" => [integer()]
+      }
+
+  """
+  @type automated_reasoning_policy_definition_quality_report() :: %{
           (String.t() | atom()) => any()
         }
 
@@ -5443,360 +4854,154 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      create_custom_model_deployment_response() :: %{
-        "customModelDeploymentArn" => String.t() | atom()
+      delete_automated_reasoning_policy_test_case_response() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_test_case_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_foundation_models_request() :: %{
+        optional("byCustomizationType") => list(any()),
+        optional("byInferenceType") => list(any()),
+        optional("byOutputModality") => list(any()),
+        optional("byProvider") => String.t() | atom()
       }
 
   """
-  @type create_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+  @type list_foundation_models_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      training_data_config() :: %{
-        "invocationLogsConfig" => invocation_logs_config(),
-        "s3Uri" => String.t() | atom()
+      create_marketplace_model_endpoint_response() :: %{
+        "marketplaceModelEndpoint" => marketplace_model_endpoint()
       }
 
   """
-  @type training_data_config() :: %{(String.t() | atom()) => any()}
+  @type create_marketplace_model_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_check_invalid_finding() :: %{
-        "contradictingRules" => list(automated_reasoning_check_rule()),
-        "logicWarning" => automated_reasoning_check_logic_warning(),
-        "translation" => automated_reasoning_check_translation()
+      delete_marketplace_model_endpoint_response() :: %{}
+
+  """
+  @type delete_marketplace_model_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  """
+  @type delete_automated_reasoning_policy_build_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_inference_profile_response() :: %{
+        "inferenceProfileArn" => String.t() | atom(),
+        "status" => list(any())
       }
 
   """
-  @type automated_reasoning_check_invalid_finding() :: %{(String.t() | atom()) => any()}
+  @type create_inference_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      evaluation_bedrock_model() :: %{
-        "inferenceParams" => String.t() | atom(),
-        "modelIdentifier" => String.t() | atom(),
-        "performanceConfig" => performance_configuration()
+      list_automated_reasoning_policy_test_results_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
       }
 
   """
-  @type evaluation_bedrock_model() :: %{(String.t() | atom()) => any()}
+  @type list_automated_reasoning_policy_test_results_request() :: %{
+          (String.t() | atom()) => any()
+        }
 
   @typedoc """
 
   ## Example:
 
-      delete_model_invocation_logging_configuration_request() :: %{}
+      delete_imported_model_response() :: %{}
 
   """
-  @type delete_model_invocation_logging_configuration_request() :: %{}
+  @type delete_imported_model_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      batch_delete_advanced_prompt_optimization_job_item() :: %{
-        "jobIdentifier" => String.t() | atom(),
-        "jobStatus" => list(any())
+      put_account_data_retention_response() :: %{
+        "mode" => list(any()),
+        "updatedAt" => non_neg_integer()
       }
 
   """
-  @type batch_delete_advanced_prompt_optimization_job_item() :: %{(String.t() | atom()) => any()}
+  @type put_account_data_retention_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_definition() :: %{
-        "rules" => list(automated_reasoning_policy_definition_rule()),
-        "types" => list(automated_reasoning_policy_definition_type()),
-        "variables" => list(automated_reasoning_policy_definition_variable()),
-        "version" => String.t() | atom()
+      update_marketplace_model_endpoint_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        required("endpointConfig") => list()
       }
 
   """
-  @type automated_reasoning_policy_definition() :: %{(String.t() | atom()) => any()}
+  @type update_marketplace_model_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      automated_reasoning_policy_build_workflow_summary() :: %{
+      get_model_import_job_request() :: %{}
+
+  """
+  @type get_model_import_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      vector_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type vector_search_bedrock_reranking_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_response() :: %{
         "buildWorkflowId" => String.t() | atom(),
         "buildWorkflowType" => list(any()),
         "createdAt" => non_neg_integer(),
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t() | atom(),
+        "documentName" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
   """
-  @type automated_reasoning_policy_build_workflow_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      evaluation_precomputed_retrieve_and_generate_source_config() :: %{
-        "ragSourceIdentifier" => String.t() | atom()
-      }
-
-  """
-  @type evaluation_precomputed_retrieve_and_generate_source_config() :: %{
+  @type get_automated_reasoning_policy_build_workflow_response() :: %{
           (String.t() | atom()) => any()
         }
-
-  @typedoc """
-
-  ## Example:
-
-      custom_model_summary() :: %{
-        "baseModelArn" => String.t() | atom(),
-        "baseModelName" => String.t() | atom(),
-        "creationTime" => non_neg_integer(),
-        "customizationType" => list(any()),
-        "modelArn" => String.t() | atom(),
-        "modelName" => String.t() | atom(),
-        "modelStatus" => list(any()),
-        "ownerAccountId" => String.t() | atom()
-      }
-
-  """
-  @type custom_model_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      account_enforced_guardrail_inference_input_configuration() :: %{
-        "guardrailIdentifier" => String.t() | atom(),
-        "guardrailVersion" => String.t() | atom(),
-        "modelEnforcement" => model_enforcement(),
-        "selectiveContentGuarding" => selective_content_guarding()
-      }
-
-  """
-  @type account_enforced_guardrail_inference_input_configuration() :: %{
-          (String.t() | atom()) => any()
-        }
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_definition_type_value() :: %{
-        "description" => String.t() | atom(),
-        "value" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_definition_type_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_guardrail_request() :: %{
-        optional("guardrailVersion") => String.t() | atom()
-      }
-
-  """
-  @type get_guardrail_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_delete_advanced_prompt_optimization_job_error() :: %{
-        "code" => [String.t() | atom()],
-        "jobIdentifier" => String.t() | atom(),
-        "message" => [String.t() | atom()]
-      }
-
-  """
-  @type batch_delete_advanced_prompt_optimization_job_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_foundation_model_response() :: %{
-        "modelDetails" => foundation_model_details()
-      }
-
-  """
-  @type get_foundation_model_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_advanced_prompt_optimization_job_response() :: %{}
-
-  """
-  @type stop_advanced_prompt_optimization_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_data_retention_request() :: %{}
-
-  """
-  @type get_account_data_retention_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      too_many_tags_exception() :: %{
-        "message" => String.t() | atom(),
-        "resourceName" => String.t() | atom()
-      }
-
-  """
-  @type too_many_tags_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_topic() :: %{
-        "definition" => String.t() | atom(),
-        "examples" => list(String.t() | atom()),
-        "inputAction" => list(any()),
-        "inputEnabled" => [boolean()],
-        "name" => String.t() | atom(),
-        "outputAction" => list(any()),
-        "outputEnabled" => [boolean()],
-        "type" => list(any())
-      }
-
-  """
-  @type guardrail_topic() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_account_data_retention_response() :: %{
-        "mode" => list(any()),
-        "updatedAt" => non_neg_integer()
-      }
-
-  """
-  @type get_account_data_retention_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_enforced_guardrails_configuration_response() :: %{
-        "guardrailsConfig" => list(account_enforced_guardrail_output_configuration()),
-        "nextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_enforced_guardrails_configuration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      guardrail_contextual_grounding_policy() :: %{
-        "filters" => list(guardrail_contextual_grounding_filter())
-      }
-
-  """
-  @type guardrail_contextual_grounding_policy() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      human_evaluation_config() :: %{
-        "customMetrics" => list(human_evaluation_custom_metric()),
-        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
-        "humanWorkflowConfig" => human_workflow_config()
-      }
-
-  """
-  @type human_evaluation_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      performance_configuration() :: %{
-        "latency" => list(any())
-      }
-
-  """
-  @type performance_configuration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      advanced_prompt_optimization_output_config() :: %{
-        "s3Uri" => String.t() | atom()
-      }
-
-  """
-  @type advanced_prompt_optimization_output_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_marketplace_model_endpoint_request() :: %{}
-
-  """
-  @type delete_marketplace_model_endpoint_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      automated_reasoning_policy_variable_report() :: %{
-        "accuracyJustification" => String.t() | atom(),
-        "accuracyScore" => float(),
-        "groundingJustifications" => list(String.t() | atom()),
-        "groundingStatements" => list(automated_reasoning_policy_statement_reference()),
-        "policyVariable" => String.t() | atom()
-      }
-
-  """
-  @type automated_reasoning_policy_variable_report() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_foundation_model_agreement_response() :: %{}
-
-  """
-  @type delete_foundation_model_agreement_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_advanced_prompt_optimization_jobs_request() :: %{
-        optional("maxResults") => integer(),
-        optional("nextToken") => String.t() | atom(),
-        optional("sortBy") => list(any()),
-        optional("sortOrder") => list(any())
-      }
-
-  """
-  @type list_advanced_prompt_optimization_jobs_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5832,832 +5037,1627 @@ defmodule AWS.Bedrock do
 
   ## Example:
 
-      list_model_import_jobs_response() :: %{
-        "modelImportJobSummaries" => list(model_import_job_summary()),
-        "nextToken" => String.t() | atom()
+      evaluation_bedrock_model() :: %{
+        "inferenceParams" => String.t() | atom(),
+        "modelIdentifier" => String.t() | atom(),
+        "performanceConfig" => performance_configuration()
       }
 
   """
-  @type list_model_import_jobs_response() :: %{(String.t() | atom()) => any()}
+  @type evaluation_bedrock_model() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      s3_data_source() :: %{
+      guardrail_word() :: %{
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_word() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_use_case_for_model_access_response() :: %{
+        "formData" => binary()
+      }
+
+  """
+  @type get_use_case_for_model_access_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_invocation_logging_configuration_request() :: %{}
+
+  """
+  @type get_model_invocation_logging_configuration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_model_config_summary() :: %{
+        "bedrockModelIdentifiers" => list(String.t() | atom()),
+        "precomputedInferenceSourceIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type evaluation_model_config_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_guardrail_response() :: %{
+        "automatedReasoningPolicy" => guardrail_automated_reasoning_policy(),
+        "blockedInputMessaging" => String.t() | atom(),
+        "blockedOutputsMessaging" => String.t() | atom(),
+        "contentPolicy" => guardrail_content_policy(),
+        "contextualGroundingPolicy" => guardrail_contextual_grounding_policy(),
+        "createdAt" => non_neg_integer(),
+        "crossRegionDetails" => guardrail_cross_region_details(),
+        "description" => String.t() | atom(),
+        "failureRecommendations" => list(String.t() | atom()),
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "kmsKeyArn" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sensitiveInformationPolicy" => guardrail_sensitive_information_policy(),
+        "status" => list(any()),
+        "statusReasons" => list(String.t() | atom()),
+        "topicPolicy" => guardrail_topic_policy(),
+        "updatedAt" => non_neg_integer(),
+        "version" => String.t() | atom(),
+        "wordPolicy" => guardrail_word_policy()
+      }
+
+  """
+  @type get_guardrail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_model_customization_jobs_response() :: %{
+        "modelCustomizationJobSummaries" => list(model_customization_job_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_model_customization_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_statement_reference() :: %{
+        "documentId" => String.t() | atom(),
+        "statementId" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_statement_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_foundation_models_response() :: %{
+        "modelSummaries" => list(foundation_model_summary())
+      }
+
+  """
+  @type list_foundation_models_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_evaluation_job_request() :: %{}
+
+  """
+  @type get_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_rule_annotation() :: %{
+        "ruleId" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_rule_annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_enforced_guardrail_configuration_response() :: %{}
+
+  """
+  @type delete_enforced_guardrail_configuration_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_model_deployment_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "customModelDeploymentArn" => String.t() | atom(),
+        "description" => String.t() | atom(),
+        "failureMessage" => String.t() | atom(),
+        "lastUpdatedAt" => non_neg_integer(),
+        "modelArn" => String.t() | atom(),
+        "modelDeploymentName" => String.t() | atom(),
+        "status" => list(any()),
+        "updateDetails" => custom_model_deployment_update_details()
+      }
+
+  """
+  @type get_custom_model_deployment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_test_cases_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "testCases" => list(automated_reasoning_policy_test_case())
+      }
+
+  """
+  @type list_automated_reasoning_policy_test_cases_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_enforced_guardrail_configuration_request() :: %{
+        optional("configId") => String.t() | atom(),
+        required("guardrailInferenceConfig") => account_enforced_guardrail_inference_input_configuration()
+      }
+
+  """
+  @type put_enforced_guardrail_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topics_tier() :: %{
+        "tierName" => list(any())
+      }
+
+  """
+  @type guardrail_topics_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_automated_reasoning_policy_build_workflows_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_automated_reasoning_policy_build_workflows_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      list_prompt_routers_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "promptRouterSummaries" => list(prompt_router_summary())
+      }
+
+  """
+  @type list_prompt_routers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      advanced_prompt_optimization_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "jobArn" => String.t() | atom(),
+        "jobName" => String.t() | atom(),
+        "jobStatus" => list(any()),
+        "lastModifiedTime" => non_neg_integer()
+      }
+
+  """
+  @type advanced_prompt_optimization_job_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_topic_policy_config() :: %{
+        "tierConfig" => guardrail_topics_tier_config(),
+        "topicsConfig" => list(guardrail_topic_config())
+      }
+
+  """
+  @type guardrail_topic_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_provisioned_model_throughputs_request() :: %{
+        optional("creationTimeAfter") => non_neg_integer(),
+        optional("creationTimeBefore") => non_neg_integer(),
+        optional("maxResults") => integer(),
+        optional("modelArnEquals") => String.t() | atom(),
+        optional("nameContains") => String.t() | atom(),
+        optional("nextToken") => String.t() | atom(),
+        optional("sortBy") => list(any()),
+        optional("sortOrder") => list(any()),
+        optional("statusEquals") => list(any())
+      }
+
+  """
+  @type list_provisioned_model_throughputs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_source() :: %{
+        "policyDefinition" => automated_reasoning_policy_definition(),
+        "workflowContent" => list()
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      output_data_config() :: %{
         "s3Uri" => String.t() | atom()
       }
 
   """
-  @type s3_data_source() :: %{(String.t() | atom()) => any()}
+  @type output_data_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_model_customization_job_request() :: %{}
+
+  """
+  @type stop_model_customization_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_advanced_prompt_optimization_job_item() :: %{
+        "jobIdentifier" => String.t() | atom(),
+        "jobStatus" => list(any())
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_build_workflow_document() :: %{
+        "document" => binary(),
+        "documentContentType" => list(any()),
+        "documentDescription" => String.t() | atom(),
+        "documentName" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_build_workflow_document() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_evaluation_job_request() :: %{}
+
+  """
+  @type stop_evaluation_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_imported_model_request() :: %{}
+
+  """
+  @type get_imported_model_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_satisfiable_finding() :: %{
+        "claimsFalseScenario" => automated_reasoning_check_scenario(),
+        "claimsTrueScenario" => automated_reasoning_check_scenario(),
+        "logicWarning" => automated_reasoning_check_logic_warning(),
+        "translation" => automated_reasoning_check_translation()
+      }
+
+  """
+  @type automated_reasoning_check_satisfiable_finding() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      offer() :: %{
+        "offerId" => String.t() | atom(),
+        "offerToken" => String.t() | atom(),
+        "termDetails" => term_details()
+      }
+
+  """
+  @type offer() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_units() :: %{
+        "customModelUnitsPerModelCopy" => [integer()],
+        "customModelUnitsVersion" => String.t() | atom()
+      }
+
+  """
+  @type custom_model_units() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_content_policy() :: %{
+        "filters" => list(guardrail_content_filter()),
+        "tier" => guardrail_content_filters_tier()
+      }
+
+  """
+  @type guardrail_content_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      evaluation_dataset_metric_config() :: %{
+        "dataset" => evaluation_dataset(),
+        "metricNames" => list(String.t() | atom()),
+        "taskType" => list(any())
+      }
+
+  """
+  @type evaluation_dataset_metric_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_custom_model_deployment_request() :: %{}
+
+  """
+  @type get_custom_model_deployment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_logic_statement() :: %{
+        "logic" => String.t() | atom(),
+        "naturalLanguage" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_logic_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_enforced_guardrails_configuration_response() :: %{
+        "guardrailsConfig" => list(account_enforced_guardrail_output_configuration()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_enforced_guardrails_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_test_case_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("confidenceThreshold") => float(),
+        optional("queryContent") => String.t() | atom(),
+        required("expectedAggregatedFindingsResult") => list(any()),
+        required("guardContent") => String.t() | atom(),
+        required("lastUpdatedAt") => non_neg_integer()
+      }
+
+  """
+  @type update_automated_reasoning_policy_test_case_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      text_inference_config() :: %{
+        "maxTokens" => integer(),
+        "stopSequences" => list([String.t() | atom()]()),
+        "temperature" => float(),
+        "topP" => float()
+      }
+
+  """
+  @type text_inference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_filter_config() :: %{
+        "action" => list(any()),
+        "enabled" => [boolean()],
+        "threshold" => [float()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_contextual_grounding_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_update_type_annotation() :: %{
+        "description" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "newName" => String.t() | atom(),
+        "values" => list(list())
+      }
+
+  """
+  @type automated_reasoning_policy_update_type_annotation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_account_data_retention_request() :: %{}
+
+  """
+  @type get_account_data_retention_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_model_copy_job_response() :: %{
+        "creationTime" => non_neg_integer(),
+        "failureMessage" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "sourceModelArn" => String.t() | atom(),
+        "sourceModelName" => String.t() | atom(),
+        "status" => list(any()),
+        "targetModelArn" => String.t() | atom(),
+        "targetModelKmsKeyArn" => String.t() | atom(),
+        "targetModelName" => String.t() | atom(),
+        "targetModelTags" => list(tag())
+      }
+
+  """
+  @type get_model_copy_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_provisioned_model_throughput_request() :: %{}
+
+  """
+  @type get_provisioned_model_throughput_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      orchestration_configuration() :: %{
+        "queryTransformationConfiguration" => query_transformation_configuration()
+      }
+
+  """
+  @type orchestration_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_automated_reasoning_policy_request() :: %{
+        optional("description") => String.t() | atom(),
+        optional("name") => String.t() | atom(),
+        required("policyDefinition") => automated_reasoning_policy_definition()
+      }
+
+  """
+  @type update_automated_reasoning_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_regex() :: %{
+        "action" => list(any()),
+        "description" => [String.t() | atom()],
+        "inputAction" => list(any()),
+        "inputEnabled" => [boolean()],
+        "name" => [String.t() | atom()],
+        "outputAction" => list(any()),
+        "outputEnabled" => [boolean()],
+        "pattern" => [String.t() | atom()]
+      }
+
+  """
+  @type guardrail_regex() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_custom_model_deployment_response() :: %{}
+
+  """
+  @type delete_custom_model_deployment_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_ingest_content_annotation() :: %{
+        "content" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_ingest_content_annotation() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_provisioned_model_throughput_response() :: %{}
+
+  """
+  @type delete_provisioned_model_throughput_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_evaluation_config() :: %{
+        "customMetricConfig" => automated_evaluation_custom_metric_config(),
+        "datasetMetricConfigs" => list(evaluation_dataset_metric_config()),
+        "evaluatorModelConfig" => list()
+      }
+
+  """
+  @type automated_evaluation_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{
+        required("resourceARN") => String.t() | atom()
+      }
+
+  """
+  @type list_tags_for_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_check_translation() :: %{
+        "claims" => list(automated_reasoning_logic_statement()),
+        "confidence" => float(),
+        "premises" => list(automated_reasoning_logic_statement()),
+        "untranslatedClaims" => list(automated_reasoning_check_input_text_reference()),
+        "untranslatedPremises" => list(automated_reasoning_check_input_text_reference())
+      }
+
+  """
+  @type automated_reasoning_check_translation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_advanced_prompt_optimization_job_error() :: %{
+        "code" => [String.t() | atom()],
+        "jobIdentifier" => String.t() | atom(),
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_advanced_prompt_optimization_job_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_model_summary() :: %{
+        "baseModelArn" => String.t() | atom(),
+        "baseModelName" => String.t() | atom(),
+        "creationTime" => non_neg_integer(),
+        "customizationType" => list(any()),
+        "modelArn" => String.t() | atom(),
+        "modelName" => String.t() | atom(),
+        "modelStatus" => list(any()),
+        "ownerAccountId" => String.t() | atom()
+      }
+
+  """
+  @type custom_model_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_automated_reasoning_policy_version_request() :: %{}
+
+  """
+  @type export_automated_reasoning_policy_version_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_generated_test_cases() :: %{
+        "generatedTestCases" => list(automated_reasoning_policy_generated_test_case())
+      }
+
+  """
+  @type automated_reasoning_policy_generated_test_cases() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_contextual_grounding_policy_config() :: %{
+        "filtersConfig" => list(guardrail_contextual_grounding_filter_config())
+      }
+
+  """
+  @type guardrail_contextual_grounding_policy_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_response() :: %{
+        "createdAt" => non_neg_integer(),
+        "guardrailArn" => String.t() | atom(),
+        "guardrailId" => String.t() | atom(),
+        "version" => String.t() | atom()
+      }
+
+  """
+  @type create_guardrail_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      automated_reasoning_policy_delete_variable_annotation() :: %{
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type automated_reasoning_policy_delete_variable_annotation() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_inference_profile_response() :: %{}
+
+  """
+  @type delete_inference_profile_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
+        optional("assetId") => String.t() | atom(),
+        required("assetType") => list(any())
+      }
+
+  """
+  @type get_automated_reasoning_policy_build_workflow_result_assets_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_guardrail_version_request() :: %{
+        optional("clientRequestToken") => String.t() | atom(),
+        optional("description") => String.t() | atom()
+      }
+
+  """
+  @type create_guardrail_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      model_copy_job_summary() :: %{
+        "creationTime" => non_neg_integer(),
+        "failureMessage" => String.t() | atom(),
+        "jobArn" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "sourceModelArn" => String.t() | atom(),
+        "sourceModelName" => String.t() | atom(),
+        "status" => list(any()),
+        "targetModelArn" => String.t() | atom(),
+        "targetModelKmsKeyArn" => String.t() | atom(),
+        "targetModelName" => String.t() | atom(),
+        "targetModelTags" => list(tag())
+      }
+
+  """
+  @type model_copy_job_summary() :: %{(String.t() | atom()) => any()}
 
   @type batch_delete_advanced_prompt_optimization_job_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type batch_delete_evaluation_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type cancel_automated_reasoning_policy_build_workflow_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_advanced_prompt_optimization_job_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_automated_reasoning_policy_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_automated_reasoning_policy_test_case_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_automated_reasoning_policy_version_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_custom_model_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_custom_model_deployment_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type create_evaluation_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_foundation_model_agreement_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_guardrail_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_guardrail_version_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_inference_profile_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_model_copy_job_errors() ::
           too_many_tags_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
 
   @type create_model_customization_job_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_model_import_job_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_model_invocation_job_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_prompt_router_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type create_provisioned_model_throughput_errors() ::
-          too_many_tags_exception()
-          | throttling_exception()
+          service_quota_exceeded_exception()
+          | too_many_tags_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_automated_reasoning_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type delete_automated_reasoning_policy_build_workflow_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type delete_automated_reasoning_policy_test_case_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type delete_custom_model_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_custom_model_deployment_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_enforced_guardrail_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_foundation_model_agreement_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_guardrail_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type delete_imported_model_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_inference_profile_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_model_invocation_logging_configuration_errors() ::
-          throttling_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception() | throttling_exception()
 
   @type delete_prompt_router_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type delete_provisioned_model_throughput_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type delete_resource_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type deregister_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
 
   @type export_automated_reasoning_policy_version_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_account_data_retention_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type get_advanced_prompt_optimization_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_annotations_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_build_workflow_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_build_workflow_result_assets_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_next_scenario_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_test_case_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_automated_reasoning_policy_test_result_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_custom_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_custom_model_deployment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_evaluation_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_foundation_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_foundation_model_availability_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_guardrail_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_imported_model_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_inference_profile_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_model_copy_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_model_customization_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_model_import_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_model_invocation_job_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_model_invocation_logging_configuration_errors() ::
-          throttling_exception() | access_denied_exception() | internal_server_exception()
+          internal_server_exception() | access_denied_exception() | throttling_exception()
 
   @type get_prompt_router_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_provisioned_model_throughput_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_resource_policy_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type get_use_case_for_model_access_errors() ::
-          throttling_exception()
-          | validation_exception()
+          resource_not_found_exception()
           | internal_server_exception()
-          | resource_not_found_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type list_advanced_prompt_optimization_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_automated_reasoning_policies_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_automated_reasoning_policy_build_workflows_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_automated_reasoning_policy_test_cases_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_automated_reasoning_policy_test_results_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_custom_model_deployments_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_custom_models_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_enforced_guardrails_configuration_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_evaluation_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_foundation_model_agreement_offers_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_foundation_models_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_guardrails_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_imported_models_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_inference_profiles_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_marketplace_model_endpoints_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_model_copy_jobs_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type list_model_customization_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_model_import_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_model_invocation_jobs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_prompt_routers_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_provisioned_model_throughputs_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type put_account_data_retention_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type put_enforced_guardrail_configuration_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_model_invocation_logging_configuration_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type put_resource_policy_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type put_use_case_for_model_access_errors() ::
-          throttling_exception()
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
 
   @type register_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
+          | throttling_exception()
           | service_unavailable_exception()
-          | resource_not_found_exception()
 
   @type start_automated_reasoning_policy_build_workflow_errors() ::
-          throttling_exception()
-          | validation_exception()
-          | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
+          service_quota_exceeded_exception()
           | conflict_exception()
           | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_automated_reasoning_policy_test_workflow_errors() ::
-          throttling_exception()
+          resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type stop_advanced_prompt_optimization_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_evaluation_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_model_customization_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type stop_model_invocation_job_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
           too_many_tags_exception()
-          | throttling_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type untag_resource_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_automated_reasoning_policy_errors() ::
           too_many_tags_exception()
-          | throttling_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_automated_reasoning_policy_annotations_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_automated_reasoning_policy_test_case_errors() ::
-          throttling_exception()
+          conflict_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
-          | resource_in_use_exception()
+          | throttling_exception()
 
   @type update_custom_model_deployment_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   @type update_guardrail_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_marketplace_model_endpoint_errors() ::
-          throttling_exception()
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | service_quota_exceeded_exception()
-          | resource_not_found_exception()
-          | conflict_exception()
+          | throttling_exception()
 
   @type update_provisioned_model_throughput_errors() ::
-          throttling_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
-          | internal_server_exception()
-          | resource_not_found_exception()
+          | throttling_exception()
 
   def metadata do
     %{

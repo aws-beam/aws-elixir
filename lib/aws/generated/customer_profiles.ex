@@ -34,6 +34,1310 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      condition_overrides() :: %{
+        "Range" => range_override()
+      }
+
+  """
+  @type condition_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      contact_preference() :: %{
+        "ContactType" => list(any()),
+        "KeyName" => String.t() | atom(),
+        "KeyValue" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
+      }
+
+  """
+  @type contact_preference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_definition_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
+        "SegmentType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type segment_definition_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_layouts_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domain_layouts_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_calculated_attribute_definition_response() :: %{
+        "AttributeDetails" => attribute_details(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "Conditions" => conditions(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
+        "Statistic" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
+      }
+
+  """
+  @type update_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_exporting_location() :: %{
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyName" => String.t() | atom()
+      }
+
+  """
+  @type s3_exporting_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_filters_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommenderFilters" => list(recommender_filter_summary())
+      }
+
+  """
+  @type list_recommender_filters_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      job_schedule() :: %{
+        "DayOfTheWeek" => list(any()),
+        "Time" => String.t() | atom()
+      }
+
+  """
+  @type job_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      calculated_attribute_dimension() :: %{
+        "ConditionOverrides" => condition_overrides(),
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type calculated_attribute_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_similar_profiles_response() :: %{
+        "ConfidenceScore" => float(),
+        "MatchId" => String.t() | atom(),
+        "MatchType" => list(any()),
+        "NextToken" => String.t() | atom(),
+        "ProfileIds" => list(String.t() | atom()),
+        "RuleLevel" => integer()
+      }
+
+  """
+  @type get_similar_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_profile_object_type_response() :: %{
+        "AllowProfileCreation" => boolean(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "ExpirationDays" => integer(),
+        "Fields" => map(),
+        "Keys" => map(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "MaxAvailableProfileObjectCount" => integer(),
+        "MaxProfileObjectCount" => integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
+        "SourcePriority" => integer(),
+        "Tags" => map(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type put_profile_object_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_address() :: %{
+        "Address1" => String.t() | atom(),
+        "Address2" => String.t() | atom(),
+        "Address3" => String.t() | atom(),
+        "Address4" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "Province" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type update_address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_type_field() :: %{
+        "ContentType" => list(any()),
+        "Source" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type object_type_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_attribute_values_request() :: %{}
+
+  """
+  @type profile_attribute_values_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_definition_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
+        "SegmentGroups" => segment_group(),
+        "SegmentSort" => segment_sort(),
+        "SegmentSqlQuery" => String.t() | atom(),
+        "SegmentType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_segment_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      match_item() :: %{
+        "ConfidenceScore" => float(),
+        "MatchId" => String.t() | atom(),
+        "ProfileIds" => list(String.t() | atom())
+      }
+
+  """
+  @type match_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      flow_definition() :: %{
+        "Description" => String.t() | atom(),
+        "FlowName" => String.t() | atom(),
+        "KmsArn" => String.t() | atom(),
+        "SourceFlowConfig" => source_flow_config(),
+        "Tasks" => list(task()),
+        "TriggerConfig" => trigger_config()
+      }
+
+  """
+  @type flow_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_steps_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_workflow_steps_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_details() :: %{
+        "Attributes" => list(attribute_item()),
+        "Expression" => String.t() | atom()
+      }
+
+  """
+  @type attribute_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_profile_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_profile_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_trigger_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventTriggerLimits") => event_trigger_limits(),
+        optional("SegmentFilter") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("EventTriggerConditions") => list(event_trigger_condition()),
+        required("ObjectTypeName") => String.t() | atom()
+      }
+
+  """
+  @type create_event_trigger_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
+        "IsUnstructured" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "ObjectTypeNames" => map(),
+        "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
+        "Tags" => map(),
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
+      }
+
+  """
+  @type get_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_request() :: %{
+        required("Items") => list(batch_put_profile_object_request_item()),
+        required("ObjectTypeName") => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_based_matching_response() :: %{
+        "AttributeTypesSelector" => attribute_types_selector(),
+        "ConflictResolution" => conflict_resolution(),
+        "Enabled" => boolean(),
+        "ExportingConfig" => exporting_config(),
+        "MatchingRules" => list(matching_rule()),
+        "MaxAllowedRuleLevelForMatching" => integer(),
+        "MaxAllowedRuleLevelForMerging" => integer(),
+        "Status" => list(any())
+      }
+
+  """
+  @type rule_based_matching_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_schema_field() :: %{
+        "ContentType" => list(any()),
+        "FeatureType" => list(any()),
+        "TargetFieldName" => String.t() | atom()
+      }
+
+  """
+  @type recommender_schema_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch() :: %{
+        "EndTime" => non_neg_integer(),
+        "StartTime" => non_neg_integer()
+      }
+
+  """
+  @type batch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_steps_response() :: %{
+        "Items" => list(workflow_step_item()),
+        "NextToken" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom(),
+        "WorkflowType" => list(any())
+      }
+
+  """
+  @type get_workflow_steps_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      throttling_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conflict_resolution() :: %{
+        "ConflictResolvingModel" => list(any()),
+        "SourceName" => String.t() | atom()
+      }
+
+  """
+  @type conflict_resolution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type profile_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_stream_request() :: %{}
+
+  """
+  @type get_event_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_calculated_attribute_definition_request() :: %{
+        optional("Conditions") => conditions(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("Filter") => filter(),
+        optional("Tags") => map(),
+        optional("UseHistoricalData") => boolean(),
+        required("AttributeDetails") => attribute_details(),
+        required("Statistic") => list(any())
+      }
+
+  """
+  @type create_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      access_denied_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_filter_response() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type delete_recommender_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_response() :: %{
+        "Attributes" => workflow_attributes(),
+        "ErrorDescription" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Metrics" => workflow_metrics(),
+        "StartDate" => non_neg_integer(),
+        "Status" => list(any()),
+        "WorkflowId" => String.t() | atom(),
+        "WorkflowType" => list(any())
+      }
+
+  """
+  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_step_item() :: %{
+        "AppflowIntegration" => appflow_integration_workflow_step()
+      }
+
+  """
+  @type workflow_step_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_matches_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type get_matches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      conditions() :: %{
+        "ObjectCount" => integer(),
+        "Range" => range(),
+        "Threshold" => threshold()
+      }
+
+  """
+  @type conditions() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rule_based_matching_request() :: %{
+        "AttributeTypesSelector" => attribute_types_selector(),
+        "ConflictResolution" => conflict_resolution(),
+        "Enabled" => boolean(),
+        "ExportingConfig" => exporting_config(),
+        "MatchingRules" => list(matching_rule()),
+        "MaxAllowedRuleLevelForMatching" => integer(),
+        "MaxAllowedRuleLevelForMerging" => integer()
+      }
+
+  """
+  @type rule_based_matching_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_object_type_field() :: %{
+        "ContentType" => list(any()),
+        "FeatureType" => list(any()),
+        "Source" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type domain_object_type_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_calculated_attribute_for_profile_item() :: %{
+        "CalculatedAttributeName" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDataPartial" => String.t() | atom(),
+        "LastObjectTimestamp" => non_neg_integer(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type list_calculated_attribute_for_profile_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_definition_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "SegmentDefinitionArn" => String.t() | atom(),
+        "SegmentDefinitionName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_segment_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_stream_response() :: %{
+        "EventStreamArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_event_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_stream_request() :: %{
+        optional("Tags") => map(),
+        required("Uri") => String.t() | atom()
+      }
+
+  """
+  @type create_event_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      scheduled_trigger_properties() :: %{
+        "DataPullMode" => list(any()),
+        "FirstExecutionFrom" => non_neg_integer(),
+        "ScheduleEndTime" => non_neg_integer(),
+        "ScheduleExpression" => String.t() | atom(),
+        "ScheduleOffset" => float(),
+        "ScheduleStartTime" => non_neg_integer(),
+        "Timezone" => String.t() | atom()
+      }
+
+  """
+  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      data_store_response() :: %{
+        "Enabled" => boolean(),
+        "Readiness" => readiness()
+      }
+
+  """
+  @type data_store_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_object_types_response() :: %{
+        "Items" => list(list_profile_object_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_profile_object_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_profile_object_type_request() :: %{
+        optional("AllowProfileCreation") => boolean(),
+        optional("EncryptionKey") => String.t() | atom(),
+        optional("ExpirationDays") => integer(),
+        optional("Fields") => map(),
+        optional("Keys") => map(),
+        optional("MaxProfileObjectCount") => integer(),
+        optional("SourceLastUpdatedTimestampFormat") => String.t() | atom(),
+        optional("SourcePriority") => integer(),
+        optional("Tags") => map(),
+        optional("TemplateId") => String.t() | atom(),
+        required("Description") => String.t() | atom()
+      }
+
+  """
+  @type put_profile_object_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_objects_item() :: %{
+        "Object" => String.t() | atom(),
+        "ObjectTypeName" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type list_profile_objects_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      marketo_source_properties() :: %{
+        "Object" => String.t() | atom()
+      }
+
+  """
+  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_layout_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Layout" => String.t() | atom(),
+        "LayoutDefinitionName" => String.t() | atom(),
+        "LayoutType" => list(any()),
+        "Tags" => map(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type create_domain_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_promotional_filter() :: %{
+        "Name" => String.t() | atom(),
+        "PercentPromotedItems" => integer(),
+        "PromotionName" => String.t() | atom(),
+        "Values" => map()
+      }
+
+  """
+  @type recommender_promotional_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_attributes() :: %{
+        "AccountNumber" => profile_dimension(),
+        "AdditionalInformation" => extra_length_value_profile_dimension(),
+        "Address" => address_dimension(),
+        "Attributes" => map(),
+        "BillingAddress" => address_dimension(),
+        "BirthDate" => date_dimension(),
+        "BusinessEmailAddress" => profile_dimension(),
+        "BusinessName" => profile_dimension(),
+        "BusinessPhoneNumber" => profile_dimension(),
+        "EmailAddress" => profile_dimension(),
+        "FirstName" => profile_dimension(),
+        "GenderString" => profile_dimension(),
+        "HomePhoneNumber" => profile_dimension(),
+        "LastName" => profile_dimension(),
+        "MailingAddress" => address_dimension(),
+        "MiddleName" => profile_dimension(),
+        "MobilePhoneNumber" => profile_dimension(),
+        "PartyTypeString" => profile_dimension(),
+        "PersonalEmailAddress" => profile_dimension(),
+        "PhoneNumber" => profile_dimension(),
+        "ProfileType" => profile_type_dimension(),
+        "ShippingAddress" => address_dimension()
+      }
+
+  """
+  @type profile_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      field_source_profile_ids() :: %{
+        "AccountNumber" => String.t() | atom(),
+        "AdditionalInformation" => String.t() | atom(),
+        "Address" => String.t() | atom(),
+        "Attributes" => map(),
+        "BillingAddress" => String.t() | atom(),
+        "BirthDate" => String.t() | atom(),
+        "BusinessEmailAddress" => String.t() | atom(),
+        "BusinessName" => String.t() | atom(),
+        "BusinessPhoneNumber" => String.t() | atom(),
+        "EmailAddress" => String.t() | atom(),
+        "EngagementPreferences" => String.t() | atom(),
+        "FirstName" => String.t() | atom(),
+        "Gender" => String.t() | atom(),
+        "HomePhoneNumber" => String.t() | atom(),
+        "LastName" => String.t() | atom(),
+        "MailingAddress" => String.t() | atom(),
+        "MiddleName" => String.t() | atom(),
+        "MobilePhoneNumber" => String.t() | atom(),
+        "PartyType" => String.t() | atom(),
+        "PersonalEmailAddress" => String.t() | atom(),
+        "PhoneNumber" => String.t() | atom(),
+        "ProfileType" => String.t() | atom(),
+        "ShippingAddress" => String.t() | atom()
+      }
+
+  """
+  @type field_source_profile_ids() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => map()
+      }
+
+  """
+  @type recommender_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_segment_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_calculated_attribute_definition_request() :: %{}
+
+  """
+  @type delete_calculated_attribute_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      salesforce_source_properties() :: %{
+        "EnableDynamicFieldUpdate" => boolean(),
+        "IncludeDeletedRecords" => boolean(),
+        "Object" => String.t() | atom()
+      }
+
+  """
+  @type salesforce_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_type_attribute_statistics_request() :: %{}
+
+  """
+  @type get_object_type_attribute_statistics_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_attributes() :: %{
+        "AppflowIntegration" => appflow_integration_workflow_attributes()
+      }
+
+  """
+  @type workflow_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_attribute_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type filter_attribute_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_integrations_response() :: %{
+        "Items" => list(list_integration_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_account_integrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Tags" => map()
+      }
+
+  """
+  @type list_domain_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_object_request() :: %{
+        required("ObjectTypeName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("ProfileObjectUniqueKey") => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_object_types_response() :: %{
+        "Items" => list(domain_object_types_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_object_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      group() :: %{
+        "Dimensions" => list(list()),
+        "SourceSegments" => list(source_segment()),
+        "SourceType" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_history_records_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "ProfileHistoryRecords" => list(profile_history_record())
+      }
+
+  """
+  @type list_profile_history_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_trigger_request() :: %{}
+
+  """
+  @type get_event_trigger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      detect_profile_object_type_request() :: %{
+        required("Objects") => list(String.t() | atom())
+      }
+
+  """
+  @type detect_profile_object_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_event_trigger_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EventTriggerConditions" => list(event_trigger_condition()),
+        "EventTriggerLimits" => event_trigger_limits(),
+        "EventTriggerName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SegmentFilter" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_event_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommenders_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "Recommenders" => list(recommender_summary())
+      }
+
+  """
+  @type list_recommenders_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      consolidation() :: %{
+        "MatchingAttributesList" => list(list(String.t() | atom())())
+      }
+
+  """
+  @type consolidation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_key_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_key_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_layout_request() :: %{}
+
+  """
+  @type delete_domain_layout_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_object_type_template_item() :: %{
+        "SourceName" => String.t() | atom(),
+        "SourceObject" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type list_profile_object_type_template_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_identity_resolution_jobs_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_identity_resolution_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_group() :: %{
+        "Dimensions" => list(filter_dimension()),
+        "Type" => list(any())
+      }
+
+  """
+  @type filter_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_profiles_response() :: %{
+        "Items" => list(profile()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type search_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      address() :: %{
+        "Address1" => String.t() | atom(),
+        "Address2" => String.t() | atom(),
+        "Address3" => String.t() | atom(),
+        "Address4" => String.t() | atom(),
+        "City" => String.t() | atom(),
+        "Country" => String.t() | atom(),
+        "County" => String.t() | atom(),
+        "PostalCode" => String.t() | atom(),
+        "Province" => String.t() | atom(),
+        "State" => String.t() | atom()
+      }
+
+  """
+  @type address() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_request() :: %{}
+
+  """
+  @type get_domain_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      job_stats() :: %{
+        "NumberOfMatchesFound" => float(),
+        "NumberOfMergesDone" => float(),
+        "NumberOfProfilesReviewed" => float()
+      }
+
+  """
+  @type job_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_object_type_template_response() :: %{
+        "AllowProfileCreation" => boolean(),
+        "Fields" => map(),
+        "Keys" => map(),
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "SourceObject" => String.t() | atom(),
+        "TemplateId" => String.t() | atom()
+      }
+
+  """
+  @type get_profile_object_type_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      appflow_integration() :: %{
+        "Batches" => list(batch()),
+        "FlowDefinition" => flow_definition()
+      }
+
+  """
+  @type appflow_integration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_segment_definition_request() :: %{}
+
+  """
+  @type delete_segment_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      integration_config() :: %{
+        "AppflowIntegration" => appflow_integration()
+      }
+
+  """
+  @type integration_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_layout_request() :: %{
+        optional("IsDefault") => boolean(),
+        optional("Tags") => map(),
+        required("Description") => String.t() | atom(),
+        required("DisplayName") => String.t() | atom(),
+        required("Layout") => String.t() | atom(),
+        required("LayoutType") => list(any())
+      }
+
+  """
+  @type create_domain_layout_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_schema_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type recommender_schema_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_request_item() :: %{
+        "Id" => String.t() | atom(),
+        "Object" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_request_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_value_item() :: %{
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type attribute_value_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_key_request() :: %{
+        required("KeyName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
+      }
+
+  """
+  @type delete_profile_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_request() :: %{
+        required("ProfileId") => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_snapshot_request() :: %{
+        optional("DestinationUri") => String.t() | atom(),
+        optional("EncryptionKey") => String.t() | atom(),
+        optional("RoleArn") => String.t() | atom(),
+        required("DataFormat") => list(any())
+      }
+
+  """
+  @type create_segment_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      zendesk_source_properties() :: %{
+        "Object" => String.t() | atom()
+      }
+
+  """
+  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      range() :: %{
+        "TimestampFormat" => String.t() | atom(),
+        "TimestampSource" => String.t() | atom(),
+        "Unit" => list(any()),
+        "Value" => integer(),
+        "ValueRange" => value_range()
+      }
+
+  """
+  @type range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_domain_layout_response() :: %{
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -49,6 +1353,49 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type get_domain_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_exporting_config() :: %{
+        "S3BucketName" => String.t() | atom(),
+        "S3KeyName" => String.t() | atom()
+      }
+
+  """
+  @type s3_exporting_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_schema_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_recommender_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_object_type_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "Fields" => map(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_domain_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -91,12 +1438,784 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      integration_config() :: %{
-        "AppflowIntegration" => appflow_integration()
+      list_profile_history_records_request() :: %{
+        optional("ActionType") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ObjectTypeName") => String.t() | atom(),
+        optional("PerformedBy") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom()
       }
 
   """
-  @type integration_config() :: %{(String.t() | atom()) => any()}
+  @type list_profile_history_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_upload_jobs_response() :: %{
+        "Items" => list(upload_job_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_upload_jobs_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_layout_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_domain_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      auto_merging() :: %{
+        "ConflictResolution" => conflict_resolution(),
+        "Consolidation" => consolidation(),
+        "Enabled" => boolean(),
+        "MinAllowedConfidenceScoreForMerging" => float()
+      }
+
+  """
+  @type auto_merging() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_integration_workflow_response() :: %{
+        "Message" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
+      }
+
+  """
+  @type create_integration_workflow_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_domains_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_profile_response() :: %{
+        "ProfileId" => String.t() | atom()
+      }
+
+  """
+  @type update_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      appflow_integration_workflow_step() :: %{
+        "BatchRecordsEndTime" => String.t() | atom(),
+        "BatchRecordsStartTime" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "ExecutionMessage" => String.t() | atom(),
+        "FlowName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "RecordsProcessed" => float(),
+        "Status" => list(any())
+      }
+
+  """
+  @type appflow_integration_workflow_step() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_schema_response() :: %{}
+
+  """
+  @type delete_recommender_schema_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      start_upload_job_request() :: %{}
+
+  """
+  @type start_upload_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_config() :: %{
+        "EventsConfig" => events_config(),
+        "ExcludedColumns" => map(),
+        "IncludedColumns" => map(),
+        "InferenceConfig" => inference_config(),
+        "TrainingFrequency" => integer()
+      }
+
+  """
+  @type recommender_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_upload_job_request() :: %{}
+
+  """
+  @type stop_upload_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_object_type_response() :: %{}
+
+  """
+  @type delete_domain_object_type_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_triggers_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_event_triggers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_definition_request() :: %{}
+
+  """
+  @type get_segment_definition_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workflow_request() :: %{}
+
+  """
+  @type delete_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_estimate_request() :: %{
+        optional("SegmentQuery") => segment_group_structure(),
+        optional("SegmentSqlQuery") => String.t() | atom()
+      }
+
+  """
+  @type create_segment_estimate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rule_based_matches_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_rule_based_matches_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_rule_based_matches_response() :: %{
+        "MatchIds" => list(String.t() | atom()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_rule_based_matches_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      layout_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "LayoutDefinitionName" => String.t() | atom(),
+        "LayoutType" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type layout_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      internal_server_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_objects_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("ObjectFilter") => object_filter(),
+        required("ObjectTypeName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom()
+      }
+
+  """
+  @type list_profile_objects_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_filter_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
+        "RecommenderFilterExpression" => String.t() | atom(),
+        "RecommenderFilterName" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type get_recommender_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exporting_location() :: %{
+        "S3Exporting" => s3_exporting_location()
+      }
+
+  """
+  @type exporting_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_object_type_request() :: %{}
+
+  """
+  @type get_profile_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      merge_profiles_request() :: %{
+        optional("FieldSourceProfileIds") => field_source_profile_ids(),
+        required("MainProfileId") => String.t() | atom(),
+        required("ProfileIdsToBeMerged") => list(String.t() | atom())
+      }
+
+  """
+  @type merge_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_object_type_templates_response() :: %{
+        "Items" => list(list_profile_object_type_template_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_profile_object_type_templates_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_filter_summary() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
+        "RecommenderFilterExpression" => String.t() | atom(),
+        "RecommenderFilterName" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type recommender_filter_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      search_profiles_request() :: %{
+        optional("AdditionalSearchKeys") => list(additional_search_key()),
+        optional("LogicalOperator") => list(any()),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("KeyName") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
+      }
+
+  """
+  @type search_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_integration_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
+        "IsUnstructured" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "ObjectTypeNames" => map(),
+        "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
+        "Tags" => map(),
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
+      }
+
+  """
+  @type put_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_profile_object_request() :: %{
+        required("Object") => String.t() | atom(),
+        required("ObjectTypeName") => String.t() | atom()
+      }
+
+  """
+  @type put_profile_object_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_request() :: %{
+        required("Uri") => String.t() | atom()
+      }
+
+  """
+  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      add_profile_key_request() :: %{
+        required("KeyName") => String.t() | atom(),
+        required("ProfileId") => String.t() | atom(),
+        required("Values") => list(String.t() | atom())
+      }
+
+  """
+  @type add_profile_key_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      upload_job_item() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DataExpiry" => integer(),
+        "DisplayName" => String.t() | atom(),
+        "JobId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusReason" => list(any())
+      }
+
+  """
+  @type upload_job_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      value_range() :: %{
+        "End" => integer(),
+        "Start" => integer()
+      }
+
+  """
+  @type value_range() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resource_not_found_exception() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_trigger_limits() :: %{
+        "EventExpiration" => float(),
+        "Periods" => list(period())
+      }
+
+  """
+  @type event_trigger_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_identity_resolution_job_request() :: %{}
+
+  """
+  @type get_identity_resolution_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_response() :: %{
+        "CalculatedAttributeValues" => list(calculated_attribute_value()),
+        "ConditionOverrides" => condition_overrides(),
+        "Errors" => list(batch_get_calculated_attribute_for_profile_error())
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      extra_length_value_profile_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type extra_length_value_profile_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      tag_resource_request() :: %{
+        required("tags") => map()
+      }
+
+  """
+  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_calculated_attributes_for_profile_response() :: %{
+        "Items" => list(list_calculated_attribute_for_profile_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_calculated_attributes_for_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      threshold() :: %{
+        "Operator" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type threshold() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_objects_response() :: %{
+        "Items" => list(list_profile_objects_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_profile_objects_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_layout_request() :: %{}
+
+  """
+  @type get_domain_layout_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_config() :: %{
+        "MinProvisionedTPS" => integer()
+      }
+
+  """
+  @type inference_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
+        "DefaultExpirationDays" => integer(),
+        "DomainName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Matching" => matching_response(),
+        "RuleBasedMatching" => rule_based_matching_response(),
+        "Stats" => domain_stats(),
+        "Tags" => map()
+      }
+
+  """
+  @type get_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_calculated_attribute_definitions_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_calculated_attribute_definitions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      sort_attribute() :: %{
+        "DataType" => list(any()),
+        "Name" => String.t() | atom(),
+        "Order" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type sort_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommenders_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommenders_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_object_type_request() :: %{}
+
+  """
+  @type delete_profile_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      readiness() :: %{
+        "Message" => String.t() | atom(),
+        "ProgressPercentage" => integer()
+      }
+
+  """
+  @type readiness() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_filter_request() :: %{}
+
+  """
+  @type get_recommender_filter_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_request() :: %{
+        optional("ConditionOverrides") => condition_overrides(),
+        required("ProfileIds") => list(String.t() | atom())
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_response() :: %{
+        "Failed" => list(batch_put_profile_object_error_item()),
+        "Successful" => list(batch_put_profile_object_response_item())
+      }
+
+  """
+  @type batch_put_profile_object_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stop_recommender_response() :: %{}
+
+  """
+  @type stop_recommender_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      recommender_recipe() :: %{
+        "description" => [String.t() | atom()],
+        "name" => list(any())
+      }
+
+  """
+  @type recommender_recipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_estimate_request() :: %{}
+
+  """
+  @type get_segment_estimate_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_streams_response() :: %{
+        "Items" => list(event_stream_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_event_streams_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_integration_request() :: %{
+        optional("EventTriggerNames") => list(String.t() | atom()),
+        optional("FlowDefinition") => flow_definition(),
+        optional("ObjectTypeName") => String.t() | atom(),
+        optional("ObjectTypeNames") => map(),
+        optional("RoleArn") => String.t() | atom(),
+        optional("Scope") => list(any()),
+        optional("Tags") => map(),
+        optional("Uri") => String.t() | atom()
+      }
+
+  """
+  @type put_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_integration_request() :: %{
+        required("Uri") => String.t() | atom()
+      }
+
+  """
+  @type get_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_values_response() :: %{
+        "Items" => list(list_object_type_attribute_values_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attribute_values_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -120,157 +2239,117 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      auto_merging() :: %{
-        "ConflictResolution" => conflict_resolution(),
-        "Consolidation" => consolidation(),
+      tag_resource_response() :: %{}
+
+  """
+  @type tag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_history_record_request() :: %{}
+
+  """
+  @type get_profile_history_record_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      matching_request() :: %{
+        "AutoMerging" => auto_merging(),
         "Enabled" => boolean(),
-        "MinAllowedConfidenceScoreForMerging" => float()
+        "ExportingConfig" => exporting_config(),
+        "JobSchedule" => job_schedule()
       }
 
   """
-  @type auto_merging() :: %{(String.t() | atom()) => any()}
+  @type matching_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_trigger_limits() :: %{
-        "EventExpiration" => float(),
-        "Periods" => list(period())
+      delete_recommender_response() :: %{}
+
+  """
+  @type delete_recommender_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_workflow_request() :: %{}
+
+  """
+  @type get_workflow_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      object_type_key() :: %{
+        "FieldNames" => list(String.t() | atom()),
+        "StandardIdentifiers" => list(list(any())())
       }
 
   """
-  @type event_trigger_limits() :: %{(String.t() | atom()) => any()}
+  @type object_type_key() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_segment_estimate_request() :: %{
-        optional("SegmentQuery") => segment_group_structure(),
-        optional("SegmentSqlQuery") => String.t() | atom()
-      }
-
-  """
-  @type create_segment_estimate_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_calculated_attribute_definition_response() :: %{
-        "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | atom(),
-        "Conditions" => conditions(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Filter" => filter(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Readiness" => readiness(),
-        "Statistic" => list(any()),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "UseHistoricalData" => boolean()
-      }
-
-  """
-  @type create_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_request() :: %{}
-
-  """
-  @type get_domain_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_segment_snapshot_request() :: %{
-        optional("DestinationUri") => String.t() | atom(),
-        optional("EncryptionKey") => String.t() | atom(),
-        optional("RoleArn") => String.t() | atom(),
-        required("DataFormat") => list(any())
-      }
-
-  """
-  @type create_segment_snapshot_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_profile_object_type_response() :: %{
-        "AllowProfileCreation" => boolean(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EncryptionKey" => String.t() | atom(),
-        "ExpirationDays" => integer(),
-        "Fields" => map(),
-        "Keys" => map(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "MaxAvailableProfileObjectCount" => integer(),
-        "MaxProfileObjectCount" => integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
-        "SourcePriority" => integer(),
-        "Tags" => map(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type put_profile_object_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_profile_object_response_item() :: %{
-        "Id" => String.t() | atom(),
-        "ProfileObjectUniqueKey" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_profile_object_response_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      date_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list([String.t() | atom()]())
-      }
-
-  """
-  @type date_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_profile_object_request_item() :: %{
-        "Id" => String.t() | atom(),
+      service_now_source_properties() :: %{
         "Object" => String.t() | atom()
       }
 
   """
-  @type batch_put_profile_object_request_item() :: %{(String.t() | atom()) => any()}
+  @type service_now_source_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_response() :: %{
-        "Message" => String.t() | atom()
+      found_by_key_value() :: %{
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
+  @type found_by_key_value() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_event_trigger_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EventTriggerConditions" => list(event_trigger_condition()),
+        "EventTriggerLimits" => event_trigger_limits(),
+        "EventTriggerName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "SegmentFilter" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_event_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_profile_object_type_templates_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_profile_object_type_templates_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -287,261 +2366,135 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      job_schedule() :: %{
-        "DayOfTheWeek" => list(any()),
-        "Time" => String.t() | atom()
+      create_recommender_filter_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RecommenderSchemaName") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("RecommenderFilterExpression") => String.t() | atom()
       }
 
   """
-  @type job_schedule() :: %{(String.t() | atom()) => any()}
+  @type create_recommender_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_integration_response() :: %{
-        "Message" => String.t() | atom()
+      source_connector_properties() :: %{
+        "Marketo" => marketo_source_properties(),
+        "S3" => s3_source_properties(),
+        "Salesforce" => salesforce_source_properties(),
+        "ServiceNow" => service_now_source_properties(),
+        "Zendesk" => zendesk_source_properties()
       }
 
   """
-  @type delete_integration_response() :: %{(String.t() | atom()) => any()}
+  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      task() :: %{
-        "ConnectorOperator" => connector_operator(),
-        "DestinationField" => String.t() | atom(),
-        "SourceFields" => list(String.t() | atom()),
-        "TaskProperties" => map(),
-        "TaskType" => list(any())
+      list_integration_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DomainName" => String.t() | atom(),
+        "EventTriggerNames" => list(String.t() | atom()),
+        "IsUnstructured" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "ObjectTypeNames" => map(),
+        "RoleArn" => String.t() | atom(),
+        "Scope" => list(any()),
+        "Tags" => map(),
+        "Uri" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom()
       }
 
   """
-  @type task() :: %{(String.t() | atom()) => any()}
+  @type list_integration_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_domain_request() :: %{
-        optional("DataStore") => data_store_request(),
-        optional("DeadLetterQueueUrl") => String.t() | atom(),
-        optional("DefaultEncryptionKey") => String.t() | atom(),
-        optional("DefaultExpirationDays") => integer(),
-        optional("Matching") => matching_request(),
-        optional("RuleBasedMatching") => rule_based_matching_request(),
-        optional("Tags") => map()
+      delete_event_stream_request() :: %{}
+
+  """
+  @type delete_event_stream_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_calculated_attribute_definition_response() :: %{
+        "AttributeDetails" => attribute_details(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "Conditions" => conditions(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Filter" => filter(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
+        "Statistic" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
-  @type update_domain_request() :: %{(String.t() | atom()) => any()}
+  @type get_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      tag_resource_request() :: %{
-        required("tags") => map()
+      results_summary() :: %{
+        "CreatedRecords" => float(),
+        "FailedRecords" => float(),
+        "UpdatedRecords" => float()
       }
 
   """
-  @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+  @type results_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      scheduled_trigger_properties() :: %{
-        "DataPullMode" => list(any()),
-        "FirstExecutionFrom" => non_neg_integer(),
-        "ScheduleEndTime" => non_neg_integer(),
-        "ScheduleExpression" => String.t() | atom(),
-        "ScheduleOffset" => float(),
-        "ScheduleStartTime" => non_neg_integer(),
-        "Timezone" => String.t() | atom()
+      batch_get_profile_request() :: %{
+        required("ProfileIds") => list(String.t() | atom())
       }
 
   """
-  @type scheduled_trigger_properties() :: %{(String.t() | atom()) => any()}
+  @type batch_get_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_object_type_attribute_values_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      recommender_update() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "FailureReason" => [String.t() | atom()],
+        "LastUpdatedAt" => non_neg_integer(),
+        "RecommenderConfig" => recommender_config(),
+        "Status" => list(any())
       }
 
   """
-  @type list_object_type_attribute_values_request() :: %{(String.t() | atom()) => any()}
+  @type recommender_update() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      range() :: %{
-        "TimestampFormat" => String.t() | atom(),
-        "TimestampSource" => String.t() | atom(),
-        "Unit" => list(any()),
-        "Value" => integer(),
-        "ValueRange" => value_range()
+      add_profile_key_response() :: %{
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
       }
 
   """
-  @type range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_query_result() :: %{
-        "Profile" => profile(),
-        "ProfileId" => String.t() | atom(),
-        "QueryResult" => list(any())
-      }
-
-  """
-  @type profile_query_result() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_key_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_profile_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_object_type_template_item() :: %{
-        "SourceName" => String.t() | atom(),
-        "SourceObject" => String.t() | atom(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type list_profile_object_type_template_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_details() :: %{
-        "Attributes" => list(attribute_item()),
-        "Expression" => String.t() | atom()
-      }
-
-  """
-  @type attribute_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_schemas_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecommenderSchemas" => list(recommender_schema_summary())
-      }
-
-  """
-  @type list_recommender_schemas_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_object_type_request() :: %{}
-
-  """
-  @type delete_domain_object_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      detect_profile_object_type_response() :: %{
-        "DetectedProfileObjectTypes" => list(detected_profile_object_type())
-      }
-
-  """
-  @type detect_profile_object_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_schema_field() :: %{
-        "ContentType" => list(any()),
-        "FeatureType" => list(any()),
-        "TargetFieldName" => String.t() | atom()
-      }
-
-  """
-  @type recommender_schema_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_resolution_jobs_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_identity_resolution_jobs_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_recommendations_response() :: %{
-        "Recommendations" => list(recommendation())
-      }
-
-  """
-  @type get_profile_recommendations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      job_stats() :: %{
-        "NumberOfMatchesFound" => float(),
-        "NumberOfMergesDone" => float(),
-        "NumberOfProfilesReviewed" => float()
-      }
-
-  """
-  @type job_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      marketo_source_properties() :: %{
-        "Object" => String.t() | atom()
-      }
-
-  """
-  @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_layout_request() :: %{}
-
-  """
-  @type get_domain_layout_request() :: %{}
+  @type add_profile_key_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -554,6 +2507,117 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type list_upload_jobs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_recommender_request() :: %{}
+
+  """
+  @type delete_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      untag_resource_response() :: %{}
+
+  """
+  @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_response() :: %{
+        "Items" => list(list_workflows_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_segment_definitions_response() :: %{
+        "Items" => list(segment_definition_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_segment_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      additional_search_key() :: %{
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type additional_search_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "FailureReason" => [String.t() | atom()],
+        "LastUpdatedAt" => non_neg_integer(),
+        "LatestRecommenderUpdate" => recommender_update(),
+        "RecommenderConfig" => recommender_config(),
+        "RecommenderName" => String.t() | atom(),
+        "RecommenderRecipeName" => list(any()),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "TrainingMetrics" => list(training_metrics())
+      }
+
+  """
+  @type get_recommender_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      workflow_metrics() :: %{
+        "AppflowIntegration" => appflow_integration_workflow_metrics()
+      }
+
+  """
+  @type workflow_metrics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_calculated_attribute_definition_request() :: %{
+        optional("Conditions") => conditions(),
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom()
+      }
+
+  """
+  @type update_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter_dimension() :: %{
+        "Attributes" => map()
+      }
+
+  """
+  @type filter_dimension() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -584,330 +2648,24 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      create_recommender_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RecommenderConfig") => recommender_config(),
-        optional("RecommenderSchemaName") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("RecommenderRecipeName") => list(any())
+      list_event_triggers_response() :: %{
+        "Items" => list(event_trigger_summary_item()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type create_recommender_request() :: %{(String.t() | atom()) => any()}
+  @type list_event_triggers_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      attribute_item() :: %{
-        "Name" => String.t() | atom()
+      trigger_properties() :: %{
+        "Scheduled" => scheduled_trigger_properties()
       }
 
   """
-  @type attribute_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_request() :: %{
-        optional("TrainingMetricsCount") => integer()
-      }
-
-  """
-  @type get_recommender_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_calculated_attribute_for_profile_request() :: %{}
-
-  """
-  @type get_calculated_attribute_for_profile_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      conflict_resolution() :: %{
-        "ConflictResolvingModel" => list(any()),
-        "SourceName" => String.t() | atom()
-      }
-
-  """
-  @type conflict_resolution() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recommender_response() :: %{
-        "RecommenderName" => String.t() | atom()
-      }
-
-  """
-  @type update_recommender_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_history_record() :: %{
-        "ActionType" => list(any()),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "PerformedBy" => String.t() | atom(),
-        "ProfileObjectUniqueKey" => String.t() | atom()
-      }
-
-  """
-  @type profile_history_record() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_request() :: %{
-        required("ProfileId") => String.t() | atom()
-      }
-
-  """
-  @type delete_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_segment_definition_request() :: %{}
-
-  """
-  @type delete_segment_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      untag_resource_response() :: %{}
-
-  """
-  @type untag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      event_trigger_condition() :: %{
-        "EventTriggerDimensions" => list(event_trigger_dimension()),
-        "LogicalOperator" => list(any())
-      }
-
-  """
-  @type event_trigger_condition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_stats() :: %{
-        "MeteringProfileCount" => float(),
-        "ObjectCount" => float(),
-        "ProfileCount" => float(),
-        "TotalSize" => float()
-      }
-
-  """
-  @type domain_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_workflow_request() :: %{}
-
-  """
-  @type delete_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_integrations_request() :: %{
-        optional("IncludeHidden") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("Uri") => String.t() | atom()
-      }
-
-  """
-  @type list_account_integrations_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_schema_response() :: %{}
-
-  """
-  @type delete_recommender_schema_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_trigger_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_event_trigger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_filter() :: %{
-        "KeyName" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type object_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_filter_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RecommenderSchemaName") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("RecommenderFilterExpression") => String.t() | atom()
-      }
-
-  """
-  @type create_recommender_filter_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_type_attribute_statistics_stats() :: %{
-        "Average" => float(),
-        "Maximum" => float(),
-        "Minimum" => float(),
-        "Percentiles" => get_object_type_attribute_statistics_percentiles(),
-        "StandardDeviation" => float()
-      }
-
-  """
-  @type get_object_type_attribute_statistics_stats() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_source_properties() :: %{
-        "BucketName" => String.t() | atom(),
-        "BucketPrefix" => String.t() | atom()
-      }
-
-  """
-  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_definition_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "SegmentDefinitionArn" => String.t() | atom(),
-        "SegmentDefinitionName" => String.t() | atom(),
-        "SegmentType" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type segment_definition_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      found_by_key_value() :: %{
-        "KeyName" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type found_by_key_value() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DataStore" => data_store_response(),
-        "DeadLetterQueueUrl" => String.t() | atom(),
-        "DefaultEncryptionKey" => String.t() | atom(),
-        "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Matching" => matching_response(),
-        "RuleBasedMatching" => rule_based_matching_response(),
-        "Tags" => map()
-      }
-
-  """
-  @type update_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      merge_profiles_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type merge_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_segment_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_segment_definitions_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_identity_resolution_job_request() :: %{}
-
-  """
-  @type get_identity_resolution_job_request() :: %{}
+  @type trigger_properties() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -922,30 +2680,24 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      appflow_integration_workflow_step() :: %{
-        "BatchRecordsEndTime" => String.t() | atom(),
-        "BatchRecordsStartTime" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "ExecutionMessage" => String.t() | atom(),
-        "FlowName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "RecordsProcessed" => float(),
-        "Status" => list(any())
-      }
+      start_upload_job_response() :: %{}
 
   """
-  @type appflow_integration_workflow_step() :: %{(String.t() | atom()) => any()}
+  @type start_upload_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      detect_profile_object_type_request() :: %{
-        required("Objects") => list(String.t() | atom())
+      get_matches_response() :: %{
+        "MatchGenerationDate" => non_neg_integer(),
+        "Matches" => list(match_item()),
+        "NextToken" => String.t() | atom(),
+        "PotentialMatches" => integer()
       }
 
   """
-  @type detect_profile_object_type_request() :: %{(String.t() | atom()) => any()}
+  @type get_matches_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -967,380 +2719,21 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      get_domain_object_type_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EncryptionKey" => String.t() | atom(),
-        "Fields" => map(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "Tags" => map()
-      }
+      get_calculated_attribute_definition_request() :: %{}
 
   """
-  @type get_domain_object_type_response() :: %{(String.t() | atom()) => any()}
+  @type get_calculated_attribute_definition_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      delete_domain_layout_response() :: %{
+      delete_segment_definition_response() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type delete_domain_layout_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_schema_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Fields" => map(),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type recommender_schema_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_schema_request() :: %{}
-
-  """
-  @type get_recommender_schema_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      address_dimension() :: %{
-        "City" => profile_dimension(),
-        "Country" => profile_dimension(),
-        "County" => profile_dimension(),
-        "PostalCode" => profile_dimension(),
-        "Province" => profile_dimension(),
-        "State" => profile_dimension()
-      }
-
-  """
-  @type address_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_type_attribute_statistics_request() :: %{}
-
-  """
-  @type get_object_type_attribute_statistics_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      exporting_location() :: %{
-        "S3Exporting" => s3_exporting_location()
-      }
-
-  """
-  @type exporting_location() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_type_attribute_values_response() :: %{
-        "Items" => list(list_object_type_attribute_values_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_object_type_attribute_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_sort() :: %{
-        "Attributes" => list(sort_attribute())
-      }
-
-  """
-  @type segment_sort() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_filter_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FailureReason" => [String.t() | atom()],
-        "RecommenderFilterExpression" => String.t() | atom(),
-        "RecommenderFilterName" => String.t() | atom(),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type get_recommender_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_type_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(list(any())())
-      }
-
-  """
-  @type profile_type_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_similar_profiles_response() :: %{
-        "ConfidenceScore" => float(),
-        "MatchId" => String.t() | atom(),
-        "MatchType" => list(any()),
-        "NextToken" => String.t() | atom(),
-        "ProfileIds" => list(String.t() | atom()),
-        "RuleLevel" => integer()
-      }
-
-  """
-  @type get_similar_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_integration_request() :: %{
-        optional("EventTriggerNames") => list(String.t() | atom()),
-        optional("FlowDefinition") => flow_definition(),
-        optional("ObjectTypeName") => String.t() | atom(),
-        optional("ObjectTypeNames") => map(),
-        optional("RoleArn") => String.t() | atom(),
-        optional("Scope") => list(any()),
-        optional("Tags") => map(),
-        optional("Uri") => String.t() | atom()
-      }
-
-  """
-  @type put_integration_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upload_job_response() :: %{
-        "CompletedAt" => non_neg_integer(),
-        "CreatedAt" => non_neg_integer(),
-        "DataExpiry" => integer(),
-        "DisplayName" => String.t() | atom(),
-        "Fields" => map(),
-        "JobId" => String.t() | atom(),
-        "ResultsSummary" => results_summary(),
-        "Status" => list(any()),
-        "StatusReason" => list(any()),
-        "UniqueKey" => String.t() | atom()
-      }
-
-  """
-  @type get_upload_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_object_types_response() :: %{
-        "Items" => list(domain_object_types_list_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_object_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_parameters() :: %{
-        "EventType" => String.t() | atom(),
-        "EventValueThreshold" => float(),
-        "EventWeight" => float()
-      }
-
-  """
-  @type event_parameters() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_schema_request() :: %{
-        optional("Tags") => map(),
-        required("Fields") => map()
-      }
-
-  """
-  @type create_recommender_schema_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_layout_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IsDefault" => boolean(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Layout" => String.t() | atom(),
-        "LayoutDefinitionName" => String.t() | atom(),
-        "LayoutType" => list(any()),
-        "Tags" => map(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type create_domain_layout_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      flow_definition() :: %{
-        "Description" => String.t() | atom(),
-        "FlowName" => String.t() | atom(),
-        "KmsArn" => String.t() | atom(),
-        "SourceFlowConfig" => source_flow_config(),
-        "Tasks" => list(task()),
-        "TriggerConfig" => trigger_config()
-      }
-
-  """
-  @type flow_definition() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_type_attribute_statistics_percentiles() :: %{
-        "P25" => float(),
-        "P5" => float(),
-        "P50" => float(),
-        "P75" => float(),
-        "P95" => float()
-      }
-
-  """
-  @type get_object_type_attribute_statistics_percentiles() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_triggers_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_event_triggers_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rule_based_matches_response() :: %{
-        "MatchIds" => list(String.t() | atom()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_rule_based_matches_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      appflow_integration_workflow_attributes() :: %{
-        "ConnectorProfileName" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SourceConnectorType" => list(any())
-      }
-
-  """
-  @type appflow_integration_workflow_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_profile_key_response() :: %{
-        "KeyName" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type add_profile_key_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_group() :: %{
-        "Dimensions" => list(filter_dimension()),
-        "Type" => list(any())
-      }
-
-  """
-  @type filter_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_identity_resolution_jobs_response() :: %{
-        "IdentityResolutionJobsList" => list(identity_resolution_job()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_identity_resolution_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_calculated_attribute_for_profile_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "ProfileId" => String.t() | atom()
-      }
-
-  """
-  @type batch_get_calculated_attribute_for_profile_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      condition_overrides() :: %{
-        "Range" => range_override()
-      }
-
-  """
-  @type condition_overrides() :: %{(String.t() | atom()) => any()}
+  @type delete_segment_definition_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1357,94 +2750,154 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      catalog_item() :: %{
-        "AdditionalInformation" => String.t() | atom(),
-        "Attributes" => map(),
-        "Category" => String.t() | atom(),
-        "Code" => String.t() | atom(),
+      put_domain_object_type_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EncryptionKey") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("Fields") => map()
+      }
+
+  """
+  @type put_domain_object_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_request() :: %{}
+
+  """
+  @type get_upload_job_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      domain_stats() :: %{
+        "MeteringProfileCount" => float(),
+        "ObjectCount" => float(),
+        "ProfileCount" => float(),
+        "TotalSize" => float()
+      }
+
+  """
+  @type domain_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_history_record_response() :: %{
+        "ActionType" => list(any()),
+        "Content" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
-        "ImageLink" => String.t() | atom(),
-        "Link" => String.t() | atom(),
-        "Name" => String.t() | atom(),
-        "Price" => String.t() | atom(),
-        "Type" => String.t() | atom(),
-        "UpdatedAt" => non_neg_integer()
-      }
-
-  """
-  @type catalog_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matching_rule() :: %{
-        "Rule" => list(String.t() | atom())
-      }
-
-  """
-  @type matching_rule() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_value_item() :: %{
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type attribute_value_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_integration_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "EventTriggerNames" => list(String.t() | atom()),
-        "IsUnstructured" => boolean(),
         "LastUpdatedAt" => non_neg_integer(),
         "ObjectTypeName" => String.t() | atom(),
-        "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | atom(),
-        "Scope" => list(any()),
-        "Tags" => map(),
-        "Uri" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
+        "PerformedBy" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
       }
 
   """
-  @type put_integration_response() :: %{(String.t() | atom()) => any()}
+  @type get_profile_history_record_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      zendesk_source_properties() :: %{
-        "Object" => String.t() | atom()
-      }
+      get_upload_job_path_request() :: %{}
 
   """
-  @type zendesk_source_properties() :: %{(String.t() | atom()) => any()}
+  @type get_upload_job_path_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_integration_workflow_request() :: %{
+      task() :: %{
+        "ConnectorOperator" => connector_operator(),
+        "DestinationField" => String.t() | atom(),
+        "SourceFields" => list(String.t() | atom()),
+        "TaskProperties" => map(),
+        "TaskType" => list(any())
+      }
+
+  """
+  @type task() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_schemas_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommender_schemas_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_similar_profiles_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("MatchType") => list(any()),
+        required("SearchKey") => String.t() | atom(),
+        required("SearchValue") => String.t() | atom()
+      }
+
+  """
+  @type get_similar_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_request() :: %{
+        optional("DataStore") => data_store_request(),
+        optional("DeadLetterQueueUrl") => String.t() | atom(),
+        optional("DefaultEncryptionKey") => String.t() | atom(),
+        optional("Matching") => matching_request(),
+        optional("RuleBasedMatching") => rule_based_matching_request(),
         optional("Tags") => map(),
-        required("IntegrationConfig") => integration_config(),
-        required("ObjectTypeName") => String.t() | atom(),
-        required("RoleArn") => String.t() | atom(),
-        required("WorkflowType") => list(any())
+        required("DefaultExpirationDays") => integer()
       }
 
   """
-  @type create_integration_workflow_request() :: %{(String.t() | atom()) => any()}
+  @type create_domain_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_resolution_job() :: %{
+        "DomainName" => String.t() | atom(),
+        "ExportingLocation" => exporting_location(),
+        "JobEndTime" => non_neg_integer(),
+        "JobId" => String.t() | atom(),
+        "JobStartTime" => non_neg_integer(),
+        "JobStats" => job_stats(),
+        "Message" => String.t() | atom(),
+        "Status" => list(any())
+      }
+
+  """
+  @type identity_resolution_job() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      training_metrics() :: %{
+        "Metrics" => map(),
+        "Time" => non_neg_integer()
+      }
+
+  """
+  @type training_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1471,36 +2924,301 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      get_similar_profiles_request() :: %{
+      destination_summary() :: %{
+        "Status" => list(any()),
+        "UnhealthySince" => non_neg_integer(),
+        "Uri" => String.t() | atom()
+      }
+
+  """
+  @type destination_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_response_item() :: %{
+        "Id" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_response_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      engagement_preferences() :: %{
+        "Email" => list(contact_preference()),
+        "Phone" => list(contact_preference())
+      }
+
+  """
+  @type engagement_preferences() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_calculated_attribute_definition_response() :: %{
+        "AttributeDetails" => attribute_details(),
+        "CalculatedAttributeName" => String.t() | atom(),
+        "Conditions" => conditions(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "Filter" => filter(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Readiness" => readiness(),
+        "Statistic" => list(any()),
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
+      }
+
+  """
+  @type create_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_recommender_request() :: %{
+        optional("TrainingMetricsCount") => integer()
+      }
+
+  """
+  @type get_recommender_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_estimate_response() :: %{
+        "DomainName" => String.t() | atom(),
+        "EstimateId" => String.t() | atom(),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type create_segment_estimate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("RecommenderConfig") => recommender_config(),
+        optional("RecommenderSchemaName") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("RecommenderRecipeName") => list(any())
+      }
+
+  """
+  @type create_recommender_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domains_response() :: %{
+        "Items" => list(list_domain_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domains_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_profile_response() :: %{
+        "Errors" => list(batch_get_profile_error()),
+        "Profiles" => list(profile())
+      }
+
+  """
+  @type batch_get_profile_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_values_request() :: %{
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("MatchType") => list(any()),
-        required("SearchKey") => String.t() | atom(),
-        required("SearchValue") => String.t() | atom()
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_similar_profiles_request() :: %{(String.t() | atom()) => any()}
+  @type list_object_type_attribute_values_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      trigger_properties() :: %{
-        "Scheduled" => scheduled_trigger_properties()
+      list_object_type_attributes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type trigger_properties() :: %{(String.t() | atom()) => any()}
+  @type list_object_type_attributes_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_upload_job_path_request() :: %{}
+      list_domain_object_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
 
   """
-  @type get_upload_job_path_request() :: %{}
+  @type list_domain_object_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_object_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_object_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      date_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list([String.t() | atom()]())
+      }
+
+  """
+  @type date_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_estimate_response() :: %{
+        "DomainName" => String.t() | atom(),
+        "Estimate" => String.t() | atom(),
+        "EstimateId" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type get_segment_estimate_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_object_type_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_object_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_schema_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Fields" => map(),
+        "RecommenderSchemaArn" => String.t() | atom(),
+        "RecommenderSchemaName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => map()
+      }
+
+  """
+  @type create_recommender_schema_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_layout_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("DisplayName") => String.t() | atom(),
+        optional("IsDefault") => boolean(),
+        optional("Layout") => String.t() | atom(),
+        optional("LayoutType") => list(any())
+      }
+
+  """
+  @type update_domain_layout_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_filter_response() :: %{
+        "RecommenderFilterArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_recommender_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_upload_job_request() :: %{
+        optional("DataExpiry") => integer(),
+        required("DisplayName") => String.t() | atom(),
+        required("Fields") => map(),
+        required("UniqueKey") => String.t() | atom()
+      }
+
+  """
+  @type create_upload_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_stream_destination_details() :: %{
+        "Message" => String.t() | atom(),
+        "Status" => list(any()),
+        "UnhealthySince" => non_neg_integer(),
+        "Uri" => String.t() | atom()
+      }
+
+  """
+  @type event_stream_destination_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
+        "DefaultExpirationDays" => integer(),
+        "DomainName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Matching" => matching_response(),
+        "RuleBasedMatching" => rule_based_matching_response(),
+        "Tags" => map()
+      }
+
+  """
+  @type update_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1517,102 +3235,21 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      list_event_triggers_response() :: %{
-        "Items" => list(event_trigger_summary_item()),
-        "NextToken" => String.t() | atom()
+      get_recommender_schema_request() :: %{}
+
+  """
+  @type get_recommender_schema_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      data_store_request() :: %{
+        "Enabled" => boolean()
       }
 
   """
-  @type list_event_triggers_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_history_record_request() :: %{}
-
-  """
-  @type get_profile_history_record_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      range_override() :: %{
-        "End" => integer(),
-        "Start" => integer(),
-        "Unit" => list(any())
-      }
-
-  """
-  @type range_override() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_calculated_attribute_definition_request() :: %{}
-
-  """
-  @type get_calculated_attribute_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_request() :: %{}
-
-  """
-  @type get_workflow_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      create_calculated_attribute_definition_request() :: %{
-        optional("Conditions") => conditions(),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("Filter") => filter(),
-        optional("Tags") => map(),
-        optional("UseHistoricalData") => boolean(),
-        required("AttributeDetails") => attribute_details(),
-        required("Statistic") => list(any())
-      }
-
-  """
-  @type create_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_calculated_attribute_definition_item() :: %{
-        "CalculatedAttributeName" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "UseHistoricalData" => boolean()
-      }
-
-  """
-  @type list_calculated_attribute_definition_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_integrations_request() :: %{
-        optional("IncludeHidden") => boolean(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_integrations_request() :: %{(String.t() | atom()) => any()}
+  @type data_store_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1622,6 +3259,475 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type delete_calculated_attribute_definition_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group_structure() :: %{
+        "Groups" => list(group()),
+        "Include" => list(any())
+      }
+
+  """
+  @type segment_group_structure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_item() :: %{
+        "AttributeName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type list_object_type_attribute_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_response() :: %{
+        "tags" => map()
+      }
+
+  """
+  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_account_integrations_request() :: %{
+        optional("IncludeHidden") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("Uri") => String.t() | atom()
+      }
+
+  """
+  @type list_account_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_domain_object_type_request() :: %{}
+
+  """
+  @type delete_domain_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      address_dimension() :: %{
+        "City" => profile_dimension(),
+        "Country" => profile_dimension(),
+        "County" => profile_dimension(),
+        "PostalCode" => profile_dimension(),
+        "Province" => profile_dimension(),
+        "State" => profile_dimension()
+      }
+
+  """
+  @type address_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_attribute() :: %{
+        "ComparisonOperator" => list(any()),
+        "FieldName" => String.t() | atom(),
+        "Source" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type object_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      trigger_config() :: %{
+        "TriggerProperties" => trigger_properties(),
+        "TriggerType" => list(any())
+      }
+
+  """
+  @type trigger_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_workflows_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("QueryEndDate") => non_neg_integer(),
+        optional("QueryStartDate") => non_neg_integer(),
+        optional("Status") => list(any()),
+        optional("WorkflowType") => list(any())
+      }
+
+  """
+  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_stream_summary() :: %{
+        "DestinationSummary" => destination_summary(),
+        "DomainName" => String.t() | atom(),
+        "EventStreamArn" => String.t() | atom(),
+        "EventStreamName" => String.t() | atom(),
+        "State" => list(any()),
+        "StoppedSince" => non_neg_integer(),
+        "Tags" => map()
+      }
+
+  """
+  @type event_stream_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_trigger_request() :: %{}
+
+  """
+  @type delete_event_trigger_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_recipes_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_recommender_recipes_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      exporting_config() :: %{
+        "S3Exporting" => s3_exporting_config()
+      }
+
+  """
+  @type exporting_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_type_attribute_statistics_percentiles() :: %{
+        "P25" => float(),
+        "P5" => float(),
+        "P50" => float(),
+        "P75" => float(),
+        "P95" => float()
+      }
+
+  """
+  @type get_object_type_attribute_statistics_percentiles() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_calculated_attribute_for_profile_request() :: %{}
+
+  """
+  @type get_calculated_attribute_for_profile_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_operator() :: %{
+        "Marketo" => list(any()),
+        "S3" => list(any()),
+        "Salesforce" => list(any()),
+        "ServiceNow" => list(any()),
+        "Zendesk" => list(any())
+      }
+
+  """
+  @type connector_operator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_membership_request() :: %{
+        required("ProfileIds") => list(String.t() | atom())
+      }
+
+  """
+  @type get_segment_membership_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_upload_job_response() :: %{
+        "JobId" => String.t() | atom()
+      }
+
+  """
+  @type create_upload_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_response() :: %{
+        "CompletedAt" => non_neg_integer(),
+        "CreatedAt" => non_neg_integer(),
+        "DataExpiry" => integer(),
+        "DisplayName" => String.t() | atom(),
+        "Fields" => map(),
+        "JobId" => String.t() | atom(),
+        "ResultsSummary" => results_summary(),
+        "Status" => list(any()),
+        "StatusReason" => list(any()),
+        "UniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type get_upload_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_workflow_response() :: %{}
+
+  """
+  @type delete_workflow_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_segment_membership_response() :: %{
+        "Failures" => list(profile_query_failures()),
+        "LastComputedAt" => non_neg_integer(),
+        "Profiles" => list(profile_query_result()),
+        "SegmentDefinitionName" => String.t() | atom()
+      }
+
+  """
+  @type get_segment_membership_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_upload_job_path_response() :: %{
+        "ClientToken" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "ValidUntil" => non_neg_integer()
+      }
+
+  """
+  @type get_upload_job_path_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_history_record() :: %{
+        "ActionType" => list(any()),
+        "CreatedAt" => non_neg_integer(),
+        "Id" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "PerformedBy" => String.t() | atom(),
+        "ProfileObjectUniqueKey" => String.t() | atom()
+      }
+
+  """
+  @type profile_history_record() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_domain_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "DataStore" => data_store_response(),
+        "DeadLetterQueueUrl" => String.t() | atom(),
+        "DefaultEncryptionKey" => String.t() | atom(),
+        "DefaultExpirationDays" => integer(),
+        "DomainName" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Matching" => matching_response(),
+        "RuleBasedMatching" => rule_based_matching_response(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_domain_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_response() :: %{
+        "RecommenderArn" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type create_recommender_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_domain_layout_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDefault" => boolean(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Layout" => String.t() | atom(),
+        "LayoutDefinitionName" => String.t() | atom(),
+        "LayoutType" => list(any()),
+        "Tags" => map(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type update_domain_layout_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attributes_response() :: %{
+        "Items" => list(list_object_type_attribute_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attributes_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_trigger_dimension() :: %{
+        "ObjectAttributes" => list(object_attribute())
+      }
+
+  """
+  @type event_trigger_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      period() :: %{
+        "MaxInvocationsPerProfile" => integer(),
+        "Unit" => list(any()),
+        "Unlimited" => boolean(),
+        "Value" => integer()
+      }
+
+  """
+  @type period() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      detected_profile_object_type() :: %{
+        "Fields" => map(),
+        "Keys" => map(),
+        "SourceLastUpdatedTimestampFormat" => String.t() | atom()
+      }
+
+  """
+  @type detected_profile_object_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_auto_merging_preview_response() :: %{
+        "DomainName" => String.t() | atom(),
+        "NumberOfMatchesInSample" => float(),
+        "NumberOfProfilesInSample" => float(),
+        "NumberOfProfilesWillBeMerged" => float()
+      }
+
+  """
+  @type get_auto_merging_preview_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      recommendation() :: %{
+        "CatalogItem" => catalog_item(),
+        "Score" => float()
+      }
+
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      s3_source_properties() :: %{
+        "BucketName" => String.t() | atom(),
+        "BucketPrefix" => String.t() | atom()
+      }
+
+  """
+  @type s3_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      attribute_types_selector() :: %{
+        "Address" => list(String.t() | atom()),
+        "AttributeMatchingModel" => list(any()),
+        "EmailAddress" => list(String.t() | atom()),
+        "PhoneNumber" => list(String.t() | atom())
+      }
+
+  """
+  @type attribute_types_selector() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_definition_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("SegmentGroups") => segment_group(),
+        optional("SegmentSort") => segment_sort(),
+        optional("SegmentSqlQuery") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("DisplayName") => String.t() | atom()
+      }
+
+  """
+  @type create_segment_definition_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1648,144 +3754,196 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      workflow_step_item() :: %{
-        "AppflowIntegration" => appflow_integration_workflow_step()
-      }
-
-  """
-  @type workflow_step_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_schema_response() :: %{
+      list_calculated_attribute_definition_item() :: %{
+        "CalculatedAttributeName" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
-        "Fields" => map(),
-        "RecommenderSchemaArn" => String.t() | atom(),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type create_recommender_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      object_type_field() :: %{
-        "ContentType" => list(any()),
-        "Source" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type object_type_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_recommender_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("RecommenderConfig") => recommender_config()
-      }
-
-  """
-  @type update_recommender_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
         "LastUpdatedAt" => non_neg_integer(),
-        "Tags" => map()
+        "Status" => list(any()),
+        "Tags" => map(),
+        "UseHistoricalData" => boolean()
       }
 
   """
-  @type list_domain_item() :: %{(String.t() | atom()) => any()}
+  @type list_calculated_attribute_definition_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_address() :: %{
-        "Address1" => String.t() | atom(),
-        "Address2" => String.t() | atom(),
-        "Address3" => String.t() | atom(),
-        "Address4" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "County" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "Province" => String.t() | atom(),
-        "State" => String.t() | atom()
+      get_auto_merging_preview_request() :: %{
+        optional("MinAllowedConfidenceScoreForMerging") => float(),
+        required("ConflictResolution") => conflict_resolution(),
+        required("Consolidation") => consolidation()
       }
 
   """
-  @type update_address() :: %{(String.t() | atom()) => any()}
+  @type get_auto_merging_preview_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_object_type_attributes_request() :: %{
+      source_segment() :: %{
+        "SegmentDefinitionName" => String.t() | atom()
+      }
+
+  """
+  @type source_segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      object_filter() :: %{
+        "KeyName" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+
+  """
+  @type object_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_recommendations_response() :: %{
+        "Recommendations" => list(recommendation())
+      }
+
+  """
+  @type get_profile_recommendations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_calculated_attributes_for_profile_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_object_type_attributes_request() :: %{(String.t() | atom()) => any()}
+  @type list_calculated_attributes_for_profile_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_object_type_attribute_item() :: %{
-        "AttributeName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer()
+      list_identity_resolution_jobs_response() :: %{
+        "IdentityResolutionJobsList" => list(identity_resolution_job()),
+        "NextToken" => String.t() | atom()
       }
 
   """
-  @type list_object_type_attribute_item() :: %{(String.t() | atom()) => any()}
+  @type list_identity_resolution_jobs_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_integration_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "EventTriggerNames" => list(String.t() | atom()),
-        "IsUnstructured" => boolean(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | atom(),
-        "Scope" => list(any()),
-        "Tags" => map(),
-        "Uri" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-
-  """
-  @type get_integration_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_object_response() :: %{
+      bad_request_exception() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type delete_profile_object_response() :: %{(String.t() | atom()) => any()}
+  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_stream_response() :: %{}
+
+  """
+  @type delete_event_stream_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrations_request() :: %{
+        optional("IncludeHidden") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_sort() :: %{
+        "Attributes" => list(sort_attribute())
+      }
+
+  """
+  @type segment_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_type_attribute_statistics_stats() :: %{
+        "Average" => float(),
+        "Maximum" => float(),
+        "Minimum" => float(),
+        "Percentiles" => get_object_type_attribute_statistics_percentiles(),
+        "StandardDeviation" => float()
+      }
+
+  """
+  @type get_object_type_attribute_statistics_stats() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_integrations_response() :: %{
+        "Items" => list(list_integration_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_integrations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_integration_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_integration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_event_trigger_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_event_trigger_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_get_calculated_attribute_for_profile_error() :: %{
+        "Code" => String.t() | atom(),
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom()
+      }
+
+  """
+  @type batch_get_calculated_attribute_for_profile_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1800,51 +3958,37 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      delete_profile_key_request() :: %{
-        required("KeyName") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom(),
-        required("Values") => list(String.t() | atom())
-      }
+      get_profile_object_type_template_request() :: %{}
 
   """
-  @type delete_profile_key_request() :: %{(String.t() | atom()) => any()}
+  @type get_profile_object_type_template_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      calculated_attribute_dimension() :: %{
-        "ConditionOverrides" => condition_overrides(),
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
+      list_workflows_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "Status" => list(any()),
+        "StatusDescription" => String.t() | atom(),
+        "WorkflowId" => String.t() | atom(),
+        "WorkflowType" => list(any())
       }
 
   """
-  @type calculated_attribute_dimension() :: %{(String.t() | atom()) => any()}
+  @type list_workflows_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      workflow_attributes() :: %{
-        "AppflowIntegration" => appflow_integration_workflow_attributes()
+      detect_profile_object_type_response() :: %{
+        "DetectedProfileObjectTypes" => list(detected_profile_object_type())
       }
 
   """
-  @type workflow_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      match_item() :: %{
-        "ConfidenceScore" => float(),
-        "MatchId" => String.t() | atom(),
-        "ProfileIds" => list(String.t() | atom())
-      }
-
-  """
-  @type match_item() :: %{(String.t() | atom()) => any()}
+  @type detect_profile_object_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1885,186 +4029,207 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      delete_workflow_response() :: %{}
-
-  """
-  @type delete_workflow_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_recommendations_request() :: %{
-        optional("CandidateIds") => list(String.t() | atom()),
-        optional("Context") => map(),
-        optional("MaxResults") => integer(),
-        optional("MetadataConfig") => metadata_config(),
-        optional("RecommenderFilters") => list(recommender_filter()),
-        optional("RecommenderPromotionalFilters") => list(recommender_promotional_filter()),
-        required("RecommenderName") => String.t() | atom()
+      source_flow_config() :: %{
+        "ConnectorProfileName" => String.t() | atom(),
+        "ConnectorType" => list(any()),
+        "IncrementalPullConfig" => incremental_pull_config(),
+        "SourceConnectorProperties" => source_connector_properties()
       }
 
   """
-  @type get_profile_recommendations_request() :: %{(String.t() | atom()) => any()}
+  @type source_flow_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_segment_definition_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "SegmentDefinitionArn" => String.t() | atom(),
-        "SegmentDefinitionName" => String.t() | atom(),
-        "SegmentGroups" => segment_group(),
-        "SegmentSort" => segment_sort(),
-        "SegmentSqlQuery" => String.t() | atom(),
-        "SegmentType" => list(any()),
-        "Tags" => map()
+      get_segment_snapshot_request() :: %{}
+
+  """
+  @type get_segment_snapshot_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      appflow_integration_workflow_metrics() :: %{
+        "RecordsProcessed" => float(),
+        "StepsCompleted" => float(),
+        "TotalSteps" => float()
       }
 
   """
-  @type get_segment_definition_response() :: %{(String.t() | atom()) => any()}
+  @type appflow_integration_workflow_metrics() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_based_matching_response() :: %{
-        "AttributeTypesSelector" => attribute_types_selector(),
-        "ConflictResolution" => conflict_resolution(),
+      matching_response() :: %{
+        "AutoMerging" => auto_merging(),
         "Enabled" => boolean(),
         "ExportingConfig" => exporting_config(),
-        "MatchingRules" => list(matching_rule()),
-        "MaxAllowedRuleLevelForMatching" => integer(),
-        "MaxAllowedRuleLevelForMerging" => integer(),
-        "Status" => list(any())
+        "JobSchedule" => job_schedule()
       }
 
   """
-  @type rule_based_matching_response() :: %{(String.t() | atom()) => any()}
+  @type matching_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      domain_object_type_field() :: %{
-        "ContentType" => list(any()),
-        "FeatureType" => list(any()),
-        "Source" => String.t() | atom(),
-        "Target" => String.t() | atom()
-      }
-
-  """
-  @type domain_object_type_field() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_calculated_attribute_definition_response() :: %{
-        "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | atom(),
-        "Conditions" => conditions(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Readiness" => readiness(),
-        "Statistic" => list(any()),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "UseHistoricalData" => boolean()
-      }
-
-  """
-  @type update_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      additional_search_key() :: %{
-        "KeyName" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type additional_search_key() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_query_failures() :: %{
-        "Message" => String.t() | atom(),
-        "ProfileId" => String.t() | atom(),
-        "Status" => integer()
-      }
-
-  """
-  @type profile_query_failures() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      resource_not_found_exception() :: %{
+      delete_domain_response() :: %{
         "Message" => String.t() | atom()
       }
 
   """
-  @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+  @type delete_domain_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      segment_group_structure() :: %{
-        "Groups" => list(group()),
-        "Include" => list(any())
+      stop_recommender_request() :: %{}
+
+  """
+  @type stop_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_domain_object_type_request() :: %{}
+
+  """
+  @type get_domain_object_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_event_streams_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type segment_group_structure() :: %{(String.t() | atom()) => any()}
+  @type list_event_streams_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      delete_integration_request() :: %{
-        required("Uri") => String.t() | atom()
+      domain_object_types_list_item() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
       }
 
   """
-  @type delete_integration_request() :: %{(String.t() | atom()) => any()}
+  @type domain_object_types_list_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      stop_upload_job_request() :: %{}
+      delete_recommender_schema_request() :: %{}
 
   """
-  @type stop_upload_job_request() :: %{}
+  @type delete_recommender_schema_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      create_domain_request() :: %{
-        optional("DataStore") => data_store_request(),
-        optional("DeadLetterQueueUrl") => String.t() | atom(),
-        optional("DefaultEncryptionKey") => String.t() | atom(),
-        optional("Matching") => matching_request(),
-        optional("RuleBasedMatching") => rule_based_matching_request(),
+      event_parameters() :: %{
+        "EventType" => String.t() | atom(),
+        "EventValueThreshold" => float(),
+        "EventWeight" => float()
+      }
+
+  """
+  @type event_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      range_override() :: %{
+        "End" => integer(),
+        "Start" => integer(),
+        "Unit" => list(any())
+      }
+
+  """
+  @type range_override() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_type_attribute_values_item() :: %{
+        "LastUpdatedAt" => non_neg_integer(),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type list_object_type_attribute_values_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_domain_layouts_response() :: %{
+        "Items" => list(layout_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_domain_layouts_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_domain_object_type_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "Fields" => map(),
+        "LastUpdatedAt" => non_neg_integer(),
+        "ObjectTypeName" => String.t() | atom(),
+        "Tags" => map()
+      }
+
+  """
+  @type put_domain_object_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_type_dimension() :: %{
+        "DimensionType" => list(any()),
+        "Values" => list(list(any())())
+      }
+
+  """
+  @type profile_type_dimension() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_recommender_schema_request() :: %{
         optional("Tags") => map(),
-        required("DefaultExpirationDays") => integer()
+        required("Fields") => map()
       }
 
   """
-  @type create_domain_request() :: %{(String.t() | atom()) => any()}
+  @type create_recommender_schema_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2106,447 +4271,65 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      get_calculated_attribute_for_profile_response() :: %{
-        "CalculatedAttributeName" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IsDataPartial" => String.t() | atom(),
-        "LastObjectTimestamp" => non_neg_integer(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      engagement_preferences() :: %{
-        "Email" => list(contact_preference()),
-        "Phone" => list(contact_preference())
-      }
-
-  """
-  @type engagement_preferences() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_rule_based_matches_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_rule_based_matches_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_schema_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Fields" => map(),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type get_recommender_schema_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_trigger_request() :: %{
+      update_recommender_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("EventTriggerLimits") => event_trigger_limits(),
-        optional("SegmentFilter") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("EventTriggerConditions") => list(event_trigger_condition()),
-        required("ObjectTypeName") => String.t() | atom()
+        optional("RecommenderConfig") => recommender_config()
       }
 
   """
-  @type create_event_trigger_request() :: %{(String.t() | atom()) => any()}
+  @type update_recommender_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      profile_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
+      list_recommender_recipes_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecommenderRecipes" => list(recommender_recipe())
       }
 
   """
-  @type profile_dimension() :: %{(String.t() | atom()) => any()}
+  @type list_recommender_recipes_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      batch_put_profile_object_request() :: %{
-        required("Items") => list(batch_put_profile_object_request_item()),
-        required("ObjectTypeName") => String.t() | atom()
-      }
-
-  """
-  @type batch_put_profile_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_calculated_attribute_for_profile_response() :: %{
-        "CalculatedAttributeValues" => list(calculated_attribute_value()),
-        "ConditionOverrides" => condition_overrides(),
-        "Errors" => list(batch_get_calculated_attribute_for_profile_error())
-      }
-
-  """
-  @type batch_get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_filter_request() :: %{}
-
-  """
-  @type delete_recommender_filter_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_streams_response() :: %{
-        "Items" => list(event_stream_summary()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_event_streams_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_type_attributes_response() :: %{
-        "Items" => list(list_object_type_attribute_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_object_type_attributes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_objects_response() :: %{
-        "Items" => list(list_profile_objects_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_profile_objects_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_request() :: %{}
-
-  """
-  @type delete_recommender_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_object_type_response() :: %{}
-
-  """
-  @type delete_domain_object_type_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recommendation() :: %{
-        "CatalogItem" => catalog_item(),
-        "Score" => float()
-      }
-
-  """
-  @type recommendation() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Status" => list(any()),
-        "StatusDescription" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom(),
-        "WorkflowType" => list(any())
-      }
-
-  """
-  @type list_workflows_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      merge_profiles_request() :: %{
-        optional("FieldSourceProfileIds") => field_source_profile_ids(),
-        required("MainProfileId") => String.t() | atom(),
-        required("ProfileIdsToBeMerged") => list(String.t() | atom())
-      }
-
-  """
-  @type merge_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      appflow_integration_workflow_metrics() :: %{
-        "RecordsProcessed" => float(),
-        "StepsCompleted" => float(),
-        "TotalSteps" => float()
-      }
-
-  """
-  @type appflow_integration_workflow_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_trigger_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EventTriggerConditions" => list(event_trigger_condition()),
-        "EventTriggerLimits" => event_trigger_limits(),
-        "EventTriggerName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "SegmentFilter" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_event_trigger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_response() :: %{
-        "Items" => list(list_domain_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domains_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_upload_job_response() :: %{
-        "JobId" => String.t() | atom()
-      }
-
-  """
-  @type create_upload_job_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_object_type_template_response() :: %{
-        "AllowProfileCreation" => boolean(),
-        "Fields" => map(),
-        "Keys" => map(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | atom(),
-        "SourceName" => String.t() | atom(),
-        "SourceObject" => String.t() | atom(),
-        "TemplateId" => String.t() | atom()
-      }
-
-  """
-  @type get_profile_object_type_template_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_object_type_attribute_values_item() :: %{
-        "LastUpdatedAt" => non_neg_integer(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type list_object_type_attribute_values_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_profile_response() :: %{
-        "ProfileId" => String.t() | atom()
-      }
-
-  """
-  @type create_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_matches_request() :: %{
+      list_recommender_filters_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type get_matches_request() :: %{(String.t() | atom()) => any()}
+  @type list_recommender_filters_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      list_profile_object_types_request() :: %{
+      merge_profiles_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type merge_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_profile_recommendations_request() :: %{
+        optional("CandidateIds") => list(String.t() | atom()),
+        optional("Context") => map(),
         optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+        optional("MetadataConfig") => metadata_config(),
+        optional("RecommenderFilters") => list(recommender_filter()),
+        optional("RecommenderPromotionalFilters") => list(recommender_promotional_filter()),
+        required("RecommenderName") => String.t() | atom()
       }
 
   """
-  @type list_profile_object_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("QueryEndDate") => non_neg_integer(),
-        optional("QueryStartDate") => non_neg_integer(),
-        optional("Status") => list(any()),
-        optional("WorkflowType") => list(any())
-      }
-
-  """
-  @type list_workflows_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_profile_response() :: %{
-        "Errors" => list(batch_get_profile_error()),
-        "Profiles" => list(profile())
-      }
-
-  """
-  @type batch_get_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_object_type_attribute_statistics_response() :: %{
-        "CalculatedAt" => non_neg_integer(),
-        "Statistics" => get_object_type_attribute_statistics_stats()
-      }
-
-  """
-  @type get_object_type_attribute_statistics_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_recipes_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recommender_recipes_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      exporting_config() :: %{
-        "S3Exporting" => s3_exporting_config()
-      }
-
-  """
-  @type exporting_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_store_response() :: %{
-        "Enabled" => boolean(),
-        "Readiness" => readiness()
-      }
-
-  """
-  @type data_store_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      destination_summary() :: %{
-        "Status" => list(any()),
-        "UnhealthySince" => non_neg_integer(),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type destination_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_response() :: %{}
-
-  """
-  @type delete_recommender_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_domain_layout_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IsDefault" => boolean(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Layout" => String.t() | atom(),
-        "LayoutDefinitionName" => String.t() | atom(),
-        "LayoutType" => list(any()),
-        "Tags" => map(),
-        "Version" => String.t() | atom()
-      }
-
-  """
-  @type update_domain_layout_response() :: %{(String.t() | atom()) => any()}
+  @type get_profile_recommendations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2569,172 +4352,27 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      s3_exporting_location() :: %{
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyName" => String.t() | atom()
+      update_event_trigger_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("EventTriggerConditions") => list(event_trigger_condition()),
+        optional("EventTriggerLimits") => event_trigger_limits(),
+        optional("ObjectTypeName") => String.t() | atom(),
+        optional("SegmentFilter") => String.t() | atom()
       }
 
   """
-  @type s3_exporting_location() :: %{(String.t() | atom()) => any()}
+  @type update_event_trigger_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_segment_definition_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "SegmentDefinitionArn" => String.t() | atom(),
-        "SegmentDefinitionName" => String.t() | atom(),
-        "Tags" => map()
+      incremental_pull_config() :: %{
+        "DatetimeTypeFieldName" => String.t() | atom()
       }
 
   """
-  @type create_segment_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matching_response() :: %{
-        "AutoMerging" => auto_merging(),
-        "Enabled" => boolean(),
-        "ExportingConfig" => exporting_config(),
-        "JobSchedule" => job_schedule()
-      }
-
-  """
-  @type matching_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      conditions() :: %{
-        "ObjectCount" => integer(),
-        "Range" => range(),
-        "Threshold" => threshold()
-      }
-
-  """
-  @type conditions() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_segment() :: %{
-        "SegmentDefinitionName" => String.t() | atom()
-      }
-
-  """
-  @type source_segment() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_recommender_request() :: %{}
-
-  """
-  @type start_recommender_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_recommender_response() :: %{}
-
-  """
-  @type stop_recommender_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_object_types_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_object_types_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_auto_merging_preview_request() :: %{
-        optional("MinAllowedConfidenceScoreForMerging") => float(),
-        required("ConflictResolution") => conflict_resolution(),
-        required("Consolidation") => consolidation()
-      }
-
-  """
-  @type get_auto_merging_preview_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_update() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "FailureReason" => [String.t() | atom()],
-        "LastUpdatedAt" => non_neg_integer(),
-        "RecommenderConfig" => recommender_config(),
-        "Status" => list(any())
-      }
-
-  """
-  @type recommender_update() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_response() :: %{
-        "tags" => map()
-      }
-
-  """
-  @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      source_connector_properties() :: %{
-        "Marketo" => marketo_source_properties(),
-        "S3" => s3_source_properties(),
-        "Salesforce" => salesforce_source_properties(),
-        "ServiceNow" => service_now_source_properties(),
-        "Zendesk" => zendesk_source_properties()
-      }
-
-  """
-  @type source_connector_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      start_upload_job_response() :: %{}
-
-  """
-  @type start_upload_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      training_metrics() :: %{
-        "Metrics" => map(),
-        "Time" => non_neg_integer()
-      }
-
-  """
-  @type training_metrics() :: %{(String.t() | atom()) => any()}
+  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2751,125 +4389,279 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      recommender_filter() :: %{
-        "Name" => String.t() | atom(),
-        "Values" => map()
+      update_domain_request() :: %{
+        optional("DataStore") => data_store_request(),
+        optional("DeadLetterQueueUrl") => String.t() | atom(),
+        optional("DefaultEncryptionKey") => String.t() | atom(),
+        optional("DefaultExpirationDays") => integer(),
+        optional("Matching") => matching_request(),
+        optional("RuleBasedMatching") => rule_based_matching_request(),
+        optional("Tags") => map()
       }
 
   """
-  @type recommender_filter() :: %{(String.t() | atom()) => any()}
+  @type update_domain_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_integration_request() :: %{
-        required("Uri") => String.t() | atom()
+      profile_query_failures() :: %{
+        "Message" => String.t() | atom(),
+        "ProfileId" => String.t() | atom(),
+        "Status" => integer()
       }
 
   """
-  @type get_integration_request() :: %{(String.t() | atom()) => any()}
+  @type profile_query_failures() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      event_trigger_dimension() :: %{
-        "ObjectAttributes" => list(object_attribute())
-      }
+      delete_recommender_filter_request() :: %{}
 
   """
-  @type event_trigger_dimension() :: %{(String.t() | atom()) => any()}
+  @type delete_recommender_filter_request() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      list_calculated_attribute_definitions_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
+      update_recommender_response() :: %{
+        "RecommenderName" => String.t() | atom()
       }
 
   """
-  @type list_calculated_attribute_definitions_request() :: %{(String.t() | atom()) => any()}
+  @type update_recommender_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      consolidation() :: %{
-        "MatchingAttributesList" => list(list(String.t() | atom())())
+      matching_rule() :: %{
+        "Rule" => list(String.t() | atom())
       }
 
   """
-  @type consolidation() :: %{(String.t() | atom()) => any()}
+  @type matching_rule() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      update_domain_layout_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom(),
-        optional("IsDefault") => boolean(),
-        optional("Layout") => String.t() | atom(),
-        optional("LayoutType") => list(any())
+      get_calculated_attribute_for_profile_response() :: %{
+        "CalculatedAttributeName" => String.t() | atom(),
+        "DisplayName" => String.t() | atom(),
+        "IsDataPartial" => String.t() | atom(),
+        "LastObjectTimestamp" => non_neg_integer(),
+        "Value" => String.t() | atom()
       }
 
   """
-  @type update_domain_layout_request() :: %{(String.t() | atom()) => any()}
+  @type get_calculated_attribute_for_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      rule_based_matching_request() :: %{
-        "AttributeTypesSelector" => attribute_types_selector(),
-        "ConflictResolution" => conflict_resolution(),
-        "Enabled" => boolean(),
-        "ExportingConfig" => exporting_config(),
-        "MatchingRules" => list(matching_rule()),
-        "MaxAllowedRuleLevelForMatching" => integer(),
-        "MaxAllowedRuleLevelForMerging" => integer()
-      }
+      stop_upload_job_response() :: %{}
 
   """
-  @type rule_based_matching_request() :: %{(String.t() | atom()) => any()}
+  @type stop_upload_job_response() :: %{}
 
   @typedoc """
 
   ## Example:
 
-      object_type_key() :: %{
-        "FieldNames" => list(String.t() | atom()),
-        "StandardIdentifiers" => list(list(any())())
+      get_segment_snapshot_response() :: %{
+        "DataFormat" => list(any()),
+        "DestinationUri" => String.t() | atom(),
+        "EncryptionKey" => String.t() | atom(),
+        "RoleArn" => String.t() | atom(),
+        "SnapshotId" => String.t() | atom(),
+        "Status" => list(any()),
+        "StatusMessage" => String.t() | atom()
       }
 
   """
-  @type object_type_key() :: %{(String.t() | atom()) => any()}
+  @type get_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      get_matches_response() :: %{
-        "MatchGenerationDate" => non_neg_integer(),
-        "Matches" => list(match_item()),
+      attribute_item() :: %{
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type attribute_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      profile_attribute_values_response() :: %{
+        "AttributeName" => String.t() | atom(),
+        "DomainName" => String.t() | atom(),
+        "Items" => list(attribute_value_item()),
+        "StatusCode" => integer()
+      }
+
+  """
+  @type profile_attribute_values_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_put_profile_object_error_item() :: %{
+        "Code" => integer(),
+        "Id" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type batch_put_profile_object_error_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_segment_snapshot_response() :: %{
+        "SnapshotId" => String.t() | atom()
+      }
+
+  """
+  @type create_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      event_trigger_condition() :: %{
+        "EventTriggerDimensions" => list(event_trigger_dimension()),
+        "LogicalOperator" => list(any())
+      }
+
+  """
+  @type event_trigger_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_calculated_attribute_definitions_response() :: %{
+        "Items" => list(list_calculated_attribute_definition_item()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_calculated_attribute_definitions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_recommender_schemas_response() :: %{
         "NextToken" => String.t() | atom(),
-        "PotentialMatches" => integer()
+        "RecommenderSchemas" => list(recommender_schema_summary())
       }
 
   """
-  @type get_matches_response() :: %{(String.t() | atom()) => any()}
+  @type list_recommender_schemas_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      start_upload_job_request() :: %{}
+      create_integration_workflow_request() :: %{
+        optional("Tags") => map(),
+        required("IntegrationConfig") => integration_config(),
+        required("ObjectTypeName") => String.t() | atom(),
+        required("RoleArn") => String.t() | atom(),
+        required("WorkflowType") => list(any())
+      }
 
   """
-  @type start_upload_job_request() :: %{}
+  @type create_integration_workflow_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      filter() :: %{
+        "Groups" => list(filter_group()),
+        "Include" => list(any())
+      }
+
+  """
+  @type filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_tags_for_resource_request() :: %{}
+
+  """
+  @type list_tags_for_resource_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      catalog_item() :: %{
+        "AdditionalInformation" => String.t() | atom(),
+        "Attributes" => map(),
+        "Category" => String.t() | atom(),
+        "Code" => String.t() | atom(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "ImageLink" => String.t() | atom(),
+        "Link" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Price" => String.t() | atom(),
+        "Type" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+
+  """
+  @type catalog_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      segment_group() :: %{
+        "Groups" => list(group()),
+        "Include" => list(any())
+      }
+
+  """
+  @type segment_group() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_recommender_request() :: %{}
+
+  """
+  @type start_recommender_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_profile_response() :: %{
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type delete_profile_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2894,976 +4686,51 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      create_segment_snapshot_response() :: %{
-        "SnapshotId" => String.t() | atom()
+      profile_query_result() :: %{
+        "Profile" => profile(),
+        "ProfileId" => String.t() | atom(),
+        "QueryResult" => list(any())
       }
 
   """
-  @type create_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
+  @type profile_query_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      filter() :: %{
-        "Groups" => list(filter_group()),
-        "Include" => list(any())
-      }
-
-  """
-  @type filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_snapshot_response() :: %{
-        "DataFormat" => list(any()),
-        "DestinationUri" => String.t() | atom(),
-        "EncryptionKey" => String.t() | atom(),
-        "RoleArn" => String.t() | atom(),
-        "SnapshotId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusMessage" => String.t() | atom()
-      }
-
-  """
-  @type get_segment_snapshot_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_filters_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recommender_filters_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_objects_item() :: %{
-        "Object" => String.t() | atom(),
-        "ObjectTypeName" => String.t() | atom(),
-        "ProfileObjectUniqueKey" => String.t() | atom()
-      }
-
-  """
-  @type list_profile_objects_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_calculated_attributes_for_profile_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_calculated_attributes_for_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DataStore" => data_store_response(),
-        "DeadLetterQueueUrl" => String.t() | atom(),
-        "DefaultEncryptionKey" => String.t() | atom(),
-        "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Matching" => matching_response(),
-        "RuleBasedMatching" => rule_based_matching_response(),
-        "Stats" => domain_stats(),
-        "Tags" => map()
-      }
-
-  """
-  @type get_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      field_source_profile_ids() :: %{
-        "AccountNumber" => String.t() | atom(),
-        "AdditionalInformation" => String.t() | atom(),
-        "Address" => String.t() | atom(),
-        "Attributes" => map(),
-        "BillingAddress" => String.t() | atom(),
-        "BirthDate" => String.t() | atom(),
-        "BusinessEmailAddress" => String.t() | atom(),
-        "BusinessName" => String.t() | atom(),
-        "BusinessPhoneNumber" => String.t() | atom(),
-        "EmailAddress" => String.t() | atom(),
-        "EngagementPreferences" => String.t() | atom(),
-        "FirstName" => String.t() | atom(),
-        "Gender" => String.t() | atom(),
-        "HomePhoneNumber" => String.t() | atom(),
-        "LastName" => String.t() | atom(),
-        "MailingAddress" => String.t() | atom(),
-        "MiddleName" => String.t() | atom(),
-        "MobilePhoneNumber" => String.t() | atom(),
-        "PartyType" => String.t() | atom(),
-        "PersonalEmailAddress" => String.t() | atom(),
-        "PhoneNumber" => String.t() | atom(),
-        "ProfileType" => String.t() | atom(),
-        "ShippingAddress" => String.t() | atom()
-      }
-
-  """
-  @type field_source_profile_ids() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_stream_destination_details() :: %{
-        "Message" => String.t() | atom(),
-        "Status" => list(any()),
-        "UnhealthySince" => non_neg_integer(),
-        "Uri" => String.t() | atom()
-      }
-
-  """
-  @type event_stream_destination_details() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_filter_response() :: %{
-        "Message" => [String.t() | atom()]
-      }
-
-  """
-  @type delete_recommender_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_attribute_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type filter_attribute_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_history_records_request() :: %{
-        optional("ActionType") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ObjectTypeName") => String.t() | atom(),
-        optional("PerformedBy") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom()
-      }
-
-  """
-  @type list_profile_history_records_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      segment_group() :: %{
-        "Groups" => list(group()),
-        "Include" => list(any())
-      }
-
-  """
-  @type segment_group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_trigger_request() :: %{}
-
-  """
-  @type delete_event_trigger_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      search_profiles_request() :: %{
-        optional("AdditionalSearchKeys") => list(additional_search_key()),
-        optional("LogicalOperator") => list(any()),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        required("KeyName") => String.t() | atom(),
-        required("Values") => list(String.t() | atom())
-      }
-
-  """
-  @type search_profiles_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_segment_definitions_response() :: %{
-        "Items" => list(segment_definition_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_segment_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_estimate_response() :: %{
-        "DomainName" => String.t() | atom(),
-        "Estimate" => String.t() | atom(),
-        "EstimateId" => String.t() | atom(),
-        "Message" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type get_segment_estimate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_object_type_request() :: %{}
-
-  """
-  @type get_profile_object_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_filter_summary() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FailureReason" => [String.t() | atom()],
-        "RecommenderFilterExpression" => String.t() | atom(),
-        "RecommenderFilterName" => String.t() | atom(),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type recommender_filter_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domains_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domains_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_stream_request() :: %{}
-
-  """
-  @type get_event_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      source_flow_config() :: %{
+      appflow_integration_workflow_attributes() :: %{
         "ConnectorProfileName" => String.t() | atom(),
-        "ConnectorType" => list(any()),
-        "IncrementalPullConfig" => incremental_pull_config(),
-        "SourceConnectorProperties" => source_connector_properties()
+        "RoleArn" => String.t() | atom(),
+        "SourceConnectorType" => list(any())
       }
 
   """
-  @type source_flow_config() :: %{(String.t() | atom()) => any()}
+  @type appflow_integration_workflow_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      internal_server_exception() :: %{
-        "Message" => String.t() | atom()
+      get_object_type_attribute_statistics_response() :: %{
+        "CalculatedAt" => non_neg_integer(),
+        "Statistics" => get_object_type_attribute_statistics_stats()
       }
 
   """
-  @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+  @type get_object_type_attribute_statistics_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
   ## Example:
 
-      create_event_trigger_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EventTriggerConditions" => list(event_trigger_condition()),
-        "EventTriggerLimits" => event_trigger_limits(),
-        "EventTriggerName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "SegmentFilter" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_event_trigger_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_recipe() :: %{
-        "description" => [String.t() | atom()],
-        "name" => list(any())
-      }
-
-  """
-  @type recommender_recipe() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_response() :: %{
-        "RecommenderArn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_recommender_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_domain_object_type_request() :: %{}
-
-  """
-  @type get_domain_object_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      object_attribute() :: %{
-        "ComparisonOperator" => list(any()),
-        "FieldName" => String.t() | atom(),
-        "Source" => String.t() | atom(),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type object_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      value_range() :: %{
-        "End" => integer(),
-        "Start" => integer()
-      }
-
-  """
-  @type value_range() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_snapshot_request() :: %{}
-
-  """
-  @type get_segment_snapshot_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_schemas_request() :: %{
+      list_profile_object_types_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
       }
 
   """
-  @type list_recommender_schemas_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_recommender_request() :: %{}
-
-  """
-  @type stop_recommender_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      salesforce_source_properties() :: %{
-        "EnableDynamicFieldUpdate" => boolean(),
-        "IncludeDeletedRecords" => boolean(),
-        "Object" => String.t() | atom()
-      }
-
-  """
-  @type salesforce_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_steps_response() :: %{
-        "Items" => list(workflow_step_item()),
-        "NextToken" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom(),
-        "WorkflowType" => list(any())
-      }
-
-  """
-  @type get_workflow_steps_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_domain_object_type_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EncryptionKey") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("Fields") => map()
-      }
-
-  """
-  @type put_domain_object_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_layout_request() :: %{
-        optional("IsDefault") => boolean(),
-        optional("Tags") => map(),
-        required("Description") => String.t() | atom(),
-        required("DisplayName") => String.t() | atom(),
-        required("Layout") => String.t() | atom(),
-        required("LayoutType") => list(any())
-      }
-
-  """
-  @type create_domain_layout_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_calculated_attributes_for_profile_response() :: %{
-        "Items" => list(list_calculated_attribute_for_profile_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_calculated_attributes_for_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_steps_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type get_workflow_steps_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_membership_request() :: %{
-        required("ProfileIds") => list(String.t() | atom())
-      }
-
-  """
-  @type get_segment_membership_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_calculated_attribute_definition_request() :: %{}
-
-  """
-  @type delete_calculated_attribute_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      filter_dimension() :: %{
-        "Attributes" => map()
-      }
-
-  """
-  @type filter_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_auto_merging_preview_response() :: %{
-        "DomainName" => String.t() | atom(),
-        "NumberOfMatchesInSample" => float(),
-        "NumberOfProfilesInSample" => float(),
-        "NumberOfProfilesWillBeMerged" => float()
-      }
-
-  """
-  @type get_auto_merging_preview_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      access_denied_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type access_denied_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      inference_config() :: %{
-        "MinProvisionedTPS" => integer()
-      }
-
-  """
-  @type inference_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      search_profiles_response() :: %{
-        "Items" => list(profile()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type search_profiles_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_integration_workflow_response() :: %{
-        "Message" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-
-  """
-  @type create_integration_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_calculated_attribute_definition_request() :: %{
-        optional("Conditions") => conditions(),
-        optional("Description") => String.t() | atom(),
-        optional("DisplayName") => String.t() | atom()
-      }
-
-  """
-  @type update_calculated_attribute_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_segment_definition_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("SegmentGroups") => segment_group(),
-        optional("SegmentSort") => segment_sort(),
-        optional("SegmentSqlQuery") => String.t() | atom(),
-        optional("Tags") => map(),
-        required("DisplayName") => String.t() | atom()
-      }
-
-  """
-  @type create_segment_definition_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      tag_resource_response() :: %{}
-
-  """
-  @type tag_resource_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      identity_resolution_job() :: %{
-        "DomainName" => String.t() | atom(),
-        "ExportingLocation" => exporting_location(),
-        "JobEndTime" => non_neg_integer(),
-        "JobId" => String.t() | atom(),
-        "JobStartTime" => non_neg_integer(),
-        "JobStats" => job_stats(),
-        "Message" => String.t() | atom(),
-        "Status" => list(any())
-      }
-
-  """
-  @type identity_resolution_job() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_calculated_attribute_for_profile_request() :: %{
-        optional("ConditionOverrides") => condition_overrides(),
-        required("ProfileIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_calculated_attribute_for_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_profile_object_error_item() :: %{
-        "Code" => integer(),
-        "Id" => String.t() | atom(),
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type batch_put_profile_object_error_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_stream_response() :: %{}
-
-  """
-  @type delete_event_stream_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_types_selector() :: %{
-        "Address" => list(String.t() | atom()),
-        "AttributeMatchingModel" => list(any()),
-        "EmailAddress" => list(String.t() | atom()),
-        "PhoneNumber" => list(String.t() | atom())
-      }
-
-  """
-  @type attribute_types_selector() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_filters_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecommenderFilters" => list(recommender_filter_summary())
-      }
-
-  """
-  @type list_recommender_filters_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      upload_job_item() :: %{
-        "CompletedAt" => non_neg_integer(),
-        "CreatedAt" => non_neg_integer(),
-        "DataExpiry" => integer(),
-        "DisplayName" => String.t() | atom(),
-        "JobId" => String.t() | atom(),
-        "Status" => list(any()),
-        "StatusReason" => list(any())
-      }
-
-  """
-  @type upload_job_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommenders_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "Recommenders" => list(recommender_summary())
-      }
-
-  """
-  @type list_recommenders_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      update_profile_response() :: %{
-        "ProfileId" => String.t() | atom()
-      }
-
-  """
-  @type update_profile_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upload_job_path_response() :: %{
-        "ClientToken" => String.t() | atom(),
-        "Url" => String.t() | atom(),
-        "ValidUntil" => non_neg_integer()
-      }
-
-  """
-  @type get_upload_job_path_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_profile_object_type_request() :: %{
-        optional("AllowProfileCreation") => boolean(),
-        optional("EncryptionKey") => String.t() | atom(),
-        optional("ExpirationDays") => integer(),
-        optional("Fields") => map(),
-        optional("Keys") => map(),
-        optional("MaxProfileObjectCount") => integer(),
-        optional("SourceLastUpdatedTimestampFormat") => String.t() | atom(),
-        optional("SourcePriority") => integer(),
-        optional("Tags") => map(),
-        optional("TemplateId") => String.t() | atom(),
-        required("Description") => String.t() | atom()
-      }
-
-  """
-  @type put_profile_object_type_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_config() :: %{
-        "EventsConfig" => events_config(),
-        "ExcludedColumns" => map(),
-        "IncludedColumns" => map(),
-        "InferenceConfig" => inference_config(),
-        "TrainingFrequency" => integer()
-      }
-
-  """
-  @type recommender_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch() :: %{
-        "EndTime" => non_neg_integer(),
-        "StartTime" => non_neg_integer()
-      }
-
-  """
-  @type batch() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_recommender_schema_request() :: %{}
-
-  """
-  @type delete_recommender_schema_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_tags_for_resource_request() :: %{}
-
-  """
-  @type list_tags_for_resource_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_membership_response() :: %{
-        "Failures" => list(profile_query_failures()),
-        "LastComputedAt" => non_neg_integer(),
-        "Profiles" => list(profile_query_result()),
-        "SegmentDefinitionName" => String.t() | atom()
-      }
-
-  """
-  @type get_segment_membership_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      contact_preference() :: %{
-        "ContactType" => list(any()),
-        "KeyName" => String.t() | atom(),
-        "KeyValue" => String.t() | atom(),
-        "ProfileId" => String.t() | atom()
-      }
-
-  """
-  @type contact_preference() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      s3_exporting_config() :: %{
-        "S3BucketName" => String.t() | atom(),
-        "S3KeyName" => String.t() | atom()
-      }
-
-  """
-  @type s3_exporting_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      throttling_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type throttling_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      attribute_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type attribute_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      group() :: %{
-        "Dimensions" => list(list()),
-        "SourceSegments" => list(source_segment()),
-        "SourceType" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type group() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_domain_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DataStore" => data_store_response(),
-        "DeadLetterQueueUrl" => String.t() | atom(),
-        "DefaultEncryptionKey" => String.t() | atom(),
-        "DefaultExpirationDays" => integer(),
-        "DomainName" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Matching" => matching_response(),
-        "RuleBasedMatching" => rule_based_matching_response(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_domain_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_objects_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("ObjectFilter") => object_filter(),
-        required("ObjectTypeName") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom()
-      }
-
-  """
-  @type list_profile_objects_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_upload_job_request() :: %{
-        optional("DataExpiry") => integer(),
-        required("DisplayName") => String.t() | atom(),
-        required("Fields") => map(),
-        required("UniqueKey") => String.t() | atom()
-      }
-
-  """
-  @type create_upload_job_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_object_type_templates_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_profile_object_type_templates_request() :: %{(String.t() | atom()) => any()}
+  @type list_profile_object_types_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3885,1614 +4752,747 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
-      create_event_stream_request() :: %{
-        optional("Tags") => map(),
-        required("Uri") => String.t() | atom()
-      }
-
-  """
-  @type create_event_stream_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommender_recipes_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "RecommenderRecipes" => list(recommender_recipe())
-      }
-
-  """
-  @type list_recommender_recipes_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      threshold() :: %{
-        "Operator" => list(any()),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type threshold() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_history_record_response() :: %{
-        "ActionType" => list(any()),
-        "Content" => String.t() | atom(),
-        "CreatedAt" => non_neg_integer(),
-        "Id" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "PerformedBy" => String.t() | atom(),
-        "ProfileObjectUniqueKey" => String.t() | atom()
-      }
-
-  """
-  @type get_profile_history_record_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      data_store_request() :: %{
-        "Enabled" => boolean()
-      }
-
-  """
-  @type data_store_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      detected_profile_object_type() :: %{
-        "Fields" => map(),
-        "Keys" => map(),
-        "SourceLastUpdatedTimestampFormat" => String.t() | atom()
-      }
-
-  """
-  @type detected_profile_object_type() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      recommender_promotional_filter() :: %{
-        "Name" => String.t() | atom(),
-        "PercentPromotedItems" => integer(),
-        "PromotionName" => String.t() | atom(),
-        "Values" => map()
-      }
-
-  """
-  @type recommender_promotional_filter() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_upload_jobs_response() :: %{
-        "Items" => list(upload_job_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_upload_jobs_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_profile_request() :: %{
-        required("ProfileIds") => list(String.t() | atom())
-      }
-
-  """
-  @type batch_get_profile_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_segment_definition_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_segment_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_object_type_request() :: %{}
-
-  """
-  @type delete_profile_object_type_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      update_event_trigger_request() :: %{
-        optional("Description") => String.t() | atom(),
-        optional("EventTriggerConditions") => list(event_trigger_condition()),
-        optional("EventTriggerLimits") => event_trigger_limits(),
-        optional("ObjectTypeName") => String.t() | atom(),
-        optional("SegmentFilter") => String.t() | atom()
-      }
-
-  """
-  @type update_event_trigger_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      bad_request_exception() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type bad_request_exception() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      period() :: %{
-        "MaxInvocationsPerProfile" => integer(),
-        "Unit" => list(any()),
-        "Unlimited" => boolean(),
-        "Value" => integer()
-      }
-
-  """
-  @type period() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      connector_operator() :: %{
-        "Marketo" => list(any()),
-        "S3" => list(any()),
-        "Salesforce" => list(any()),
-        "ServiceNow" => list(any()),
-        "Zendesk" => list(any())
-      }
-
-  """
-  @type connector_operator() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_attribute_values_request() :: %{}
-
-  """
-  @type profile_attribute_values_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      get_event_trigger_request() :: %{}
-
-  """
-  @type get_event_trigger_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      put_profile_object_request() :: %{
-        required("Object") => String.t() | atom(),
-        required("ObjectTypeName") => String.t() | atom()
-      }
-
-  """
-  @type put_profile_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_history_records_response() :: %{
-        "NextToken" => String.t() | atom(),
-        "ProfileHistoryRecords" => list(profile_history_record())
-      }
-
-  """
-  @type list_profile_history_records_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_event_stream_request() :: %{}
-
-  """
-  @type delete_event_stream_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      layout_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IsDefault" => boolean(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "LayoutDefinitionName" => String.t() | atom(),
-        "LayoutType" => list(any()),
-        "Tags" => map()
-      }
-
-  """
-  @type layout_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      appflow_integration() :: %{
-        "Batches" => list(batch()),
-        "FlowDefinition" => flow_definition()
-      }
-
-  """
-  @type appflow_integration() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_layouts_response() :: %{
-        "Items" => list(layout_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_domain_layouts_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_calculated_attribute_for_profile_item() :: %{
-        "CalculatedAttributeName" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "IsDataPartial" => String.t() | atom(),
-        "LastObjectTimestamp" => non_neg_integer(),
-        "Value" => String.t() | atom()
-      }
-
-  """
-  @type list_calculated_attribute_for_profile_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_event_streams_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_event_streams_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      address() :: %{
-        "Address1" => String.t() | atom(),
-        "Address2" => String.t() | atom(),
-        "Address3" => String.t() | atom(),
-        "Address4" => String.t() | atom(),
-        "City" => String.t() | atom(),
-        "Country" => String.t() | atom(),
-        "County" => String.t() | atom(),
-        "PostalCode" => String.t() | atom(),
-        "Province" => String.t() | atom(),
-        "State" => String.t() | atom()
-      }
-
-  """
-  @type address() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_put_profile_object_response() :: %{
-        "Failed" => list(batch_put_profile_object_error_item()),
-        "Successful" => list(batch_put_profile_object_response_item())
-      }
-
-  """
-  @type batch_put_profile_object_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_attribute_values_response() :: %{
-        "AttributeName" => String.t() | atom(),
-        "DomainName" => String.t() | atom(),
-        "Items" => list(attribute_value_item()),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type profile_attribute_values_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_object_request() :: %{
-        required("ObjectTypeName") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom(),
-        required("ProfileObjectUniqueKey") => String.t() | atom()
-      }
-
-  """
-  @type delete_profile_object_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_calculated_attribute_definitions_response() :: %{
-        "Items" => list(list_calculated_attribute_definition_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_calculated_attribute_definitions_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_estimate_request() :: %{}
-
-  """
-  @type get_segment_estimate_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      sort_attribute() :: %{
-        "DataType" => list(any()),
-        "Name" => String.t() | atom(),
-        "Order" => list(any()),
-        "Type" => list(any())
-      }
-
-  """
-  @type sort_attribute() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_workflows_response() :: %{
-        "Items" => list(list_workflows_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_workflows_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      readiness() :: %{
-        "Message" => String.t() | atom(),
-        "ProgressPercentage" => integer()
-      }
-
-  """
-  @type readiness() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      extra_length_value_profile_dimension() :: %{
-        "DimensionType" => list(any()),
-        "Values" => list(String.t() | atom())
-      }
-
-  """
-  @type extra_length_value_profile_dimension() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      domain_object_types_list_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type domain_object_types_list_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      results_summary() :: %{
-        "CreatedRecords" => float(),
-        "FailedRecords" => float(),
-        "UpdatedRecords" => float()
-      }
-
-  """
-  @type results_summary() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_segment_definition_request() :: %{}
-
-  """
-  @type get_segment_definition_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_object_type_templates_response() :: %{
-        "Items" => list(list_profile_object_type_template_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_profile_object_type_templates_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_filter_request() :: %{}
-
-  """
-  @type get_recommender_filter_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_profile_object_type_response() :: %{
-        "Message" => String.t() | atom()
-      }
-
-  """
-  @type delete_profile_object_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_account_integrations_response() :: %{
-        "Items" => list(list_integration_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_account_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      service_now_source_properties() :: %{
-        "Object" => String.t() | atom()
-      }
-
-  """
-  @type service_now_source_properties() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_recommender_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "FailureReason" => [String.t() | atom()],
-        "LastUpdatedAt" => non_neg_integer(),
-        "LatestRecommenderUpdate" => recommender_update(),
-        "RecommenderConfig" => recommender_config(),
-        "RecommenderName" => String.t() | atom(),
-        "RecommenderRecipeName" => list(any()),
-        "RecommenderSchemaName" => String.t() | atom(),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "TrainingMetrics" => list(training_metrics())
-      }
-
-  """
-  @type get_recommender_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_integration_item() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "DomainName" => String.t() | atom(),
-        "EventTriggerNames" => list(String.t() | atom()),
-        "IsUnstructured" => boolean(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "ObjectTypeNames" => map(),
-        "RoleArn" => String.t() | atom(),
-        "Scope" => list(any()),
-        "Tags" => map(),
-        "Uri" => String.t() | atom(),
-        "WorkflowId" => String.t() | atom()
-      }
-
-  """
-  @type list_integration_item() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_profile_object_type_template_request() :: %{}
-
-  """
-  @type get_profile_object_type_template_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      workflow_metrics() :: %{
-        "AppflowIntegration" => appflow_integration_workflow_metrics()
-      }
-
-  """
-  @type workflow_metrics() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      stop_upload_job_response() :: %{}
-
-  """
-  @type stop_upload_job_response() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      incremental_pull_config() :: %{
-        "DatetimeTypeFieldName" => String.t() | atom()
-      }
-
-  """
-  @type incremental_pull_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      batch_get_profile_error() :: %{
-        "Code" => String.t() | atom(),
-        "Message" => String.t() | atom(),
+      create_profile_response() :: %{
         "ProfileId" => String.t() | atom()
       }
 
   """
-  @type batch_get_profile_error() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_domain_layouts_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_domain_layouts_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_event_stream_response() :: %{
-        "EventStreamArn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_event_stream_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_upload_job_request() :: %{}
-
-  """
-  @type get_upload_job_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      trigger_config() :: %{
-        "TriggerProperties" => trigger_properties(),
-        "TriggerType" => list(any())
-      }
-
-  """
-  @type trigger_config() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      add_profile_key_request() :: %{
-        required("KeyName") => String.t() | atom(),
-        required("ProfileId") => String.t() | atom(),
-        required("Values") => list(String.t() | atom())
-      }
-
-  """
-  @type add_profile_key_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      matching_request() :: %{
-        "AutoMerging" => auto_merging(),
-        "Enabled" => boolean(),
-        "ExportingConfig" => exporting_config(),
-        "JobSchedule" => job_schedule()
-      }
-
-  """
-  @type matching_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      profile_attributes() :: %{
-        "AccountNumber" => profile_dimension(),
-        "AdditionalInformation" => extra_length_value_profile_dimension(),
-        "Address" => address_dimension(),
-        "Attributes" => map(),
-        "BillingAddress" => address_dimension(),
-        "BirthDate" => date_dimension(),
-        "BusinessEmailAddress" => profile_dimension(),
-        "BusinessName" => profile_dimension(),
-        "BusinessPhoneNumber" => profile_dimension(),
-        "EmailAddress" => profile_dimension(),
-        "FirstName" => profile_dimension(),
-        "GenderString" => profile_dimension(),
-        "HomePhoneNumber" => profile_dimension(),
-        "LastName" => profile_dimension(),
-        "MailingAddress" => address_dimension(),
-        "MiddleName" => profile_dimension(),
-        "MobilePhoneNumber" => profile_dimension(),
-        "PartyTypeString" => profile_dimension(),
-        "PersonalEmailAddress" => profile_dimension(),
-        "PhoneNumber" => profile_dimension(),
-        "ProfileType" => profile_type_dimension(),
-        "ShippingAddress" => address_dimension()
-      }
-
-  """
-  @type profile_attributes() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_recommenders_request() :: %{
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom()
-      }
-
-  """
-  @type list_recommenders_request() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_recommender_filter_response() :: %{
-        "RecommenderFilterArn" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type create_recommender_filter_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_calculated_attribute_definition_response() :: %{
-        "AttributeDetails" => attribute_details(),
-        "CalculatedAttributeName" => String.t() | atom(),
-        "Conditions" => conditions(),
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "DisplayName" => String.t() | atom(),
-        "Filter" => filter(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Readiness" => readiness(),
-        "Statistic" => list(any()),
-        "Status" => list(any()),
-        "Tags" => map(),
-        "UseHistoricalData" => boolean()
-      }
-
-  """
-  @type get_calculated_attribute_definition_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      create_segment_estimate_response() :: %{
-        "DomainName" => String.t() | atom(),
-        "EstimateId" => String.t() | atom(),
-        "StatusCode" => integer()
-      }
-
-  """
-  @type create_segment_estimate_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      list_profile_object_types_response() :: %{
-        "Items" => list(list_profile_object_type_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_profile_object_types_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      put_domain_object_type_response() :: %{
-        "CreatedAt" => non_neg_integer(),
-        "Description" => String.t() | atom(),
-        "EncryptionKey" => String.t() | atom(),
-        "Fields" => map(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "ObjectTypeName" => String.t() | atom(),
-        "Tags" => map()
-      }
-
-  """
-  @type put_domain_object_type_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      delete_domain_layout_request() :: %{}
-
-  """
-  @type delete_domain_layout_request() :: %{}
-
-  @typedoc """
-
-  ## Example:
-
-      list_integrations_response() :: %{
-        "Items" => list(list_integration_item()),
-        "NextToken" => String.t() | atom()
-      }
-
-  """
-  @type list_integrations_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      get_workflow_response() :: %{
-        "Attributes" => workflow_attributes(),
-        "ErrorDescription" => String.t() | atom(),
-        "LastUpdatedAt" => non_neg_integer(),
-        "Metrics" => workflow_metrics(),
-        "StartDate" => non_neg_integer(),
-        "Status" => list(any()),
-        "WorkflowId" => String.t() | atom(),
-        "WorkflowType" => list(any())
-      }
-
-  """
-  @type get_workflow_response() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-
-      event_stream_summary() :: %{
-        "DestinationSummary" => destination_summary(),
-        "DomainName" => String.t() | atom(),
-        "EventStreamArn" => String.t() | atom(),
-        "EventStreamName" => String.t() | atom(),
-        "State" => list(any()),
-        "StoppedSince" => non_neg_integer(),
-        "Tags" => map()
-      }
-
-  """
-  @type event_stream_summary() :: %{(String.t() | atom()) => any()}
+  @type create_profile_response() :: %{(String.t() | atom()) => any()}
 
   @type add_profile_key_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type batch_get_calculated_attribute_for_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type batch_get_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type batch_put_profile_object_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_calculated_attribute_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_domain_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_domain_layout_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_event_stream_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_event_trigger_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_integration_workflow_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_recommender_filter_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_recommender_schema_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_segment_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_segment_estimate_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_segment_snapshot_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type create_upload_job_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_calculated_attribute_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_domain_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_domain_layout_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_domain_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_event_stream_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_event_trigger_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_integration_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_profile_key_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_profile_object_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_profile_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_recommender_filter_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_recommender_schema_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_segment_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type delete_workflow_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type detect_profile_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_auto_merging_preview_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_calculated_attribute_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_calculated_attribute_for_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_domain_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_domain_layout_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_domain_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_event_stream_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_event_trigger_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_identity_resolution_job_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_integration_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_matches_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_object_type_attribute_statistics_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_profile_history_record_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_profile_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_profile_object_type_template_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_profile_recommendations_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_recommender_filter_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_recommender_schema_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_segment_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_segment_estimate_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_segment_membership_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_segment_snapshot_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_similar_profiles_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_upload_job_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_upload_job_path_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workflow_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type get_workflow_steps_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_account_integrations_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_calculated_attribute_definitions_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_calculated_attributes_for_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_domain_layouts_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_domain_object_types_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_domains_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_event_streams_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_event_triggers_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_identity_resolution_jobs_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_integrations_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_object_type_attribute_values_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_object_type_attributes_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_attribute_values_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_history_records_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_object_type_templates_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_object_types_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_profile_objects_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_recommender_filters_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_recommender_recipes_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
           | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_recommender_schemas_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_recommenders_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_rule_based_matches_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_segment_definitions_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_tags_for_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type list_upload_jobs_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type list_workflows_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type merge_profiles_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | throttling_exception()
 
   @type put_domain_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type put_integration_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type put_profile_object_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type put_profile_object_type_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type search_profiles_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_upload_job_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type stop_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type stop_upload_job_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type tag_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type untag_resource_errors() ::
-          bad_request_exception() | internal_server_exception() | resource_not_found_exception()
+          bad_request_exception() | resource_not_found_exception() | internal_server_exception()
 
   @type update_calculated_attribute_definition_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_domain_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_domain_layout_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_event_trigger_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_profile_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type update_recommender_errors() ::
           bad_request_exception()
-          | throttling_exception()
-          | access_denied_exception()
-          | internal_server_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   def metadata do
     %{

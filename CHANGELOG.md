@@ -1,5 +1,9 @@
 # Change Log
 
+## [v1.0.12] - 2026-06-15
+- Fix compile error on elixir 1.19
+- Update codegen to use Elixir 1.19
+
 ## [v1.0.11] - 2026-05-12
 - Add support for endpoint env override
 

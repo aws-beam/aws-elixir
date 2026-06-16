@@ -416,6 +416,7 @@ defmodule AWS.CloudWatchLogs do
       create_scheduled_query_request() :: %{
         optional("description") => String.t() | atom(),
         optional("destinationConfiguration") => destination_configuration(),
+        optional("endTimeOffset") => float(),
         optional("logGroupIdentifiers") => list(String.t() | atom()),
         optional("scheduleEndTime") => float(),
         optional("scheduleStartTime") => float(),
@@ -1078,6 +1079,7 @@ defmodule AWS.CloudWatchLogs do
       update_scheduled_query_request() :: %{
         optional("description") => String.t() | atom(),
         optional("destinationConfiguration") => destination_configuration(),
+        optional("endTimeOffset") => float(),
         optional("logGroupIdentifiers") => list(String.t() | atom()),
         optional("scheduleEndTime") => float(),
         optional("scheduleStartTime") => float(),
@@ -1664,6 +1666,7 @@ defmodule AWS.CloudWatchLogs do
         "lastUpdatedTime" => float(),
         "name" => String.t() | atom(),
         "scheduleExpression" => String.t() | atom(),
+        "scheduleType" => list(any()),
         "scheduledQueryArn" => String.t() | atom(),
         "state" => list(any()),
         "timezone" => String.t() | atom()
@@ -2082,6 +2085,7 @@ defmodule AWS.CloudWatchLogs do
       list_scheduled_queries_request() :: %{
         optional("maxResults") => integer(),
         optional("nextToken") => String.t() | atom(),
+        optional("scheduleType") => list(any()),
         optional("state") => list(any())
       }
       
@@ -2511,6 +2515,7 @@ defmodule AWS.CloudWatchLogs do
         "creationTime" => float(),
         "description" => String.t() | atom(),
         "destinationConfiguration" => destination_configuration(),
+        "endTimeOffset" => float(),
         "executionRoleArn" => String.t() | atom(),
         "lastExecutionStatus" => list(any()),
         "lastTriggeredTime" => float(),
@@ -2522,6 +2527,7 @@ defmodule AWS.CloudWatchLogs do
         "scheduleEndTime" => float(),
         "scheduleExpression" => String.t() | atom(),
         "scheduleStartTime" => float(),
+        "scheduleType" => list(any()),
         "scheduledQueryArn" => String.t() | atom(),
         "startTimeOffset" => float(),
         "state" => list(any()),
@@ -3363,6 +3369,7 @@ defmodule AWS.CloudWatchLogs do
         "creationTime" => float(),
         "description" => String.t() | atom(),
         "destinationConfiguration" => destination_configuration(),
+        "endTimeOffset" => float(),
         "executionRoleArn" => String.t() | atom(),
         "lastExecutionStatus" => list(any()),
         "lastTriggeredTime" => float(),
@@ -3374,6 +3381,7 @@ defmodule AWS.CloudWatchLogs do
         "scheduleEndTime" => float(),
         "scheduleExpression" => String.t() | atom(),
         "scheduleStartTime" => float(),
+        "scheduleType" => list(any()),
         "scheduledQueryArn" => String.t() | atom(),
         "startTimeOffset" => float(),
         "state" => list(any()),
@@ -5041,7 +5049,8 @@ defmodule AWS.CloudWatchLogs do
           | service_unavailable_exception()
 
   @type update_scheduled_query_errors() ::
-          resource_not_found_exception()
+          conflict_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -6973,7 +6982,9 @@ defmodule AWS.CloudWatchLogs do
   You can retrieve up to 100,000 log event results from a query, if available, by
   using
   pagination. Use the `nextToken` returned in the response to request additional
-  pages of results, with each page returning up to 10,000 log events.
+  pages of results, with each page returning up to 10,000 log events. This is only
+  supported for Logs Insights QL and is currently not supported for PPL and SQL
+  query languages.
 
   If you are using CloudWatch cross-account observability, you can use this
   operation

@@ -4854,6 +4854,15 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_lineage_event_input() :: %{}
+
+  """
+  @type delete_lineage_event_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       package_config() :: %{
         "packageManager" => list(any()),
         "packageSpecification" => [String.t() | atom()]
@@ -8796,6 +8805,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      delete_lineage_event_output() :: %{
+        "domainId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "processingStatus" => list(any())
+      }
+
+  """
+  @type delete_lineage_event_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_data_product_input() :: %{}
 
   """
@@ -10061,6 +10083,13 @@ defmodule AWS.DataZone do
   @type delete_glossary_term_errors() ::
           conflict_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type delete_lineage_event_errors() ::
+          resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -13428,6 +13457,49 @@ defmodule AWS.DataZone do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Deletes the specified lineage event.
+  """
+  @spec delete_lineage_event(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_lineage_event_input(),
+          list()
+        ) ::
+          {:ok, delete_lineage_event_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_lineage_event_errors()}
+  def delete_lineage_event(
+        %Client{} = client,
+        domain_identifier,
+        identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/v2/domains/#{AWS.Util.encode_uri(domain_identifier)}/lineage/events/#{AWS.Util.encode_uri(identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

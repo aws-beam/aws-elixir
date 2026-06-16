@@ -340,7 +340,9 @@ defmodule AWS.Mgn do
       launched_instance() :: %{
         "ec2InstanceID" => String.t() | atom(),
         "firstBoot" => String.t() | atom(),
-        "jobID" => String.t() | atom()
+        "jobID" => String.t() | atom(),
+        "lastKnownChecks" => list(last_known_check()),
+        "lastKnownFsxChecksStatus" => String.t() | atom()
       }
 
   """
@@ -478,6 +480,18 @@ defmodule AWS.Mgn do
 
   """
   @type list_import_file_enrichments_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      storage_configuration() :: %{
+        "fsxOntapConfiguration" => fsx_ontap_configuration(),
+        "storageType" => String.t() | atom()
+      }
+
+  """
+  @type storage_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -712,6 +726,18 @@ defmodule AWS.Mgn do
   @type list_network_migration_mapper_segment_constructs_response() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      fsx_ontap_configuration() :: %{
+        "credentialsSecretArn" => String.t() | atom(),
+        "storageVirtualMachineId" => String.t() | atom()
+      }
+
+  """
+  @type fsx_ontap_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1209,6 +1235,7 @@ defmodule AWS.Mgn do
       create_replication_configuration_template_request() :: %{
         optional("ebsEncryptionKeyArn") => String.t() | atom(),
         optional("internetProtocol") => String.t() | atom(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
         optional("useFipsEndpoint") => [boolean()],
@@ -1420,6 +1447,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
@@ -1888,6 +1916,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()],
@@ -2409,6 +2438,7 @@ defmodule AWS.Mgn do
         optional("replicationServersSecurityGroupsIDs") => list(String.t() | atom()),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("tags") => map(),
         optional("useDedicatedReplicationServer") => [boolean()],
@@ -2713,6 +2743,7 @@ defmodule AWS.Mgn do
         optional("sourceServerID") => String.t() | atom(),
         optional("stagingAreaSubnetId") => String.t() | atom(),
         optional("stagingAreaTags") => map(),
+        optional("storageConfiguration") => storage_configuration(),
         optional("storeSnapshotOnLocalZone") => [boolean()],
         optional("useDedicatedReplicationServer") => [boolean()],
         optional("useFipsEndpoint") => [boolean()]
@@ -2964,6 +2995,21 @@ defmodule AWS.Mgn do
 
   ## Example:
 
+      last_known_check() :: %{
+        "checkedAt" => [non_neg_integer()],
+        "error" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "status" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type last_known_check() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_network_migration_mapping_response() :: %{
         "jobID" => String.t() | atom()
       }
@@ -3182,6 +3228,9 @@ defmodule AWS.Mgn do
       update_source_server_request() :: %{
         optional("accountID") => String.t() | atom(),
         optional("connectorAction") => source_server_connector_action(),
+        optional("fqdnForActionFramework") => String.t() | atom(),
+        optional("platform") => String.t() | atom(),
+        optional("userProvidedID") => String.t() | atom(),
         required("sourceServerID") => String.t() | atom()
       }
 

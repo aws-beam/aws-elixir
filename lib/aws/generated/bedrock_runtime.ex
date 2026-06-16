@@ -77,6 +77,19 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_results() :: %{
+        "contentFilter" => guardrail_checks_content_filter_result(),
+        "promptAttack" => guardrail_checks_prompt_attack_result(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_result()
+      }
+
+  """
+  @type guardrail_checks_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_not_ready_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -180,6 +193,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_automated_reasoning_no_translations_finding() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_usage() :: %{
+        "textUnits" => [integer()]
+      }
+
+  """
+  @type guardrail_checks_content_filter_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -314,6 +338,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_sensitive_information_result() :: %{
+        "results" => list(guardrail_checks_sensitive_information_result_entry()),
+        "truncated" => [boolean()]
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_automated_reasoning_translation() :: %{
         "claims" => list(guardrail_automated_reasoning_statement()),
         "confidence" => float(),
@@ -415,6 +451,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_content_filter_result_entry() :: %{
+        "category" => list(any()),
+        "severityScore" => [float()]
+      }
+
+  """
+  @type guardrail_checks_content_filter_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_automated_reasoning_scenario() :: %{
         "statements" => list(guardrail_automated_reasoning_statement())
       }
@@ -457,6 +505,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_custom_word() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_category_config() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_category_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -760,6 +819,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      invoke_guardrail_checks_request() :: %{
+        required("checks") => guardrail_checks_config(),
+        required("messages") => list(guardrail_checks_message())
+      }
+
+  """
+  @type invoke_guardrail_checks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_stream_error_exception() :: %{
         "message" => String.t() | atom(),
         "originalMessage" => String.t() | atom(),
@@ -768,6 +839,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type model_stream_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_config() :: %{
+        "contentFilter" => guardrail_checks_content_filter_config(),
+        "promptAttack" => guardrail_checks_prompt_attack_config(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_config()
+      }
+
+  """
+  @type guardrail_checks_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -882,6 +966,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_content_filter_category_config() :: %{
+        "category" => list(any())
+      }
+
+  """
+  @type guardrail_checks_content_filter_category_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_converse_text_block() :: %{
         "qualifiers" => list(list(any())()),
         "text" => [String.t() | atom()]
@@ -945,6 +1040,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_sensitive_information_config() :: %{
+        "entities" => list(guardrail_checks_sensitive_information_entity_config())
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_managed_word() :: %{
         "action" => list(any()),
         "detected" => [boolean()],
@@ -1001,6 +1107,17 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_prompt_attack_result() :: %{
+        "results" => list(guardrail_checks_prompt_attack_result_entry())
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       guardrail_automated_reasoning_satisfiable_finding() :: %{
         "claimsFalseScenario" => guardrail_automated_reasoning_scenario(),
         "claimsTrueScenario" => guardrail_automated_reasoning_scenario(),
@@ -1043,6 +1160,19 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type service_tier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_usage_results() :: %{
+        "contentFilter" => guardrail_checks_content_filter_usage(),
+        "promptAttack" => guardrail_checks_prompt_attack_usage(),
+        "sensitiveInformation" => guardrail_checks_sensitive_information_usage()
+      }
+
+  """
+  @type guardrail_checks_usage_results() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1167,6 +1297,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_message() :: %{
+        "content" => list(list()),
+        "role" => list(any())
+      }
+
+  """
+  @type guardrail_checks_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       model_error_exception() :: %{
         "message" => String.t() | atom(),
         "originalStatusCode" => integer(),
@@ -1278,6 +1420,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type guardrail_output_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_config() :: %{
+        "categories" => list(guardrail_checks_prompt_attack_category_config())
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1437,6 +1590,28 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_content_filter_result() :: %{
+        "results" => list(guardrail_checks_content_filter_result_entry())
+      }
+
+  """
+  @type guardrail_checks_content_filter_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_content_filter_config() :: %{
+        "categories" => list(guardrail_checks_content_filter_category_config())
+      }
+
+  """
+  @type guardrail_checks_content_filter_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       converse_metrics() :: %{
         "latencyMs" => [float()]
       }
@@ -1541,6 +1716,19 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_sensitive_information_entity_config() :: %{
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_entity_config() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       citation() :: %{
         "location" => list(),
         "source" => [String.t() | atom()],
@@ -1583,6 +1771,18 @@ defmodule AWS.BedrockRuntime do
 
   ## Example:
 
+      guardrail_checks_prompt_attack_result_entry() :: %{
+        "category" => list(any()),
+        "severityScore" => [float()]
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_result_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       apply_guardrail_request() :: %{
         optional("outputScope") => list(any()),
         required("content") => list(list()),
@@ -1591,6 +1791,17 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type apply_guardrail_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_sensitive_information_usage() :: %{
+        "textUnits" => [integer()]
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_usage() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1630,6 +1841,29 @@ defmodule AWS.BedrockRuntime do
 
   """
   @type invoke_model_tokens_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_prompt_attack_usage() :: %{
+        "textUnits" => [integer()]
+      }
+
+  """
+  @type guardrail_checks_prompt_attack_usage() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invoke_guardrail_checks_response() :: %{
+        "results" => guardrail_checks_results(),
+        "usage" => guardrail_checks_usage_results()
+      }
+
+  """
+  @type invoke_guardrail_checks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1729,6 +1963,22 @@ defmodule AWS.BedrockRuntime do
   """
   @type document_chunk_location() :: %{(String.t() | atom()) => any()}
 
+  @typedoc """
+
+  ## Example:
+
+      guardrail_checks_sensitive_information_result_entry() :: %{
+        "beginOffset" => [integer()],
+        "confidenceScore" => [float()],
+        "contentIndex" => [integer()],
+        "endOffset" => [integer()],
+        "messageIndex" => [integer()],
+        "type" => list(any())
+      }
+
+  """
+  @type guardrail_checks_sensitive_information_result_entry() :: %{(String.t() | atom()) => any()}
+
   @type apply_guardrail_errors() ::
           service_quota_exceeded_exception()
           | resource_not_found_exception()
@@ -1773,6 +2023,13 @@ defmodule AWS.BedrockRuntime do
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
+
+  @type invoke_guardrail_checks_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
 
   @type invoke_model_errors() ::
           service_quota_exceeded_exception()
@@ -2119,6 +2376,38 @@ defmodule AWS.BedrockRuntime do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Evaluates messages against inline guardrail checks.
+
+  You specify the check configurations directly in the request, and Amazon Bedrock
+  returns per-check results with severity or confidence scores.
+  """
+  @spec invoke_guardrail_checks(map(), invoke_guardrail_checks_request(), list()) ::
+          {:ok, invoke_guardrail_checks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, invoke_guardrail_checks_errors()}
+  def invoke_guardrail_checks(%Client{} = client, input, options \\ []) do
+    url_path = "/guardrail-checks/invoke"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

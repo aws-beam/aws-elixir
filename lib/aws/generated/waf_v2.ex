@@ -118,6 +118,18 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      list_settlement_records_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "Settlements" => list(settlement_record())
+      }
+      
+  """
+  @type list_settlement_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       check_capacity_request() :: %{
         required("Rules") => list(rule()),
         required("Scope") => list(any())
@@ -169,6 +181,25 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      source_statistics() :: %{
+        "Amount" => String.t() | atom(),
+        "GroupByValue" => String.t() | atom(),
+        "Intent" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "Percentage" => float(),
+        "RequestCount" => float(),
+        "SourceCategory" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "Verified" => boolean()
+      }
+      
+  """
+  @type source_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_regex_pattern_set_request() :: %{
         required("Id") => String.t() | atom(),
         required("Name") => String.t() | atom(),
@@ -212,6 +243,24 @@ defmodule AWS.WAFV2 do
       
   """
   @type allow_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_settlement_records_request() :: %{
+        optional("Filters") => list(monetization_filter()),
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("Currency") => list(any()),
+        required("Scope") => list(any()),
+        required("TimeWindow") => time_window()
+      }
+      
+  """
+  @type list_settlement_records_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -714,6 +763,7 @@ defmodule AWS.WAFV2 do
         "Description" => String.t() | atom(),
         "Id" => String.t() | atom(),
         "LabelNamespace" => String.t() | atom(),
+        "MonetizationConfig" => monetization_config(),
         "Name" => String.t() | atom(),
         "Rules" => list(rule()),
         "VisibilityConfig" => visibility_config()
@@ -987,6 +1037,19 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      get_revenue_statistics_response() :: %{
+        "NextMarker" => String.t() | atom(),
+        "RevenuePathStatistics" => list(revenue_path_statistics()),
+        "SourceStatistics" => list(source_statistics())
+      }
+      
+  """
+  @type get_revenue_statistics_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       managed_rule_group_config() :: %{
         "AWSManagedRulesACFPRuleSet" => aws_managed_rules_a_c_f_p_rule_set(),
         "AWSManagedRulesATPRuleSet" => aws_managed_rules_a_t_p_rule_set(),
@@ -1212,6 +1275,7 @@ defmodule AWS.WAFV2 do
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t() | atom(),
+        optional("MonetizationConfig") => monetization_config(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()),
         optional("Tags") => list(tag()),
@@ -1224,6 +1288,20 @@ defmodule AWS.WAFV2 do
       
   """
   @type create_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_revenue_statistics_summary_request() :: %{
+        optional("Filters") => list(monetization_filter()),
+        required("Currency") => list(any()),
+        required("Scope") => list(any()),
+        required("TimeWindow") => time_window()
+      }
+      
+  """
+  @type get_revenue_statistics_summary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1338,6 +1416,18 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      price() :: %{
+        "Amount" => String.t() | atom(),
+        "Currency" => list(any())
+      }
+      
+  """
+  @type price() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       headers() :: %{
         "MatchPattern" => header_match_pattern(),
         "MatchScope" => list(any()),
@@ -1384,6 +1474,22 @@ defmodule AWS.WAFV2 do
       
   """
   @type data_protection() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      revenue_breakdown() :: %{
+        "Currency" => list(any()),
+        "TotalAmount" => String.t() | atom(),
+        "TotalMonetizeServed" => float(),
+        "TotalSettled" => float(),
+        "UnverifiedAmount" => String.t() | atom(),
+        "VerifiedAmount" => String.t() | atom()
+      }
+      
+  """
+  @type revenue_breakdown() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1684,6 +1790,25 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      get_revenue_statistics_time_series_request() :: %{
+        optional("Filters") => list(monetization_filter()),
+        optional("GroupBy") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        required("Currency") => list(any()),
+        required("Interval") => list(any()),
+        required("Scope") => list(any()),
+        required("StatisticType") => list(any()),
+        required("TimeWindow") => time_window()
+      }
+      
+  """
+  @type get_revenue_statistics_time_series_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       request_body_associated_resource_type_config() :: %{
         "DefaultSizeInspectionLimit" => list(any())
       }
@@ -1700,7 +1825,8 @@ defmodule AWS.WAFV2 do
         "Block" => block_action(),
         "Captcha" => captcha_action(),
         "Challenge" => challenge_action(),
-        "Count" => count_action()
+        "Count" => count_action(),
+        "Monetize" => monetize_action()
       }
       
   """
@@ -1791,6 +1917,7 @@ defmodule AWS.WAFV2 do
       update_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
         optional("Description") => String.t() | atom(),
+        optional("MonetizationConfig") => monetization_config(),
         optional("Rules") => list(rule()),
         required("Id") => String.t() | atom(),
         required("LockToken") => String.t() | atom(),
@@ -1801,6 +1928,23 @@ defmodule AWS.WAFV2 do
       
   """
   @type update_rule_group_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      data_point_entry() :: %{
+        "Category" => String.t() | atom(),
+        "Date" => non_neg_integer(),
+        "GroupByValue" => String.t() | atom(),
+        "Intent" => String.t() | atom(),
+        "MonetizeServedCount" => float(),
+        "SettledCount" => float(),
+        "TotalAmount" => String.t() | atom()
+      }
+      
+  """
+  @type data_point_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2105,6 +2249,20 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      revenue_path_statistics() :: %{
+        "Amount" => String.t() | atom(),
+        "Path" => String.t() | atom(),
+        "Percentage" => float(),
+        "RequestCount" => float()
+      }
+      
+  """
+  @type revenue_path_statistics() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       api_key_summary() :: %{
         "APIKey" => String.t() | atom(),
         "CreationTimestamp" => non_neg_integer(),
@@ -2210,6 +2368,17 @@ defmodule AWS.WAFV2 do
       
   """
   @type disassociate_web_acl_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      crypto_config() :: %{
+        "PaymentNetworks" => list(payment_network())
+      }
+      
+  """
+  @type crypto_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2522,6 +2691,17 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      monetize_action() :: %{
+        "PriceMultiplier" => String.t() | atom()
+      }
+      
+  """
+  @type monetize_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_available_managed_rule_group_versions_response() :: %{
         "CurrentDefaultVersion" => String.t() | atom(),
         "NextMarker" => String.t() | atom(),
@@ -2530,6 +2710,18 @@ defmodule AWS.WAFV2 do
       
   """
   @type list_available_managed_rule_group_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_revenue_statistics_time_series_response() :: %{
+        "DataPoints" => list(data_point_entry()),
+        "NextMarker" => String.t() | atom()
+      }
+      
+  """
+  @type get_revenue_statistics_time_series_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2728,6 +2920,17 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      get_revenue_statistics_summary_response() :: %{
+        "RevenueBreakdown" => revenue_breakdown()
+      }
+      
+  """
+  @type get_revenue_statistics_summary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       and_statement() :: %{
         "Statements" => list(statement())
       }
@@ -2828,6 +3031,19 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      payment_network() :: %{
+        "Chain" => list(any()),
+        "Prices" => list(price()),
+        "WalletAddress" => String.t() | atom()
+      }
+      
+  """
+  @type payment_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_managed_rule_set_versions_request() :: %{
         optional("RecommendedVersion") => String.t() | atom(),
         optional("VersionsToPublish") => map(),
@@ -2847,6 +3063,7 @@ defmodule AWS.WAFV2 do
       create_rule_group_request() :: %{
         optional("CustomResponseBodies") => map(),
         optional("Description") => String.t() | atom(),
+        optional("MonetizationConfig") => monetization_config(),
         optional("Rules") => list(rule()),
         optional("Tags") => list(tag()),
         required("Capacity") => float(),
@@ -2878,6 +3095,33 @@ defmodule AWS.WAFV2 do
       
   """
   @type version_to_publish() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      settlement_record() :: %{
+        "Amount" => String.t() | atom(),
+        "ContentPath" => String.t() | atom(),
+        "Currency" => list(any()),
+        "Intent" => String.t() | atom(),
+        "Network" => String.t() | atom(),
+        "Organization" => String.t() | atom(),
+        "PayerAddress" => String.t() | atom(),
+        "RequestId" => String.t() | atom(),
+        "RequestTimestamp" => non_neg_integer(),
+        "SourceCategory" => String.t() | atom(),
+        "SourceName" => String.t() | atom(),
+        "Status" => list(any()),
+        "Timestamp" => non_neg_integer(),
+        "TransactionId" => String.t() | atom(),
+        "Verified" => boolean(),
+        "WalletAddress" => String.t() | atom(),
+        "WebAclArn" => String.t() | atom()
+      }
+      
+  """
+  @type settlement_record() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3076,6 +3320,7 @@ defmodule AWS.WAFV2 do
         "Id" => String.t() | atom(),
         "LabelNamespace" => String.t() | atom(),
         "ManagedByFirewallManager" => boolean(),
+        "MonetizationConfig" => monetization_config(),
         "Name" => String.t() | atom(),
         "OnSourceDDoSProtectionConfig" => on_source_d_do_s_protection_config(),
         "PostProcessFirewallManagerRuleGroups" => list(firewall_manager_rule_group()),
@@ -3117,6 +3362,7 @@ defmodule AWS.WAFV2 do
         optional("CustomResponseBodies") => map(),
         optional("DataProtectionConfig") => data_protection_config(),
         optional("Description") => String.t() | atom(),
+        optional("MonetizationConfig") => monetization_config(),
         optional("OnSourceDDoSProtectionConfig") => on_source_d_do_s_protection_config(),
         optional("Rules") => list(rule()),
         optional("TokenDomains") => list(String.t() | atom()),
@@ -3193,6 +3439,18 @@ defmodule AWS.WAFV2 do
 
   ## Example:
       
+      monetization_filter() :: %{
+        "Name" => String.t() | atom(),
+        "Values" => list(String.t() | atom())
+      }
+      
+  """
+  @type monetization_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       w_a_f_log_destination_permission_issue_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -3210,6 +3468,26 @@ defmodule AWS.WAFV2 do
       
   """
   @type w_a_f_internal_error_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_revenue_statistics_request() :: %{
+        optional("Filters") => list(monetization_filter()),
+        optional("GroupBy") => list(any()),
+        optional("Limit") => integer(),
+        optional("NextMarker") => String.t() | atom(),
+        optional("SortBy") => list(any()),
+        optional("SortOrder") => list(any()),
+        required("Currency") => list(any()),
+        required("Scope") => list(any()),
+        required("StatisticType") => list(any()),
+        required("TimeWindow") => time_window()
+      }
+      
+  """
+  @type get_revenue_statistics_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3277,6 +3555,18 @@ defmodule AWS.WAFV2 do
       
   """
   @type update_regex_pattern_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      monetization_config() :: %{
+        "CryptoConfig" => crypto_config(),
+        "CurrencyMode" => list(any())
+      }
+      
+  """
+  @type monetization_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3723,6 +4013,24 @@ defmodule AWS.WAFV2 do
           | w_a_f_invalid_operation_exception()
           | w_a_f_nonexistent_item_exception()
 
+  @type get_revenue_statistics_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_nonexistent_item_exception()
+
+  @type get_revenue_statistics_summary_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_nonexistent_item_exception()
+
+  @type get_revenue_statistics_time_series_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_nonexistent_item_exception()
+
   @type get_rule_group_errors() ::
           w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
@@ -3806,6 +4114,12 @@ defmodule AWS.WAFV2 do
           w_a_f_invalid_parameter_exception()
           | w_a_f_internal_error_exception()
           | w_a_f_invalid_operation_exception()
+
+  @type list_settlement_records_errors() ::
+          w_a_f_invalid_parameter_exception()
+          | w_a_f_internal_error_exception()
+          | w_a_f_invalid_operation_exception()
+          | w_a_f_nonexistent_item_exception()
 
   @type list_tags_for_resource_errors() ::
           w_a_f_invalid_parameter_exception()
@@ -4575,6 +4889,74 @@ defmodule AWS.WAFV2 do
   end
 
   @doc """
+  Retrieves ranked monetization statistics.
+
+  Use the `StatisticType` parameter to specify the ranking:
+  `TOP_SOURCES_BY_REVENUE` for top sources by revenue, or `TOP_PATHS_BY_REVENUE`
+  for top content paths by revenue. This operation is only available for
+  `CLOUDFRONT` scope. The maximum supported time window is 90 days. When no
+  `CurrencyMode` filter is provided, results default to `REAL`. To retrieve test
+  data, include a `CurrencyMode` filter with the value `TEST`.
+  """
+  @spec get_revenue_statistics(map(), get_revenue_statistics_request(), list()) ::
+          {:ok, get_revenue_statistics_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_revenue_statistics_errors()}
+  def get_revenue_statistics(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetRevenueStatistics", input, options)
+  end
+
+  @doc """
+  Retrieves a summary of monetization revenue for the specified time window.
+
+  Returns total revenue, revenue by verification tier, total settlements, and
+  total HTTP 402 responses served. This operation is only available for
+  `CLOUDFRONT` scope. The maximum supported time window is 90 days. When no
+  `CurrencyMode` filter is provided, results default to `REAL`. To retrieve test
+  data, include a `CurrencyMode` filter with the value `TEST`.
+  """
+  @spec get_revenue_statistics_summary(map(), get_revenue_statistics_summary_request(), list()) ::
+          {:ok, get_revenue_statistics_summary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_revenue_statistics_summary_errors()}
+  def get_revenue_statistics_summary(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetRevenueStatisticsSummary", input, options)
+  end
+
+  @doc """
+  Retrieves time series data for monetization revenue.
+
+  Returns data points aggregated at the specified interval for the given time
+  window. This operation is only available for `CLOUDFRONT` scope. The maximum
+  supported time window is 90 days. When no `CurrencyMode` filter is provided,
+  results default to `REAL`. To retrieve test data, include a `CurrencyMode`
+  filter with the value `TEST`.
+  """
+  @spec get_revenue_statistics_time_series(
+          map(),
+          get_revenue_statistics_time_series_request(),
+          list()
+        ) ::
+          {:ok, get_revenue_statistics_time_series_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_revenue_statistics_time_series_errors()}
+  def get_revenue_statistics_time_series(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetRevenueStatisticsTimeSeries", input, options)
+  end
+
+  @doc """
   Retrieves the specified `RuleGroup`.
   """
   @spec get_rule_group(map(), get_rule_group_request(), list()) ::
@@ -4893,6 +5275,27 @@ defmodule AWS.WAFV2 do
       metadata()
 
     Request.request_post(client, meta, "ListRuleGroups", input, options)
+  end
+
+  @doc """
+  Retrieves individual settlement transaction records for monetization.
+
+  Each record represents a single payment transaction between a client and your
+  protected resource. This operation is only available for `CLOUDFRONT` scope. The
+  maximum supported time window is 90 days. When no `CurrencyMode` filter is
+  provided, results default to `REAL`. To retrieve test data, include a
+  `CurrencyMode` filter with the value `TEST`.
+  """
+  @spec list_settlement_records(map(), list_settlement_records_request(), list()) ::
+          {:ok, list_settlement_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_settlement_records_errors()}
+  def list_settlement_records(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSettlementRecords", input, options)
   end
 
   @doc """

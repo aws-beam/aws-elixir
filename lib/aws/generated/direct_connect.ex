@@ -196,6 +196,7 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t() | atom(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
+        "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualGatewayId" => String.t() | atom(),
         "virtualInterfaceName" => String.t() | atom(),
@@ -268,6 +269,17 @@ defmodule AWS.DirectConnect do
 
   ## Example:
       
+      limit_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       new_public_virtual_interface_allocation() :: %{
         "addressFamily" => list(any()),
         "amazonAddress" => String.t() | atom(),
@@ -275,6 +287,7 @@ defmodule AWS.DirectConnect do
         "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
+        "rateLimit" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
@@ -394,6 +407,7 @@ defmodule AWS.DirectConnect do
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "mtu" => integer(),
+        "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
         "vlan" => integer()
@@ -660,6 +674,7 @@ defmodule AWS.DirectConnect do
         "partnerName" => String.t() | atom(),
         "portEncryptionStatus" => String.t() | atom(),
         "providerName" => String.t() | atom(),
+        "rateLimiterStatus" => rate_limiter_status(),
         "region" => String.t() | atom(),
         "tags" => list(tag()),
         "vlan" => integer()
@@ -790,6 +805,7 @@ defmodule AWS.DirectConnect do
       update_virtual_interface_attributes_request() :: %{
         optional("enableSiteLink") => boolean(),
         optional("mtu") => integer(),
+        optional("rateLimit") => String.t() | atom(),
         optional("virtualInterfaceName") => String.t() | atom(),
         required("virtualInterfaceId") => String.t() | atom()
       }
@@ -1147,6 +1163,7 @@ defmodule AWS.DirectConnect do
         "directConnectGatewayId" => String.t() | atom(),
         "enableSiteLink" => boolean(),
         "mtu" => integer(),
+        "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
         "vlan" => integer()
@@ -1192,6 +1209,20 @@ defmodule AWS.DirectConnect do
       
   """
   @type describe_direct_connect_gateway_attachments_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rate_limiter_status() :: %{
+        "inUse" => integer(),
+        "maxAllowed" => integer(),
+        "remaining" => integer(),
+        "totalBandwidth" => String.t() | atom()
+      }
+      
+  """
+  @type rate_limiter_status() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1332,6 +1363,7 @@ defmodule AWS.DirectConnect do
         "location" => String.t() | atom(),
         "mtu" => integer(),
         "ownerAccount" => String.t() | atom(),
+        "rateLimit" => String.t() | atom(),
         "region" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),
         "siteLinkEnabled" => boolean(),
@@ -1537,6 +1569,7 @@ defmodule AWS.DirectConnect do
         "asnLong" => float(),
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
+        "rateLimit" => String.t() | atom(),
         "routeFilterPrefixes" => list(route_filter_prefix()),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
@@ -1643,6 +1676,7 @@ defmodule AWS.DirectConnect do
         "numberOfConnections" => integer(),
         "ownerAccount" => String.t() | atom(),
         "providerName" => String.t() | atom(),
+        "rateLimiterStatus" => rate_limiter_status(),
         "region" => String.t() | atom(),
         "tags" => list(tag())
       }
@@ -1792,6 +1826,7 @@ defmodule AWS.DirectConnect do
         "authKey" => String.t() | atom(),
         "customerAddress" => String.t() | atom(),
         "mtu" => integer(),
+        "rateLimit" => String.t() | atom(),
         "tags" => list(tag()),
         "virtualInterfaceName" => String.t() | atom(),
         "vlan" => integer()
@@ -1879,21 +1914,26 @@ defmodule AWS.DirectConnect do
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type allocate_public_virtual_interface_errors() ::
           too_many_tags_exception()
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type allocate_transit_virtual_interface_errors() ::
           too_many_tags_exception()
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type associate_connection_with_lag_errors() ::
-          direct_connect_client_exception() | direct_connect_server_exception()
+          direct_connect_client_exception()
+          | direct_connect_server_exception()
+          | limit_exceeded_exception()
 
   @type associate_hosted_connection_errors() ::
           direct_connect_client_exception() | direct_connect_server_exception()
@@ -1954,18 +1994,21 @@ defmodule AWS.DirectConnect do
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type create_public_virtual_interface_errors() ::
           too_many_tags_exception()
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type create_transit_virtual_interface_errors() ::
           too_many_tags_exception()
           | direct_connect_client_exception()
           | direct_connect_server_exception()
           | duplicate_tag_keys_exception()
+          | limit_exceeded_exception()
 
   @type delete_bgp_peer_errors() ::
           direct_connect_client_exception() | direct_connect_server_exception()
@@ -3422,8 +3465,8 @@ defmodule AWS.DirectConnect do
   location and the customer network.
 
     *
-  If you're using an `asn`, the response includes ASN value in both the `asn` and
-  `asnLong` fields.
+  If you're using an `asn`, the response includes the ASN value in both the `asn`
+  and `asnLong` fields.
 
     *
   If you're using `asnLong`, the response returns a value of `0` (zero) for the

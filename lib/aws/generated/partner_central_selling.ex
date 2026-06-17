@@ -227,12 +227,25 @@ defmodule AWS.PartnerCentralSelling do
       
       update_lead_context() :: %{
         "Customer" => lead_customer(),
+        "Insights" => lead_insights(),
         "Interaction" => lead_interaction(),
         "QualificationStatus" => String.t() | atom()
       }
       
   """
   @type update_lead_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_prospecting_from_engagement_tasks_response() :: %{
+        "NextToken" => [String.t() | atom()],
+        "TaskSummaries" => list(prospecting_task_summary())
+      }
+      
+  """
+  @type list_prospecting_from_engagement_tasks_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -268,6 +281,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type create_resource_snapshot_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      opportunity_quality() :: %{
+        "Score" => [integer()],
+        "Trend" => [String.t() | atom()]
+      }
+      
+  """
+  @type opportunity_quality() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -440,6 +465,20 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      start_prospecting_from_engagement_task_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("ClientToken") => String.t() | atom(),
+        required("Identifiers") => list(String.t() | atom()),
+        required("TaskName") => String.t() | atom()
+      }
+      
+  """
+  @type start_prospecting_from_engagement_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       solution_sort() :: %{
         "SortBy" => list(any()),
         "SortOrder" => list(any())
@@ -550,6 +589,27 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type update_engagement_context_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prospecting_result_customer() :: %{
+        "AccountName" => String.t() | atom(),
+        "CompanySize" => String.t() | atom(),
+        "Country" => list(any()),
+        "EligiblePrograms" => list([String.t() | atom()]()),
+        "Geo" => String.t() | atom(),
+        "Industry" => list(any()),
+        "PublicProfileSummary" => String.t() | atom(),
+        "Region" => String.t() | atom(),
+        "Segment" => String.t() | atom(),
+        "SubIndustry" => String.t() | atom(),
+        "SubRegion" => String.t() | atom()
+      }
+      
+  """
+  @type prospecting_result_customer() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -689,6 +749,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       aws_opportunity_summary_full_view() :: %{
+        "CosellMotion" => [String.t() | atom()],
         "Customer" => aws_opportunity_customer(),
         "Insights" => aws_opportunity_insights(),
         "InvolvementType" => list(any()),
@@ -751,6 +812,18 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      get_prospecting_from_engagement_task_request() :: %{
+        required("Catalog") => String.t() | atom(),
+        required("TaskIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type get_prospecting_from_engagement_task_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       life_cycle_for_view() :: %{
         "NextSteps" => String.t() | atom(),
         "ReviewStatus" => list(any()),
@@ -780,6 +853,17 @@ defmodule AWS.PartnerCentralSelling do
   @type list_engagement_by_accepting_invitation_tasks_request() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      lead_insights() :: %{
+        "LeadReadinessScore" => [String.t() | atom()]
+      }
+      
+  """
+  @type lead_insights() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -975,6 +1059,24 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      start_prospecting_from_engagement_task_response() :: %{
+        "Identifiers" => list(String.t() | atom()),
+        "Message" => [String.t() | atom()],
+        "ReasonCode" => [String.t() | atom()],
+        "StartTime" => non_neg_integer(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
+        "TaskName" => String.t() | atom(),
+        "TaskStatus" => list(any())
+      }
+      
+  """
+  @type start_prospecting_from_engagement_task_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_engagement_invitations_request() :: %{
         optional("EngagementIdentifier") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
@@ -1032,6 +1134,21 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type tag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      engagement_prospecting_result() :: %{
+        "EngagementContextId" => [String.t() | atom()],
+        "EngagementIdentifier" => String.t() | atom(),
+        "Message" => [String.t() | atom()],
+        "ReasonCode" => [String.t() | atom()],
+        "Status" => list(any())
+      }
+      
+  """
+  @type engagement_prospecting_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1201,6 +1318,24 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      prospecting_task_summary() :: %{
+        "CompletedEngagementCount" => [integer()],
+        "EndTime" => non_neg_integer(),
+        "FailedEngagementCount" => [integer()],
+        "StartTime" => non_neg_integer(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
+        "TaskName" => String.t() | atom(),
+        "TotalEngagementCount" => [integer()]
+      }
+      
+  """
+  @type prospecting_task_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_engagement_request() :: %{
         optional("Contexts") => list(engagement_context_details()),
         required("Catalog") => String.t() | atom(),
@@ -1299,7 +1434,9 @@ defmodule AWS.PartnerCentralSelling do
       aws_opportunity_insights() :: %{
         "AwsProductsSpendInsightsBySource" => aws_products_spend_insights_by_source(),
         "EngagementScore" => list(any()),
-        "NextBestActions" => [String.t() | atom()]
+        "NextBestActions" => [String.t() | atom()],
+        "OpportunityQuality" => opportunity_quality(),
+        "Recommendations" => list(recommendation())
       }
       
   """
@@ -1401,6 +1538,23 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      prospecting_result_aws() :: %{
+        "Customer" => prospecting_result_customer(),
+        "EndTime" => non_neg_integer(),
+        "Insights" => prospecting_insights(),
+        "StartTime" => non_neg_integer(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
+        "TaskName" => String.t() | atom()
+      }
+      
+  """
+  @type prospecting_result_aws() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_engagement_from_opportunity_tasks_request() :: %{
         optional("EngagementIdentifier") => list(String.t() | atom()),
         optional("MaxResults") => [integer()],
@@ -1414,6 +1568,22 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type list_engagement_from_opportunity_tasks_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_prospecting_from_engagement_task_response() :: %{
+        "EndTime" => non_neg_integer(),
+        "Engagements" => list(engagement_prospecting_result()),
+        "StartTime" => non_neg_integer(),
+        "TaskArn" => String.t() | atom(),
+        "TaskId" => String.t() | atom(),
+        "TaskName" => String.t() | atom()
+      }
+      
+  """
+  @type get_prospecting_from_engagement_task_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1545,6 +1715,17 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      prospecting_result() :: %{
+        "Aws" => prospecting_result_aws()
+      }
+      
+  """
+  @type prospecting_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_selling_system_settings_request() :: %{
         required("Catalog") => String.t() | atom()
       }
@@ -1664,6 +1845,24 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type account() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_prospecting_from_engagement_tasks_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => [String.t() | atom()],
+        optional("Sort") => prospecting_from_engagement_task_sort(),
+        optional("StartAfter") => non_neg_integer(),
+        optional("StartBefore") => non_neg_integer(),
+        optional("TaskIdentifier") => list(String.t() | atom()),
+        optional("TaskName") => list(String.t() | atom()),
+        required("Catalog") => String.t() | atom()
+      }
+      
+  """
+  @type list_prospecting_from_engagement_tasks_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1799,6 +1998,7 @@ defmodule AWS.PartnerCentralSelling do
       
       get_aws_opportunity_summary_response() :: %{
         "Catalog" => String.t() | atom(),
+        "CosellMotion" => [String.t() | atom()],
         "Customer" => aws_opportunity_customer(),
         "Insights" => aws_opportunity_insights(),
         "InvolvementType" => list(any()),
@@ -1862,6 +2062,19 @@ defmodule AWS.PartnerCentralSelling do
   @type list_engagement_by_accepting_invitation_task_summary() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+      
+      recommendation() :: %{
+        "Attributes" => map(),
+        "Details" => [String.t() | atom()],
+        "Type" => [String.t() | atom()]
+      }
+      
+  """
+  @type recommendation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1957,6 +2170,20 @@ defmodule AWS.PartnerCentralSelling do
 
   ## Example:
       
+      prospecting_insights() :: %{
+        "MarketplaceEngagementScore" => String.t() | atom(),
+        "SolutionCategory" => [String.t() | atom()],
+        "SolutionScore" => [String.t() | atom()],
+        "SolutionSubCategory" => [String.t() | atom()]
+      }
+      
+  """
+  @type prospecting_insights() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       customer_projects_context() :: %{
         "Customer" => engagement_customer(),
         "Project" => engagement_customer_project_details()
@@ -1993,6 +2220,18 @@ defmodule AWS.PartnerCentralSelling do
       
   """
   @type engagement_resource_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      prospecting_from_engagement_task_sort() :: %{
+        "SortBy" => list(any()),
+        "SortOrder" => list(any())
+      }
+      
+  """
+  @type prospecting_from_engagement_task_sort() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2037,6 +2276,7 @@ defmodule AWS.PartnerCentralSelling do
       
       lead_context() :: %{
         "Customer" => lead_customer(),
+        "Insights" => lead_insights(),
         "Interactions" => list(lead_interaction()),
         "QualificationStatus" => String.t() | atom()
       }
@@ -2455,6 +2695,13 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
           | throttling_exception()
 
+  @type get_prospecting_from_engagement_task_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type get_resource_snapshot_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
@@ -2532,6 +2779,12 @@ defmodule AWS.PartnerCentralSelling do
           | access_denied_exception()
           | throttling_exception()
 
+  @type list_prospecting_from_engagement_tasks_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type list_resource_snapshot_jobs_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
@@ -2596,6 +2849,14 @@ defmodule AWS.PartnerCentralSelling do
   @type start_opportunity_from_engagement_task_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type start_prospecting_from_engagement_task_errors() ::
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -3013,6 +3274,27 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Retrieves the details and current status of a prospecting task previously
+  started with `StartProspectingFromEngagementTask` to enable polling for
+  completion and access to per-engagement processing results.
+  """
+  @spec get_prospecting_from_engagement_task(
+          map(),
+          get_prospecting_from_engagement_task_request(),
+          list()
+        ) ::
+          {:ok, get_prospecting_from_engagement_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_prospecting_from_engagement_task_errors()}
+  def get_prospecting_from_engagement_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetProspectingFromEngagementTask", input, options)
+  end
+
+  @doc """
   Use this action to retrieve a specific snapshot record.
   """
   @spec get_resource_snapshot(map(), get_resource_snapshot_request(), list()) ::
@@ -3233,6 +3515,29 @@ defmodule AWS.PartnerCentralSelling do
   end
 
   @doc """
+  Lists all prospecting tasks initiated by the caller's account.
+
+  Supports optional filters by task identifier, task name, or start time range.
+  Results can be sorted using configurable options. The response is paginated. Use
+  the `NextToken` value from each response to retrieve subsequent pages.
+  """
+  @spec list_prospecting_from_engagement_tasks(
+          map(),
+          list_prospecting_from_engagement_tasks_request(),
+          list()
+        ) ::
+          {:ok, list_prospecting_from_engagement_tasks_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_prospecting_from_engagement_tasks_errors()}
+  def list_prospecting_from_engagement_tasks(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListProspectingFromEngagementTasks", input, options)
+  end
+
+  @doc """
   Lists resource snapshot jobs owned by the customer.
 
   This operation supports various filtering scenarios, including listing all jobs
@@ -3422,6 +3727,30 @@ defmodule AWS.PartnerCentralSelling do
       metadata()
 
     Request.request_post(client, meta, "StartOpportunityFromEngagementTask", input, options)
+  end
+
+  @doc """
+  Starts a task to convert one or more engagement contexts into new prospecting
+  leads.
+
+  The task runs asynchronously. To poll for status, use
+  `GetProspectingFromEngagementTask`, or use `ListProspectingFromEngagementTasks`
+  to monitor multiple tasks.
+  """
+  @spec start_prospecting_from_engagement_task(
+          map(),
+          start_prospecting_from_engagement_task_request(),
+          list()
+        ) ::
+          {:ok, start_prospecting_from_engagement_task_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_prospecting_from_engagement_task_errors()}
+  def start_prospecting_from_engagement_task(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "StartProspectingFromEngagementTask", input, options)
   end
 
   @doc """

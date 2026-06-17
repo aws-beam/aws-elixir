@@ -1238,6 +1238,18 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      metrics_endpoint() :: %{
+        "MetricPublishFrequencyInSeconds" => list(integer()),
+        "MetricsEndpointPath" => String.t() | atom()
+      }
+      
+  """
+  @type metrics_endpoint() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_hub_contents_request() :: %{
         optional("CreationTimeAfter") => non_neg_integer(),
         optional("CreationTimeBefore") => non_neg_integer(),
@@ -12523,6 +12535,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       metrics_config() :: %{
+        "EnableDetailedObservability" => boolean(),
         "EnableEnhancedMetrics" => boolean(),
         "MetricPublishFrequencyInSeconds" => list(integer())
       }
@@ -14609,6 +14622,7 @@ defmodule AWS.SageMaker do
       container_definition() :: %{
         "AdditionalModelDataSources" => list(additional_model_data_source()),
         "ContainerHostname" => String.t() | atom(),
+        "ContainerMetricsConfig" => container_metrics_config(),
         "Environment" => map(),
         "Image" => String.t() | atom(),
         "ImageConfig" => image_config(),
@@ -15042,6 +15056,7 @@ defmodule AWS.SageMaker do
       
       inference_component_container_specification() :: %{
         "ArtifactUrl" => String.t() | atom(),
+        "ContainerMetricsConfig" => container_metrics_config(),
         "Environment" => map(),
         "Image" => String.t() | atom()
       }
@@ -15444,6 +15459,17 @@ defmodule AWS.SageMaker do
       
   """
   @type list_workteams_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_metrics_config() :: %{
+        "MetricsEndpoints" => list(metrics_endpoint())
+      }
+      
+  """
+  @type container_metrics_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -20955,6 +20981,7 @@ defmodule AWS.SageMaker do
       
       inference_component_container_specification_summary() :: %{
         "ArtifactUrl" => String.t() | atom(),
+        "ContainerMetricsConfig" => container_metrics_config(),
         "DeployedImage" => deployed_image(),
         "Environment" => map()
       }

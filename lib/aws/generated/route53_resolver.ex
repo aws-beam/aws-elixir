@@ -60,7 +60,8 @@ defmodule AWS.Route53Resolver do
       firewall_rule_type() :: %{
         "DnsThreatProtection" => dns_threat_protection_rule_type_config(),
         "FirewallAdvancedContentCategory" => firewall_advanced_content_category_config(),
-        "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config()
+        "FirewallAdvancedThreatCategory" => firewall_advanced_threat_category_config(),
+        "PartnerThreatProtection" => partner_threat_protection_config()
       }
       
   """
@@ -1183,7 +1184,9 @@ defmodule AWS.Route53Resolver do
         "ModificationTime" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "Priority" => integer(),
-        "Qtype" => String.t() | atom()
+        "Qtype" => String.t() | atom(),
+        "Status" => String.t() | atom(),
+        "StatusMessage" => String.t() | atom()
       }
       
   """
@@ -1285,6 +1288,18 @@ defmodule AWS.Route53Resolver do
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      subscription_info() :: %{
+        "ProductId" => String.t() | atom(),
+        "VendorName" => String.t() | atom()
+      }
+      
+  """
+  @type subscription_info() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1407,6 +1422,17 @@ defmodule AWS.Route53Resolver do
       
   """
   @type update_firewall_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      partner_threat_protection_config() :: %{
+        "Partner" => String.t() | atom()
+      }
+      
+  """
+  @type partner_threat_protection_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2225,6 +2251,7 @@ defmodule AWS.Route53Resolver do
         "Description" => String.t() | atom(),
         "DisplayName" => String.t() | atom(),
         "RuleType" => String.t() | atom(),
+        "SubscriptionInfo" => subscription_info(),
         "Value" => String.t() | atom()
       }
       
@@ -3145,6 +3172,11 @@ defmodule AWS.Route53Resolver do
   @doc """
   Associates a `FirewallRuleGroup` with a VPC, to provide DNS filtering for the
   VPC.
+
+  If the rule group contains any rule configured with the
+  `PartnerThreatProtection` rule type, the calling account must hold an active AWS
+  Marketplace subscription to the named partner. If the subscription is missing,
+  the association request is rejected.
   """
   @spec associate_firewall_rule_group(map(), associate_firewall_rule_group_request(), list()) ::
           {:ok, associate_firewall_rule_group_response(), any()}
@@ -3300,8 +3332,35 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Creates a single DNS Firewall rule in the specified rule group, using the
-  specified domain list.
+  Creates a single DNS Firewall rule in the specified rule group.
+
+  The rule can use any one of the following match sources, and the chosen source
+  must be supplied through the matching request field — they are mutually
+  exclusive:
+
+    *
+
+  `FirewallDomainListId` — match a customer-managed or AWS-managed domain list.
+
+    *
+
+  `DnsThreatProtection` — match a built-in DNS Firewall Advanced threat detector
+  (`DGA`, `DNS_TUNNELING`, or `DICTIONARY_DGA`).
+
+    *
+
+  `FirewallRuleType` — match one of the rule-type variants returned by
+  `ListFirewallRuleTypes`: `FirewallAdvancedContentCategory`,
+  `FirewallAdvancedThreatCategory`, `DnsThreatProtection`, or
+  `PartnerThreatProtection`. The `PartnerThreatProtection` variant requires an
+  active AWS Marketplace subscription to the named partner product.
+
+  For rules that require asynchronous provisioning (today, the
+  `PartnerThreatProtection` rule type), the rule's `Status` begins at `CREATING`
+  and transitions to `COMPLETE` once the rule is provisioned and the marketplace
+  entitlement is verified. If provisioning fails, `Status` becomes
+  `CREATION_FAILED` and `StatusMessage` contains a human-readable reason; the rule
+  is then immutable and must be removed with `DeleteFirewallRule`.
   """
   @spec create_firewall_rule(map(), create_firewall_rule_request(), list()) ::
           {:ok, create_firewall_rule_response(), any()}
@@ -3443,6 +3502,13 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Deletes the specified firewall rule.
+
+  Identify the rule using either `FirewallDomainListId` (for domain-list and DNS
+  Firewall Advanced rules) or `FirewallThreatProtectionId` (for partner-managed
+  and DNS Firewall Advanced rules) — together with `FirewallRuleGroupId`.
+
+  `DeleteFirewallRule` is the only operation that succeeds against a rule whose
+  `Status` is `CREATION_FAILED`.
   """
   @spec delete_firewall_rule(map(), delete_firewall_rule_request(), list()) ::
           {:ok, delete_firewall_rule_response(), any()}
@@ -4077,7 +4143,21 @@ defmodule AWS.Route53Resolver do
   end
 
   @doc """
-  Retrieves the available rule types that can be used in DNS Firewall rules.
+  Retrieves the rule-type variants that can be used in the `FirewallRuleType`
+  field of `CreateFirewallRule` and `UpdateFirewallRule`.
+
+  Each returned `FirewallRuleTypeDefinition` identifies one variant + value
+  combination — for example, `FirewallAdvancedContentCategory` +
+  `VIOLENCE_AND_HATE_SPEECH`, or `PartnerThreatProtection` + a partner-managed
+  feed.
+
+  The supported `RuleType` filter values are `FirewallAdvancedContentCategory`,
+  `FirewallAdvancedThreatCategory`, `DnsThreatProtection`, and
+  `PartnerThreatProtection`. When a returned definition's variant requires an
+  external subscription (currently only `PartnerThreatProtection`), the response
+  also includes a `SubscriptionInfo` identifying the AWS Marketplace product that
+  backs it; absence of `SubscriptionInfo` means the variant is fully managed by
+  AWS and requires no separate subscription.
   """
   @spec list_firewall_rule_types(map(), list_firewall_rule_types_request(), list()) ::
           {:ok, list_firewall_rule_types_response(), any()}
@@ -4100,6 +4180,9 @@ defmodule AWS.Route53Resolver do
 
   A single call might return only a partial list of the rules. For information,
   see `MaxResults`.
+
+  For rules that require asynchronous provisioning, the response includes `Status`
+  (see `FirewallRuleStatus`) and, on failure, `StatusMessage` with the reason.
   """
   @spec list_firewall_rules(map(), list_firewall_rules_request(), list()) ::
           {:ok, list_firewall_rules_response(), any()}
@@ -4406,6 +4489,11 @@ defmodule AWS.Route53Resolver do
 
   @doc """
   Updates the specified firewall rule.
+
+  The rule's `FirewallRuleType`, `FirewallDomainListId`, and top-level
+  `DnsThreatProtection` match source cannot be changed after creation. Rules whose
+  `Status` is `CREATING` or `CREATION_FAILED` cannot be updated; remove a failed
+  rule with `DeleteFirewallRule`.
   """
   @spec update_firewall_rule(map(), update_firewall_rule_request(), list()) ::
           {:ok, update_firewall_rule_response(), any()}

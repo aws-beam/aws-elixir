@@ -263,6 +263,19 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      annotation_table_configuration() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type annotation_table_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       error_document() :: %{
         "Key" => String.t() | atom()
       }
@@ -648,6 +661,21 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      get_object_annotation_request() :: %{
+        optional("ChecksumMode") => list(any()),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom()
+      }
+
+  """
+  @type get_object_annotation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       c_o_r_s_configuration() :: %{
         "CORSRules" => list(c_o_r_s_rule())
       }
@@ -814,6 +842,15 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      no_such_annotation() :: %{}
+
+  """
+  @type no_such_annotation() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       metadata_table_encryption_configuration() :: %{
         "KmsKeyArn" => String.t() | atom(),
         "SseAlgorithm" => list(any())
@@ -857,6 +894,19 @@ defmodule AWS.S3 do
 
   """
   @type grant() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_table_configuration_updates() :: %{
+        "ConfigurationState" => list(any()),
+        "EncryptionConfiguration" => metadata_table_encryption_configuration(),
+        "Role" => String.t() | atom()
+      }
+
+  """
+  @type annotation_table_configuration_updates() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1310,6 +1360,7 @@ defmodule AWS.S3 do
   ## Example:
 
       metadata_configuration() :: %{
+        "AnnotationTableConfiguration" => annotation_table_configuration(),
         "InventoryTableConfiguration" => inventory_table_configuration(),
         "JournalTableConfiguration" => journal_table_configuration()
       }
@@ -2087,6 +2138,22 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      update_bucket_metadata_annotation_table_configuration_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        required("AnnotationTableConfiguration") => annotation_table_configuration_updates()
+      }
+
+  """
+  @type update_bucket_metadata_annotation_table_configuration_request() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       list_bucket_analytics_configurations_request() :: %{
         optional("ContinuationToken") => String.t() | atom(),
         optional("ExpectedBucketOwner") => String.t() | atom()
@@ -2113,6 +2180,18 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      delete_object_annotation_output() :: %{
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type delete_object_annotation_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_object_tagging_request() :: %{
         optional("ExpectedBucketOwner") => String.t() | atom(),
         optional("VersionId") => String.t() | atom()
@@ -2131,6 +2210,22 @@ defmodule AWS.S3 do
 
   """
   @type delete_bucket_cors_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      annotation_table_configuration_result() :: %{
+        "ConfigurationState" => list(any()),
+        "Error" => error_details(),
+        "Role" => String.t() | atom(),
+        "TableArn" => String.t() | atom(),
+        "TableName" => String.t() | atom(),
+        "TableStatus" => String.t() | atom()
+      }
+
+  """
+  @type annotation_table_configuration_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2344,6 +2439,15 @@ defmodule AWS.S3 do
 
   """
   @type put_object_acl_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      invalid_annotation_name() :: %{}
+
+  """
+  @type invalid_annotation_name() :: %{}
 
   @typedoc """
 
@@ -2584,6 +2688,22 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      annotation_entry() :: %{
+        "AnnotationName" => String.t() | atom(),
+        "ChecksumAlgorithm" => list(list(any())()),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "ReplicationStatus" => list(any()),
+        "Size" => float()
+      }
+
+  """
+  @type annotation_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       destination() :: %{
         "AccessControlTranslation" => access_control_translation(),
         "Account" => String.t() | atom(),
@@ -2815,6 +2935,15 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      annotation_name_too_long() :: %{}
+
+  """
+  @type annotation_name_too_long() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       request_payment_configuration() :: %{
         "Payer" => list(any())
       }
@@ -2883,6 +3012,15 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      unsupported_media_type() :: %{}
+
+  """
+  @type unsupported_media_type() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       create_bucket_configuration() :: %{
         "Bucket" => bucket_info(),
         "Location" => location_info(),
@@ -2892,6 +3030,35 @@ defmodule AWS.S3 do
 
   """
   @type create_bucket_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_object_annotation_output() :: %{
+        "AnnotationPayload" => binary(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ContentLength" => float(),
+        "ETag" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "ObjectVersionId" => String.t() | atom(),
+        "ReplicationStatus" => list(any()),
+        "RequestCharged" => list(any()),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type get_object_annotation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2972,6 +3139,15 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      invalid_prefix() :: %{}
+
+  """
+  @type invalid_prefix() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       source_selection_criteria() :: %{
         "ReplicaModifications" => replica_modifications(),
         "SseKmsEncryptedObjects" => sse_kms_encrypted_objects()
@@ -3022,6 +3198,22 @@ defmodule AWS.S3 do
 
   """
   @type get_bucket_metadata_table_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_object_annotations_request() :: %{
+        optional("AnnotationPrefix") => String.t() | atom(),
+        optional("ContinuationToken") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("MaxAnnotationResults") => integer(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom()
+      }
+
+  """
+  @type list_object_annotations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3095,6 +3287,34 @@ defmodule AWS.S3 do
 
   """
   @type input_serialization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_annotation_request() :: %{
+        optional("ChecksumAlgorithm") => list(any()),
+        optional("ChecksumCRC32") => String.t() | atom(),
+        optional("ChecksumCRC32C") => String.t() | atom(),
+        optional("ChecksumCRC64NVME") => String.t() | atom(),
+        optional("ChecksumMD5") => String.t() | atom(),
+        optional("ChecksumSHA1") => String.t() | atom(),
+        optional("ChecksumSHA256") => String.t() | atom(),
+        optional("ChecksumSHA512") => String.t() | atom(),
+        optional("ChecksumXXHASH128") => String.t() | atom(),
+        optional("ChecksumXXHASH3") => String.t() | atom(),
+        optional("ChecksumXXHASH64") => String.t() | atom(),
+        optional("ContentMD5") => String.t() | atom(),
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ObjectIfMatch") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom(),
+        required("AnnotationPayload") => binary()
+      }
+
+  """
+  @type put_object_annotation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3317,6 +3537,33 @@ defmodule AWS.S3 do
 
   """
   @type lifecycle_rule_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      put_object_annotation_output() :: %{
+        "AnnotationName" => String.t() | atom(),
+        "ChecksumCRC32" => String.t() | atom(),
+        "ChecksumCRC32C" => String.t() | atom(),
+        "ChecksumCRC64NVME" => String.t() | atom(),
+        "ChecksumMD5" => String.t() | atom(),
+        "ChecksumSHA1" => String.t() | atom(),
+        "ChecksumSHA256" => String.t() | atom(),
+        "ChecksumSHA512" => String.t() | atom(),
+        "ChecksumType" => list(any()),
+        "ChecksumXXHASH128" => String.t() | atom(),
+        "ChecksumXXHASH3" => String.t() | atom(),
+        "ChecksumXXHASH64" => String.t() | atom(),
+        "ETag" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any()),
+        "ServerSideEncryption" => list(any())
+      }
+
+  """
+  @type put_object_annotation_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3689,6 +3936,7 @@ defmodule AWS.S3 do
         optional("CopySourceIfNoneMatch") => String.t() | atom(),
         optional("ObjectLockRetainUntilDate") => non_neg_integer(),
         optional("Metadata") => map(),
+        optional("AnnotationDirective") => list(any()),
         optional("ServerSideEncryption") => list(any()),
         optional("TaggingDirective") => list(any())
       }
@@ -3701,6 +3949,7 @@ defmodule AWS.S3 do
   ## Example:
 
       metadata_configuration_result() :: %{
+        "AnnotationTableConfigurationResult" => annotation_table_configuration_result(),
         "DestinationResult" => destination_result(),
         "InventoryTableConfigurationResult" => inventory_table_configuration_result(),
         "JournalTableConfigurationResult" => journal_table_configuration_result()
@@ -4058,6 +4307,21 @@ defmodule AWS.S3 do
 
   """
   @type update_object_encryption_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_object_annotation_request() :: %{
+        optional("ExpectedBucketOwner") => String.t() | atom(),
+        optional("ObjectIfMatch") => String.t() | atom(),
+        optional("RequestPayer") => list(any()),
+        optional("VersionId") => String.t() | atom(),
+        required("AnnotationName") => String.t() | atom()
+      }
+
+  """
+  @type delete_object_annotation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4462,6 +4726,15 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      annotation_limit_exceeded() :: %{}
+
+  """
+  @type annotation_limit_exceeded() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       inventory_table_configuration_updates() :: %{
         "ConfigurationState" => list(any()),
         "EncryptionConfiguration" => metadata_table_encryption_configuration()
@@ -4711,6 +4984,26 @@ defmodule AWS.S3 do
 
   ## Example:
 
+      list_object_annotations_output() :: %{
+        "AnnotationCount" => integer(),
+        "AnnotationPrefix" => String.t() | atom(),
+        "Annotations" => list(annotation_entry()),
+        "Bucket" => String.t() | atom(),
+        "ContinuationToken" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "MaxAnnotationResults" => integer(),
+        "NextContinuationToken" => String.t() | atom(),
+        "ObjectVersionId" => String.t() | atom(),
+        "RequestCharged" => list(any())
+      }
+
+  """
+  @type list_object_annotations_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       stats_event() :: %{
         "Details" => stats()
       }
@@ -4848,15 +5141,21 @@ defmodule AWS.S3 do
 
   @type create_session_errors() :: no_such_bucket()
 
+  @type delete_object_annotation_errors() :: no_such_bucket() | no_such_key()
+
   @type get_object_errors() :: invalid_object_state() | no_such_key()
 
   @type get_object_acl_errors() :: no_such_key()
+
+  @type get_object_annotation_errors() :: no_such_bucket() | no_such_annotation() | no_such_key()
 
   @type get_object_attributes_errors() :: no_such_key()
 
   @type head_bucket_errors() :: not_found()
 
   @type head_object_errors() :: not_found()
+
+  @type list_object_annotations_errors() :: no_such_bucket() | invalid_prefix() | no_such_key()
 
   @type list_objects_errors() :: no_such_bucket()
 
@@ -4869,6 +5168,15 @@ defmodule AWS.S3 do
           | invalid_request()
 
   @type put_object_acl_errors() :: no_such_key()
+
+  @type put_object_annotation_errors() ::
+          annotation_limit_exceeded()
+          | no_such_bucket()
+          | unsupported_media_type()
+          | annotation_name_too_long()
+          | invalid_annotation_name()
+          | invalid_request()
+          | no_such_key()
 
   @type rename_object_errors() :: idempotency_parameter_mismatch()
 
@@ -5627,6 +5935,7 @@ defmodule AWS.S3 do
         {"CopySourceIfModifiedSince", "x-amz-copy-source-if-modified-since"},
         {"TaggingDirective", "x-amz-tagging-directive"},
         {"GrantWriteACP", "x-amz-grant-write-acp"},
+        {"AnnotationDirective", "x-amz-object-annotation-directive"},
         {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
         {"GrantFullControl", "x-amz-grant-full-control"},
         {"ContentLanguage", "Content-Language"},
@@ -6018,11 +6327,20 @@ defmodule AWS.S3 do
 
     
 
+  `s3tables:PutTableBucketPolicy`
+
+    
+
   `s3tables:PutTableEncryption`
 
     
 
   `kms:DescribeKey`
+
+    
+
+  `iam:PassRole` - required if you include an
+  `AnnotationTableConfiguration` with an IAM role.
 
   The following operations are related to `CreateBucketMetadataConfiguration`:
 
@@ -6041,6 +6359,18 @@ defmodule AWS.S3 do
     *
 
   [UpdateBucketMetadataJournalTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataJournalTableConfiguration.html)
+
+    *
+
+  [UpdateBucketMetadataAnnotationTableConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_UpdateBucketMetadataAnnotationTableConfiguration.html)
+
+  If you include an `AnnotationTableConfiguration` with an IAM role, the role must
+  have a trust policy that allows the Amazon S3 metadata service to assume it, and
+  a permissions policy
+  that grants the actions needed to read annotations from your bucket. The
+  following examples show
+  a trust policy and a permissions policy that you can adapt for your bucket and
+  account.
 
   You must URL encode any signed header values that contain spaces. For example,
   if your header value is `my file.txt`, containing two spaces after `my`, you
@@ -8467,6 +8797,100 @@ defmodule AWS.S3 do
           {"x-amz-delete-marker", "DeleteMarker"},
           {"x-amz-request-charged", "RequestCharged"},
           {"x-amz-version-id", "VersionId"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes a specific annotation from an Amazon S3 object.
+
+  Use the `x-amz-object-if-match`
+  header to perform a conditional delete that only succeeds if the object's ETag
+  matches the
+  provided value, preventing race conditions during concurrent updates.
+
+  Deleting an annotation is permanent. Annotations are not independently
+  versioned, so there is no
+  delete marker or way to recover a deleted annotation.
+
+  To use this operation, you must have the `s3:DeleteObjectAnnotation` permission.
+  If
+  the object is protected by Object Lock in governance mode, you must also include
+  the
+  `x-amz-bypass-governance-retention` header.
+
+  Annotations are not supported by the following features: S3 Inventory Reports,
+  API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on
+  Outposts, and
+  S3 Express One Zone (directory buckets).
+
+  The following operations are related to `DeleteObjectAnnotation`:
+
+    *
+
+  [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html) 
+
+    *
+
+  [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html)
+
+    *
+
+  [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+  """
+  @spec delete_object_annotation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_object_annotation_request(),
+          list()
+        ) ::
+          {:ok, delete_object_annotation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_object_annotation_errors()}
+  def delete_object_annotation(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?annotation"
+
+    {headers, input} =
+      [
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ObjectIfMatch", "x-amz-object-if-match"},
+        {"RequestPayer", "x-amz-request-payer"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"AnnotationName", "annotationName"},
+        {"VersionId", "versionId"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-object-version-id", "ObjectVersionId"},
+          {"x-amz-request-charged", "RequestCharged"}
         ]
       )
 
@@ -11243,6 +11667,133 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  Retrieves an annotation from an Amazon S3 object.
+
+  To use this operation, you must have the
+  `s3:GetObjectAnnotation` permission.
+
+  If checksum mode is enabled via the `x-amz-checksum-mode` header, Amazon S3
+  returns the stored checksum in the response headers for client-side validation.
+
+  Annotations are not supported by the following features: S3 Inventory Reports,
+  API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on
+  Outposts, and
+  S3 Express One Zone (directory buckets).
+
+  The following operations are related to `GetObjectAnnotation`:
+
+    *
+
+  [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html) 
+
+    *
+
+  [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+
+    *
+
+  [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+  """
+  @spec get_object_annotation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, get_object_annotation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_object_annotation_errors()}
+  def get_object_annotation(
+        %Client{} = client,
+        bucket,
+        key,
+        annotation_name,
+        version_id \\ nil,
+        checksum_mode \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?annotation&x-id=GetObjectAnnotation"
+
+    headers = []
+
+    headers =
+      if !is_nil(checksum_mode) do
+        [{"x-amz-checksum-mode", checksum_mode} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(annotation_name) do
+        [{"annotationName", annotation_name} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
+          {"x-amz-checksum-type", "ChecksumType"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
+          {"Content-Length", "ContentLength"},
+          {"ETag", "ETag"},
+          {"Last-Modified", "LastModified"},
+          {"x-amz-object-version-id", "ObjectVersionId"},
+          {"x-amz-replication-status", "ReplicationStatus"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Retrieves all of the metadata from an object without returning the object
   itself.
 
@@ -13384,6 +13935,126 @@ defmodule AWS.S3 do
         options,
         :response_header_parameters,
         [{"x-amz-request-charged", "RequestCharged"}]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the annotations attached to an Amazon S3 object.
+
+  Results are paginated, with a maximum of
+  1,000 annotations per object. Use the `AnnotationPrefix` parameter to filter the
+  results by name prefix.
+
+  To use this operation, you must have the `s3:ListObjectAnnotations` permission.
+
+  Annotations are not supported by the following features: S3 Inventory Reports,
+  API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on
+  Outposts, and
+  S3 Express One Zone (directory buckets).
+
+  The following operations are related to `ListObjectAnnotations`:
+
+    *
+
+  [PutObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObjectAnnotation.html) 
+
+    *
+
+  [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html)
+
+    *
+
+  [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+  """
+  @spec list_object_annotations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_object_annotations_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_object_annotations_errors()}
+  def list_object_annotations(
+        %Client{} = client,
+        bucket,
+        key,
+        annotation_prefix \\ nil,
+        continuation_token \\ nil,
+        max_annotation_results \\ nil,
+        version_id \\ nil,
+        expected_bucket_owner \\ nil,
+        request_payer \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?annotation&x-id=ListObjectAnnotations"
+
+    headers = []
+
+    headers =
+      if !is_nil(expected_bucket_owner) do
+        [{"x-amz-expected-bucket-owner", expected_bucket_owner} | headers]
+      else
+        headers
+      end
+
+    headers =
+      if !is_nil(request_payer) do
+        [{"x-amz-request-payer", request_payer} | headers]
+      else
+        headers
+      end
+
+    query_params = []
+
+    query_params =
+      if !is_nil(version_id) do
+        [{"versionId", version_id} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_annotation_results) do
+        [{"max-annotation-results", max_annotation_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(continuation_token) do
+        [{"continuation-token", continuation_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(annotation_prefix) do
+        [{"annotation-prefix", annotation_prefix} | query_params]
+      else
+        query_params
+      end
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-object-version-id", "ObjectVersionId"},
+          {"x-amz-request-charged", "RequestCharged"}
+        ]
       )
 
     meta = metadata()
@@ -17317,6 +17988,129 @@ defmodule AWS.S3 do
   end
 
   @doc """
+  Attaches an annotation to an Amazon S3 object.
+
+  An annotation is a named payload of 1 byte to 1 MiB
+  that you can associate with a specific object or object version. Each object can
+  have up to 1,000
+  annotations.
+
+  For annotation naming rules and restrictions, see [Annotation naming guidelines](https://docs.aws.amazon.com/AmazonS3/latest/userguide/annotations-overview.html)
+  in the *Amazon S3 User Guide*.
+
+  Annotations inherit the encryption of their parent object. For objects without
+  server-side
+  encryption, annotations are encrypted with SSE-S3 (the default for new objects).
+  Objects
+  encrypted with SSE-C cannot have annotations.
+
+  To use this operation, you must have the `s3:PutObjectAnnotation` permission. If
+  the
+  bucket has Requester Pays enabled, you must include the `x-amz-request-payer`
+  header.
+
+  Annotations are not supported by the following features: S3 Inventory Reports,
+  API Gateway, S3 Storage Lens, Amazon S3 File Gateway, Amazon FSx, S3 on
+  Outposts, and
+  S3 Express One Zone (directory buckets).
+
+  The following operations are related to `PutObjectAnnotation`:
+
+    *
+
+  [GetObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectAnnotation.html) 
+
+    *
+
+  [ListObjectAnnotations](https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListObjectAnnotations.html)
+
+    *
+
+  [DeleteObjectAnnotation](https://docs.aws.amazon.com/AmazonS3/latest/API/API_DeleteObjectAnnotation.html)
+  """
+  @spec put_object_annotation(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          put_object_annotation_request(),
+          list()
+        ) ::
+          {:ok, put_object_annotation_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_object_annotation_errors()}
+  def put_object_annotation(%Client{} = client, bucket, key, input, options \\ []) do
+    url_path =
+      "/#{AWS.Util.encode_uri(bucket)}/#{AWS.Util.encode_multi_segment_uri(key)}?annotation"
+
+    {headers, input} =
+      [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ChecksumCRC32", "x-amz-checksum-crc32"},
+        {"ChecksumCRC32C", "x-amz-checksum-crc32c"},
+        {"ChecksumCRC64NVME", "x-amz-checksum-crc64nvme"},
+        {"ChecksumMD5", "x-amz-checksum-md5"},
+        {"ChecksumSHA1", "x-amz-checksum-sha1"},
+        {"ChecksumSHA256", "x-amz-checksum-sha256"},
+        {"ChecksumSHA512", "x-amz-checksum-sha512"},
+        {"ChecksumXXHASH128", "x-amz-checksum-xxhash128"},
+        {"ChecksumXXHASH3", "x-amz-checksum-xxhash3"},
+        {"ChecksumXXHASH64", "x-amz-checksum-xxhash64"},
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"},
+        {"ObjectIfMatch", "x-amz-object-if-match"},
+        {"RequestPayer", "x-amz-request-payer"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"AnnotationName", "annotationName"},
+        {"VersionId", "versionId"}
+      ]
+      |> Request.build_params(input)
+
+    options =
+      Keyword.put(
+        options,
+        :response_header_parameters,
+        [
+          {"x-amz-checksum-crc32", "ChecksumCRC32"},
+          {"x-amz-checksum-crc32c", "ChecksumCRC32C"},
+          {"x-amz-checksum-crc64nvme", "ChecksumCRC64NVME"},
+          {"x-amz-checksum-md5", "ChecksumMD5"},
+          {"x-amz-checksum-sha1", "ChecksumSHA1"},
+          {"x-amz-checksum-sha256", "ChecksumSHA256"},
+          {"x-amz-checksum-sha512", "ChecksumSHA512"},
+          {"x-amz-checksum-type", "ChecksumType"},
+          {"x-amz-checksum-xxhash128", "ChecksumXXHASH128"},
+          {"x-amz-checksum-xxhash3", "ChecksumXXHASH3"},
+          {"x-amz-checksum-xxhash64", "ChecksumXXHASH64"},
+          {"ETag", "ETag"},
+          {"x-amz-object-version-id", "ObjectVersionId"},
+          {"x-amz-request-charged", "RequestCharged"},
+          {"x-amz-server-side-encryption", "ServerSideEncryption"}
+        ]
+      )
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
 
   This operation is not supported for directory buckets.
 
@@ -18317,6 +19111,88 @@ defmodule AWS.S3 do
       client,
       meta,
       :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the annotation table configuration for an Amazon S3 bucket's metadata
+  configuration.
+
+  Use this
+  operation to enable or disable the annotation table, or to update its associated
+  IAM role.
+
+  An annotation table is a queryable Iceberg table that contains records of all
+  annotations
+  attached to objects in the bucket. To use this operation, the bucket must have
+  an existing Amazon S3
+  Metadata configuration.
+
+  To use this operation, you must have the
+  `s3:UpdateBucketMetadataAnnotationTableConfiguration` permission. If you are
+  specifying
+  or changing the IAM role, you must also have `iam:PassRole` permission for the
+  role.
+
+  The IAM role must have a trust policy that allows the Amazon S3 metadata service
+  to assume it, and a
+  permissions policy that grants the actions needed to read annotations from your
+  bucket. The
+  following examples show a trust policy and a permissions policy that you can
+  adapt for your bucket
+  and account.
+
+  The following operations are related to
+  `UpdateBucketMetadataAnnotationTableConfiguration`:
+
+    *
+
+  [CreateBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucketMetadataConfiguration.html) 
+
+    *
+
+  [GetBucketMetadataConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketMetadataConfiguration.html)
+  """
+  @spec update_bucket_metadata_annotation_table_configuration(
+          map(),
+          String.t() | atom(),
+          update_bucket_metadata_annotation_table_configuration_request(),
+          list()
+        ) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def update_bucket_metadata_annotation_table_configuration(
+        %Client{} = client,
+        bucket,
+        input,
+        options \\ []
+      ) do
+    url_path = "/#{AWS.Util.encode_uri(bucket)}?metadataAnnotationTable"
+
+    {headers, input} =
+      [
+        {"ChecksumAlgorithm", "x-amz-sdk-checksum-algorithm"},
+        {"ContentMD5", "Content-MD5"},
+        {"ExpectedBucketOwner", "x-amz-expected-bucket-owner"}
+      ]
+      |> Request.build_params(input)
+
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
       url_path,
       query_params,
       custom_headers ++ headers,

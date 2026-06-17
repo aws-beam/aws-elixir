@@ -515,6 +515,8 @@ defmodule AWS.Outposts do
         "OutpostId" => String.t() | atom(),
         "PaymentOption" => list(any()),
         "PaymentTerm" => list(any()),
+        "QuoteIdentifier" => String.t() | atom(),
+        "QuoteOptionIdentifier" => String.t() | atom(),
         "Status" => list(any())
       }
 
@@ -761,6 +763,8 @@ defmodule AWS.Outposts do
       create_order_input() :: %{
         optional("LineItems") => list(line_item_request()),
         optional("PaymentTerm") => list(any()),
+        optional("QuoteIdentifier") => String.t() | atom(),
+        optional("QuoteOptionIdentifier") => String.t() | atom(),
         required("OutpostIdentifier") => String.t() | atom(),
         required("PaymentOption") => list(any())
       }

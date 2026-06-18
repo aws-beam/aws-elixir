@@ -99,6 +99,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "definition" => list(),
         "description" => String.t() | atom(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -161,6 +162,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_dataset_version_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harness_endpoint_request() :: %{}
+
+  """
+  @type get_harness_endpoint_request() :: %{}
 
   @typedoc """
 
@@ -288,6 +298,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type custom_oauth2_provider_config_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_connector_source() :: %{
+        "connectorId" => String.t() | atom()
+      }
+
+  """
+  @type inference_connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -478,6 +499,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_disabled_memory_configuration() :: %{}
+
+  """
+  @type harness_disabled_memory_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harness_versions_response() :: %{
+        "harnessVersions" => list(harness_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_harness_versions_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       salesforce_oauth2_provider_config_input() :: %{
         "clientId" => String.t() | atom(),
         "clientSecret" => String.t() | atom(),
@@ -575,6 +617,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type harness_summarization_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_harness_endpoint_response() :: %{
+        "endpoint" => harness_endpoint()
+      }
+
+  """
+  @type update_harness_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -734,6 +787,21 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_harness_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("tags") => map(),
+        optional("targetVersion") => String.t() | atom(),
+        required("endpointName") => String.t() | atom()
+      }
+
+  """
+  @type create_harness_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -906,6 +974,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      delete_harness_endpoint_response() :: %{
+        "endpoint" => harness_endpoint()
+      }
+
+  """
+  @type delete_harness_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_online_evaluation_config_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("clusteringConfig") => clustering_config(),
@@ -938,7 +1017,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       delete_harness_request() :: %{
-        optional("clientToken") => String.t() | atom()
+        optional("clientToken") => String.t() | atom(),
+        optional("deleteManagedMemory") => [boolean()]
       }
 
   """
@@ -1034,6 +1114,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_configuration_bundle_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_target_configuration() :: %{
+        "configurations" => list(connector_configuration()),
+        "enabled" => list([String.t() | atom()]()),
+        "source" => connector_source()
+      }
+
+  """
+  @type connector_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1207,6 +1300,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      interceptor_payload_filter() :: %{
+        "exclude" => list(list())
+      }
+
+  """
+  @type interceptor_payload_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       traffic_split_entry() :: %{
         "configurationBundle" => configuration_bundle_reference(),
         "description" => [String.t() | atom()],
@@ -1291,6 +1395,7 @@ defmodule AWS.BedrockAgentCoreControl do
       create_policy_request() :: %{
         optional("clientToken") => String.t() | atom(),
         optional("description") => String.t() | atom(),
+        optional("enforcementMode") => list(any()),
         optional("validationMode") => list(any()),
         required("definition") => list(),
         required("name") => String.t() | atom()
@@ -1298,6 +1403,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      stickiness_configuration() :: %{
+        "identifier" => [String.t() | atom()],
+        "timeout" => integer()
+      }
+
+  """
+  @type stickiness_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1400,6 +1517,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
+        "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
@@ -1415,6 +1533,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
+        "wafConfiguration" => waf_configuration(),
+        "webAclArn" => String.t() | atom(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
@@ -1503,6 +1623,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "definition" => list(),
         "description" => String.t() | atom(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -1639,6 +1760,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       update_gateway_request() :: %{
         optional("authorizerConfiguration") => list(),
+        optional("customTransformConfiguration") => custom_transform_configuration(),
         optional("description") => String.t() | atom(),
         optional("exceptionLevel") => list(any()),
         optional("interceptorConfigurations") => list(gateway_interceptor_configuration()),
@@ -1646,6 +1768,7 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("policyEngineConfiguration") => gateway_policy_engine_configuration(),
         optional("protocolConfiguration") => list(),
         optional("protocolType") => list(any()),
+        optional("wafConfiguration") => waf_configuration(),
         required("authorizerType") => list(any()),
         required("name") => String.t() | atom(),
         required("roleArn") => String.t() | atom()
@@ -1653,6 +1776,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_gateway_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_provider_target_configuration() :: %{
+        "endpoint" => String.t() | atom(),
+        "modelMapping" => model_mapping(),
+        "operations" => list(inference_operation_configuration())
+      }
+
+  """
+  @type inference_provider_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1878,6 +2014,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "allowedAudience" => list(String.t() | atom()),
         "allowedClients" => list(String.t() | atom()),
         "allowedScopes" => list(String.t() | atom()),
+        "allowedWorkloadConfiguration" => allowed_workload_configuration(),
         "customClaims" => list(custom_claim_validation_type()),
         "discoveryUrl" => String.t() | atom(),
         "privateEndpoint" => list(),
@@ -1886,6 +2023,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type custom_j_w_t_authorizer_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_harness_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        optional("description") => String.t() | atom(),
+        optional("targetVersion") => String.t() | atom()
+      }
+
+  """
+  @type update_harness_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2242,6 +2392,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "definition" => list(),
         "description" => String.t() | atom(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -2290,6 +2441,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type agent_card_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      custom_transform_configuration() :: %{
+        "lambda" => lambda_transform_configuration()
+      }
+
+  """
+  @type custom_transform_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2486,6 +2648,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_harness_endpoints_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_harness_endpoints_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_tool() :: %{
         "config" => list(),
         "name" => String.t() | atom(),
@@ -2568,6 +2742,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "managedByResourceArn" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => [non_neg_integer()]
       }
@@ -2675,6 +2850,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       get_policy_summary_response() :: %{
         "createdAt" => non_neg_integer(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -2782,6 +2958,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      model_entry() :: %{
+        "model" => String.t() | atom()
+      }
+
+  """
+  @type model_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness_truncation_configuration() :: %{
         "config" => list(),
         "strategy" => list(any())
@@ -2831,6 +3018,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      lambda_transform_configuration() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type lambda_transform_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       harness() :: %{
         "allowedTools" => list(String.t() | atom()),
         "arn" => String.t() | atom(),
@@ -2843,6 +3041,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "failureReason" => [String.t() | atom()],
         "harnessId" => String.t() | atom(),
         "harnessName" => String.t() | atom(),
+        "harnessVersion" => String.t() | atom(),
         "maxIterations" => [integer()],
         "maxTokens" => [integer()],
         "memory" => list(),
@@ -3243,7 +3442,8 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       interceptor_input_configuration() :: %{
-        "passRequestHeaders" => [boolean()]
+        "passRequestHeaders" => [boolean()],
+        "payloadFilter" => interceptor_payload_filter()
       }
 
   """
@@ -3747,12 +3947,36 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      inference_operation_configuration() :: %{
+        "models" => list(model_entry()),
+        "path" => String.t() | atom(),
+        "providerPath" => String.t() | atom()
+      }
+
+  """
+  @type inference_operation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_memory_input() :: %{
         optional("clientToken") => String.t() | atom()
       }
 
   """
   @type delete_memory_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_harness_endpoint_request() :: %{
+        optional("clientToken") => String.t() | atom()
+      }
+
+  """
+  @type delete_harness_endpoint_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3901,6 +4125,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type api_gateway_tool_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_harness_endpoint_response() :: %{
+        "endpoint" => harness_endpoint()
+      }
+
+  """
+  @type get_harness_endpoint_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4126,6 +4361,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      allowed_workload_configuration() :: %{
+        "hostingEnvironments" => list(hosting_environment()),
+        "workloadIdentities" => list(String.t() | atom())
+      }
+
+  """
+  @type allowed_workload_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_dataset_request() :: %{
         optional("datasetVersion") => String.t() | atom()
       }
@@ -4313,6 +4560,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "definition" => list(),
         "description" => String.t() | atom(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -4447,6 +4695,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type gateway_rule_detail() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      provider_prefix() :: %{
+        "separator" => [String.t() | atom()],
+        "strip" => [boolean()]
+      }
+
+  """
+  @type provider_prefix() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4657,6 +4917,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
+        "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
@@ -4672,6 +4933,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
+        "wafConfiguration" => waf_configuration(),
+        "webAclArn" => String.t() | atom(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
@@ -4911,6 +5174,28 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      model_mapping() :: %{
+        "providerPrefix" => provider_prefix()
+      }
+
+  """
+  @type model_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      policy_statement() :: %{
+        "statement" => String.t() | atom()
+      }
+
+  """
+  @type policy_statement() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_gateway_target_response() :: %{
         "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
@@ -4943,6 +5228,19 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type message_based_trigger() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_parameter_override() :: %{
+        "description" => [String.t() | atom()],
+        "path" => [String.t() | atom()],
+        "visible" => [boolean()]
+      }
+
+  """
+  @type connector_parameter_override() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5059,6 +5357,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "authorizerConfiguration" => list(),
         "authorizerType" => list(any()),
         "createdAt" => non_neg_integer(),
+        "customTransformConfiguration" => custom_transform_configuration(),
         "description" => String.t() | atom(),
         "exceptionLevel" => list(any()),
         "gatewayArn" => String.t() | atom(),
@@ -5074,6 +5373,8 @@ defmodule AWS.BedrockAgentCoreControl do
         "status" => list(any()),
         "statusReasons" => list(String.t() | atom()),
         "updatedAt" => non_neg_integer(),
+        "wafConfiguration" => waf_configuration(),
+        "webAclArn" => String.t() | atom(),
         "workloadIdentityDetails" => workload_identity_details()
       }
 
@@ -5240,6 +5541,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      waf_configuration() :: %{
+        "failureMode" => list(any())
+      }
+
+  """
+  @type waf_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       updated_skill_definition() :: %{
         "optionalValue" => skill_definition()
       }
@@ -5330,6 +5642,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_browser_profiles_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inference_connector_target_configuration() :: %{
+        "source" => inference_connector_source()
+      }
+
+  """
+  @type inference_connector_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5534,6 +5857,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "harnessId" => String.t() | atom(),
         "harnessName" => String.t() | atom(),
+        "harnessVersion" => String.t() | atom(),
         "status" => list(any()),
         "updatedAt" => non_neg_integer()
       }
@@ -5552,6 +5876,27 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_policy_generation_summaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_endpoint() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "description" => String.t() | atom(),
+        "endpointName" => String.t() | atom(),
+        "failureReason" => [String.t() | atom()],
+        "harnessId" => String.t() | atom(),
+        "harnessName" => String.t() | atom(),
+        "liveVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "targetVersion" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type harness_endpoint() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5584,6 +5929,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type invocation_configuration_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_configuration() :: %{
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "parameterOverrides" => list(connector_parameter_override()),
+        "parameterValues" => [any()]
+      }
+
+  """
+  @type connector_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5950,6 +6309,18 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      list_harness_versions_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_harness_versions_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_payment_credential_providers_response() :: %{
         "credentialProviders" => list(payment_credential_provider_item()),
         "nextToken" => [String.t() | atom()]
@@ -6174,6 +6545,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      harness_managed_memory_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "encryptionKeyArn" => String.t() | atom(),
+        "eventExpiryDuration" => [integer()],
+        "strategies" => list(list(any())())
+      }
+
+  """
+  @type harness_managed_memory_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configuration_bundle_version_summary() :: %{
         "bundleArn" => String.t() | atom(),
         "bundleId" => String.t() | atom(),
@@ -6190,12 +6575,16 @@ defmodule AWS.BedrockAgentCoreControl do
   ## Example:
 
       target_summary() :: %{
+        "authorizationData" => list(),
         "createdAt" => non_neg_integer(),
         "description" => String.t() | atom(),
+        "lastSynchronizedAt" => non_neg_integer(),
+        "listingMode" => list(any()),
         "name" => String.t() | atom(),
         "resourcePriority" => integer(),
         "status" => list(any()),
         "targetId" => String.t() | atom(),
+        "targetType" => list(any()),
         "updatedAt" => non_neg_integer()
       }
 
@@ -6221,8 +6610,8 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
         optional("metadataConfiguration") => metadata_configuration(),
+        optional("name") => String.t() | atom(),
         optional("privateEndpoint") => list(),
-        required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
 
@@ -6360,8 +6749,8 @@ defmodule AWS.BedrockAgentCoreControl do
         optional("credentialProviderConfigurations") => list(credential_provider_configuration()),
         optional("description") => String.t() | atom(),
         optional("metadataConfiguration") => metadata_configuration(),
+        optional("name") => String.t() | atom(),
         optional("privateEndpoint") => list(),
-        required("name") => String.t() | atom(),
         required("targetConfiguration") => list()
       }
 
@@ -6416,6 +6805,24 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type list_registries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_version_summary() :: %{
+        "arn" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "failureReason" => [String.t() | atom()],
+        "harnessId" => String.t() | atom(),
+        "harnessName" => String.t() | atom(),
+        "harnessVersion" => String.t() | atom(),
+        "status" => list(any()),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type harness_version_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6478,6 +6885,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type delete_gateway_rule_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      http_api_schema_configuration() :: %{
+        "source" => list()
+      }
+
+  """
+  @type http_api_schema_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6548,10 +6966,12 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
-      get_harness_request() :: %{}
+      get_harness_request() :: %{
+        optional("harnessVersion") => String.t() | atom()
+      }
 
   """
-  @type get_harness_request() :: %{}
+  @type get_harness_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6563,6 +6983,20 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type sampling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      passthrough_target_configuration() :: %{
+        "endpoint" => String.t() | atom(),
+        "protocolType" => list(any()),
+        "schema" => http_api_schema_configuration(),
+        "stickinessConfiguration" => stickiness_configuration()
+      }
+
+  """
+  @type passthrough_target_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6598,7 +7032,8 @@ defmodule AWS.BedrockAgentCoreControl do
 
       runtime_target_configuration() :: %{
         "arn" => String.t() | atom(),
-        "qualifier" => String.t() | atom()
+        "qualifier" => String.t() | atom(),
+        "schema" => http_api_schema_configuration()
       }
 
   """
@@ -6629,6 +7064,29 @@ defmodule AWS.BedrockAgentCoreControl do
 
   ## Example:
 
+      create_harness_endpoint_response() :: %{
+        "endpoint" => harness_endpoint()
+      }
+
+  """
+  @type create_harness_endpoint_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_harness_endpoints_response() :: %{
+        "endpoints" => list(harness_endpoint()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_harness_endpoints_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_agent_runtime_request() :: %{
         optional("agentRuntimeVersion") => String.t() | atom()
       }
@@ -6643,6 +7101,7 @@ defmodule AWS.BedrockAgentCoreControl do
       update_policy_request() :: %{
         optional("definition") => list(),
         optional("description") => updated_description(),
+        optional("enforcementMode") => list(any()),
         optional("validationMode") => list(any())
       }
 
@@ -6798,6 +7257,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type create_gateway_target_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      hosting_environment() :: %{
+        "arn" => String.t() | atom()
+      }
+
+  """
+  @type hosting_environment() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7070,6 +7540,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "failureReason" => [String.t() | atom()],
         "id" => String.t() | atom(),
         "indexedKeys" => list(indexed_key()),
+        "managedByResourceArn" => String.t() | atom(),
         "memoryExecutionRoleArn" => String.t() | atom(),
         "name" => String.t() | atom(),
         "status" => list(any()),
@@ -7172,6 +7643,7 @@ defmodule AWS.BedrockAgentCoreControl do
         "createdAt" => non_neg_integer(),
         "definition" => list(),
         "description" => String.t() | atom(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -7183,6 +7655,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      connector_source() :: %{
+        "connectorId" => String.t() | atom()
+      }
+
+  """
+  @type connector_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7416,6 +7899,7 @@ defmodule AWS.BedrockAgentCoreControl do
 
       policy_summary() :: %{
         "createdAt" => non_neg_integer(),
+        "enforcementMode" => list(any()),
         "name" => String.t() | atom(),
         "policyArn" => String.t() | atom(),
         "policyEngineId" => String.t() | atom(),
@@ -7477,6 +7961,17 @@ defmodule AWS.BedrockAgentCoreControl do
 
   """
   @type update_registry_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      harness_skill_aws_skills_source() :: %{
+        "paths" => list(String.t() | atom())
+      }
+
+  """
+  @type harness_skill_aws_skills_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7858,6 +8353,15 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | throttling_exception()
 
+  @type create_harness_endpoint_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type create_memory_errors() ::
           service_quota_exceeded_exception()
           | throttled_exception()
@@ -8072,6 +8576,14 @@ defmodule AWS.BedrockAgentCoreControl do
           | access_denied_exception()
           | throttling_exception()
 
+  @type delete_harness_endpoint_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type delete_memory_errors() ::
           throttled_exception()
           | conflict_exception()
@@ -8261,6 +8773,13 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
 
   @type get_harness_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_harness_endpoint_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -8486,13 +9005,28 @@ defmodule AWS.BedrockAgentCoreControl do
           | throttling_exception()
 
   @type list_gateway_targets_errors() ::
-          internal_server_exception()
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
 
   @type list_gateways_errors() ::
           internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type list_harness_endpoints_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type list_harness_versions_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
@@ -8769,6 +9303,15 @@ defmodule AWS.BedrockAgentCoreControl do
 
   @type update_harness_errors() ::
           conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type update_harness_endpoint_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -9356,7 +9899,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Operation to create a Harness.
+  Operation to create a harness.
   """
   @spec create_harness(map(), create_harness_request(), list()) ::
           {:ok, create_harness_response(), any()}
@@ -9365,6 +9908,40 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, create_harness_errors()}
   def create_harness(%Client{} = client, input, options \\ []) do
     url_path = "/harnesses"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      201
+    )
+  end
+
+  @doc """
+  Operation to create a harness endpoint.
+  """
+  @spec create_harness_endpoint(
+          map(),
+          String.t() | atom(),
+          create_harness_endpoint_request(),
+          list()
+        ) ::
+          {:ok, create_harness_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_harness_endpoint_errors()}
+  def create_harness_endpoint(%Client{} = client, harness_id, input, options \\ []) do
+    url_path = "/harnesses/#{AWS.Util.encode_uri(harness_id)}/endpoints"
     headers = []
     custom_headers = []
     query_params = []
@@ -10264,6 +10841,49 @@ defmodule AWS.BedrockAgentCoreControl do
 
     {query_params, input} =
       [
+        {"clientToken", "clientToken"},
+        {"deleteManagedMemory", "deleteManagedMemory"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Operation to delete a harness endpoint.
+  """
+  @spec delete_harness_endpoint(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_harness_endpoint_request(),
+          list()
+        ) ::
+          {:ok, delete_harness_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_harness_endpoint_errors()}
+  def delete_harness_endpoint(%Client{} = client, endpoint_name, harness_id, input, options \\ []) do
+    url_path =
+      "/harnesses/#{AWS.Util.encode_uri(harness_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
+
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
         {"clientToken", "clientToken"}
       ]
       |> Request.build_params(input)
@@ -11028,15 +11648,42 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Operation to get a single Harness.
+  Operation to get a single harness.
   """
-  @spec get_harness(map(), String.t() | atom(), list()) ::
+  @spec get_harness(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_harness_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_harness_errors()}
-  def get_harness(%Client{} = client, harness_id, options \\ []) do
+  def get_harness(%Client{} = client, harness_id, harness_version \\ nil, options \\ []) do
     url_path = "/harnesses/#{AWS.Util.encode_uri(harness_id)}"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(harness_version) do
+        [{"harnessVersion", harness_version} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Operation to get a single harness endpoint.
+  """
+  @spec get_harness_endpoint(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_harness_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_harness_endpoint_errors()}
+  def get_harness_endpoint(%Client{} = client, endpoint_name, harness_id, options \\ []) do
+    url_path =
+      "/harnesses/#{AWS.Util.encode_uri(harness_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
+
     headers = []
     query_params = []
 
@@ -12091,7 +12738,95 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Operation to list Harnesses.
+  Operation to list the endpoints of a harness.
+  """
+  @spec list_harness_endpoints(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_harness_endpoints_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_harness_endpoints_errors()}
+  def list_harness_endpoints(
+        %Client{} = client,
+        harness_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/harnesses/#{AWS.Util.encode_uri(harness_id)}/endpoints"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Operation to list the versions of a Harness.
+  """
+  @spec list_harness_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_harness_versions_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_harness_versions_errors()}
+  def list_harness_versions(
+        %Client{} = client,
+        harness_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/harnesses/#{AWS.Util.encode_uri(harness_id)}/versions"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Operation to list harnesses.
   """
   @spec list_harnesses(map(), String.t() | atom() | nil, String.t() | atom() | nil, list()) ::
           {:ok, list_harnesses_response(), any()}
@@ -13507,7 +14242,7 @@ defmodule AWS.BedrockAgentCoreControl do
   end
 
   @doc """
-  Operation to update a Harness.
+  Operation to update a harness.
   """
   @spec update_harness(map(), String.t() | atom(), update_harness_request(), list()) ::
           {:ok, update_harness_response(), any()}
@@ -13516,6 +14251,43 @@ defmodule AWS.BedrockAgentCoreControl do
           | {:error, update_harness_errors()}
   def update_harness(%Client{} = client, harness_id, input, options \\ []) do
     url_path = "/harnesses/#{AWS.Util.encode_uri(harness_id)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Operation to update a harness endpoint.
+  """
+  @spec update_harness_endpoint(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_harness_endpoint_request(),
+          list()
+        ) ::
+          {:ok, update_harness_endpoint_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_harness_endpoint_errors()}
+  def update_harness_endpoint(%Client{} = client, endpoint_name, harness_id, input, options \\ []) do
+    url_path =
+      "/harnesses/#{AWS.Util.encode_uri(harness_id)}/endpoints/#{AWS.Util.encode_uri(endpoint_name)}"
+
     headers = []
     custom_headers = []
     query_params = []

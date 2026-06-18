@@ -250,6 +250,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      put_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom(),
+        required("policy") => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       duplicate_condition_expression_flow_validation_details() :: %{
         "expression" => String.t() | atom(),
         "node" => String.t() | atom()
@@ -265,6 +277,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       document_metadata() :: %{
+        "accessControlList" => list(document_access_control_entry()),
         "inlineAttributes" => list(metadata_attribute()),
         "s3Location" => custom_s3_location(),
         "type" => list(any())
@@ -745,6 +758,7 @@ defmodule AWS.BedrockAgent do
 
       knowledge_base_configuration() :: %{
         "kendraKnowledgeBaseConfiguration" => kendra_knowledge_base_configuration(),
+        "managedKnowledgeBaseConfiguration" => managed_knowledge_base_configuration(),
         "sqlKnowledgeBaseConfiguration" => sql_knowledge_base_configuration(),
         "type" => list(any()),
         "vectorKnowledgeBaseConfiguration" => vector_knowledge_base_configuration()
@@ -1144,6 +1158,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      managed_knowledge_base_connector_configuration() :: %{
+        "connectorParameters" => [any()],
+        "deletionProtectionConfiguration" => deletion_protection_configuration(),
+        "mediaExtractionConfiguration" => media_extraction_configuration()
+      }
+
+  """
+  @type managed_knowledge_base_connector_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_model_inference_configuration() :: %{
         "maxTokens" => integer(),
         "stopSequences" => list([String.t() | atom()]()),
@@ -1286,6 +1313,20 @@ defmodule AWS.BedrockAgent do
 
   """
   @type rds_field_mapping() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_knowledge_base_configuration() :: %{
+        "embeddingModelArn" => String.t() | atom(),
+        "embeddingModelConfiguration" => embedding_model_configuration(),
+        "embeddingModelType" => list(any()),
+        "serverSideEncryptionConfiguration" => server_side_encryption_configuration()
+      }
+
+  """
+  @type managed_knowledge_base_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1579,6 +1620,15 @@ defmodule AWS.BedrockAgent do
 
   """
   @type redshift_serverless_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_resource_policy_request() :: %{}
+
+  """
+  @type get_resource_policy_request() :: %{}
 
   @typedoc """
 
@@ -2229,6 +2279,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      audio_extraction_configuration() :: %{
+        "audioExtractionStatus" => list(any())
+      }
+
+  """
+  @type audio_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       tag_resource_response() :: %{}
 
   """
@@ -2244,6 +2305,19 @@ defmodule AWS.BedrockAgent do
 
   """
   @type start_ingestion_job_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      document_access_control_entry() :: %{
+        "access" => list(any()),
+        "name" => [String.t() | atom()],
+        "type" => list(any())
+      }
+
+  """
+  @type document_access_control_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2684,6 +2758,19 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      get_resource_policy_response() :: %{
+        "policy" => String.t() | atom(),
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type get_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_flow_version_response() :: %{
         "id" => String.t() | atom(),
         "version" => String.t() | atom()
@@ -2810,6 +2897,30 @@ defmodule AWS.BedrockAgent do
 
   """
   @type list_agent_collaborators_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_resource_policy_request() :: %{
+        optional("expectedRevisionId") => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      media_extraction_configuration() :: %{
+        "audioExtractionConfiguration" => audio_extraction_configuration(),
+        "imageExtractionConfiguration" => image_extraction_configuration(),
+        "videoExtractionConfiguration" => video_extraction_configuration()
+      }
+
+  """
+  @type media_extraction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3112,6 +3223,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      put_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type put_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_ingestion_jobs_request() :: %{
         optional("filters") => list(ingestion_job_filter()),
         optional("maxResults") => integer(),
@@ -3392,6 +3515,18 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      delete_resource_policy_response() :: %{
+        "resourceArn" => String.t() | atom(),
+        "revisionId" => String.t() | atom()
+      }
+
+  """
+  @type delete_resource_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       parsing_configuration() :: %{
         "bedrockDataAutomationConfiguration" => bedrock_data_automation_configuration(),
         "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
@@ -3409,6 +3544,7 @@ defmodule AWS.BedrockAgent do
         "numberOfDocumentsDeleted" => [float()],
         "numberOfDocumentsFailed" => [float()],
         "numberOfDocumentsScanned" => [float()],
+        "numberOfDocumentsSkipped" => [float()],
         "numberOfMetadataDocumentsModified" => [float()],
         "numberOfMetadataDocumentsScanned" => [float()],
         "numberOfModifiedDocumentsIndexed" => [float()],
@@ -4061,6 +4197,7 @@ defmodule AWS.BedrockAgent do
 
       data_source_configuration() :: %{
         "confluenceConfiguration" => confluence_data_source_configuration(),
+        "managedKnowledgeBaseConnectorConfiguration" => managed_knowledge_base_connector_configuration(),
         "s3Configuration" => s3_data_source_configuration(),
         "salesforceConfiguration" => salesforce_data_source_configuration(),
         "sharePointConfiguration" => share_point_data_source_configuration(),
@@ -4297,6 +4434,17 @@ defmodule AWS.BedrockAgent do
 
   """
   @type loop_controller_flow_node_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      image_extraction_configuration() :: %{
+        "imageExtractionStatus" => list(any())
+      }
+
+  """
+  @type image_extraction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4732,6 +4880,17 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
+      video_extraction_configuration() :: %{
+        "videoExtractionStatus" => list(any())
+      }
+
+  """
+  @type video_extraction_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       unreachable_node_flow_validation_details() :: %{
         "node" => String.t() | atom()
       }
@@ -4774,6 +4933,18 @@ defmodule AWS.BedrockAgent do
 
   """
   @type disassociate_agent_knowledge_base_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      deletion_protection_configuration() :: %{
+        "deletionProtectionStatus" => list(any()),
+        "deletionProtectionThreshold" => [integer()]
+      }
+
+  """
+  @type deletion_protection_configuration() :: %{(String.t() | atom()) => any()}
 
   @type associate_agent_collaborator_errors() ::
           service_quota_exceeded_exception()
@@ -4966,6 +5137,14 @@ defmodule AWS.BedrockAgent do
           | access_denied_exception()
           | throttling_exception()
 
+  @type delete_resource_policy_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type disassociate_agent_collaborator_errors() ::
           conflict_exception()
           | resource_not_found_exception()
@@ -5075,6 +5254,13 @@ defmodule AWS.BedrockAgent do
           | throttling_exception()
 
   @type get_prompt_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_resource_policy_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -5204,6 +5390,14 @@ defmodule AWS.BedrockAgent do
   @type prepare_flow_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type put_resource_policy_errors() ::
+          conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -5729,20 +5923,26 @@ defmodule AWS.BedrockAgent do
   sources and configure a supported vector store. For more information, see [Set up a knowledge
   base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowlege-base-prereq.html).
 
-  If you prefer to let Amazon Bedrock create and manage a vector store for you in
-  Amazon OpenSearch Service, use the console. For more information, see [Create a knowledge
-  base](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-create).
+  To create a managed knowledge base, provide a
+  `managedKnowledgeBaseConfiguration` during creation. For more information, see
+  [Build a managed knowledge base](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-build-managed.html).
 
     * Provide the `name` and an optional `description`.
 
     * Provide the Amazon Resource Name (ARN) with permissions to create
   a knowledge base in the `roleArn` field.
 
-    * Provide the embedding model to use in the `embeddingModelArn`
-  field in the `knowledgeBaseConfiguration` object.
+    * For managed knowledge bases, set `embeddingModelType` to `MANAGED`
+  to use the service-managed embedding model, or `CUSTOM` with an
+  `embeddingModelArn` to use your own. To use your own KMS key for encryption,
+  provide the ARN in `serverSideEncryptionConfiguration`. No vector store
+  configuration is required for managed knowledge bases.
 
-    * Provide the configuration for your vector store in the
-  `storageConfiguration` object.
+    * For self-managed knowledge bases, provide the embedding model to
+  use in the `embeddingModelArn` field in the `knowledgeBaseConfiguration` object.
+
+    * For self-managed knowledge bases, provide the configuration for
+  your vector store in the `storageConfiguration` object.
 
       * For an Amazon OpenSearch Service database, use the
   `opensearchServerlessConfiguration` object. For more information, see [Create a vector store in Amazon OpenSearch
@@ -6298,6 +6498,48 @@ defmodule AWS.BedrockAgent do
   end
 
   @doc """
+  Removes the resource policy associated with a knowledge base.
+
+  After deletion, other AWS accounts can no longer access the knowledge base using
+  cross-account permissions.
+  """
+  @spec delete_resource_policy(
+          map(),
+          String.t() | atom(),
+          delete_resource_policy_request(),
+          list()
+        ) ::
+          {:ok, delete_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_resource_policy_errors()}
+  def delete_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"expectedRevisionId", "expectedRevisionId"}
+      ]
+      |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Disassociates an agent collaborator.
   """
   @spec disassociate_agent_collaborator(
@@ -6753,6 +6995,24 @@ defmodule AWS.BedrockAgent do
       else
         query_params
       end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the resource policy associated with a knowledge base.
+  """
+  @spec get_resource_policy(map(), String.t() | atom(), list()) ::
+          {:ok, get_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_resource_policy_errors()}
+  def get_resource_policy(%Client{} = client, resource_arn, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -7422,6 +7682,38 @@ defmodule AWS.BedrockAgent do
       input,
       options,
       202
+    )
+  end
+
+  @doc """
+  Associates a resource policy with a knowledge base.
+
+  A resource policy allows other AWS accounts to access the knowledge base. For
+  more information, see [Cross-account access for knowledge bases](https://docs.aws.amazon.com/bedrock/latest/userguide/kb-managed-cross-account.html).
+  """
+  @spec put_resource_policy(map(), String.t() | atom(), put_resource_policy_request(), list()) ::
+          {:ok, put_resource_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_resource_policy_errors()}
+  def put_resource_policy(%Client{} = client, resource_arn, input, options \\ []) do
+    url_path = "/resourcepolicy/#{AWS.Util.encode_uri(resource_arn)}"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

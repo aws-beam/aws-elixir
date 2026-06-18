@@ -3821,7 +3821,8 @@ defmodule AWS.OpenSearch do
 
       update_application_request() :: %{
         optional("appConfigs") => list(app_config()),
-        optional("dataSources") => list(data_source())
+        optional("dataSources") => list(data_source()),
+        optional("iamIdentityCenterOptions") => iam_identity_center_options_input()
       }
 
   """

@@ -2472,6 +2472,7 @@ defmodule AWS.ECS do
         "primaryContainer" => express_gateway_container(),
         "scalingTarget" => express_gateway_scaling_target(),
         "serviceRevisionArn" => String.t() | atom(),
+        "taskDefinitionArn" => String.t() | atom(),
         "taskRoleArn" => String.t() | atom()
       }
       
@@ -3351,6 +3352,7 @@ defmodule AWS.ECS do
         optional("networkConfiguration") => express_gateway_service_network_configuration(),
         optional("primaryContainer") => express_gateway_container(),
         optional("scalingTarget") => express_gateway_scaling_target(),
+        optional("taskDefinitionArn") => String.t() | atom(),
         optional("taskRoleArn") => String.t() | atom(),
         required("serviceArn") => String.t() | atom()
       }
@@ -4870,16 +4872,17 @@ defmodule AWS.ECS do
       create_express_gateway_service_request() :: %{
         optional("cluster") => String.t() | atom(),
         optional("cpu") => String.t() | atom(),
+        optional("executionRoleArn") => String.t() | atom(),
         optional("healthCheckPath") => String.t() | atom(),
         optional("memory") => String.t() | atom(),
         optional("networkConfiguration") => express_gateway_service_network_configuration(),
+        optional("primaryContainer") => express_gateway_container(),
         optional("scalingTarget") => express_gateway_scaling_target(),
         optional("serviceName") => String.t() | atom(),
         optional("tags") => list(tag()),
+        optional("taskDefinitionArn") => String.t() | atom(),
         optional("taskRoleArn") => String.t() | atom(),
-        required("executionRoleArn") => String.t() | atom(),
-        required("infrastructureRoleArn") => String.t() | atom(),
-        required("primaryContainer") => express_gateway_container()
+        required("infrastructureRoleArn") => String.t() | atom()
       }
       
   """
@@ -5934,8 +5937,11 @@ defmodule AWS.ECS do
   service revision.
 
   To find the `hookId` of the paused hook, call
-  [DescribeServiceDeployments](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html)
-  and inspect the `lifecycleHookDetails` field.
+  [DescribeServiceDeployments](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeServiceDeployments.html) and inspect the `lifecycleHookDetails` field.
+
+  For more information, see [Continuing Amazon ECS service
+  deployments](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/continue-service-deployment.html)
+  in the *Amazon Elastic Container Service Developer Guide*.
   """
   @spec continue_service_deployment(map(), continue_service_deployment_request(), list()) ::
           {:ok, continue_service_deployment_response(), any()}

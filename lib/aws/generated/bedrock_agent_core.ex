@@ -732,7 +732,7 @@ defmodule AWS.BedrockAgentCore do
 
       online_evaluation_config_source() :: %{
         "onlineEvaluationConfigArn" => String.t() | atom(),
-        "sessionFilterConfig" => session_filter_config()
+        "timeRange" => session_filter_config()
       }
 
   """
@@ -3341,6 +3341,7 @@ defmodule AWS.BedrockAgentCore do
         optional("maxIterations") => [integer()],
         optional("maxTokens") => [integer()],
         optional("model") => list(),
+        optional("qualifier") => String.t() | atom(),
         optional("runtimeUserId") => [String.t() | atom()],
         optional("skills") => list(list()),
         optional("systemPrompt") => list(list()),
@@ -4283,6 +4284,17 @@ defmodule AWS.BedrockAgentCore do
 
   ## Example:
 
+      harness_skill_aws_skills_source() :: %{
+        "paths" => list(String.t() | atom())
+      }
+
+  """
+  @type harness_skill_aws_skills_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       session_filter_config() :: %{
         "endTime" => [non_neg_integer()],
         "startTime" => [non_neg_integer()]
@@ -4693,7 +4705,8 @@ defmodule AWS.BedrockAgentCore do
           | throttling_exception()
 
   @type invoke_harness_errors() ::
-          resource_not_found_exception()
+          service_quota_exceeded_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | runtime_client_error()
@@ -6384,7 +6397,8 @@ defmodule AWS.BedrockAgentCore do
 
     {query_params, input} =
       [
-        {"harnessArn", "harnessArn"}
+        {"harnessArn", "harnessArn"},
+        {"qualifier", "qualifier"}
       ]
       |> Request.build_params(input)
 

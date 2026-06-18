@@ -384,6 +384,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_glossary_request() :: %{}
+      
+  """
+  @type delete_glossary_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_blueprint_response() :: %{
         "Name" => String.t() | atom()
       }
@@ -554,6 +563,22 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      put_asset_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("AssetTypeId") => String.t() | atom(),
+        required("Forms") => map(),
+        required("Identifier") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type put_asset_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_blueprints_response() :: %{
         "Blueprints" => list(blueprint()),
         "MissingBlueprints" => list(String.t() | atom())
@@ -710,6 +735,18 @@ defmodule AWS.Glue do
       
   """
   @type auth_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_iterable_forms_response() :: %{
+        "Errors" => list(item_error()),
+        "Items" => list(iterable_form_item())
+      }
+      
+  """
+  @type batch_get_iterable_forms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1302,6 +1339,26 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_asset_output() :: %{
+        "AssetTypeId" => String.t() | atom(),
+        "Attachments" => map(),
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Forms" => map(),
+        "GlossaryTerms" => list(String.t() | atom()),
+        "Id" => String.t() | atom(),
+        "IterableForms" => map(),
+        "Name" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type get_asset_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_ml_evaluation_task_run_request() :: %{
         required("TransformId") => String.t() | atom()
       }
@@ -1771,6 +1828,34 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_glossary_response() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type update_glossary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iterable_form_item() :: %{
+        "Attachments" => map(),
+        "Forms" => map(),
+        "GlossaryTerms" => list(String.t() | atom()),
+        "ItemId" => String.t() | atom(),
+        "ItemName" => String.t() | atom()
+      }
+      
+  """
+  @type iterable_form_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_glue_identity_center_configuration_response() :: %{}
       
   """
@@ -2019,6 +2104,18 @@ defmodule AWS.Glue do
       
   """
   @type list_triggers_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_iterable_forms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_iterable_forms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2522,6 +2619,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_form_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_form_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       federation_source_retryable_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -2617,6 +2726,19 @@ defmodule AWS.Glue do
       
   """
   @type update_csv_classifier_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_glossary_terms_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        required("GlossaryIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type list_glossary_terms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2793,6 +2915,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_asset_request() :: %{}
+      
+  """
+  @type delete_asset_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       start_crawler_response() :: %{}
       
   """
@@ -2855,6 +2986,27 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      associate_glossary_terms_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("GlossaryTermIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type associate_glossary_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_asset_response() :: %{}
+      
+  """
+  @type delete_asset_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       catalog_properties() :: %{
         "CustomProperties" => map(),
         "DataLakeAccessProperties" => data_lake_access_properties(),
@@ -2904,6 +3056,18 @@ defmodule AWS.Glue do
       
   """
   @type recipe() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_iterable_forms_response() :: %{
+        "Items" => list(iterable_form_list_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_iterable_forms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3021,6 +3185,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_asset_type_request() :: %{}
+      
+  """
+  @type delete_asset_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       list_data_quality_results_request() :: %{
         optional("Filter") => data_quality_result_filter_criteria(),
         optional("MaxResults") => integer(),
@@ -3123,6 +3296,19 @@ defmodule AWS.Glue do
       
   """
   @type create_partition_index_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_form_type_response() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+      
+  """
+  @type get_form_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3259,6 +3445,19 @@ defmodule AWS.Glue do
       
   """
   @type glue_encryption_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      glossary_item() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type glossary_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3455,6 +3654,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_glossaries_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_glossaries_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       start_import_labels_task_run_response() :: %{
         "TaskRunId" => String.t() | atom()
       }
@@ -3506,6 +3717,15 @@ defmodule AWS.Glue do
       
   """
   @type data_quality_rule_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_glossary_request() :: %{}
+      
+  """
+  @type get_glossary_request() :: %{}
 
   @typedoc """
 
@@ -4233,6 +4453,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_attachment_response() :: %{
+        "Identifier" => String.t() | atom()
+      }
+      
+  """
+  @type delete_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       connector_authentication_configuration() :: %{
         "AuthenticationTypes" => list(list(any())()),
         "BasicAuthenticationProperties" => basic_authentication_properties(),
@@ -4391,6 +4622,21 @@ defmodule AWS.Glue do
       
   """
   @type update_dev_endpoint_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_glossary_term_response() :: %{
+        "GlossaryId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LongDescription" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom()
+      }
+      
+  """
+  @type update_glossary_term_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4660,6 +4906,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      form_type_item() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type form_type_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_integrations_request() :: %{
         optional("Filters") => list(integration_filter()),
         optional("IntegrationIdentifier") => String.t() | atom(),
@@ -4669,6 +4927,19 @@ defmodule AWS.Glue do
       
   """
   @type describe_integrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_glossary_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_glossary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4987,6 +5258,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      search_output() :: %{
+        "Items" => list(search_result_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type search_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_stop_job_run_successful_submission() :: %{
         "JobName" => String.t() | atom(),
         "JobRunId" => String.t() | atom()
@@ -5017,6 +5300,18 @@ defmodule AWS.Glue do
       
   """
   @type get_dataflow_graph_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_form_types_response() :: %{
+        "Items" => list(form_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_form_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5209,6 +5504,19 @@ defmodule AWS.Glue do
       
   """
   @type create_table_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_glossary_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_glossary_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5732,6 +6040,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      search_attribute_filter() :: %{
+        "Attribute" => String.t() | atom(),
+        "Operator" => list(any()),
+        "Value" => list()
+      }
+      
+  """
+  @type search_attribute_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_put_data_quality_statistic_annotation_request() :: %{
         optional("ClientToken") => String.t() | atom(),
         required("InclusionAnnotations") => list(datapoint_inclusion_annotation())
@@ -6019,6 +6340,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_form_type_request() :: %{}
+      
+  """
+  @type get_form_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       import_catalog_to_glue_request() :: %{
         optional("CatalogId") => String.t() | atom()
       }
@@ -6088,6 +6418,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_asset_type_response() :: %{
+        "Forms" => map(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type get_asset_type_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_ml_transform_response() :: %{
         "TransformId" => String.t() | atom()
       }
@@ -6140,6 +6483,15 @@ defmodule AWS.Glue do
       
   """
   @type get_column_statistics_task_settings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_asset_type_response() :: %{}
+      
+  """
+  @type delete_asset_type_response() :: %{}
 
   @typedoc """
 
@@ -6252,6 +6604,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      glossary_term_item() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom()
+      }
+      
+  """
+  @type glossary_term_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       view_definition() :: %{
         "Definer" => String.t() | atom(),
         "IsProtected" => boolean(),
@@ -6277,6 +6642,39 @@ defmodule AWS.Glue do
       
   """
   @type partition_value_list() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_sort() :: %{
+        "Attribute" => String.t() | atom(),
+        "Order" => list(any())
+      }
+      
+  """
+  @type search_sort() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_asset_types_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_asset_types_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_form_type_response() :: %{}
+      
+  """
+  @type delete_form_type_response() :: %{}
 
   @typedoc """
 
@@ -6535,6 +6933,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      get_glossary_response() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type get_glossary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       column_statistics_data() :: %{
         "BinaryColumnStatisticsData" => binary_column_statistics_data(),
         "BooleanColumnStatisticsData" => boolean_column_statistics_data(),
@@ -6578,6 +6989,21 @@ defmodule AWS.Glue do
       
   """
   @type last_crawl_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_input() :: %{
+        optional("FilterClause") => list(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchText") => String.t() | atom(),
+        optional("Sort") => search_sort()
+      }
+      
+  """
+  @type search_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6734,6 +7160,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_glossary_term_response() :: %{}
+      
+  """
+  @type delete_glossary_term_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_delta_direct_target() :: %{
         "AdditionalOptions" => map(),
         "AutoDataQuality" => auto_data_quality(),
@@ -6881,6 +7316,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      item_error() :: %{
+        "Code" => String.t() | atom(),
+        "ItemIdentifier" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+      
+  """
+  @type item_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t() | atom(),
         required("ColumnName") => String.t() | atom(),
@@ -6980,6 +7428,21 @@ defmodule AWS.Glue do
       
   """
   @type batch_get_partition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_glossary_term_response() :: %{
+        "GlossaryId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LongDescription" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom()
+      }
+      
+  """
+  @type get_glossary_term_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7111,6 +7574,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_glossaries_response() :: %{
+        "Items" => list(glossary_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_glossaries_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_schema_version_metadata_response() :: %{
         "LatestVersion" => boolean(),
         "MetadataKey" => String.t() | atom(),
@@ -7204,6 +7679,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      list_glossary_terms_response() :: %{
+        "Items" => list(glossary_term_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_glossary_terms_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_version_request() :: %{
         optional("AuditContext") => audit_context(),
         optional("CatalogId") => String.t() | atom(),
@@ -7248,6 +7735,17 @@ defmodule AWS.Glue do
       
   """
   @type batch_delete_partition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      batch_get_iterable_forms_request() :: %{
+        required("ItemIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type batch_get_iterable_forms_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7305,6 +7803,18 @@ defmodule AWS.Glue do
       
   """
   @type s3_hyper_direct_target() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_asset_types_response() :: %{
+        "Items" => list(asset_type_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_asset_types_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7640,6 +8150,19 @@ defmodule AWS.Glue do
       
   """
   @type cancel_statement_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_form_type_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Name") => String.t() | atom(),
+        required("Schema") => String.t() | atom()
+      }
+      
+  """
+  @type put_form_type_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8298,6 +8821,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_glossary_response() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type create_glossary_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_job_request() :: %{
         required("JobName") => String.t() | atom(),
         required("JobUpdate") => job_update()
@@ -8317,6 +8853,20 @@ defmodule AWS.Glue do
       
   """
   @type null_value_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_glossary_term_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("LongDescription") => String.t() | atom(),
+        optional("Name") => String.t() | atom(),
+        optional("ShortDescription") => String.t() | atom()
+      }
+      
+  """
+  @type update_glossary_term_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8492,6 +9042,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_glossary_term_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("LongDescription") => String.t() | atom(),
+        optional("ShortDescription") => String.t() | atom(),
+        required("GlossaryIdentifier") => String.t() | atom(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type create_glossary_term_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_triggers_request() :: %{
         optional("DependentJobName") => String.t() | atom(),
         optional("MaxResults") => integer(),
@@ -8616,6 +9181,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_attachment_request() :: %{}
+      
+  """
+  @type delete_attachment_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       column_row_filter() :: %{
         "ColumnName" => String.t() | atom(),
         "RowFilterExpression" => String.t() | atom()
@@ -8648,6 +9222,19 @@ defmodule AWS.Glue do
       
   """
   @type update_iceberg_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_asset_type_response() :: %{
+        "Forms" => map(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_asset_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8722,6 +9309,15 @@ defmodule AWS.Glue do
       
   """
   @type get_data_quality_model_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_glossary_term_request() :: %{}
+      
+  """
+  @type delete_glossary_term_request() :: %{}
 
   @typedoc """
 
@@ -8824,6 +9420,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      search_result_item() :: %{
+        "AssetDescription" => String.t() | atom(),
+        "AssetName" => String.t() | atom(),
+        "AssetTypeId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type search_result_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       open_table_format_input() :: %{
         "IcebergInput" => iceberg_input()
       }
@@ -8915,6 +9526,15 @@ defmodule AWS.Glue do
       
   """
   @type unfiltered_partition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_asset_type_request() :: %{}
+      
+  """
+  @type get_asset_type_request() :: %{}
 
   @typedoc """
 
@@ -9322,6 +9942,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_form_type_request() :: %{}
+      
+  """
+  @type delete_form_type_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_connection_type_response() :: %{}
       
   """
@@ -9513,6 +10142,19 @@ defmodule AWS.Glue do
       
   """
   @type list_data_quality_rule_recommendation_runs_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_form_type_response() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "Schema" => String.t() | atom()
+      }
+      
+  """
+  @type put_form_type_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9884,6 +10526,15 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      delete_glossary_response() :: %{}
+      
+  """
+  @type delete_glossary_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       create_grok_classifier_request() :: %{
         "Classification" => String.t() | atom(),
         "CustomPatterns" => String.t() | atom(),
@@ -9919,6 +10570,15 @@ defmodule AWS.Glue do
       
   """
   @type list_connection_types_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_glossary_term_request() :: %{}
+      
+  """
+  @type get_glossary_term_request() :: %{}
 
   @typedoc """
 
@@ -10413,6 +11073,19 @@ defmodule AWS.Glue do
       
   """
   @type update_column_statistics_task_settings_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      search_map_filter() :: %{
+        "Attribute" => String.t() | atom(),
+        "Key" => String.t() | atom(),
+        "Value" => list()
+      }
+      
+  """
+  @type search_map_filter() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11274,6 +11947,19 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      put_asset_type_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("Forms") => map(),
+        required("Name") => String.t() | atom()
+      }
+      
+  """
+  @type put_asset_type_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_table_optimizer_request() :: %{
         required("CatalogId") => String.t() | atom(),
         required("DatabaseName") => String.t() | atom(),
@@ -11413,6 +12099,18 @@ defmodule AWS.Glue do
       
   """
   @type data_lake_access_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      asset_form_entry() :: %{
+        "Content" => String.t() | atom(),
+        "FormTypeId" => String.t() | atom()
+      }
+      
+  """
+  @type asset_form_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11733,6 +12431,18 @@ defmodule AWS.Glue do
       
   """
   @type glue_studio_schema_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      disassociate_glossary_terms_response() :: %{
+        "GlossaryTerms" => list(String.t() | atom()),
+        "Identifier" => String.t() | atom()
+      }
+      
+  """
+  @type disassociate_glossary_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12403,6 +13113,36 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      create_glossary_term_response() :: %{
+        "GlossaryId" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "LongDescription" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "ShortDescription" => String.t() | atom()
+      }
+      
+  """
+  @type create_glossary_term_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_attachment_response() :: %{
+        "AssetId" => String.t() | atom(),
+        "AttachmentName" => String.t() | atom(),
+        "FormTypeId" => String.t() | atom(),
+        "ItemIdentifier" => String.t() | atom(),
+        "IterableFormName" => String.t() | atom()
+      }
+      
+  """
+  @type put_attachment_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       scheduler_not_running_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -12418,6 +13158,21 @@ defmodule AWS.Glue do
       
   """
   @type start_crawler_schedule_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_asset_response() :: %{
+        "CreatedAt" => non_neg_integer(),
+        "Description" => String.t() | atom(),
+        "Forms" => map(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type put_asset_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12672,6 +13427,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      disassociate_glossary_terms_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("GlossaryTermIdentifiers") => list(String.t() | atom())
+      }
+      
+  """
+  @type disassociate_glossary_terms_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       iceberg_table_update() :: %{
         "Action" => list(any()),
         "EncryptionKey" => iceberg_encrypted_key(),
@@ -12697,6 +13464,33 @@ defmodule AWS.Glue do
       
   """
   @type segment() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_attachment_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("ItemIdentifier") => String.t() | atom(),
+        optional("IterableFormName") => String.t() | atom(),
+        required("AttachmentName") => String.t() | atom(),
+        required("Content") => String.t() | atom(),
+        required("FormTypeId") => String.t() | atom()
+      }
+      
+  """
+  @type put_attachment_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      iterable_form_entry() :: %{
+        "FormTypeId" => String.t() | atom()
+      }
+      
+  """
+  @type iterable_form_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13000,6 +13794,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      iterable_form_list_item() :: %{
+        "Description" => String.t() | atom(),
+        "GlossaryTerms" => list(String.t() | atom()),
+        "ItemId" => String.t() | atom(),
+        "ItemName" => String.t() | atom()
+      }
+      
+  """
+  @type iterable_form_list_item() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       s3_catalog_target() :: %{
         "AutoDataQuality" => auto_data_quality(),
         "Database" => String.t() | atom(),
@@ -13024,6 +13832,18 @@ defmodule AWS.Glue do
       
   """
   @type list_usage_profiles_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      associate_glossary_terms_response() :: %{
+        "GlossaryTerms" => list(String.t() | atom()),
+        "Identifier" => String.t() | atom()
+      }
+      
+  """
+  @type associate_glossary_terms_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13139,6 +13959,15 @@ defmodule AWS.Glue do
       
   """
   @type connector_o_auth2_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_asset_input() :: %{}
+      
+  """
+  @type get_asset_input() :: %{}
 
   @typedoc """
 
@@ -13500,6 +14329,17 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      asset_type_form_reference() :: %{
+        "FormTypeIdentifier" => String.t() | atom()
+      }
+      
+  """
+  @type asset_type_form_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       batch_get_workflows_response() :: %{
         "MissingWorkflows" => list(String.t() | atom()),
         "Workflows" => list(workflow())
@@ -13556,6 +14396,18 @@ defmodule AWS.Glue do
       
   """
   @type batch_get_triggers_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      asset_type_item() :: %{
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type asset_type_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -13847,6 +14699,14 @@ defmodule AWS.Glue do
   """
   @type get_tags_response() :: %{(String.t() | atom()) => any()}
 
+  @type associate_glossary_terms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
   @type batch_create_partition_errors() ::
           resource_number_limit_exceeded_exception()
           | invalid_input_exception()
@@ -13895,6 +14755,13 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | operation_timeout_exception()
           | access_denied_exception()
+
+  @type batch_get_iterable_forms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | entity_not_found_exception()
 
   @type batch_get_jobs_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -14049,6 +14916,23 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | idempotent_parameter_mismatch_exception()
           | access_denied_exception()
+
+  @type create_glossary_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type create_glossary_term_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
 
   @type create_glue_identity_center_configuration_errors() ::
           invalid_input_exception()
@@ -14222,6 +15106,28 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | concurrent_modification_exception()
 
+  @type delete_asset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type delete_asset_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type delete_attachment_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
   @type delete_blueprint_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
@@ -14297,6 +15203,29 @@ defmodule AWS.Glue do
           | internal_service_exception()
           | operation_timeout_exception()
           | entity_not_found_exception()
+
+  @type delete_form_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type delete_glossary_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | conflict_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type delete_glossary_term_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
 
   @type delete_glue_identity_center_configuration_errors() ::
           invalid_input_exception()
@@ -14481,6 +15410,28 @@ defmodule AWS.Glue do
           | access_denied_exception()
           | entity_not_found_exception()
 
+  @type disassociate_glossary_terms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
+  @type get_asset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | entity_not_found_exception()
+
+  @type get_asset_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | entity_not_found_exception()
+
   @type get_blueprint_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -14658,6 +15609,25 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | glue_encryption_exception()
           | access_denied_exception()
+          | entity_not_found_exception()
+
+  @type get_form_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | entity_not_found_exception()
+
+  @type get_glossary_errors() ::
+          internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | entity_not_found_exception()
+
+  @type get_glossary_term_errors() ::
+          internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | entity_not_found_exception()
 
   @type get_glue_identity_center_configuration_errors() ::
@@ -14997,6 +15967,12 @@ defmodule AWS.Glue do
   @type import_catalog_to_glue_errors() ::
           internal_service_exception() | operation_timeout_exception()
 
+  @type list_asset_types_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type list_blueprints_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
@@ -15048,6 +16024,24 @@ defmodule AWS.Glue do
           | access_denied_exception()
           | entity_not_found_exception()
 
+  @type list_form_types_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type list_glossaries_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type list_glossary_terms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type list_integration_resource_properties_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -15055,6 +16049,13 @@ defmodule AWS.Glue do
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
+          | entity_not_found_exception()
+
+  @type list_iterable_forms_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | entity_not_found_exception()
 
   @type list_jobs_errors() ::
@@ -15137,11 +16138,41 @@ defmodule AWS.Glue do
           | access_denied_exception()
           | entity_not_found_exception()
 
+  @type put_asset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
+  @type put_asset_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+
+  @type put_attachment_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
   @type put_data_catalog_encryption_settings_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
 
   @type put_data_quality_profile_annotation_errors() ::
           invalid_input_exception() | internal_service_exception() | entity_not_found_exception()
+
+  @type put_form_type_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
 
   @type put_resource_policy_errors() ::
           condition_check_failure_exception()
@@ -15213,6 +16244,12 @@ defmodule AWS.Glue do
           | access_denied_exception()
           | session_busy_exception()
           | entity_not_found_exception()
+
+  @type search_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type search_tables_errors() ::
           invalid_input_exception() | internal_service_exception() | operation_timeout_exception()
@@ -15489,6 +16526,24 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type update_glossary_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
+  @type update_glossary_term_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | already_exists_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
   @type update_glue_identity_center_configuration_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -15633,6 +16688,21 @@ defmodule AWS.Glue do
       signing_name: "glue",
       target_prefix: "AWSGlue"
     }
+  end
+
+  @doc """
+  Associates one or more glossary terms with an asset in Glue Data Catalog.
+  """
+  @spec associate_glossary_terms(map(), associate_glossary_terms_request(), list()) ::
+          {:ok, associate_glossary_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, associate_glossary_terms_errors()}
+  def associate_glossary_terms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "AssociateGlossaryTerms", input, options)
   end
 
   @doc """
@@ -15807,6 +16877,22 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "BatchGetDevEndpoints", input, options)
+  end
+
+  @doc """
+  Retrieves multiple items from an iterable form on an asset in Glue Data Catalog
+  in a single request.
+  """
+  @spec batch_get_iterable_forms(map(), batch_get_iterable_forms_request(), list()) ::
+          {:ok, batch_get_iterable_forms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_get_iterable_forms_errors()}
+  def batch_get_iterable_forms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "BatchGetIterableForms", input, options)
   end
 
   @doc """
@@ -16216,6 +17302,38 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates a business glossary in Glue Data Catalog.
+
+  A glossary is a container for glossary terms that define business concepts.
+  """
+  @spec create_glossary(map(), create_glossary_request(), list()) ::
+          {:ok, create_glossary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_glossary_errors()}
+  def create_glossary(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateGlossary", input, options)
+  end
+
+  @doc """
+  Creates a glossary term within a business glossary in Glue Data Catalog.
+  """
+  @spec create_glossary_term(map(), create_glossary_term_request(), list()) ::
+          {:ok, create_glossary_term_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_glossary_term_errors()}
+  def create_glossary_term(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateGlossaryTerm", input, options)
+  end
+
+  @doc """
   Creates a new Glue Identity Center configuration to enable integration between
   Glue and Amazon Web Services IAM
   Identity Center for authentication and authorization.
@@ -16570,6 +17688,51 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Deletes an asset from Glue Data Catalog.
+  """
+  @spec delete_asset(map(), delete_asset_request(), list()) ::
+          {:ok, delete_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_asset_errors()}
+  def delete_asset(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteAsset", input, options)
+  end
+
+  @doc """
+  Deletes an asset type from Glue Data Catalog.
+  """
+  @spec delete_asset_type(map(), delete_asset_type_request(), list()) ::
+          {:ok, delete_asset_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_asset_type_errors()}
+  def delete_asset_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteAssetType", input, options)
+  end
+
+  @doc """
+  Deletes a form attachment from an asset in Glue Data Catalog.
+  """
+  @spec delete_attachment(map(), delete_attachment_request(), list()) ::
+          {:ok, delete_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_attachment_errors()}
+  def delete_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteAttachment", input, options)
+  end
+
+  @doc """
   Deletes an existing blueprint.
   """
   @spec delete_blueprint(map(), delete_blueprint_request(), list()) ::
@@ -16813,6 +17976,55 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "DeleteDevEndpoint", input, options)
+  end
+
+  @doc """
+  Deletes a form type from Glue Data Catalog.
+
+  A form type cannot be deleted if it is still referenced by an asset type.
+  """
+  @spec delete_form_type(map(), delete_form_type_request(), list()) ::
+          {:ok, delete_form_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_form_type_errors()}
+  def delete_form_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteFormType", input, options)
+  end
+
+  @doc """
+  Deletes a business glossary from Glue Data Catalog.
+
+  A glossary cannot be deleted if it still contains glossary terms.
+  """
+  @spec delete_glossary(map(), delete_glossary_request(), list()) ::
+          {:ok, delete_glossary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_glossary_errors()}
+  def delete_glossary(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteGlossary", input, options)
+  end
+
+  @doc """
+  Deletes a glossary term from Glue Data Catalog.
+  """
+  @spec delete_glossary_term(map(), delete_glossary_term_request(), list()) ::
+          {:ok, delete_glossary_term_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_glossary_term_errors()}
+  def delete_glossary_term(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteGlossaryTerm", input, options)
   end
 
   @doc """
@@ -17273,6 +18485,53 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "DescribeIntegrations", input, options)
+  end
+
+  @doc """
+  Removes the association of one or more glossary terms from an asset in Glue Data
+  Catalog.
+  """
+  @spec disassociate_glossary_terms(map(), disassociate_glossary_terms_request(), list()) ::
+          {:ok, disassociate_glossary_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disassociate_glossary_terms_errors()}
+  def disassociate_glossary_terms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DisassociateGlossaryTerms", input, options)
+  end
+
+  @doc """
+  Retrieves the metadata for an asset in Glue Data Catalog, including its forms,
+  additional attachments, and associated glossary terms.
+  """
+  @spec get_asset(map(), get_asset_input(), list()) ::
+          {:ok, get_asset_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_asset_errors()}
+  def get_asset(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAsset", input, options)
+  end
+
+  @doc """
+  Retrieves an asset type in Glue Data Catalog by its identifier.
+  """
+  @spec get_asset_type(map(), get_asset_type_request(), list()) ::
+          {:ok, get_asset_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_asset_type_errors()}
+  def get_asset_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetAssetType", input, options)
   end
 
   @doc """
@@ -17821,6 +19080,51 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "GetEntityRecords", input, options)
+  end
+
+  @doc """
+  Retrieves a form type in Glue Data Catalog by its identifier.
+  """
+  @spec get_form_type(map(), get_form_type_request(), list()) ::
+          {:ok, get_form_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_form_type_errors()}
+  def get_form_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetFormType", input, options)
+  end
+
+  @doc """
+  Retrieves a business glossary in Glue Data Catalog by its identifier.
+  """
+  @spec get_glossary(map(), get_glossary_request(), list()) ::
+          {:ok, get_glossary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_glossary_errors()}
+  def get_glossary(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetGlossary", input, options)
+  end
+
+  @doc """
+  Retrieves a glossary term in Glue Data Catalog by its identifier.
+  """
+  @spec get_glossary_term(map(), get_glossary_term_request(), list()) ::
+          {:ok, get_glossary_term_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_glossary_term_errors()}
+  def get_glossary_term(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetGlossaryTerm", input, options)
   end
 
   @doc """
@@ -18684,6 +19988,21 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Lists the asset types defined in Glue Data Catalog.
+  """
+  @spec list_asset_types(map(), list_asset_types_request(), list()) ::
+          {:ok, list_asset_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_asset_types_errors()}
+  def list_asset_types(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListAssetTypes", input, options)
+  end
+
+  @doc """
   Lists all the blueprint names in an account.
   """
   @spec list_blueprints(map(), list_blueprints_request(), list()) ::
@@ -18960,6 +20279,51 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Lists the form types defined in Glue Data Catalog.
+  """
+  @spec list_form_types(map(), list_form_types_request(), list()) ::
+          {:ok, list_form_types_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_form_types_errors()}
+  def list_form_types(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListFormTypes", input, options)
+  end
+
+  @doc """
+  Lists business glossaries in Glue Data Catalog.
+  """
+  @spec list_glossaries(map(), list_glossaries_request(), list()) ::
+          {:ok, list_glossaries_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_glossaries_errors()}
+  def list_glossaries(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGlossaries", input, options)
+  end
+
+  @doc """
+  Lists glossary terms within a business glossary in Glue Data Catalog.
+  """
+  @spec list_glossary_terms(map(), list_glossary_terms_request(), list()) ::
+          {:ok, list_glossary_terms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_glossary_terms_errors()}
+  def list_glossary_terms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListGlossaryTerms", input, options)
+  end
+
+  @doc """
   List integration resource properties for a single customer.
 
   It supports the filters, maxRecords and markers.
@@ -18978,6 +20342,23 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "ListIntegrationResourceProperties", input, options)
+  end
+
+  @doc """
+  Lists the items in an iterable form on an asset in Glue Data Catalog.
+
+  For example, lists the columns of a table asset.
+  """
+  @spec list_iterable_forms(map(), list_iterable_forms_request(), list()) ::
+          {:ok, list_iterable_forms_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_iterable_forms_errors()}
+  def list_iterable_forms(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListIterableForms", input, options)
   end
 
   @doc """
@@ -19219,6 +20600,59 @@ defmodule AWS.Glue do
   end
 
   @doc """
+  Creates or updates an asset in Glue Data Catalog.
+
+  If the asset already exists, this operation updates it; otherwise, a new asset
+  is created.
+  """
+  @spec put_asset(map(), put_asset_request(), list()) ::
+          {:ok, put_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_asset_errors()}
+  def put_asset(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAsset", input, options)
+  end
+
+  @doc """
+  Creates or updates an asset type in Glue Data Catalog.
+
+  An asset type defines the structure of assets by specifying which forms they
+  include. If an asset type with the given name already exists, it is updated.
+  """
+  @spec put_asset_type(map(), put_asset_type_request(), list()) ::
+          {:ok, put_asset_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_asset_type_errors()}
+  def put_asset_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAssetType", input, options)
+  end
+
+  @doc """
+  Attaches a form to an asset or an iterable form item in Glue Data Catalog.
+
+  If an attachment with the same name already exists, it is overwritten.
+  """
+  @spec put_attachment(map(), put_attachment_request(), list()) ::
+          {:ok, put_attachment_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_attachment_errors()}
+  def put_attachment(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutAttachment", input, options)
+  end
+
+  @doc """
   Sets the security configuration for a specified catalog.
 
   After the configuration has been
@@ -19257,6 +20691,24 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "PutDataQualityProfileAnnotation", input, options)
+  end
+
+  @doc """
+  Creates or updates a form type in Glue Data Catalog.
+
+  A form type defines the schema for structured metadata that can be attached to
+  assets.
+  """
+  @spec put_form_type(map(), put_form_type_request(), list()) ::
+          {:ok, put_form_type_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_form_type_errors()}
+  def put_form_type(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutFormType", input, options)
   end
 
   @doc """
@@ -19459,6 +20911,24 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "RunStatement", input, options)
+  end
+
+  @doc """
+  Searches for assets in Glue Data Catalog using full-text search, filters,
+  sorting, and aggregations.
+
+  Returns matching assets with relevance-ranked results.
+  """
+  @spec search(map(), search_input(), list()) ::
+          {:ok, search_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, search_errors()}
+  def search(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "Search", input, options)
   end
 
   @doc """
@@ -20222,6 +21692,36 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "UpdateDevEndpoint", input, options)
+  end
+
+  @doc """
+  Updates a business glossary in Glue Data Catalog.
+  """
+  @spec update_glossary(map(), update_glossary_request(), list()) ::
+          {:ok, update_glossary_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_glossary_errors()}
+  def update_glossary(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateGlossary", input, options)
+  end
+
+  @doc """
+  Updates a glossary term in Glue Data Catalog.
+  """
+  @spec update_glossary_term(map(), update_glossary_term_request(), list()) ::
+          {:ok, update_glossary_term_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_glossary_term_errors()}
+  def update_glossary_term(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateGlossaryTerm", input, options)
   end
 
   @doc """

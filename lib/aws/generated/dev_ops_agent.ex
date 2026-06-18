@@ -98,6 +98,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       update_association_input() :: %{
+        optional("capabilities") => map(),
         required("configuration") => list()
       }
 
@@ -137,6 +138,19 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type event_channel_configuration() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_agent_sig_v4_authorization_config() :: %{
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type remote_agent_sig_v4_authorization_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -191,6 +205,20 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      remote_agent_sig_v4_service_details() :: %{
+        "authorizationConfig" => remote_agent_sig_v4_authorization_config(),
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type remote_agent_sig_v4_service_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_assets_response() :: %{
         "items" => list(asset()),
         "nextToken" => String.t() | atom()
@@ -198,6 +226,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type list_assets_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_agent_configuration() :: %{}
+
+  """
+  @type remote_agent_configuration() :: %{}
 
   @typedoc """
 
@@ -684,7 +721,8 @@ defmodule AWS.DevOpsAgent do
       git_lab_configuration() :: %{
         "instanceIdentifier" => [String.t() | atom()],
         "projectId" => [String.t() | atom()],
-        "projectPath" => [String.t() | atom()]
+        "projectPath" => [String.t() | atom()],
+        "runtimeRoleArn" => String.t() | atom()
       }
 
   """
@@ -703,6 +741,15 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type pager_duty_o_auth_client_credentials_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_agent_sig_v4_configuration() :: %{}
+
+  """
+  @type remote_agent_sig_v4_configuration() :: %{}
 
   @typedoc """
 
@@ -888,6 +935,19 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      remote_agent_bearer_token_config() :: %{
+        "authorizationHeader" => [String.t() | atom()],
+        "tokenName" => [String.t() | atom()],
+        "tokenValue" => String.t() | atom()
+      }
+
+  """
+  @type remote_agent_bearer_token_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_m_c_p_server_details() :: %{
         "apiKeyHeader" => [String.t() | atom()],
         "authorizationMethod" => list(any()),
@@ -1035,6 +1095,7 @@ defmodule AWS.DevOpsAgent do
       association() :: %{
         "agentSpaceId" => String.t() | atom(),
         "associationId" => String.t() | atom(),
+        "capabilities" => map(),
         "configuration" => list(),
         "createdAt" => [non_neg_integer()],
         "serviceId" => String.t() | atom(),
@@ -1454,6 +1515,21 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      registered_remote_agent_details() :: %{
+        "apiKeyHeader" => [String.t() | atom()],
+        "authorizationMethod" => list(any()),
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type registered_remote_agent_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_backlog_task_request() :: %{}
 
   """
@@ -1724,6 +1800,17 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      capability_configuration() :: %{
+        "enabled" => [boolean()]
+      }
+
+  """
+  @type capability_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       registered_service_now_details() :: %{
         "instanceUrl" => String.t() | atom()
       }
@@ -1984,6 +2071,7 @@ defmodule AWS.DevOpsAgent do
   ## Example:
 
       associate_service_input() :: %{
+        optional("capabilities") => map(),
         required("configuration") => list(),
         required("serviceId") => String.t() | atom()
       }
@@ -2154,6 +2242,20 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      remote_agent_service_details() :: %{
+        "authorizationConfig" => list(),
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type remote_agent_service_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_association_input() :: %{}
 
   """
@@ -2267,6 +2369,22 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type get_agent_space_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      remote_agent_o_auth_client_credentials_config() :: %{
+        "clientId" => String.t() | atom(),
+        "clientName" => [String.t() | atom()],
+        "clientSecret" => String.t() | atom(),
+        "exchangeParameters" => map(),
+        "exchangeUrl" => [String.t() | atom()],
+        "scopes" => list(String.t() | atom())
+      }
+
+  """
+  @type remote_agent_o_auth_client_credentials_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2470,6 +2588,22 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      registered_remote_agent_sig_v4_details() :: %{
+        "description" => String.t() | atom(),
+        "endpoint" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "region" => String.t() | atom(),
+        "roleArn" => String.t() | atom(),
+        "service" => [String.t() | atom()]
+      }
+
+  """
+  @type registered_remote_agent_sig_v4_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_journal_records_request() :: %{
         optional("limit") => [integer()],
         optional("nextToken") => String.t() | atom(),
@@ -2609,6 +2743,19 @@ defmodule AWS.DevOpsAgent do
 
   ## Example:
 
+      remote_agent_api_key_config() :: %{
+        "apiKeyHeader" => [String.t() | atom()],
+        "apiKeyName" => [String.t() | atom()],
+        "apiKeyValue" => String.t() | atom()
+      }
+
+  """
+  @type remote_agent_api_key_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       send_message_context() :: %{
         "currentPage" => [String.t() | atom()],
         "lastMessage" => [String.t() | atom()],
@@ -2727,7 +2874,8 @@ defmodule AWS.DevOpsAgent do
         "owner" => [String.t() | atom()],
         "ownerType" => list(any()),
         "repoId" => [String.t() | atom()],
-        "repoName" => [String.t() | atom()]
+        "repoName" => [String.t() | atom()],
+        "runtimeRoleArn" => String.t() | atom()
       }
 
   """
@@ -2784,6 +2932,17 @@ defmodule AWS.DevOpsAgent do
 
   """
   @type chat_execution() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      asset_source_url_content() :: %{
+        "url" => String.t() | atom()
+      }
+
+  """
+  @type asset_source_url_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

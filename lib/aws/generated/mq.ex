@@ -67,6 +67,7 @@ defmodule AWS.Mq do
         optional("LdapServerMetadata") => ldap_server_metadata_input(),
         optional("Logs") => logs(),
         optional("MaintenanceWindowStartTime") => weekly_start_time(),
+        optional("ResourceShareArns") => list(String.t() | atom()),
         optional("SecurityGroups") => list(String.t() | atom())
       }
 
@@ -123,6 +124,18 @@ defmodule AWS.Mq do
 
   ## Example:
 
+      shared_resource_error() :: %{
+        "Code" => list(any()),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type shared_resource_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_configuration_request() :: %{
         optional("Description") => String.t() | atom(),
         required("Data") => String.t() | atom()
@@ -160,6 +173,7 @@ defmodule AWS.Mq do
         "MaintenanceWindowStartTime" => weekly_start_time(),
         "PendingDataReplicationMetadata" => data_replication_metadata_output(),
         "PendingDataReplicationMode" => list(any()),
+        "ResourceShareArns" => list(String.t() | atom()),
         "SecurityGroups" => list(String.t() | atom())
       }
 
@@ -306,7 +320,8 @@ defmodule AWS.Mq do
 
       unauthorized_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -477,7 +492,8 @@ defmodule AWS.Mq do
 
       internal_server_error_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -541,6 +557,19 @@ defmodule AWS.Mq do
 
   ## Example:
 
+      resource_share_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "ResourceShareArn" => String.t() | atom(),
+        "Status" => String.t() | atom()
+      }
+
+  """
+  @type resource_share_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_user_response() :: %{}
 
   """
@@ -552,7 +581,8 @@ defmodule AWS.Mq do
 
       conflict_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -564,7 +594,8 @@ defmodule AWS.Mq do
 
       not_found_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -658,6 +689,18 @@ defmodule AWS.Mq do
 
   """
   @type delete_tags_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_shared_resources_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type describe_shared_resources_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -786,9 +829,26 @@ defmodule AWS.Mq do
 
   ## Example:
 
+      shared_resource() :: %{
+        "DnsNames" => list(String.t() | atom()),
+        "Error" => shared_resource_error(),
+        "ResourceArn" => String.t() | atom(),
+        "ResourceShareArns" => list(String.t() | atom()),
+        "Status" => list(any()),
+        "Type" => list(any())
+      }
+
+  """
+  @type shared_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       forbidden_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -800,7 +860,8 @@ defmodule AWS.Mq do
 
       bad_request_exception() :: %{
         "ErrorAttribute" => String.t() | atom(),
-        "Message" => String.t() | atom()
+        "Message" => String.t() | atom(),
+        "ResourceShareErrors" => list(resource_share_error())
       }
 
   """
@@ -864,6 +925,18 @@ defmodule AWS.Mq do
 
   """
   @type describe_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      describe_shared_resources_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "SharedResources" => list(shared_resource())
+      }
+
+  """
+  @type describe_shared_resources_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1105,6 +1178,12 @@ defmodule AWS.Mq do
           | internal_server_error_exception()
 
   @type describe_configuration_revision_errors() ::
+          bad_request_exception()
+          | forbidden_exception()
+          | not_found_exception()
+          | internal_server_error_exception()
+
+  @type describe_shared_resources_errors() ::
           bad_request_exception()
           | forbidden_exception()
           | not_found_exception()
@@ -1664,6 +1743,50 @@ defmodule AWS.Mq do
 
     headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Returns the resources shared to a broker.
+  """
+  @spec describe_shared_resources(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, describe_shared_resources_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_shared_resources_errors()}
+  def describe_shared_resources(
+        %Client{} = client,
+        broker_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/v1/brokers/#{AWS.Util.encode_uri(broker_id)}/shared-resources"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 

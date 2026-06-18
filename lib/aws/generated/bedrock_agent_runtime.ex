@@ -51,6 +51,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => agentic_retrieve_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type agentic_retrieve_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       rerank_result() :: %{
         "document" => rerank_document(),
         "index" => [integer()],
@@ -159,6 +171,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_result_google_drive_location() :: %{
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type retrieval_result_google_drive_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_agent_memory_request() :: %{
         optional("memoryId") => String.t() | atom(),
         optional("sessionId") => String.t() | atom()
@@ -198,6 +221,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      managed_search_bedrock_reranking_configuration() :: %{
+        "metadataConfiguration" => metadata_configuration_for_reranking(),
+        "modelConfiguration" => managed_search_bedrock_reranking_model_configuration(),
+        "numberOfRerankedResults" => [integer()]
+      }
+
+  """
+  @type managed_search_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       node_output_event() :: %{
         "fields" => list(node_output_field()),
         "nodeName" => String.t() | atom(),
@@ -206,6 +242,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type node_output_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_action() :: %{
+        "fullDocumentExpansion" => agentic_retrieve_full_doc_expansion_details(),
+        "retrieve" => agentic_retrieve_action_details()
+      }
+
+  """
+  @type agentic_retrieve_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -322,12 +370,39 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      managed_search_bedrock_reranking_model_configuration() :: %{
+        "additionalModelRequestFields" => map(),
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type managed_search_bedrock_reranking_model_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       text_prompt() :: %{
         "text" => [String.t() | atom()]
       }
 
   """
   @type text_prompt() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_result_item() :: %{
+        "content" => retrieval_content(),
+        "metadata" => map(),
+        "sourceRetriever" => agentic_retrieve_source_retriever()
+      }
+
+  """
+  @type agentic_retrieve_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -530,6 +605,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_failure() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_failure() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_trace_node_input_field() :: %{
         "category" => list(any()),
         "content" => list(),
@@ -541,6 +627,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_trace_node_input_field() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_bedrock_guardrail_configuration() :: %{
+        "guardrailId" => [String.t() | atom()],
+        "guardrailVersion" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_bedrock_guardrail_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -607,6 +705,21 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_configuration() :: %{
+        "foundationModelConfiguration" => foundation_model_configuration(),
+        "foundationModelType" => list(any()),
+        "maxAgentIteration" => [integer()],
+        "rerankingConfiguration" => agentic_retrieve_reranking_configuration(),
+        "rerankingModelType" => list(any())
+      }
+
+  """
+  @type agentic_retrieve_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_stream_response() :: %{
         "sessionId" => String.t() | atom(),
         "stream" => list()
@@ -614,6 +727,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type retrieve_and_generate_stream_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      managed_search_configuration() :: %{
+        "filter" => list(),
+        "numberOfResults" => [integer()],
+        "rerankingConfiguration" => managed_search_reranking_configuration(),
+        "rerankingModelType" => list(any())
+      }
+
+  """
+  @type managed_search_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -713,6 +840,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type inline_bedrock_model_configurations() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_source_metadata() :: %{
+        "identifier" => [String.t() | atom()],
+        "retrievalType" => list(any())
+      }
+
+  """
+  @type agentic_retrieve_source_metadata() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -831,6 +970,7 @@ defmodule AWS.BedrockAgentRuntime do
         optional("retrieveAndGenerateConfiguration") => retrieve_and_generate_configuration(),
         optional("sessionConfiguration") => retrieve_and_generate_session_configuration(),
         optional("sessionId") => String.t() | atom(),
+        optional("userContext") => user_context(),
         required("input") => retrieve_and_generate_input()
       }
 
@@ -1010,6 +1150,28 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type list_flow_execution_events_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_response_event() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_response_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_stream_response() :: %{
+        "stream" => list()
+      }
+
+  """
+  @type agentic_retrieve_stream_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1195,6 +1357,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      bedrock_foundation_model_model_configuration() :: %{
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type bedrock_foundation_model_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       s3_object_doc() :: %{
         "uri" => String.t() | atom()
       }
@@ -1301,6 +1474,7 @@ defmodule AWS.BedrockAgentRuntime do
   ## Example:
 
       knowledge_base_retrieval_configuration() :: %{
+        "managedSearchConfiguration" => managed_search_configuration(),
         "vectorSearchConfiguration" => knowledge_base_vector_search_configuration()
       }
 
@@ -1375,6 +1549,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_content() :: %{
+        "byteContent" => [binary()],
+        "mimeType" => String.t() | atom(),
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type retrieval_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reprompt_response() :: %{
         "source" => list(any()),
         "text" => [String.t() | atom()]
@@ -1408,6 +1595,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_trace_condition_node_result_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_document_content_response() :: %{
+        "documentContentLength" => [float()],
+        "mimeType" => [String.t() | atom()],
+        "presignedUrl" => String.t() | atom()
+      }
+
+  """
+  @type get_document_content_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_message_content() :: %{
+        "text" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_message_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1701,6 +1912,24 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_trace_event_attributes() :: %{
+        "actions" => list(agentic_retrieve_action()),
+        "failures" => list(agentic_retrieve_failure()),
+        "message" => [String.t() | atom()],
+        "retrievalMetadata" => list(agentic_retrieve_source_metadata()),
+        "retrievalResponse" => list(agentic_retrieve_trace_result_item()),
+        "status" => list(any()),
+        "step" => list(any()),
+        "warnings" => list(list())
+      }
+
+  """
+  @type agentic_retrieve_trace_event_attributes() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_session_request() :: %{}
 
   """
@@ -1716,6 +1945,31 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type flow_trace_condition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_bedrock_reranking_model_configuration() :: %{
+        "modelArn" => String.t() | atom()
+      }
+
+  """
+  @type agentic_retrieve_bedrock_reranking_model_configuration() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      managed_search_reranking_configuration() :: %{
+        "bedrockRerankingConfiguration" => managed_search_bedrock_reranking_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type managed_search_reranking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1751,11 +2005,23 @@ defmodule AWS.BedrockAgentRuntime do
         optional("guardrailConfiguration") => guardrail_configuration(),
         optional("nextToken") => String.t() | atom(),
         optional("retrievalConfiguration") => knowledge_base_retrieval_configuration(),
+        optional("userContext") => user_context(),
         required("retrievalQuery") => knowledge_base_query()
       }
 
   """
   @type retrieve_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_bedrock_reranking_configuration() :: %{
+        "modelConfiguration" => agentic_retrieve_bedrock_reranking_model_configuration()
+      }
+
+  """
+  @type agentic_retrieve_bedrock_reranking_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2091,6 +2357,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      knowledge_base_retriever_configuration() :: %{
+        "knowledgeBaseId" => String.t() | atom(),
+        "retrievalOverrides" => retrieval_overrides()
+      }
+
+  """
+  @type knowledge_base_retriever_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       observation() :: %{
         "actionGroupInvocationOutput" => action_group_invocation_output(),
         "agentCollaboratorInvocationOutput" => agent_collaborator_invocation_output(),
@@ -2113,6 +2391,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type untag_resource_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      retrieval_result_one_drive_location() :: %{
+        "url" => [String.t() | atom()]
+      }
+
+  """
+  @type retrieval_result_one_drive_location() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2267,6 +2556,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_citation() :: %{
+        "endIndex" => [integer()],
+        "references" => list(agentic_retrieve_citation_reference()),
+        "startIndex" => [integer()]
+      }
+
+  """
+  @type agentic_retrieve_citation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       prompt_override_configuration() :: %{
         "overrideLambda" => String.t() | atom(),
         "promptConfigurations" => list(prompt_configuration())
@@ -2286,6 +2588,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type create_invocation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_result_event() :: %{
+        "generatedResponse" => agentic_retrieve_generated_response(),
+        "nextToken" => String.t() | atom(),
+        "results" => list(agentic_retrieve_result_item())
+      }
+
+  """
+  @type agentic_retrieve_result_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2312,6 +2627,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type conversation_history() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_full_doc_expansion_details() :: %{
+        "documentId" => [String.t() | atom()],
+        "sourceRetriever" => agentic_retrieve_source_retriever()
+      }
+
+  """
+  @type agentic_retrieve_full_doc_expansion_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2455,6 +2782,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_policy_configuration() :: %{
+        "bedrockGuardrailConfiguration" => agentic_retrieve_bedrock_guardrail_configuration()
+      }
+
+  """
+  @type agentic_retrieve_policy_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       image_input() :: %{
         "format" => list(any()),
         "source" => list()
@@ -2538,6 +2876,30 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      retrieval_overrides() :: %{
+        "filter" => list(),
+        "maxNumberOfResults" => [integer()]
+      }
+
+  """
+  @type retrieval_overrides() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retriever() :: %{
+        "configuration" => list(),
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retriever() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       agent_collaborator_output_payload() :: %{
         "returnControlPayload" => return_control_payload(),
         "text" => String.t() | atom(),
@@ -2572,6 +2934,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type function_definition() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_action_details() :: %{
+        "inputQuery" => agentic_retrieve_message_content(),
+        "sourceRetrievers" => list(agentic_retrieve_source_retriever())
+      }
+
+  """
+  @type agentic_retrieve_action_details() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2669,6 +3043,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_message() :: %{
+        "content" => agentic_retrieve_message_content(),
+        "role" => list(any())
+      }
+
+  """
+  @type agentic_retrieve_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       retrieve_and_generate_output_event() :: %{
         "text" => [String.t() | atom()]
       }
@@ -2692,6 +3078,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      get_document_content_request() :: %{
+        optional("outputFormat") => list(any()),
+        optional("userContext") => user_context()
+      }
+
+  """
+  @type get_document_content_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       return_control_results() :: %{
         "invocationId" => [String.t() | atom()],
         "returnControlInvocationResults" => list(list())
@@ -2699,6 +3097,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type return_control_results() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_warning_message() :: %{
+        "message" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_warning_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2759,11 +3168,25 @@ defmodule AWS.BedrockAgentRuntime do
         optional("retrieveAndGenerateConfiguration") => retrieve_and_generate_configuration(),
         optional("sessionConfiguration") => retrieve_and_generate_session_configuration(),
         optional("sessionId") => String.t() | atom(),
+        optional("userContext") => user_context(),
         required("input") => retrieve_and_generate_input()
       }
 
   """
   @type retrieve_and_generate_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_trace_result_item() :: %{
+        "content" => retrieval_content(),
+        "metadata" => map(),
+        "sourceRetriever" => agentic_retrieve_source_retriever()
+      }
+
+  """
+  @type agentic_retrieve_trace_result_item() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3001,6 +3424,18 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      foundation_model_configuration() :: %{
+        "bedrockFoundationModelConfiguration" => bedrock_foundation_model_configuration(),
+        "type" => list(any())
+      }
+
+  """
+  @type foundation_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       api_parameter() :: %{
         "name" => [String.t() | atom()],
         "type" => [String.t() | atom()],
@@ -3009,6 +3444,29 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type api_parameter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_source_retriever() :: %{
+        "identifier" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_source_retriever() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_generated_response() :: %{
+        "answer" => [String.t() | atom()],
+        "citations" => list(agentic_retrieve_citation())
+      }
+
+  """
+  @type agentic_retrieve_generated_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3064,6 +3522,17 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      user_context() :: %{
+        "userId" => [String.t() | atom()]
+      }
+
+  """
+  @type user_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       knowledge_base_lookup_input() :: %{
         "knowledgeBaseId" => String.t() | atom(),
         "text" => String.t() | atom()
@@ -3071,6 +3540,28 @@ defmodule AWS.BedrockAgentRuntime do
 
   """
   @type knowledge_base_lookup_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      bedrock_foundation_model_configuration() :: %{
+        "modelConfiguration" => bedrock_foundation_model_model_configuration()
+      }
+
+  """
+  @type bedrock_foundation_model_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      agentic_retrieve_citation_reference() :: %{
+        "resultIndex" => [integer()]
+      }
+
+  """
+  @type agentic_retrieve_citation_reference() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3106,6 +3597,23 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_stream_request() :: %{
+        optional("generateResponse") => [boolean()],
+        optional("nextToken") => String.t() | atom(),
+        optional("policyConfiguration") => agentic_retrieve_policy_configuration(),
+        optional("userContext") => user_context(),
+        required("agenticRetrieveConfiguration") => agentic_retrieve_configuration(),
+        required("messages") => list(agentic_retrieve_message()),
+        required("retrievers") => list(agentic_retriever())
+      }
+
+  """
+  @type agentic_retrieve_stream_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       function_result() :: %{
         "actionGroup" => [String.t() | atom()],
         "agentId" => [String.t() | atom()],
@@ -3125,7 +3633,9 @@ defmodule AWS.BedrockAgentRuntime do
       retrieval_result_location() :: %{
         "confluenceLocation" => retrieval_result_confluence_location(),
         "customDocumentLocation" => retrieval_result_custom_document_location(),
+        "googleDriveLocation" => retrieval_result_google_drive_location(),
         "kendraDocumentLocation" => retrieval_result_kendra_document_location(),
+        "oneDriveLocation" => retrieval_result_one_drive_location(),
         "s3Location" => retrieval_result_s3_location(),
         "salesforceLocation" => retrieval_result_salesforce_location(),
         "sharePointLocation" => retrieval_result_share_point_location(),
@@ -3245,6 +3755,19 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_trace_event() :: %{
+        "attributes" => agentic_retrieve_trace_event_attributes(),
+        "id" => [String.t() | atom()],
+        "timestamp" => [float()]
+      }
+
+  """
+  @type agentic_retrieve_trace_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       flow_output_event() :: %{
         "content" => list(),
         "nodeName" => String.t() | atom(),
@@ -3329,6 +3852,20 @@ defmodule AWS.BedrockAgentRuntime do
 
   ## Example:
 
+      agentic_retrieve_guardrail_warning() :: %{
+        "action" => list(any()),
+        "id" => [String.t() | atom()],
+        "message" => [String.t() | atom()],
+        "version" => [String.t() | atom()]
+      }
+
+  """
+  @type agentic_retrieve_guardrail_warning() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_invocation_response() :: %{
         "createdAt" => non_neg_integer(),
         "invocationId" => String.t() | atom(),
@@ -3384,6 +3921,7 @@ defmodule AWS.BedrockAgentRuntime do
 
       knowledge_base_retrieval_result() :: %{
         "content" => retrieval_result_content(),
+        "documentId" => String.t() | atom(),
         "location" => retrieval_result_location(),
         "metadata" => map(),
         "score" => [float()]
@@ -3482,6 +4020,17 @@ defmodule AWS.BedrockAgentRuntime do
   """
   @type start_flow_execution_response() :: %{(String.t() | atom()) => any()}
 
+  @type agentic_retrieve_stream_errors() ::
+          service_quota_exceeded_exception()
+          | dependency_failed_exception()
+          | bad_gateway_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type create_invocation_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
@@ -3543,6 +4092,13 @@ defmodule AWS.BedrockAgentRuntime do
           | bad_gateway_exception()
           | conflict_exception()
           | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_document_content_errors() ::
+          resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -3770,6 +4326,45 @@ defmodule AWS.BedrockAgentRuntime do
       signing_name: "bedrock",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Retrieves information from one or more knowledge bases using an agentic
+  approach.
+
+  Agentic retrieval uses a foundation model to intelligently decompose complex
+  queries into sub-queries and iteratively retrieve relevant information from your
+  knowledge bases. This approach improves retrieval accuracy for complex,
+  multi-step questions that a single retrieval pass might not fully address.
+
+  The operation returns results through a stream that includes retrieval results,
+  trace events for visibility into the process, and a generated response
+  synthesized from the results by default, which can be turned off.
+  """
+  @spec agentic_retrieve_stream(map(), agentic_retrieve_stream_request(), list()) ::
+          {:ok, agentic_retrieve_stream_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, agentic_retrieve_stream_errors()}
+  def agentic_retrieve_stream(%Client{} = client, input, options \\ []) do
+    url_path = "/agenticRetrieveStream"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4078,6 +4673,53 @@ defmodule AWS.BedrockAgentRuntime do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the content of an ingested document from a knowledge base.
+
+  Returns a pre-signed URL for secure document access.
+  """
+  @spec get_document_content(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          get_document_content_request(),
+          list()
+        ) ::
+          {:ok, get_document_content_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_document_content_errors()}
+  def get_document_content(
+        %Client{} = client,
+        data_source_id,
+        document_id,
+        knowledge_base_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/knowledgebases/#{AWS.Util.encode_uri(knowledge_base_id)}/datasources/#{AWS.Util.encode_uri(data_source_id)}/documents/#{AWS.Util.encode_uri(document_id)}/content"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -4825,6 +5467,11 @@ defmodule AWS.BedrockAgentRuntime do
   and using the specified foundation model or [inference profile](https://docs.aws.amazon.com/bedrock/latest/userguide/cross-region-inference.html).
 
   The response only cites sources that are relevant to the query.
+
+  This API cannot be used with managed knowledge bases. Use
+  [AgenticRetrieveStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html) or
+  [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html)
+  with managed knowledge bases.
   """
   @spec retrieve_and_generate(map(), retrieve_and_generate_request(), list()) ::
           {:ok, retrieve_and_generate_response(), any()}
@@ -4855,6 +5502,11 @@ defmodule AWS.BedrockAgentRuntime do
   @doc """
   Queries a knowledge base and generates responses based on the retrieved results,
   with output in streaming format.
+
+  This API cannot be used with managed knowledge bases. Use
+  [AgenticRetrieveStream](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_AgenticRetrieveStream.html) or
+  [Retrieve](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Retrieve.html)
+  with managed knowledge bases.
 
   The CLI doesn't support streaming operations in Amazon Bedrock, including
   `InvokeModelWithResponseStream`.

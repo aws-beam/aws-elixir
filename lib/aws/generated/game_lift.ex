@@ -844,6 +844,7 @@ defmodule AWS.GameLift do
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
         "ImageUri" => String.t() | atom(),
+        "LinuxCapabilities" => linux_capabilities(),
         "MemoryHardLimitMebibytes" => integer(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
@@ -2263,6 +2264,17 @@ defmodule AWS.GameLift do
 
   ## Example:
       
+      linux_capabilities() :: %{
+        "Include" => list(list(any())())
+      }
+      
+  """
+  @type linux_capabilities() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       game_session_queue_destination() :: %{
         "DestinationArn" => String.t() | atom()
       }
@@ -2833,6 +2845,7 @@ defmodule AWS.GameLift do
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
         "ImageUri" => String.t() | atom(),
+        "LinuxCapabilities" => linux_capabilities(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "ResolvedImageDigest" => String.t() | atom(),
@@ -4170,6 +4183,7 @@ defmodule AWS.GameLift do
         "ContainerGroupDefinitionArn" => String.t() | atom(),
         "ContainerGroupPortMappings" => list(container_group_port_mapping()),
         "ContainerGroupType" => list(any()),
+        "FleetArn" => String.t() | atom(),
         "FleetId" => String.t() | atom(),
         "InstanceId" => String.t() | atom(),
         "Location" => String.t() | atom()
@@ -4414,6 +4428,7 @@ defmodule AWS.GameLift do
         "DependsOn" => list(container_dependency()),
         "EnvironmentOverride" => list(container_environment()),
         "ImageUri" => String.t() | atom(),
+        "LinuxCapabilities" => linux_capabilities(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
         "ServerSdkVersion" => String.t() | atom()
@@ -4467,6 +4482,7 @@ defmodule AWS.GameLift do
         "Essential" => boolean(),
         "HealthCheck" => container_health_check(),
         "ImageUri" => String.t() | atom(),
+        "LinuxCapabilities" => linux_capabilities(),
         "MemoryHardLimitMebibytes" => integer(),
         "MountPoints" => list(container_mount_point()),
         "PortConfiguration" => container_port_configuration(),
@@ -5896,15 +5912,15 @@ defmodule AWS.GameLift do
 
       *
 
-  `OperatingSystem` (omit to use default value)
+  `OperatingSystem`
 
       *
 
-  `TotalMemoryLimitMebibytes` (omit to use default value)
+  `TotalMemoryLimitMebibytes`
 
       *
 
-  `TotalVcpuLimit `(omit to use default value)
+  `TotalVcpuLimit`
 
       *
   At least one `GameServerContainerDefinition`
@@ -5923,7 +5939,7 @@ defmodule AWS.GameLift do
 
         *
 
-  `ServerSdkVersion` (omit to use default value)
+  `ServerSdkVersion`
 
     *
   Create a per-instance container group definition. Provide the following required
@@ -5940,15 +5956,15 @@ defmodule AWS.GameLift do
 
       *
 
-  `OperatingSystem` (omit to use default value)
+  `OperatingSystem`
 
       *
 
-  `TotalMemoryLimitMebibytes` (omit to use default value)
+  `TotalMemoryLimitMebibytes`
 
       *
 
-  `TotalVcpuLimit `(omit to use default value)
+  `TotalVcpuLimit`
 
       *
   At least one `SupportContainerDefinition`
@@ -6742,6 +6758,35 @@ defmodule AWS.GameLift do
   create or
   delete the peering connection while the authorization is valid.
 
+  Amazon GameLift Servers uses the caller's credentials to update peer-VPC
+  resources. The IAM user
+  that calls this operation must have the following Amazon EC2 permissions
+  enabled:
+
+    
+
+  `ec2:AcceptVpcPeeringConnection`
+
+    
+
+  `ec2:AuthorizeSecurityGroupEgress`
+
+    
+
+  `ec2:AuthorizeSecurityGroupIngress`
+
+    
+
+  `ec2:CreateRoute`
+
+    
+
+  `ec2:DescribeRouteTables`
+
+    
+
+  `ec2:DescribeSecurityGroups`
+
   ## Related actions
 
   [All APIs by task](https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets)
@@ -6800,6 +6845,35 @@ defmodule AWS.GameLift do
   , or by monitoring fleet events for success
   or failure using
   [DescribeFleetEvents](https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeFleetEvents.html) .
+
+  Amazon GameLift Servers uses the caller's credentials to update peer-VPC
+  resources. The IAM user
+  that calls this operation must have the following Amazon EC2 permissions
+  enabled:
+
+    
+
+  `ec2:AcceptVpcPeeringConnection`
+
+    
+
+  `ec2:AuthorizeSecurityGroupEgress`
+
+    
+
+  `ec2:AuthorizeSecurityGroupIngress`
+
+    
+
+  `ec2:CreateRoute`
+
+    
+
+  `ec2:DescribeRouteTables`
+
+    
+
+  `ec2:DescribeSecurityGroups`
 
   ## Related actions
 
@@ -7609,7 +7683,8 @@ defmodule AWS.GameLift do
 
   ## Results
 
-  This operation returns the fleet ID, location, container group definition
+  This operation returns the fleet ID, fleet ARN, location, container group
+  definition
   ARN, container group type, compute name (for game server container groups),
   instance ID,
   and a list of `ContainerGroupPortMapping` objects. Each object contains the
@@ -7921,9 +7996,6 @@ defmodule AWS.GameLift do
   If successful, a `LocationAttributes` object is returned for each requested
   location. If the fleet does not have a requested location, no information is
   returned.
-  This operation does not return the home Region. To get information on a fleet's
-  home
-  Region, call `DescribeFleetAttributes`.
 
   ## Learn more
 
@@ -10785,8 +10857,8 @@ defmodule AWS.GameLift do
   All other values remain the same as the source version.
 
     *
-  Change a game server container definition. Provide the updated container
-  definition.
+  Change a game server container definition. Provide a complete set of container
+  definitions, including the updated definition.
 
     *
   Add or change a support container definition. Provide a complete set of
@@ -10974,8 +11046,8 @@ defmodule AWS.GameLift do
   `InboundPermissionRevocations`. Permissions to be removed must match
   existing fleet permissions.
 
-  If successful, the fleet ID for the updated fleet is returned. For fleets with
-  remote
+  If successful, the fleet identifiers for the updated fleet are returned. For
+  fleets with remote
   locations, port setting updates can take time to propagate across all locations.
   You can
   check the status of updates in each location by calling
@@ -11069,6 +11141,14 @@ defmodule AWS.GameLift do
   Amazon GameLift Servers FleetIQ can continue to perform instance balancing
   activity. If successful, a
   `GameServerGroup` object is returned.
+
+  Target tracking Auto Scaling policies on the Auto Scaling group cannot be
+  updated through the Amazon Web Services Management Console. Instead, use the
+  Amazon Elastic Compute Cloud Auto Scaling
+  [
+  `PutScalingPolicy`
+  ](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PutScalingPolicy.html)
+  API action to update these policies.
 
   ## Learn more
 

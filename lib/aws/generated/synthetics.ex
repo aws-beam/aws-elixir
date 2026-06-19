@@ -54,6 +54,18 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      add_replica_location_input() :: %{
+        "Location" => String.t() | atom(),
+        "VpcConfig" => vpc_config_input()
+      }
+
+  """
+  @type add_replica_location_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       canary_code_input() :: %{
         "BlueprintTypes" => list(String.t() | atom()),
         "Dependencies" => list(dependency()),
@@ -275,6 +287,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       create_canary_request() :: %{
+        optional("AddReplicaLocations") => list(add_replica_location_input()),
         optional("ArtifactConfig") => artifact_config_input(),
         optional("BrowserConfigs") => list(browser_config()),
         optional("FailureRetentionPeriodInDays") => integer(),
@@ -347,6 +360,7 @@ defmodule AWS.Synthetics do
         "ExecutionRoleArn" => String.t() | atom(),
         "FailureRetentionPeriodInDays" => integer(),
         "Id" => String.t() | atom(),
+        "MultiLocationConfig" => multi_location_config(),
         "Name" => String.t() | atom(),
         "ProvisionedResourceCleanup" => list(any()),
         "RunConfig" => canary_run_config_output(),
@@ -606,6 +620,19 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      replication_status() :: %{
+        "State" => list(any()),
+        "StateReason" => String.t() | atom(),
+        "StateReasonCode" => String.t() | atom()
+      }
+
+  """
+  @type replication_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_group_resources_response() :: %{
         "NextToken" => String.t() | atom(),
         "Resources" => list(String.t() | atom())
@@ -706,6 +733,21 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      replica() :: %{
+        "CanaryState" => list(any()),
+        "LastModified" => non_neg_integer(),
+        "Location" => String.t() | atom(),
+        "ReplicationStatus" => replication_status(),
+        "VpcConfig" => vpc_config_output()
+      }
+
+  """
+  @type replica() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_canary_response() :: %{}
 
   """
@@ -775,6 +817,7 @@ defmodule AWS.Synthetics do
         "BrowserType" => list(any()),
         "DryRunConfig" => canary_dry_run_config_output(),
         "Id" => String.t() | atom(),
+        "Location" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "RetryAttempt" => integer(),
         "ScheduledRunId" => String.t() | atom(),
@@ -846,6 +889,20 @@ defmodule AWS.Synthetics do
 
   ## Example:
 
+      multi_location_config() :: %{
+        "LocationType" => list(any()),
+        "PrimaryLocation" => String.t() | atom(),
+        "Replicas" => list(replica()),
+        "ReplicationState" => list(any())
+      }
+
+  """
+  @type multi_location_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       disassociate_resource_response() :: %{}
 
   """
@@ -876,6 +933,7 @@ defmodule AWS.Synthetics do
   ## Example:
 
       update_canary_request() :: %{
+        optional("AddReplicaLocations") => list(add_replica_location_input()),
         optional("ArtifactConfig") => artifact_config_input(),
         optional("ArtifactS3Location") => String.t() | atom(),
         optional("BrowserConfigs") => list(browser_config()),
@@ -884,6 +942,7 @@ defmodule AWS.Synthetics do
         optional("ExecutionRoleArn") => String.t() | atom(),
         optional("FailureRetentionPeriodInDays") => integer(),
         optional("ProvisionedResourceCleanup") => list(any()),
+        optional("RemoveReplicaLocations") => list(String.t() | atom()),
         optional("RunConfig") => canary_run_config_input(),
         optional("RuntimeVersion") => String.t() | atom(),
         optional("Schedule") => canary_schedule_input(),

@@ -3001,6 +3001,7 @@ defmodule AWS.EKS do
   ## Example:
 
       vpc_config_request() :: %{
+        "controlPlaneEgressMode" => list(any()),
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
         "publicAccessCidrs" => list(String.t() | atom()),
@@ -3049,6 +3050,7 @@ defmodule AWS.EKS do
 
       vpc_config_response() :: %{
         "clusterSecurityGroupId" => String.t() | atom(),
+        "controlPlaneEgressMode" => list(any()),
         "endpointPrivateAccess" => boolean(),
         "endpointPublicAccess" => boolean(),
         "publicAccessCidrs" => list(String.t() | atom()),

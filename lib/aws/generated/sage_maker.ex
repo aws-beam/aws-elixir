@@ -2132,9 +2132,11 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_instance_group_specification() :: %{
+        "AutoPatchConfig" => cluster_auto_patch_config(),
         "CapacityRequirements" => cluster_capacity_requirements(),
         "ExecutionRole" => String.t() | atom(),
         "ImageId" => String.t() | atom(),
+        "ImageReleaseVersion" => String.t() | atom(),
         "InstanceCount" => integer(),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceRequirements" => cluster_instance_requirements(),
@@ -2322,10 +2324,13 @@ defmodule AWS.SageMaker do
       cluster_instance_group_details() :: %{
         "ActiveOperations" => map(),
         "ActiveSoftwareUpdateConfig" => deployment_configuration(),
+        "AutoPatchConfig" => cluster_auto_patch_config_details(),
         "CapacityRequirements" => cluster_capacity_requirements(),
         "CurrentCount" => integer(),
         "CurrentImageId" => String.t() | atom(),
+        "CurrentImageReleaseVersion" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
+        "DesiredImageReleaseVersion" => String.t() | atom(),
         "ExecutionRole" => String.t() | atom(),
         "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
@@ -4758,6 +4763,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       cluster_node_summary() :: %{
+        "CurrentImageReleaseVersion" => String.t() | atom(),
         "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
@@ -6340,6 +6346,7 @@ defmodule AWS.SageMaker do
         "ClusterName" => String.t() | atom(),
         "ClusterStatus" => list(any()),
         "CreationTime" => non_neg_integer(),
+        "ImageVersionStatus" => list(any()),
         "TrainingPlanArns" => list(String.t() | atom())
       }
       
@@ -11917,7 +11924,9 @@ defmodule AWS.SageMaker do
       cluster_node_details() :: %{
         "CapacityType" => list(any()),
         "CurrentImageId" => String.t() | atom(),
+        "CurrentImageReleaseVersion" => String.t() | atom(),
         "DesiredImageId" => String.t() | atom(),
+        "DesiredImageReleaseVersion" => String.t() | atom(),
         "ImageVersionStatus" => list(any()),
         "InstanceGroupName" => String.t() | atom(),
         "InstanceId" => [String.t() | atom()],
@@ -16976,6 +16985,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_patch_schedule() :: %{
+        "NextPatchDate" => non_neg_integer()
+      }
+      
+  """
+  @type cluster_patch_schedule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_trial_request() :: %{
         optional("DisplayName") => String.t() | atom(),
         required("TrialName") => String.t() | atom()
@@ -18263,6 +18283,20 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_auto_patch_config_details() :: %{
+        "CurrentPatchSchedule" => cluster_patch_schedule_details(),
+        "DeploymentConfig" => deployment_configuration(),
+        "DesiredPatchSchedule" => cluster_patch_schedule_details(),
+        "PatchingStrategy" => list(any())
+      }
+      
+  """
+  @type cluster_auto_patch_config_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       flow_definition_output_config() :: %{
         "KmsKeyId" => String.t() | atom(),
         "S3OutputPath" => String.t() | atom()
@@ -18823,6 +18857,17 @@ defmodule AWS.SageMaker do
 
   ## Example:
       
+      cluster_patch_schedule_details() :: %{
+        "NextPatchDate" => non_neg_integer()
+      }
+      
+  """
+  @type cluster_patch_schedule_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       inference_component_specification() :: %{
         "BaseInferenceComponentName" => String.t() | atom(),
         "ComputeResourceRequirements" => inference_component_compute_resource_requirements(),
@@ -19044,6 +19089,19 @@ defmodule AWS.SageMaker do
       
   """
   @type describe_model_package_group_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      cluster_auto_patch_config() :: %{
+        "DeploymentConfig" => deployment_configuration(),
+        "PatchSchedule" => cluster_patch_schedule(),
+        "PatchingStrategy" => list(any())
+      }
+      
+  """
+  @type cluster_auto_patch_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -19682,6 +19740,7 @@ defmodule AWS.SageMaker do
   ## Example:
       
       update_cluster_software_instance_group_specification() :: %{
+        "ImageReleaseVersion" => String.t() | atom(),
         "InstanceGroupName" => String.t() | atom()
       }
       

@@ -35183,7 +35183,11 @@ defmodule AWS.EC2 do
 
     *
 
-  `scheduled`
+  `scheduled` — requires a cancellation quote. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote,
+  then pass the quote ID with `ApplyCancellationCharges` set to
+  `commitment-wind-down`. The cancellation charge depends on how
+  close the reservation is to its start date.
 
     *
 
@@ -35192,18 +35196,20 @@ defmodule AWS.EC2 do
 
     *
 
-  `active` during the commitment duration, if you provide a
-  cancellation quote ID and accept the cancellation charges. Use
-  `CreateCapacityReservationCancellationQuote` to generate a quote.
-  The Capacity Reservation transitions to `cancelling` while charges
-  are applied.
+  `active` during the commitment duration — requires a
+  cancellation quote. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote,
+  then pass the quote ID with `ApplyCancellationCharges` set to
+  `commitment-wind-down`. The Capacity Reservation transitions to
+  `cancelling` while charges are applied.
+
+    *
+
+  `delayed` — the commitment duration is waived, so no
+  cancellation charge applies.
 
   You can't modify or cancel a Capacity Block. For more information, see [Capacity Blocks for
   ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
-
-  If a future-dated Capacity Reservation enters the `delayed` state, the
-  commitment duration is waived, and you can cancel it as soon as it enters the
-  `active` state.
 
   Instances running in the reserved capacity continue running until you stop them.
   Stopped instances that target the Capacity Reservation can no longer launch.

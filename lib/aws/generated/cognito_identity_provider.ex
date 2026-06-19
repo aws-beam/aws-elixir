@@ -2035,7 +2035,8 @@ defmodule AWS.CognitoIdentityProvider do
   ## Example:
       
       custom_domain_config_type() :: %{
-        "CertificateArn" => String.t() | atom()
+        "CertificateArn" => String.t() | atom(),
+        "SecurityPolicy" => list(any())
       }
       
   """

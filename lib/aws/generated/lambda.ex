@@ -206,6 +206,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      code_artifact_user_pending_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type code_artifact_user_pending_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_function_concurrency_request() :: %{
         required("ReservedConcurrentExecutions") => integer()
       }
@@ -224,6 +236,18 @@ defmodule AWS.Lambda do
 
   """
   @type e_f_s_mount_connectivity_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_artifact_user_deleted_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type code_artifact_user_deleted_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -257,6 +281,18 @@ defmodule AWS.Lambda do
 
   """
   @type capacity_provider_scaling_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      public_policy_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type public_policy_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1346,15 +1382,15 @@ defmodule AWS.Lambda do
   ## Example:
 
       get_layer_version_response() :: %{
-        optional("CompatibleArchitectures") => list(list(any())()),
-        optional("CompatibleRuntimes") => list(list(any())()),
-        optional("Content") => layer_version_content_output(),
-        optional("CreatedDate") => String.t() | atom(),
-        optional("Description") => String.t() | atom(),
-        optional("LayerArn") => String.t() | atom(),
-        optional("LayerVersionArn") => String.t() | atom(),
-        optional("LicenseInfo") => String.t() | atom(),
-        optional("Version") => float()
+        "CompatibleArchitectures" => list(list(any())()),
+        "CompatibleRuntimes" => list(list(any())()),
+        "Content" => layer_version_content_output(),
+        "CreatedDate" => String.t() | atom(),
+        "Description" => String.t() | atom(),
+        "LayerArn" => String.t() | atom(),
+        "LayerVersionArn" => String.t() | atom(),
+        "LicenseInfo" => String.t() | atom(),
+        "Version" => float()
       }
 
   """
@@ -2295,6 +2331,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      alias_limit_exceeded_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type alias_limit_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       e_n_i_limit_reached_exception() :: %{
         "Message" => String.t() | atom(),
         "Type" => String.t() | atom()
@@ -2511,7 +2559,7 @@ defmodule AWS.Lambda do
   ## Example:
 
       concurrency() :: %{
-        optional("ReservedConcurrentExecutions") => integer()
+        "ReservedConcurrentExecutions" => integer()
       }
 
   """
@@ -3071,11 +3119,11 @@ defmodule AWS.Lambda do
   ## Example:
 
       function_event_invoke_config() :: %{
-        optional("DestinationConfig") => destination_config(),
-        optional("FunctionArn") => String.t() | atom(),
-        optional("LastModified") => non_neg_integer(),
-        optional("MaximumEventAgeInSeconds") => integer(),
-        optional("MaximumRetryAttempts") => integer()
+        "DestinationConfig" => destination_config(),
+        "FunctionArn" => String.t() | atom(),
+        "LastModified" => non_neg_integer(),
+        "MaximumEventAgeInSeconds" => integer(),
+        "MaximumRetryAttempts" => integer()
       }
 
   """
@@ -3393,6 +3441,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      mode_not_supported_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type mode_not_supported_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       function_versions_by_capacity_provider_list_item() :: %{
         "FunctionArn" => String.t() | atom(),
         "State" => list(any())
@@ -3657,6 +3717,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      e_n_i_not_ready_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type e_n_i_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       ephemeral_storage() :: %{
         "Size" => integer()
       }
@@ -3736,6 +3808,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      snap_start_regeneration_failure_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type snap_start_regeneration_failure_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_layer_versions_request() :: %{
         optional("CompatibleArchitecture") => list(any()),
         optional("CompatibleRuntime") => list(any()),
@@ -3779,6 +3863,18 @@ defmodule AWS.Lambda do
 
   """
   @type wait_started_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      code_artifact_user_failed_exception() :: %{
+        "Type" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type code_artifact_user_failed_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3991,6 +4087,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      service_quota_exceeded_exception() :: %{
+        "Message" => String.t() | atom(),
+        "Type" => String.t() | atom()
+      }
+
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_durable_execution_state_request() :: %{
         optional("Marker") => String.t() | atom(),
         optional("MaxItems") => integer(),
@@ -4066,6 +4174,7 @@ defmodule AWS.Lambda do
           | invalid_parameter_value_exception()
           | policy_length_exceeded_exception()
           | too_many_requests_exception()
+          | public_policy_exception()
 
   @type checkpoint_durable_execution_errors() ::
           service_exception()
@@ -4075,6 +4184,7 @@ defmodule AWS.Lambda do
   @type create_alias_errors() ::
           resource_conflict_exception()
           | service_exception()
+          | alias_limit_exceeded_exception()
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
@@ -4118,6 +4228,7 @@ defmodule AWS.Lambda do
   @type delete_alias_errors() ::
           resource_conflict_exception()
           | service_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
@@ -4175,9 +4286,14 @@ defmodule AWS.Lambda do
           resource_conflict_exception()
           | service_exception()
           | resource_not_found_exception()
+          | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
-  @type delete_layer_version_errors() :: service_exception() | too_many_requests_exception()
+  @type delete_layer_version_errors() ::
+          service_exception()
+          | resource_not_found_exception()
+          | invalid_parameter_value_exception()
+          | too_many_requests_exception()
 
   @type delete_provisioned_concurrency_config_errors() ::
           resource_conflict_exception()
@@ -4237,6 +4353,7 @@ defmodule AWS.Lambda do
   @type get_function_code_signing_config_errors() ::
           service_exception()
           | resource_not_found_exception()
+          | code_signing_config_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
 
@@ -4314,7 +4431,12 @@ defmodule AWS.Lambda do
           | too_many_requests_exception()
 
   @type invoke_errors() ::
-          kms_invalid_state_exception()
+          service_quota_exceeded_exception()
+          | kms_invalid_state_exception()
+          | code_artifact_user_failed_exception()
+          | snap_start_regeneration_failure_exception()
+          | e_n_i_not_ready_exception()
+          | mode_not_supported_exception()
           | e_f_s_i_o_exception()
           | e_f_s_mount_failure_exception()
           | ec2_throttled_exception()
@@ -4349,17 +4471,45 @@ defmodule AWS.Lambda do
           | ec2_access_denied_exception()
           | kms_disabled_exception()
           | invalid_request_content_exception()
+          | code_artifact_user_deleted_exception()
           | e_f_s_mount_connectivity_exception()
+          | code_artifact_user_pending_exception()
 
   @type invoke_async_errors() ::
-          invalid_runtime_exception()
+          service_quota_exceeded_exception()
+          | kms_invalid_state_exception()
+          | snap_start_regeneration_failure_exception()
+          | mode_not_supported_exception()
+          | e_f_s_i_o_exception()
+          | e_f_s_mount_failure_exception()
+          | ec2_throttled_exception()
+          | invalid_runtime_exception()
+          | ec2_unexpected_exception()
+          | invalid_security_group_id_exception()
           | resource_conflict_exception()
+          | e_f_s_mount_timeout_exception()
           | service_exception()
+          | e_n_i_limit_reached_exception()
+          | s3_files_mount_failure_exception()
+          | kms_not_found_exception()
+          | s3_files_mount_timeout_exception()
           | resource_not_found_exception()
+          | s3_files_mount_connectivity_exception()
+          | snap_start_exception()
+          | subnet_ip_address_limit_reached_exception()
+          | kms_access_denied_exception()
+          | snap_start_timeout_exception()
+          | snap_start_not_ready_exception()
+          | invalid_subnet_id_exception()
+          | ec2_access_denied_exception()
+          | kms_disabled_exception()
           | invalid_request_content_exception()
+          | e_f_s_mount_connectivity_exception()
 
   @type invoke_with_response_stream_errors() ::
-          kms_invalid_state_exception()
+          service_quota_exceeded_exception()
+          | kms_invalid_state_exception()
+          | snap_start_regeneration_failure_exception()
           | e_f_s_i_o_exception()
           | e_f_s_mount_failure_exception()
           | ec2_throttled_exception()
@@ -4558,21 +4708,25 @@ defmodule AWS.Lambda do
           | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
+          | public_policy_exception()
 
   @type send_durable_execution_callback_failure_errors() ::
           service_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
           | callback_timeout_exception()
 
   @type send_durable_execution_callback_heartbeat_errors() ::
           service_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
           | callback_timeout_exception()
 
   @type send_durable_execution_callback_success_errors() ::
           service_exception()
+          | resource_not_found_exception()
           | invalid_parameter_value_exception()
           | too_many_requests_exception()
           | callback_timeout_exception()

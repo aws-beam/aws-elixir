@@ -3724,6 +3724,7 @@ defmodule AWS.CloudWatchLogs do
         optional("logStreamNamePrefix") => String.t() | atom(),
         optional("logStreamNames") => list(String.t() | atom()),
         optional("nextToken") => String.t() | atom(),
+        optional("startFromHead") => boolean(),
         optional("startTime") => float(),
         optional("unmask") => boolean()
       }
@@ -6600,7 +6601,12 @@ defmodule AWS.CloudWatchLogs do
 
   The returned log events are sorted by event timestamp, the timestamp when the
   event was
-  ingested by CloudWatch Logs, and the ID of the `PutLogEvents` request.
+  ingested by CloudWatch Logs, and the ID of the `PutLogEvents` request. By
+  default,
+  the events are returned in ascending timestamp order (oldest first). To return
+  events in
+  descending timestamp order (newest first), set the `startFromHead` parameter to
+  `false`.
 
   If you are using CloudWatch cross-account observability, you can use this
   operation

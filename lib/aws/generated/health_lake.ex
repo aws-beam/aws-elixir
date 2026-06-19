@@ -282,10 +282,13 @@ defmodule AWS.HealthLake do
   ## Example:
       
       create_fhir_datastore_request() :: %{
+        optional("AnalyticsConfiguration") => analytics_configuration(),
         optional("ClientToken") => String.t() | atom(),
         optional("DatastoreName") => String.t() | atom(),
         optional("IdentityProviderConfiguration") => identity_provider_configuration(),
+        optional("NlpConfiguration") => nlp_configuration(),
         optional("PreloadDataConfig") => preload_data_config(),
+        optional("ProfileConfiguration") => profile_configuration(),
         optional("SseConfiguration") => sse_configuration(),
         optional("Tags") => list(tag()),
         required("DatastoreTypeVersion") => list(any())
@@ -944,7 +947,7 @@ defmodule AWS.HealthLake do
   end
 
   @doc """
-  <para>Update the properties of a FHIR-enabled data store.</para>
+  Update the properties of a FHIR-enabled data store.
   """
   @spec update_fhir_datastore(map(), update_fhir_datastore_request(), list()) ::
           {:ok, update_fhir_datastore_response(), any()}

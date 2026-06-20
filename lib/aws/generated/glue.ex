@@ -4454,7 +4454,7 @@ defmodule AWS.Glue do
   ## Example:
       
       delete_attachment_response() :: %{
-        "Identifier" => String.t() | atom()
+        "AssetIdentifier" => String.t() | atom()
       }
       
   """
@@ -5130,6 +5130,18 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      search_assets_output() :: %{
+        "Items" => list(search_result_item()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type search_assets_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       search_tables_response() :: %{
         "NextToken" => String.t() | atom(),
         "TableList" => list(table())
@@ -5253,18 +5265,6 @@ defmodule AWS.Glue do
       
   """
   @type redshift_source() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_output() :: %{
-        "Items" => list(search_result_item()),
-        "NextToken" => String.t() | atom()
-      }
-      
-  """
-  @type search_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6989,21 +6989,6 @@ defmodule AWS.Glue do
       
   """
   @type last_crawl_info() :: %{(String.t() | atom()) => any()}
-
-  @typedoc """
-
-  ## Example:
-      
-      search_input() :: %{
-        optional("FilterClause") => list(),
-        optional("MaxResults") => integer(),
-        optional("NextToken") => String.t() | atom(),
-        optional("SearchText") => String.t() | atom(),
-        optional("Sort") => search_sort()
-      }
-      
-  """
-  @type search_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9181,10 +9166,13 @@ defmodule AWS.Glue do
 
   ## Example:
       
-      delete_attachment_request() :: %{}
+      delete_attachment_request() :: %{
+        optional("ItemIdentifier") => String.t() | atom(),
+        optional("IterableFormName") => String.t() | atom()
+      }
       
   """
-  @type delete_attachment_request() :: %{}
+  @type delete_attachment_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11670,6 +11658,21 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      search_assets_input() :: %{
+        optional("FilterClause") => list(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SearchText") => String.t() | atom(),
+        optional("Sort") => search_sort()
+      }
+      
+  """
+  @type search_assets_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       x_ml_classifier() :: %{
         "Classification" => String.t() | atom(),
         "CreationTime" => non_neg_integer(),
@@ -12437,8 +12440,8 @@ defmodule AWS.Glue do
   ## Example:
       
       disassociate_glossary_terms_response() :: %{
-        "GlossaryTerms" => list(String.t() | atom()),
-        "Identifier" => String.t() | atom()
+        "AssetIdentifier" => String.t() | atom(),
+        "GlossaryTerms" => list(String.t() | atom())
       }
       
   """
@@ -13129,7 +13132,7 @@ defmodule AWS.Glue do
   ## Example:
       
       put_attachment_response() :: %{
-        "AssetId" => String.t() | atom(),
+        "AssetIdentifier" => String.t() | atom(),
         "AttachmentName" => String.t() | atom(),
         "FormTypeId" => String.t() | atom(),
         "ItemIdentifier" => String.t() | atom(),
@@ -13838,8 +13841,8 @@ defmodule AWS.Glue do
   ## Example:
       
       associate_glossary_terms_response() :: %{
-        "GlossaryTerms" => list(String.t() | atom()),
-        "Identifier" => String.t() | atom()
+        "AssetIdentifier" => String.t() | atom(),
+        "GlossaryTerms" => list(String.t() | atom())
       }
       
   """
@@ -16245,7 +16248,7 @@ defmodule AWS.Glue do
           | session_busy_exception()
           | entity_not_found_exception()
 
-  @type search_errors() ::
+  @type search_assets_errors() ::
           invalid_input_exception()
           | internal_service_exception()
           | access_denied_exception()
@@ -20919,16 +20922,16 @@ defmodule AWS.Glue do
 
   Returns matching assets with relevance-ranked results.
   """
-  @spec search(map(), search_input(), list()) ::
-          {:ok, search_output(), any()}
+  @spec search_assets(map(), search_assets_input(), list()) ::
+          {:ok, search_assets_output(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
-          | {:error, search_errors()}
-  def search(%Client{} = client, input, options \\ []) do
+          | {:error, search_assets_errors()}
+  def search_assets(%Client{} = client, input, options \\ []) do
     meta =
       metadata()
 
-    Request.request_post(client, meta, "Search", input, options)
+    Request.request_post(client, meta, "SearchAssets", input, options)
   end
 
   @doc """

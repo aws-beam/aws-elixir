@@ -616,6 +616,7 @@ defmodule AWS.BedrockAgent do
   ## Example:
 
       get_prompt_request() :: %{
+        optional("includedData") => list(any()),
         optional("promptVersion") => String.t() | atom()
       }
 
@@ -3326,10 +3327,12 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      get_flow_version_request() :: %{}
+      get_flow_version_request() :: %{
+        optional("includedData") => list(any())
+      }
 
   """
-  @type get_flow_version_request() :: %{}
+  @type get_flow_version_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3464,10 +3467,12 @@ defmodule AWS.BedrockAgent do
 
   ## Example:
 
-      get_flow_request() :: %{}
+      get_flow_request() :: %{
+        optional("includedData") => list(any())
+      }
 
   """
-  @type get_flow_request() :: %{}
+  @type get_flow_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -6809,15 +6814,22 @@ defmodule AWS.BedrockAgent do
   For more information, see [Manage a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-manage.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow(map(), String.t() | atom(), list()) ::
+  @spec get_flow(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
           {:ok, get_flow_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_flow_errors()}
-  def get_flow(%Client{} = client, flow_identifier, options \\ []) do
+  def get_flow(%Client{} = client, flow_identifier, included_data \\ nil, options \\ []) do
     url_path = "/flows/#{AWS.Util.encode_uri(flow_identifier)}/"
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6853,17 +6865,36 @@ defmodule AWS.BedrockAgent do
   For more information, see [Deploy a flow in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-deploy.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_flow_version(map(), String.t() | atom(), String.t() | atom(), list()) ::
+  @spec get_flow_version(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_flow_version_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_flow_version_errors()}
-  def get_flow_version(%Client{} = client, flow_identifier, flow_version, options \\ []) do
+  def get_flow_version(
+        %Client{} = client,
+        flow_identifier,
+        flow_version,
+        included_data \\ nil,
+        options \\ []
+      ) do
     url_path =
       "/flows/#{AWS.Util.encode_uri(flow_identifier)}/versions/#{AWS.Util.encode_uri(flow_version)}/"
 
     headers = []
     query_params = []
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
+      else
+        query_params
+      end
 
     meta = metadata()
 
@@ -6979,12 +7010,24 @@ defmodule AWS.BedrockAgent do
   and [View information about a version of your prompt](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-management-deploy.html#prompt-management-versions-view.html)
   in the Amazon Bedrock User Guide.
   """
-  @spec get_prompt(map(), String.t() | atom(), String.t() | atom() | nil, list()) ::
+  @spec get_prompt(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
           {:ok, get_prompt_response(), any()}
           | {:error, {:unexpected_response, any()}}
           | {:error, term()}
           | {:error, get_prompt_errors()}
-  def get_prompt(%Client{} = client, prompt_identifier, prompt_version \\ nil, options \\ []) do
+  def get_prompt(
+        %Client{} = client,
+        prompt_identifier,
+        included_data \\ nil,
+        prompt_version \\ nil,
+        options \\ []
+      ) do
     url_path = "/prompts/#{AWS.Util.encode_uri(prompt_identifier)}/"
     headers = []
     query_params = []
@@ -6992,6 +7035,13 @@ defmodule AWS.BedrockAgent do
     query_params =
       if !is_nil(prompt_version) do
         [{"promptVersion", prompt_version} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(included_data) do
+        [{"includedData", included_data} | query_params]
       else
         query_params
       end

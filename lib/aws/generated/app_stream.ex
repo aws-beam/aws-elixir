@@ -1034,7 +1034,8 @@ defmodule AWS.AppStream do
         "ScreenImageFormat" => list(any()),
         "ScreenResolution" => list(any()),
         "ScreenshotsUploadEnabled" => boolean(),
-        "Settings" => list(agent_access_setting())
+        "Settings" => list(agent_access_setting()),
+        "UserControlMode" => list(any())
       }
       
   """
@@ -2813,7 +2814,8 @@ defmodule AWS.AppStream do
         "ScreenImageFormat" => list(any()),
         "ScreenResolution" => list(any()),
         "ScreenshotsUploadEnabled" => boolean(),
-        "Settings" => list(agent_access_setting())
+        "Settings" => list(agent_access_setting()),
+        "UserControlMode" => list(any())
       }
       
   """

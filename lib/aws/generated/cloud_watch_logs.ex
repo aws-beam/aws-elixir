@@ -14,6 +14,9 @@ defmodule AWS.CloudWatchLogs do
   CloudWatch
   Logs SDK.
 
+  For more information about CloudWatch Logs features, see the
+  [Amazon CloudWatch Logs User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.html).
+
   You can use CloudWatch Logs to:
 
     *
@@ -54,6 +57,11 @@ defmodule AWS.CloudWatchLogs do
   Logs agent helps to quickly send both rotated and non-rotated log data off of a
   host and
   into the log service. You can then access the raw log data when you need it.
+
+  CloudWatch Logs might log request contents for fields that aren't considered
+  sensitive, such as API request parameters for CloudWatch Logs actions. This
+  provides
+  debugging information for failed API requests.
   """
 
   alias AWS.Client
@@ -2639,6 +2647,20 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      syslog_configuration() :: %{
+        "createdAt" => float(),
+        "logGroupArn" => String.t() | atom(),
+        "sourceType" => list(any()),
+        "vpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type syslog_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       associate_source_to_s3_table_integration_request() :: %{
         required("dataSource") => data_source(),
         required("integrationArn") => String.t() | atom()
@@ -2814,6 +2836,20 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type get_query_results_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_syslog_configurations_request() :: %{
+        optional("logGroupIdentifier") => String.t() | atom(),
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("vpcEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type list_syslog_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3244,6 +3280,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_syslog_configuration_request() :: %{
+        optional("vpcEndpointId") => String.t() | atom(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type put_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       too_many_tags_exception() :: %{
         "message" => String.t() | atom(),
         "resourceName" => String.t() | atom()
@@ -3360,6 +3408,18 @@ defmodule AWS.CloudWatchLogs do
       
   """
   @type list_anomalies_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_syslog_configurations_response() :: %{
+        "nextToken" => String.t() | atom(),
+        "syslogConfigurations" => list(syslog_configuration())
+      }
+      
+  """
+  @type list_syslog_configurations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4191,6 +4251,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      delete_syslog_configuration_request() :: %{
+        optional("vpcEndpointId") => String.t() | atom(),
+        required("logGroupIdentifier") => String.t() | atom()
+      }
+      
+  """
+  @type delete_syslog_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_delivery_response() :: %{
         "delivery" => delivery()
       }
@@ -4579,6 +4651,15 @@ defmodule AWS.CloudWatchLogs do
           | resource_not_found_exception()
           | service_unavailable_exception()
 
+  @type delete_syslog_configuration_errors() ::
+          operation_aborted_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | invalid_operation_exception()
+
   @type delete_transformer_errors() ::
           operation_aborted_exception()
           | invalid_parameter_exception()
@@ -4847,6 +4928,14 @@ defmodule AWS.CloudWatchLogs do
           | access_denied_exception()
           | throttling_exception()
 
+  @type list_syslog_configurations_errors() ::
+          invalid_parameter_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | service_unavailable_exception()
+          | invalid_operation_exception()
+
   @type list_tags_for_resource_errors() ::
           invalid_parameter_exception()
           | resource_not_found_exception()
@@ -4969,6 +5058,15 @@ defmodule AWS.CloudWatchLogs do
           | invalid_parameter_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
+          | service_unavailable_exception()
+          | invalid_operation_exception()
+
+  @type put_syslog_configuration_errors() ::
+          operation_aborted_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
           | service_unavailable_exception()
           | invalid_operation_exception()
 
@@ -6012,6 +6110,24 @@ defmodule AWS.CloudWatchLogs do
       metadata()
 
     Request.request_post(client, meta, "DeleteSubscriptionFilter", input, options)
+  end
+
+  @doc """
+  Deletes a syslog configuration for a log group.
+
+  After deletion, syslog data is no
+  longer ingested through the specified VPC endpoint.
+  """
+  @spec delete_syslog_configuration(map(), delete_syslog_configuration_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_syslog_configuration_errors()}
+  def delete_syslog_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteSyslogConfiguration", input, options)
   end
 
   @doc """
@@ -7259,6 +7375,24 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Returns a list of syslog configurations.
+
+  You can optionally filter the results by log
+  group or VPC endpoint.
+  """
+  @spec list_syslog_configurations(map(), list_syslog_configurations_request(), list()) ::
+          {:ok, list_syslog_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_syslog_configurations_errors()}
+  def list_syslog_configurations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListSyslogConfigurations", input, options)
+  end
+
+  @doc """
   Displays the tags associated with a CloudWatch Logs resource.
 
   Currently, log groups and
@@ -7304,6 +7438,58 @@ defmodule AWS.CloudWatchLogs do
   policy, transformer policy, or metric extraction policy that applies to all log
   groups, a
   subset of log groups, or a data source name and type combination in the account.
+
+  `PutAccountPolicy` is an account-wide administrative operation intended for
+  CloudWatch Logs administrators. Because it affects all log groups (or a broad
+  subset) in
+  the account, you should grant `logs:PutAccountPolicy` permissions only to
+  administrators who manage logging configuration across the account, not to
+  application teams
+  or individual log group owners.
+
+  ## Conflict resolution between account-level and log-group-level
+  policies
+
+  When both an account-level policy and a log-group-level policy of the same type
+  apply to a
+  log group, the resolution depends on the policy type:
+
+    *
+
+  *Data protection* — The two policies are cumulative. Any sensitive
+  term specified in either the account-level or the log-group-level policy is
+  masked.
+
+    *
+
+  *Subscription filters* — Account-level and log-group-level
+  subscription filters are additive. A log group can have up to 1 account-level
+  and up to 2
+  log-group-level subscription filters.
+
+    *
+
+  *Transformers* — A log-group-level transformer overrides the
+  account-level transformer. If a log group has its own transformer, it ignores
+  the
+  account-level transformer policy.
+
+    *
+
+  *Field index policies* — If a log group has its own field index
+  policy (created with `PutIndexPolicy`), any account-level policy that uses
+  `LogGroupNamePrefix` selection criteria or has no selection criteria is ignored
+  for that log group. However, account-level policies that use `DataSourceName`
+  and `DataSourceType` selection criteria still apply alongside the
+  log-group-level
+  policy.
+
+    *
+
+  *Metric extraction policies* — Metric extraction policies are
+  account-level only and have no log-group-level equivalent, so no conflict
+  resolution
+  applies.
 
   For field index policies, you can configure indexed fields as *facets*
   to enable interactive exploration of your logs. Facets provide value
@@ -8610,6 +8796,24 @@ defmodule AWS.CloudWatchLogs do
       metadata()
 
     Request.request_post(client, meta, "PutSubscriptionFilter", input, options)
+  end
+
+  @doc """
+  Creates or updates a syslog configuration for a log group.
+
+  This enables ingestion of
+  syslog data through the specified VPC endpoint into the log group.
+  """
+  @spec put_syslog_configuration(map(), put_syslog_configuration_request(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_syslog_configuration_errors()}
+  def put_syslog_configuration(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutSyslogConfiguration", input, options)
   end
 
   @doc """

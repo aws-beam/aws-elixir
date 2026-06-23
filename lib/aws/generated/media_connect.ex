@@ -384,7 +384,7 @@ defmodule AWS.MediaConnect do
 
       create_router_output_request() :: %{
         optional("AvailabilityZone") => [String.t() | atom()],
-        optional("ClientToken") => [String.t() | atom()],
+        optional("ClientToken") => String.t() | atom(),
         optional("MaintenanceConfiguration") => list(),
         optional("RegionName") => [String.t() | atom()],
         optional("Tags") => map(),
@@ -451,6 +451,19 @@ defmodule AWS.MediaConnect do
 
   """
   @type deregister_gateway_instance_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_quality_analysis_feature_configuration() :: %{
+        "BlackFrames" => black_frames_configuration(),
+        "FrozenFrames" => frozen_frames_configuration(),
+        "SilentAudio" => silent_audio_configuration()
+      }
+
+  """
+  @type content_quality_analysis_feature_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -859,6 +872,8 @@ defmodule AWS.MediaConnect do
         "Arn" => String.t() | atom(),
         "AvailabilityZone" => [String.t() | atom()],
         "Configuration" => list(),
+        "ContentQualityAnalysisConfiguration" => list(),
+        "ContentQualityAnalysisType" => list(any()),
         "CreatedAt" => [non_neg_integer()],
         "Id" => [String.t() | atom()],
         "InputType" => list(any()),
@@ -1449,6 +1464,18 @@ defmodule AWS.MediaConnect do
 
   ## Example:
 
+      frozen_frames_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type frozen_frames_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_bridge_response() :: %{
         "BridgeArn" => [String.t() | atom()]
       }
@@ -1855,6 +1882,7 @@ defmodule AWS.MediaConnect do
 
       update_router_input_request() :: %{
         optional("Configuration") => list(),
+        optional("ContentQualityAnalysisConfiguration") => list(),
         optional("MaintenanceConfiguration") => list(),
         optional("MaximumBitrate") => [float()],
         optional("Name") => [String.t() | atom()],
@@ -2562,7 +2590,7 @@ defmodule AWS.MediaConnect do
   ## Example:
 
       create_router_network_interface_request() :: %{
-        optional("ClientToken") => [String.t() | atom()],
+        optional("ClientToken") => String.t() | atom(),
         optional("RegionName") => [String.t() | atom()],
         optional("Tags") => map(),
         required("Configuration") => list(),
@@ -2793,7 +2821,8 @@ defmodule AWS.MediaConnect do
 
       create_router_input_request() :: %{
         optional("AvailabilityZone") => [String.t() | atom()],
-        optional("ClientToken") => [String.t() | atom()],
+        optional("ClientToken") => String.t() | atom(),
+        optional("ContentQualityAnalysisConfiguration") => list(),
         optional("MaintenanceConfiguration") => list(),
         optional("RegionName") => [String.t() | atom()],
         optional("Tags") => map(),
@@ -3012,6 +3041,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type delete_router_input_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      silent_audio_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type silent_audio_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3932,6 +3973,18 @@ defmodule AWS.MediaConnect do
 
   """
   @type public_router_network_interface_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      black_frames_configuration() :: %{
+        "State" => list(any()),
+        "ThresholdSeconds" => integer()
+      }
+
+  """
+  @type black_frames_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

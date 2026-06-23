@@ -2025,6 +2025,17 @@ defmodule AWS.Kafka do
 
   ## Example:
 
+      kafka_cluster_m_t_l_s_authentication() :: %{
+        "SecretArn" => String.t() | atom()
+      }
+
+  """
+  @type kafka_cluster_m_t_l_s_authentication() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       configuration_revision() :: %{
         "CreationTime" => non_neg_integer(),
         "Description" => String.t() | atom(),
@@ -2105,6 +2116,7 @@ defmodule AWS.Kafka do
   ## Example:
 
       kafka_cluster_client_authentication() :: %{
+        "MTLS" => kafka_cluster_m_t_l_s_authentication(),
         "SaslScram" => kafka_cluster_sasl_scram_authentication()
       }
 

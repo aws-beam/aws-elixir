@@ -3920,6 +3920,7 @@ defmodule AWS.BedrockAgentCore do
       create_event_input() :: %{
         optional("branch") => branch(),
         optional("clientToken") => [String.t() | atom()],
+        optional("extractionMode") => list(any()),
         optional("metadata") => map(),
         optional("sessionId") => String.t() | atom(),
         required("actorId") => String.t() | atom(),

@@ -378,12 +378,36 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_investigations_response() :: %{
+        "Investigations" => list(investigation_summary()),
+        "NextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_investigations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_protected_resource() :: %{
         "S3Bucket" => update_s3_bucket_resource()
       }
 
   """
   @type update_protected_resource() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      product() :: %{
+        "Feature" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+
+  """
+  @type product() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -546,6 +570,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type item_path() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation_sort_criteria() :: %{
+        "AttributeName" => list(any()),
+        "OrderBy" => list(any())
+      }
+
+  """
+  @type investigation_sort_criteria() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -851,6 +887,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type login_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_investigation_response() :: %{
+        "InvestigationId" => String.t() | atom()
+      }
+
+  """
+  @type create_investigation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1486,6 +1533,18 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      investigation_metadata() :: %{
+        "Product" => product(),
+        "Version" => String.t() | atom()
+      }
+
+  """
+  @type investigation_metadata() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_invitations_response() :: %{
         "Invitations" => list(invitation()),
         "NextToken" => String.t() | atom()
@@ -2072,6 +2131,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      cloud_details() :: %{
+        "Account" => String.t() | atom(),
+        "Provider" => list(any()),
+        "Region" => String.t() | atom()
+      }
+
+  """
+  @type cloud_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_trusted_entity_set_request() :: %{
         optional("Activate") => boolean(),
         optional("ExpectedBucketOwner") => String.t() | atom(),
@@ -2184,6 +2256,29 @@ defmodule AWS.GuardDuty do
 
   """
   @type unprocessed_data_sources_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      investigation() :: %{
+        "Cloud" => cloud_details(),
+        "Confidence" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "Error" => String.t() | atom(),
+        "InvestigationId" => String.t() | atom(),
+        "Metadata" => investigation_metadata(),
+        "Risk" => String.t() | atom(),
+        "RiskLevel" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Summary" => String.t() | atom(),
+        "TriggerPrompt" => String.t() | atom(),
+        "TriggeredBy" => String.t() | atom()
+      }
+
+  """
+  @type investigation() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2751,6 +2846,17 @@ defmodule AWS.GuardDuty do
 
   """
   @type get_findings_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_investigation_response() :: %{
+        "Investigation" => investigation()
+      }
+
+  """
+  @type get_investigation_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3770,6 +3876,19 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      list_investigations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom(),
+        optional("SortCriteria") => investigation_sort_criteria()
+      }
+
+  """
+  @type list_investigations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_threat_entity_set_response() :: %{
         "ThreatEntitySetId" => String.t() | atom()
       }
@@ -4342,6 +4461,25 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      investigation_summary() :: %{
+        "AccountId" => String.t() | atom(),
+        "Confidence" => list(any()),
+        "EndTime" => non_neg_integer(),
+        "InvestigationId" => String.t() | atom(),
+        "RiskLevel" => list(any()),
+        "StartTime" => non_neg_integer(),
+        "Status" => list(any()),
+        "Title" => String.t() | atom(),
+        "TriggerPrompt" => String.t() | atom()
+      }
+
+  """
+  @type investigation_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       lambda_details() :: %{
         "Description" => String.t() | atom(),
         "FunctionArn" => String.t() | atom(),
@@ -4457,6 +4595,15 @@ defmodule AWS.GuardDuty do
 
   ## Example:
 
+      get_investigation_request() :: %{}
+
+  """
+  @type get_investigation_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       update_s3_bucket_resource() :: %{
         "ObjectPrefixes" => list(String.t() | atom())
       }
@@ -4475,6 +4622,18 @@ defmodule AWS.GuardDuty do
 
   """
   @type describe_organization_configuration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_investigation_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("TriggerPrompt") => String.t() | atom()
+      }
+
+  """
+  @type create_investigation_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5515,6 +5674,9 @@ defmodule AWS.GuardDuty do
 
   @type create_filter_errors() :: bad_request_exception() | internal_server_error_exception()
 
+  @type create_investigation_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
+
   @type create_ip_set_errors() ::
           bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
@@ -5611,6 +5773,12 @@ defmodule AWS.GuardDuty do
   @type get_findings_statistics_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
+  @type get_investigation_errors() ::
+          bad_request_exception()
+          | internal_server_error_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+
   @type get_invitations_count_errors() ::
           bad_request_exception() | internal_server_error_exception()
 
@@ -5664,6 +5832,9 @@ defmodule AWS.GuardDuty do
   @type list_filters_errors() :: bad_request_exception() | internal_server_error_exception()
 
   @type list_findings_errors() :: bad_request_exception() | internal_server_error_exception()
+
+  @type list_investigations_errors() ::
+          bad_request_exception() | internal_server_error_exception() | access_denied_exception()
 
   @type list_invitations_errors() :: bad_request_exception() | internal_server_error_exception()
 
@@ -5942,6 +6113,62 @@ defmodule AWS.GuardDuty do
       input,
       options,
       200
+    )
+  end
+
+  @doc """
+  This API is currently available as a preview.
+
+  During the preview, you can initiate up to 10 investigations per account per
+  day, with a total limit of 100 investigations per account. This feature is
+  available in the following Amazon Web Services Regions: US East (N. Virginia),
+  US East (Ohio), US West (Oregon), Canada (Central), Europe (Frankfurt), Europe
+  (Ireland), Europe (London), Europe (Paris), Europe (Stockholm), and Asia Pacific
+  (Tokyo).
+
+  Initiates a GuardDuty investigation that automatically analyzes security
+  findings, correlates related activity, performs account-level analysis, and
+  produces a structured investigation summary with recommended next steps.
+
+  Only the administrator account can create an investigation. Member accounts
+  don't have permission to create investigations from their accounts.
+
+  To use this operation, the `AI_ANALYST` feature must be enabled on your
+  detector.
+
+  This feature uses Amazon Bedrock models that leverage Cross-Region Inference
+  (CRIS), which automatically selects the optimal Amazon Web Services Region
+  within your geography to process the investigation analysis and generate the
+  investigation report. This maximizes available compute resources, model
+  availability, and delivers the best customer experience. Your data remains
+  stored only in the Region where the investigation request originates, however,
+  investigation data and summary results may be processed outside that Region. All
+  data is transmitted encrypted across Amazon's secure network. For more
+  information, see [GuardDuty Investigation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty-investigation.html).
+  """
+  @spec create_investigation(map(), String.t() | atom(), create_investigation_request(), list()) ::
+          {:ok, create_investigation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_investigation_errors()}
+  def create_investigation(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/investigation"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      202
     )
   end
 
@@ -7213,6 +7440,36 @@ defmodule AWS.GuardDuty do
   end
 
   @doc """
+  This API is currently available as a preview.
+
+  This feature is available in the following Amazon Web Services Regions: US East
+  (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe
+  (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe
+  (Stockholm), and Asia Pacific (Tokyo).
+
+  Retrieves the results and status of a specific GuardDuty investigation.
+
+  An administrator account can retrieve any investigation within the organization.
+  Member accounts can only retrieve investigations that belong to them.
+  """
+  @spec get_investigation(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_investigation_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_investigation_errors()}
+  def get_investigation(%Client{} = client, detector_id, investigation_id, options \\ []) do
+    url_path =
+      "/detector/#{AWS.Util.encode_uri(detector_id)}/investigation/#{AWS.Util.encode_uri(investigation_id)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns the count of all GuardDuty membership invitations that were sent to the
   current member account except the currently accepted invitation.
   """
@@ -7752,6 +8009,46 @@ defmodule AWS.GuardDuty do
           | {:error, list_findings_errors()}
   def list_findings(%Client{} = client, detector_id, input, options \\ []) do
     url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/findings"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  This API is currently available as a preview.
+
+  This feature is available in the following Amazon Web Services Regions: US East
+  (N. Virginia), US East (Ohio), US West (Oregon), Canada (Central), Europe
+  (Frankfurt), Europe (Ireland), Europe (London), Europe (Paris), Europe
+  (Stockholm), and Asia Pacific (Tokyo).
+
+  Returns a list of investigations associated with the specified GuardDuty
+  detector.
+
+  An administrator account sees all investigations across the organization. Member
+  accounts see only the investigations that belong to them.
+  """
+  @spec list_investigations(map(), String.t() | atom(), list_investigations_request(), list()) ::
+          {:ok, list_investigations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_investigations_errors()}
+  def list_investigations(%Client{} = client, detector_id, input, options \\ []) do
+    url_path = "/detector/#{AWS.Util.encode_uri(detector_id)}/investigation/list"
     headers = []
     custom_headers = []
     query_params = []

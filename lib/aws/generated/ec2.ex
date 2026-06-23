@@ -6075,6 +6075,20 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      image_watermark_filter_response() :: %{
+        "MaximumDaysSinceSourceImageCreated" => integer(),
+        "MaximumDaysSinceWatermarkCreated" => integer(),
+        "SourceImageRegion" => String.t() | atom(),
+        "WatermarkKey" => String.t() | atom()
+      }
+      
+  """
+  @type image_watermark_filter_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_transit_gateway_connects_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
@@ -10923,6 +10937,7 @@ defmodule AWS.EC2 do
         "DeprecationTimeCondition" => deprecation_time_condition(),
         "ImageNames" => list(String.t() | atom()),
         "ImageProviders" => list(String.t() | atom()),
+        "ImageWatermarks" => list(image_watermark_filter_response()),
         "MarketplaceProductCodes" => list(String.t() | atom())
       }
       
@@ -19296,6 +19311,20 @@ defmodule AWS.EC2 do
       
   """
   @type default_connection_tracking_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      image_watermark_filter_request() :: %{
+        "MaximumDaysSinceSourceImageCreated" => integer(),
+        "MaximumDaysSinceWatermarkCreated" => integer(),
+        "SourceImageRegion" => String.t() | atom(),
+        "WatermarkKey" => String.t() | atom()
+      }
+      
+  """
+  @type image_watermark_filter_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -29658,6 +29687,7 @@ defmodule AWS.EC2 do
         "DeprecationTimeCondition" => deprecation_time_condition_request(),
         "ImageNames" => list(String.t() | atom()),
         "ImageProviders" => list(String.t() | atom()),
+        "ImageWatermarks" => list(image_watermark_filter_request()),
         "MarketplaceProductCodes" => list(String.t() | atom())
       }
       
@@ -34884,10 +34914,8 @@ defmodule AWS.EC2 do
 
   The watermark is a structured identifier that
   automatically propagates to all derivative images created through
-  [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html),  [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html),
-
-  and
-  [CreateRestoreImageTask](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateRestoreImageTask.html).
+  [CreateImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html), and
+  [CopyImage](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CopyImage.html).
 
   Only the AMI owner can attach watermarks. Watermarks cannot be added to public
   AMIs.
@@ -35183,11 +35211,7 @@ defmodule AWS.EC2 do
 
     *
 
-  `scheduled` — requires a cancellation quote. Use
-  `CreateCapacityReservationCancellationQuote` to generate a quote,
-  then pass the quote ID with `ApplyCancellationCharges` set to
-  `commitment-wind-down`. The cancellation charge depends on how
-  close the reservation is to its start date.
+  `scheduled`
 
     *
 
@@ -35196,20 +35220,18 @@ defmodule AWS.EC2 do
 
     *
 
-  `active` during the commitment duration — requires a
-  cancellation quote. Use
-  `CreateCapacityReservationCancellationQuote` to generate a quote,
-  then pass the quote ID with `ApplyCancellationCharges` set to
-  `commitment-wind-down`. The Capacity Reservation transitions to
-  `cancelling` while charges are applied.
-
-    *
-
-  `delayed` — the commitment duration is waived, so no
-  cancellation charge applies.
+  `active` during the commitment duration, if you provide a
+  cancellation quote ID and accept the cancellation charges. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote.
+  The Capacity Reservation transitions to `cancelling` while charges
+  are applied.
 
   You can't modify or cancel a Capacity Block. For more information, see [Capacity Blocks for
   ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
+
+  If a future-dated Capacity Reservation enters the `delayed` state, the
+  commitment duration is waived, and you can cancel it as soon as it enters the
+  `active` state.
 
   Instances running in the reserved capacity continue running until you stop them.
   Stopped instances that target the Capacity Reservation can no longer launch.
@@ -51385,6 +51407,11 @@ defmodule AWS.EC2 do
 
   @doc """
   Sets or replaces the criteria for Allowed AMIs.
+
+  The `ImageCriteria` can include up to:
+
+    *
+  10 `ImageCriterion`
 
   The Allowed AMIs feature does not restrict the AMIs owned by your account.
   Regardless of

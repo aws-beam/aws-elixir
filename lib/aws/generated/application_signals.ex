@@ -67,6 +67,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      batch_delete_instrumentation_configurations_request() :: %{
+        required("DeletionTarget") => list()
+      }
+
+  """
+  @type batch_delete_instrumentation_configurations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       grouping_attribute_definition() :: %{
         "DefaultGroupingValue" => String.t() | atom(),
         "GroupingName" => String.t() | atom(),
@@ -96,6 +107,30 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type delete_service_level_objective_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_instrumentation_configuration_response() :: %{
+        "DeletionStatus" => list(any())
+      }
+
+  """
+  @type delete_instrumentation_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_instrumentation_configuration_status_request() :: %{
+        required("Configurations") => list(instrumentation_configuration_status_report()),
+        required("Environment") => [String.t() | atom()],
+        required("Service") => [String.t() | atom()]
+      }
+
+  """
+  @type report_instrumentation_configuration_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -133,6 +168,26 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type throttling_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instrumentation_configuration_without_service_env() :: %{
+        "ARN" => String.t() | atom(),
+        "AttributeFilters" => list(map()),
+        "CaptureConfiguration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => [String.t() | atom()],
+        "ExpiresAt" => [non_neg_integer()],
+        "InstrumentationType" => list(any()),
+        "Location" => list(),
+        "LocationHash" => [String.t() | atom()],
+        "SignalType" => list(any())
+      }
+
+  """
+  @type instrumentation_configuration_without_service_env() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -184,6 +239,22 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      unprocessed_status_event() :: %{
+        "FailedReason" => list(any()),
+        "InstrumentationType" => list(any()),
+        "LocationHash" => [String.t() | atom()],
+        "SignalType" => list(any()),
+        "Status" => list(any()),
+        "Time" => [non_neg_integer()]
+      }
+
+  """
+  @type unprocessed_status_event() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -424,6 +495,22 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      code_location() :: %{
+        "ClassName" => [String.t() | atom()],
+        "CodeUnit" => [String.t() | atom()],
+        "FilePath" => [String.t() | atom()],
+        "Language" => list(any()),
+        "LineNumber" => [integer()],
+        "MethodName" => [String.t() | atom()]
+      }
+
+  """
+  @type code_location() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_services_input() :: %{
         optional("AwsAccountId") => String.t() | atom(),
         optional("IncludeLinkedAccounts") => [boolean()],
@@ -435,6 +522,39 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type list_services_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      instrumentation_configuration_status_report() :: %{
+        "ErrorCause" => list(any()),
+        "InstrumentationType" => list(any()),
+        "LocationHash" => [String.t() | atom()],
+        "SignalType" => list(any()),
+        "Status" => list(any()),
+        "Time" => [non_neg_integer()]
+      }
+
+  """
+  @type instrumentation_configuration_status_report() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instrumentation_configuration_status_response() :: %{
+        "Environment" => [String.t() | atom()],
+        "Events" => list(instrumentation_status_event()),
+        "Location" => list(),
+        "NextToken" => String.t() | atom(),
+        "Service" => [String.t() | atom()],
+        "SignalType" => list(any()),
+        "Status" => list(any())
+      }
+
+  """
+  @type get_instrumentation_configuration_status_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -509,6 +629,19 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      batch_delete_successful_deletion() :: %{
+        "LocationHash" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()],
+        "SignalType" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_successful_deletion() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       selection_config() :: %{
         "Pattern" => String.t() | atom(),
         "Type" => list(any())
@@ -529,6 +662,22 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type service_level_indicator() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_instrumentation_configurations_request() :: %{
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("SyncedAt") => [non_neg_integer()],
+        required("Environment") => [String.t() | atom()],
+        required("InstrumentationType") => list(any()),
+        required("Service") => [String.t() | atom()]
+      }
+
+  """
+  @type list_instrumentation_configurations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -569,10 +718,70 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      instrumentation_configuration() :: %{
+        "ARN" => String.t() | atom(),
+        "AttributeFilters" => list(map()),
+        "CaptureConfiguration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => [String.t() | atom()],
+        "Environment" => [String.t() | atom()],
+        "ExpiresAt" => [non_neg_integer()],
+        "InstrumentationType" => list(any()),
+        "Location" => list(),
+        "LocationHash" => [String.t() | atom()],
+        "Service" => [String.t() | atom()],
+        "SignalType" => list(any())
+      }
+
+  """
+  @type instrumentation_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      capture_limits_config() :: %{
+        "MaxCollectionDepth" => [integer()],
+        "MaxCollectionWidth" => [integer()],
+        "MaxFieldsPerObject" => [integer()],
+        "MaxHits" => [integer()],
+        "MaxObjectDepth" => [integer()],
+        "MaxStackFrames" => [integer()],
+        "MaxStackTraceSize" => [integer()],
+        "MaxStringLength" => [integer()]
+      }
+
+  """
+  @type capture_limits_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_discovery_output() :: %{}
 
   """
   @type start_discovery_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instrumentation_configuration_status_request() :: %{
+        optional("EndTime") => [non_neg_integer()],
+        optional("MaxResults") => [integer()],
+        optional("NextToken") => String.t() | atom(),
+        optional("StartTime") => [non_neg_integer()],
+        optional("Status") => list(any()),
+        required("Environment") => [String.t() | atom()],
+        required("InstrumentationType") => list(any()),
+        required("LocationIdentifier") => list(),
+        required("Service") => [String.t() | atom()],
+        required("SignalType") => list(any())
+      }
+
+  """
+  @type get_instrumentation_configuration_status_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,6 +808,19 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type service_level_indicator_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_error() :: %{
+        "Code" => list(any()),
+        "Message" => [String.t() | atom()],
+        "ResourceArn" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -674,6 +896,21 @@ defmodule AWS.ApplicationSignals do
   @type batch_get_service_level_objective_budget_report_output() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      delete_instrumentation_configuration_request() :: %{
+        required("Environment") => [String.t() | atom()],
+        required("InstrumentationType") => list(any()),
+        required("LocationIdentifier") => list(),
+        required("Service") => [String.t() | atom()],
+        required("SignalType") => list(any())
+      }
+
+  """
+  @type delete_instrumentation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -912,6 +1149,23 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      instrumentation_configurations_page() :: %{
+        "Changed" => [boolean()],
+        "Environment" => [String.t() | atom()],
+        "LatestConfigurations" => list(instrumentation_configuration_without_service_env()),
+        "NextToken" => String.t() | atom(),
+        "Service" => [String.t() | atom()],
+        "SyncInterval" => [integer()],
+        "SyncedAt" => [non_neg_integer()]
+      }
+
+  """
+  @type instrumentation_configurations_page() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_audit_findings_input() :: %{
         optional("Auditors") => list([String.t() | atom()]()),
         optional("DetailLevel") => list(any()),
@@ -984,6 +1238,54 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type update_service_level_objective_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_scope() :: %{
+        "Environment" => [String.t() | atom()],
+        "InstrumentationType" => list(any()),
+        "Service" => [String.t() | atom()]
+      }
+
+  """
+  @type batch_delete_scope() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      report_instrumentation_configuration_status_response() :: %{
+        "Environment" => [String.t() | atom()],
+        "Service" => [String.t() | atom()],
+        "UnprocessedStatusEvents" => list(unprocessed_status_event())
+      }
+
+  """
+  @type report_instrumentation_configuration_status_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
+      create_instrumentation_configuration_request() :: %{
+        optional("AttributeFilters") => list(map()),
+        optional("Description") => [String.t() | atom()],
+        optional("ExpiresAt") => [non_neg_integer()],
+        optional("Tags") => list(tag()),
+        required("CaptureConfiguration") => list(),
+        required("Environment") => [String.t() | atom()],
+        required("InstrumentationType") => list(any()),
+        required("Location") => list(),
+        required("Service") => [String.t() | atom()],
+        required("SignalType") => list(any())
+      }
+
+  """
+  @type create_instrumentation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1097,6 +1399,21 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      batch_delete_instrumentation_configurations_response() :: %{
+        "DeletedCount" => [integer()],
+        "Errors" => list(batch_delete_error()),
+        "SuccessfulDeletions" => list(batch_delete_successful_deletion())
+      }
+
+  """
+  @type batch_delete_instrumentation_configurations_response() :: %{
+          (String.t() | atom()) => any()
+        }
+
+  @typedoc """
+
+  ## Example:
+
       list_audit_findings_output() :: %{
         "AuditFindings" => list(audit_finding()),
         "EndTime" => [non_neg_integer()],
@@ -1165,6 +1482,28 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      create_instrumentation_configuration_response() :: %{
+        "ARN" => String.t() | atom(),
+        "AttributeFilters" => list(map()),
+        "CaptureConfiguration" => list(),
+        "CreatedAt" => [non_neg_integer()],
+        "Description" => [String.t() | atom()],
+        "Environment" => [String.t() | atom()],
+        "ExpiresAt" => [non_neg_integer()],
+        "InstrumentationType" => list(any()),
+        "Location" => list(),
+        "LocationHash" => [String.t() | atom()],
+        "Service" => [String.t() | atom()],
+        "SignalType" => list(any())
+      }
+
+  """
+  @type create_instrumentation_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_dependent() :: %{
         "DependentKeyAttributes" => map(),
         "DependentOperationName" => String.t() | atom(),
@@ -1179,6 +1518,17 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      get_instrumentation_configuration_response() :: %{
+        "Configuration" => instrumentation_configuration()
+      }
+
+  """
+  @type get_instrumentation_configuration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       service_summary() :: %{
         "AttributeMaps" => list(map()),
         "KeyAttributes" => map(),
@@ -1188,6 +1538,18 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type service_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_delete_by_resource_arns() :: %{
+        "InstrumentationType" => list(any()),
+        "ResourceArns" => list([String.t() | atom()]())
+      }
+
+  """
+  @type batch_delete_by_resource_arns() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1253,6 +1615,21 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      code_capture_configuration() :: %{
+        "CaptureArguments" => list([String.t() | atom()]()),
+        "CaptureLimits" => capture_limits_config(),
+        "CaptureLocals" => list([String.t() | atom()]()),
+        "CaptureReturn" => [boolean()],
+        "CaptureStackTrace" => [boolean()]
+      }
+
+  """
+  @type code_capture_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       calendar_interval() :: %{
         "Duration" => integer(),
         "DurationUnit" => list(any()),
@@ -1284,6 +1661,18 @@ defmodule AWS.ApplicationSignals do
 
   ## Example:
 
+      instrumentation_status_event() :: %{
+        "ErrorCause" => list(any()),
+        "Time" => [non_neg_integer()]
+      }
+
+  """
+  @type instrumentation_status_event() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       batch_get_service_level_objective_budget_report_input() :: %{
         required("SloIds") => list([String.t() | atom()]()),
         required("Timestamp") => [non_neg_integer()]
@@ -1307,6 +1696,21 @@ defmodule AWS.ApplicationSignals do
 
   """
   @type service_level_objective_budget_report_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_instrumentation_configuration_request() :: %{
+        required("Environment") => [String.t() | atom()],
+        required("InstrumentationType") => list(any()),
+        required("LocationIdentifier") => list(),
+        required("Service") => [String.t() | atom()],
+        required("SignalType") => list(any())
+      }
+
+  """
+  @type get_instrumentation_configuration_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1415,11 +1819,20 @@ defmodule AWS.ApplicationSignals do
   """
   @type get_service_input() :: %{(String.t() | atom()) => any()}
 
+  @type batch_delete_instrumentation_configurations_errors() ::
+          validation_exception() | throttling_exception()
+
   @type batch_get_service_level_objective_budget_report_errors() ::
           validation_exception() | throttling_exception()
 
   @type batch_update_exclusion_windows_errors() ::
           resource_not_found_exception() | validation_exception() | throttling_exception()
+
+  @type create_instrumentation_configuration_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | validation_exception()
+          | throttling_exception()
 
   @type create_service_level_objective_errors() ::
           service_quota_exceeded_exception()
@@ -1431,7 +1844,16 @@ defmodule AWS.ApplicationSignals do
   @type delete_grouping_configuration_errors() ::
           validation_exception() | access_denied_exception() | throttling_exception()
 
+  @type delete_instrumentation_configuration_errors() ::
+          resource_not_found_exception() | validation_exception() | throttling_exception()
+
   @type delete_service_level_objective_errors() ::
+          resource_not_found_exception() | validation_exception() | throttling_exception()
+
+  @type get_instrumentation_configuration_errors() ::
+          resource_not_found_exception() | validation_exception() | throttling_exception()
+
+  @type get_instrumentation_configuration_status_errors() ::
           resource_not_found_exception() | validation_exception() | throttling_exception()
 
   @type get_service_errors() :: validation_exception() | throttling_exception()
@@ -1445,6 +1867,9 @@ defmodule AWS.ApplicationSignals do
 
   @type list_grouping_attribute_definitions_errors() ::
           validation_exception() | access_denied_exception() | throttling_exception()
+
+  @type list_instrumentation_configurations_errors() ::
+          resource_not_found_exception() | validation_exception() | throttling_exception()
 
   @type list_service_dependencies_errors() :: validation_exception() | throttling_exception()
 
@@ -1465,6 +1890,9 @@ defmodule AWS.ApplicationSignals do
 
   @type put_grouping_configuration_errors() ::
           validation_exception() | access_denied_exception() | throttling_exception()
+
+  @type report_instrumentation_configuration_status_errors() ::
+          validation_exception() | throttling_exception()
 
   @type start_discovery_errors() ::
           validation_exception() | access_denied_exception() | throttling_exception()
@@ -1493,6 +1921,45 @@ defmodule AWS.ApplicationSignals do
       signing_name: "application-signals",
       target_prefix: nil
     }
+  end
+
+  @doc """
+  Deletes multiple instrumentation configurations in a single request.
+
+  Supports two mutually exclusive selection methods:
+  - By scope: Delete all configurations matching a Service + Environment +
+  InstrumentationType
+  - By ARN list: Delete specific configurations by providing a list of resource
+  ARNs
+  """
+  @spec batch_delete_instrumentation_configurations(
+          map(),
+          batch_delete_instrumentation_configurations_request(),
+          list()
+        ) ::
+          {:ok, batch_delete_instrumentation_configurations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_delete_instrumentation_configurations_errors()}
+  def batch_delete_instrumentation_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/batch-delete-instrumentation-configurations"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """
@@ -1561,6 +2028,52 @@ defmodule AWS.ApplicationSignals do
       client,
       meta,
       :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates a dynamic instrumentation configuration for a specific code or endpoint
+  location within a service and environment.
+
+  Configurations are immutable after creation.
+
+  For `BREAKPOINT` type configurations, they expire after 24 hours unless a
+  shorter expiration is provided. For `PROBE` type configurations, they persist
+  until explicitly deleted; an expiration cannot be set for `PROBE`
+  configurations.
+
+  If a configuration already exists for the same service, environment, signal
+  type, and location, this operation returns a conflict instead of overwriting it.
+  Use attribute filters and capture settings to control where the instrumentation
+  runs and which data is collected.
+  """
+  @spec create_instrumentation_configuration(
+          map(),
+          create_instrumentation_configuration_request(),
+          list()
+        ) ::
+          {:ok, create_instrumentation_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_instrumentation_configuration_errors()}
+  def create_instrumentation_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/create-instrumentation-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1713,6 +2226,42 @@ defmodule AWS.ApplicationSignals do
   end
 
   @doc """
+  Deletes the specified instrumentation configuration.
+
+  SDKs remove the instrumentation during their next sync after the configuration
+  is deleted or expires.
+  """
+  @spec delete_instrumentation_configuration(
+          map(),
+          delete_instrumentation_configuration_request(),
+          list()
+        ) ::
+          {:ok, delete_instrumentation_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_instrumentation_configuration_errors()}
+  def delete_instrumentation_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/delete-instrumentation-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Deletes the specified service level objective.
   """
   @spec delete_service_level_objective(
@@ -1737,6 +2286,81 @@ defmodule AWS.ApplicationSignals do
       client,
       meta,
       :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns the details of a single instrumentation configuration identified by
+  service, environment, signal type, and location.
+
+  Use this to audit or display configuration details.
+  """
+  @spec get_instrumentation_configuration(
+          map(),
+          get_instrumentation_configuration_request(),
+          list()
+        ) ::
+          {:ok, get_instrumentation_configuration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_instrumentation_configuration_errors()}
+  def get_instrumentation_configuration(%Client{} = client, input, options \\ []) do
+    url_path = "/get-instrumentation-configuration"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Retrieves the status history for a single instrumentation configuration during a
+  specified time range.
+
+  The response lists when the configuration was ACTIVE, READY, ERROR, or DISABLED.
+
+  If no status or time window is provided, the operation defaults to ACTIVE events
+  from the last hour.
+  """
+  @spec get_instrumentation_configuration_status(
+          map(),
+          get_instrumentation_configuration_status_request(),
+          list()
+        ) ::
+          {:ok, get_instrumentation_configuration_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_instrumentation_configuration_status_errors()}
+  def get_instrumentation_configuration_status(%Client{} = client, input, options \\ []) do
+    url_path = "/get-instrumentation-configuration-status"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,
@@ -1907,6 +2531,46 @@ defmodule AWS.ApplicationSignals do
         {"NextToken", "NextToken"}
       ]
       |> Request.build_params(input)
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Returns all active instrumentation configurations for a service and environment.
+
+  SDKs use this operation to sync configurations and apply client-side filters
+  locally.
+
+  Include the previous `SyncedAt` value to perform incremental syncs. When no
+  changes are detected, the response sets `Changed` to `false` and omits
+  configuration details.
+  """
+  @spec list_instrumentation_configurations(
+          map(),
+          list_instrumentation_configurations_request(),
+          list()
+        ) ::
+          {:ok, instrumentation_configurations_page(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_instrumentation_configurations_errors()}
+  def list_instrumentation_configurations(%Client{} = client, input, options \\ []) do
+    url_path = "/list-instrumentation-configurations"
+    headers = []
+    custom_headers = []
+    query_params = []
 
     meta = metadata()
 
@@ -2296,6 +2960,46 @@ defmodule AWS.ApplicationSignals do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Reports the status of one or more instrumentation configurations from SDK
+  instances.
+
+  Use this to record when configurations become ready, hit errors, become active,
+  or are disabled by limits.
+
+  Report `READY`, `ERROR`, and `DISABLED` when the status changes. Report `ACTIVE`
+  periodically (for example, every minute) while instrumentation is running.
+  """
+  @spec report_instrumentation_configuration_status(
+          map(),
+          report_instrumentation_configuration_status_request(),
+          list()
+        ) ::
+          {:ok, report_instrumentation_configuration_status_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, report_instrumentation_configuration_status_errors()}
+  def report_instrumentation_configuration_status(%Client{} = client, input, options \\ []) do
+    url_path = "/report-instrumentation-configuration-status"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

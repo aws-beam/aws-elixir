@@ -610,11 +610,25 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "Status" => String.t() | atom(),
         "TwoWayChannelArn" => String.t() | atom(),
         "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
       }
       
   """
   @type delete_rcs_agent_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_carousel_card_media() :: %{
+        "FileUrl" => String.t() | atom(),
+        "Height" => [String.t() | atom()],
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_carousel_card_media() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -650,6 +664,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_rcs_message_request() :: %{
+        optional("ConfigurationSetName") => String.t() | atom(),
+        optional("Context") => map(),
+        optional("DryRun") => [boolean()],
+        optional("FallbackConfiguration") => rcs_fallback_configuration(),
+        optional("MaxPrice") => String.t() | atom(),
+        optional("MessageFeedbackEnabled") => [boolean()],
+        optional("MessageTrafficType") => String.t() | atom(),
+        optional("ProtectConfigurationId") => String.t() | atom(),
+        optional("RcsMessageContent") => rcs_message_content(),
+        optional("TimeToLive") => integer(),
+        required("DestinationPhoneNumber") => String.t() | atom(),
+        required("OriginationIdentity") => String.t() | atom()
+      }
+      
+  """
+  @type send_rcs_message_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -801,6 +837,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_carousel() :: %{
+        "CardContents" => list(rcs_carousel_card_content()),
+        "CardWidth" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_carousel() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_opted_out_number_result() :: %{
         "EndUserOptedOut" => [boolean()],
         "OptOutListArn" => [String.t() | atom()],
@@ -880,6 +928,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_reply_action() :: %{
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_reply_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_voice_message_spend_limit_override_request() :: %{}
       
   """
@@ -943,6 +1003,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_card_media() :: %{
+        "FileUrl" => String.t() | atom(),
+        "Height" => [String.t() | atom()],
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_card_media() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_notify_configuration_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DefaultTemplateId" => String.t() | atom(),
@@ -973,6 +1046,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type set_media_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_fallback_configuration() :: %{
+        "Channel" => String.t() | atom(),
+        "MediaUrls" => list(String.t() | atom()),
+        "MessageBody" => String.t() | atom(),
+        "OriginationIdentity" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_fallback_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1255,6 +1342,22 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_create_calendar_event_action() :: %{
+        "Description" => String.t() | atom(),
+        "EndTime" => [non_neg_integer()],
+        "PostbackData" => String.t() | atom(),
+        "StartTime" => [non_neg_integer()],
+        "Text" => String.t() | atom(),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_create_calendar_event_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_default_message_type_result() :: %{
         "ConfigurationSetArn" => [String.t() | atom()],
         "ConfigurationSetName" => String.t() | atom(),
@@ -1301,6 +1404,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type list_registration_associations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_dial_phone_action() :: %{
+        "PhoneNumber" => String.t() | atom(),
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_dial_phone_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1435,6 +1551,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_carousel_card_content() :: %{
+        "Description" => String.t() | atom(),
+        "Media" => rcs_carousel_card_media(),
+        "Suggestions" => list(list()),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_carousel_card_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_resource_policy_request() :: %{
         required("ResourceArn") => String.t() | atom()
       }
@@ -1496,7 +1626,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "Status" => String.t() | atom(),
         "TwoWayChannelArn" => String.t() | atom(),
         "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
       }
       
   """
@@ -1520,6 +1654,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type send_notify_text_message_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_open_url_action() :: %{
+        "Application" => [String.t() | atom()],
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom(),
+        "Url" => String.t() | atom(),
+        "WebviewViewMode" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_open_url_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2243,6 +2392,10 @@ defmodule AWS.PinpointSMSVoiceV2 do
         optional("TwoWayChannelArn") => String.t() | atom(),
         optional("TwoWayChannelRole") => String.t() | atom(),
         optional("TwoWayEnabled") => [boolean()],
+        optional("TwoWayMediaS3BucketName") => String.t() | atom(),
+        optional("TwoWayMediaS3KeyPrefix") => String.t() | atom(),
+        optional("TwoWayMediaS3Role") => String.t() | atom(),
+        optional("TwoWayRcsEventsEnabled") => list(String.t() | atom()),
         required("RcsAgentId") => String.t() | atom()
       }
       
@@ -2274,6 +2427,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type put_registration_field_value_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_file_message() :: %{
+        "FileUrl" => String.t() | atom(),
+        "ThumbnailUrl" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_file_message() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2331,6 +2496,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      set_rcs_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type set_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_notify_countries_result() :: %{
         "NextToken" => String.t() | atom(),
         "NotifyCountries" => list(notify_country_information())
@@ -2338,6 +2514,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type list_notify_countries_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_request_location_action() :: %{
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_request_location_action() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2442,6 +2630,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type untag_resource_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      send_rcs_message_result() :: %{
+        "MessageId" => [String.t() | atom()]
+      }
+      
+  """
+  @type send_rcs_message_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2796,6 +2995,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_text_message() :: %{
+        "Body" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_text_message() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_account_limits_request() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -2871,6 +3081,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type notify_configuration_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      set_rcs_message_spend_limit_override_request() :: %{
+        required("MonthlyLimit") => float()
+      }
+      
+  """
+  @type set_rcs_message_spend_limit_override_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3197,7 +3418,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "Tags" => list(tag()),
         "TwoWayChannelArn" => String.t() | atom(),
         "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
       }
       
   """
@@ -3282,6 +3507,21 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      rcs_show_location_action() :: %{
+        "Label" => String.t() | atom(),
+        "Latitude" => [float()],
+        "Longitude" => [float()],
+        "PostbackData" => String.t() | atom(),
+        "Text" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_show_location_action() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       disassociate_protect_configuration_request() :: %{
         required("ConfigurationSetName") => String.t() | atom(),
         required("ProtectConfigurationId") => String.t() | atom()
@@ -3323,6 +3563,17 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type carrier_status_information() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_rcs_message_spend_limit_override_result() :: %{
+        "MonthlyLimit" => float()
+      }
+      
+  """
+  @type delete_rcs_message_spend_limit_override_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3456,7 +3707,11 @@ defmodule AWS.PinpointSMSVoiceV2 do
         "TestingAgent" => testing_agent_information(),
         "TwoWayChannelArn" => String.t() | atom(),
         "TwoWayChannelRole" => String.t() | atom(),
-        "TwoWayEnabled" => [boolean()]
+        "TwoWayEnabled" => [boolean()],
+        "TwoWayMediaS3BucketName" => String.t() | atom(),
+        "TwoWayMediaS3KeyPrefix" => String.t() | atom(),
+        "TwoWayMediaS3Role" => String.t() | atom(),
+        "TwoWayRcsEventsEnabled" => list(String.t() | atom())
       }
       
   """
@@ -3651,6 +3906,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
 
   ## Example:
       
+      delete_rcs_message_spend_limit_override_request() :: %{}
+      
+  """
+  @type delete_rcs_message_spend_limit_override_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       update_phone_number_result() :: %{
         "CreatedTimestamp" => [non_neg_integer()],
         "DeletionProtectionEnabled" => [boolean()],
@@ -3687,6 +3951,20 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type create_configuration_set_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_card_content() :: %{
+        "Description" => String.t() | atom(),
+        "Media" => rcs_card_media(),
+        "Suggestions" => list(list()),
+        "Title" => String.t() | atom()
+      }
+      
+  """
+  @type rcs_card_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3759,6 +4037,18 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type send_media_message_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_message_content() :: %{
+        "Content" => list(),
+        "Suggestions" => list(list())
+      }
+      
+  """
+  @type rcs_message_content() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3948,6 +4238,19 @@ defmodule AWS.PinpointSMSVoiceV2 do
       
   """
   @type describe_pools_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      rcs_standalone_card() :: %{
+        "CardContent" => rcs_card_content(),
+        "CardOrientation" => [String.t() | atom()],
+        "ThumbnailImageAlignment" => [String.t() | atom()]
+      }
+      
+  """
+  @type rcs_standalone_card() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4323,6 +4626,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           conflict_exception()
           | resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type delete_rcs_message_spend_limit_override_errors() ::
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
@@ -4721,6 +5030,15 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | access_denied_exception()
           | throttling_exception()
 
+  @type send_rcs_message_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type send_text_message_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
@@ -4774,6 +5092,12 @@ defmodule AWS.PinpointSMSVoiceV2 do
           | throttling_exception()
 
   @type set_notify_message_spend_limit_override_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type set_rcs_message_spend_limit_override_errors() ::
           internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5529,6 +5853,29 @@ defmodule AWS.PinpointSMSVoiceV2 do
       metadata()
 
     Request.request_post(client, meta, "DeleteRcsAgent", input, options)
+  end
+
+  @doc """
+  Deletes an account-level monthly spending limit override for sending RCS
+  messages.
+
+  Deleting a spend limit override sets the `EnforcedLimit` to equal the
+  `MaxLimit`, which is set by Amazon Web Services.
+  """
+  @spec delete_rcs_message_spend_limit_override(
+          map(),
+          delete_rcs_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, delete_rcs_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_rcs_message_spend_limit_override_errors()}
+  def delete_rcs_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteRcsMessageSpendLimitOverride", input, options)
   end
 
   @doc """
@@ -6624,6 +6971,24 @@ defmodule AWS.PinpointSMSVoiceV2 do
   end
 
   @doc """
+  Creates a new RCS message and sends it to a recipient's phone number.
+
+  RCS messages support rich content including text, files, rich cards, and
+  carousels with interactive suggested actions.
+  """
+  @spec send_rcs_message(map(), send_rcs_message_request(), list()) ::
+          {:ok, send_rcs_message_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_rcs_message_errors()}
+  def send_rcs_message(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SendRcsMessage", input, options)
+  end
+
+  @doc """
   Creates a new text message and sends it to a recipient's phone number.
 
   SendTextMessage only sends an SMS message to one recipient each time it is
@@ -6790,6 +7155,28 @@ defmodule AWS.PinpointSMSVoiceV2 do
       metadata()
 
     Request.request_post(client, meta, "SetNotifyMessageSpendLimitOverride", input, options)
+  end
+
+  @doc """
+  Sets an account level monthly spend limit override for sending RCS messages.
+
+  The requested spend limit must be less than or equal to the `MaxLimit`, which is
+  set by Amazon Web Services.
+  """
+  @spec set_rcs_message_spend_limit_override(
+          map(),
+          set_rcs_message_spend_limit_override_request(),
+          list()
+        ) ::
+          {:ok, set_rcs_message_spend_limit_override_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, set_rcs_message_spend_limit_override_errors()}
+  def set_rcs_message_spend_limit_override(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "SetRcsMessageSpendLimitOverride", input, options)
   end
 
   @doc """

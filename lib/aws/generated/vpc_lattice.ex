@@ -669,7 +669,8 @@ defmodule AWS.VPCLattice do
 
       update_service_request() :: %{
         optional("authType") => String.t() | atom(),
-        optional("certificateArn") => String.t() | atom()
+        optional("certificateArn") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer()
       }
 
   """
@@ -1106,6 +1107,7 @@ defmodule AWS.VPCLattice do
         optional("certificateArn") => String.t() | atom(),
         optional("customDomainName") => String.t() | atom(),
         optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
         optional("name") => String.t() | atom()
       }
 
@@ -1226,6 +1228,7 @@ defmodule AWS.VPCLattice do
         optional("certificateArn") => String.t() | atom(),
         optional("clientToken") => String.t() | atom(),
         optional("customDomainName") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
         optional("tags") => map(),
         required("name") => String.t() | atom()
       }
@@ -2021,6 +2024,7 @@ defmodule AWS.VPCLattice do
         optional("failureCode") => String.t() | atom(),
         optional("failureMessage") => String.t() | atom(),
         optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
         optional("lastUpdatedAt") => non_neg_integer(),
         optional("name") => String.t() | atom(),
         optional("status") => String.t() | atom()
@@ -2238,6 +2242,7 @@ defmodule AWS.VPCLattice do
         optional("customDomainName") => String.t() | atom(),
         optional("dnsEntry") => dns_entry(),
         optional("id") => String.t() | atom(),
+        optional("idleTimeoutSeconds") => integer(),
         optional("name") => String.t() | atom(),
         optional("status") => String.t() | atom()
       }

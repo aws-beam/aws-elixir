@@ -8282,6 +8282,20 @@ defmodule AWS.Glue do
 
   ## Example:
       
+      update_asset_response() :: %{
+        "Description" => String.t() | atom(),
+        "Id" => String.t() | atom(),
+        "Name" => String.t() | atom(),
+        "UpdatedAt" => non_neg_integer()
+      }
+      
+  """
+  @type update_asset_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_column_statistics_for_table_request() :: %{
         optional("CatalogId") => String.t() | atom(),
         required("ColumnStatisticsList") => list(column_statistics()),
@@ -9235,6 +9249,19 @@ defmodule AWS.Glue do
       
   """
   @type sql_alias() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_asset_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Name") => String.t() | atom()
+      }
+      
+  """
+  @type update_asset_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16437,6 +16464,14 @@ defmodule AWS.Glue do
           | operation_timeout_exception()
           | entity_not_found_exception()
 
+  @type update_asset_errors() ::
+          invalid_input_exception()
+          | internal_service_exception()
+          | access_denied_exception()
+          | throttling_exception()
+          | concurrent_modification_exception()
+          | entity_not_found_exception()
+
   @type update_blueprint_errors() ::
           invalid_input_exception()
           | internal_service_exception()
@@ -21491,6 +21526,23 @@ defmodule AWS.Glue do
       metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates the name and description of an existing asset in Glue Data Catalog.
+
+  Only the fields that you provide are updated.
+  """
+  @spec update_asset(map(), update_asset_request(), list()) ::
+          {:ok, update_asset_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_asset_errors()}
+  def update_asset(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateAsset", input, options)
   end
 
   @doc """

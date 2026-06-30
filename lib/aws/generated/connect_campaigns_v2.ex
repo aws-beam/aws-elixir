@@ -287,6 +287,17 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      channel_context() :: %{
+        "webNotificationContext" => web_notification_context()
+      }
+
+  """
+  @type channel_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resume_campaign_request() :: %{}
 
   """
@@ -337,6 +348,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   """
   @type delete_connect_instance_integration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_notification_context() :: %{
+        "browserId" => String.t() | atom(),
+        "sessionId" => String.t() | atom()
+      }
+
+  """
+  @type web_notification_context() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -857,6 +880,18 @@ defmodule AWS.ConnectCampaignsV2 do
 
   ## Example:
 
+      event_trigger_context() :: %{
+        "channelContext" => channel_context(),
+        "sourceEvent" => String.t() | atom()
+      }
+
+  """
+  @type event_trigger_context() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       conflict_exception() :: %{
         "message" => [String.t() | atom()],
         "xAmzErrorType" => String.t() | atom()
@@ -1080,6 +1115,7 @@ defmodule AWS.ConnectCampaignsV2 do
 
       profile_outbound_request() :: %{
         "clientToken" => String.t() | atom(),
+        "eventTriggerContext" => event_trigger_context(),
         "expirationTime" => non_neg_integer(),
         "profileId" => String.t() | atom()
       }

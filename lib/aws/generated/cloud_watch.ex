@@ -3,28 +3,62 @@
 
 defmodule AWS.CloudWatch do
   @moduledoc """
-  Amazon CloudWatch monitors your Amazon Web Services (Amazon Web Services)
-  resources and the applications you run on Amazon Web Services in real time.
+  Amazon CloudWatch enables you to publish, monitor, and manage various metrics,
+  as well
+  as configure alarm actions based on data from metrics.
 
-  You can use
-  CloudWatch to collect and track metrics, which are the variables you want to
-  measure for your resources and applications.
+  This guide provides detailed
+  information about CloudWatch actions, data types, parameters, and errors. For
+  more information about CloudWatch features, see [Amazon CloudWatch](https://aws.amazon.com/cloudwatch) and the
+  *Amazon CloudWatch User Guide*.
 
-  CloudWatch alarms send notifications or automatically change the resources you
-  are
-  monitoring based on rules that you define. For example, you can monitor the CPU
-  usage
-  and disk reads and writes of your Amazon EC2 instances. Then, use this data to
-  determine
-  whether you should launch additional instances to handle increased load. You can
-  also
-  use this data to stop under-used instances to save money.
+  For information about the metrics that other Amazon Web Services products send
+  to
+  CloudWatch, see the [Amazon CloudWatch Metrics and Dimensions
+  Reference](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html)
+  in the *Amazon CloudWatch User
+  Guide*.
 
-  In addition to monitoring the built-in metrics that come with Amazon Web
-  Services,
-  you can monitor your own custom metrics. With CloudWatch, you gain system-wide
-  visibility into resource utilization, application performance, and operational
-  health.
+  Use the following links to get started using the CloudWatch Query API:
+
+  : An alphabetical list of all CloudWatch
+  actions.
+
+  : An alphabetical list of all CloudWatch data
+  types.
+
+  `CommonParameters`: Parameters that all Query actions can use.
+
+  `CommonErrors`: Client and server errors that all actions can
+  return.
+
+  [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#cw_region):
+  Supported regions and endpoints for all Amazon Web
+  Services products.
+
+  Alternatively, you can use one of the [Amazon Web Services SDKs](https://aws.amazon.com/tools/#sdk) to access CloudWatch using an API
+  tailored
+  to your programming language or platform.
+
+  Developers in the Amazon Web Services developer community also provide their own
+  libraries, which you can find at the following Amazon Web Services developer
+  centers:
+
+  [Java Developer Center](http://aws.amazon.com/java/) 
+
+  [JavaScript Developer
+  Center](http://aws.amazon.com/javascript/)
+
+  [Amazon Web Services Mobile Services](http://aws.amazon.com/mobile/)
+
+  [PHP Developer Center](http://aws.amazon.com/php/) 
+
+  [Python Developer Center](http://aws.amazon.com/python/)
+
+  [Ruby Developer Center](http://aws.amazon.com/ruby/) 
+
+  [Windows and .NET Developer
+  Center](http://aws.amazon.com/net/)
   """
 
   alias AWS.Client
@@ -65,6 +99,31 @@ defmodule AWS.CloudWatch do
       
   """
   @type describe_insight_rules_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_log_alarm_input() :: %{
+        optional("ActionLogLineCount") => integer(),
+        optional("ActionLogLineRoleArn") => String.t() | atom(),
+        optional("ActionsEnabled") => boolean(),
+        optional("AlarmActions") => list(String.t() | atom()),
+        optional("AlarmDescription") => String.t() | atom(),
+        optional("InsufficientDataActions") => list(String.t() | atom()),
+        optional("OKActions") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
+        optional("TreatMissingData") => String.t() | atom(),
+        required("AlarmName") => String.t() | atom(),
+        required("ComparisonOperator") => list(any()),
+        required("QueryResultsToAlarm") => integer(),
+        required("QueryResultsToEvaluate") => integer(),
+        required("ScheduledQueryConfiguration") => scheduled_query_configuration(),
+        required("Threshold") => float()
+      }
+      
+  """
+  @type put_log_alarm_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -390,6 +449,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      resource_conflict() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type resource_conflict() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       entity_metric_data() :: %{
         "Entity" => entity(),
         "MetricData" => list(metric_datum())
@@ -511,12 +581,45 @@ defmodule AWS.CloudWatch do
       
       describe_alarms_output() :: %{
         "CompositeAlarms" => list(composite_alarm()),
+        "LogAlarms" => list(log_alarm()),
         "MetricAlarms" => list(metric_alarm()),
         "NextToken" => String.t() | atom()
       }
       
   """
   @type describe_alarms_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      log_alarm() :: %{
+        "ActionLogLineCount" => integer(),
+        "ActionLogLineRoleArn" => String.t() | atom(),
+        "ActionsEnabled" => boolean(),
+        "AlarmActions" => list(String.t() | atom()),
+        "AlarmArn" => String.t() | atom(),
+        "AlarmConfigurationUpdatedTimestamp" => non_neg_integer(),
+        "AlarmDescription" => String.t() | atom(),
+        "AlarmName" => String.t() | atom(),
+        "ComparisonOperator" => list(any()),
+        "EvaluationState" => list(any()),
+        "InsufficientDataActions" => list(String.t() | atom()),
+        "OKActions" => list(String.t() | atom()),
+        "QueryResultsToAlarm" => integer(),
+        "QueryResultsToEvaluate" => integer(),
+        "ScheduledQueryConfiguration" => scheduled_query_configuration(),
+        "StateReason" => String.t() | atom(),
+        "StateReasonData" => String.t() | atom(),
+        "StateTransitionedTimestamp" => non_neg_integer(),
+        "StateUpdatedTimestamp" => non_neg_integer(),
+        "StateValue" => list(any()),
+        "Threshold" => float(),
+        "TreatMissingData" => String.t() | atom()
+      }
+      
+  """
+  @type log_alarm() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1501,6 +1604,23 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      scheduled_query_configuration() :: %{
+        "AggregationExpression" => String.t() | atom(),
+        "LogGroupIdentifiers" => list(String.t() | atom()),
+        "QueryARN" => String.t() | atom(),
+        "QueryString" => String.t() | atom(),
+        "ScheduleConfiguration" => schedule_configuration(),
+        "ScheduledQueryRoleARN" => String.t() | atom(),
+        "Tags" => list(tag())
+      }
+      
+  """
+  @type scheduled_query_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_tags_for_resource_input() :: %{
         required("ResourceARN") => String.t() | atom()
       }
@@ -1550,6 +1670,19 @@ defmodule AWS.CloudWatch do
       
   """
   @type get_metric_widget_image_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      schedule_configuration() :: %{
+        "EndTimeOffset" => float(),
+        "ScheduleExpression" => String.t() | atom(),
+        "StartTimeOffset" => float()
+      }
+      
+  """
+  @type schedule_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1984,7 +2117,7 @@ defmodule AWS.CloudWatch do
           | kms_key_disabled_exception()
           | kms_access_denied_exception()
 
-  @type delete_alarms_errors() :: resource_not_found()
+  @type delete_alarms_errors() :: resource_not_found() | resource_conflict()
 
   @type delete_anomaly_detector_errors() ::
           missing_required_parameter_exception()
@@ -2099,6 +2232,8 @@ defmodule AWS.CloudWatch do
           missing_required_parameter_exception()
           | invalid_parameter_value_exception()
           | limit_exceeded_exception()
+
+  @type put_log_alarm_errors() :: limit_exceeded_fault() | resource_conflict()
 
   @type put_managed_insight_rules_errors() ::
           missing_required_parameter_exception() | invalid_parameter_value_exception()
@@ -2252,16 +2387,18 @@ defmodule AWS.CloudWatch do
   Deletes a specific alarm mute rule.
 
   When you delete a mute rule, any alarms that are currently being muted by that
-  rule are immediately unmuted. If those alarms are in an ALARM state, their
-  configured actions will trigger.
+  rule
+  are immediately unmuted. If those alarms are in an ALARM state, their configured
+  actions
+  will trigger.
 
   This operation is idempotent. If you delete a mute rule that does not exist, the
   operation succeeds without returning an error.
 
   ## Permissions
 
-  To delete a mute rule, you need the `cloudwatch:DeleteAlarmMuteRule` permission
-  on the alarm mute rule resource.
+  To delete a mute rule, you need the `cloudwatch:DeleteAlarmMuteRule`
+  permission on the alarm mute rule resource.
   """
   @spec delete_alarm_mute_rule(map(), delete_alarm_mute_rule_input(), list()) ::
           {:ok, nil, any()}
@@ -2282,12 +2419,13 @@ defmodule AWS.CloudWatch do
   you could
   delete 99 metric alarms and one composite alarms with one operation, but you
   can't
-  delete two composite alarms with one operation.
+  delete two composite alarms with one operation. Log alarms cannot be batch
+  deleted.
 
   If you specify any incorrect alarm names, the alarms you specify with correct
-  names are still deleted. Other syntax errors might result
-  in no alarms being deleted. To confirm that alarms were deleted successfully,
-  you can use the
+  names are still deleted. Other syntax errors might result in no alarms being
+  deleted. To
+  confirm that alarms were deleted successfully, you can use the
   [DescribeAlarms](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html)
   operation after using `DeleteAlarms`.
 
@@ -2395,11 +2533,11 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
-  Returns the information of the current alarm contributors that are in `ALARM`
-  state.
+  Returns the information of the current alarm contributors that are in
+  `ALARM` state.
 
-  This operation returns details about the individual time series that contribute
-  to the alarm's state.
+  This operation returns details about the individual time
+  series that contribute to the alarm's state.
   """
   @spec describe_alarm_contributors(map(), describe_alarm_contributors_input(), list()) ::
           {:ok, describe_alarm_contributors_output(), any()}
@@ -2655,21 +2793,24 @@ defmodule AWS.CloudWatch do
 
     *
 
-  **SCHEDULED**: The mute rule is configured and will become active in the future
+  **SCHEDULED**: The mute rule is configured and
+  will become active in the future
 
     *
 
-  **ACTIVE**: The mute rule is currently muting alarm actions
+  **ACTIVE**: The mute rule is currently muting
+  alarm actions
 
     *
 
-  **EXPIRED**: The mute rule has passed its expiration date and will no longer
-  become active
+  **EXPIRED**: The mute rule has passed its
+  expiration date and will no longer become active
 
   ## Permissions
 
-  To retrieve details for a mute rule, you need the `cloudwatch:GetAlarmMuteRule`
-  permission on the alarm mute rule resource.
+  To retrieve details for a mute rule, you need the
+  `cloudwatch:GetAlarmMuteRule` permission on the alarm mute rule
+  resource.
   """
   @spec get_alarm_mute_rule(map(), get_alarm_mute_rule_input(), list()) ::
           {:ok, get_alarm_mute_rule_output(), any()}
@@ -3044,11 +3185,11 @@ defmodule AWS.CloudWatch do
   Returns the current status of vended metric enrichment for the account,
   including
   whether CloudWatch vended metrics are enriched with resource ARN and resource
-  tag
-  labels and queryable using PromQL.
+  tag labels
+  and queryable using PromQL.
 
-  For the list of supported resources, see
-  [Supported Amazon Web Services infrastructure metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
+  For the list of supported resources, see [Supported Amazon Web Services infrastructure
+  metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html).
   """
   @spec get_o_tel_enrichment(map(), get_o_tel_enrichment_input(), list()) ::
           {:ok, get_o_tel_enrichment_output(), any()}
@@ -3065,15 +3206,17 @@ defmodule AWS.CloudWatch do
   Lists alarm mute rules in your Amazon Web Services account and region.
 
   You can filter the results by alarm name to find all mute rules targeting a
-  specific alarm, or by status to find rules that are scheduled, active, or
-  expired.
+  specific
+  alarm, or by status to find rules that are scheduled, active, or expired.
 
   This operation supports pagination for accounts with many mute rules. Use the
-  `MaxRecords` and `NextToken` parameters to retrieve results in multiple calls.
+  `MaxRecords` and `NextToken` parameters to retrieve results in
+  multiple calls.
 
   ## Permissions
 
-  To list mute rules, you need the `cloudwatch:ListAlarmMuteRules` permission.
+  To list mute rules, you need the `cloudwatch:ListAlarmMuteRules`
+  permission.
   """
   @spec list_alarm_mute_rules(map(), list_alarm_mute_rules_input(), list()) ::
           {:ok, list_alarm_mute_rules_output(), any()}
@@ -3204,35 +3347,41 @@ defmodule AWS.CloudWatch do
   Creates or updates an alarm mute rule.
 
   Alarm mute rules automatically mute alarm actions during predefined time
-  windows. When a mute rule is active, targeted alarms continue to evaluate
-  metrics and transition between states, but their configured actions (such as
-  Amazon SNS notifications or Auto Scaling actions) are muted.
+  windows. When
+  a mute rule is active, targeted alarms continue to evaluate metrics and
+  transition
+  between states, but their configured actions (such as Amazon SNS notifications
+  or Auto Scaling actions) are muted.
 
-  You can create mute rules with recurring schedules using `cron` expressions or
-  one-time mute windows using `at` expressions. Each mute rule can target up to
-  100 specific alarms by name.
+  You can create mute rules with recurring schedules using `cron` expressions
+  or one-time mute windows using `at` expressions. Each mute rule can target up
+  to 100 specific alarms by name.
 
   If you specify a rule name that already exists, this operation updates the
-  existing rule with the new configuration.
+  existing
+  rule with the new configuration.
 
   ## Permissions
 
-  To create or update a mute rule, you must have the `cloudwatch:PutAlarmMuteRule`
-  permission on two types of resources: the alarm mute rule resource itself, and
-  each alarm that the rule targets.
+  To create or update a mute rule, you must have the
+  `cloudwatch:PutAlarmMuteRule` permission on two types of resources: the
+  alarm mute rule resource itself, and each alarm that the rule targets.
 
   For example, If you want to allow a user to create mute rules that target only
   specific alarms named "WebServerCPUAlarm" and "DatabaseConnectionAlarm", you
-  would create an IAM policy with one statement granting
+  would
+  create an IAM policy with one statement granting
   `cloudwatch:PutAlarmMuteRule` on the alarm mute rule resource
-  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute-rule:*`), and another statement granting `cloudwatch:PutAlarmMuteRule` on the targeted alarm resources
+  (`arn:aws:cloudwatch:[REGION]:123456789012:alarm-mute-rule:*`), and another statement granting `cloudwatch:PutAlarmMuteRule` on the targeted
+  alarm resources
   (`arn:aws:cloudwatch:[REGION]:123456789012:alarm:WebServerCPUAlarm` and
   `arn:aws:cloudwatch:[REGION]:123456789012:alarm:DatabaseConnectionAlarm`).
 
   You can also use IAM policy conditions to allow targeting alarms based on
-  resource tags. For example, you can restrict users to create/update mute rules
-  to only target alarms that have a specific tag key-value pair, such as
-  `Team=TeamA`.
+  resource
+  tags. For example, you can restrict users to create/update mute rules to only
+  target
+  alarms that have a specific tag key-value pair, such as `Team=TeamA`.
   """
   @spec put_alarm_mute_rule(map(), put_alarm_mute_rule_input(), list()) ::
           {:ok, nil, any()}
@@ -3426,6 +3575,49 @@ defmodule AWS.CloudWatch do
   end
 
   @doc """
+  Creates or updates a log alarm.
+
+  A log alarm evaluates the results of a CloudWatch Logs scheduled query against
+  the configured threshold and comparison operator to determine its state.
+
+  When you create a log alarm, the operation creates a service-managed CloudWatch
+  Logs scheduled query that runs the query string you provide on the schedule you
+  configure. Each scheduled query execution returns one or more aggregated values
+  determined by the `AggregationExpression`, and each aggregated value is compared
+  against the alarm `Threshold` to determine the alarm state. The alarm uses
+  M-out-of-N evaluation: if `QueryResultsToAlarm` out of the most recent
+  `QueryResultsToEvaluate` query results breach the threshold, the alarm
+  transitions to `ALARM`.
+
+  Log alarms support the alarm states (`OK`, `ALARM`, `INSUFFICIENT_DATA`).
+  Configure transition actions using `OKActions`, `AlarmActions`, and
+  `InsufficientDataActions`.
+
+  If you call this operation with the name of an existing log alarm, the operation
+  replaces the previous configuration of that alarm.
+
+  ## Permissions
+
+  To create or update a log alarm, you must have the `cloudwatch:PutLogAlarm`
+  permission. The IAM role specified in `ScheduledQueryRoleARN` must grant the
+  CloudWatch Alarms service permission to execute scheduled queries on the
+  specified log groups. If you set `ActionLogLineCount`, the role specified in
+  `ActionLogLineRoleArn` must grant permission to retrieve log events for
+  inclusion in alarm notifications.
+  """
+  @spec put_log_alarm(map(), put_log_alarm_input(), list()) ::
+          {:ok, nil, any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_log_alarm_errors()}
+  def put_log_alarm(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutLogAlarm", input, options)
+  end
+
+  @doc """
   Creates a managed Contributor Insights rule for a specified Amazon Web Services
   resource.
 
@@ -3455,8 +3647,8 @@ defmodule AWS.CloudWatch do
   math expression, anomaly detection model, Metrics Insights query, or PromQL
   query.
 
-  For more
-  information about using a Metrics Insights query for an alarm, see [Create alarms on Metrics Insights
+  For
+  more information about using a Metrics Insights query for an alarm, see [Create alarms on Metrics Insights
   queries](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html).
 
   Alarms based on anomaly detection models cannot have Auto Scaling actions.
@@ -3739,14 +3931,15 @@ defmodule AWS.CloudWatch do
   [supported Amazon Web Services resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
   in the account.
 
-  Once enabled, metrics that
-  contain a resource identifier dimension (for example, EC2
+  Once enabled,
+  metrics that contain a resource identifier dimension (for example, EC2
   `CPUUtilization` with an `InstanceId` dimension) are enriched
-  with resource ARN and resource tag labels and become queryable using
-  PromQL.
+  with resource ARN and resource tag labels and become queryable using PromQL.
 
   Before calling this operation, you must enable resource tags on telemetry for
-  your account. For more information, see [Enable resource tags on telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
+  your
+  account. For more information, see [Enable resource tags on
+  telemetry](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/EnableResourceTagsOnTelemetry.html).
   """
   @spec start_o_tel_enrichment(map(), start_o_tel_enrichment_input(), list()) ::
           {:ok, start_o_tel_enrichment_output(), any()}
@@ -3779,9 +3972,10 @@ defmodule AWS.CloudWatch do
   [supported Amazon Web Services resources](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/UsingResourceTagsForTelemetry.html)
   in the account.
 
-  After disabling, these metrics
-  are no longer enriched with resource ARN and resource tag labels, and cannot be
-  queried using PromQL.
+  After disabling,
+  these metrics are no longer enriched with resource ARN and resource tag labels,
+  and
+  cannot be queried using PromQL.
   """
   @spec stop_o_tel_enrichment(map(), stop_o_tel_enrichment_input(), list()) ::
           {:ok, stop_o_tel_enrichment_output(), any()}

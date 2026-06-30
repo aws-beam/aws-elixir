@@ -18984,6 +18984,7 @@ defmodule AWS.EC2 do
         "GroupName" => String.t() | atom(),
         "LinkedGroupId" => String.t() | atom(),
         "Operator" => operator_response(),
+        "ParentGroupId" => String.t() | atom(),
         "PartitionCount" => integer(),
         "SpreadLevel" => list(any()),
         "State" => list(any()),
@@ -32908,6 +32909,7 @@ defmodule AWS.EC2 do
         optional("GroupName") => String.t() | atom(),
         optional("LinkedGroupId") => String.t() | atom(),
         optional("Operator") => operator_request(),
+        optional("ParentGroupId") => String.t() | atom(),
         optional("PartitionCount") => integer(),
         optional("SpreadLevel") => list(any()),
         optional("Strategy") => list(any()),
@@ -37125,7 +37127,10 @@ defmodule AWS.EC2 do
   A `spread` placement group places instances on distinct hardware. A
   `partition` placement group places groups of instances in different
   partitions, where instances in one partition do not share the same hardware with
-  instances in another partition.
+  instances in another partition. A `precision-time` placement group places
+  instances on supported hardware with direct access to high-precision time
+  sources in
+  AWS infrastructure.
 
   For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
   in the
@@ -39424,8 +39429,10 @@ defmodule AWS.EC2 do
   Deletes the specified placement group.
 
   You must terminate all instances in the
-  placement group before you can delete the placement group. For more information,
-  see
+  placement group before you can delete the placement group. You cannot delete a
+  placement group that is a parent of a cluster placement group. Delete the
+  cluster
+  placement groups first. For more information, see
   [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
   in the *Amazon EC2 User Guide*.
   """

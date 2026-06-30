@@ -917,6 +917,7 @@ defmodule AWS.Lambda do
         "ImageUri" => String.t() | atom(),
         "S3Bucket" => String.t() | atom(),
         "S3Key" => String.t() | atom(),
+        "S3ObjectStorageMode" => list(any()),
         "S3ObjectVersion" => String.t() | atom(),
         "SourceKMSKeyArn" => String.t() | atom(),
         "ZipFile" => binary()
@@ -1971,6 +1972,18 @@ defmodule AWS.Lambda do
 
   ## Example:
 
+      function_code_location_error() :: %{
+        "ErrorCode" => String.t() | atom(),
+        "Message" => String.t() | atom()
+      }
+
+  """
+  @type function_code_location_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       self_managed_kafka_event_source_config() :: %{
         "ConsumerGroupId" => String.t() | atom(),
         "SchemaRegistryConfig" => kafka_schema_registry_config()
@@ -1986,6 +1999,7 @@ defmodule AWS.Lambda do
       layer_version_content_input() :: %{
         "S3Bucket" => String.t() | atom(),
         "S3Key" => String.t() | atom(),
+        "S3ObjectStorageMode" => list(any()),
         "S3ObjectVersion" => String.t() | atom(),
         "ZipFile" => binary()
       }
@@ -2037,6 +2051,7 @@ defmodule AWS.Lambda do
         "CodeSha256" => String.t() | atom(),
         "CodeSize" => float(),
         "Location" => String.t() | atom(),
+        "ResolvedS3Object" => resolved_s3_object(),
         "SigningJobArn" => String.t() | atom(),
         "SigningProfileVersionArn" => String.t() | atom()
       }
@@ -2593,10 +2608,12 @@ defmodule AWS.Lambda do
   ## Example:
 
       function_code_location() :: %{
+        "Error" => function_code_location_error(),
         "ImageUri" => String.t() | atom(),
         "Location" => String.t() | atom(),
         "RepositoryType" => String.t() | atom(),
         "ResolvedImageUri" => String.t() | atom(),
+        "ResolvedS3Object" => resolved_s3_object(),
         "SourceKMSKeyArn" => String.t() | atom()
       }
 
@@ -3334,6 +3351,7 @@ defmodule AWS.Lambda do
         optional("RevisionId") => String.t() | atom(),
         optional("S3Bucket") => String.t() | atom(),
         optional("S3Key") => String.t() | atom(),
+        optional("S3ObjectStorageMode") => list(any()),
         optional("S3ObjectVersion") => String.t() | atom(),
         optional("SourceKMSKeyArn") => String.t() | atom(),
         optional("ZipFile") => binary()
@@ -3436,6 +3454,19 @@ defmodule AWS.Lambda do
 
   """
   @type target_tracking_scaling_policy() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      resolved_s3_object() :: %{
+        "S3Bucket" => String.t() | atom(),
+        "S3Key" => String.t() | atom(),
+        "S3ObjectVersion" => String.t() | atom()
+      }
+
+  """
+  @type resolved_s3_object() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

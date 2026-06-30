@@ -448,6 +448,7 @@ defmodule AWS.Imagebuilder do
       image_recipe() :: %{
         "additionalInstanceConfiguration" => additional_instance_configuration(),
         "amiTags" => map(),
+        "amiWatermarks" => list(String.t() | atom()),
         "arn" => String.t() | atom(),
         "blockDeviceMappings" => list(instance_block_device_mapping()),
         "components" => list(component_configuration()),
@@ -2958,6 +2959,7 @@ defmodule AWS.Imagebuilder do
       create_image_recipe_request() :: %{
         optional("additionalInstanceConfiguration") => additional_instance_configuration(),
         optional("amiTags") => map(),
+        optional("amiWatermarks") => list(String.t() | atom()),
         optional("blockDeviceMappings") => list(instance_block_device_mapping()),
         optional("components") => list(component_configuration()),
         optional("description") => String.t() | atom(),
@@ -5332,8 +5334,11 @@ defmodule AWS.Imagebuilder do
   end
 
   @doc """
-  DistributeImage distributes existing AMIs to additional regions and accounts
-  without rebuilding the image.
+  Distributes an existing AMI to target Regions and accounts without running
+  the full image build process.
+
+  This operation only runs the distribution
+  phase on an image that has already been built.
   """
   @spec distribute_image(map(), distribute_image_request(), list()) ::
           {:ok, distribute_image_response(), any()}

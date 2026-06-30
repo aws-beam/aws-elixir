@@ -95,6 +95,19 @@ defmodule AWS.ResourceExplorer2 do
 
   ## Example:
 
+      service_linked_recorder_info() :: %{
+        "RecorderName" => [String.t() | atom()],
+        "RecorderType" => String.t() | atom(),
+        "ServicePrincipal" => [String.t() | atom()]
+      }
+
+  """
+  @type service_linked_recorder_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_view_input() :: %{
         optional("ClientToken") => [String.t() | atom()],
         optional("Filters") => search_filter(),
@@ -612,6 +625,7 @@ defmodule AWS.ResourceExplorer2 do
         "Filters" => search_filter(),
         "IncludedProperties" => list(included_property()),
         "ScopeType" => [String.t() | atom()],
+        "ServiceLinkedRecorder" => service_linked_recorder_info(),
         "ServiceViewArn" => [String.t() | atom()],
         "ServiceViewName" => String.t() | atom(),
         "StreamingAccessForService" => [String.t() | atom()]
@@ -764,6 +778,7 @@ defmodule AWS.ResourceExplorer2 do
   ## Example:
 
       supported_resource_type() :: %{
+        "CFNResourceTypes" => list([String.t() | atom()]()),
         "ResourceType" => [String.t() | atom()],
         "Service" => [String.t() | atom()]
       }
@@ -976,6 +991,7 @@ defmodule AWS.ResourceExplorer2 do
 
       resource() :: %{
         "Arn" => [String.t() | atom()],
+        "CfnResourceType" => [String.t() | atom()],
         "LastReportedAt" => [non_neg_integer()],
         "OwningAccountId" => [String.t() | atom()],
         "Properties" => list(resource_property()),

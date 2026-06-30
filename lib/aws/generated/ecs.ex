@@ -2344,7 +2344,9 @@ defmodule AWS.ECS do
       
       deployment_circuit_breaker() :: %{
         "enable" => boolean(),
-        "rollback" => boolean()
+        "resetOnHealthyTask" => boolean(),
+        "rollback" => boolean(),
+        "thresholdConfiguration" => threshold_configuration()
       }
       
   """
@@ -2989,6 +2991,18 @@ defmodule AWS.ECS do
       
   """
   @type register_task_definition_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      threshold_configuration() :: %{
+        "type" => list(any()),
+        "value" => integer()
+      }
+      
+  """
+  @type threshold_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

@@ -114,6 +114,57 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Example:
 
+      batch_write_record_entry() :: %{
+        "FeatureGroupName" => String.t() | atom(),
+        "Record" => list(feature_value()),
+        "TargetStores" => list(list(any())()),
+        "TtlDuration" => ttl_duration()
+      }
+
+  """
+  @type batch_write_record_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_write_record_error() :: %{
+        "Entry" => batch_write_record_entry(),
+        "ErrorCode" => String.t() | atom(),
+        "ErrorMessage" => String.t() | atom()
+      }
+
+  """
+  @type batch_write_record_error() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_write_record_request() :: %{
+        optional("TtlDuration") => ttl_duration(),
+        required("Entries") => list(batch_write_record_entry())
+      }
+
+  """
+  @type batch_write_record_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      batch_write_record_response() :: %{
+        "Errors" => list(batch_write_record_error()),
+        "UnprocessedEntries" => list(batch_write_record_entry())
+      }
+
+  """
+  @type batch_write_record_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_record_request() :: %{
         optional("DeletionMode") => list(any()),
         optional("TargetStores") => list(list(any())()),
@@ -177,6 +228,31 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
 
   ## Example:
 
+      list_records_request() :: %{
+        optional("IncludeSoftDeletedRecords") => boolean(),
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_records_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_records_response() :: %{
+        "NextToken" => String.t() | atom(),
+        "RecordIdentifiers" => list(String.t() | atom())
+      }
+
+  """
+  @type list_records_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       put_record_request() :: %{
         optional("TargetStores") => list(list(any())()),
         optional("TtlDuration") => ttl_duration(),
@@ -234,10 +310,24 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   @type batch_get_record_errors() ::
           validation_error() | service_unavailable() | internal_failure() | access_forbidden()
 
+  @type batch_write_record_errors() ::
+          validation_error()
+          | service_unavailable()
+          | resource_not_found()
+          | internal_failure()
+          | access_forbidden()
+
   @type delete_record_errors() ::
           validation_error() | service_unavailable() | internal_failure() | access_forbidden()
 
   @type get_record_errors() ::
+          validation_error()
+          | service_unavailable()
+          | resource_not_found()
+          | internal_failure()
+          | access_forbidden()
+
+  @type list_records_errors() ::
           validation_error()
           | service_unavailable()
           | resource_not_found()
@@ -273,6 +363,45 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
           | {:error, batch_get_record_errors()}
   def batch_get_record(%Client{} = client, input, options \\ []) do
     url_path = "/BatchGetRecord"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Writes a batch of `Records` to one or more `FeatureGroup`s.
+
+  Use
+  this API for bulk ingestion of records into the `OnlineStore` and
+  `OfflineStore`.
+
+  You can set the ingested records to expire at a given time to live (TTL)
+  duration after
+  the record's event time by specifying the `TtlDuration` parameter. A request
+  level `TtlDuration` applies to all entries that do not specify their own
+  `TtlDuration`.
+  """
+  @spec batch_write_record(map(), batch_write_record_request(), list()) ::
+          {:ok, batch_write_record_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, batch_write_record_errors()}
+  def batch_write_record(%Client{} = client, input, options \\ []) do
+    url_path = "/BatchWriteRecord"
     headers = []
     custom_headers = []
     query_params = []
@@ -334,7 +463,7 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
   your `OfflineStore`, you can remove all history of a record from the
   `OfflineStore` using Amazon Athena or Apache Spark. For information on how to
   hard delete a record from the `OfflineStore` with the Iceberg table format
-  enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records-offline-store.html#feature-store-delete-records-offline-store).
+  enabled, see [Delete records from the offline store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store-delete-records.html#feature-store-delete-records-offline-store).
   """
   @spec delete_record(map(), String.t() | atom(), delete_record_request(), list()) ::
           {:ok, nil, any()}
@@ -425,6 +554,39 @@ defmodule AWS.SageMakerFeatureStoreRuntime do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists the `RecordIdentifier` values of all records stored in a
+  `FeatureGroup`'s `OnlineStore`.
+
+  This enables you to discover which
+  records exist without retrieving the full record data.
+  """
+  @spec list_records(map(), String.t() | atom(), list_records_request(), list()) ::
+          {:ok, list_records_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_records_errors()}
+  def list_records(%Client{} = client, feature_group_name, input, options \\ []) do
+    url_path = "/FeatureGroup/#{AWS.Util.encode_uri(feature_group_name)}/ListRecords"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

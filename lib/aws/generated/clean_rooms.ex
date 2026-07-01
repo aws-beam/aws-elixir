@@ -83,6 +83,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      population_analysis_sql_parameters() :: %{
+        "analysisTemplateArn" => String.t() | atom(),
+        "queryString" => [String.t() | atom()]
+      }
+
+  """
+  @type population_analysis_sql_parameters() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       collaboration_privacy_budget_summary() :: %{
         "budget" => list(),
         "collaborationArn" => String.t() | atom(),
@@ -139,12 +151,12 @@ defmodule AWS.CleanRooms do
         optional("creatorMLMemberAbilities") => ml_member_abilities(),
         optional("creatorPaymentConfiguration") => payment_configuration(),
         optional("dataEncryptionMetadata") => data_encryption_metadata(),
+        optional("description") => String.t() | atom(),
         optional("isMetricsEnabled") => [boolean()],
         optional("jobLogStatus") => list(any()),
         optional("tags") => map(),
         required("creatorDisplayName") => String.t() | atom(),
         required("creatorMemberAbilities") => list(list(any())()),
-        required("description") => String.t() | atom(),
         required("members") => list(member_specification()),
         required("name") => String.t() | atom(),
         required("queryLogStatus") => list(any())
@@ -269,10 +281,40 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_active_version() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "expirationTime" => [non_neg_integer()],
+        "inheritedConstraints" => intermediate_table_inherited_constraints(),
+        "kmsKeyArn" => String.t() | atom(),
+        "parameters" => map(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_active_version() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_collaboration_analysis_template_input() :: %{}
 
   """
   @type get_collaboration_analysis_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_output_configuration() :: %{
+        "arn" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_output_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -306,6 +348,21 @@ defmodule AWS.CleanRooms do
 
   """
   @type delete_member_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_additional_analyses_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(any())
+      }
+
+  """
+  @type inherited_additional_analyses_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -393,6 +450,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type create_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       synthetic_data_generation_payment_config() :: %{
         "isResponsible" => [boolean()]
       }
@@ -466,6 +534,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type collaboration_id_namespace_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_input() :: %{}
+
+  """
+  @type get_intermediate_table_input() :: %{}
 
   @typedoc """
 
@@ -575,6 +652,17 @@ defmodule AWS.CleanRooms do
 
   """
   @type configured_table_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type get_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -708,6 +796,22 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_analysis_rule() :: %{
+        "analysisRulePolicy" => list(),
+        "analysisRuleType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "intermediateTableArn" => String.t() | atom(),
+        "intermediateTableIdentifier" => String.t() | atom(),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table_analysis_rule() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configured_table_output() :: %{}
 
   """
@@ -797,6 +901,36 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "intermediateTableVersion" => intermediate_table_active_version(),
+        "kmsKeyArn" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "populationAnalysisConfiguration" => list(),
+        "retentionInDays" => [integer()],
+        "schema" => intermediate_table_schema(),
+        "status" => list(any()),
+        "statusReason" => [String.t() | atom()],
+        "tableDependencies" => list(intermediate_table_dependency()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       analysis_schema() :: %{
         "referencedTables" => list(String.t() | atom())
       }
@@ -848,6 +982,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type delete_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_input() :: %{}
+
+  """
+  @type delete_intermediate_table_input() :: %{}
 
   @typedoc """
 
@@ -1024,6 +1167,24 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_version_summary() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "createTime" => [non_neg_integer()],
+        "expirationTime" => [non_neg_integer()],
+        "kmsKeyArn" => String.t() | atom(),
+        "status" => list(any()),
+        "tableId" => String.t() | atom(),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_version_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       protected_query_s3_output_configuration() :: %{
         "bucket" => [String.t() | atom()],
         "keyPrefix" => String.t() | atom(),
@@ -1042,6 +1203,29 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_configured_table_association_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_summary() :: %{
+        "analysisRuleTypes" => list(list(any())()),
+        "arn" => String.t() | atom(),
+        "collaborationArn" => String.t() | atom(),
+        "collaborationId" => String.t() | atom(),
+        "createTime" => [non_neg_integer()],
+        "description" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "membershipArn" => String.t() | atom(),
+        "membershipId" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "retentionInDays" => [integer()],
+        "status" => list(any()),
+        "updateTime" => [non_neg_integer()]
+      }
+
+  """
+  @type intermediate_table_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1067,6 +1251,31 @@ defmodule AWS.CleanRooms do
   @type configured_table_association_analysis_rule_aggregation() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type create_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_inherited_constraints() :: %{
+        "additionalAnalyses" => inherited_additional_analyses(),
+        "allowedAdditionalAnalyses" => inherited_allowed_additional_analyses(),
+        "allowedResultReceivers" => inherited_allowed_result_receivers(),
+        "disallowedOutputColumns" => inherited_disallowed_output_columns()
+      }
+
+  """
+  @type intermediate_table_inherited_constraints() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1111,6 +1320,30 @@ defmodule AWS.CleanRooms do
 
   """
   @type direct_analysis_configuration_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_additional_analyses() :: %{
+        "sources" => list(inherited_allowed_additional_analyses_source()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_additional_analyses() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_column() :: %{
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_column() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1192,10 +1425,43 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      get_intermediate_table_analysis_rule_input() :: %{}
+
+  """
+  @type get_intermediate_table_analysis_rule_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       delete_privacy_budget_template_output() :: %{}
 
   """
   @type delete_privacy_budget_template_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      create_intermediate_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list(),
+        required("analysisRuleType") => list(any())
+      }
+
+  """
+  @type create_intermediate_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_additional_analyses() :: %{
+        "sources" => list(inherited_additional_analyses_source()),
+        "value" => list(any())
+      }
+
+  """
+  @type inherited_additional_analyses() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1375,6 +1641,21 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_dependency() :: %{
+        "creatorAccountId" => String.t() | atom(),
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "parentType" => list(any()),
+        "type" => list(any())
+      }
+
+  """
+  @type intermediate_table_dependency() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_protected_job_output() :: %{
         "protectedJob" => protected_job()
       }
@@ -1442,6 +1723,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_schema_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      delete_intermediate_table_analysis_rule_input() :: %{}
+
+  """
+  @type delete_intermediate_table_analysis_rule_input() :: %{}
 
   @typedoc """
 
@@ -1660,6 +1950,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      configured_table_association_schema_type_properties() :: %{
+        "configuredTableAssociationId" => String.t() | atom()
+      }
+
+  """
+  @type configured_table_association_schema_type_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_configured_table_analysis_rule_output() :: %{}
 
   """
@@ -1707,6 +2008,21 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_privacy_budget_template_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_result_receivers_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_result_receivers_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1881,6 +2197,22 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      create_intermediate_table_input() :: %{
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom(),
+        optional("retentionInDays") => [integer()],
+        optional("tags") => map(),
+        required("name") => String.t() | atom(),
+        required("populationAnalysisConfiguration") => list()
+      }
+
+  """
+  @type create_intermediate_table_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_budget_details() :: %{
         "autoRefresh" => list(any()),
         "budget" => integer(),
@@ -1954,6 +2286,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_schema_type_properties() :: %{
+        "intermediateTableId" => String.t() | atom()
+      }
+
+  """
+  @type intermediate_table_schema_type_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_analysis_template_output() :: %{}
 
   """
@@ -2006,6 +2349,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type snowflake_table_reference() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_intermediate_table_input() :: %{
+        optional("columns") => list(intermediate_table_column()),
+        optional("description") => String.t() | atom(),
+        optional("kmsKeyArn") => String.t() | atom()
+      }
+
+  """
+  @type update_intermediate_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2106,6 +2462,19 @@ defmodule AWS.CleanRooms do
 
   """
   @type receiver_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      populate_intermediate_table_input() :: %{
+        optional("analysisPayerAccountId") => String.t() | atom(),
+        optional("computeConfiguration") => list(),
+        optional("parameters") => map()
+      }
+
+  """
+  @type populate_intermediate_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2487,6 +2856,18 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      inherited_allowed_result_receivers() :: %{
+        "sources" => list(inherited_allowed_result_receivers_source()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_result_receivers() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       query_compute_payment_config() :: %{
         "isResponsible" => [boolean()]
       }
@@ -2559,6 +2940,7 @@ defmodule AWS.CleanRooms do
   ## Example:
 
       id_mapping_table_schema_type_properties() :: %{
+        "idMappingTableId" => String.t() | atom(),
         "idMappingTableInputSource" => list(id_mapping_table_input_source())
       }
 
@@ -2631,6 +3013,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_intermediate_table_analysis_rule_output() :: %{
+        "analysisRule" => intermediate_table_analysis_rule()
+      }
+
+  """
+  @type update_intermediate_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       differential_privacy_preview_parameters_input() :: %{
         "epsilon" => integer(),
         "usersNoisePerQuery" => integer()
@@ -2682,6 +3075,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_privacy_budget_template_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_intermediate_tables_output() :: %{
+        "intermediateTableSummaries" => list(intermediate_table_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_tables_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2765,6 +3170,15 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_configured_table_association_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      disallow_intermediate_table_output() :: %{}
+
+  """
+  @type disallow_intermediate_table_output() :: %{}
 
   @typedoc """
 
@@ -2909,6 +3323,7 @@ defmodule AWS.CleanRooms do
       protected_query_summary() :: %{
         "createTime" => [non_neg_integer()],
         "id" => String.t() | atom(),
+        "intermediateTableConfiguration" => intermediate_table_output_configuration(),
         "membershipArn" => String.t() | atom(),
         "membershipId" => String.t() | atom(),
         "queryComputePayerAccountId" => String.t() | atom(),
@@ -3020,6 +3435,22 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      column_lineage_entry() :: %{
+        "column" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "sourceColumn" => String.t() | atom(),
+        "sourceId" => String.t() | atom(),
+        "sourceName" => String.t() | atom(),
+        "sourceType" => list(any())
+      }
+
+  """
+  @type column_lineage_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_tags_for_resource_input() :: %{}
 
   """
@@ -3084,6 +3515,7 @@ defmodule AWS.CleanRooms do
 
       id_mapping_table() :: %{
         "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
         "collaborationArn" => String.t() | atom(),
         "collaborationId" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
@@ -3153,12 +3585,39 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_intermediate_table_versions_output() :: %{
+        "intermediateTableVersionSummaries" => list(intermediate_table_version_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_table_versions_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_configured_table_analysis_rule_output() :: %{
         required("analysisRule") => configured_table_analysis_rule()
       }
 
   """
   @type update_configured_table_analysis_rule_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      child_resource() :: %{
+        "ownerAccountId" => String.t() | atom(),
+        "resourceId" => String.t() | atom(),
+        "resourceName" => String.t() | atom(),
+        "resourceStatus" => list(any()),
+        "resourceType" => list(any())
+      }
+
+  """
+  @type child_resource() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3190,6 +3649,7 @@ defmodule AWS.CleanRooms do
       configured_table_association() :: %{
         "analysisRuleTypes" => list(list(any())()),
         "arn" => String.t() | atom(),
+        "childResources" => list(child_resource()),
         "configuredTableArn" => String.t() | atom(),
         "configuredTableId" => String.t() | atom(),
         "createTime" => [non_neg_integer()],
@@ -3204,6 +3664,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type configured_table_association() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_disallowed_output_columns() :: %{
+        "columnLineage" => list(column_lineage_entry()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_disallowed_output_columns() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3352,6 +3824,15 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      delete_intermediate_table_analysis_rule_output() :: %{}
+
+  """
+  @type delete_intermediate_table_analysis_rule_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       model_inference_payment_config() :: %{
         "isResponsible" => [boolean()]
       }
@@ -3398,6 +3879,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type list_schemas_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      disallow_intermediate_table_input() :: %{
+        optional("includeDescendants") => [boolean()],
+        required("intermediateTableName") => String.t() | atom()
+      }
+
+  """
+  @type disallow_intermediate_table_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3537,8 +4030,10 @@ defmodule AWS.CleanRooms do
 
       analysis_rule_custom() :: %{
         "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
         "allowedAnalyses" => list(String.t() | atom()),
         "allowedAnalysisProviders" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
         "differentialPrivacy" => differential_privacy_configuration(),
         "disallowedOutputColumns" => list(String.t() | atom())
       }
@@ -3626,6 +4121,15 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      delete_intermediate_table_output() :: %{}
+
+  """
+  @type delete_intermediate_table_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       athena_table_reference() :: %{
         "catalogName" => String.t() | atom(),
         "databaseName" => String.t() | atom(),
@@ -3672,6 +4176,18 @@ defmodule AWS.CleanRooms do
 
   """
   @type get_id_mapping_table_input() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      list_intermediate_tables_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_tables_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4005,6 +4521,17 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      intermediate_table_schema() :: %{
+        "columns" => list(column())
+      }
+
+  """
+  @type intermediate_table_schema() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_configured_audience_model_association_input() :: %{
         optional("description") => String.t() | atom(),
         optional("tags") => map(),
@@ -4020,12 +4547,42 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      populate_intermediate_table_output() :: %{
+        "analysisId" => String.t() | atom(),
+        "analysisType" => list(any()),
+        "versionId" => String.t() | atom()
+      }
+
+  """
+  @type populate_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       billed_resource_utilization() :: %{
         "units" => [float()]
       }
 
   """
   @type billed_resource_utilization() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      intermediate_table_analysis_rule_custom() :: %{
+        "additionalAnalyses" => list(any()),
+        "allowedAdditionalAnalyses" => list(String.t() | atom()),
+        "allowedAnalyses" => list(String.t() | atom()),
+        "allowedAnalysisProviders" => list(String.t() | atom()),
+        "allowedResultReceivers" => list(String.t() | atom()),
+        "differentialPrivacy" => differential_privacy_configuration(),
+        "disallowedOutputColumns" => list(String.t() | atom())
+      }
+
+  """
+  @type intermediate_table_analysis_rule_custom() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4043,12 +4600,35 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      list_intermediate_table_versions_input() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom()
+      }
+
+  """
+  @type list_intermediate_table_versions_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       column_classification_details() :: %{
         "columnMapping" => list(synthetic_data_column_properties())
       }
 
   """
   @type column_classification_details() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      update_intermediate_table_analysis_rule_input() :: %{
+        required("analysisRulePolicy") => list()
+      }
+
+  """
+  @type update_intermediate_table_analysis_rule_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4129,6 +4709,21 @@ defmodule AWS.CleanRooms do
   @type id_namespace_association_input_reference_properties_summary() :: %{
           (String.t() | atom()) => any()
         }
+
+  @typedoc """
+
+  ## Example:
+
+      inherited_allowed_additional_analyses_source() :: %{
+        "id" => String.t() | atom(),
+        "name" => String.t() | atom(),
+        "sourceAccountId" => String.t() | atom(),
+        "type" => list(any()),
+        "value" => list(String.t() | atom())
+      }
+
+  """
+  @type inherited_allowed_additional_analyses_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4235,12 +4830,34 @@ defmodule AWS.CleanRooms do
 
   ## Example:
 
+      update_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type update_intermediate_table_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_collaboration_change_request_input() :: %{
         required("changes") => list(change_input())
       }
 
   """
   @type create_collaboration_change_request_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      get_intermediate_table_output() :: %{
+        "intermediateTable" => intermediate_table()
+      }
+
+  """
+  @type get_intermediate_table_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4530,6 +5147,24 @@ defmodule AWS.CleanRooms do
           | access_denied_exception()
           | throttling_exception()
 
+  @type create_intermediate_table_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type create_intermediate_table_analysis_rule_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type create_membership_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
@@ -4614,6 +5249,22 @@ defmodule AWS.CleanRooms do
           | access_denied_exception()
           | throttling_exception()
 
+  @type delete_intermediate_table_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type delete_intermediate_table_analysis_rule_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type delete_member_errors() ::
           conflict_exception()
           | resource_not_found_exception()
@@ -4632,6 +5283,14 @@ defmodule AWS.CleanRooms do
 
   @type delete_privacy_budget_template_errors() ::
           resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type disallow_intermediate_table_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -4728,6 +5387,20 @@ defmodule AWS.CleanRooms do
           | throttling_exception()
 
   @type get_id_namespace_association_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_intermediate_table_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_intermediate_table_analysis_rule_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
@@ -4865,6 +5538,20 @@ defmodule AWS.CleanRooms do
           | access_denied_exception()
           | throttling_exception()
 
+  @type list_intermediate_table_versions_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type list_intermediate_tables_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type list_members_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
@@ -4916,6 +5603,15 @@ defmodule AWS.CleanRooms do
   @type list_tags_for_resource_errors() :: resource_not_found_exception() | validation_exception()
 
   @type populate_id_mapping_table_errors() ::
+          service_quota_exceeded_exception()
+          | conflict_exception()
+          | resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type populate_intermediate_table_errors() ::
           service_quota_exceeded_exception()
           | conflict_exception()
           | resource_not_found_exception()
@@ -5021,6 +5717,21 @@ defmodule AWS.CleanRooms do
 
   @type update_id_namespace_association_errors() ::
           resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type update_intermediate_table_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type update_intermediate_table_analysis_rule_errors() ::
+          conflict_exception()
+          | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
           | access_denied_exception()
@@ -5567,6 +6278,93 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Creates an intermediate table in a membership.
+
+  An intermediate table stores a query definition that you can execute later using
+  `PopulateIntermediateTable` to materialize cached results. The intermediate
+  table is owned by the member with the CAN_QUERY ability. This operation does not
+  execute the stored query.
+  """
+  @spec create_intermediate_table(
+          map(),
+          String.t() | atom(),
+          create_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, create_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_intermediate_table_errors()}
+  def create_intermediate_table(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an analysis rule for an intermediate table.
+
+  Only the CUSTOM analysis rule type is supported. The service automatically
+  determines whether the rule is first-party or multi-party restricted based on
+  the intermediate table's inherited constraints. Only the intermediate table
+  owner can call this operation.
+  """
+  @spec create_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, create_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_intermediate_table_analysis_rule_errors()}
+  def create_intermediate_table_analysis_rule(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
   Creates a membership for a specific collaboration identifier and joins the
   collaboration.
   """
@@ -6014,6 +6812,102 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Deletes an intermediate table.
+
+  When you delete the table, the service marks it as DELETED, removes its analysis
+  rule and schema, and triggers storage cleanup. This operation is idempotent.
+  Only the intermediate table owner can call this operation.
+  """
+  @spec delete_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, delete_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_intermediate_table_errors()}
+  def delete_intermediate_table(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
+  Deletes an analysis rule from an intermediate table.
+
+  After the analysis rule is deleted, the intermediate table becomes unqueryable
+  until a new analysis rule is attached. Only the intermediate table owner can
+  call this operation.
+  """
+  @spec delete_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          delete_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, delete_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_intermediate_table_analysis_rule_errors()}
+  def delete_intermediate_table_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :delete,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      204
+    )
+  end
+
+  @doc """
   Removes the specified member from a collaboration.
 
   The removed member is placed in the Removed status and can't interact with the
@@ -6131,6 +7025,47 @@ defmodule AWS.CleanRooms do
       input,
       options,
       204
+    )
+  end
+
+  @doc """
+  Invalidates a specific intermediate table that references the caller's base
+  table.
+
+  The data provider (base table owner) calls this operation, not the intermediate
+  table owner. By default, invalidation cascades to descendant intermediate
+  tables.
+  """
+  @spec disallow_intermediate_table(
+          map(),
+          String.t() | atom(),
+          disallow_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, disallow_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, disallow_intermediate_table_errors()}
+  def disallow_intermediate_table(%Client{} = client, membership_identifier, input, options \\ []) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/disallowIntermediateTable"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 
@@ -6498,6 +7433,67 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves an intermediate table.
+
+  Returns the full details of the intermediate table, including schema, table
+  dependencies, inherited constraints, child resources, and status. Only the
+  intermediate table owner can call this operation.
+  """
+  @spec get_intermediate_table(map(), String.t() | atom(), String.t() | atom(), list()) ::
+          {:ok, get_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_intermediate_table_errors()}
+  def get_intermediate_table(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Retrieves the analysis rule for an intermediate table.
+  """
+  @spec get_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          list()
+        ) ::
+          {:ok, get_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_intermediate_table_analysis_rule_errors()}
+  def get_intermediate_table_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        intermediate_table_identifier,
+        membership_identifier,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
     query_params = []
@@ -7278,6 +8274,104 @@ defmodule AWS.CleanRooms do
   end
 
   @doc """
+  Lists the version history of an intermediate table.
+
+  Each call to `PopulateIntermediateTable` creates a new version. We recommend
+  using pagination to ensure that the operation returns quickly and successfully.
+  """
+  @spec list_intermediate_table_versions(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_intermediate_table_versions_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_intermediate_table_versions_errors()}
+  def list_intermediate_table_versions(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/versions"
+
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists intermediate tables owned by the caller in a membership.
+
+  We recommend using pagination to ensure that the operation returns quickly and
+  successfully.
+  """
+  @spec list_intermediate_tables(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_intermediate_tables_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_intermediate_tables_errors()}
+  def list_intermediate_tables(
+        %Client{} = client,
+        membership_identifier,
+        max_results \\ nil,
+        next_token \\ nil,
+        options \\ []
+      ) do
+    url_path = "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Lists all members within a collaboration.
   """
   @spec list_members(
@@ -7680,6 +8774,55 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idmappingtables/#{AWS.Util.encode_uri(id_mapping_table_identifier)}/populate"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Executes the stored query of an intermediate table to materialize data into
+  managed storage.
+
+  With this operation, you can perform initial population and subsequent
+  refreshes. Each call creates a new version. The returned analysis ID can be
+  tracked using `GetProtectedQuery`. Only the intermediate table owner can call
+  this operation.
+  """
+  @spec populate_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          populate_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, populate_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, populate_intermediate_table_errors()}
+  def populate_intermediate_table(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/populate"
 
     headers = []
     custom_headers = []
@@ -8254,6 +9397,99 @@ defmodule AWS.CleanRooms do
       ) do
     url_path =
       "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/idnamespaceassociations/#{AWS.Util.encode_uri(id_namespace_association_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates an intermediate table.
+
+  You can update the description, KMS key ARN, and column types of existing
+  columns. Only the intermediate table owner can call this operation.
+  """
+  @spec update_intermediate_table(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_intermediate_table_input(),
+          list()
+        ) ::
+          {:ok, update_intermediate_table_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_intermediate_table_errors()}
+  def update_intermediate_table(
+        %Client{} = client,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :patch,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Updates the analysis rule policy for an intermediate table.
+
+  Only the intermediate table owner can call this operation.
+  """
+  @spec update_intermediate_table_analysis_rule(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          String.t() | atom(),
+          update_intermediate_table_analysis_rule_input(),
+          list()
+        ) ::
+          {:ok, update_intermediate_table_analysis_rule_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_intermediate_table_analysis_rule_errors()}
+  def update_intermediate_table_analysis_rule(
+        %Client{} = client,
+        analysis_rule_type,
+        intermediate_table_identifier,
+        membership_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/memberships/#{AWS.Util.encode_uri(membership_identifier)}/intermediateTables/#{AWS.Util.encode_uri(intermediate_table_identifier)}/analysisRule/#{AWS.Util.encode_uri(analysis_rule_type)}"
 
     headers = []
     custom_headers = []

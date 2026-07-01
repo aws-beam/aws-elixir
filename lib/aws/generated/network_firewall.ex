@@ -341,6 +341,23 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      update_container_association_request() :: %{
+        optional("ContainerAssociationArn") => String.t() | atom(),
+        optional("ContainerAssociationName") => String.t() | atom(),
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ContainerMonitoringConfigurations") => list(container_monitoring_configuration()),
+        required("Type") => list(any()),
+        required("UpdateToken") => String.t() | atom()
+      }
+      
+  """
+  @type update_container_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_availability_zone_change_protection_response() :: %{
         "AvailabilityZoneChangeProtection" => boolean(),
         "FirewallArn" => String.t() | atom(),
@@ -1578,6 +1595,30 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      container_monitoring_configuration() :: %{
+        "AttributeFilters" => list(container_attribute()),
+        "ClusterArn" => String.t() | atom()
+      }
+      
+  """
+  @type container_monitoring_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      container_attribute() :: %{
+        "Key" => String.t() | atom(),
+        "Value" => String.t() | atom()
+      }
+      
+  """
+  @type container_attribute() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_vpc_endpoint_associations_response() :: %{
         "NextToken" => String.t() | atom(),
         "VpcEndpointAssociations" => list(vpc_endpoint_association_metadata())
@@ -2178,6 +2219,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      list_container_associations_response() :: %{
+        "ContainerAssociations" => list(container_association_summary()),
+        "NextToken" => String.t() | atom()
+      }
+      
+  """
+  @type list_container_associations_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       summary() :: %{
         "RuleSummaries" => list(rule_summary())
       }
@@ -2196,6 +2249,18 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type describe_firewall_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      list_container_associations_request() :: %{
+        optional("MaxResults") => integer(),
+        optional("NextToken") => String.t() | atom()
+      }
+      
+  """
+  @type list_container_associations_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2221,6 +2286,24 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type describe_proxy_rule_group_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_container_association_response() :: %{
+        "ContainerAssociationArn" => String.t() | atom(),
+        "ContainerAssociationName" => String.t() | atom(),
+        "ContainerMonitoringConfigurations" => list(container_monitoring_configuration()),
+        "Description" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => list(tag()),
+        "Type" => list(any()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type update_container_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2550,6 +2633,19 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type associate_availability_zones_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      delete_container_association_response() :: %{
+        "ContainerAssociationArn" => String.t() | atom(),
+        "ContainerAssociationName" => String.t() | atom(),
+        "Status" => list(any())
+      }
+      
+  """
+  @type delete_container_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3014,6 +3110,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      container_association_summary() :: %{
+        "Arn" => String.t() | atom(),
+        "Name" => String.t() | atom()
+      }
+      
+  """
+  @type container_association_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       t_c_p_flag_field() :: %{
         "Flags" => list(list(any())()),
         "Masks" => list(list(any())())
@@ -3380,6 +3488,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      delete_container_association_request() :: %{
+        optional("ContainerAssociationArn") => String.t() | atom(),
+        optional("ContainerAssociationName") => String.t() | atom()
+      }
+      
+  """
+  @type delete_container_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       list_proxies_response() :: %{
         "NextToken" => String.t() | atom(),
         "Proxies" => list(proxy_metadata())
@@ -3405,6 +3525,21 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type flow() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      create_container_association_request() :: %{
+        optional("Description") => String.t() | atom(),
+        optional("Tags") => list(tag()),
+        required("ContainerAssociationName") => String.t() | atom(),
+        required("ContainerMonitoringConfigurations") => list(container_monitoring_configuration()),
+        required("Type") => list(any())
+      }
+      
+  """
+  @type create_container_association_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3537,6 +3672,24 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      create_container_association_response() :: %{
+        "ContainerAssociationArn" => String.t() | atom(),
+        "ContainerAssociationName" => String.t() | atom(),
+        "ContainerMonitoringConfigurations" => list(container_monitoring_configuration()),
+        "Description" => String.t() | atom(),
+        "Status" => list(any()),
+        "Tags" => list(tag()),
+        "Type" => list(any()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type create_container_association_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       proxy_metadata() :: %{
         "Arn" => String.t() | atom(),
         "Name" => String.t() | atom()
@@ -3588,6 +3741,18 @@ defmodule AWS.NetworkFirewall do
 
   ## Example:
       
+      describe_container_association_request() :: %{
+        optional("ContainerAssociationArn") => String.t() | atom(),
+        optional("ContainerAssociationName") => String.t() | atom()
+      }
+      
+  """
+  @type describe_container_association_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       update_firewall_policy_change_protection_response() :: %{
         "FirewallArn" => String.t() | atom(),
         "FirewallName" => String.t() | atom(),
@@ -3597,6 +3762,26 @@ defmodule AWS.NetworkFirewall do
       
   """
   @type update_firewall_policy_change_protection_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      describe_container_association_response() :: %{
+        "ContainerAssociationArn" => String.t() | atom(),
+        "ContainerAssociationName" => String.t() | atom(),
+        "ContainerMonitoringConfigurations" => list(container_monitoring_configuration()),
+        "Description" => String.t() | atom(),
+        "LastUpdatedTime" => non_neg_integer(),
+        "ResolvedCidrCount" => integer(),
+        "Status" => list(any()),
+        "Tags" => list(tag()),
+        "Type" => list(any()),
+        "UpdateToken" => String.t() | atom()
+      }
+      
+  """
+  @type describe_container_association_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3718,6 +3903,13 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | throttling_exception()
 
+  @type create_container_association_errors() ::
+          invalid_request_exception()
+          | internal_server_error()
+          | insufficient_capacity_exception()
+          | limit_exceeded_exception()
+          | throttling_exception()
+
   @type create_firewall_errors() ::
           invalid_request_exception()
           | internal_server_error()
@@ -3777,6 +3969,13 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | insufficient_capacity_exception()
           | limit_exceeded_exception()
+          | throttling_exception()
+          | invalid_operation_exception()
+
+  @type delete_container_association_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
           | throttling_exception()
           | invalid_operation_exception()
 
@@ -3855,6 +4054,12 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | throttling_exception()
           | invalid_operation_exception()
+
+  @type describe_container_association_errors() ::
+          invalid_request_exception()
+          | resource_not_found_exception()
+          | internal_server_error()
+          | throttling_exception()
 
   @type describe_firewall_errors() ::
           invalid_request_exception()
@@ -3980,6 +4185,9 @@ defmodule AWS.NetworkFirewall do
           | internal_server_error()
           | throttling_exception()
 
+  @type list_container_associations_errors() ::
+          invalid_request_exception() | internal_server_error() | throttling_exception()
+
   @type list_firewall_policies_errors() ::
           invalid_request_exception() | internal_server_error() | throttling_exception()
 
@@ -4076,6 +4284,13 @@ defmodule AWS.NetworkFirewall do
           | invalid_request_exception()
           | resource_not_found_exception()
           | resource_owner_check_exception()
+          | internal_server_error()
+          | throttling_exception()
+
+  @type update_container_association_errors() ::
+          invalid_token_exception()
+          | invalid_request_exception()
+          | resource_not_found_exception()
           | internal_server_error()
           | throttling_exception()
 
@@ -4339,6 +4554,32 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Creates a container association for Network Firewall.
+
+  A container association links container clusters (ECS or EKS) to Network
+  Firewall, enabling dynamic IP resolution for firewall rules based on container
+  attributes.
+
+  To manage a container association's tags, use the standard Amazon Web Services
+  resource tagging operations, `ListTagsForResource`, `TagResource`, and
+  `UntagResource`.
+
+  To retrieve information about container associations, use
+  `ListContainerAssociations` and `DescribeContainerAssociation`.
+  """
+  @spec create_container_association(map(), create_container_association_request(), list()) ::
+          {:ok, create_container_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_container_association_errors()}
+  def create_container_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "CreateContainerAssociation", input, options)
+  end
+
+  @doc """
   Creates an Network Firewall `Firewall` and accompanying `FirewallStatus` for a
   VPC.
 
@@ -4583,6 +4824,25 @@ defmodule AWS.NetworkFirewall do
   end
 
   @doc """
+  Deletes the specified container association.
+
+  When you delete a container association, Network Firewall stops monitoring the
+  associated container clusters and removes the resolved IP addresses from
+  firewall rules.
+  """
+  @spec delete_container_association(map(), delete_container_association_request(), list()) ::
+          {:ok, delete_container_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, delete_container_association_errors()}
+  def delete_container_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DeleteContainerAssociation", input, options)
+  end
+
+  @doc """
   Deletes the specified `Firewall` and its `FirewallStatus`.
 
   This operation requires the firewall's `DeleteProtection` flag to be
@@ -4799,6 +5059,21 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "DeleteVpcEndpointAssociation", input, options)
+  end
+
+  @doc """
+  Returns the properties of a container association.
+  """
+  @spec describe_container_association(map(), describe_container_association_request(), list()) ::
+          {:ok, describe_container_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, describe_container_association_errors()}
+  def describe_container_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeContainerAssociation", input, options)
   end
 
   @doc """
@@ -5153,6 +5428,23 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "ListAnalysisReports", input, options)
+  end
+
+  @doc """
+  Retrieves the metadata for the container associations that you have defined.
+
+  You can optionally page through results.
+  """
+  @spec list_container_associations(map(), list_container_associations_request(), list()) ::
+          {:ok, list_container_associations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_container_associations_errors()}
+  def list_container_associations(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ListContainerAssociations", input, options)
   end
 
   @doc """
@@ -5636,6 +5928,23 @@ defmodule AWS.NetworkFirewall do
       metadata()
 
     Request.request_post(client, meta, "UpdateAvailabilityZoneChangeProtection", input, options)
+  end
+
+  @doc """
+  Updates the properties of an existing container association.
+
+  Use this to modify the container monitoring configurations or description.
+  """
+  @spec update_container_association(map(), update_container_association_request(), list()) ::
+          {:ok, update_container_association_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_container_association_errors()}
+  def update_container_association(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateContainerAssociation", input, options)
   end
 
   @doc """

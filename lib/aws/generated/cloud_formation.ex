@@ -519,6 +519,7 @@ defmodule AWS.CloudFormation do
         "ChangeSetName" => String.t() | atom(),
         "Changes" => list(change()),
         "CreationTime" => non_neg_integer(),
+        "DeploymentConfig" => deployment_config(),
         "DeploymentMode" => list(any()),
         "Description" => String.t() | atom(),
         "ExecutionStatus" => list(any()),
@@ -1263,8 +1264,10 @@ defmodule AWS.CloudFormation do
         optional("Capabilities") => list(list(any())()),
         optional("ChangeSetType") => list(any()),
         optional("ClientToken") => String.t() | atom(),
+        optional("DeploymentConfig") => deployment_config(),
         optional("DeploymentMode") => list(any()),
         optional("Description") => String.t() | atom(),
+        optional("DisableValidation") => boolean(),
         optional("ImportExistingResources") => boolean(),
         optional("IncludeNestedStacks") => boolean(),
         optional("NotificationARNs") => list(String.t() | atom()),
@@ -1747,7 +1750,9 @@ defmodule AWS.CloudFormation do
       create_stack_input() :: %{
         optional("Capabilities") => list(list(any())()),
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("DeploymentConfig") => deployment_config(),
         optional("DisableRollback") => boolean(),
+        optional("DisableValidation") => boolean(),
         optional("EnableTerminationProtection") => boolean(),
         optional("NotificationARNs") => list(String.t() | atom()),
         optional("OnFailure") => list(any()),
@@ -2530,6 +2535,7 @@ defmodule AWS.CloudFormation do
         "CreationTime" => non_neg_integer(),
         "DeletionMode" => list(any()),
         "DeletionTime" => non_neg_integer(),
+        "DeploymentConfig" => deployment_config(),
         "Description" => String.t() | atom(),
         "DetailedStatus" => list(any()),
         "DisableRollback" => boolean(),
@@ -3283,6 +3289,7 @@ defmodule AWS.CloudFormation do
       delete_stack_input() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
         optional("DeletionMode") => list(any()),
+        optional("DeploymentConfig") => deployment_config(),
         optional("RetainResources") => list(String.t() | atom()),
         optional("RoleARN") => String.t() | atom(),
         required("StackName") => String.t() | atom()
@@ -3593,6 +3600,7 @@ defmodule AWS.CloudFormation do
       
       rollback_stack_input() :: %{
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("DeploymentConfig") => deployment_config(),
         optional("RetainExceptOnCreate") => boolean(),
         optional("RoleARN") => String.t() | atom(),
         required("StackName") => String.t() | atom()
@@ -3819,6 +3827,18 @@ defmodule AWS.CloudFormation do
 
   ## Example:
       
+      deployment_config() :: %{
+        "DisableRollback" => boolean(),
+        "Mode" => list(any())
+      }
+      
+  """
+  @type deployment_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       required_activated_type() :: %{
         "OriginalTypeName" => String.t() | atom(),
         "PublisherId" => String.t() | atom(),
@@ -3902,7 +3922,9 @@ defmodule AWS.CloudFormation do
       update_stack_input() :: %{
         optional("Capabilities") => list(list(any())()),
         optional("ClientRequestToken") => String.t() | atom(),
+        optional("DeploymentConfig") => deployment_config(),
         optional("DisableRollback") => boolean(),
+        optional("DisableValidation") => boolean(),
         optional("NotificationARNs") => list(String.t() | atom()),
         optional("Parameters") => list(parameter()),
         optional("ResourceTypes") => list(String.t() | atom()),

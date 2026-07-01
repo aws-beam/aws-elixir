@@ -5347,6 +5347,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      start_contact_conversational_analytics_job_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("AnalyticsConfiguration") => analytics_configuration(),
+        required("AnalyticsModes") => list(list(any())())
+      }
+
+  """
+  @type start_contact_conversational_analytics_job_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       create_data_table_request() :: %{
         optional("Description") => String.t() | atom(),
         optional("Tags") => map(),
@@ -6434,6 +6447,17 @@ defmodule AWS.Connect do
 
   """
   @type notification_recipient_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      summary_configuration() :: %{
+        "SummaryModes" => list(list(any())())
+      }
+
+  """
+  @type summary_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8427,6 +8451,21 @@ defmodule AWS.Connect do
 
   """
   @type contact_search_summary_ai_agent_info() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      analytics_configuration() :: %{
+        "LanguageConfiguration" => language_configuration(),
+        "RedactionConfiguration" => redaction_configuration(),
+        "RulesConfiguration" => rules_configuration(),
+        "SentimentConfiguration" => sentiment_configuration(),
+        "SummaryConfiguration" => summary_configuration()
+      }
+
+  """
+  @type analytics_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10841,6 +10880,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      sentiment_configuration() :: %{
+        "Behavior" => list(any())
+      }
+
+  """
+  @type sentiment_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       sign_in_config() :: %{
         "Distributions" => list(sign_in_distribution())
       }
@@ -10967,6 +11017,21 @@ defmodule AWS.Connect do
 
   """
   @type create_participant_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_attached_file_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        optional("Tags") => map(),
+        required("AssociatedResourceArn") => String.t() | atom(),
+        required("FileSourceUri") => String.t() | atom(),
+        required("FileUseCaseType") => list(any())
+      }
+
+  """
+  @type create_attached_file_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -11116,6 +11181,18 @@ defmodule AWS.Connect do
 
   """
   @type create_task_template_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      start_contact_conversational_analytics_job_response() :: %{
+        "ContactId" => String.t() | atom(),
+        "InstanceId" => String.t() | atom()
+      }
+
+  """
+  @type start_contact_conversational_analytics_job_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -12837,6 +12914,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      rules_configuration() :: %{
+        "Behavior" => list(any())
+      }
+
+  """
+  @type rules_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       match_criteria() :: %{
         "AgentsCriteria" => agents_criteria()
       }
@@ -12891,6 +12979,20 @@ defmodule AWS.Connect do
 
   """
   @type list_phone_numbers_summary() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      redaction_configuration() :: %{
+        "Behavior" => list(any()),
+        "Entities" => list(String.t() | atom()),
+        "MaskMode" => list(any()),
+        "Policy" => list(any())
+      }
+
+  """
+  @type redaction_configuration() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -14695,6 +14797,20 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      create_attached_file_response() :: %{
+        "CreationTime" => String.t() | atom(),
+        "FileArn" => String.t() | atom(),
+        "FileId" => String.t() | atom(),
+        "FileStatus" => list(any())
+      }
+
+  """
+  @type create_attached_file_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       start_task_contact_response() :: %{
         "ContactId" => String.t() | atom()
       }
@@ -15648,6 +15764,17 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      language_configuration() :: %{
+        "LanguageLocale" => String.t() | atom()
+      }
+
+  """
+  @type language_configuration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_vocabulary_response() :: %{
         "State" => list(any()),
         "VocabularyArn" => String.t() | atom(),
@@ -15938,6 +16065,14 @@ defmodule AWS.Connect do
           | duplicate_resource_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
+          | throttling_exception()
+
+  @type create_attached_file_errors() ::
+          service_quota_exceeded_exception()
+          | invalid_request_exception()
+          | internal_service_exception()
+          | resource_conflict_exception()
+          | access_denied_exception()
           | throttling_exception()
 
   @type create_contact_errors() ::
@@ -17846,6 +17981,14 @@ defmodule AWS.Connect do
           | internal_service_exception()
           | resource_not_found_exception()
           | limit_exceeded_exception()
+
+  @type start_contact_conversational_analytics_job_errors() ::
+          invalid_request_exception()
+          | internal_service_exception()
+          | idempotency_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
 
   @type start_contact_evaluation_errors() ::
           service_quota_exceeded_exception()
@@ -20110,6 +20253,54 @@ defmodule AWS.Connect do
     headers = []
     custom_headers = []
     query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Creates an attached file for a completed voice contact by copying a recording
+  from a source S3 URI into
+  Connect Customer managed storage.
+
+  Use this API to attach voice recordings to contacts for downstream
+  processing such as conversational analytics.
+
+  The `AssociatedResourceArn` must be the ARN of a completed voice contact,
+  `FileUseCaseType`
+  must be set to `VOICE_RECORDING`, and `FileSourceUri` must be a valid S3 URI.
+
+  For example, you can call `CreateContact`, then `CreateAttachedFile`, then
+  `StartContactConversationalAnalyticsJob` to create a contact, attach a
+  recording, and
+  run post-call analytics.
+  """
+  @spec create_attached_file(map(), String.t() | atom(), create_attached_file_request(), list()) ::
+          {:ok, create_attached_file_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_attached_file_errors()}
+  def create_attached_file(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/attached-files/#{AWS.Util.encode_uri(instance_id)}/files"
+    headers = []
+    custom_headers = []
+
+    {query_params, input} =
+      [
+        {"AssociatedResourceArn", "associatedResourceArn"}
+      ]
+      |> Request.build_params(input)
 
     meta = metadata()
 
@@ -30721,6 +30912,64 @@ defmodule AWS.Connect do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Starts a Contact Lens post-call analytics job for the specified contact.
+
+  This API runs Conversational
+  Analytics post-contact analysis on a voice recording that is already attached to
+  the contact, generating
+  transcription, sentiment analysis, redaction, and summarization results based on
+  the provided configuration.
+
+  A voice recording must already be attached to the contact before calling this
+  API. Use
+  `CreateAttachedFile` to attach a recording from an S3 source URI.
+
+  For example, you can call `CreateContact`, then `CreateAttachedFile`, then
+  `StartContactConversationalAnalyticsJob` to create a contact, attach a
+  recording, and
+  run post-call analytics.
+  """
+  @spec start_contact_conversational_analytics_job(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          start_contact_conversational_analytics_job_request(),
+          list()
+        ) ::
+          {:ok, start_contact_conversational_analytics_job_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_contact_conversational_analytics_job_errors()}
+  def start_contact_conversational_analytics_job(
+        %Client{} = client,
+        contact_id,
+        instance_id,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/contact/start-conversational-analytics-job/#{AWS.Util.encode_uri(instance_id)}/#{AWS.Util.encode_uri(contact_id)}"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

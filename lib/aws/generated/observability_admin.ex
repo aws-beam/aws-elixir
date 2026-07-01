@@ -808,6 +808,7 @@ defmodule AWS.ObservabilityAdmin do
   ## Example:
 
       test_telemetry_pipeline_input() :: %{
+        optional("SignalType") => list(any()),
         required("Configuration") => telemetry_pipeline_configuration(),
         required("Records") => list(record())
       }

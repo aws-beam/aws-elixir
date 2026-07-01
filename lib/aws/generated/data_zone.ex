@@ -829,6 +829,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      snowflake_properties_patch() :: %{
+        "connectivityPropertiesPatch" => connectivity_properties_patch(),
+        "lineageSync" => lineage_sync_input(),
+        "snowflakeRole" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       delete_account_pool_input() :: %{}
 
   """
@@ -2150,6 +2163,26 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      connectivity_properties() :: %{
+        "athenaProperties" => map(),
+        "authenticationConfiguration" => authentication_configuration_input(),
+        "connectionProperties" => map(),
+        "description" => [String.t() | atom()],
+        "name" => [String.t() | atom()],
+        "physicalConnectionRequirements" => physical_connection_requirements(),
+        "pythonProperties" => map(),
+        "sparkProperties" => map(),
+        "validateCredentials" => [boolean()],
+        "validateForComputeEnvironments" => list(list(any())())
+      }
+
+  """
+  @type connectivity_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       connection_credentials() :: %{
         "accessKeyId" => [String.t() | atom()],
         "expiration" => [non_neg_integer()],
@@ -2647,6 +2680,19 @@ defmodule AWS.DataZone do
 
   """
   @type iam_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      lineage_sync_input() :: %{
+        "enabled" => [boolean()],
+        "schedule" => String.t() | atom(),
+        "timezone" => list(any())
+      }
+
+  """
+  @type lineage_sync_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3971,6 +4017,20 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      lineage_sync_output() :: %{
+        "enabled" => [boolean()],
+        "lineageJobId" => [String.t() | atom()],
+        "schedule" => String.t() | atom(),
+        "timezone" => list(any())
+      }
+
+  """
+  @type lineage_sync_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       resource_not_found_exception() :: %{
         "message" => String.t() | atom()
       }
@@ -4783,6 +4843,20 @@ defmodule AWS.DataZone do
 
   """
   @type greater_than_expression() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_properties_input() :: %{
+        "connectivityProperties" => connectivity_properties(),
+        "identityMapping" => identity_mapping(),
+        "lineageSync" => lineage_sync_input(),
+        "snowflakeRole" => String.t() | atom()
+      }
+
+  """
+  @type snowflake_properties_input() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -7115,6 +7189,19 @@ defmodule AWS.DataZone do
 
   ## Example:
 
+      connectivity_properties_patch() :: %{
+        "authenticationConfiguration" => authentication_configuration_patch(),
+        "connectionProperties" => map(),
+        "description" => [String.t() | atom()]
+      }
+
+  """
+  @type connectivity_properties_patch() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_choice() :: %{
         "predictionChoices" => list([integer()]()),
         "predictionTarget" => [String.t() | atom()]
@@ -7613,6 +7700,21 @@ defmodule AWS.DataZone do
 
   """
   @type create_subscription_grant_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      snowflake_properties_output() :: %{
+        "errorMessage" => [String.t() | atom()],
+        "identityMapping" => identity_mapping(),
+        "lineageSync" => lineage_sync_output(),
+        "snowflakeRole" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type snowflake_properties_output() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -9232,6 +9334,18 @@ defmodule AWS.DataZone do
 
   """
   @type delete_data_export_configuration_output() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      identity_mapping() :: %{
+        "prefix" => [String.t() | atom()],
+        "usernameAttribute" => [String.t() | atom()]
+      }
+
+  """
+  @type identity_mapping() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

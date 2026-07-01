@@ -504,6 +504,8 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       aws_opportunity_related_entities() :: %{
+        "AwsMarketplaceProducts" => list(String.t() | atom()),
+        "AwsMarketplaceSolutions" => list(String.t() | atom()),
         "AwsProducts" => list(String.t() | atom()),
         "Solutions" => list(String.t() | atom())
       }
@@ -1392,6 +1394,7 @@ defmodule AWS.PartnerCentralSelling do
   ## Example:
       
       list_solutions_request() :: %{
+        optional("AwsMarketplaceSolutionArn") => list(String.t() | atom()),
         optional("Category") => list([String.t() | atom()]()),
         optional("Identifier") => list(String.t() | atom()),
         optional("MaxResults") => integer(),
@@ -1758,6 +1761,8 @@ defmodule AWS.PartnerCentralSelling do
       related_entity_identifiers() :: %{
         "AwsMarketplaceOfferSets" => list(String.t() | atom()),
         "AwsMarketplaceOffers" => list(String.t() | atom()),
+        "AwsMarketplaceProducts" => list(String.t() | atom()),
+        "AwsMarketplaceSolutions" => list(String.t() | atom()),
         "AwsProducts" => list(String.t() | atom()),
         "Solutions" => list(String.t() | atom())
       }
@@ -2304,6 +2309,7 @@ defmodule AWS.PartnerCentralSelling do
       
       solution_base() :: %{
         "Arn" => String.t() | atom(),
+        "AwsMarketplaceSolutionArn" => String.t() | atom(),
         "Catalog" => String.t() | atom(),
         "Category" => [String.t() | atom()],
         "CreatedDate" => non_neg_integer(),

@@ -553,6 +553,7 @@ defmodule AWS.CloudWatch do
         "EvaluationInterval" => integer(),
         "EvaluationPeriods" => integer(),
         "EvaluationState" => list(any()),
+        "EvaluationWindow" => list(),
         "ExtendedStatistic" => String.t() | atom(),
         "InsufficientDataActions" => list(String.t() | atom()),
         "MetricName" => String.t() | atom(),
@@ -1160,6 +1161,15 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      sliding_window() :: %{}
+      
+  """
+  @type sliding_window() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_alarms_for_metric_input() :: %{
         optional("Dimensions") => list(dimension()),
         optional("ExtendedStatistic") => String.t() | atom(),
@@ -1675,6 +1685,17 @@ defmodule AWS.CloudWatch do
 
   ## Example:
       
+      wall_clock_window() :: %{
+        "Timezone" => String.t() | atom()
+      }
+      
+  """
+  @type wall_clock_window() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       schedule_configuration() :: %{
         "EndTimeOffset" => float(),
         "ScheduleExpression" => String.t() | atom(),
@@ -2040,6 +2061,7 @@ defmodule AWS.CloudWatch do
         optional("EvaluationCriteria") => list(),
         optional("EvaluationInterval") => integer(),
         optional("EvaluationPeriods") => integer(),
+        optional("EvaluationWindow") => list(),
         optional("ExtendedStatistic") => String.t() | atom(),
         optional("InsufficientDataActions") => list(String.t() | atom()),
         optional("MetricName") => String.t() | atom(),

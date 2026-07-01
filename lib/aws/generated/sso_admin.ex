@@ -1029,6 +1029,8 @@ defmodule AWS.SSOAdmin do
         "InstanceArn" => String.t() | atom(),
         "Name" => String.t() | atom(),
         "OwnerAccountId" => String.t() | atom(),
+        "PrimaryRegion" => String.t() | atom(),
+        "Regions" => list(region_metadata()),
         "Status" => list(any()),
         "StatusReason" => String.t() | atom()
       }

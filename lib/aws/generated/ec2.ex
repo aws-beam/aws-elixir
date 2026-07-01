@@ -7114,6 +7114,7 @@ defmodule AWS.EC2 do
         "GatewayLoadBalancerArns" => list(String.t() | atom()),
         "IpAddressType" => list(any()),
         "NetworkLoadBalancerArns" => list(String.t() | atom()),
+        "PayerResponsibilities" => list(payer_responsibility_entry()),
         "ServiceId" => String.t() | atom(),
         "Tags" => list(tag()),
         "VpcEndpointConnectionId" => String.t() | atom(),
@@ -11018,6 +11019,18 @@ defmodule AWS.EC2 do
       
   """
   @type disable_vpc_classic_link_dns_support_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      payer_responsibility_entry() :: %{
+        "PayerResponsibilityType" => list(any()),
+        "Scope" => list(any())
+      }
+      
+  """
+  @type payer_responsibility_entry() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -16995,6 +17008,21 @@ defmodule AWS.EC2 do
       
   """
   @type modify_ipam_resource_cidr_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_vpc_endpoint_payer_responsibility_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("ServiceId") => String.t() | atom(),
+        required("PayerResponsibility") => list(any()),
+        required("Scope") => list(any()),
+        required("VpcEndpointId") => String.t() | atom()
+      }
+      
+  """
+  @type modify_vpc_endpoint_payer_responsibility_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -23206,6 +23234,7 @@ defmodule AWS.EC2 do
         "LastError" => last_error(),
         "NetworkInterfaceIds" => list(String.t() | atom()),
         "OwnerId" => String.t() | atom(),
+        "PayerResponsibilities" => list(payer_responsibility_entry()),
         "PolicyDocument" => String.t() | atom(),
         "PrivateDnsEnabled" => boolean(),
         "RequesterManaged" => boolean(),
@@ -25474,6 +25503,18 @@ defmodule AWS.EC2 do
       
   """
   @type describe_service_link_virtual_interfaces_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      modify_vpc_endpoint_payer_responsibility_result() :: %{
+        "PayerResponsibilities" => list(payer_responsibility_entry()),
+        "VpcEndpointId" => String.t() | atom()
+      }
+      
+  """
+  @type modify_vpc_endpoint_payer_responsibility_result() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -50347,6 +50388,24 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "ModifyVpcEndpointConnectionNotification", input, options)
+  end
+
+  @doc """
+  Modifies the billing account for VPC endpoint usage/charges.
+  """
+  @spec modify_vpc_endpoint_payer_responsibility(
+          map(),
+          modify_vpc_endpoint_payer_responsibility_request(),
+          list()
+        ) ::
+          {:ok, modify_vpc_endpoint_payer_responsibility_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_vpc_endpoint_payer_responsibility(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyVpcEndpointPayerResponsibility", input, options)
   end
 
   @doc """

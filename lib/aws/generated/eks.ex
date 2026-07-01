@@ -1117,12 +1117,35 @@ defmodule AWS.EKS do
 
   ## Example:
 
+      cancellation() :: %{
+        "reason" => String.t() | atom(),
+        "status" => list(any())
+      }
+
+  """
+  @type cancellation() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       remote_pod_network() :: %{
         "cidrs" => list(String.t() | atom())
       }
 
   """
   @type remote_pod_network() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      rollback_config() :: %{
+        "timeoutMinutes" => integer()
+      }
+
+  """
+  @type rollback_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1604,6 +1627,17 @@ defmodule AWS.EKS do
 
   """
   @type describe_nodegroup_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_update_request() :: %{
+        optional("clientRequestToken") => String.t() | atom()
+      }
+
+  """
+  @type cancel_update_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2188,6 +2222,7 @@ defmodule AWS.EKS do
   ## Example:
 
       update() :: %{
+        "cancellation" => cancellation(),
         "createdAt" => non_neg_integer(),
         "errors" => list(error_detail()),
         "id" => String.t() | atom(),
@@ -2221,6 +2256,17 @@ defmodule AWS.EKS do
 
   """
   @type describe_insights_refresh_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
+      cancel_update_response() :: %{
+        "update" => update()
+      }
+
+  """
+  @type cancel_update_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2288,6 +2334,7 @@ defmodule AWS.EKS do
       update_cluster_version_request() :: %{
         optional("clientRequestToken") => String.t() | atom(),
         optional("force") => boolean(),
+        optional("rollbackConfig") => rollback_config(),
         required("version") => String.t() | atom()
       }
 
@@ -3346,6 +3393,16 @@ defmodule AWS.EKS do
           | client_exception()
           | throttling_exception()
 
+  @type cancel_update_errors() ::
+          invalid_parameter_exception()
+          | invalid_request_exception()
+          | invalid_state_exception()
+          | server_exception()
+          | resource_in_use_exception()
+          | resource_not_found_exception()
+          | client_exception()
+          | throttling_exception()
+
   @type create_access_entry_errors() ::
           invalid_parameter_exception()
           | invalid_request_exception()
@@ -3854,6 +3911,55 @@ defmodule AWS.EKS do
   def associate_identity_provider_config(%Client{} = client, cluster_name, input, options \\ []) do
     url_path =
       "/clusters/#{AWS.Util.encode_uri(cluster_name)}/identity-provider-configs/associate"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Cancels an in-progress update to an Amazon EKS cluster on a best-effort basis.
+
+  Cancellation
+  is only performed if the update can be cancelled. Currently, this is supported
+  for
+  `VersionRollback` update types on EKS Auto Mode clusters when nodes are
+  rolling back.
+
+  A successful cancellation stops the node rollback. After cancellation, nodes
+  converge
+  to the current cluster version honoring configured disruption controls. If the
+  control
+  plane rollback has already begun, the cancellation request fails.
+  """
+  @spec cancel_update(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          cancel_update_request(),
+          list()
+        ) ::
+          {:ok, cancel_update_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, cancel_update_errors()}
+  def cancel_update(%Client{} = client, name, update_id, input, options \\ []) do
+    url_path =
+      "/clusters/#{AWS.Util.encode_uri(name)}/updates/#{AWS.Util.encode_uri(update_id)}/cancel-update"
 
     headers = []
     custom_headers = []

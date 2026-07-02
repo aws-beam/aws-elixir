@@ -199,6 +199,17 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
+      stream_session_access_not_ready_exception() :: %{
+        "Message" => [String.t() | atom()]
+      }
+
+  """
+  @type stream_session_access_not_ready_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       location_configuration() :: %{
         "AlwaysOnCapacity" => integer(),
         "LocationName" => String.t() | atom(),
@@ -712,6 +723,19 @@ defmodule AWS.GameLiftStreams do
 
   ## Example:
 
+      create_stream_session_admin_shell_output() :: %{
+        "SessionId" => String.t() | atom(),
+        "StreamUrl" => String.t() | atom(),
+        "TokenValue" => String.t() | atom()
+      }
+
+  """
+  @type create_stream_session_admin_shell_output() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_applications_input() :: %{
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom()
@@ -750,6 +774,15 @@ defmodule AWS.GameLiftStreams do
 
   """
   @type create_stream_session_connection_input() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      create_stream_session_admin_shell_input() :: %{}
+
+  """
+  @type create_stream_session_admin_shell_input() :: %{}
 
   @typedoc """
 
@@ -928,6 +961,14 @@ defmodule AWS.GameLiftStreams do
           | resource_not_found_exception()
           | internal_server_exception()
           | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type create_stream_session_admin_shell_errors() ::
+          resource_not_found_exception()
+          | internal_server_exception()
+          | validation_exception()
+          | stream_session_access_not_ready_exception()
           | access_denied_exception()
           | throttling_exception()
 
@@ -1185,6 +1226,10 @@ defmodule AWS.GameLiftStreams do
   want to use. If you change the files at a later time, you will need to create a
   new Amazon GameLift Streams application.
 
+  Creating an application is the only time Amazon GameLift Streams accesses your
+  Amazon S3 bucket. After the application reaches `READY` status, you can delete
+  the original files from your Amazon S3 bucket without affecting the application.
+
   If the request is successful, Amazon GameLift Streams begins to create an
   application and sets the status to `INITIALIZED`. When an application reaches
   `READY` status, you can use the application to set up stream groups and start
@@ -1289,6 +1334,67 @@ defmodule AWS.GameLiftStreams do
       input,
       options,
       201
+    )
+  end
+
+  @doc """
+  Creates an administrative terminal session with full access to the live runtime
+  environment of the Amazon GameLift Streams stream session.
+
+  Use the returned credentials (`SessionId`, `StreamUrl` and `TokenValue`) with
+  the Amazon Web Services Systems Manager [Session Manager plugin](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-working-with-install-plugin.html)
+  for the CLI to access the terminal session.
+
+  The stream session must be in one of the following statuses: `ACTIVE`,
+  `CONNECTED`, `PENDING_CLIENT_RECONNECTION`, or `RECONNECTING`.
+
+  The `StreamUrl` is valid for 60 seconds. After it expires, call this operation
+  again to get a new URL.
+
+  The returned credentials grant full access to the live runtime environment of
+  the Amazon GameLift Streams stream session. The operator who connects to the
+  terminal session has the same level of access that your Amazon GameLift Streams
+  applications have, including potentially user input, screen images, and
+  application data files. Grant permissions to call this operation only to trusted
+  IAM identities that require live runtime environment access.
+  """
+  @spec create_stream_session_admin_shell(
+          map(),
+          String.t() | atom(),
+          String.t() | atom(),
+          create_stream_session_admin_shell_input(),
+          list()
+        ) ::
+          {:ok, create_stream_session_admin_shell_output(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, create_stream_session_admin_shell_errors()}
+  def create_stream_session_admin_shell(
+        %Client{} = client,
+        identifier,
+        stream_session_identifier,
+        input,
+        options \\ []
+      ) do
+    url_path =
+      "/streamgroups/#{AWS.Util.encode_uri(identifier)}/streamsessions/#{AWS.Util.encode_uri(stream_session_identifier)}/access"
+
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
     )
   end
 

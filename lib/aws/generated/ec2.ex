@@ -491,6 +491,26 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_account_vpc_encryption_control_request() :: %{
+        optional("DryRun") => boolean(),
+        optional("EgressOnlyInternetGateway") => list(any()),
+        optional("ElasticFileSystem") => list(any()),
+        optional("InternetGateway") => list(any()),
+        optional("Lambda") => list(any()),
+        optional("Mode") => list(any()),
+        optional("NatGateway") => list(any()),
+        optional("VirtualPrivateGateway") => list(any()),
+        optional("VpcLattice") => list(any()),
+        optional("VpcPeering") => list(any())
+      }
+      
+  """
+  @type modify_account_vpc_encryption_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pricing_detail() :: %{
         "Count" => integer(),
         "Price" => float()
@@ -7419,6 +7439,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      modify_account_vpc_encryption_control_result() :: %{
+        "AccountVpcEncryptionControl" => account_vpc_encryption_control()
+      }
+      
+  """
+  @type modify_account_vpc_encryption_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_security_group_request() :: %{
         optional("DryRun") => boolean(),
         optional("GroupId") => String.t() | atom(),
@@ -11422,6 +11453,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_account_vpc_encryption_control_request() :: %{
+        optional("DryRun") => boolean()
+      }
+      
+  """
+  @type describe_account_vpc_encryption_control_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       instance_status() :: %{
         "AttachedEbsStatus" => ebs_status_summary(),
         "AvailabilityZone" => String.t() | atom(),
@@ -12365,6 +12407,21 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      account_vpc_encryption_control() :: %{
+        "Exclusions" => account_vpc_encryption_control_exclusions(),
+        "LastUpdateTimestamp" => non_neg_integer(),
+        "ManagedBy" => list(any()),
+        "Mode" => list(any()),
+        "State" => list(any())
+      }
+      
+  """
+  @type account_vpc_encryption_control() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       gpu_info() :: %{
         "Gpus" => list(gpu_device_info()),
         "TotalGpuMemoryInMiB" => integer()
@@ -12771,6 +12828,24 @@ defmodule AWS.EC2 do
       
   """
   @type describe_vpc_endpoint_service_configurations_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      account_vpc_encryption_control_exclusions() :: %{
+        "EgressOnlyInternetGateway" => list(any()),
+        "ElasticFileSystem" => list(any()),
+        "InternetGateway" => list(any()),
+        "Lambda" => list(any()),
+        "NatGateway" => list(any()),
+        "VirtualPrivateGateway" => list(any()),
+        "VpcLattice" => list(any()),
+        "VpcPeering" => list(any())
+      }
+      
+  """
+  @type account_vpc_encryption_control_exclusions() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -22069,6 +22144,7 @@ defmodule AWS.EC2 do
       describe_volumes_modifications_request() :: %{
         optional("DryRun") => boolean(),
         optional("Filters") => list(filter()),
+        optional("IncludeManagedResources") => boolean(),
         optional("MaxResults") => integer(),
         optional("NextToken") => String.t() | atom(),
         optional("VolumeIds") => list(String.t() | atom())
@@ -22877,6 +22953,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      host_cpu_options_request() :: %{
+        "AmdSevSnp" => list(any())
+      }
+      
+  """
+  @type host_cpu_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_queued_reserved_instances_request() :: %{
         optional("DryRun") => boolean(),
         required("ReservedInstancesIds") => list(String.t() | atom())
@@ -23600,6 +23687,7 @@ defmodule AWS.EC2 do
         optional("AvailabilityZone") => String.t() | atom(),
         optional("AvailabilityZoneId") => String.t() | atom(),
         optional("ClientToken") => String.t() | atom(),
+        optional("CpuOptions") => host_cpu_options_request(),
         optional("HostMaintenance") => list(any()),
         optional("HostRecovery") => list(any()),
         optional("InstanceFamily") => String.t() | atom(),
@@ -28827,6 +28915,17 @@ defmodule AWS.EC2 do
 
   ## Example:
       
+      describe_account_vpc_encryption_control_result() :: %{
+        "AccountVpcEncryptionControl" => account_vpc_encryption_control()
+      }
+      
+  """
+  @type describe_account_vpc_encryption_control_result() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       transit_gateway_options() :: %{
         "AmazonSideAsn" => float(),
         "AssociationDefaultRouteTableId" => String.t() | atom(),
@@ -29226,6 +29325,17 @@ defmodule AWS.EC2 do
       
   """
   @type launch_template_private_dns_name_options_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      host_cpu_options() :: %{
+        "AmdSevSnp" => list(any())
+      }
+      
+  """
+  @type host_cpu_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -33704,6 +33814,7 @@ defmodule AWS.EC2 do
         "AvailabilityZoneId" => String.t() | atom(),
         "AvailableCapacity" => available_capacity(),
         "ClientToken" => String.t() | atom(),
+        "CpuOptions" => host_cpu_options(),
         "HostId" => String.t() | atom(),
         "HostMaintenance" => list(any()),
         "HostProperties" => host_properties(),
@@ -33945,6 +34056,7 @@ defmodule AWS.EC2 do
       volume_modification() :: %{
         "EndTime" => non_neg_integer(),
         "ModificationState" => list(any()),
+        "Operator" => operator_response(),
         "OriginalIops" => integer(),
         "OriginalMultiAttachEnabled" => boolean(),
         "OriginalSize" => integer(),
@@ -35254,7 +35366,11 @@ defmodule AWS.EC2 do
 
     *
 
-  `scheduled`
+  `scheduled` — requires a cancellation quote. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote,
+  then pass the quote ID with `ApplyCancellationCharges` set to
+  `commitment-wind-down`. The cancellation charge depends on how
+  close the reservation is to its start date.
 
     *
 
@@ -35263,18 +35379,20 @@ defmodule AWS.EC2 do
 
     *
 
-  `active` during the commitment duration, if you provide a
-  cancellation quote ID and accept the cancellation charges. Use
-  `CreateCapacityReservationCancellationQuote` to generate a quote.
-  The Capacity Reservation transitions to `cancelling` while charges
-  are applied.
+  `active` during the commitment duration — requires a
+  cancellation quote. Use
+  `CreateCapacityReservationCancellationQuote` to generate a quote,
+  then pass the quote ID with `ApplyCancellationCharges` set to
+  `commitment-wind-down`. The Capacity Reservation transitions to
+  `cancelling` while charges are applied.
+
+    *
+
+  `delayed` — the commitment duration is waived, so no
+  cancellation charge applies.
 
   You can't modify or cancel a Capacity Block. For more information, see [Capacity Blocks for
   ML](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-blocks.html).
-
-  If a future-dated Capacity Reservation enters the `delayed` state, the
-  commitment duration is waived, and you can cancel it as soon as it enters the
-  `active` state.
 
   Instances running in the reserved capacity continue running until you stop them.
   Stopped instances that target the Capacity Reservation can no longer launch.
@@ -37171,7 +37289,7 @@ defmodule AWS.EC2 do
   instances in another partition. A `precision-time` placement group places
   instances on supported hardware with direct access to high-precision time
   sources in
-  AWS infrastructure.
+  Amazon Web Services infrastructure.
 
   For more information, see [Placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html)
   in the
@@ -40704,6 +40822,31 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "DescribeAccountAttributes", input, options)
+  end
+
+  @doc """
+  Describes the account-level VPC Encryption Control configuration for your
+  account.
+
+  VPC Encryption Control enables you to enforce encryption for all data in transit
+  within and between VPCs to meet compliance requirements.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec describe_account_vpc_encryption_control(
+          map(),
+          describe_account_vpc_encryption_control_request(),
+          list()
+        ) ::
+          {:ok, describe_account_vpc_encryption_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def describe_account_vpc_encryption_control(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "DescribeAccountVpcEncryptionControl", input, options)
   end
 
   @doc """
@@ -48648,6 +48791,31 @@ defmodule AWS.EC2 do
       metadata()
 
     Request.request_post(client, meta, "LockSnapshot", input, options)
+  end
+
+  @doc """
+  Modifies the account-level VPC Encryption Control configuration.
+
+  This sets the encryption control mode and resource exclusions that apply to the
+  VPCs in your account. VPC Encryption Control enables you to enforce encryption
+  for all data in transit within and between VPCs to meet compliance requirements.
+
+  For more information, see [Enforce VPC encryption in transit](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-encryption-controls.html)
+  in the *Amazon VPC User Guide*.
+  """
+  @spec modify_account_vpc_encryption_control(
+          map(),
+          modify_account_vpc_encryption_control_request(),
+          list()
+        ) ::
+          {:ok, modify_account_vpc_encryption_control_result(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+  def modify_account_vpc_encryption_control(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "ModifyAccountVpcEncryptionControl", input, options)
   end
 
   @doc """

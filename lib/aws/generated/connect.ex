@@ -2107,6 +2107,18 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      widget_destination() :: %{
+        "ProfileId" => String.t() | atom(),
+        "WidgetId" => String.t() | atom()
+      }
+
+  """
+  @type widget_destination() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_contact_references_request() :: %{
         optional("NextToken") => String.t() | atom(),
         required("ReferenceTypes") => list(list(any())())
@@ -6103,6 +6115,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      recommender_config() :: %{
+        "Context" => map(),
+        "DomainName" => String.t() | atom(),
+        "RecommenderName" => String.t() | atom()
+      }
+
+  """
+  @type recommender_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       evaluation_note() :: %{
         "Value" => String.t() | atom()
       }
@@ -6606,6 +6631,17 @@ defmodule AWS.Connect do
 
   """
   @type claim_phone_number_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      web_notification_source() :: %{
+        "SourceCampaign" => source_campaign()
+      }
+
+  """
+  @type web_notification_source() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -8181,6 +8217,23 @@ defmodule AWS.Connect do
 
   """
   @type disassociate_instance_storage_config_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      send_outbound_web_notification_request() :: %{
+        optional("ClientToken") => String.t() | atom(),
+        required("BrowserId") => String.t() | atom(),
+        required("Content") => web_notification_content(),
+        required("Destination") => widget_destination(),
+        required("ExpiresAt") => non_neg_integer(),
+        required("SessionId") => String.t() | atom(),
+        required("Source") => web_notification_source()
+      }
+
+  """
+  @type send_outbound_web_notification_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -10017,6 +10070,15 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      send_outbound_web_notification_response() :: %{}
+
+  """
+  @type send_outbound_web_notification_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       describe_rule_response() :: %{
         "Rule" => rule()
       }
@@ -11264,6 +11326,19 @@ defmodule AWS.Connect do
 
   ## Example:
 
+      web_notification_content() :: %{
+        "Attributes" => content_attributes(),
+        "Type" => list(any()),
+        "ViewArn" => String.t() | atom()
+      }
+
+  """
+  @type web_notification_content() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       effective_hours_of_operations() :: %{
         "Date" => String.t() | atom(),
         "OperationalHours" => list(operational_hour())
@@ -11352,6 +11427,17 @@ defmodule AWS.Connect do
 
   """
   @type start_contact_evaluation_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      content_attributes() :: %{
+        "RecommenderConfig" => recommender_config()
+      }
+
+  """
+  @type content_attributes() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -17963,6 +18049,13 @@ defmodule AWS.Connect do
           | invalid_request_exception()
           | internal_service_exception()
           | idempotency_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type send_outbound_web_notification_errors() ::
+          invalid_request_exception()
+          | internal_service_exception()
           | resource_not_found_exception()
           | access_denied_exception()
           | throttling_exception()
@@ -30802,6 +30895,48 @@ defmodule AWS.Connect do
       client,
       meta,
       :put,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Sends an outbound web notification to a customer's web browser for outbound
+  campaigns.
+
+  For more information
+  about outbound campaigns, see [Set up Connect Customer outbound campaigns](https://docs.aws.amazon.com/connect/latest/adminguide/enable-outbound-campaigns.html).
+
+  Only the Connect Customer outbound campaigns service principal is allowed to
+  assume a role in your account
+  and call this API.
+  """
+  @spec send_outbound_web_notification(
+          map(),
+          String.t() | atom(),
+          send_outbound_web_notification_request(),
+          list()
+        ) ::
+          {:ok, send_outbound_web_notification_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, send_outbound_web_notification_errors()}
+  def send_outbound_web_notification(%Client{} = client, instance_id, input, options \\ []) do
+    url_path = "/instance/#{AWS.Util.encode_uri(instance_id)}/outbound-web-notification"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
       url_path,
       query_params,
       custom_headers ++ headers,

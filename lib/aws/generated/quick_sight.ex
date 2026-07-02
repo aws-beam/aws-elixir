@@ -8306,6 +8306,20 @@ defmodule AWS.QuickSight do
 
   ## Example:
 
+      file_source() :: %{
+        "DataSourceArn" => String.t() | atom(),
+        "InputColumns" => list(input_column()),
+        "SheetIndex" => integer(),
+        "UploadSettings" => upload_settings()
+      }
+
+  """
+  @type file_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       funnel_chart_data_label_options() :: %{
         "CategoryLabelVisibility" => list(any()),
         "LabelColor" => String.t() | atom(),

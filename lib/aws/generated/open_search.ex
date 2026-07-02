@@ -304,6 +304,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      use_case_status() :: %{
+        "Options" => list(any()),
+        "Status" => option_status()
+      }
+
+  """
+  @type use_case_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       software_update_options_status() :: %{
         "Options" => software_update_options(),
         "Status" => option_status()
@@ -430,6 +442,7 @@ defmodule AWS.OpenSearch do
         "Processing" => boolean(),
         "Endpoint" => String.t() | atom(),
         "ModifyingProperties" => list(modifying_properties()),
+        "UseCase" => list(any()),
         "DomainId" => String.t() | atom(),
         "EncryptionAtRestOptions" => encryption_at_rest_options(),
         "SoftwareUpdateOptions" => software_update_options(),
@@ -447,6 +460,7 @@ defmodule AWS.OpenSearch do
         "DomainEndpointV2HostedZoneId" => String.t() | atom(),
         "DomainProcessingStatus" => list(any()),
         "VPCOptions" => vpc_derived_info(),
+        "EngineMode" => list(any()),
         "AccessPolicies" => String.t() | atom(),
         "AIMLOptions" => a_i_ml_options_output(),
         "IPAddressType" => list(any()),
@@ -1405,6 +1419,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight_feedback_entity() :: %{
+        "Type" => list(any()),
+        "Value" => String.t() | atom()
+      }
+
+  """
+  @type insight_feedback_entity() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_data_source_request() :: %{}
 
   """
@@ -2334,6 +2360,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      engine_mode_status() :: %{
+        "Options" => list(any()),
+        "Status" => option_status()
+      }
+
+  """
+  @type engine_mode_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       additional_limit() :: %{
         "LimitName" => String.t() | atom(),
         "LimitValues" => list(String.t() | atom())
@@ -2649,6 +2687,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight_feedback_response() :: %{
+        "Status" => list(any())
+      }
+
+  """
+  @type insight_feedback_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_domains_response() :: %{
         "DomainStatusList" => list(domain_status())
       }
@@ -2851,6 +2900,7 @@ defmodule AWS.OpenSearch do
         optional("DomainEndpointOptions") => domain_endpoint_options(),
         optional("EBSOptions") => ebs_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("EngineMode") => list(any()),
         optional("EngineVersion") => String.t() | atom(),
         optional("IPAddressType") => list(any()),
         optional("IdentityCenterOptions") => identity_center_options_input(),
@@ -2860,6 +2910,7 @@ defmodule AWS.OpenSearch do
         optional("SnapshotOptions") => snapshot_options(),
         optional("SoftwareUpdateOptions") => software_update_options(),
         optional("TagList") => list(tag()),
+        optional("UseCase") => list(any()),
         optional("VPCOptions") => vpc_options(),
         required("DomainName") => String.t() | atom()
       }
@@ -2933,6 +2984,7 @@ defmodule AWS.OpenSearch do
         optional("DryRunMode") => list(any()),
         optional("EBSOptions") => ebs_options(),
         optional("EncryptionAtRestOptions") => encryption_at_rest_options(),
+        optional("EngineMode") => list(any()),
         optional("IPAddressType") => list(any()),
         optional("IdentityCenterOptions") => identity_center_options_input(),
         optional("LogPublishingOptions") => map(),
@@ -2940,6 +2992,7 @@ defmodule AWS.OpenSearch do
         optional("OffPeakWindowOptions") => off_peak_window_options(),
         optional("SnapshotOptions") => snapshot_options(),
         optional("SoftwareUpdateOptions") => software_update_options(),
+        optional("UseCase") => list(any()),
         optional("VPCOptions") => vpc_options()
       }
 
@@ -3845,6 +3898,20 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      insight_feedback_request() :: %{
+        optional("FeedbackText") => String.t() | atom(),
+        required("Entity") => insight_feedback_entity(),
+        required("InsightId") => String.t() | atom(),
+        required("Thumbs") => list(any())
+      }
+
+  """
+  @type insight_feedback_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       list_vpc_endpoints_request() :: %{
         optional("NextToken") => String.t() | atom()
       }
@@ -4086,6 +4153,7 @@ defmodule AWS.OpenSearch do
         "DomainEndpointOptions" => domain_endpoint_options_status(),
         "EBSOptions" => ebs_options_status(),
         "EncryptionAtRestOptions" => encryption_at_rest_options_status(),
+        "EngineMode" => engine_mode_status(),
         "EngineVersion" => version_status(),
         "IPAddressType" => ip_address_type_status(),
         "IdentityCenterOptions" => identity_center_options_status(),
@@ -4095,6 +4163,7 @@ defmodule AWS.OpenSearch do
         "OffPeakWindowOptions" => off_peak_window_options_status(),
         "SnapshotOptions" => snapshot_options_status(),
         "SoftwareUpdateOptions" => software_update_options_status(),
+        "UseCase" => use_case_status(),
         "VPCOptions" => vpc_derived_info_status()
       }
 
@@ -4810,6 +4879,14 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | resource_not_found_exception()
           | validation_exception()
+          | disabled_operation_exception()
+
+  @type insight_feedback_errors() ::
+          base_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | limit_exceeded_exception()
           | disabled_operation_exception()
 
   @type list_applications_errors() ::
@@ -6985,6 +7062,39 @@ defmodule AWS.OpenSearch do
     meta = metadata()
 
     Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Submits feedback for an existing insight in an Amazon OpenSearch Service domain.
+
+  Allows users to provide a thumbs up or thumbs down rating and optional text
+  feedback
+  for a specific insight.
+  """
+  @spec insight_feedback(map(), insight_feedback_request(), list()) ::
+          {:ok, insight_feedback_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, insight_feedback_errors()}
+  def insight_feedback(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/insight-feedback"
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
   end
 
   @doc """

@@ -822,6 +822,7 @@ defmodule AWS.MediaConvert do
         "ColorCorrector" => color_corrector(),
         "Deinterlacer" => deinterlacer(),
         "DolbyVision" => dolby_vision(),
+        "DurationControl" => duration_control(),
         "Hdr10Plus" => hdr10_plus(),
         "ImageInserter" => image_inserter(),
         "NoiseReducer" => noise_reducer(),
@@ -1931,6 +1932,7 @@ defmodule AWS.MediaConvert do
         "RateControlMode" => list(any()),
         "BandwidthReductionFilter" => bandwidth_reduction_filter(),
         "Syntax" => list(any()),
+        "ExplicitWeightedPrediction" => list(any()),
         "GopClosedCadence" => integer(),
         "Softness" => integer(),
         "RepeatPps" => list(any()),
@@ -4076,6 +4078,19 @@ defmodule AWS.MediaConvert do
 
   """
   @type xavc4k_intra_vbr_profile_settings() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      duration_control() :: %{
+        "IntegerDurationMaximumCompressionDenominator" => integer(),
+        "IntegerDurationMaximumCompressionNumerator" => integer(),
+        "IntegerDurationTrimThresholdMilliseconds" => integer()
+      }
+
+  """
+  @type duration_control() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 

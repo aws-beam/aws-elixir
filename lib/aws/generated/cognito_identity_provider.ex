@@ -871,6 +871,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_provisioned_limit_response() :: %{
+        "Limit" => limit_type()
+      }
+      
+  """
+  @type get_provisioned_limit_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       device_secret_verifier_config_type() :: %{
         "PasswordVerifier" => String.t() | atom(),
         "Salt" => String.t() | atom()
@@ -2099,6 +2110,18 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      limit_definition_type() :: %{
+        "Attributes" => map(),
+        "LimitClass" => list(any())
+      }
+      
+  """
+  @type limit_definition_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       pre_token_generation_version_config_type() :: %{
         "LambdaArn" => String.t() | atom(),
         "LambdaVersion" => list(any())
@@ -3226,6 +3249,17 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      get_provisioned_limit_request() :: %{
+        required("LimitDefinition") => limit_definition_type()
+      }
+      
+  """
+  @type get_provisioned_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       event_feedback_type() :: %{
         "FeedbackDate" => non_neg_integer(),
         "FeedbackValue" => list(any()),
@@ -3725,6 +3759,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type auth_event_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_provisioned_limit_response() :: %{
+        "Limit" => limit_type()
+      }
+      
+  """
+  @type update_provisioned_limit_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4378,6 +4423,31 @@ defmodule AWS.CognitoIdentityProvider do
 
   ## Example:
       
+      limit_type() :: %{
+        "FreeLimitValue" => integer(),
+        "LimitDefinition" => limit_definition_type(),
+        "ProvisionedLimitValue" => integer()
+      }
+      
+  """
+  @type limit_type() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_provisioned_limit_request() :: %{
+        required("LimitDefinition") => limit_definition_type(),
+        required("RequestedLimitValue") => integer()
+      }
+      
+  """
+  @type update_provisioned_limit_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       describe_identity_provider_response() :: %{
         "IdentityProvider" => identity_provider_type()
       }
@@ -4863,6 +4933,17 @@ defmodule AWS.CognitoIdentityProvider do
       
   """
   @type software_token_mfa_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      service_quota_exceeded_exception() :: %{
+        "message" => String.t() | atom()
+      }
+      
+  """
+  @type service_quota_exceeded_exception() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -5760,6 +5841,13 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
 
+  @type get_provisioned_limit_errors() ::
+          invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
+
   @type get_signing_certificate_errors() ::
           invalid_parameter_exception()
           | internal_error_exception()
@@ -6213,6 +6301,14 @@ defmodule AWS.CognitoIdentityProvider do
           | resource_not_found_exception()
           | too_many_requests_exception()
           | concurrent_modification_exception()
+
+  @type update_provisioned_limit_errors() ::
+          service_quota_exceeded_exception()
+          | invalid_parameter_exception()
+          | internal_error_exception()
+          | not_authorized_exception()
+          | resource_not_found_exception()
+          | too_many_requests_exception()
 
   @type update_resource_server_errors() ::
           invalid_parameter_exception()
@@ -9102,6 +9198,36 @@ defmodule AWS.CognitoIdentityProvider do
   end
 
   @doc """
+  Returns the current provisioned limit for a specific API category.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec get_provisioned_limit(map(), get_provisioned_limit_request(), list()) ::
+          {:ok, get_provisioned_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_provisioned_limit_errors()}
+  def get_provisioned_limit(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetProvisionedLimit", input, options)
+  end
+
+  @doc """
   Given a user pool ID, returns the signing certificate for SAML 2.0 federation.
 
   Issued certificates are valid for 10 years from the date of issue. Amazon
@@ -10645,6 +10771,43 @@ defmodule AWS.CognitoIdentityProvider do
       metadata()
 
     Request.request_post(client, meta, "UpdateManagedLoginBranding", input, options)
+  end
+
+  @doc """
+  Sets the provisioned limit for a specific API category.
+
+  The value must be between the
+  default limit and your account-level maximum limit in Service Quotas.
+
+  Managed login user pools don't support adjustments to the
+  `UserAuthentication` or `UserFederation` categories. To
+  increase these limits, submit a Service Quotas increase request.
+
+  Amazon Cognito evaluates Identity and Access Management (IAM) policies in
+  requests for this API operation. For
+  this operation, you must use IAM credentials to authorize requests, and you must
+  grant yourself the corresponding IAM permission in a policy.
+
+  ## Learn more
+
+    
+
+  [Signing Amazon Web Services API Requests](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html)
+
+    
+
+  [Using the Amazon Cognito user pools API and user pool endpoints](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html)
+  """
+  @spec update_provisioned_limit(map(), update_provisioned_limit_request(), list()) ::
+          {:ok, update_provisioned_limit_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_provisioned_limit_errors()}
+  def update_provisioned_limit(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateProvisionedLimit", input, options)
   end
 
   @doc """

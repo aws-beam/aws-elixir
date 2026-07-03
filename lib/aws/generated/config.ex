@@ -1634,6 +1634,7 @@ defmodule AWS.Config do
         optional("DeliveryS3Bucket") => String.t() | atom(),
         optional("DeliveryS3KeyPrefix") => String.t() | atom(),
         optional("ExcludedAccounts") => list(String.t() | atom()),
+        optional("Tags") => list(tag()),
         optional("TemplateBody") => String.t() | atom(),
         optional("TemplateS3Uri") => String.t() | atom(),
         required("OrganizationConformancePackName") => String.t() | atom()
@@ -1919,6 +1920,7 @@ defmodule AWS.Config do
         optional("OrganizationCustomPolicyRuleMetadata") => organization_custom_policy_rule_metadata(),
         optional("OrganizationCustomRuleMetadata") => organization_custom_rule_metadata(),
         optional("OrganizationManagedRuleMetadata") => organization_managed_rule_metadata(),
+        optional("Tags") => list(tag()),
         required("OrganizationConfigRuleName") => String.t() | atom()
       }
       

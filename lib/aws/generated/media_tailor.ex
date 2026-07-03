@@ -381,6 +381,8 @@ defmodule AWS.MediaTailor do
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
         optional("DashConfiguration") => dash_configuration(),
+        optional("DualStackPlaybackEndpointPrefix") => String.t() | atom(),
+        optional("DualStackSessionInitializationEndpointPrefix") => String.t() | atom(),
         optional("FunctionMapping") => map(),
         optional("HlsConfiguration") => hls_configuration(),
         optional("InsertionMode") => list(any()),
@@ -423,6 +425,8 @@ defmodule AWS.MediaTailor do
         optional("CdnConfiguration") => cdn_configuration(),
         optional("ConfigurationAliases") => map(),
         optional("DashConfiguration") => dash_configuration(),
+        optional("DualStackPlaybackEndpointPrefix") => String.t() | atom(),
+        optional("DualStackSessionInitializationEndpointPrefix") => String.t() | atom(),
         optional("FunctionMapping") => map(),
         optional("HlsConfiguration") => hls_configuration(),
         optional("InsertionMode") => list(any()),
@@ -949,6 +953,8 @@ defmodule AWS.MediaTailor do
         "CdnConfiguration" => cdn_configuration(),
         "ConfigurationAliases" => map(),
         "DashConfiguration" => dash_configuration(),
+        "DualStackPlaybackEndpointPrefix" => String.t() | atom(),
+        "DualStackSessionInitializationEndpointPrefix" => String.t() | atom(),
         "FunctionMapping" => map(),
         "HlsConfiguration" => hls_configuration(),
         "InsertionMode" => list(any()),
@@ -1180,6 +1186,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       hls_configuration() :: %{
+        "DualStackManifestEndpointPrefix" => String.t() | atom(),
         "ManifestEndpointPrefix" => String.t() | atom()
       }
 
@@ -1465,6 +1472,7 @@ defmodule AWS.MediaTailor do
   ## Example:
 
       dash_configuration() :: %{
+        "DualStackManifestEndpointPrefix" => String.t() | atom(),
         "ManifestEndpointPrefix" => String.t() | atom(),
         "MpdLocation" => String.t() | atom(),
         "OriginManifestType" => list(any())
@@ -1762,6 +1770,7 @@ defmodule AWS.MediaTailor do
 
       response_output_item() :: %{
         "DashPlaylistSettings" => dash_playlist_settings(),
+        "DualStackPlaybackUrl" => String.t() | atom(),
         "HlsPlaylistSettings" => hls_playlist_settings(),
         "ManifestName" => String.t() | atom(),
         "PlaybackUrl" => String.t() | atom(),

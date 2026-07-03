@@ -220,6 +220,19 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      diversity_column() :: %{
+        "CapType" => list(any()),
+        "Name" => String.t() | atom(),
+        "Target" => String.t() | atom()
+      }
+
+  """
+  @type diversity_column() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       object_type_field() :: %{
         "ContentType" => list(any()),
         "Source" => String.t() | atom(),
@@ -497,6 +510,18 @@ defmodule AWS.CustomerProfiles do
 
   ## Example:
 
+      recommendation_diversity_config() :: %{
+        "Enabled" => boolean(),
+        "Values" => map()
+      }
+
+  """
+  @type recommendation_diversity_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       access_denied_exception() :: %{
         "Message" => String.t() | atom()
       }
@@ -740,6 +765,17 @@ defmodule AWS.CustomerProfiles do
 
   """
   @type marketo_source_properties() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      diversity_config() :: %{
+        "DiversityColumns" => list(diversity_column())
+      }
+
+  """
+  @type diversity_config() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1563,6 +1599,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       recommender_config() :: %{
+        "DiversityConfig" => diversity_config(),
         "EventsConfig" => events_config(),
         "ExcludedColumns" => map(),
         "IncludedColumns" => map(),
@@ -2478,6 +2515,7 @@ defmodule AWS.CustomerProfiles do
         "FailureReason" => [String.t() | atom()],
         "LastUpdatedAt" => non_neg_integer(),
         "RecommenderConfig" => recommender_config(),
+        "RecommenderVersionName" => String.t() | atom(),
         "Status" => list(any())
       }
 
@@ -2567,6 +2605,7 @@ defmodule AWS.CustomerProfiles do
   ## Example:
 
       get_recommender_response() :: %{
+        "ActiveRecommenderVersionName" => String.t() | atom(),
         "CreatedAt" => non_neg_integer(),
         "Description" => String.t() | atom(),
         "FailureReason" => [String.t() | atom()],
@@ -2893,6 +2932,7 @@ defmodule AWS.CustomerProfiles do
 
       training_metrics() :: %{
         "Metrics" => map(),
+        "RecommenderVersionName" => String.t() | atom(),
         "Time" => non_neg_integer()
       }
 
@@ -4273,7 +4313,8 @@ defmodule AWS.CustomerProfiles do
 
       update_recommender_request() :: %{
         optional("Description") => String.t() | atom(),
-        optional("RecommenderConfig") => recommender_config()
+        optional("RecommenderConfig") => recommender_config(),
+        optional("RecommenderVersionName") => String.t() | atom()
       }
 
   """
@@ -4321,6 +4362,7 @@ defmodule AWS.CustomerProfiles do
       get_profile_recommendations_request() :: %{
         optional("CandidateIds") => list(String.t() | atom()),
         optional("Context") => map(),
+        optional("DiversityConfig") => recommendation_diversity_config(),
         optional("MaxResults") => integer(),
         optional("MetadataConfig") => metadata_config(),
         optional("RecommenderFilters") => list(recommender_filter()),

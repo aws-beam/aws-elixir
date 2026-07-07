@@ -20,6 +20,20 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      get_billing_preferences_request() :: %{
+        optional("filters") => list(billing_feature_filter()),
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("features") => list(list(any())())
+      }
+      
+  """
+  @type get_billing_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       billing_view_health_status() :: %{
         "statusCode" => list(any()),
         "statusReasons" => list(list(any())())
@@ -27,6 +41,18 @@ defmodule AWS.Billing do
       
   """
   @type billing_view_health_status() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      amount() :: %{
+        "currencyAmount" => String.t() | atom(),
+        "currencyCode" => String.t() | atom()
+      }
+      
+  """
+  @type amount() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -55,12 +81,50 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      update_billing_preferences_request() :: %{
+        required("billingPreferencesPerKey") => list(billing_preference_for_key()),
+        required("feature") => list(any())
+      }
+      
+  """
+  @type update_billing_preferences_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credits_request() :: %{
+        optional("endDate") => [non_neg_integer()],
+        optional("payerAccountFlag") => [boolean()],
+        required("accountId") => [String.t() | atom()],
+        required("startDate") => [non_neg_integer()]
+      }
+      
+  """
+  @type get_credits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       access_denied_exception() :: %{
         "message" => String.t() | atom()
       }
       
   """
   @type access_denied_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_period() :: %{
+        "month" => integer(),
+        "year" => integer()
+      }
+      
+  """
+  @type billing_period() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -115,6 +179,36 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      credit_data() :: %{
+        "accountHasCreditSharingEnabled" => [boolean()],
+        "accountId" => String.t() | atom(),
+        "applicableProductNames" => list(String.t() | atom()),
+        "applicationType" => list(any()),
+        "costCategoryArn" => [String.t() | atom()],
+        "creditConsoleVisibility" => [String.t() | atom()],
+        "creditId" => String.t() | atom(),
+        "creditSharingType" => list(any()),
+        "creditStatus" => list(any()),
+        "creditType" => [String.t() | atom()],
+        "description" => [String.t() | atom()],
+        "endDate" => [non_neg_integer()],
+        "estimatedAmount" => amount(),
+        "exhaustDate" => [non_neg_integer()],
+        "initialAmount" => amount(),
+        "purchaseTypeApplications" => list(String.t() | atom()),
+        "remainingAmount" => amount(),
+        "ruleName" => [String.t() | atom()],
+        "shareableAccounts" => list(String.t() | atom()),
+        "startDate" => [non_neg_integer()]
+      }
+      
+  """
+  @type credit_data() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       validation_exception() :: %{
         "fieldList" => list(validation_exception_field()),
         "message" => String.t() | atom(),
@@ -145,6 +239,17 @@ defmodule AWS.Billing do
       
   """
   @type internal_server_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credits_response() :: %{
+        "credits" => list(credit_data())
+      }
+      
+  """
+  @type get_credits_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -198,6 +303,22 @@ defmodule AWS.Billing do
       
   """
   @type resource_not_found_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_preference_summary() :: %{
+        "accountId" => String.t() | atom(),
+        "accountName" => String.t() | atom(),
+        "billingPeriod" => billing_period(),
+        "feature" => list(any()),
+        "key" => String.t() | atom(),
+        "value" => list(any())
+      }
+      
+  """
+  @type billing_preference_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -298,6 +419,23 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      credit_allocation_history_entry() :: %{
+        "accountId" => String.t() | atom(),
+        "appliedServiceName" => [String.t() | atom()],
+        "billingMonth" => String.t() | atom(),
+        "creditAmount" => amount(),
+        "creditId" => String.t() | atom(),
+        "description" => [String.t() | atom()],
+        "isEstimatedBill" => [boolean()]
+      }
+      
+  """
+  @type credit_allocation_history_entry() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       create_billing_view_response() :: %{
         "arn" => String.t() | atom(),
         "createdAt" => [non_neg_integer()]
@@ -346,12 +484,61 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      get_billing_preferences_response() :: %{
+        "billingPreferences" => list(billing_preference_summary()),
+        "nextToken" => String.t() | atom()
+      }
+      
+  """
+  @type get_billing_preferences_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      billing_feature_filter() :: %{
+        "name" => list(any()),
+        "value" => list(String.t() | atom())
+      }
+      
+  """
+  @type billing_feature_filter() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       delete_billing_view_response() :: %{
         "arn" => String.t() | atom()
       }
       
   """
   @type delete_billing_view_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redeem_credits_request() :: %{
+        required("promoCode") => String.t() | atom()
+      }
+      
+  """
+  @type redeem_credits_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credit_allocation_history_response() :: %{
+        "creditAllocationHistoryList" => list(credit_allocation_history_entry()),
+        "failedMonths" => list(String.t() | atom()),
+        "nextToken" => String.t() | atom(),
+        "partialResults" => [boolean()]
+      }
+      
+  """
+  @type get_credit_allocation_history_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -375,6 +562,24 @@ defmodule AWS.Billing do
       
   """
   @type list_tags_for_resource_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      redeem_credits_response() :: %{}
+      
+  """
+  @type redeem_credits_response() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      update_billing_preferences_response() :: %{}
+      
+  """
+  @type update_billing_preferences_response() :: %{}
 
   @typedoc """
 
@@ -415,6 +620,18 @@ defmodule AWS.Billing do
 
   ## Example:
       
+      billing_preference_for_key() :: %{
+        "key" => String.t() | atom(),
+        "value" => list(any())
+      }
+      
+  """
+  @type billing_preference_for_key() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_billing_view_request() :: %{
         required("arn") => String.t() | atom()
       }
@@ -445,6 +662,22 @@ defmodule AWS.Billing do
       
   """
   @type string_search() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
+      get_credit_allocation_history_request() :: %{
+        optional("creditId") => [float()],
+        optional("maxResults") => [integer()],
+        optional("nextToken") => String.t() | atom(),
+        required("accountId") => String.t() | atom(),
+        required("endDate") => [non_neg_integer()],
+        required("startDate") => [non_neg_integer()]
+      }
+      
+  """
+  @type get_credit_allocation_history_request() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -599,9 +832,27 @@ defmodule AWS.Billing do
           | access_denied_exception()
           | throttling_exception()
 
+  @type get_billing_preferences_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type get_billing_view_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_credit_allocation_history_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type get_credits_errors() ::
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
@@ -633,6 +884,12 @@ defmodule AWS.Billing do
           | access_denied_exception()
           | throttling_exception()
 
+  @type redeem_credits_errors() ::
+          internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
   @type tag_resource_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
@@ -643,6 +900,12 @@ defmodule AWS.Billing do
   @type untag_resource_errors() ::
           resource_not_found_exception()
           | internal_server_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | throttling_exception()
+
+  @type update_billing_preferences_errors() ::
+          internal_server_exception()
           | validation_exception()
           | access_denied_exception()
           | throttling_exception()
@@ -740,6 +1003,25 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Retrieves billing preferences for the specified feature.
+
+  Each feature controls a distinct billing capability: which accounts can share
+  Reserved Instances or credits, whether billing alerts are enabled, the
+  historical record of sharing changes, and per-credit options.
+  """
+  @spec get_billing_preferences(map(), get_billing_preferences_request(), list()) ::
+          {:ok, get_billing_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_billing_preferences_errors()}
+  def get_billing_preferences(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetBillingPreferences", input, options)
+  end
+
+  @doc """
   Returns the metadata associated to the specified billing view ARN.
   """
   @spec get_billing_view(map(), get_billing_view_request(), list()) ::
@@ -752,6 +1034,49 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "GetBillingView", input, options)
+  end
+
+  @doc """
+  Returns the per-billing-month allocation history for credits applied to an
+  Amazon Web Services account's bills.
+
+  Traverses the consolidated billing family to capture cross-account credit
+  applications. Supports pagination and optional filtering to a single credit.
+  """
+  @spec get_credit_allocation_history(map(), get_credit_allocation_history_request(), list()) ::
+          {:ok, get_credit_allocation_history_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_credit_allocation_history_errors()}
+  def get_credit_allocation_history(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCreditAllocationHistory", input, options)
+  end
+
+  @doc """
+  Returns the list of Amazon Web Services account credits for the specified
+  account.
+
+  Each credit includes its identifier, type, monetary amounts, applicable
+  products, expiration, sharing configuration, and current enabled status.
+
+  When the caller is the management account of a consolidated billing family and
+  `payerAccountFlag` is `true`, the response aggregates credits across the entire
+  family. Otherwise, the response includes only credits owned by the account
+  specified in `accountId`.
+  """
+  @spec get_credits(map(), get_credits_request(), list()) ::
+          {:ok, get_credits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_credits_errors()}
+  def get_credits(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetCredits", input, options)
   end
 
   @doc """
@@ -826,6 +1151,27 @@ defmodule AWS.Billing do
   end
 
   @doc """
+  Redeems an Amazon Web Services promotional credit code on behalf of the calling
+  account.
+
+  On success, a new credit is added to the account's credit ledger with the
+  amount, validity period, and applicable products defined by the promotion. The
+  credit is then automatically applied to subsequent bills according to the
+  standard credit application order.
+  """
+  @spec redeem_credits(map(), redeem_credits_request(), list()) ::
+          {:ok, redeem_credits_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, redeem_credits_errors()}
+  def redeem_credits(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "RedeemCredits", input, options)
+  end
+
+  @doc """
   An API operation for adding one or more tags (key-value pairs) to a resource.
   """
   @spec tag_resource(map(), tag_resource_request(), list()) ::
@@ -855,6 +1201,31 @@ defmodule AWS.Billing do
       metadata()
 
     Request.request_post(client, meta, "UntagResource", input, options)
+  end
+
+  @doc """
+  Updates billing preferences for the specified feature.
+
+  Each feature targets a distinct billing capability and has its own set of
+  supported keys. The action sets the value for each provided key; keys not
+  present in the request are unchanged.
+
+  Sharing keys (`RI_SHARING`, `CREDIT_SHARING`, `CREDIT_LEVEL_SHARING`, and
+  sharing keys under `CREDIT_PREFERENCE_OPTIONS`) may only be set by the
+  management account of a consolidated billing family. The
+  `credit/{creditId}/status` key may be set by member accounts for credits they
+  own, or by the management account for any credit in the family.
+  """
+  @spec update_billing_preferences(map(), update_billing_preferences_request(), list()) ::
+          {:ok, update_billing_preferences_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, update_billing_preferences_errors()}
+  def update_billing_preferences(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "UpdateBillingPreferences", input, options)
   end
 
   @doc """

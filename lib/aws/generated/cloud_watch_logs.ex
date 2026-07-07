@@ -897,6 +897,18 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_storage_tier_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "storageTier" => list(any())
+      }
+      
+  """
+  @type get_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       lookup_table() :: %{
         "description" => String.t() | atom(),
         "kmsKeyId" => String.t() | atom(),
@@ -2591,6 +2603,27 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      get_storage_tier_policy_request() :: %{}
+      
+  """
+  @type get_storage_tier_policy_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+      
+      put_storage_tier_policy_response() :: %{
+        "lastUpdatedTime" => float(),
+        "storageTier" => list(any())
+      }
+      
+  """
+  @type put_storage_tier_policy_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       get_lookup_table_response() :: %{
         "description" => String.t() | atom(),
         "kmsKeyId" => String.t() | atom(),
@@ -4212,6 +4245,17 @@ defmodule AWS.CloudWatchLogs do
 
   ## Example:
       
+      put_storage_tier_policy_request() :: %{
+        required("storageTier") => list(any())
+      }
+      
+  """
+  @type put_storage_tier_policy_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+      
       put_delivery_destination_request() :: %{
         optional("deliveryDestinationConfiguration") => delivery_destination_configuration(),
         optional("deliveryDestinationType") => list(any()),
@@ -4882,6 +4926,13 @@ defmodule AWS.CloudWatchLogs do
           | access_denied_exception()
           | throttling_exception()
 
+  @type get_storage_tier_policy_errors() ::
+          operation_aborted_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
+          | service_unavailable_exception()
+
   @type get_transformer_errors() ::
           invalid_parameter_exception()
           | resource_not_found_exception()
@@ -5051,6 +5102,13 @@ defmodule AWS.CloudWatchLogs do
           operation_aborted_exception()
           | invalid_parameter_exception()
           | resource_not_found_exception()
+          | service_unavailable_exception()
+
+  @type put_storage_tier_policy_errors() ::
+          operation_aborted_exception()
+          | invalid_parameter_exception()
+          | resource_not_found_exception()
+          | access_denied_exception()
           | service_unavailable_exception()
 
   @type put_subscription_filter_errors() ::
@@ -7161,6 +7219,21 @@ defmodule AWS.CloudWatchLogs do
   end
 
   @doc """
+  Returns the storage tier policy for your account.
+  """
+  @spec get_storage_tier_policy(map(), get_storage_tier_policy_request(), list()) ::
+          {:ok, get_storage_tier_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_storage_tier_policy_errors()}
+  def get_storage_tier_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "GetStorageTierPolicy", input, options)
+  end
+
+  @doc """
   Returns the information about the log transformer associated with this log
   group.
 
@@ -8734,6 +8807,25 @@ defmodule AWS.CloudWatchLogs do
       metadata()
 
     Request.request_post(client, meta, "PutRetentionPolicy", input, options)
+  end
+
+  @doc """
+  Sets the storage tier policy for your account.
+
+  When you set the storage tier to
+  `INTELLIGENT_TIERING`, CloudWatch Logs automatically moves your log data between
+  storage tiers based on access patterns to optimize costs.
+  """
+  @spec put_storage_tier_policy(map(), put_storage_tier_policy_request(), list()) ::
+          {:ok, put_storage_tier_policy_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, put_storage_tier_policy_errors()}
+  def put_storage_tier_policy(%Client{} = client, input, options \\ []) do
+    meta =
+      metadata()
+
+    Request.request_post(client, meta, "PutStorageTierPolicy", input, options)
   end
 
   @doc """

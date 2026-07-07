@@ -384,6 +384,25 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_migration_response() :: %{
+        "applicationId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "error" => migration_error(),
+        "exportedCount" => integer(),
+        "importedCount" => integer(),
+        "migrationId" => String.t() | atom(),
+        "source" => migration_source(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type get_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       associate_package_request() :: %{
         optional("AssociationConfiguration") => package_association_configuration(),
         optional("PrerequisitePackageIDList") => list(String.t() | atom())
@@ -1067,6 +1086,20 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      list_migrations_request() :: %{
+        optional("maxResults") => integer(),
+        optional("nextToken") => String.t() | atom(),
+        optional("status") => String.t() | atom(),
+        required("applicationId") => String.t() | atom()
+      }
+
+  """
+  @type list_migrations_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       package_configuration() :: %{
         "ConfigurationRequirement" => list(any()),
         "LicenseFilepath" => String.t() | atom(),
@@ -1316,6 +1349,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      saved_object_identifier() :: %{
+        "id" => String.t() | atom(),
+        "type" => String.t() | atom()
+      }
+
+  """
+  @type saved_object_identifier() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       reject_inbound_connection_response() :: %{
         "Connection" => inbound_connection()
       }
@@ -1520,6 +1565,25 @@ defmodule AWS.OpenSearch do
 
   """
   @type instance_limits() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_summary() :: %{
+        "applicationId" => String.t() | atom(),
+        "createdAt" => non_neg_integer(),
+        "error" => migration_error(),
+        "exportedCount" => integer(),
+        "importedCount" => integer(),
+        "migrationId" => String.t() | atom(),
+        "source" => migration_source(),
+        "status" => String.t() | atom(),
+        "updatedAt" => non_neg_integer()
+      }
+
+  """
+  @type migration_summary() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -1786,6 +1850,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type describe_outbound_connections_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      list_migrations_response() :: %{
+        "migrations" => list(migration_summary()),
+        "nextToken" => String.t() | atom()
+      }
+
+  """
+  @type list_migrations_response() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -2396,6 +2472,19 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      start_migration_request() :: %{
+        optional("clientToken") => String.t() | atom(),
+        required("applicationId") => String.t() | atom(),
+        required("migrationOptions") => migration_options()
+      }
+
+  """
+  @type start_migration_request() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       get_upgrade_status_request() :: %{}
 
   """
@@ -2800,6 +2889,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type cluster_config() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_options() :: %{
+        "conflictResolution" => String.t() | atom(),
+        "exportOptions" => export_options(),
+        "source" => migration_source(),
+        "workspace" => migration_workspace()
+      }
+
+  """
+  @type migration_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3388,6 +3491,17 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      migration_source() :: %{
+        "datasourceArn" => String.t() | atom()
+      }
+
+  """
+  @type migration_source() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       update_index_request() :: %{
         required("IndexSchema") => any()
       }
@@ -3417,6 +3531,19 @@ defmodule AWS.OpenSearch do
 
   """
   @type duration() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      export_options() :: %{
+        "includeReferencesDeep" => boolean(),
+        "objects" => list(saved_object_identifier()),
+        "types" => list(String.t() | atom())
+      }
+
+  """
+  @type export_options() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3490,6 +3617,15 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      get_migration_request() :: %{}
+
+  """
+  @type get_migration_request() :: %{}
+
+  @typedoc """
+
+  ## Example:
+
       node_to_node_encryption_options() :: %{
         "Enabled" => boolean()
       }
@@ -3518,6 +3654,20 @@ defmodule AWS.OpenSearch do
 
   """
   @type domain_information_container() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_workspace() :: %{
+        "createWorkspace" => boolean(),
+        "name" => String.t() | atom(),
+        "type" => String.t() | atom(),
+        "workspaceId" => String.t() | atom()
+      }
+
+  """
+  @type migration_workspace() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -3598,6 +3748,18 @@ defmodule AWS.OpenSearch do
 
   """
   @type slot_not_available_exception() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
+      migration_error() :: %{
+        "code" => String.t() | atom(),
+        "message" => String.t() | atom()
+      }
+
+  """
+  @type migration_error() :: %{(String.t() | atom()) => any()}
 
   @typedoc """
 
@@ -4285,6 +4447,18 @@ defmodule AWS.OpenSearch do
 
   ## Example:
 
+      start_migration_response() :: %{
+        "migrationId" => String.t() | atom(),
+        "status" => String.t() | atom()
+      }
+
+  """
+  @type start_migration_response() :: %{(String.t() | atom()) => any()}
+
+  @typedoc """
+
+  ## Example:
+
       describe_domain_nodes_request() :: %{}
 
   """
@@ -4860,6 +5034,13 @@ defmodule AWS.OpenSearch do
           | throttling_exception()
           | disabled_operation_exception()
 
+  @type get_migration_errors() ::
+          internal_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | disabled_operation_exception()
+
   @type get_package_version_history_errors() ::
           base_exception()
           | internal_exception()
@@ -4949,6 +5130,12 @@ defmodule AWS.OpenSearch do
           | resource_not_found_exception()
           | validation_exception()
 
+  @type list_migrations_errors() ::
+          internal_exception()
+          | validation_exception()
+          | access_denied_exception()
+          | disabled_operation_exception()
+
   @type list_packages_for_domain_errors() ::
           base_exception()
           | internal_exception()
@@ -5037,6 +5224,14 @@ defmodule AWS.OpenSearch do
           | internal_exception()
           | resource_not_found_exception()
           | validation_exception()
+          | disabled_operation_exception()
+
+  @type start_migration_errors() ::
+          conflict_exception()
+          | internal_exception()
+          | resource_not_found_exception()
+          | validation_exception()
+          | access_denied_exception()
           | disabled_operation_exception()
 
   @type start_service_software_update_errors() ::
@@ -6948,6 +7143,26 @@ defmodule AWS.OpenSearch do
   end
 
   @doc """
+  Retrieves the current status and progress of a migration job, including the
+  number of exported and imported objects and error details if the migration
+  failed.
+  """
+  @spec get_migration(map(), String.t() | atom(), list()) ::
+          {:ok, get_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, get_migration_errors()}
+  def get_migration(%Client{} = client, migration_id, options \\ []) do
+    url_path = "/2021-01-01/opensearch/app-migrations/#{AWS.Util.encode_uri(migration_id)}"
+    headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
   Returns a list of Amazon OpenSearch Service package versions, along with their
   creation
   time, commit message, and plugin properties (if the package is a zip plugin
@@ -7470,6 +7685,69 @@ defmodule AWS.OpenSearch do
     query_params =
       if !is_nil(domain_name) do
         [{"domainName", domain_name} | query_params]
+      else
+        query_params
+      end
+
+    meta = metadata()
+
+    Request.request_rest(client, meta, :get, url_path, query_params, headers, nil, options, 200)
+  end
+
+  @doc """
+  Lists migration jobs for an Amazon OpenSearch Service application.
+
+  You can filter results by migration status. Use pagination to ensure that the
+  operation returns quickly and successfully.
+  """
+  @spec list_migrations(
+          map(),
+          String.t() | atom(),
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          String.t() | atom() | nil,
+          list()
+        ) ::
+          {:ok, list_migrations_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, list_migrations_errors()}
+  def list_migrations(
+        %Client{} = client,
+        application_id,
+        max_results \\ nil,
+        next_token \\ nil,
+        status \\ nil,
+        options \\ []
+      ) do
+    url_path = "/2021-01-01/opensearch/app-migrations"
+    headers = []
+    query_params = []
+
+    query_params =
+      if !is_nil(status) do
+        [{"status", status} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(next_token) do
+        [{"nextToken", next_token} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(max_results) do
+        [{"maxResults", max_results} | query_params]
+      else
+        query_params
+      end
+
+    query_params =
+      if !is_nil(application_id) do
+        [{"applicationId", application_id} | query_params]
       else
         query_params
       end
@@ -8003,6 +8281,41 @@ defmodule AWS.OpenSearch do
     url_path =
       "/2021-01-01/opensearch/domain/#{AWS.Util.encode_uri(domain_name)}/domainMaintenance"
 
+    headers = []
+    custom_headers = []
+    query_params = []
+
+    meta = metadata()
+
+    Request.request_rest(
+      client,
+      meta,
+      :post,
+      url_path,
+      query_params,
+      custom_headers ++ headers,
+      input,
+      options,
+      200
+    )
+  end
+
+  @doc """
+  Initiates a migration job to migrate saved objects from a data source to an
+  Amazon OpenSearch Service application workspace.
+
+  Saved objects include dashboards, visualizations, index patterns, and searches.
+  You can specify export filters to control the scope of the migration and a
+  conflict resolution strategy for handling existing objects in the target
+  workspace.
+  """
+  @spec start_migration(map(), start_migration_request(), list()) ::
+          {:ok, start_migration_response(), any()}
+          | {:error, {:unexpected_response, any()}}
+          | {:error, term()}
+          | {:error, start_migration_errors()}
+  def start_migration(%Client{} = client, input, options \\ []) do
+    url_path = "/2021-01-01/opensearch/app-migrations"
     headers = []
     custom_headers = []
     query_params = []

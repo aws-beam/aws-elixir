@@ -1,4 +1,6 @@
 # Change Log
+## [v1.0.14] - 2026-07-08
+- Update Hackney and friends to mitigate vulnerabilities
 
 ## [v1.0.13] - 2026-06-26
 - Filter unknown options before passing to Finch.request/3
